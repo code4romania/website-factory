@@ -1,0 +1,40 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production",
+        "prepare": "husky install"
+    },
+    "dependencies": {
+        "@tailwindcss/aspect-ratio": "^0.2.1",
+        "@tailwindcss/forms": "^0.3.3",
+        "@tailwindcss/line-clamp": "^0.2.1",
+        "@tailwindcss/typography": "^0.4.1",
+        "autoprefixer": "^10.2.6",
+        "axios": "^0.21.1",
+        "lodash": "^4.17.21",
+        "postcss": "^8.3.5",
+        "postcss-100vh-fix": "^1.0.2",
+        "tailwindcss": "^2.2.4"
+    },
+    "devDependencies": {
+        "commitizen": "^4.2.4",
+        "cz-conventional-changelog": "^3.2.0",
+        "husky": "^6.0.0",
+        "laravel-mix": "^6.0.25",
+        "laravel-mix-valet": "^1.0.1",
+        "prettier": "^2.3.2",
+        "vue-loader": "^15.9.7",
+        "vue-template-compiler": "^2.6.14"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    }
+}
