@@ -11,7 +11,7 @@ const el = document.getElementById('app');
 
 createInertiaApp({
     resolve: (name) => {
-        const page = require(`@/Pages/${name}`).default;
+        const page = require(`@/pages/${name}`).default;
 
         if (!page.layout) {
             page.layout = name.startsWith('Auth/')
