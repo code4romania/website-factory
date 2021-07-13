@@ -1,6 +1,7 @@
 const mix = require('laravel-mix');
 const path = require('path');
 
+require('laravel-mix-valet');
 require('./mix/translations');
 
 /*
@@ -17,21 +18,21 @@ require('./mix/translations');
 if (mix.inProduction()) {
     mix.version();
 } else {
-    //
 }
 
-mix.setPublicPath('public/assets')
-    .setResourceRoot('./')
+mix.valet('primarie.test')
     .translations()
     .alias({
         '@': path.resolve('resources/js'),
         '~': path.resolve('resources'),
     })
     .js('resources/js/admin.js', 'public/assets')
-    .vue({ version: 2 })
+    .vue({ version: 3 })
     .postCss('resources/css/app.css', 'public/assets', [
         require('postcss-100vh-fix'),
+        require('postcss-import'),
         require('tailwindcss'),
+        require('autoprefixer'),
     ])
     .copyDirectory('resources/svg', 'public/assets/svg')
     .copyDirectory('resources/images', 'public/assets/images')
