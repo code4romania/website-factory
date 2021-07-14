@@ -7,18 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_DATABASE: website_factory_test
-        ports:
-          - 3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
     env:
-      extensions: mbstring, intl, gd
+      extensions: mbstring, sqlite, pdo_sqlite, intl, gd
 
     steps:
       - name: Checkout
@@ -88,5 +78,3 @@ jobs:
 
       - name: Run tests
         run: php artisan test
-        env:
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
