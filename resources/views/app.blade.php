@@ -12,7 +12,7 @@
     {{-- Scripts --}}
     <script src="{{ mix('assets/manifest.js') }}" defer></script>
     <script src="{{ mix('assets/vendor.js') }}" defer></script>
-    <script src="{{ mix('assets/admin.js') }}" defer></script>
+    <script src="{{ mix('assets/app.js') }}" defer></script>
 
     @routes
 </head>

@@ -8,6 +8,7 @@
 
 <script>
     export default {
+        name: 'InputError',
         props: ['message'],
     };
 </script>

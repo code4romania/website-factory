@@ -8,7 +8,7 @@
         >
             <inertia-link
                 v-if="$page.props.auth.user"
-                href="/dashboard"
+                :href="route('admin.dashboard')"
                 class="text-sm text-gray-700 underline"
             >
                 Dashboard

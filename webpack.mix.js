@@ -26,7 +26,7 @@ mix.valet('primarie.test')
         '@': path.resolve('resources/js'),
         '~': path.resolve('resources'),
     })
-    .js('resources/js/admin.js', 'public/assets')
+    .js('resources/js/app.js', 'public/assets')
     .vue({ version: 3 })
     .postCss('resources/css/app.css', 'public/assets', [
         require('postcss-100vh-fix'),

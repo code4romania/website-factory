@@ -13,6 +13,7 @@
 
 <script>
     export default {
+        name: 'NavLink',
         props: ['href', 'active'],
     };
 </script>

@@ -5,3 +5,9 @@
         <slot />
     </inertia-link>
 </template>
+
+<script>
+    export default {
+        name: 'DropdownLink',
+    };
+</script>
