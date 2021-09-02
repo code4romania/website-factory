@@ -17,3 +17,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', Admin\DashboardController::class)->name('dashboard');
+
+Route::get('pages', [Admin\PageController::class, 'index'])->name('pages.index');
+Route::get('pages/create', [Admin\PageController::class, 'create'])->name('pages.create');
+Route::post('pages', [Admin\PageController::class, 'store'])->name('pages.store');
+Route::get('pages/{page}/edit', [Admin\PageController::class, 'edit'])->name('pages.edit');
+Route::post('pages/{page}/duplicate', [Admin\PageController::class, 'duplicate'])->name('pages.duplicate');
+Route::post('pages/{page}/preview', [Admin\PageController::class, 'preview'])->name('pages.preview');
+Route::put('pages/{page}', [Admin\PageController::class, 'update'])->name('pages.update');
+Route::delete('pages/{page}', [Admin\PageController::class, 'destroy'])->name('pages.destroy');
+
+Route::get('forms', [Admin\FormController::class, 'index'])->name('forms.index');
+Route::get('forms/create', [Admin\FormController::class, 'create'])->name('forms.create');
+Route::post('forms', [Admin\FormController::class, 'store'])->name('forms.store');
+Route::get('forms/{form}/edit', [Admin\FormController::class, 'edit'])->name('forms.edit');
+Route::post('forms/{form}/duplicate', [Admin\FormController::class, 'duplicate'])->name('forms.duplicate');
+Route::post('forms/{form}/preview', [Admin\FormController::class, 'preview'])->name('forms.preview');
+Route::put('forms/{form}', [Admin\FormController::class, 'update'])->name('forms.update');
+Route::delete('forms/{form}', [Admin\FormController::class, 'destroy'])->name('forms.destroy');
+
+Route::get('users', [Admin\UserController::class, 'index'])->name('users.index');
+Route::get('users/create', [Admin\UserController::class, 'create'])->name('users.create');
+Route::post('users', [Admin\UserController::class, 'store'])->name('users.store');
+Route::get('users/{user}/edit', [Admin\UserController::class, 'edit'])->name('users.edit');
+Route::put('users/{user}', [Admin\UserController::class, 'update'])->name('users.update');
+Route::delete('users/{user}', [Admin\UserController::class, 'destroy'])->name('users.destroy');

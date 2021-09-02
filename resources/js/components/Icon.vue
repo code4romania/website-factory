@@ -1,5 +1,10 @@
 <template>
-    <svg :viewBox="svgViewBoxValues" v-html="svgContent" class="fill-current" />
+    <svg
+        :viewBox="svgViewBoxValues"
+        v-html="svgContent"
+        class="fill-current"
+        aria-hidden="true"
+    />
 </template>
 
 <script>
@@ -12,10 +17,17 @@
                 type: String,
                 required: true,
             },
+            local: {
+                type: Boolean,
+                default: false,
+            },
         },
         setup(props) {
-            const svgString = require(`!raw-loader!remixicon/icons/${props.name}.svg`)
-                .default;
+            const svgString = (
+                props.local === true
+                    ? require(`!raw-loader!~/svg/${props.name}.svg`)
+                    : require(`!raw-loader!remixicon/icons/${props.name}.svg`)
+            ).default;
 
             return {
                 svgViewBoxValues: computed(() =>

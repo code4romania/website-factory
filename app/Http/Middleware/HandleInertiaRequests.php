@@ -39,7 +39,7 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
-
+            'route'  => fn () => $request->route()->getName(),
             'footer' => [
                 'version' => config('app.version'),
             ],

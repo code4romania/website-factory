@@ -37,4 +37,13 @@ mix.valet('primarie.test')
     .copyDirectory('resources/svg', 'public/assets/svg')
     .copyDirectory('resources/images', 'public/assets/images')
     .sourceMaps(false)
-    .extract();
+    .extract()
+
+    .webpackConfig((webpack) => ({
+        plugins: [
+            new webpack.DefinePlugin({
+                __VUE_OPTIONS_API__: true,
+                __VUE_PROD_DEVTOOLS__: false,
+            }),
+        ],
+    }));

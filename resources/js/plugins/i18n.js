@@ -2,11 +2,8 @@ import { createI18n } from 'vue-i18n';
 
 import messages from '~/lang/index.js';
 
-const el = document.getElementById('app');
-const initialPage = JSON.parse(el.dataset.page);
-
 export default createI18n({
-    locale: initialPage.props.locale,
+    locale: document.documentElement.lang,
     // fallbackLocale: 'en',
     messages,
     pluralizationRules: {

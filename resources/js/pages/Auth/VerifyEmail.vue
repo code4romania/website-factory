@@ -24,7 +24,7 @@
                 </form-button>
 
                 <inertia-link
-                    :href="route('logout')"
+                    :href="route('auth.logout')"
                     method="post"
                     as="button"
                     class="text-sm text-gray-600 underline hover:text-gray-900"
@@ -49,7 +49,7 @@
 
         methods: {
             submit() {
-                this.form.post(this.route('verification.send'));
+                this.form.post(this.route('auth.verification.send'));
             },
         },
 

@@ -57,7 +57,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <inertia-link
-                    :href="route('login')"
+                    :href="route('auth.login')"
                     class="text-sm text-gray-600 underline hover:text-gray-900"
                 >
                     Already registered?
@@ -91,7 +91,7 @@
 
         methods: {
             submit() {
-                this.form.post(this.route('register'), {
+                this.form.post(this.route('auth.register'), {
                     onFinish: () =>
                         this.form.reset('password', 'password_confirmation'),
                 });

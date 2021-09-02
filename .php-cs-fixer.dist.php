@@ -91,7 +91,6 @@ $rules = [
     'object_operator_without_whitespace' => true,
     'phpdoc_align' => true,
     'phpdoc_indent' => true,
-    'phpdoc_inline_tag' => true,
     'phpdoc_no_access' => true,
     'phpdoc_no_package' => true,
     'phpdoc_no_useless_inheritdoc' => true,
@@ -185,7 +184,7 @@ $finder = Finder::create()
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
 
-return Config::create()
+return (new Config())
     ->setFinder($finder)
     ->setRules($rules)
     ->setRiskyAllowed(true)

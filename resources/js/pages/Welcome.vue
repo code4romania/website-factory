@@ -1,6 +1,16 @@
 <template>
     <div
-        class="relative flex justify-center min-h-screen bg-gray-100 items-top dark:bg-gray-900 sm:items-center sm:pt-0"
+        class="
+            relative
+            flex
+            justify-center
+            min-h-screen
+            bg-gray-100
+            items-top
+            dark:bg-gray-900
+            sm:items-center
+            sm:pt-0
+        "
     >
         <div
             v-if="canLogin"
@@ -16,7 +26,7 @@
 
             <template v-else>
                 <inertia-link
-                    :href="route('login')"
+                    :href="route('auth.login')"
                     class="text-sm text-gray-700 underline"
                 >
                     Log in
@@ -24,7 +34,7 @@
 
                 <inertia-link
                     v-if="canRegister"
-                    :href="route('register')"
+                    :href="route('auth.register')"
                     class="ml-4 text-sm text-gray-700 underline"
                 >
                     Register
@@ -49,7 +59,14 @@
             </div>
 
             <div
-                class="mt-8 overflow-hidden bg-white shadow dark:bg-gray-800 sm:rounded-lg"
+                class="
+                    mt-8
+                    overflow-hidden
+                    bg-white
+                    shadow
+                    dark:bg-gray-800
+                    sm:rounded-lg
+                "
             >
                 <div class="grid grid-cols-1 md:grid-cols-2">
                     <div class="p-6">
@@ -70,7 +87,11 @@
                             <div class="ml-4 text-lg font-semibold leading-7">
                                 <a
                                     href="https://laravel.com/docs"
-                                    class="text-gray-900 underline dark:text-white"
+                                    class="
+                                        text-gray-900
+                                        underline
+                                        dark:text-white
+                                    "
                                     >Documentation</a
                                 >
                             </div>
@@ -78,7 +99,11 @@
 
                         <div class="ml-12">
                             <div
-                                class="mt-2 text-sm text-gray-600 dark:text-gray-400"
+                                class="
+                                    mt-2
+                                    text-sm text-gray-600
+                                    dark:text-gray-400
+                                "
                             >
                                 Laravel has wonderful, thorough documentation
                                 covering every aspect of the framework. Whether
@@ -90,7 +115,12 @@
                     </div>
 
                     <div
-                        class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l"
+                        class="
+                            p-6
+                            border-t border-gray-200
+                            dark:border-gray-700
+                            md:border-t-0 md:border-l
+                        "
                     >
                         <div class="flex items-center">
                             <svg
@@ -112,7 +142,11 @@
                             <div class="ml-4 text-lg font-semibold leading-7">
                                 <a
                                     href="https://laracasts.com"
-                                    class="text-gray-900 underline dark:text-white"
+                                    class="
+                                        text-gray-900
+                                        underline
+                                        dark:text-white
+                                    "
                                     >Laracasts</a
                                 >
                             </div>
@@ -120,7 +154,11 @@
 
                         <div class="ml-12">
                             <div
-                                class="mt-2 text-sm text-gray-600 dark:text-gray-400"
+                                class="
+                                    mt-2
+                                    text-sm text-gray-600
+                                    dark:text-gray-400
+                                "
                             >
                                 Laracasts offers thousands of video tutorials on
                                 Laravel, PHP, and JavaScript development. Check
@@ -131,7 +169,11 @@
                     </div>
 
                     <div
-                        class="p-6 border-t border-gray-200 dark:border-gray-700"
+                        class="
+                            p-6
+                            border-t border-gray-200
+                            dark:border-gray-700
+                        "
                     >
                         <div class="flex items-center">
                             <svg
@@ -150,7 +192,11 @@
                             <div class="ml-4 text-lg font-semibold leading-7">
                                 <a
                                     href="https://laravel-news.com/"
-                                    class="text-gray-900 underline dark:text-white"
+                                    class="
+                                        text-gray-900
+                                        underline
+                                        dark:text-white
+                                    "
                                     >Laravel News</a
                                 >
                             </div>
@@ -158,7 +204,11 @@
 
                         <div class="ml-12">
                             <div
-                                class="mt-2 text-sm text-gray-600 dark:text-gray-400"
+                                class="
+                                    mt-2
+                                    text-sm text-gray-600
+                                    dark:text-gray-400
+                                "
                             >
                                 Laravel News is a community driven portal and
                                 newsletter aggregating all of the latest and
@@ -169,7 +219,12 @@
                     </div>
 
                     <div
-                        class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l"
+                        class="
+                            p-6
+                            border-t border-gray-200
+                            dark:border-gray-700
+                            md:border-l
+                        "
                     >
                         <div class="flex items-center">
                             <svg
@@ -186,7 +241,14 @@
                                 ></path>
                             </svg>
                             <div
-                                class="ml-4 text-lg font-semibold leading-7 text-gray-900 dark:text-white"
+                                class="
+                                    ml-4
+                                    text-lg
+                                    font-semibold
+                                    leading-7
+                                    text-gray-900
+                                    dark:text-white
+                                "
                             >
                                 Vibrant Ecosystem
                             </div>
@@ -194,7 +256,11 @@
 
                         <div class="ml-12">
                             <div
-                                class="mt-2 text-sm text-gray-600 dark:text-gray-400"
+                                class="
+                                    mt-2
+                                    text-sm text-gray-600
+                                    dark:text-gray-400
+                                "
                             >
                                 Laravel's robust library of first-party tools
                                 and libraries, such as
@@ -256,7 +322,13 @@
             </div>
 
             <div
-                class="flex justify-center mt-4 sm:items-center sm:justify-between"
+                class="
+                    flex
+                    justify-center
+                    mt-4
+                    sm:items-center
+                    sm:justify-between
+                "
             >
                 <div class="text-sm text-center text-gray-500 sm:text-left">
                     <div class="flex items-center">
@@ -305,7 +377,12 @@
                 </div>
 
                 <div
-                    class="ml-4 text-sm text-center text-gray-500 sm:text-right sm:ml-0"
+                    class="
+                        ml-4
+                        text-sm text-center text-gray-500
+                        sm:text-right
+                        sm:ml-0
+                    "
                 >
                     Laravel v{{ laravelVersion }} (PHP v{{ phpVersion }})
                 </div>

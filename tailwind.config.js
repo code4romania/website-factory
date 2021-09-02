@@ -4,9 +4,6 @@ module.exports = {
     mode: 'jit',
     darkMode: 'class',
     theme: {
-        container: {
-            center: true,
-        },
         // colors: {
         //     //
         // },
@@ -37,12 +34,20 @@ module.exports = {
                     'serif',
                 ],
             },
+
+            minWidth: (theme) => theme('spacing'),
+            maxWidth: (theme) => theme('spacing'),
+            minHeight: (theme) => theme('spacing'),
+            maxHeight: (theme) => theme('spacing'),
         },
     },
     variants: {
         extend: {
             //
         },
+    },
+    corePlugins: {
+        container: false,
     },
     plugins: [
         require('@tailwindcss/aspect-ratio'),

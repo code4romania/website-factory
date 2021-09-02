@@ -10,15 +10,15 @@
 <script>
     export default {
         name: 'FormInput',
-        props: ['modelValue'],
 
-        emits: ['update:modelValue'],
-
-        methods: {
-            focus() {
-                this.$refs.input.focus();
+        props: {
+            modelValue: {
+                type: [String, Number],
+                default: null,
             },
         },
+
+        emits: ['update:modelValue'],
     };
 </script>
 

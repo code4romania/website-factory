@@ -1,8 +1,6 @@
 <template>
-    <label class="flex text-sm font-medium text-gray-700">
-        <span v-if="value" v-text="value" />
-
-        <slot v-else />
+    <label v-if="value" class="flex text-sm font-medium text-gray-700">
+        <span v-text="value" />
 
         <span class="ml-1 font-bold text-red-500" v-if="required && !disabled">
             *
@@ -13,7 +11,6 @@
 <script>
     export default {
         name: 'FormLabel',
-        // props: ['value'],
         props: {
             required: {
                 type: Boolean,

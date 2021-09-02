@@ -33,31 +33,27 @@
             </div>
 
             <div class="block mt-4">
-                <label class="flex items-center">
-                    <breeze-checkbox
-                        name="remember"
-                        v-model:checked="form.remember"
-                    />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
-                </label>
+                <form-checkbox
+                    name="remember"
+                    :label="$t('auth.remember')"
+                    v-model:checked="form.remember"
+                />
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <inertia-link
                     v-if="canResetPassword"
-                    :href="route('password.request')"
+                    :href="route('auth.password.request')"
                     class="text-sm text-gray-600 underline hover:text-gray-900"
-                >
-                    Forgot your password?
-                </inertia-link>
+                    v-text="$t('auth.forgot')"
+                />
 
                 <form-button
                     class="ml-4"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
-                >
-                    Log in
-                </form-button>
+                    :label="$t('auth.login')"
+                />
             </div>
         </form>
     </layout-guest>
@@ -82,7 +78,7 @@
 
         methods: {
             submit() {
-                this.form.post(this.route('login'), {
+                this.form.post(this.route('auth.login'), {
                     onFinish: () => this.form.reset('password'),
                 });
             },

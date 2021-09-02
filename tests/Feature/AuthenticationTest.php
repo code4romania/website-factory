@@ -14,7 +14,7 @@ class AuthenticationTest extends TestCase
 
     public function test_login_screen_can_be_rendered()
     {
-        $response = $this->get(route('login'));
+        $response = $this->get(route('auth.login'));
 
         $response->assertStatus(200);
     }
@@ -23,7 +23,7 @@ class AuthenticationTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->post(route('login'), [
+        $response = $this->post(route('auth.login'), [
             'email' => $user->email,
             'password' => 'password',
         ]);
@@ -36,7 +36,7 @@ class AuthenticationTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $this->post(route('login'), [
+        $this->post(route('auth.login'), [
             'email' => $user->email,
             'password' => 'wrong-password',
         ]);

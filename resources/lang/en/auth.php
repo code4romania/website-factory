@@ -19,4 +19,11 @@ return [
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
+    'login' => 'Log in',
+    'logout' => 'Log out',
+    'remember' => 'Remember me',
+    'reset' => 'Reset password',
+    'change_password' => 'Change password',
+    'forgot' => 'Forgot your password?',
+
 ];

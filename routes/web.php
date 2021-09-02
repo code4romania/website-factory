@@ -25,3 +25,7 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::fallback(function () {
+    // dump('test');
+});

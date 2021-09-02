@@ -4,14 +4,22 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Traits\Filterable;
+use App\Traits\HasRole;
+use App\Traits\Sortable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Arr;
 
 class User extends Authenticatable
 {
+    use Filterable;
     use HasFactory;
+    use HasRole;
     use Notifiable;
+    use Sortable;
 
     /**
      * The attributes that are mass assignable.
@@ -22,6 +30,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'locale',
     ];
 
     /**
@@ -42,4 +52,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected array $allowedSorts = [
+        'name', 'email', 'role',
+    ];
+
+    protected array $allowedFilters = [
+        'role',
+    ];
+
+    public function filterByRole(Builder $query, $role): Builder
+    {
+        return $query->whereIn('role', Arr::wrap($role));
+    }
 }

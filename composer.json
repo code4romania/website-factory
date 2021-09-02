@@ -9,12 +9,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
+        "astrotomic/laravel-translatable": "^11.9",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "inertiajs/inertia-laravel": "^0.4.1",
         "laravel/framework": "^8.40",
-        "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
         "tightenco/ziggy": "^1.0"
     },
@@ -31,8 +31,12 @@
         "phpunit/phpunit": "^9.3.3"
     },
     "autoload": {
+        "files": [
+            "app/helpers.php"
+        ],
         "psr-4": {
             "App\\": "app/",
+            "Database\\": "database",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
@@ -59,7 +63,7 @@
             "@php artisan ide-helper:meta",
             "@php artisan ide-helper:models --nowrite"
         ],
-        "test": "@php artisan test",
+        "test": "vendor/bin/phpunit",
         "env": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate --ansi"
