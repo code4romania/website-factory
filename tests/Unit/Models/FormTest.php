@@ -18,8 +18,8 @@ class FormTest extends TestCase
             ->withSection()
             ->create();
 
-        $this->assertCount(1, $form->sections);
-        $this->assertEmpty($form->fields($form->sections->first()));
+        $this->assertCount(1, $form->sections());
+        $this->assertEmpty($form->fields($form->sections()->first()));
     }
 
     /** @dataProvider fieldsProvider */
@@ -29,11 +29,11 @@ class FormTest extends TestCase
             ->withSection(fields: [$expected])
             ->create();
 
-        $field = $form->fields($form->sections->first())->first();
+        $field = $form->fields($form->sections()->first())->first();
 
         $locale = app()->getLocale();
 
-        $this->assertCount(1, $form->sections);
+        $this->assertCount(1, $form->sections());
 
         $this->assertEquals($expected['type'], $field['type']);
         $this->assertEquals($expected['required'], $field['required']);
@@ -309,6 +309,7 @@ class FormTest extends TestCase
     private function localize(mixed $content)
     {
         return [
+            'ro' => $content,
             'en' => $content,
         ];
     }

@@ -58,6 +58,8 @@ class FormFactory extends Factory
                     );
                 })
                 ->create();
+
+            $form->loadMissing('blocks.children');
         });
     }
 }
