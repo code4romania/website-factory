@@ -3,9 +3,19 @@ name: Tests
 on: [push]
 
 jobs:
-  ci:
+  test:
+    name: PHP ${{ matrix.php-version }} - ${{ matrix.dependency-version }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - '7.4'
+          - '8.0'
+        dependency-version:
+          - prefer-lowest
+          - prefer-stable
 
     env:
       extensions: mbstring, sqlite, pdo_sqlite, intl, gd
@@ -18,7 +28,7 @@ jobs:
         id: extcache
         uses: shivammathur/cache-extensions@v1
         with:
-          php-version: 8.0
+          php-version: ${{ matrix.php-version }}
           extensions: ${{ env.extensions }}
           key: php-extensions-cache
 
@@ -32,7 +42,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.0
+          php-version: ${{ matrix.php-version }}
           extensions: ${{ env.extensions }}
           coverage: pcov
           tools: composer:v2
@@ -50,7 +60,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.composercache.outputs.dir }}
-          key: dependencies-composer-${{ hashFiles('composer.json') }}
+          key: dependencies-composer-${{ hashFiles('composer.lock') }}-php-${{ matrix.php-version }}-${{ matrix.dependency-version }}
           restore-keys: dependencies-composer-
 
       - name: Get npm cache directory
@@ -65,7 +75,7 @@ jobs:
           restore-keys: dependencies-npm-
 
       - name: Install composer dependencies
-        run: composer install --prefer-dist --no-interaction
+        run: composer update --prefer-dist --no-interaction --${{ matrix.dependency-version }}
 
       - name: Install npm dependencies
         run: npm ci --prefer-offline
