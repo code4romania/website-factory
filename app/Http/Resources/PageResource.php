@@ -25,8 +25,9 @@ class PageResource extends Resource
     protected function edit(Request $request): array
     {
         return [
-            'id'    => $this->id,
-            'title' => $this->translatable('title'),
+            'id'     => $this->id,
+            'title'  => $this->translatable('title'),
+            'blocks' => BlockResource::collection($this->blocks),
         ];
     }
 

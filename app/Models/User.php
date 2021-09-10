@@ -7,13 +7,14 @@ namespace App\Models;
 use App\Traits\Filterable;
 use App\Traits\HasRole;
 use App\Traits\Sortable;
+use Illuminate\Contracts\Translation\HasLocalePreference;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Arr;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasLocalePreference
 {
     use Filterable;
     use HasFactory;
@@ -64,5 +65,15 @@ class User extends Authenticatable
     public function filterByRole(Builder $query, $role): Builder
     {
         return $query->whereIn('role', Arr::wrap($role));
+    }
+
+    /**
+     * Get the user’s preferred locale.
+     *
+     * @return string|null
+     */
+    public function preferredLocale(): ?string
+    {
+        return $this->locale;
     }
 }

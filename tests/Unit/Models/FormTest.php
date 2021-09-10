@@ -26,7 +26,7 @@ class FormTest extends TestCase
     public function test_it_creates_a_section_with_a_field(array $expected)
     {
         $form = Form::factory()
-            ->withSection(fields: [$expected])
+            ->withSection([$expected])
             ->create();
 
         $field = $form->fields($form->sections()->first())->first();
@@ -306,7 +306,7 @@ class FormTest extends TestCase
         ];
     }
 
-    private function localize(mixed $content)
+    private function localize($content)
     {
         return [
             'ro' => $content,

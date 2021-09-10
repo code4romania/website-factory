@@ -1,6 +1,6 @@
 <template>
     <div class="bg-gray-800">
-        <div class="container lg:divide-y lg:divide-gray-700">
+        <div class="container lg:divide-gray-700 lg:divide-y">
             <div class="relative flex items-center justify-between h-16">
                 <div class="flex items-center px-2 lg:px-0">
                     <div class="flex-shrink-0">
@@ -14,14 +14,15 @@
                         <dropdown align="right" width="48">
                             <template #trigger>
                                 <button
-                                    class="flex items-center px-3 py-2 text-sm font-medium text-gray-300 transition duration-150 ease-in-out rounded-md  hover:bg-gray-700 hover:text-white"
+                                    class="flex items-center px-3 py-2 text-sm font-medium text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700"
                                     type="button"
                                 >
                                     <span v-text="$page.props.auth.user.name" />
 
-                                    <icon
-                                        name="System/arrow-down-s-line"
-                                        class="ml-2 -mr-0.5 h-4 w-4"
+                                    <img
+                                        src="remixicon/icons/System/arrow-down-s-line.svg"
+                                        class="-mr-0.5 ml-2 w-4 h-4 fill-current"
+                                        svg-inline
                                     />
                                 </button>
                             </template>
@@ -46,7 +47,7 @@
                     <!-- Mobile menu button -->
                     <button
                         type="button"
-                        class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md  hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                         aria-controls="mobile-menu"
                         @click="open = !open"
                         aria-expanded="false"
@@ -54,15 +55,18 @@
                     >
                         <span class="sr-only">Open main menu</span>
 
-                        <icon
+                        <img
                             v-show="!open"
-                            name="System/menu-line"
-                            class="block w-6 h-6"
+                            src="remixicon/icons/System/menu-line.svg"
+                            class="block w-6 h-6 fill-current"
+                            svg-inline
                         />
-                        <icon
+
+                        <img
                             v-show="open"
-                            name="System/close-line"
-                            class="block w-6 h-6"
+                            src="remixicon/icons/System/close-line.svg"
+                            class="block w-6 h-6 fill-current"
+                            svg-inline
                         />
                     </button>
                 </div>
@@ -135,6 +139,7 @@
                 default: () => [],
             },
         },
+
         data() {
             return {
                 open: false,

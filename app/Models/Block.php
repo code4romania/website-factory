@@ -34,16 +34,16 @@ class Block extends Model
         return $this->morphTo();
     }
 
-    public function input(string $field): mixed
+    public function input(string $field)
     {
         return $this->content[$field] ?? null;
     }
 
-    public function translatedInput(string $field, ?string $locale = null): mixed
+    public function translatedInput(string $field, ?string $locale = null)
     {
         $input = Arr::wrap($this->input($field));
 
-        $locale ??= ! \array_key_exists(app()->getLocale(), $input ?? [])
+        $locale ??= config('translatable.use_fallback') && ! \array_key_exists(app()->getLocale(), $input)
             ? config('app.fallback_locale')
             : app()->getLocale();
 
@@ -53,5 +53,10 @@ class Block extends Model
     public function checkbox(string $field): bool
     {
         return (bool) $this->input($field);
+    }
+
+    public function getViewNameAttribute(): string
+    {
+        return "front.blocks.{$this->type}";
     }
 }

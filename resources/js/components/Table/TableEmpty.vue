@@ -1,9 +1,10 @@
 <template>
     <div class="flex items-center justify-center flex-1">
         <div class="text-center">
-            <icon
-                name="Editor/list-check-2"
-                class="w-12 h-12 mx-auto text-gray-300"
+            <img
+                src="remixicon/icons/Editor/list-check-2.svg"
+                class="w-12 h-12 mx-auto text-gray-300 fill-current"
+                svg-inline
             />
 
             <h3
@@ -19,9 +20,13 @@
             <div v-if="action" class="mt-6">
                 <inertia-link
                     :href="route(action)"
-                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                    <icon name="System/add-line" class="w-5 h-5 mr-2 -ml-1" />
+                    <img
+                        src="remixicon/icons/System/add-line.svg"
+                        class="w-5 h-5 mr-2 -ml-1 fill-current"
+                        svg-inline
+                    />
 
                     <span v-text="$t(`${id}.action.create`)" />
                 </inertia-link>

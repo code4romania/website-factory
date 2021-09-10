@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\PageRequest;
 use App\Http\Resources\Collections\PageCollection;
 use App\Http\Resources\PageResource;
 use App\Models\Page;
@@ -41,9 +42,10 @@ class PageController extends Controller
 
     public function store(PageRequest $request): RedirectResponse
     {
+        dd($request->validated());
         $page = Page::create($request->validated());
 
-        return redirect()->route('admin.pages.show', $page)
+        return redirect()->route('admin.pages.edit', $page)
             ->with('success', __('page.event.created'));
     }
 
@@ -56,11 +58,12 @@ class PageController extends Controller
 
     public function update(PageRequest $request, Page $page): RedirectResponse
     {
+        // dd($request->validated());
         $page->fill($request->validated());
 
         $page->save();
 
-        return redirect()->route('admin.pages.show', $page)
+        return redirect()->route('admin.pages.edit', $page)
             ->with('success', __('page.event.updated'));
     }
 
@@ -68,7 +71,7 @@ class PageController extends Controller
     {
         $page->delete();
 
-        return redirect()->route('admin.pages.show', $page)
+        return redirect()->route('admin.pages.index')
             ->with('success', __('page.event.deleted'));
     }
 }

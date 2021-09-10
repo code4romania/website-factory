@@ -31,7 +31,11 @@ class FormFactory extends Factory
         ];
     }
 
-    public function withSection(string|array $fields = null): self
+    /**
+     * @param  string|array|null               $fields
+     * @return \Database\Factories\FormFactory
+     */
+    public function withSection($fields = null): self
     {
         $fields = collect($fields);
 

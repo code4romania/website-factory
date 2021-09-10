@@ -6,39 +6,33 @@
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit">
-            <div>
-                <form-label for="email" value="Email" />
-                <form-input
-                    id="email"
-                    type="email"
-                    class="block w-full mt-1"
-                    v-model="form.email"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
-            </div>
+        <form @submit.prevent="submit" class="space-y-4">
+            <form-input
+                label="Email"
+                id="email"
+                type="email"
+                class="block w-full mt-1"
+                v-model="form.email"
+                required
+                autofocus
+                autocomplete="username"
+            />
 
-            <div class="mt-4">
-                <form-label for="password" value="Password" />
-                <form-input
-                    id="password"
-                    type="password"
-                    class="block w-full mt-1"
-                    v-model="form.password"
-                    required
-                    autocomplete="current-password"
-                />
-            </div>
+            <form-input
+                label="Password"
+                id="password"
+                type="password"
+                class="block w-full mt-1"
+                v-model="form.password"
+                required
+                autocomplete="current-password"
+            />
 
-            <div class="block mt-4">
-                <form-checkbox
-                    name="remember"
-                    :label="$t('auth.remember')"
-                    v-model:checked="form.remember"
-                />
-            </div>
+            <form-checkbox
+                name="remember"
+                :label="$t('auth.remember')"
+                v-model="form.remember"
+            />
 
             <div class="flex items-center justify-end mt-4">
                 <inertia-link

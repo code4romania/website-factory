@@ -10,7 +10,7 @@
 
             <tbody class="divide-y divide-gray-200">
                 <tr
-                    class="text-gray-900  hover:bg-gray-50 focus-within:bg-blue-50"
+                    class="text-gray-900 hover:bg-gray-50 focus-within:bg-blue-50"
                     v-for="(row, rowIndex) in collection.data"
                     :key="rowIndex"
                 >

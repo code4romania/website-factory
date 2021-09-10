@@ -21,7 +21,14 @@ abstract class Translation extends Model
         $fillable = Arr::wrap($this->fillable);
 
         if (! \count($fillable)) {
-            $fillable = (new ($this->getBaseModel()))->translatedAttributes ?? [];
+            $baseModel = $this->getBaseModel();
+            $fillable = (new $baseModel)->translatedAttributes ?? [];
+        }
+
+        foreach (['locale', 'active'] as $property) {
+            if (! \in_array($property, $fillable)) {
+                $fillable[] = $property;
+            }
         }
 
         return $fillable;

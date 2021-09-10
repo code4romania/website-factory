@@ -4,6 +4,7 @@ module.exports = {
     mode: 'jit',
     darkMode: 'class',
     theme: {
+        colors: colors,
         // colors: {
         //     //
         // },

@@ -14,7 +14,7 @@ class HandleInertiaRequests extends Middleware
      *
      * @var string
      */
-    protected $rootView = 'app';
+    protected $rootView = 'admin.layout';
 
     /**
      * Determine the current asset version.
@@ -22,7 +22,7 @@ class HandleInertiaRequests extends Middleware
      * @param  \Illuminate\Http\Request $request
      * @return string|null
      */
-    public function version(Request $request)
+    public function version(Request $request): ?string
     {
         return parent::version($request);
     }
@@ -33,16 +33,37 @@ class HandleInertiaRequests extends Middleware
      * @param  \Illuminate\Http\Request $request
      * @return array
      */
-    public function share(Request $request)
+    public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
-            'auth' => [
+            'flash' => fn () => $this->flash($request),
+            'auth' => fn () => [
                 'user' => $request->user(),
             ],
+            'locales' => config('translatable.locales', []),
             'route'  => fn () => $request->route()->getName(),
             'footer' => [
                 'version' => config('app.version'),
             ],
         ]);
+    }
+
+    protected function flash(Request $request): ?array
+    {
+        if ($request->session()->has('error')) {
+            $type = 'error';
+        } elseif ($request->session()->has('success')) {
+            $type = 'success';
+        }
+
+        if (! isset($type)) {
+            return null;
+        }
+
+        return [
+            'message' => $request->session()->get($type),
+            'details' => $request->session()->get('details'),
+            'type'    => $type,
+        ];
     }
 }

@@ -1,17 +1,18 @@
 <template>
     <nav
         v-if="hasPages"
-        class="flex items-center justify-between px-4 border-t border-gray-200  sm:px-0"
+        class="flex items-center justify-between px-4 border-t border-gray-200 sm:px-0"
     >
         <div class="flex flex-1 w-0 -mt-px">
             <inertia-link
                 v-if="prevPage"
                 :href="prevPage"
-                class="inline-flex items-center pt-4 pr-1 space-x-3 text-sm font-medium text-gray-500 border-t-2 border-transparent  hover:text-gray-700 hover:border-gray-300"
+                class="inline-flex items-center pt-4 pr-1 space-x-3 text-sm font-medium text-gray-500 border-t-2 border-transparent hover:text-gray-700 hover:border-gray-300"
             >
-                <icon
-                    name="System/arrow-left-line"
-                    class="w-5 h-5 text-gray-400"
+                <img
+                    src="remixicon/icons/System/arrow-left-line.svg"
+                    class="w-5 h-5 text-gray-400 fill-current"
+                    svg-inline
                 />
 
                 <span v-text="$t('pagination.previous')" />
@@ -23,7 +24,7 @@
                 <inertia-link
                     v-if="!page.active && page.url"
                     :key="`link-${index}`"
-                    class="inline-flex items-center px-4 pt-4 text-sm font-medium text-gray-500 border-t-2 border-transparent  hover:text-gray-700 hover:border-gray-300"
+                    class="inline-flex items-center px-4 pt-4 text-sm font-medium text-gray-500 border-t-2 border-transparent hover:text-gray-700 hover:border-gray-300"
                     :href="page.url"
                     v-text="page.label"
                 />
@@ -31,7 +32,7 @@
                 <span
                     v-if="!page.active && !page.url"
                     :key="`ellipsis-${index}`"
-                    class="inline-flex items-center px-4 pt-4 text-sm font-medium text-gray-500 border-t-2 border-transparent "
+                    class="inline-flex items-center px-4 pt-4 text-sm font-medium text-gray-500 border-t-2 border-transparent"
                     v-text="page.label"
                 />
 
@@ -39,7 +40,7 @@
                     v-if="page.active"
                     :key="`span-${index}`"
                     aria-current="page"
-                    class="inline-flex items-center px-4 pt-4 text-sm font-medium text-blue-600 border-t-2 border-blue-500 "
+                    class="inline-flex items-center px-4 pt-4 text-sm font-medium text-blue-600 border-t-2 border-blue-500"
                     v-text="page.label"
                 />
             </template>
@@ -49,13 +50,14 @@
             <inertia-link
                 v-if="nextPage"
                 :href="nextPage"
-                class="inline-flex items-center pt-4 pl-1 space-x-3 text-sm font-medium text-gray-500 border-t-2 border-transparent  hover:text-gray-700 hover:border-gray-300"
+                class="inline-flex items-center pt-4 pl-1 space-x-3 text-sm font-medium text-gray-500 border-t-2 border-transparent hover:text-gray-700 hover:border-gray-300"
             >
                 <span v-text="$t('pagination.next')" />
 
-                <icon
-                    name="System/arrow-right-line"
-                    class="w-5 h-5 text-gray-400"
+                <img
+                    src="remixicon/icons/System/arrow-right-line.svg"
+                    class="w-5 h-5 text-gray-400 fill-current"
+                    svg-inline
                 />
             </inertia-link>
         </div>

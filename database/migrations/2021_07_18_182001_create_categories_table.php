@@ -15,10 +15,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->json('title');
-            $table->json('slug');
-            $table->timestamps();
+            $this->createCommonFields($table, false, false);
         });
 
         Schema::create('model_has_categories', function (Blueprint $table) {

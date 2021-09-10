@@ -1,10 +1,18 @@
 <template>
-    <label v-if="value" class="flex text-sm font-medium text-gray-700">
-        <span v-text="value" />
+    <label
+        v-if="text"
+        :for="target"
+        class="block w-full space-x-2 text-sm font-medium text-gray-700"
+    >
+        <span v-text="text" />
 
-        <span class="ml-1 font-bold text-red-500" v-if="required && !disabled">
-            *
-        </span>
+        <span
+            role="presentation"
+            :title="$t('field.required')"
+            class="font-bold text-red-500"
+            v-if="required && !disabled"
+            v-text="'*'"
+        />
     </label>
 </template>
 
@@ -12,15 +20,19 @@
     export default {
         name: 'FormLabel',
         props: {
-            required: {
-                type: Boolean,
-                default: false,
+            text: {
+                type: String,
+                default: null,
             },
             disabled: {
                 type: Boolean,
                 default: false,
             },
-            value: {
+            required: {
+                type: Boolean,
+                default: false,
+            },
+            target: {
                 type: String,
                 default: null,
             },

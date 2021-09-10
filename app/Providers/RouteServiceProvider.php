@@ -38,7 +38,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/admin.php'));
 
             Route::middleware(['web'])
-                ->name('public.')
+                ->prefix('{locale?}')
+                ->name('front.')
                 ->group(base_path('routes/web.php'));
         });
     }

@@ -15,7 +15,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('pages', function (Blueprint $table) {
-            $this->createCommonFields($table, softDeletes: true, published: true);
+            $this->createCommonFields($table);
         });
 
         Schema::create('page_translations', function (Blueprint $table) {

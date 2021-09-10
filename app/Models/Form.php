@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Traits\Filterable;
 use App\Traits\HasBlocks;
+use App\Traits\Sortable;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -15,12 +17,23 @@ use Illuminate\Validation\Rule;
 
 class Form extends Model
 {
+    use Filterable;
     use HasBlocks;
     use HasFactory;
+    use Sortable;
     use Translatable;
 
     public array $translatedAttributes = [
         'title',
+    ];
+
+
+    public array $allowedSorts = [
+        'title',
+    ];
+
+    public array $allowedFilters = [
+        //
     ];
 
     public function submissions(): HasMany
@@ -91,17 +104,21 @@ class Form extends Model
             ],
         ];
 
-        return match ($attributes['type']) {
-            'checkbox' => $this->fieldAttributesCheckbox($field, $attributes),
-            'date'     => $this->fieldAttributesDate($field, $attributes),
-            'email'    => $this->fieldAttributesEmail($field, $attributes),
-            'file'     => $this->fieldAttributesFile($field, $attributes),
-            'number'   => $this->fieldAttributesNumber($field, $attributes),
-            'radio'    => $this->fieldAttributesRadio($field, $attributes),
-            'text'     => $this->fieldAttributesText($field, $attributes),
-            'textarea' => $this->fieldAttributesText($field, $attributes),
-            'url'      => $this->fieldAttributesUrl($field, $attributes),
-        };
+        switch ($attributes['type']) {
+            case 'checkbox': return $this->fieldAttributesCheckbox($field, $attributes); break;
+            case 'date'    : return $this->fieldAttributesDate($field, $attributes); break;
+            case 'email'   : return $this->fieldAttributesEmail($field, $attributes); break;
+            case 'file'    : return $this->fieldAttributesFile($field, $attributes); break;
+            case 'number'  : return $this->fieldAttributesNumber($field, $attributes); break;
+            case 'radio'   : return $this->fieldAttributesRadio($field, $attributes); break;
+            case 'text'    : return $this->fieldAttributesText($field, $attributes); break;
+            case 'textarea': return $this->fieldAttributesText($field, $attributes); break;
+            case 'url'     : return $this->fieldAttributesUrl($field, $attributes); break;
+
+            default:
+                # code...
+                break;
+        }
     }
 
     private function fieldAttributesCheckbox(Block $field, array $attributes): array

@@ -1,5 +1,5 @@
 <template>
-    <layout slim>
+    <layout>
         <template #title>{{ this.$tc('form.label', 2) }}</template>
 
         <inertia-table

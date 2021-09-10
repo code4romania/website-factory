@@ -4,7 +4,7 @@ const requireComponent = require.context(
     // Whether or not to look in subfolders
     true,
     // The regular expression used to match base component filenames
-    /[A-Z]\w+\.vue$/
+    /[A-Z]\w+\.(vue|js)$/
 );
 
 export default {

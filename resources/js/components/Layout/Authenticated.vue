@@ -13,7 +13,7 @@
                     <breadcrumbs :items="breadcrumbs" />
 
                     <h1
-                        class="text-2xl font-bold text-gray-900  md:text-3xl md:truncate"
+                        class="text-2xl font-bold text-gray-900 md:text-3xl md:truncate"
                         v-text="title"
                     />
                 </div>
@@ -33,7 +33,7 @@
 
         <footer class="container">
             <div
-                class="flex justify-between py-8 text-sm text-center text-gray-500 border-t border-gray-200  sm:text-left"
+                class="flex justify-between py-8 text-sm text-center text-gray-500 border-t border-gray-200 sm:text-left"
             >
                 <span class="block sm:inline">Website Factory</span>
                 <span
@@ -42,6 +42,8 @@
                 />
             </div>
         </footer>
+
+        <flash-toast />
     </div>
 </template>
 

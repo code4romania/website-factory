@@ -11,15 +11,21 @@
             >
                 <div :class="innerStyle" v-text="column.label" />
 
-                <icon
-                    :name="icon"
-                    class="w-4 h-4 ml-2 duration-150 outline-none cursor-pointer  transition-color group-focus:outline-none"
-                    :class="{
-                        'invisible group-hover:visible group-focus:visible text-gray-400':
-                            currentSortField !== field,
-                        'text-blue-500 group-focus:text-blue-600 group-hover:text-blue-500':
-                            currentSortField === field,
-                    }"
+                <img
+                    v-if="
+                        currentSortField !== field ||
+                        (currentSortField === field && isOrderAsc)
+                    "
+                    src="remixicon/icons/Editor/sort-asc.svg"
+                    :class="sortIconClass"
+                    svg-inline
+                />
+
+                <img
+                    v-else-if="currentSortField === field && isOrderDesc"
+                    src="remixicon/icons/Editor/sort-desc.svg"
+                    :class="sortIconClass"
+                    svg-inline
                 />
             </inertia-link>
 
@@ -74,6 +80,14 @@
                 return this.currentSortField !== this.field || this.isOrderAsc
                     ? 'Editor/sort-asc'
                     : 'Editor/sort-desc';
+            },
+            sortIconClass() {
+                return [
+                    'w-4 h-4 ml-2 duration-150 outline-none cursor-pointer transition-color fill-current group-focus:outline-none',
+                    this.currentSortField !== this.field
+                        ? 'invisible group-hover:visible group-focus:visible text-gray-400'
+                        : 'text-blue-500 group-focus:text-blue-600 group-hover:text-blue-500',
+                ];
             },
             columnData() {
                 if (!this.isSortable) {

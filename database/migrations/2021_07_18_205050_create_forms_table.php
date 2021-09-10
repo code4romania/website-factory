@@ -15,7 +15,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('forms', function (Blueprint $table) {
-            $this->createCommonFields($table, softDeletes: true, published: true);
+            $this->createCommonFields($table);
 
             $table->boolean('store_submissions')->default(false);
             $table->boolean('send_submissions')->default(false);

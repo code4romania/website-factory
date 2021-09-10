@@ -46,7 +46,7 @@ class Resource extends JsonResource
 
     protected function getAttributesByRouteName(Request $request): array
     {
-        $routeName = $request->route()?->getName();
+        $routeName = optional($request->route())->getName();
 
         $method = Arr::last(explode('.', (string) $routeName));
 

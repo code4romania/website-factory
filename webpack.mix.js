@@ -18,6 +18,8 @@ require('./mix/translations');
 if (mix.inProduction()) {
     mix.version();
 } else {
+    // require('laravel-mix-bundle-analyzer');
+    // mix.bundleAnalyzer({ openAnalyzer: false });
 }
 
 mix.valet('primarie.test')
@@ -26,6 +28,7 @@ mix.valet('primarie.test')
         '@': path.resolve('resources/js'),
         '~': path.resolve('resources'),
     })
+    .js('resources/js/public.js', 'public/assets')
     .js('resources/js/app.js', 'public/assets')
     .vue({ version: 3 })
     .postCss('resources/css/app.css', 'public/assets', [
@@ -38,6 +41,35 @@ mix.valet('primarie.test')
     .copyDirectory('resources/images', 'public/assets/images')
     .sourceMaps(false)
     .extract()
+    .extract(['alpinejs'], 'public/assets/public.vendor.js')
+
+    .override((config) => {
+        config.module.rules.push({
+            test: /\.vue$/,
+
+            use: [
+                {
+                    loader: 'vue-svg-inline-loader',
+                    options: {
+                        removeAttributes: [
+                            'alt',
+                            'src',
+                            'svg-inline',
+                            'tabindex',
+                        ],
+                        svgo: {
+                            plugins: [
+                                { removeDimensions: true },
+                                { removeViewBox: false },
+                                { removeUselessStrokeAndFill: true },
+                                { removeXMLNS: true },
+                            ],
+                        },
+                    },
+                },
+            ],
+        });
+    })
 
     .webpackConfig((webpack) => ({
         plugins: [

@@ -1,24 +1,39 @@
 <template>
-    <input
-        class="border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-        :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)"
-        ref="input"
-    />
+    <form-field
+        :name="name"
+        :label="label"
+        :label-for="name"
+        :help-text="null"
+        :required="required"
+        :disabled="disabled"
+        :locale="locale"
+    >
+        <input
+            class="block w-full border-gray-400"
+            :type="type"
+            :name="name"
+            :id="name"
+            :required="required"
+            :disabled="disabled"
+            v-bind="$attrs"
+            :value="modelValue"
+            @input="emit"
+        />
+    </form-field>
 </template>
 
 <script>
+    import InputMixin from '@/mixins/input';
+
     export default {
         name: 'FormInput',
-
+        mixins: [InputMixin],
         props: {
-            modelValue: {
-                type: [String, Number],
-                default: null,
+            type: {
+                type: String,
+                default: 'text',
             },
         },
-
-        emits: ['update:modelValue'],
     };
 </script>
 

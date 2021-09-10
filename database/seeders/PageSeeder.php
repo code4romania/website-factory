@@ -23,7 +23,7 @@ class PageSeeder extends Seeder
         // dd($locales->all(), $locales->count());
 
         Page::factory()
-            ->count(50)
+            ->count(500)
             ->has(
                 PageTranslation::factory()
                     ->count($locales->count())

@@ -35,6 +35,7 @@ abstract class Migration extends BaseMigration
         $table->timestamps();
         $table->softDeletes();
         $table->string('locale', 2)->index();
+        $table->boolean('active')->default(false);
 
         $table->unique(["{$singular}_id", 'locale']);
     }

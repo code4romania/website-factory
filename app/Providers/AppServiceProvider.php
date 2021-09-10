@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -41,6 +42,8 @@ class AppServiceProvider extends ServiceProvider
             'post'  => \App\Models\Post::class,
             'user'  => \App\Models\User::class,
         ]);
+
+        Validator::excludeUnvalidatedArrayKeys();
 
         Model::preventLazyLoading(! $this->app->isProduction());
     }
