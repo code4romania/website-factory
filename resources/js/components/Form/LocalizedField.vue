@@ -6,7 +6,7 @@
                 :is="type"
                 v-if="locale === activeLocale"
                 v-bind="$attrs"
-                :name="`${$attrs.name}[${locale}]`"
+                :name="$attrs.name"
                 v-model="modelValue[locale]"
                 :locale="locale"
             />
@@ -31,7 +31,6 @@
                 default: () => ({}),
             },
         },
-
         emits: ['update:modelValue'],
     };
 </script>

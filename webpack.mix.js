@@ -2,7 +2,6 @@ const mix = require('laravel-mix');
 const path = require('path');
 
 require('laravel-mix-valet');
-require('./mix/translations');
 
 /*
  |--------------------------------------------------------------------------
@@ -23,7 +22,6 @@ if (mix.inProduction()) {
 }
 
 mix.valet('primarie.test')
-    .translations()
     .alias({
         '@': path.resolve('resources/js'),
         '~': path.resolve('resources'),
@@ -45,8 +43,19 @@ mix.valet('primarie.test')
 
     .override((config) => {
         config.module.rules.push({
-            test: /\.vue$/,
+            test: path.resolve('resources/lang/index.js'),
+            loader: '@kirschbaum-development/laravel-translations-loader/php',
+            options: {
+                parameters: '{$1}',
+                exclude: [
+                    //
+                    'validation',
+                ],
+            },
+        });
 
+        config.module.rules.push({
+            test: /\.vue$/,
             use: [
                 {
                     loader: 'vue-svg-inline-loader',

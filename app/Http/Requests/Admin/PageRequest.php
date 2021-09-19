@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Admin;
 
-use Astrotomic\Translatable\Validation\RuleFactory;
+use App\Models\Page;
+use App\Services\TranslatableFormRequestRules;
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
 
 class PageRequest extends BaseRequest
@@ -26,8 +27,8 @@ class PageRequest extends BaseRequest
      */
     public function rules(): array
     {
-        return RuleFactory::make([
-            // '%title%' => ['required', 'string'],
+        return TranslatableFormRequestRules::make(Page::class, [
+            'title'            => ['required', 'string'],
             'blocks'           => ['sometimes', 'array'],
             'blocks.*.id'      => ['required', 'numeric', 'integer'],
             'blocks.*.type'    => ['required', 'string'],

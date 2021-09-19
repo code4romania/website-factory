@@ -23,7 +23,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->translatedFaker('word'),
         ];
     }
 }

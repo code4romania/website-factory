@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Database\Migration;
+use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
@@ -15,15 +15,10 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('pages', function (Blueprint $table) {
-            $this->createCommonFields($table);
+            $table->commonFields();
+
+            $table->json('title');
+            $table->json('slug');
         });
-
-        Schema::create('page_translations', function (Blueprint $table) {
-            $this->createTranslationFields($table, 'page');
-
-            $table->string('title')->nullable();
-        });
-
-        // Schema::create('page_slugs')
     }
 };

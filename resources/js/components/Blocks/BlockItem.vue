@@ -12,7 +12,7 @@
             </div>
 
             <div class="flex-1 p-3">
-                <h1 class="text-sm font-medium" v-text="type" />
+                <h1 class="text-sm font-medium" v-text="$t(`block.${type}`)" />
             </div>
 
             <div class="flex items-center pr-3 space-x-2">
@@ -52,15 +52,18 @@
         <div class="px-4 py-5 space-y-8 sm:p-6">
             <component :is="component" v-model:content="content" />
 
-            <div class="p-3 bg-gray-100">
-                <pre class="text-sm whitespace-pre-line">
-                    id: {{ id }}
-                    type: {{ type }}
-                    content:
-                </pre>
+            <details>
+                <summary>Debug</summary>
+                <div class="p-3 text-sm bg-gray-100">
+                    <pre class="whitespace-pre-line">
+                        id: {{ id }}
+                        type: {{ type }}
+                        content:
+                    </pre>
 
-                <pre class="p-2 text-sm" v-text="content" />
-            </div>
+                    <pre class="whitespace-pre-wrap" v-text="content" />
+                </div>
+            </details>
         </div>
     </section>
 </template>

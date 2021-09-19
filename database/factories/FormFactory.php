@@ -24,7 +24,7 @@ class FormFactory extends Factory
     public function definition(): array
     {
         return [
-            'title'             => $this->faker->sentence(),
+            'title'             => $this->translatedFaker('sentence'),
             'store_submissions' => false,
             'send_submissions'  => false,
             'recipients'        => null,

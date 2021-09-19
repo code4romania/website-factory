@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Database\Migration;
+use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
@@ -15,7 +15,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $this->createCommonFields($table, false, false);
+            $table->commonFields(false, false);
+
+            $table->json('title');
+
+            $table->nestedSet();
         });
 
         Schema::create('model_has_categories', function (Blueprint $table) {

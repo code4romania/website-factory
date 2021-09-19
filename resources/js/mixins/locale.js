@@ -19,11 +19,11 @@ export default {
         },
         activeLocale: {
             get() {
-                return this.$i18n.locale;
+                return usePage().props.value.locale;
             },
 
             set(locale) {
-                this.$i18n.locale = locale;
+                usePage().props.value.locale = locale;
             },
         },
         translatableFields() {

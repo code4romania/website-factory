@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Exceptions\InvalidFormFieldType;
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
 use App\Traits\Sortable;
-use Astrotomic\Translatable\Translatable;
+use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -23,10 +24,9 @@ class Form extends Model
     use Sortable;
     use Translatable;
 
-    public array $translatedAttributes = [
+    public array $translatable = [
         'title',
     ];
-
 
     public array $allowedSorts = [
         'title',
@@ -68,7 +68,7 @@ class Form extends Model
 
     public function fieldsBySection(): Collection
     {
-        return $this->sections
+        return $this->sections()
             ->map(fn (Block $section) => $this->section($section));
     }
 
@@ -106,18 +106,16 @@ class Form extends Model
 
         switch ($attributes['type']) {
             case 'checkbox': return $this->fieldAttributesCheckbox($field, $attributes); break;
-            case 'date'    : return $this->fieldAttributesDate($field, $attributes); break;
-            case 'email'   : return $this->fieldAttributesEmail($field, $attributes); break;
-            case 'file'    : return $this->fieldAttributesFile($field, $attributes); break;
-            case 'number'  : return $this->fieldAttributesNumber($field, $attributes); break;
-            case 'radio'   : return $this->fieldAttributesRadio($field, $attributes); break;
-            case 'text'    : return $this->fieldAttributesText($field, $attributes); break;
+            case 'date': return $this->fieldAttributesDate($field, $attributes); break;
+            case 'email': return $this->fieldAttributesEmail($field, $attributes); break;
+            case 'file': return $this->fieldAttributesFile($field, $attributes); break;
+            case 'number': return $this->fieldAttributesNumber($field, $attributes); break;
+            case 'radio': return $this->fieldAttributesRadio($field, $attributes); break;
+            case 'text': return $this->fieldAttributesText($field, $attributes); break;
             case 'textarea': return $this->fieldAttributesText($field, $attributes); break;
-            case 'url'     : return $this->fieldAttributesUrl($field, $attributes); break;
+            case 'url': return $this->fieldAttributesUrl($field, $attributes); break;
 
-            default:
-                # code...
-                break;
+            default: throw new InvalidFormFieldType($attributes['type']); break;
         }
     }
 

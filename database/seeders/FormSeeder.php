@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Models\Form;
 use Illuminate\Database\Seeder;
 
 class FormSeeder extends Seeder
@@ -15,6 +16,8 @@ class FormSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Form::factory()
+            ->count(10)
+            ->create();
     }
 }

@@ -3,7 +3,11 @@
 
     <div class="flex flex-col min-h-screen bg-gray-100">
         <header>
-            <menu-navbar :menu="menu" :profile="profile" />
+            <menu-navbar
+                :main-menu="mainMenu"
+                :admin-menu="adminMenu"
+                :profile-menu="profileMenu"
+            />
 
             <div
                 style="display: none"
@@ -48,6 +52,8 @@
 </template>
 
 <script>
+    import { computed } from 'vue';
+
     export default {
         name: 'Layout',
         props: {
@@ -60,12 +66,24 @@
                 default: null,
             },
         },
+        // setup(props) {
+        //     //
+
+        //     return {
+        //         mainMenu,
+        //     };
+        // },
+
         data() {
             return {
-                menu: [
+                mainMenu: [
                     {
                         href: this.route('admin.dashboard'),
                         label: this.$t('app.dashboard'),
+                    },
+                    {
+                        href: this.route('admin.categories.index'),
+                        label: this.$tc('category.label', 2),
                     },
                     {
                         href: this.route('admin.pages.index'),
@@ -80,10 +98,16 @@
                         label: this.$tc('user.label', 2),
                     },
                 ],
-                profile: [
+                adminMenu: [
+                    {
+                        href: this.route('admin.settings.index'),
+                        label: this.$t('app.settings'),
+                    },
+                ],
+                profileMenu: [
                     {
                         href: '#',
-                        label: this.$t('app.settings'),
+                        label: this.$t('app.profile'),
                     },
                     {
                         href: this.route('auth.logout'),

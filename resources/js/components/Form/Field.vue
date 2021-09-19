@@ -4,7 +4,8 @@
             <label
                 v-if="label"
                 :for="labelFor"
-                class="block w-full text-sm font-medium text-gray-700"
+                class="block w-full text-sm font-medium"
+                :class="[hasErrors ? 'text-red-600' : 'text-gray-700']"
             >
                 <span v-html="label" />
 
@@ -21,23 +22,35 @@
                 v-if="locale"
                 type="button"
                 @click="nextLocale"
-                class="ml-2 text-xs font-medium text-center text-white uppercase bg-gray-400 rounded-sm w-7"
+                class="ml-2 text-xs font-medium text-center text-white uppercase bg-gray-400 w-7"
                 v-text="locale"
             />
         </div>
 
-        <slot />
+        <div
+            class="relative flex"
+            :class="[hasErrors ? 'border-red-600' : 'border-gray-400']"
+        >
+            <slot />
+        </div>
 
-        <span
+        <div
             v-if="hasErrors"
-            class="mt-2 text-sm text-red-600"
+            class="mt-2 space-y-1 text-sm text-red-600"
             role="alert"
-            v-text="message"
-        />
+        >
+            <p
+                v-for="(message, locale) in errors"
+                :key="locale"
+                v-text="message"
+            />
+        </div>
     </div>
 </template>
 
 <script>
+    import { usePage } from '@inertiajs/inertia-vue3';
+
     import LocaleMixin from '@/mixins/locale';
 
     export default {
@@ -70,14 +83,22 @@
             },
         },
         computed: {
-            errorKey() {
-                return this.locale ? `${this.locale}.${this.name}` : this.name;
-            },
             hasErrors() {
-                return this.message !== null;
+                return Object.keys(this.errors).length > 0;
             },
-            message() {
-                return null;
+            errors() {
+                const initialErrors = usePage().props.value.errors;
+                const errors = {};
+
+                Object.keys(initialErrors).forEach((key) => {
+                    const [name, locale] = key.split('.');
+
+                    if (this.name === name) {
+                        errors[locale] = initialErrors[key];
+                    }
+                });
+
+                return errors;
             },
         },
     };

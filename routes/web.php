@@ -16,8 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [Front\PageController::class, 'index'])->name('index');
-
-Route::fallback(function () {
-    dump('fallback test');
-});
+Route::get('/', [Front\PageController::class, 'index'])->name('home');
+Route::get('/{page:slug}', [Front\PageController::class, 'show'])->name('pages.show');

@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
@@ -46,5 +47,24 @@ class AppServiceProvider extends ServiceProvider
         Validator::excludeUnvalidatedArrayKeys();
 
         Model::preventLazyLoading(! $this->app->isProduction());
+
+        $this->registerBlueprintMacros();
+    }
+
+    protected function registerBlueprintMacros(): void
+    {
+        Blueprint::macro('commonFields', function (bool $softDeletes = true, bool $published = true) {
+            $this->id();
+            $this->timestamps();
+
+            if ($softDeletes) {
+                $this->softDeletes();
+            }
+
+            if ($published) {
+                $this->timestamp('publish_start_at')->nullable();
+                $this->timestamp('publish_end_at')->nullable();
+            }
+        });
     }
 }

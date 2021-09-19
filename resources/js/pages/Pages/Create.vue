@@ -1,38 +1,44 @@
 <template>
     <layout :breadcrumbs="breadcrumbs" :title="pageTitle">
-        <div class="flex flex-col gap-8 md:flex-row-reverse">
-            <panel-placeholder
-                label="Publisher controls: draft/published, dates, save button"
-                class="md:w-56 lg:w-96"
-            />
-            <panel-placeholder
-                label="Page properties: title, description etc."
-                class="flex-1"
-            />
-        </div>
+        <form
+            @submit.prevent="form.post(route('admin.pages.store'))"
+            class="grid gap-y-8"
+        >
+            <div class="flex flex-col gap-8 md:flex-row-reverse">
+                <panel-publisher action="save" :form="form" />
 
-        <div class="relative flex items-center mt-16 mb-4" aria-hidden="true">
-            <span class="pr-3 text-lg font-medium text-gray-900">
-                Content
-            </span>
+                <panel class="md:flex-1">
+                    <div class="space-y-8">
+                        <localized-field
+                            type="form-input"
+                            label="Title"
+                            name="title"
+                            v-model="form.title"
+                            required
+                        />
+                    </div>
+                </panel>
+            </div>
 
-            <div class="flex-1 border-t border-gray-300" />
-        </div>
-
-        <block-list />
+            <block-list v-model:blocks="form.blocks" />
+        </form>
     </layout>
 </template>
 
 <script>
+    import { useForm } from '@inertiajs/inertia-vue3';
+    import LocaleMixin from '@/mixins/locale';
+
     export default {
-        props: {
-            page: Object,
-        },
-        data() {
+        mixins: [LocaleMixin],
+        setup(props) {
+            const form = useForm('CreatePage', {
+                title: {},
+                blocks: [],
+            });
+
             return {
-                form: this.$inertia.form({
-                    //
-                }),
+                form,
             };
         },
         computed: {

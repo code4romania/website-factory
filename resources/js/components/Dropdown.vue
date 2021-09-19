@@ -1,8 +1,8 @@
 <template>
     <div class="relative">
-        <div @click="open = !open">
+        <button type="button" @click="open = !open" :class="triggerClass">
             <slot name="trigger" />
-        </div>
+        </button>
 
         <!-- Full Screen Dropdown Overlay -->
         <div v-show="open" class="fixed inset-0 z-40" @click="open = false" />
@@ -17,13 +17,13 @@
         >
             <div
                 v-show="open"
-                class="absolute z-50 mt-2 rounded-md shadow-lg"
+                class="absolute z-50 mt-2 shadow-lg"
                 :class="[widthClass, alignmentClasses]"
                 style="display: none"
                 @click="open = false"
             >
                 <div
-                    class="rounded-md ring-1 ring-black ring-opacity-5"
+                    class="ring-1 ring-black ring-opacity-5"
                     :class="contentClasses"
                 >
                     <slot name="content" />
@@ -48,10 +48,18 @@
             contentClasses: {
                 default: () => ['py-1', 'bg-white'],
             },
+            origin: {
+                type: String,
+                default: 'top-left',
+            },
+            triggerClass: {
+                type: String,
+                default: null,
+            },
         },
 
         setup() {
-            let open = ref(false);
+            const open = ref(false);
 
             const closeOnEscape = (e) => {
                 if (open.value && e.keyCode === 27) {
@@ -59,10 +67,13 @@
                 }
             };
 
-            onMounted(() => document.addEventListener('keydown', closeOnEscape));
-            onUnmounted(() =>
-                document.removeEventListener('keydown', closeOnEscape)
-            );
+            onMounted(() => {
+                document.addEventListener('keydown', closeOnEscape);
+            });
+
+            onUnmounted(() => {
+                document.removeEventListener('keydown', closeOnEscape);
+            });
 
             return {
                 open,
@@ -77,6 +88,13 @@
             },
 
             alignmentClasses() {
+                return {
+                    'top-right': 'origin-top-right right-0 mt-2',
+                    'top-left': 'origin-top-left left-0 mt-2',
+                    'bottom-right': 'origin-bottom-right bottom-full right-0 mb-2',
+                    'bottom-left': 'origin-bottom-left bottom-full left-0 mb-2',
+                }[this.origin];
+
                 if (this.align === 'left') {
                     return 'origin-top-left left-0';
                 } else if (this.align === 'right') {

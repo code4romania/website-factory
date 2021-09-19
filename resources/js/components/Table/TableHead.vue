@@ -2,35 +2,33 @@
     <th :class="outerStyle">
         <form-checkbox v-if="column.field === 'bulk'" v-model="selectedAll" />
 
-        <template v-else>
-            <inertia-link
-                v-if="isSortable"
-                class="flex items-center px-6 py-5 group"
-                :href="route(route().current())"
-                :data="columnData"
-            >
-                <div :class="innerStyle" v-text="column.label" />
+        <inertia-link
+            v-else-if="isSortable"
+            class="flex items-center group focus:outline-none"
+            :href="route(route().current())"
+            :data="columnData"
+        >
+            <div :class="innerStyle" v-text="column.label" />
 
-                <img
-                    v-if="
-                        currentSortField !== field ||
-                        (currentSortField === field && isOrderAsc)
-                    "
-                    src="remixicon/icons/Editor/sort-asc.svg"
-                    :class="sortIconClass"
-                    svg-inline
-                />
+            <img
+                v-if="
+                    currentSortField !== field ||
+                    (currentSortField === field && isOrderAsc)
+                "
+                src="remixicon/icons/Editor/sort-asc.svg"
+                :class="sortIconClass"
+                svg-inline
+            />
 
-                <img
-                    v-else-if="currentSortField === field && isOrderDesc"
-                    src="remixicon/icons/Editor/sort-desc.svg"
-                    :class="sortIconClass"
-                    svg-inline
-                />
-            </inertia-link>
+            <img
+                v-else-if="currentSortField === field && isOrderDesc"
+                src="remixicon/icons/Editor/sort-desc.svg"
+                :class="sortIconClass"
+                svg-inline
+            />
+        </inertia-link>
 
-            <div v-else :class="innerStyle" v-text="column.label" />
-        </template>
+        <div v-else :class="innerStyle" v-text="column.label" />
     </th>
 </template>
 
@@ -76,14 +74,9 @@
             isOrderDesc() {
                 return this.currentSortDirection === 'desc';
             },
-            icon() {
-                return this.currentSortField !== this.field || this.isOrderAsc
-                    ? 'Editor/sort-asc'
-                    : 'Editor/sort-desc';
-            },
             sortIconClass() {
                 return [
-                    'w-4 h-4 ml-2 duration-150 outline-none cursor-pointer transition-color fill-current group-focus:outline-none',
+                    'inline-flex w-4 h-4 ml-2 duration-150 outline-none cursor-pointer transition-color fill-current group-focus:outline-none',
                     this.currentSortField !== this.field
                         ? 'invisible group-hover:visible group-focus:visible text-gray-400'
                         : 'text-blue-500 group-focus:text-blue-600 group-hover:text-blue-500',
@@ -114,7 +107,7 @@
                     return 'w-0 p-5 pr-2.5';
                 }
 
-                return 'text-left';
+                return 'px-6 py-5 text-left';
             },
             innerStyle() {
                 return 'text-xs font-bold leading-4 tracking-wide text-gray-500 uppercase  whitespace-nowrap';

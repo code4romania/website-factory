@@ -11,25 +11,24 @@
                 <div class="hidden lg:block lg:ml-4">
                     <!-- Settings Dropdown -->
                     <div class="relative ml-3">
-                        <dropdown align="right" width="48">
+                        <dropdown
+                            origin="top-right"
+                            width="48"
+                            trigger-class="flex items-center px-3 py-2 text-sm font-medium text-gray-300 transition duration-150 ease-in-out hover:text-white hover:bg-gray-700"
+                        >
                             <template #trigger>
-                                <button
-                                    class="flex items-center px-3 py-2 text-sm font-medium text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-700"
-                                    type="button"
-                                >
-                                    <span v-text="$page.props.auth.user.name" />
+                                <span v-text="$page.props.auth.user.name" />
 
-                                    <img
-                                        src="remixicon/icons/System/arrow-down-s-line.svg"
-                                        class="-mr-0.5 ml-2 w-4 h-4 fill-current"
-                                        svg-inline
-                                    />
-                                </button>
+                                <img
+                                    src="remixicon/icons/System/arrow-down-s-line.svg"
+                                    class="-mr-0.5 ml-2 w-4 h-4 fill-current"
+                                    svg-inline
+                                />
                             </template>
 
                             <template #content>
-                                <dropdown-link
-                                    v-for="(item, index) in profile"
+                                <dropdown-item
+                                    v-for="(item, index) in profileMenu"
                                     :key="index"
                                     :method="item.method || 'get'"
                                     :as="
@@ -47,7 +46,7 @@
                     <!-- Mobile menu button -->
                     <button
                         type="button"
-                        class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        class="inline-flex items-center justify-center p-2 text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                         aria-controls="mobile-menu"
                         @click="open = !open"
                         aria-expanded="false"
@@ -72,24 +71,36 @@
                 </div>
             </div>
 
-            <div class="hidden lg:flex lg:py-3 lg:space-x-4">
-                <menu-item
-                    v-for="(item, index) in menu"
-                    :key="index"
-                    :href="item.href"
-                    :label="item.label"
-                    class="text-sm"
-                />
+            <div class="hidden lg:flex lg:py-3 lg:space-x-4 lg:justify-between">
+                <div class="flex space-x-4">
+                    <menu-item
+                        v-for="(item, index) in mainMenu"
+                        :key="index"
+                        :href="item.href"
+                        :label="item.label"
+                        class="text-sm"
+                    />
+                </div>
+
+                <div class="flex space-x-4">
+                    <menu-item
+                        v-for="(item, index) in adminMenu"
+                        :key="index"
+                        :href="item.href"
+                        :label="item.label"
+                        class="text-sm"
+                    />
+                </div>
             </div>
 
             <div
-                class="border-t border-gray-700 lg:hidden"
+                class="p-2 space-y-3 border-t border-gray-700 divide-y divide-gray-700 lg:hidden"
                 id="mobile-menu"
                 v-show="open"
             >
-                <div class="px-2 pt-2 pb-3 space-y-1">
+                <div class="space-y-1">
                     <menu-item
-                        v-for="(item, index) in menu"
+                        v-for="(item, index) in mainMenu"
                         :key="index"
                         :href="item.href"
                         :label="item.label"
@@ -97,8 +108,18 @@
                     />
                 </div>
 
-                <div class="pt-4 pb-3 space-y-3 border-t border-gray-700">
-                    <div class="px-5">
+                <div v-if="adminMenu.length" class="pt-4 space-y-1">
+                    <menu-item
+                        v-for="(item, index) in adminMenu"
+                        :key="index"
+                        :href="item.href"
+                        :label="item.label"
+                        class="text-base"
+                    />
+                </div>
+
+                <div class="pt-4 space-y-3">
+                    <div class="px-3">
                         <div
                             class="text-base font-medium text-white"
                             v-text="$page.props.auth.user.name"
@@ -109,9 +130,9 @@
                         />
                     </div>
 
-                    <div class="px-2 space-y-1">
+                    <div class="space-y-1">
                         <menu-item
-                            v-for="(item, index) in profile"
+                            v-for="(item, index) in profileMenu"
                             :key="index"
                             :method="item.method || 'get'"
                             :as="item.method === 'post' ? 'button' : 'a'"
@@ -130,11 +151,15 @@
     export default {
         name: 'MenuNavbar',
         props: {
-            menu: {
+            mainMenu: {
                 type: Array,
                 default: () => [],
             },
-            profile: {
+            adminMenu: {
+                type: Array,
+                default: () => [],
+            },
+            profileMenu: {
                 type: Array,
                 default: () => [],
             },

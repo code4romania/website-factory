@@ -26,7 +26,7 @@ class PageResource extends Resource
     {
         return [
             'id'     => $this->id,
-            'title'  => $this->translatable('title'),
+            'title'  => $this->getTranslations('title'),
             'blocks' => BlockResource::collection($this->blocks),
         ];
     }

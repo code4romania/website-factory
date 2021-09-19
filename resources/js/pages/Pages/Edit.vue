@@ -5,15 +5,9 @@
             class="grid gap-y-8"
         >
             <div class="flex flex-col gap-8 md:flex-row-reverse">
-                <panel-publisher>
-                    <template #save>
-                        <form-button type="submit" :disabled="form.processing">
-                            Save
-                        </form-button>
-                    </template>
-                </panel-publisher>
+                <panel-publisher action="save" :form="form" />
 
-                <panel class="flex-1">
+                <panel class="md:flex-1">
                     <div class="space-y-8">
                         <localized-field
                             type="form-input"
@@ -24,14 +18,6 @@
                         />
                     </div>
                 </panel>
-            </div>
-
-            <div class="relative flex items-center mt-8" aria-hidden="true">
-                <span class="pr-3 text-lg font-medium text-gray-900">
-                    Content
-                </span>
-
-                <div class="flex-1 border-t border-gray-300" />
             </div>
 
             <block-list v-model:blocks="form.blocks" />

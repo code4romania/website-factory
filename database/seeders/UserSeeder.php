@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
 
         // Create users with no role
         User::factory()
-            ->count(205)
+            ->count(25)
             ->create();
     }
 }

@@ -3,7 +3,7 @@
         v-if="visible"
         :is="isExternal ? 'a' : 'inertia-link'"
         :href="href"
-        class="flex px-3 py-2 font-medium rounded-md"
+        class="flex px-3 py-2 font-medium"
         :class="{
             [classActive]: isCurrentUrl,
             [classInactive]: !isCurrentUrl,

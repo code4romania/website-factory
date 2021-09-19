@@ -25,7 +25,6 @@ class PageController extends Controller
         return Inertia::render('Pages/Index', [
             'pages' => new PageCollection(
                 Page::query()
-                    ->withTranslation()
                     ->sort()
                     ->filter()
                     ->paginate()

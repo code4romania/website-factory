@@ -1,12 +1,12 @@
 <template>
-    <div class="px-4 py-5 overflow-hidden bg-white rounded-lg shadow sm:p-6">
+    <div class="px-4 py-5 overflow-hidden bg-white shadow sm:p-6">
         <div class="relative">
             <div
-                class="absolute z-20 flex items-center justify-center font-medium text-center  inset-4"
+                class="absolute z-20 flex items-center justify-center font-medium text-center inset-4"
                 v-text="label"
             />
             <svg
-                class="w-full h-64 text-gray-200 bg-white border-2 border-gray-300 border-dashed rounded "
+                class="w-full h-64 text-gray-200 bg-white border-2 border-gray-300 border-dashed rounded"
                 preserveAspectRatio="none"
                 stroke="currentColor"
                 fill="none"

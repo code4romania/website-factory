@@ -40,6 +40,10 @@ module.exports = {
             maxWidth: (theme) => theme('spacing'),
             minHeight: (theme) => theme('spacing'),
             maxHeight: (theme) => theme('spacing'),
+
+            borderColor: (theme) => ({
+                inherit: 'inherit',
+            }),
         },
     },
     variants: {

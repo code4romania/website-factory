@@ -9,12 +9,13 @@
         :locale="locale"
     >
         <input
-            class="block w-full border-gray-400"
+            class="block w-full border-inherit"
             :type="type"
             :name="name"
             :id="name"
             :required="required"
             :disabled="disabled"
+            :autofocus="autofocus"
             v-bind="$attrs"
             :value="modelValue"
             @input="emit"
@@ -28,6 +29,7 @@
     export default {
         name: 'FormInput',
         mixins: [InputMixin],
+        inheritAttrs: false,
         props: {
             type: {
                 type: String,

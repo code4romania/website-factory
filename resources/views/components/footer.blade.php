@@ -1,3 +1,5 @@
 <footer class="relative bg-teal-700">
-    footer
+    <div class="container flex py-5">
+        footer
+    </div>
 </footer>

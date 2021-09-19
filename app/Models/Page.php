@@ -6,23 +6,25 @@ namespace App\Models;
 
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
+use App\Traits\HasSlug;
 use App\Traits\Sortable;
-use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
-use Astrotomic\Translatable\Translatable;
+use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Page extends Model implements TranslatableContract
+class Page extends Model
 {
     use Filterable;
     use HasBlocks;
     use HasFactory;
+    use HasSlug;
     use Sortable;
     use Translatable;
 
-    public array $translatedAttributes = [
-        'title',
-        'slug',
+    public string $slugFieldSource = 'title';
+
+    public array $translatable = [
+        'title', 'slug',
     ];
 
     public array $allowedSorts = [
