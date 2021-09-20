@@ -2,6 +2,13 @@
     <div class="relative">
         <button type="button" @click="open = !open" :class="triggerClass">
             <slot name="trigger" />
+
+            <img
+                v-if="withArrow"
+                src="remixicon/icons/System/arrow-down-s-line.svg"
+                class="-mr-0.5 ml-2 w-4 h-4 fill-current"
+                svg-inline
+            />
         </button>
 
         <!-- Full Screen Dropdown Overlay -->
@@ -18,7 +25,7 @@
             <div
                 v-show="open"
                 class="absolute z-50 mt-2 shadow-lg"
-                :class="[widthClass, alignmentClasses]"
+                :class="[width, alignmentClasses]"
                 style="display: none"
                 @click="open = false"
             >
@@ -43,7 +50,8 @@
                 default: 'right',
             },
             width: {
-                default: '48',
+                type: String,
+                default: 'w-48',
             },
             contentClasses: {
                 default: () => ['py-1', 'bg-white'],
@@ -55,6 +63,10 @@
             triggerClass: {
                 type: String,
                 default: null,
+            },
+            withArrow: {
+                type: Boolean,
+                default: false,
             },
         },
 
@@ -81,12 +93,6 @@
         },
 
         computed: {
-            widthClass() {
-                return {
-                    48: 'w-48',
-                }[this.width.toString()];
-            },
-
             alignmentClasses() {
                 return {
                     'top-right': 'origin-top-right right-0 mt-2',

@@ -4,7 +4,7 @@
         class="relative inline-flex items-center justify-center font-semibold tracking-wider transition duration-150 ease-in-out border border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2"
         :class="[
             size,
-            'text-white uppercase bg-gray-800 hover:bg-gray-700 active:bg-gray-900 focus:border-gray-900 disabled:opacity-50 disabled:cursor-default',
+            'text-white bg-gray-800 hover:bg-gray-700 active:bg-gray-900 focus:border-gray-900 disabled:opacity-50 disabled:cursor-default',
         ]"
     >
         <slot>{{ label }}</slot>

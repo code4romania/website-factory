@@ -1,16 +1,12 @@
 <template>
-    <label
-        v-if="text"
-        :for="target"
-        class="block w-full space-x-2 text-sm font-medium text-gray-700"
-    >
+    <label :for="target" class="block w-full text-sm font-medium">
         <span v-text="text" />
 
         <span
             role="presentation"
             :title="$t('field.required')"
-            class="font-bold text-red-500"
-            v-if="required && !disabled"
+            class="ml-1 font-bold text-red-500"
+            v-if="required"
             v-text="'*'"
         />
     </label>
@@ -22,6 +18,10 @@
         props: {
             text: {
                 type: String,
+                required: true,
+            },
+            target: {
+                type: String,
                 default: null,
             },
             disabled: {
@@ -31,10 +31,6 @@
             required: {
                 type: Boolean,
                 default: false,
-            },
-            target: {
-                type: String,
-                default: null,
             },
         },
     };

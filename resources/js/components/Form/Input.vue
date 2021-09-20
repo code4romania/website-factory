@@ -3,7 +3,7 @@
         :name="name"
         :label="label"
         :label-for="name"
-        :help-text="null"
+        :help="null"
         :required="required"
         :disabled="disabled"
         :locale="locale"

@@ -69,7 +69,7 @@
                 type: String,
                 default: null,
             },
-            helpText: {
+            help: {
                 type: String,
                 default: null,
             },

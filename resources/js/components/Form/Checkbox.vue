@@ -3,17 +3,19 @@
         <div class="flex space-x-2">
             <input
                 type="checkbox"
-                :id="id"
+                :id="name"
+                :name="name"
                 class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                 v-model="proxyChecked"
                 v-bind="$attrs"
             />
 
             <form-label
+                v-if="label"
                 :target="id"
                 :text="label"
-                :required="required"
-                :disabled="disabled"
+                :required="required && !disabled"
+                :class="[hasErrors ? 'text-red-600' : 'text-gray-700']"
             />
         </div>
 
@@ -36,16 +38,15 @@
         name: 'FormCheckbox',
         mixins: [InputMixin],
         props: {
-            modelValue: {
-                type: Boolean,
-                default: false,
+            help: {
+                type: String,
+                default: null,
             },
         },
-
         computed: {
             proxyChecked: {
                 get() {
-                    return this.modelValue;
+                    return new Boolean(this.modelValue);
                 },
 
                 set(value) {

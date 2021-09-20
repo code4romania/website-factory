@@ -13,17 +13,11 @@
                     <div class="relative ml-3">
                         <dropdown
                             origin="top-right"
-                            width="48"
                             trigger-class="flex items-center px-3 py-2 text-sm font-medium text-gray-300 transition duration-150 ease-in-out hover:text-white hover:bg-gray-700"
+                            with-arrow
                         >
                             <template #trigger>
                                 <span v-text="$page.props.auth.user.name" />
-
-                                <img
-                                    src="remixicon/icons/System/arrow-down-s-line.svg"
-                                    class="-mr-0.5 ml-2 w-4 h-4 fill-current"
-                                    svg-inline
-                                />
                             </template>
 
                             <template #content>
@@ -77,6 +71,7 @@
                         v-for="(item, index) in mainMenu"
                         :key="index"
                         :href="item.href"
+                        :route-name="item.route"
                         :label="item.label"
                         class="text-sm"
                     />
@@ -87,6 +82,7 @@
                         v-for="(item, index) in adminMenu"
                         :key="index"
                         :href="item.href"
+                        :route-name="item.route"
                         :label="item.label"
                         class="text-sm"
                     />
@@ -103,6 +99,7 @@
                         v-for="(item, index) in mainMenu"
                         :key="index"
                         :href="item.href"
+                        :route-name="item.route"
                         :label="item.label"
                         class="text-base"
                     />
@@ -113,6 +110,7 @@
                         v-for="(item, index) in adminMenu"
                         :key="index"
                         :href="item.href"
+                        :route-name="item.route"
                         :label="item.label"
                         class="text-base"
                     />
@@ -138,6 +136,7 @@
                             :as="item.method === 'post' ? 'button' : 'a'"
                             class="block w-full text-sm"
                             :href="item.href"
+                            :route-name="item.route"
                             :label="item.label"
                         />
                     </div>

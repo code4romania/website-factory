@@ -13,12 +13,20 @@
 </template>
 
 <script>
+    import { computed } from 'vue';
+
+    import { usePage } from '@inertiajs/inertia-vue3';
+
     export default {
         name: 'MenuItem',
         props: {
             href: {
                 type: String,
-                required: true,
+                default: null,
+            },
+            routeName: {
+                type: String,
+                default: null,
             },
             label: {
                 type: String,
@@ -37,6 +45,16 @@
                 default: true,
             },
         },
+        setup(props) {
+            const isCurrentRoute = computed(
+                () => usePage().props.value.route === props.route
+            );
+
+            return {
+                isCurrentRoute,
+            };
+        },
+
         computed: {
             isCurrentUrl() {
                 const currentUrl = location.origin + location.pathname;

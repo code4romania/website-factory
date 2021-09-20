@@ -9,10 +9,13 @@
                 :profile-menu="profileMenu"
             />
 
-            <div
-                style="display: none"
-                class="container items-center justify-between mt-12 lg:flex"
-            >
+            <div v-if="$slots.subnav" class="py-2 bg-gray-200">
+                <div class="container flex items-center py-3">
+                    <slot name="subnav" />
+                </div>
+            </div>
+
+            <div class="container items-center justify-between mt-12 lg:flex">
                 <div class="flex-1 space-y-2">
                     <breadcrumbs :items="breadcrumbs" />
 
@@ -52,8 +55,6 @@
 </template>
 
 <script>
-    import { computed } from 'vue';
-
     export default {
         name: 'Layout',
         props: {
@@ -66,42 +67,40 @@
                 default: null,
             },
         },
-        // setup(props) {
-        //     //
-
-        //     return {
-        //         mainMenu,
-        //     };
-        // },
-
         data() {
             return {
                 mainMenu: [
                     {
                         href: this.route('admin.dashboard'),
                         label: this.$t('app.dashboard'),
-                    },
-                    {
-                        href: this.route('admin.categories.index'),
-                        label: this.$tc('category.label', 2),
+                        route: 'admin.dashboard',
                     },
                     {
                         href: this.route('admin.pages.index'),
                         label: this.$tc('page.label', 2),
+                        route: 'admin.pages.index',
+                    },
+                    {
+                        href: this.route('admin.categories.index'),
+                        label: this.$tc('category.label', 2),
+                        route: 'admin.categories.index',
                     },
                     {
                         href: this.route('admin.forms.index'),
                         label: this.$tc('form.label', 2),
+                        route: 'admin.forms.index',
                     },
                     {
                         href: this.route('admin.users.index'),
                         label: this.$tc('user.label', 2),
+                        route: 'admin.users.index',
                     },
                 ],
                 adminMenu: [
                     {
                         href: this.route('admin.settings.index'),
                         label: this.$t('app.settings'),
+                        route: 'admin.settings.index',
                     },
                 ],
                 profileMenu: [
@@ -113,6 +112,7 @@
                         href: this.route('auth.logout'),
                         label: this.$t('auth.logout'),
                         method: 'post',
+                        route: 'auth.logout',
                     },
                 ],
             };

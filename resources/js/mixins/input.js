@@ -7,7 +7,6 @@ export default {
             default: () => uniqid('field-'),
         },
         modelValue: {
-            type: [String, Number],
             default: null,
         },
         placeholder: {
