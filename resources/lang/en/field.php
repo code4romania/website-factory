@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
 
+    'actions' => 'Actions',
     'content' => 'Content',
     'name' => 'Name',
     'email' => 'Email',

@@ -23,7 +23,7 @@ class PageController extends Controller
     public function index(): Response
     {
         return Inertia::render('Pages/Index', [
-            'pages' => new PageCollection(
+            'collection' => new PageCollection(
                 Page::query()
                     ->sort()
                     ->filter()

@@ -1,11 +1,6 @@
 <template>
     <layout :title="$tc('page.label', 2)">
-        <inertia-table
-            id="page"
-            route-name="admin.pages.edit"
-            :route-args="{ page: 'id' }"
-            :collection="pages"
-        >
+        <inertia-table :collection="collection">
             <template #title="{ title }">
                 {{ title }}
             </template>
@@ -16,7 +11,7 @@
 <script>
     export default {
         props: {
-            pages: Object,
+            collection: Object,
         },
     };
 </script>

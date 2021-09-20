@@ -21,7 +21,7 @@ class FormController extends Controller
     public function index(): Response
     {
         return Inertia::render('Forms/Index', [
-            'forms' => new FormCollection(
+            'collection' => new FormCollection(
                 Form::query()
                     ->sort()
                     ->filter()

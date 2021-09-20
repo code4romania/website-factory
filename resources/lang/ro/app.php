@@ -31,4 +31,11 @@ return [
         'view'    => 'Vezi',
     ],
 
+    'table_status' => [
+        'all'       => 'Toate',
+        'published' => 'Publicate',
+        'draft'     => 'Draft',
+        'trashed'   => 'Șterse',
+    ],
+
 ];

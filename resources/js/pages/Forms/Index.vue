@@ -1,14 +1,6 @@
 <template>
-    <layout>
-        <template #title>{{ this.$tc('form.label', 2) }}</template>
-
-        <inertia-table
-            id="form"
-            route-name="admin.forms.edit"
-            :route-args="{ form: 'id' }"
-            empty-action="admin.forms.create"
-            :collection="forms"
-        >
+    <layout :title="$tc('form.label', 2)">
+        <inertia-table :collection="collection">
             <template #title="{ title }">
                 {{ title }}
             </template>
@@ -19,7 +11,7 @@
 <script>
     export default {
         props: {
-            forms: Object,
+            collection: Object,
         },
     };
 </script>

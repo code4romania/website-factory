@@ -1,10 +1,20 @@
 <template>
-    <div class="overflow-x-auto">
+    <div class="flex items-center justify-between space-x-2">
+        <table-filters :collection="collection" />
+
+        <inertia-link
+            class="relative inline-flex items-center justify-center px-4 py-2 text-sm font-semibold tracking-wider text-white transition duration-150 ease-in-out bg-green-600 border border-transparent hover:bg-green-700 focus:ring-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-default"
+            :href="route(this.collection.route_prefix + '.create')"
+            v-text="createActionLabel || $t('app.action.create')"
+        />
+    </div>
+
+    <div class="my-4 overflow-x-auto">
         <table class="min-w-full text-gray-900 table-fixed">
             <table-header
                 :columns="collection.columns"
                 :sort="collection.sort"
-                :base-url="headBaseUrl"
+                :base-url="baseUrl"
                 v-model:selectedAll="selectedAll"
             />
 
@@ -32,14 +42,10 @@
                         </td>
 
                         <td v-else class="text-sm" :key="columnIndex">
-                            <component
-                                :is="showRowUrls ? 'inertia-link' : 'div'"
+                            <inertia-link
                                 class="block px-6 py-4 focus:outline-none"
-                                :href="showRowUrls ? rowUrl(row) : false"
-                                :tabindex="
-                                    !showRowUrls ||
-                                    (columnIndex === 0 ? false : -1)
-                                "
+                                :href="rowUrl(row)"
+                                :tabindex="columnIndex === 0 ? false : -1"
                             >
                                 <slot
                                     :name="column.field"
@@ -48,7 +54,7 @@
                                 >
                                     {{ row[column.field] }}
                                 </slot>
-                            </component>
+                            </inertia-link>
                         </td>
                     </template>
                 </tr>
@@ -60,7 +66,7 @@
 
     <table-empty
         v-if="!collection.data.length"
-        :id="id"
+        :id="collection.model"
         :action="emptyAction"
     />
 </template>
@@ -68,15 +74,9 @@
 <script>
     import { usePage } from '@inertiajs/inertia-vue3';
 
-    import isEmpty from 'lodash/isEmpty';
-
     export default {
         name: 'InertiaTable',
         props: {
-            id: {
-                type: String,
-                required: true,
-            },
             collection: {
                 type: Object,
                 required: true,
@@ -93,15 +93,7 @@
                 type: Object,
                 default: () => ({}),
             },
-            sortArgs: {
-                type: Object,
-                default: () => ({}),
-            },
             sortable: {
-                type: Boolean,
-                default: true,
-            },
-            showRowUrls: {
                 type: Boolean,
                 default: true,
             },
@@ -121,6 +113,10 @@
                 type: String,
                 default: null,
             },
+            createActionLabel: {
+                type: String,
+                default: null,
+            },
         },
         data() {
             return {
@@ -128,7 +124,7 @@
             };
         },
         computed: {
-            headBaseUrl() {
+            baseUrl() {
                 if (!this.routeName || !this.sortable) {
                     return null;
                 }
@@ -140,7 +136,6 @@
             },
             selectedAll: {
                 set(value) {
-                    console.log(value);
                     if (value === true) {
                         this.selected = this.visibleIds;
                     } else {
@@ -174,25 +169,7 @@
         },
         methods: {
             rowUrl(row) {
-                if (isEmpty(this.routeArgs)) {
-                    throw `InertiaTable requires the routeArgs prop to be set.`;
-                }
-
-                return this.route(
-                    this.routeName,
-                    this.fillArgs(this.routeArgs, row)
-                );
-            },
-            fillArgs(args, model) {
-                let parameters = {};
-
-                Object.entries(args).forEach(([key, prop]) => {
-                    parameters[key] = model.hasOwnProperty(prop)
-                        ? model[prop]
-                        : prop;
-                });
-
-                return parameters;
+                return this.route(this.collection.route_prefix + '.edit', row);
             },
             toggleSelect(checked, row) {
                 if (checked) {

@@ -1,14 +1,6 @@
 <template>
-    <layout slim>
-        <template #title>{{ this.$tc('user.label', 2) }}</template>
-
-        <inertia-table
-            id="user"
-            route-name="admin.users.edit"
-            :route-args="{ user: 'id' }"
-            empty-action="admin.users.create"
-            :collection="users"
-        >
+    <layout :title="$tc('user.label', 2)">
+        <inertia-table :collection="collection">
             <template #title="{ title }">
                 {{ title }}
             </template>
@@ -23,7 +15,7 @@
 <script>
     export default {
         props: {
-            users: Object,
+            collection: Object,
         },
     };
 </script>

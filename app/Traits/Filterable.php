@@ -6,18 +6,24 @@ namespace App\Traits;
 
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 
 trait Filterable
 {
-    public function scopeFilter(Builder $query): Builder
+    public function initializeFilterable(): void
     {
         if (! \property_exists($this, 'allowedFilters') || ! \is_array($this->allowedFilters)) {
             throw new Exception('Property allowedFilters not defined on ' . \get_class($this));
         }
 
+        $this->allowedFilters[] = 'status';
+    }
+
+    public function scopeFilter(Builder $query): Builder
+    {
         $filters = Request::query('filter', []);
 
         if (\is_string($filters)) {
@@ -25,17 +31,15 @@ trait Filterable
         }
 
         collect($filters)
-            ->filter(fn ($value, $key) => \in_array($key, $this->allowedFilters))
+            ->filter(fn ($value, $key) => $this->isFilterableAttribute($key))
             ->each(function ($value, $key) use ($query) {
-                $value = $this->getFilterValue($value);
-
                 $filter = Str::camel("filter_by_{$key}");
 
                 if (! \method_exists($this, $filter)) {
                     throw new Exception("Method $filter not defined on " . \get_class($this), 1);
                 }
 
-                $this->$filter($query, $value);
+                $this->$filter($query, $this->sanitizeFilter($value));
             });
 
         return $query;
@@ -50,14 +54,14 @@ trait Filterable
         }
 
         return collect($filters)
-            ->map(fn ($value) => $this->getFilterValue($value));
+            ->map(fn ($value) => $this->sanitizeFilter($value));
     }
 
-    protected function getFilterValue(mixed $value): mixed
+    protected function sanitizeFilter($value)
     {
         if (\is_array($value)) {
             return collect($value)
-                ->map(fn ($v) => $this->getFilterValue($v))
+                ->map(fn ($v) => $this->sanitizeFilter($v))
                 ->all();
         }
 
@@ -74,5 +78,34 @@ trait Filterable
         }
 
         return $value;
+    }
+
+    public function isFilterableAttribute(string $key): bool
+    {
+        return \in_array($key, $this->allowedFilters);
+    }
+
+    final public function filterByStatus(Builder $query, string $status): Builder
+    {
+        $traits = \class_uses_recursive($query->getModel());
+
+        if (\in_array(Publishable::class, $traits)) {
+            if ($status === 'published') {
+                return $query->published();
+            }
+
+            if ($status === 'draft') {
+                return $query->onlyDraft();
+            }
+        }
+
+        if (
+            \in_array(SoftDeletes::class, $traits) &&
+            $status === 'trashed'
+        ) {
+            return $query->onlyTrashed();
+        }
+
+        return $query;
     }
 }

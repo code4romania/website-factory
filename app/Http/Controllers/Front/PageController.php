@@ -15,13 +15,14 @@ class PageController extends Controller
         return view('front.page', [
             'page' => Page::query()
                 ->with('blocks')
-                ->withTranslation()
                 ->first(),
         ]);
     }
 
-    public function show(Page $page)
+    public function show(string $locale, Page $page): View
     {
-        return $page;
+        return view('front.page', [
+            'page' => $page,
+        ]);
     }
 }

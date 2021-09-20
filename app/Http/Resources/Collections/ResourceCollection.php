@@ -4,21 +4,24 @@ declare(strict_types=1);
 
 namespace App\Http\Resources\Collections;
 
+use App\Traits\Filterable;
+use App\Traits\Publishable;
 use App\Traits\Sortable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection as BaseCollection;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use ReflectionClass;
 
 abstract class ResourceCollection extends BaseCollection
 {
     /**
-     * The name of the collection's corresponding model.
+     * The collection's corresponding model.
      *
      * @var string
      */
-    protected string $model;
+    protected Model $model;
 
     /**
      * The table columns.
@@ -45,6 +48,7 @@ abstract class ResourceCollection extends BaseCollection
      */
     public function __construct($resource)
     {
+        $this->model = $this->resolveModel();
         $this->collects = $this->resolveResourceName();
 
         parent::__construct($resource);
@@ -65,11 +69,16 @@ abstract class ResourceCollection extends BaseCollection
      */
     public function toArray($request): array
     {
+        $morphClass = $this->model->getMorphClass();
+
         return \array_merge([
-            'route'   => Str::replace('.index', '.edit', $request->route()->getName()),
-            'columns' => $this->tableColumns($request),
-            'sort'    => $this->sort($request),
-            'data'    => $this->collection,
+            'model'        => $morphClass,
+            'route_prefix' => 'admin.' . Str::plural($morphClass),
+            'columns'      => $this->tableColumns($request),
+            'statuses'     => $this->statuses(),
+            'filters'      => $this->filters($request),
+            'sort'         => $this->sort($request),
+            'data'         => $this->collection,
         ], $this->appends);
     }
 
@@ -83,22 +92,24 @@ abstract class ResourceCollection extends BaseCollection
     {
         return $this->getColumnsByRouteName($request)
             ->map(fn (string $column) => [
-                'field'        => \str_replace('.', '___', $column),
-                'label'        => __("field.{$column}"),
-                'sortable'     => $this->isColumnSortable($column),
+                'field'    => \str_replace('.', '___', $column),
+                'label'    => __("field.{$column}"),
+                'sortable' => $this->isColumnSortable($column),
             ]);
     }
 
-    /**
-     * Get the resource name for the given model name.
-     *
-     * @return string
-     */
+    protected function resolveModel(): Model
+    {
+        $model = Str::replace('Collection', '', \class_basename($this));
+
+        return app('App\\Models\\' . $model);
+    }
+
     protected function resolveResourceName(): string
     {
-        $model = (new ReflectionClass($this->model))->getShortName();
+        $resource = Str::replace('Collection', 'Resource', \class_basename($this));
 
-        return 'App\\Http\\Resources\\' . $model . 'Resource';
+        return 'App\\Http\\Resources\\' . $resource;
     }
 
     protected function getColumnsByRouteName(Request $request): Collection
@@ -125,13 +136,20 @@ abstract class ResourceCollection extends BaseCollection
 
     protected function isColumnSortable(string $column): bool
     {
-        $model = app($this->model);
-
-        if (! \in_array(Sortable::class, class_uses_recursive($model))) {
+        if (! \in_array(Sortable::class, \class_uses_recursive($this->model))) {
             return false;
         }
 
-        return $model->isSortableAttribute($column);
+        return $this->model->isSortableAttribute($column);
+    }
+
+    protected function filters(): array
+    {
+        if (! \in_array(Filterable::class, \class_uses_recursive($this->model))) {
+            return [];
+        }
+
+        return $this->model->filters()->all();
     }
 
     protected function sort(Request $request): ?array
@@ -151,7 +169,7 @@ abstract class ResourceCollection extends BaseCollection
             $direction = 'desc';
         }
 
-        if (! app($this->model)->isSortableAttribute($column)) {
+        if (! $this->isColumnSortable($column)) {
             return [
                 'column'    => null,
                 'direction' => null,
@@ -162,5 +180,42 @@ abstract class ResourceCollection extends BaseCollection
             'column'    => $column,
             'direction' => $direction,
         ];
+    }
+
+    protected function statuses(): array
+    {
+        $traits = \class_uses_recursive($this->model);
+
+        $statuses = collect();
+
+        $statuses->push([
+            'name' => 'all',
+            'count' => $this->model->newQuery()->count(),
+        ]);
+
+        if (\in_array(Publishable::class, $traits)) {
+            $statuses->push([
+                'name' => 'published',
+                'count' => $this->model->newQuery()->published()->count(),
+            ]);
+            $statuses->push([
+                'name' => 'draft',
+                'count' => $this->model->newQuery()->onlyDraft()->count(),
+            ]);
+        }
+
+        if (\in_array(SoftDeletes::class, $traits)) {
+            $statuses->push([
+                'name' => 'trashed',
+                'count' => $this->model->newQuery()->onlyTrashed()->count(),
+            ]);
+        }
+
+        return $statuses->all();
+    }
+
+    protected function routePrefix(): string
+    {
+        return 'admin.' . Str::plural($this->model->getMorphClass());
     }
 }

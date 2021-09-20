@@ -7,10 +7,12 @@ namespace App\Models;
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
 use App\Traits\HasSlug;
+use App\Traits\Publishable;
 use App\Traits\Sortable;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Page extends Model
 {
@@ -18,6 +20,8 @@ class Page extends Model
     use HasBlocks;
     use HasFactory;
     use HasSlug;
+    use Publishable;
+    use SoftDeletes;
     use Sortable;
     use Translatable;
 
