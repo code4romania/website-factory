@@ -1,5 +1,9 @@
 <template>
-    <bubble-menu :class="bubbleMenuClass" :editor="editor" :should-show="isLinkActive">
+    <bubble-menu
+        :class="bubbleMenuClass"
+        :editor="editor"
+        :should-show="isLinkActive"
+    >
         <div>link editing controls</div>
     </bubble-menu>
 </template>
@@ -21,7 +25,9 @@
         },
 
         setup(props) {
-            const bubbleMenuClass = computed(() => 'px-2 py-1 text-xs bg-white border');
+            const bubbleMenuClass = computed(
+                () => 'px-2 py-1 text-xs bg-white border'
+            );
 
             const isLinkActive = ({ editor }) => editor.isActive('link');
 

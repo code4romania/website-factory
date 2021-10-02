@@ -1,5 +1,10 @@
 <template>
-    <form-field :name="name" :required="required" :disabled="disabled" :locale="locale">
+    <form-field
+        :name="name"
+        :required="required"
+        :disabled="disabled"
+        :locale="locale"
+    >
         <button
             @click.prevent="checked = !checked"
             type="button"
@@ -20,7 +25,10 @@
     </form-field>
 
     <div>
-        <div class="flex items-center" :class="inverse ? 'flex-row-reverse' : ''">
+        <div
+            class="flex items-center"
+            :class="inverse ? 'flex-row-reverse' : ''"
+        >
             <div
                 class="flex my-1 text-xs leading-tight text-gray-700"
                 :class="inverse ? 'mr-2' : 'ml-2'"

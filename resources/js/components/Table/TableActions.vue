@@ -85,7 +85,10 @@
         },
         methods: {
             adminRoute(suffix, args) {
-                return this.route(this.properties.route_prefix + '.' + suffix, args);
+                return this.route(
+                    this.properties.route_prefix + '.' + suffix,
+                    args
+                );
             },
         },
     };

@@ -1,6 +1,9 @@
 <template>
     <layout :breadcrumbs="breadcrumbs" :title="pageTitle">
-        <form @submit.prevent="form.put(route('admin.pages.update', page))" class="grid gap-y-8">
+        <form
+            @submit.prevent="form.put(route('admin.pages.update', page))"
+            class="grid gap-y-8"
+        >
             <panel-model action="save" :form="form">
                 <localized-field
                     type="form-input"
@@ -33,7 +36,11 @@
             page: Object,
         },
         setup(props) {
-            const form = useForm('edit.page', ['title', 'slug', 'blocks'], props.page);
+            const form = useForm(
+                'edit.page',
+                ['title', 'slug', 'blocks'],
+                props.page
+            );
 
             return {
                 form,

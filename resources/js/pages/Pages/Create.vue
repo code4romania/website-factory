@@ -1,6 +1,9 @@
 <template>
     <layout :breadcrumbs="breadcrumbs" :title="pageTitle">
-        <form @submit.prevent="form.post(route('admin.pages.store'))" class="grid gap-y-8">
+        <form
+            @submit.prevent="form.post(route('admin.pages.store'))"
+            class="grid gap-y-8"
+        >
             <panel-model action="save" :form="form">
                 <localized-field
                     type="form-input"

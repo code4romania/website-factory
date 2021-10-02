@@ -1,7 +1,9 @@
 <template>
     <section class="bg-white border">
         <header class="flex items-stretch bg-gray-50">
-            <div class="handle flex-shrink-0 w-5 px-1.5 py-2 bg-gray-100 border-r cursor-move">
+            <div
+                class="handle flex-shrink-0 w-5 px-1.5 py-2 bg-gray-100 border-r cursor-move"
+            >
                 <icon-drag class="w-full h-full text-gray-400 fill-current" />
             </div>
 
@@ -10,11 +12,22 @@
             </div>
 
             <div class="flex items-center pr-3 space-x-2">
-                <button type="button" @click="toggleWidth" class="text-gray-400 hover:text-gray-900">
-                    <component :is="content.fullwidth ? 'icon-reduce' : 'icon-enlarge'" class="w-4 h-4 fill-current" />
+                <button
+                    type="button"
+                    @click="toggleWidth"
+                    class="text-gray-400 hover:text-gray-900"
+                >
+                    <component
+                        :is="content.fullwidth ? 'icon-reduce' : 'icon-enlarge'"
+                        class="w-4 h-4 fill-current"
+                    />
                 </button>
 
-                <button type="button" @click="$emit('delete')" class="text-gray-400 hover:text-red-500">
+                <button
+                    type="button"
+                    @click="$emit('delete')"
+                    class="text-gray-400 hover:text-red-500"
+                >
                     <icon-delete class="w-4 h-4 fill-current" />
                 </button>
             </div>

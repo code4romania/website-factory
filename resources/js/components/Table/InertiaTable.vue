@@ -21,16 +21,26 @@
             <tbody class="divide-y divide-gray-200">
                 <tr
                     class="text-gray-900"
-                    :class="{ 'hover:bg-gray-50 focus-within:bg-gray-50 group': rowsAreClickable }"
+                    :class="{
+                        'hover:bg-gray-50 focus-within:bg-gray-50 group': rowsAreClickable,
+                    }"
                     v-for="(row, rowIndex) in collection.data"
                     :key="rowIndex"
                 >
-                    <template v-for="(column, columnIndex) in collection.columns">
-                        <td v-if="column.field === 'bulk'" :key="`bulk-${columnIndex}`" class="w-0 p-5 pr-2.5">
+                    <template
+                        v-for="(column, columnIndex) in collection.columns"
+                    >
+                        <td
+                            v-if="column.field === 'bulk'"
+                            :key="`bulk-${columnIndex}`"
+                            class="w-0 p-5 pr-2.5"
+                        >
                             <form-checkbox
                                 v-model="selected"
                                 :value="row.id"
-                                @update="(checked) => toggleSelect(checked, row)"
+                                @update="
+                                    (checked) => toggleSelect(checked, row)
+                                "
                             />
                         </td>
 
@@ -46,25 +56,44 @@
                             :key="`title-${columnIndex}`"
                             class="px-6 py-4 text-sm font-medium"
                         >
-                            <span class="text-gray-900" v-html="rowStatus(row)" />
+                            <span
+                                class="text-gray-900"
+                                v-html="rowStatus(row)"
+                            />
 
                             <inertia-link
-                                v-if="!row.hasOwnProperty('trashed') || !row.trashed"
+                                v-if="
+                                    !row.hasOwnProperty('trashed') ||
+                                    !row.trashed
+                                "
                                 class="text-blue-800 focus:outline-none hover:underline"
                                 :href="rowUrl(row)"
                             >
-                                <slot :name="column.field" :[column.field]="row[column.field]" :row="row">
+                                <slot
+                                    :name="column.field"
+                                    :[column.field]="row[column.field]"
+                                    :row="row"
+                                >
                                     {{ row[column.field] }}
                                 </slot>
                             </inertia-link>
 
-                            <slot v-else :name="column.field" :[column.field]="row[column.field]" :row="row">
+                            <slot
+                                v-else
+                                :name="column.field"
+                                :[column.field]="row[column.field]"
+                                :row="row"
+                            >
                                 {{ row[column.field] }}
                             </slot>
                         </td>
 
                         <td v-else class="px-6 py-4 text-sm" :key="columnIndex">
-                            <slot :name="column.field" :[column.field]="row[column.field]" :row="row">
+                            <slot
+                                :name="column.field"
+                                :[column.field]="row[column.field]"
+                                :row="row"
+                            >
                                 {{ row[column.field] }}
                             </slot>
                             <!-- <component
@@ -86,7 +115,11 @@
 
     <pagination v-if="paginate" :meta="collection.meta" />
 
-    <table-empty v-if="!collection.data.length" :id="collection.properties.model" :action="emptyAction" />
+    <table-empty
+        v-if="!collection.data.length"
+        :id="collection.properties.model"
+        :action="emptyAction"
+    />
 </template>
 
 <script>
@@ -143,7 +176,10 @@
         },
         computed: {
             rowsAreClickable() {
-                if (this.collection.filters.hasOwnProperty('status') && this.collection.filters.status === 'trashed') {
+                if (
+                    this.collection.filters.hasOwnProperty('status') &&
+                    this.collection.filters.status === 'trashed'
+                ) {
                     return false;
                 }
 
@@ -172,7 +208,10 @@
                     const visible = new Int8Array(this.visibleIds).sort();
                     const selected = new Int8Array(this.selected).sort();
 
-                    return selected.length === visible.length && selected.every((value, index) => value === visible[index]);
+                    return (
+                        selected.length === visible.length &&
+                        selected.every((value, index) => value === visible[index])
+                    );
                 },
             },
 
@@ -191,14 +230,21 @@
         },
         methods: {
             rowStatus(row) {
-                if (!row.hasOwnProperty('status') || row.status === 'published' || row.trashed) {
+                if (
+                    !row.hasOwnProperty('status') ||
+                    row.status === 'published' ||
+                    row.trashed
+                ) {
                     return null;
                 }
 
                 return this.$t(row.status) + ' &mdash; ';
             },
             rowUrl(row) {
-                return this.route(this.collection.properties.route_prefix + '.edit', row);
+                return this.route(
+                    this.collection.properties.route_prefix + '.edit',
+                    row
+                );
             },
             toggleSelect(checked, row) {
                 if (checked) {

@@ -43,7 +43,10 @@ export default {
 
     methods: {
         emit(arg) {
-            this.$emit('update:modelValue', arg instanceof InputEvent ? arg.target.value : arg);
+            this.$emit(
+                'update:modelValue',
+                arg instanceof InputEvent ? arg.target.value : arg
+            );
         },
     },
 };
