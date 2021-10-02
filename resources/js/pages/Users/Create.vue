@@ -1,10 +1,6 @@
 <template>
     <layout :breadcrumbs="breadcrumbs">
         <template #title>{{ pageTitle }}</template>
-
-        <form-publisher />
-
-        ssss
     </layout>
 </template>
 
