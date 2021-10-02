@@ -16,8 +16,6 @@ trait Publishable
         $this->casts['published_at'] = 'datetime';
     }
 
-    }
-
     public function scopePublished(Builder $query): Builder
     {
         return $query->whereNotNull('published_at')
