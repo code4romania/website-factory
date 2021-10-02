@@ -44,7 +44,7 @@
 
                 <template #content>
                     <dropdown-item
-                        v-for="(blockType, index) in availableBlockTypes"
+                        v-for="(blockType, index) in blockTypes"
                         :key="index"
                         type="button"
                         @click="addBlock(blockType.type)"
@@ -69,6 +69,7 @@
     import IconStack from 'remixicon/icons/Business/stack-line.svg';
     import IconParagraph from 'remixicon/icons/Editor/paragraph.svg';
     import Draggable from 'vuedraggable';
+    import { usePage } from '@inertiajs/inertia-vue3';
 
     export default {
         name: 'BlockList',
@@ -89,13 +90,7 @@
         },
         emits: ['update:blocks'],
         computed: {
-            availableBlockTypes() {
-                return [
-                    //
-                    { icon: 'Editor/paragraph-line', type: 'text' },
-                    { icon: 'Editor/paragraph-line', type: 'call-to-action' },
-                ];
-            },
+            blockTypes: () => usePage().props.value.model.blocks,
         },
         methods: {
             addBlock(type) {

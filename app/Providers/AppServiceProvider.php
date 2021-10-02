@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Services\BlockTypeCollection;
+use App\Traits\HasBlocks;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -72,16 +74,16 @@ class AppServiceProvider extends ServiceProvider
 
     protected function registerInertiaMacros(): void
     {
-        Response::macro('model', fn (string $model) => $this->with([
-            'model' => [
-                'translatable' => function () use ($model) {
-                    if (! \in_array(Translatable::class, \class_uses_recursive($model))) {
-                        return [];
-                    }
+        Response::macro('model', function (string $model) {
+            $model = \resolve($model);
+            $traits = \class_uses_recursive($model);
 
-                    return resolve($model)->translatable;
-                },
-            ],
-        ]));
+            return $this->with([
+                'model' => [
+                    'blocks' => \in_array(HasBlocks::class, $traits) ? (new BlockTypeCollection())->all() : [],
+                    'translatable' => \in_array(Translatable::class, $traits) ? $model->translatable : [],
+                ],
+            ]);
+        });
     }
 }

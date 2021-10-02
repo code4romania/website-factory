@@ -21,7 +21,7 @@
         </header>
 
         <div class="px-4 py-5 space-y-8 sm:p-6">
-            <component :is="component" v-model:content="content" />
+            <component :is="blockType" v-model:content="content" />
 
             <details v-if="$page.props.app.debug">
                 <summary>Debug</summary>
@@ -40,6 +40,8 @@
 </template>
 
 <script>
+    import { computed } from 'vue';
+
     import IconReduce from 'remixicon/icons/Media/fullscreen-exit-line.svg';
     import IconEnlarge from 'remixicon/icons/Media/fullscreen-line.svg';
     import IconDelete from 'remixicon/icons/System/delete-bin-line.svg';
@@ -68,15 +70,18 @@
             },
         },
         emits: ['delete'],
-        computed: {
-            component() {
-                return `content-block-${this.type.toLowerCase()}`;
-            },
-        },
-        methods: {
-            toggleWidth() {
-                this.content.fullwidth = !this.content.fullwidth;
-            },
+        setup(props) {
+            const blockType = computed(
+                () => `block-type-${props.type.toLowerCase()}`
+            );
+            const toggleWidth = () => {
+                props.content.fullwidth = !props.content.fullwidth;
+            };
+
+            return {
+                blockType,
+                toggleWidth,
+            };
         },
     };
 </script>
