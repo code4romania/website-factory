@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
-use Astrotomic\Translatable\Contracts\Translatable;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Request;
@@ -12,6 +12,15 @@ use Illuminate\Support\Str;
 
 trait Sortable
 {
+    public function initializeSortable(): void
+    {
+        if (! \property_exists($this, 'allowedSorts') || ! \is_array($this->allowedSorts)) {
+            throw new Exception('Property allowedSorts not defined on ' . \get_class($this));
+        }
+
+        $this->allowedSorts[] = 'created_at';
+    }
+
     /**
      * Sort by request query string.
      *
@@ -32,13 +41,6 @@ trait Sortable
 
         if (! $this->isSortableAttribute($column)) {
             return $query;
-        }
-
-        if (
-            $this instanceof Translatable &&
-            $this->isTranslationAttribute($column)
-        ) {
-            return $query->orderByTranslation($column, $direction);
         }
 
         if (Str::contains($column, '.')) {
@@ -74,10 +76,6 @@ trait Sortable
 
     public function isSortableAttribute(string $key): bool
     {
-        if (! \property_exists($this, 'allowedSorts') || ! \is_array($this->allowedSorts)) {
-            throw new Exception('Property allowedSorts not defined on ' . \get_class($this));
-        }
-
         return \in_array($key, $this->allowedSorts);
     }
 }

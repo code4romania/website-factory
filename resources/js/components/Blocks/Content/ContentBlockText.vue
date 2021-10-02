@@ -1,6 +1,6 @@
 <template>
     <localized-field
-        type="form-textarea"
+        type="form-editor"
         label="Text"
         name="blocks[text]"
         required

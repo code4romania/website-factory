@@ -1,28 +1,41 @@
 <template>
-    <layout :breadcrumbs="breadcrumbs">
-        <template #title>{{ pageTitle }}</template>
-
-        <template #sidebar> <form-publisher /> </template>
-
-        ssss
+    <layout :breadcrumbs="breadcrumbs" :title="pageTitle">
+        <form @submit.prevent="form.put(route('admin.forms.update', resource))" class="grid gap-y-8">
+            <panel-model action="save" :form="form">
+                <localized-field
+                    type="form-input"
+                    :label="$t('field.title')"
+                    name="title"
+                    v-model="form.title"
+                    required
+                />
+            </panel-model>
+        </form>
     </layout>
 </template>
 
 <script>
+    import { useForm } from '@inertiajs/inertia-vue3';
+
     export default {
         props: {
-            // forms: Object,
+            resource: Object,
         },
-        data() {
+        setup(props) {
+            const form = useForm(
+                /* `edit.form.${props.resource.id}`, */ {
+                    title: props.resource.title,
+                    blocks: props.resource.blocks,
+                }
+            );
+
             return {
-                form: this.$inertia.form({
-                    //
-                }),
+                form,
             };
         },
         computed: {
             pageTitle() {
-                return this.$t('form.action.create');
+                return this.$t('form.action.edit');
             },
             breadcrumbs() {
                 return [

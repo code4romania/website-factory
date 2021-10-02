@@ -48,18 +48,9 @@
                     >
                         <span class="sr-only">Open main menu</span>
 
-                        <img
-                            v-show="!open"
-                            src="remixicon/icons/System/menu-line.svg"
+                        <component
+                            :is="!open ? 'icon-menu-open' : 'icon-menu-close'"
                             class="block w-6 h-6 fill-current"
-                            svg-inline
-                        />
-
-                        <img
-                            v-show="open"
-                            src="remixicon/icons/System/close-line.svg"
-                            class="block w-6 h-6 fill-current"
-                            svg-inline
                         />
                     </button>
                 </div>
@@ -147,8 +138,15 @@
 </template>
 
 <script>
+    import IconMenuOpen from 'remixicon/icons/System/menu-line.svg';
+    import IconMenuClose from 'remixicon/icons/System/close-line.svg';
+
     export default {
         name: 'MenuNavbar',
+        components: {
+            IconMenuOpen,
+            IconMenuClose,
+        },
         props: {
             mainMenu: {
                 type: Array,

@@ -21,7 +21,7 @@ return new class extends Migration {
 
             $table->json('data')->nullable();
 
-            $table->foreignId('form')->nullable()->constrained()->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('form')->nullable()->constrained()->nullOnDelete()->cascadeOnUpdate();
         });
     }
 };

@@ -1,24 +1,24 @@
 <template>
     <layout :breadcrumbs="breadcrumbs" :title="pageTitle">
-        <form
-            @submit.prevent="form.post(route('admin.pages.store'))"
-            class="grid gap-y-8"
-        >
-            <div class="flex flex-col gap-8 md:flex-row-reverse">
-                <panel-publisher action="save" :form="form" />
+        <form @submit.prevent="form.post(route('admin.pages.store'))" class="grid gap-y-8">
+            <panel-model action="save" :form="form">
+                <localized-field
+                    type="form-input"
+                    :label="$t('field.title')"
+                    name="title"
+                    v-model="form.title"
+                    required
+                />
 
-                <panel class="md:flex-1">
-                    <div class="space-y-8">
-                        <localized-field
-                            type="form-input"
-                            label="Title"
-                            name="title"
-                            v-model="form.title"
-                            required
-                        />
-                    </div>
-                </panel>
-            </div>
+                <localized-field
+                    type="form-slug"
+                    :label="$t('field.slug')"
+                    name="slug"
+                    v-model="form.slug"
+                    route-name="front.pages.show"
+                    required
+                />
+            </panel-model>
 
             <block-list v-model:blocks="form.blocks" />
         </form>
@@ -26,16 +26,11 @@
 </template>
 
 <script>
-    import { useForm } from '@inertiajs/inertia-vue3';
-    import LocaleMixin from '@/mixins/locale';
+    import { useForm } from '@/helpers';
 
     export default {
-        mixins: [LocaleMixin],
         setup(props) {
-            const form = useForm('CreatePage', {
-                title: {},
-                blocks: [],
-            });
+            const form = useForm('create.page', ['title', 'slug', 'blocks']);
 
             return {
                 form,

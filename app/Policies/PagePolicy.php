@@ -32,7 +32,7 @@ class PagePolicy
      */
     public function view(User $user, Page $page)
     {
-        //
+        return true;
     }
 
     /**
@@ -43,7 +43,7 @@ class PagePolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -55,7 +55,7 @@ class PagePolicy
      */
     public function update(User $user, Page $page)
     {
-        //
+        return true;
     }
 
     /**
@@ -67,7 +67,7 @@ class PagePolicy
      */
     public function delete(User $user, Page $page)
     {
-        //
+        return true;
     }
 
     /**
@@ -79,7 +79,7 @@ class PagePolicy
      */
     public function restore(User $user, Page $page)
     {
-        //
+        return true;
     }
 
     /**
@@ -91,6 +91,6 @@ class PagePolicy
      */
     public function forceDelete(User $user, Page $page)
     {
-        //
+        return $user->isAdmin();
     }
 }

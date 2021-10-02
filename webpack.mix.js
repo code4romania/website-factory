@@ -54,18 +54,19 @@ mix.valet('primarie.test')
             },
         });
 
+        const initialSvgRule = config.module.rules.find((rule) =>
+            rule.test.test('.svg')
+        );
+
+        initialSvgRule.test = /\.(png|jpe?g|gif|webp)$/;
+
         config.module.rules.push({
-            test: /\.vue$/,
+            test: /\.svg$/,
             use: [
+                'vue-loader',
                 {
-                    loader: 'vue-svg-inline-loader',
+                    loader: 'vue-svg-loader',
                     options: {
-                        removeAttributes: [
-                            'alt',
-                            'src',
-                            'svg-inline',
-                            'tabindex',
-                        ],
                         svgo: {
                             plugins: [
                                 { removeDimensions: true },

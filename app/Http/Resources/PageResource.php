@@ -17,17 +17,24 @@ class PageResource extends Resource
     protected function index(Request $request): array
     {
         return [
-            'id'    => $this->id,
-            'title' => $this->title,
+            'id'         => $this->id,
+            'title'      => $this->title,
+            'slug'       => $this->slug,
+            'created_at' => $this->created_at->toDateTimeString(),
+            'trashed'    => $this->trashed(),
+            'status'     => $this->status(),
         ];
     }
 
     protected function edit(Request $request): array
     {
         return [
-            'id'     => $this->id,
-            'title'  => $this->getTranslations('title'),
-            'blocks' => BlockResource::collection($this->blocks),
+            'id'           => $this->id,
+            'title'        => $this->getTranslations('title'),
+            'slug'         => $this->getTranslations('slug'),
+            'created_at'   => $this->created_at->toDateTimeString(),
+            'published_at' => optional($this->published_at)->toDateTimeString(),
+            'blocks'       => BlockResource::collection($this->blocks),
         ];
     }
 

@@ -3,12 +3,7 @@
         <button type="button" @click="open = !open" :class="triggerClass">
             <slot name="trigger" />
 
-            <img
-                v-if="withArrow"
-                src="remixicon/icons/System/arrow-down-s-line.svg"
-                class="-mr-0.5 ml-2 w-4 h-4 fill-current"
-                svg-inline
-            />
+            <icon-dropdown v-if="withArrow" class="w-4 h-4 fill-current" />
         </button>
 
         <!-- Full Screen Dropdown Overlay -->
@@ -29,10 +24,7 @@
                 style="display: none"
                 @click="open = false"
             >
-                <div
-                    class="ring-1 ring-black ring-opacity-5"
-                    :class="contentClasses"
-                >
+                <div class="ring-1 ring-black ring-opacity-5" :class="contentClasses">
                     <slot name="content" />
                 </div>
             </div>
@@ -42,9 +34,13 @@
 
 <script>
     import { onMounted, onUnmounted, ref } from 'vue';
+    import IconDropdown from 'remixicon/icons/System/arrow-down-s-line.svg';
 
     export default {
         name: 'Dropdown',
+        components: {
+            IconDropdown,
+        },
         props: {
             align: {
                 default: 'right',

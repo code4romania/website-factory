@@ -15,11 +15,6 @@ use Inertia\Response;
 
 class PageController extends Controller
 {
-    public function __construct()
-    {
-        // $this->authorizeResource(Page::class);
-    }
-
     public function index(): Response
     {
         return Inertia::render('Pages/Index', [
@@ -36,7 +31,7 @@ class PageController extends Controller
     {
         return Inertia::render('Pages/Create', [
             //
-        ]);
+        ])->model(Page::class);
     }
 
     public function store(PageRequest $request): RedirectResponse
@@ -52,7 +47,7 @@ class PageController extends Controller
     {
         return Inertia::render('Pages/Edit', [
             'page' => PageResource::make($page),
-        ]);
+        ])->model(Page::class);
     }
 
     public function update(PageRequest $request, Page $page): RedirectResponse
@@ -72,5 +67,21 @@ class PageController extends Controller
 
         return redirect()->route('admin.pages.index')
             ->with('success', __('page.event.deleted'));
+    }
+
+    public function restore(Page $page): RedirectResponse
+    {
+        $page->restore();
+
+        return redirect()->route('admin.pages.index')
+            ->with('success', __('page.event.restored'));
+    }
+
+    public function forceDelete(Page $page): RedirectResponse
+    {
+        $page->forceDelete();
+
+        return redirect()->route('admin.pages.index')
+            ->with('success', __('page.event.forceDeleted'));
     }
 }

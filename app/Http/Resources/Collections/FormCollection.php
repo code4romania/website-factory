@@ -12,6 +12,6 @@ class FormCollection extends ResourceCollection
      * @var array
      */
     protected array $columns = [
-        'title',
+        'title', 'created_at',
     ];
 }

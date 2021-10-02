@@ -1,7 +1,11 @@
 <template>
-    <inertia-link v-if="type === 'link'" :class="style">
+    <inertia-link v-if="type === 'link' && !target" :class="style">
         <slot />
     </inertia-link>
+
+    <a v-else-if="type === 'link' && target" :target="target" :class="style">
+        <slot />
+    </a>
 
     <button type="button" v-else-if="type === 'button'" :class="style">
         <slot />
@@ -16,6 +20,10 @@
                 type: String,
                 default: 'link',
                 validator: (value) => ['link', 'button'].includes(value),
+            },
+            target: {
+                type: String,
+                default: null,
             },
         },
         computed: {

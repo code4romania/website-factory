@@ -6,6 +6,7 @@ return [
 
     'dashboard' => 'Dashboard',
     'settings'  => 'Settings',
+    'profile'   => 'Profile',
 
     'action' => [
         'apply'   => 'Apply',

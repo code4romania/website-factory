@@ -1,10 +1,6 @@
 <template>
     <layout :title="$tc('form.label', 2)">
-        <inertia-table :collection="collection">
-            <template #title="{ title }">
-                {{ title }}
-            </template>
-        </inertia-table>
+        <inertia-table :collection="collection"> </inertia-table>
     </layout>
 </template>
 

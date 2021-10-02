@@ -37,11 +37,7 @@
                 trigger-class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-100"
             >
                 <template #trigger>
-                    <img
-                        src="remixicon/icons/Business/stack-line.svg"
-                        class="w-5 h-5 mr-2 -ml-1 fill-current"
-                        svg-inline
-                    />
+                    <icon-stack class="w-5 h-5 mr-2 -ml-1 fill-current" />
 
                     <span class=""> Add new block </span>
                 </template>
@@ -54,10 +50,8 @@
                         @click="addBlock(blockType.type)"
                         class="flex items-center"
                     >
-                        <img
-                            src="remixicon/icons/Editor/paragraph.svg"
+                        <icon-paragraph
                             class="w-5 h-5 mr-2 text-gray-400 fill-current"
-                            svg-inline
                         />
 
                         <span
@@ -72,12 +66,16 @@
 </template>
 
 <script>
-    import draggable from 'vuedraggable';
+    import IconStack from 'remixicon/icons/Business/stack-line.svg';
+    import IconParagraph from 'remixicon/icons/Editor/paragraph.svg';
+    import Draggable from 'vuedraggable';
 
     export default {
         name: 'BlockList',
         components: {
-            draggable,
+            Draggable,
+            IconStack,
+            IconParagraph,
         },
         props: {
             blocks: {

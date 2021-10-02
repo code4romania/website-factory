@@ -15,7 +15,7 @@ class PageController extends Controller
         return view('front.page', [
             'page' => Page::query()
                 ->with('blocks')
-                ->first(),
+                ->firstOrFail(),
         ]);
     }
 

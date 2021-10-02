@@ -6,32 +6,6 @@ module.exports = {
     theme: {
         extend: {
             colors: colors,
-            fontFamily: {
-                sans: [
-                    'ui-sans-serif',
-                    'system-ui',
-                    '-apple-system',
-                    'BlinkMacSystemFont',
-                    '"Segoe UI"',
-                    'Roboto',
-                    '"Helvetica Neue"',
-                    'Arial',
-                    '"Noto Sans"',
-                    'sans-serif',
-                    '"Apple Color Emoji"',
-                    '"Segoe UI Emoji"',
-                    '"Segoe UI Symbol"',
-                    '"Noto Color Emoji"',
-                ],
-                serif: [
-                    'ui-serif',
-                    'Georgia',
-                    'Cambria',
-                    '"Times New Roman"',
-                    'Times',
-                    'serif',
-                ],
-            },
 
             minWidth: (theme) => theme('spacing'),
             maxWidth: (theme) => theme('spacing'),
@@ -40,6 +14,18 @@ module.exports = {
 
             borderColor: (theme) => ({
                 inherit: 'inherit',
+            }),
+            typography: (theme) => ({
+                DEFAULT: {
+                    css: {
+                        color: theme('colors.gray.900'),
+                        maxWidth: null,
+                        '> ul > li > *:first-child': null,
+                        '> ul > li > *:last-child': null,
+                        '> ol > li > *:first-child': null,
+                        '> ol > li > *:last-child': null,
+                    },
+                },
             }),
         },
     },

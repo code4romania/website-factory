@@ -9,11 +9,7 @@
                 :href="prevPage"
                 class="inline-flex items-center pt-4 pr-1 space-x-3 text-sm font-medium text-gray-500 border-t-2 border-transparent hover:text-gray-700 hover:border-gray-300"
             >
-                <img
-                    src="remixicon/icons/System/arrow-left-line.svg"
-                    class="w-5 h-5 text-gray-400 fill-current"
-                    svg-inline
-                />
+                <icon-arrow-left class="w-5 h-5 text-gray-400 fill-current" />
 
                 <span v-text="$t('pagination.previous')" />
             </inertia-link>
@@ -54,19 +50,22 @@
             >
                 <span v-text="$t('pagination.next')" />
 
-                <img
-                    src="remixicon/icons/System/arrow-right-line.svg"
-                    class="w-5 h-5 text-gray-400 fill-current"
-                    svg-inline
-                />
+                <icon-arrow-right class="w-5 h-5 text-gray-400 fill-current" />
             </inertia-link>
         </div>
     </nav>
 </template>
 
 <script>
+    import IconArrowLeft from 'remixicon/icons/System/arrow-left-line.svg';
+    import IconArrowRight from 'remixicon/icons/System/arrow-right-line.svg';
+
     export default {
         name: 'Pagination',
+        components: {
+            IconArrowLeft,
+            IconArrowRight,
+        },
         props: {
             meta: {
                 type: Object,

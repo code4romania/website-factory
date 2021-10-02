@@ -7,11 +7,13 @@ namespace App\Models;
 use App\Exceptions\InvalidFormFieldType;
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
+use App\Traits\HasUuid;
 use App\Traits\Sortable;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\Rule;
@@ -21,6 +23,8 @@ class Form extends Model
     use Filterable;
     use HasBlocks;
     use HasFactory;
+    use HasUuid;
+    use SoftDeletes;
     use Sortable;
     use Translatable;
 

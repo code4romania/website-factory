@@ -1,7 +1,11 @@
 <template>
     <div class="relative flex flex-col w-full h-full bg-white shadow md:w-80">
-        <div class="flex-1 px-4 py-5 sm:p-6">
-            <slot />
+        <div class="flex-1">
+            <accordion>
+                <template #title> Publish </template>
+
+                <form-datepicker v-model="form.published_at" />
+            </accordion>
         </div>
 
         <div class="px-3 py-3">
@@ -14,17 +18,10 @@
                 />
 
                 <dropdown
-                    trigger-class="flex items-center justify-center w-full h-full px-2 text-white transition duration-150 ease-in-out bg-green-600 border border-transparent hover:bg-green-700 focus:ring-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                    trigger-class="flex items-center justify-center w-full h-full px-2 text-white transition duration-150 ease-in-out bg-green-600 border border-transparent divide-x divide-green-300 hover:bg-green-700 focus:ring-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2"
                     origin="top-right"
+                    with-arrow
                 >
-                    <template #trigger>
-                        <img
-                            src="remixicon/icons/System/arrow-down-s-line.svg"
-                            class="w-4 h-4 fill-current"
-                            svg-inline
-                        />
-                    </template>
-
                     <template #content> other options </template>
                 </dropdown>
             </div>
@@ -35,6 +32,7 @@
 <script>
     export default {
         name: 'PanelPublisher',
+
         props: {
             action: {
                 type: String,

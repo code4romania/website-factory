@@ -1,27 +1,34 @@
 <template>
-    <div v-if="availableLocales.length">
-        <template v-for="locale in availableLocales">
+    <div v-if="locales.length">
+        <template v-for="locale in locales">
             <component
                 :key="locale"
                 :is="type"
-                v-if="locale === activeLocale"
+                v-if="locale === currentLocale"
                 v-bind="$attrs"
                 :name="$attrs.name"
                 v-model="modelValue[locale]"
                 :locale="locale"
-            />
+            >
+                <template v-for="(_, name) in $slots" v-slot:[name]="slotData">
+                    <slot :name="name" v-bind="slotData" />
+                </template>
+            </component>
         </template>
     </div>
 </template>
 
 <script>
-    import LocaleMixin from '@/mixins/locale';
+    import { useLocale } from '@/helpers';
 
     export default {
         name: 'LocalizedField',
-        mixins: [LocaleMixin],
         inheritAttrs: false,
         props: {
+            locale: {
+                type: String,
+                default: null,
+            },
             type: {
                 type: String,
                 required: true,
@@ -32,5 +39,13 @@
             },
         },
         emits: ['update:modelValue'],
+        setup(props) {
+            const { locales, currentLocale } = useLocale(props);
+
+            return {
+                currentLocale,
+                locales,
+            };
+        },
     };
 </script>

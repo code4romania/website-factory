@@ -6,6 +6,7 @@ return [
 
     'dashboard' => 'Panou de control',
     'settings'  => 'Setări',
+    'profile'   => 'Profil',
 
     'action' => [
         'apply'   => 'Aplică',

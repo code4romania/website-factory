@@ -23,8 +23,10 @@ class PageFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->translatedFaker('sentence'),
-            'slug'  => $this->translatedFaker('slug'),
+            'title'        => $this->translatedFaker('sentence'),
+            'slug'         => $this->translatedFaker('slug'),
+            'published_at' => $this->faker->boolean(95) ? $this->faker->dateTimeThisYear() : null,
+            'deleted_at'   => $this->faker->boolean(5) ? $this->faker->dateTime() : null,
         ];
     }
 }

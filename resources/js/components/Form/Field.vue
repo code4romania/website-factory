@@ -27,36 +27,29 @@
             />
         </div>
 
-        <div
-            class="relative flex"
-            :class="[hasErrors ? 'border-red-600' : 'border-gray-400']"
-        >
+        <div class="relative flex flex-wrap" :class="[hasErrors ? 'border-red-600' : 'border-gray-400']">
             <slot />
         </div>
 
-        <div
-            v-if="hasErrors"
-            class="mt-2 space-y-1 text-sm text-red-600"
-            role="alert"
-        >
-            <p
-                v-for="(message, locale) in errors"
-                :key="locale"
-                v-text="message"
-            />
+        <div v-if="hasErrors" class="mt-2 space-y-1 text-sm text-red-600" role="alert">
+            <p v-for="(message, locale) in errors" :key="locale" v-text="message" />
         </div>
     </div>
 </template>
 
 <script>
+    import { computed } from 'vue';
     import { usePage } from '@inertiajs/inertia-vue3';
-
-    import LocaleMixin from '@/mixins/locale';
+    import { useLocale } from '@/helpers';
 
     export default {
         name: 'FormField',
-        mixins: [LocaleMixin],
+
         props: {
+            locale: {
+                type: String,
+                default: null,
+            },
             name: {
                 type: String,
                 required: true,
@@ -82,24 +75,31 @@
                 default: false,
             },
         },
-        computed: {
-            hasErrors() {
-                return Object.keys(this.errors).length > 0;
-            },
-            errors() {
+        setup(props) {
+            const { nextLocale } = useLocale(props);
+
+            const errors = computed(() => {
                 const initialErrors = usePage().props.value.errors;
                 const errors = {};
 
                 Object.keys(initialErrors).forEach((key) => {
                     const [name, locale] = key.split('.');
 
-                    if (this.name === name) {
+                    if (props.name === name) {
                         errors[locale] = initialErrors[key];
                     }
                 });
 
                 return errors;
-            },
+            });
+
+            const hasErrors = computed(() => Object.keys(errors.value).length > 0);
+
+            return {
+                errors,
+                hasErrors,
+                nextLocale,
+            };
         },
     };
 </script>

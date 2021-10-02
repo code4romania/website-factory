@@ -11,45 +11,67 @@ trait Publishable
 {
     public function initializePublishable(): void
     {
-        $this->fillable[] = 'publish_start_at';
-        $this->fillable[] = 'publish_end_at';
+        $this->fillable[] = 'published_at';
 
-        $this->casts['publish_start_at'] = 'datetime';
-        $this->casts['publish_end_at'] = 'datetime';
+        $this->casts['published_at'] = 'datetime';
+    }
+
     }
 
     public function scopePublished(Builder $query): Builder
     {
-        $now = Carbon::now();
+        return $query->whereNotNull('published_at')
+            ->where('published_at', '<=', Carbon::now());
+    }
 
-        return $query
-            ->where(
-                fn (Builder $q) => $q
-                    ->where('publish_start_at', '<=', $now)
-                    ->whereNotNull('publish_start_at')
-            )
-            ->where(
-                fn (Builder $q) => $q
-                    ->where('publish_end_at', '>', $now)
-                    ->orWhereNull('publish_end_at')
-            );
+    public function scopeUnpublished(Builder $query): Builder
+    {
+        return $query->whereNull('published_at')
+            ->orWhere('published_at', '>', Carbon::now());
     }
 
     public function scopeOnlyDraft(Builder $query): Builder
     {
-        return $query
-            ->where('publish_start_at', '>', Carbon::now())
-            ->orWhereNull('publish_start_at');
+        return $query->whereNull('published_at');
     }
 
-    public function isPublished(): bool
+    public function scopeOnlyScheduled(Builder $query): Builder
     {
-        return optional($this->publish_start_at)->isPast() &&
-            ! optional($this->publish_end_at)->isPast();
+        return $query->where('published_at', '>', Carbon::now());
     }
 
     public function isDraft(): bool
     {
-        return ! $this->isPublished();
+        return \is_null($this->published_at);
+    }
+
+    public function isPublished(): bool
+    {
+        return ! $this->isDraft() && $this->published_at->isPast();
+    }
+
+    public function isScheduled(): bool
+    {
+        return ! $this->isDraft() && $this->published_at->isFuture();
+    }
+
+    /**
+     * Determine the publish status of the model instance.
+     *
+     * @return bool
+     */
+    public function status(): string
+    {
+        if ($this->isDraft()) {
+            return 'draft';
+        }
+
+        if ($this->isPublished()) {
+            return 'published';
+        }
+
+        if ($this->isScheduled()) {
+            return 'scheduled';
+        }
     }
 }

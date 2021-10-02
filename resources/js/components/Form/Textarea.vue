@@ -9,7 +9,7 @@
         :locale="locale"
     >
         <textarea
-            class="block w-full overflow-hidden border-gray-400 resize-none"
+            class="block w-full overflow-hidden resize-none border-inherit"
             :id="name"
             :name="name"
             :required="required"
@@ -64,11 +64,7 @@
             onMounted(resize);
 
             watch(
-                computed(() => [
-                    props.modelValue,
-                    props.minHeight,
-                    props.maxHeight,
-                ]),
+                computed(() => [props.modelValue, props.minHeight, props.maxHeight]),
                 resize
             );
 

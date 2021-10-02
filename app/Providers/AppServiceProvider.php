@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use Inertia\Response;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -49,6 +51,7 @@ class AppServiceProvider extends ServiceProvider
         Model::preventLazyLoading(! $this->app->isProduction());
 
         $this->registerBlueprintMacros();
+        $this->registerInertiaMacros();
     }
 
     protected function registerBlueprintMacros(): void
@@ -62,9 +65,23 @@ class AppServiceProvider extends ServiceProvider
             }
 
             if ($published) {
-                $this->timestamp('publish_start_at')->nullable();
-                $this->timestamp('publish_end_at')->nullable();
+                $this->timestamp('published_at')->nullable();
             }
         });
+    }
+
+    protected function registerInertiaMacros(): void
+    {
+        Response::macro('model', fn (string $model) => $this->with([
+            'model' => [
+                'translatable' => function () use ($model) {
+                    if (! \in_array(Translatable::class, \class_uses_recursive($model))) {
+                        return [];
+                    }
+
+                    return resolve($model)->translatable;
+                },
+            ],
+        ]));
     }
 }

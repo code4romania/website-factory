@@ -1,18 +1,29 @@
 <template>
-    <layout :breadcrumbs="breadcrumbs">
-        <template #title>{{ pageTitle }}</template>
+    <layout :breadcrumbs="breadcrumbs" :title="pageTitle">
+        <form @submit.prevent="form.post(route('admin.forms.store'))" class="grid gap-y-8">
+            <panel-model action="save" :form="form">
+                <localized-field
+                    type="form-input"
+                    :label="$t('field.title')"
+                    name="title"
+                    v-model="form.title"
+                    required
+                />
+            </panel-model>
 
-        <template #sidebar> <form-publisher /> </template>
-
-        ssss
+            <block-list v-model:blocks="form.blocks" />
+        </form>
     </layout>
 </template>
 
 <script>
+    import { useForm } from '@inertiajs/inertia-vue3';
+
     export default {
-        props: {
-            // forms: Object,
+        setup(props) {
+            const form = useForm('create.form', {});
         },
+
         data() {
             return {
                 form: this.$inertia.form({

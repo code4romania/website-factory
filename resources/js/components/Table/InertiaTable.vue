@@ -4,12 +4,12 @@
 
         <inertia-link
             class="relative inline-flex items-center justify-center px-4 py-2 text-sm font-semibold tracking-wider text-white transition duration-150 ease-in-out bg-green-600 border border-transparent hover:bg-green-700 focus:ring-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-default"
-            :href="route(this.collection.route_prefix + '.create')"
+            :href="route(this.collection.properties.route_prefix + '.create')"
             v-text="createActionLabel || $t('app.action.create')"
         />
     </div>
 
-    <div class="my-4 overflow-x-auto">
+    <div class="my-4 overflow-x-scroll md:overflow-visible">
         <table class="min-w-full text-gray-900 table-fixed">
             <table-header
                 :columns="collection.columns"
@@ -20,41 +20,63 @@
 
             <tbody class="divide-y divide-gray-200">
                 <tr
-                    class="text-gray-900 hover:bg-gray-50 focus-within:bg-blue-50"
+                    class="text-gray-900"
+                    :class="{ 'hover:bg-gray-50 focus-within:bg-gray-50 group': rowsAreClickable }"
                     v-for="(row, rowIndex) in collection.data"
                     :key="rowIndex"
                 >
-                    <template
-                        v-for="(column, columnIndex) in collection.columns"
-                    >
-                        <td
-                            v-if="column.field === 'bulk'"
-                            class="w-0 p-5 pr-2.5"
-                            :key="`bulk-${columnIndex}`"
-                        >
+                    <template v-for="(column, columnIndex) in collection.columns">
+                        <td v-if="column.field === 'bulk'" :key="`bulk-${columnIndex}`" class="w-0 p-5 pr-2.5">
                             <form-checkbox
                                 v-model="selected"
                                 :value="row.id"
-                                @update="
-                                    (checked) => toggleSelect(checked, row)
-                                "
+                                @update="(checked) => toggleSelect(checked, row)"
                             />
                         </td>
 
-                        <td v-else class="text-sm" :key="columnIndex">
+                        <table-actions
+                            v-else-if="column.field === 'actions'"
+                            :key="`actions-${columnIndex}`"
+                            :properties="collection.properties"
+                            :row="row"
+                        />
+
+                        <td
+                            v-else-if="columnIndex === 1"
+                            :key="`title-${columnIndex}`"
+                            class="px-6 py-4 text-sm font-medium"
+                        >
+                            <span class="text-gray-900" v-html="rowStatus(row)" />
+
                             <inertia-link
-                                class="block px-6 py-4 focus:outline-none"
+                                v-if="!row.hasOwnProperty('trashed') || !row.trashed"
+                                class="text-blue-800 focus:outline-none hover:underline"
                                 :href="rowUrl(row)"
-                                :tabindex="columnIndex === 0 ? false : -1"
                             >
-                                <slot
-                                    :name="column.field"
-                                    :[column.field]="row[column.field]"
-                                    :row="row"
-                                >
+                                <slot :name="column.field" :[column.field]="row[column.field]" :row="row">
                                     {{ row[column.field] }}
                                 </slot>
                             </inertia-link>
+
+                            <slot v-else :name="column.field" :[column.field]="row[column.field]" :row="row">
+                                {{ row[column.field] }}
+                            </slot>
+                        </td>
+
+                        <td v-else class="px-6 py-4 text-sm" :key="columnIndex">
+                            <slot :name="column.field" :[column.field]="row[column.field]" :row="row">
+                                {{ row[column.field] }}
+                            </slot>
+                            <!-- <component
+                                :is="rowsAreClickable ? 'inertia-link' : 'div'"
+                                class="block px-6 py-4 focus:outline-none"
+                                :href="rowsAreClickable ? rowUrl(row) : false"
+                                :tabindex="!rowsAreClickable || columnIndex === 0 ? false : -1"
+                            >
+                                <slot :name="column.field" :[column.field]="row[column.field]" :row="row">
+                                    {{ row[column.field] }}
+                                </slot>
+                            </component> -->
                         </td>
                     </template>
                 </tr>
@@ -64,11 +86,7 @@
 
     <pagination v-if="paginate" :meta="collection.meta" />
 
-    <table-empty
-        v-if="!collection.data.length"
-        :id="collection.model"
-        :action="emptyAction"
-    />
+    <table-empty v-if="!collection.data.length" :id="collection.properties.model" :action="emptyAction" />
 </template>
 
 <script>
@@ -124,6 +142,13 @@
             };
         },
         computed: {
+            rowsAreClickable() {
+                if (this.collection.filters.hasOwnProperty('status') && this.collection.filters.status === 'trashed') {
+                    return false;
+                }
+
+                return true;
+            },
             baseUrl() {
                 if (!this.routeName || !this.sortable) {
                     return null;
@@ -147,10 +172,7 @@
                     const visible = new Int8Array(this.visibleIds).sort();
                     const selected = new Int8Array(this.selected).sort();
 
-                    return (
-                        selected.length === visible.length &&
-                        selected.every((value, index) => value === visible[index])
-                    );
+                    return selected.length === visible.length && selected.every((value, index) => value === visible[index]);
                 },
             },
 
@@ -168,8 +190,15 @@
             // },
         },
         methods: {
+            rowStatus(row) {
+                if (!row.hasOwnProperty('status') || row.status === 'published' || row.trashed) {
+                    return null;
+                }
+
+                return this.$t(row.status) + ' &mdash; ';
+            },
             rowUrl(row) {
-                return this.route(this.collection.route_prefix + '.edit', row);
+                return this.route(this.collection.properties.route_prefix + '.edit', row);
             },
             toggleSelect(checked, row) {
                 if (checked) {

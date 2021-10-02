@@ -36,15 +36,18 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
-            'flash' => fn () => $this->flash($request),
             'auth' => fn () => [
                 'user' => $request->user(),
             ],
-            'locales' => config('translatable.locales', []),
-            'locale' => app()->getLocale(),
+            'flash' => fn () => $this->flash($request),
             'route'  => fn () => $request->route()->getName(),
-            'footer' => [
+            'app'    => fn () => [
+                'debug'   => config('app.debug'),
                 'version' => config('app.version'),
+            ],
+            'locales' => fn () => [
+                'available' => config('translatable.locales', []),
+                'current'   => app()->getLocale(),
             ],
         ]);
     }

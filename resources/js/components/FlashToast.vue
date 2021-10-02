@@ -17,17 +17,14 @@
                     class="w-full max-w-sm overflow-hidden bg-white shadow-lg pointer-events-auto ring-1 ring-black ring-opacity-5"
                 >
                     <div class="flex items-start p-4 gap-x-3">
-                        <img
+                        <icon-success
                             v-if="toastType === 'success'"
-                            src="remixicon/icons/System/checkbox-circle-line.svg"
                             class="flex-shrink-0 w-6 h-6 text-green-400 fill-current"
-                            svg-inline
                         />
-                        <img
+
+                        <icon-error
                             v-else-if="toastType === 'error'"
-                            src="remixicon/icons/System/error-warning-line.svg"
                             class="flex-shrink-0 w-6 h-6 text-red-400 fill-current"
-                            svg-inline
                         />
 
                         <div class="flex-1 pt-0.5 text-sm space-y-1">
@@ -50,11 +47,7 @@
                             >
                                 <span class="sr-only">Close</span>
 
-                                <img
-                                    src="remixicon/icons/System/close-line.svg"
-                                    class="w-5 h-5 fill-current"
-                                    svg-inline
-                                />
+                                <icon-close class="w-5 h-5 fill-current" />
                             </button>
                         </div>
                     </div>
@@ -70,8 +63,17 @@
 
     import isEmpty from 'lodash/isEmpty';
 
+    import IconSuccess from 'remixicon/icons/System/checkbox-circle-line.svg';
+    import IconError from 'remixicon/icons/System/error-warning-line.svg';
+    import IconClose from 'remixicon/icons/System/close-line.svg';
+
     export default {
         name: 'FlashToast',
+        components: {
+            IconSuccess,
+            IconError,
+            IconClose,
+        },
         props: {
             closeAfter: {
                 type: Number,
@@ -112,6 +114,17 @@
             };
         },
         computed: {
+            toastIcon() {
+                if (this.toastType === 'success') {
+                    return 'icon-success';
+                }
+
+                if (this.toastType === 'error') {
+                    return 'icon-error';
+                }
+
+                return null;
+            },
             toastType() {
                 if (!isEmpty(this.errors)) {
                     return 'error';

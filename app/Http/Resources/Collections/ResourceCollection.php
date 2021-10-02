@@ -72,13 +72,15 @@ abstract class ResourceCollection extends BaseCollection
         $morphClass = $this->model->getMorphClass();
 
         return \array_merge([
-            'model'        => $morphClass,
-            'route_prefix' => 'admin.' . Str::plural($morphClass),
-            'columns'      => $this->tableColumns($request),
-            'statuses'     => $this->statuses(),
-            'filters'      => $this->filters($request),
-            'sort'         => $this->sort($request),
-            'data'         => $this->collection,
+            'columns'    => $this->tableColumns($request),
+            'statuses'   => $this->statuses(),
+            'filters'    => $this->filters($request),
+            'sort'       => $this->sort($request),
+            'data'       => $this->collection,
+            'properties' => [
+                'model'        => $morphClass,
+                'route_prefix' => 'admin.' . Str::plural($morphClass),
+            ],
         ], $this->appends);
     }
 
@@ -212,10 +214,5 @@ abstract class ResourceCollection extends BaseCollection
         }
 
         return $statuses->all();
-    }
-
-    protected function routePrefix(): string
-    {
-        return 'admin.' . Str::plural($this->model->getMorphClass());
     }
 }
