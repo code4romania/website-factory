@@ -7,12 +7,12 @@
         v-model="content.title"
     />
 
-    <localized-field
-        type="form-textarea"
-        label="Text"
-        name="blocks[text]"
+    <form-input
+        type="url"
+        :label="$t('field.url')"
+        name="blocks[url]"
         required
-        v-model="content.text"
+        v-model="content.url"
     />
 </template>
 
@@ -20,8 +20,9 @@
     import { defineBlock } from '@/helpers';
 
     export default defineBlock({
-        type: 'call-to-action',
-        icon: 'Communication/feedback-line',
-        translatableFields: ['title', 'text'],
+        type: 'o-embed',
+        icon: 'Development/code-s-slash-line',
+        translatableFields: ['title'],
+        fields: ['url'],
     });
 </script>

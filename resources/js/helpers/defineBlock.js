@@ -9,15 +9,21 @@ export default function (block) {
                 type: Object,
                 default: () => ({}),
             },
-            ...block?.props,
+            ...block.props,
         },
         emits: ['update:content'],
         setup(props) {
-            const fields = [].concat(block?.fields);
-
-            fields.forEach((field) => {
+            // Initialize translatable fields
+            [].concat(block?.translatableFields).forEach((field) => {
                 if (!props.content.hasOwnProperty(field)) {
                     props.content[field] = {};
+                }
+            });
+
+            // Initialize untranslatable fields
+            [].concat(block?.fields).forEach((field) => {
+                if (!props.content.hasOwnProperty(field)) {
+                    props.content[field] = null;
                 }
             });
         },

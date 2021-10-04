@@ -31,9 +31,25 @@ class BlockTypeCollection extends Collection
         }
 
         return collect($this->filesystem->files($source))
-            ->map(fn (SplFileInfo $file) => [
-                'icon' => '', // TODO: get component icon
-                'type' => Str::kebab(preg_replace('/(.vue|.js)$/u', '', $file->getFilename())),
-            ]);
+            ->map(fn (SplFileInfo $file) => $this->getBlockInfo($file));
+    }
+
+    private function getBlockInfo(SplFileInfo $file): array
+    {
+        $component = (string) Str::of($this->filesystem->get($file))
+            ->after('<script>')
+            ->before('</script>');
+
+        return [
+            'icon' => $this->getProperty('icon', $component) ?? config('blocks.default_icon', 'Design/layout-top-2-line'),
+            'type' => $this->getProperty('type', $component) ?? Str::kebab(preg_replace('/(.vue|.js)$/u', '', $file->getFilename())),
+        ];
+    }
+
+    private function getProperty(string $name, string $subject): ?string
+    {
+        preg_match("/^\\s+{$name}: '([a-z0-9\/-]+)',$/uim", $subject, $matches);
+
+        return $matches[1] ?? null;
     }
 }

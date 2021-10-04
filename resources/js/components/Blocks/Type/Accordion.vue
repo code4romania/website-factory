@@ -7,21 +7,15 @@
         v-model="content.title"
     />
 
-    <localized-field
-        type="form-textarea"
-        label="Text"
-        name="blocks[text]"
-        required
-        v-model="content.text"
-    />
+    <block-repeater type="accordion-item" v-model="blocks" />
 </template>
 
 <script>
     import { defineBlock } from '@/helpers';
 
     export default defineBlock({
-        type: 'call-to-action',
-        icon: 'Communication/feedback-line',
-        translatableFields: ['title', 'text'],
+        type: 'accordion',
+        icon: 'Editor/list-check-2',
+        fields: ['text', 'blocks'],
     });
 </script>

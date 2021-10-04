@@ -28,7 +28,7 @@
         },
         computed: {
             style: () => [
-                'block w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100',
+                'flex w-full px-4 py-2 text-sm text-left text-gray-700 transition duration-150 ease-in-out group hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900',
             ],
         },
     };

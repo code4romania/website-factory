@@ -55,8 +55,8 @@ class Block extends Model
         return (bool) $this->input($field);
     }
 
-    public function getViewNameAttribute(): string
+    public function getComponentAttribute(): string
     {
-        return "front.blocks.{$this->type}";
+        return "blocks.{$this->type}";
     }
 }

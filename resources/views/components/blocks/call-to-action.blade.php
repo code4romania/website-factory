@@ -1,15 +1,15 @@
 <div class="bg-teal-50">
-    <div @class([
-        'gap-8 px-4 py-12 mx-auto max-w-7xl sm:px-6',
-        'lg:py-24 lg:px-8 lg:flex lg:items-center lg:justify-between' => $block->checkbox('fullwidth') ])
-    >
+    <div
+        {{ $attributes->class(['gap-8 px-4 py-12 mx-auto max-w-7xl sm:px-6', 'lg:py-24 lg:px-8 lg:flex lg:items-center lg:justify-between' => $fullwidth]) }}>
         <div class="space-y-3">
-            <h2 class="text-3xl font-extrabold tracking-tight text-teal-600 md:text-4xl">
-                {{ $block->translatedInput('title') }}
-            </h2>
+            @if ($title)
+                <h2 class="text-3xl font-extrabold tracking-tight text-teal-600 md:text-4xl">
+                    {{ $title }}
+                </h2>
+            @endif
 
             <div class="prose prose-lg max-w-none">
-                {!! $block->translatedInput('text') !!}
+                {!! $html !!}
             </div>
         </div>
 

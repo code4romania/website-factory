@@ -70,8 +70,9 @@
 </template>
 
 <script>
-    import Draggable from 'vuedraggable';
+    import { computed } from 'vue';
     import { usePage } from '@inertiajs/inertia-vue3';
+    import Draggable from 'vuedraggable';
 
     export default {
         name: 'BlockList',
@@ -89,22 +90,28 @@
             },
         },
         emits: ['update:blocks'],
-        computed: {
-            blockTypes: () => usePage().props.value.model.blocks,
-        },
-        methods: {
-            addBlock(type) {
-                this.blocks.push({
+        setup(props) {
+            const blockTypes = computed(() => usePage().props.value.model.blocks);
+
+            const addBlock = (type) => {
+                props.blocks.push({
                     id: Date.now(),
                     type: type,
                     content: {
                         fullwidth: false,
                     },
                 });
-            },
-            deleteBlockAt(index) {
-                this.blocks.splice(index, 1);
-            },
+            };
+
+            const deleteBlockAt = (index) => {
+                props.blocks.splice(index, 1);
+            };
+
+            return {
+                blockTypes,
+                addBlock,
+                deleteBlockAt,
+            };
         },
     };
 </script>

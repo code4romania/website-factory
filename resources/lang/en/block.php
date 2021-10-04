@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 return [
 
-    'text' => 'Text',
+    'accordion'      => 'Accordion',
     'call-to-action' => 'Call to action',
+    'o-embed'        => 'oEmbed',
+    'text'           => 'Text',
 
 ];

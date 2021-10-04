@@ -45,8 +45,8 @@ module.exports = {
     ],
     purge: {
         content: [
-            //
             'vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+            'app/View/Components/**/*.php',
             'resources/views/**/*.blade.php',
             'resources/js/**/*.vue',
             'resources/js/**/*.js',
