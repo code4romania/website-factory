@@ -6,8 +6,9 @@
                 :href="back.href"
                 class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700"
             >
-                <icon-arrow-drop-left
-                    class="flex-shrink-0 w-5 h-5 mr-1 -ml-1 text-gray-500 fill-current"
+                <icon
+                    name="System/arrow-drop-left-line"
+                    class="flex-shrink-0 w-5 h-5 mr-1 -ml-1 text-gray-500"
                 />
 
                 <span v-text="back.label" />
@@ -21,9 +22,10 @@
                     :key="index"
                     class="flex items-center"
                 >
-                    <icon-arrow-drop-right
+                    <icon
                         v-if="index > 0"
-                        class="flex-shrink-0 w-5 h-5 mr-4 text-gray-500 fill-current"
+                        name="System/arrow-drop-right-line"
+                        class="flex-shrink-0 w-5 h-5 mr-4 text-gray-500"
                     />
 
                     <component
@@ -40,15 +42,8 @@
 </template>
 
 <script>
-    import IconArrowDropLeft from 'remixicon/icons/System/arrow-drop-left-line.svg';
-    import IconArrowDropRight from 'remixicon/icons/System/arrow-drop-right-line.svg';
-
     export default {
         name: 'Breadcrumbs',
-        components: {
-            IconArrowDropLeft,
-            IconArrowDropRight,
-        },
         props: {
             items: {
                 type: Array,

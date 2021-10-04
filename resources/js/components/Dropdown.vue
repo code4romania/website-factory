@@ -3,7 +3,11 @@
         <button type="button" @click="open = !open" :class="triggerClass">
             <slot name="trigger" />
 
-            <icon-dropdown v-if="withArrow" class="w-4 h-4 fill-current" />
+            <icon
+                v-if="withArrow"
+                name="System/arrow-down-s-line"
+                class="w-4 h-4"
+            />
         </button>
 
         <!-- Full Screen Dropdown Overlay -->
@@ -37,13 +41,9 @@
 
 <script>
     import { onMounted, onUnmounted, ref } from 'vue';
-    import IconDropdown from 'remixicon/icons/System/arrow-down-s-line.svg';
 
     export default {
         name: 'Dropdown',
-        components: {
-            IconDropdown,
-        },
         props: {
             align: {
                 default: 'right',

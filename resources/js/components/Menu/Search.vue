@@ -3,8 +3,9 @@
         <div class="w-full max-w-lg lg:max-w-xs">
             <label for="search" class="sr-only">Search</label>
             <div class="relative text-gray-400 focus-within:text-gray-600">
-                <icon-search
-                    class="absolute inset-y-0 flex items-center w-5 h-full pointer-events-none fill-current left-3"
+                <icon
+                    name="System/search-line"
+                    class="absolute inset-y-0 flex items-center w-5 h-full pointer-events-none left-3"
                 />
 
                 <input
@@ -20,12 +21,7 @@
 </template>
 
 <script>
-    import IconSearch from 'remixicon/icons/System/search-line.svg';
-
     export default {
         name: 'MenuSearch',
-        components: {
-            IconSearch,
-        },
     };
 </script>

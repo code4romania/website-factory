@@ -10,16 +10,18 @@
         >
             <div :class="innerStyle" v-text="column.label" />
 
-            <icon-sort-asc
+            <icon
                 v-if="
                     currentSortField !== field ||
                     (currentSortField === field && isOrderAsc)
                 "
+                name="Editor/sort-asc"
                 :class="sortIconClass"
             />
 
-            <icon-sort-desc
+            <icon
                 v-else-if="currentSortField === field && isOrderDesc"
+                name="Editor/sort-desc"
                 :class="sortIconClass"
             />
         </inertia-link>
@@ -32,15 +34,9 @@
     import pickBy from 'lodash/pickBy';
     import { usePage } from '@inertiajs/inertia-vue3';
 
-    import IconSortAsc from 'remixicon/icons/Editor/sort-asc.svg';
-    import IconSortDesc from 'remixicon/icons/Editor/sort-desc.svg';
-
     export default {
         name: 'TableHead',
-        components: {
-            IconSortAsc,
-            IconSortDesc,
-        },
+
         props: {
             column: {
                 type: Object,
@@ -79,7 +75,7 @@
             },
             sortIconClass() {
                 return [
-                    'inline-flex w-4 h-4 ml-2 duration-150 outline-none cursor-pointer transition-color fill-current group-focus:outline-none',
+                    'inline-flex w-4 h-4 ml-2 duration-150 outline-none cursor-pointer transition-color group-focus:outline-none',
                     this.currentSortField !== this.field
                         ? 'invisible group-hover:visible group-focus:visible text-gray-400'
                         : 'text-blue-500 group-focus:text-blue-600 group-hover:text-blue-500',

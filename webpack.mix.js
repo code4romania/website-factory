@@ -63,7 +63,7 @@ mix.valet('primarie.test')
         config.module.rules.push({
             test: /\.svg$/,
             use: [
-                'vue-loader',
+                'raw-loader',
                 {
                     loader: 'vue-svg-loader',
                     options: {
@@ -71,8 +71,14 @@ mix.valet('primarie.test')
                             plugins: [
                                 { removeDimensions: true },
                                 { removeViewBox: false },
-                                { removeUselessStrokeAndFill: true },
                                 { removeXMLNS: true },
+                                {
+                                    removeUselessStrokeAndFill: {
+                                        fill: true,
+                                        stroke: true,
+                                        removeNone: true,
+                                    },
+                                },
                             ],
                         },
                     },

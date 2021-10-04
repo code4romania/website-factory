@@ -29,21 +29,18 @@
         >
             <span v-text="fullUrl" />
 
-            <icon-external-link class="w-3 h-3 ml-1 fill-current" />
+            <icon name="System/external-link-line" class="w-3 h-3 ml-1" />
         </a>
     </form-field>
 </template>
 
 <script>
-    import IconExternalLink from 'remixicon/icons/System/external-link-line.svg';
     import InputMixin from '@/mixins/input';
 
     export default {
         name: 'FormSlug',
         mixins: [InputMixin],
-        components: {
-            IconExternalLink,
-        },
+
         inheritAttrs: false,
         props: {
             type: {

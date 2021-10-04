@@ -12,8 +12,9 @@
                 <slot name="value" />
             </span>
 
-            <icon-dropdown
-                class="w-5 h-5 text-gray-400 fill-current"
+            <icon
+                name="System/arrow-down-s-line"
+                class="w-5 h-5 text-gray-400"
                 :class="{ 'rotate-180': open }"
             />
         </button>
@@ -27,13 +28,8 @@
 <script>
     import { ref } from 'vue';
 
-    import IconDropdown from 'remixicon/icons/System/arrow-down-s-line.svg';
-
     export default {
         name: 'Accordion',
-        components: {
-            IconDropdown,
-        },
         props: {
             open: {
                 type: Boolean,

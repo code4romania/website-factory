@@ -4,7 +4,7 @@
             <div
                 class="handle flex-shrink-0 w-5 px-1.5 py-2 bg-gray-100 border-r cursor-move"
             >
-                <icon-drag class="w-full h-full text-gray-400 fill-current" />
+                <icon name="drag" class="w-full h-full text-gray-400" local />
             </div>
 
             <div class="flex-1 p-3">
@@ -17,9 +17,16 @@
                     @click="toggleWidth"
                     class="text-gray-400 hover:text-gray-900"
                 >
-                    <component
-                        :is="content.fullwidth ? 'icon-reduce' : 'icon-enlarge'"
-                        class="w-4 h-4 fill-current"
+                    <icon
+                        v-if="content.fullwidth"
+                        name="Media/fullscreen-exit-line"
+                        class="block w-4 h-4"
+                    />
+
+                    <icon
+                        v-else
+                        name="Media/fullscreen-line"
+                        class="block w-4 h-4"
                     />
                 </button>
 
@@ -28,7 +35,7 @@
                     @click="$emit('delete')"
                     class="text-gray-400 hover:text-red-500"
                 >
-                    <icon-delete class="w-4 h-4 fill-current" />
+                    <icon name="System/delete-bin-line" class="block w-4 h-4" />
                 </button>
             </div>
         </header>
@@ -55,19 +62,8 @@
 <script>
     import { computed } from 'vue';
 
-    import IconReduce from 'remixicon/icons/Media/fullscreen-exit-line.svg';
-    import IconEnlarge from 'remixicon/icons/Media/fullscreen-line.svg';
-    import IconDelete from 'remixicon/icons/System/delete-bin-line.svg';
-    import IconDrag from '~/svg/drag.svg';
-
     export default {
         name: 'BlockItem',
-        components: {
-            IconReduce,
-            IconEnlarge,
-            IconDelete,
-            IconDrag,
-        },
         props: {
             id: {
                 type: [String, Number],

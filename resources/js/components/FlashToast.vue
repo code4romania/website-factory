@@ -17,14 +17,16 @@
                     class="w-full max-w-sm overflow-hidden bg-white shadow-lg pointer-events-auto ring-1 ring-black ring-opacity-5"
                 >
                     <div class="flex items-start p-4 gap-x-3">
-                        <icon-success
+                        <icon
                             v-if="toastType === 'success'"
-                            class="flex-shrink-0 w-6 h-6 text-green-400 fill-current"
+                            name="System/checkbox-circle-line"
+                            class="flex-shrink-0 w-6 h-6 text-green-400"
                         />
 
-                        <icon-error
+                        <icon
                             v-else-if="toastType === 'error'"
-                            class="flex-shrink-0 w-6 h-6 text-red-400 fill-current"
+                            name="System/error-warning-line"
+                            class="flex-shrink-0 w-6 h-6 text-red-400"
                         />
 
                         <div class="flex-1 pt-0.5 text-sm space-y-1">
@@ -47,7 +49,10 @@
                             >
                                 <span class="sr-only">Close</span>
 
-                                <icon-close class="w-5 h-5 fill-current" />
+                                <icon
+                                    name="System/close-line"
+                                    class="w-5 h-5"
+                                />
                             </button>
                         </div>
                     </div>
@@ -63,17 +68,8 @@
 
     import isEmpty from 'lodash/isEmpty';
 
-    import IconSuccess from 'remixicon/icons/System/checkbox-circle-line.svg';
-    import IconError from 'remixicon/icons/System/error-warning-line.svg';
-    import IconClose from 'remixicon/icons/System/close-line.svg';
-
     export default {
         name: 'FlashToast',
-        components: {
-            IconSuccess,
-            IconError,
-            IconClose,
-        },
         props: {
             closeAfter: {
                 type: Number,
