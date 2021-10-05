@@ -132,7 +132,7 @@
             },
             toastMessage() {
                 if (!isEmpty(this.errors)) {
-                    return this.$tc(
+                    return this.$t(
                         'error.validation',
                         Object.keys(this.errors).length
                     );

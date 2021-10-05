@@ -1,5 +1,5 @@
 <template>
-    <layout :title="$tc('user.label', 2)">
+    <layout :title="$t('user.label', 2)">
         <inertia-table :collection="collection">
             <template #title="{ title }">
                 {{ title }}

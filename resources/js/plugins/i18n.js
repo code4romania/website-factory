@@ -4,7 +4,8 @@ import messages from '~/lang/index.js';
 
 export default createI18n({
     locale: document.documentElement.lang,
-    // fallbackLocale: 'en',
+    legacy: false,
+    globalInjection: true,
     messages,
     pluralizationRules: {
         /**

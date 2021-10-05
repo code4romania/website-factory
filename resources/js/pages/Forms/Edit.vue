@@ -1,6 +1,9 @@
 <template>
     <layout :breadcrumbs="breadcrumbs" :title="pageTitle">
-        <form @submit.prevent="form.put(route('admin.forms.update', resource))" class="grid gap-y-8">
+        <form
+            @submit.prevent="form.put(route('admin.forms.update', resource))"
+            class="grid gap-y-8"
+        >
             <panel-model action="save" :form="form">
                 <localized-field
                     type="form-input"
@@ -40,7 +43,7 @@
             breadcrumbs() {
                 return [
                     {
-                        label: this.$tc('form.label', 2),
+                        label: this.$t('form.label', 2),
                         href: this.route('admin.forms.index'),
                     },
                 ];

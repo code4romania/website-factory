@@ -11,8 +11,9 @@
                     v-for="(action, index) in actions"
                     :key="index"
                     :href="action.href"
-                    :target="action.target || null"
-                    :method="action.method || 'get'"
+                    :target="action.target"
+                    :method="action.method"
+                    :as="action.method !== 'get' ? 'button' : 'a'"
                 >
                     <span v-text="action.label" />
                 </dropdown-item>
@@ -80,7 +81,17 @@
                     });
                 }
 
-                return actions;
+                return actions.map((action) => {
+                    if (!action.hasOwnProperty('method')) {
+                        action.method = 'get';
+                    }
+
+                    if (!action.hasOwnProperty('target')) {
+                        action.target = null;
+                    }
+
+                    return action;
+                });
             },
         },
         methods: {

@@ -54,7 +54,7 @@
             breadcrumbs() {
                 return [
                     {
-                        label: this.$tc('page.label', 2),
+                        label: this.$t('page.label', 2),
                         href: this.route('admin.pages.index'),
                     },
                 ];

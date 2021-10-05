@@ -38,7 +38,7 @@
             breadcrumbs() {
                 return [
                     {
-                        label: this.$tc('form.label', 2),
+                        label: this.$t('form.label', 2),
                         href: this.route('admin.forms.index'),
                     },
                 ];

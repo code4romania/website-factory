@@ -19,96 +19,23 @@
             />
 
             <tbody class="divide-y divide-gray-200">
-                <tr
+                <table-row
+                    v-for="(row, rowIndex) in collection.data"
+                    :key="rowIndex"
+                    :collection="collection"
+                    :row="row"
                     class="text-gray-900"
                     :class="{
                         'hover:bg-gray-50 focus-within:bg-gray-50 group': rowsAreClickable,
                     }"
-                    v-for="(row, rowIndex) in collection.data"
-                    :key="rowIndex"
                 >
                     <template
-                        v-for="(column, columnIndex) in collection.columns"
+                        v-for="(_, name) in $slots"
+                        v-slot:[name]="slotData"
                     >
-                        <td
-                            v-if="column.field === 'bulk'"
-                            :key="`bulk-${columnIndex}`"
-                            class="w-0 p-5 pr-2.5"
-                        >
-                            <form-checkbox
-                                v-model="selected"
-                                :value="row.id"
-                                @update="
-                                    (checked) => toggleSelect(checked, row)
-                                "
-                            />
-                        </td>
-
-                        <table-actions
-                            v-else-if="column.field === 'actions'"
-                            :key="`actions-${columnIndex}`"
-                            :properties="collection.properties"
-                            :row="row"
-                        />
-
-                        <td
-                            v-else-if="columnIndex === 1"
-                            :key="`title-${columnIndex}`"
-                            class="px-6 py-4 text-sm font-medium"
-                        >
-                            <span
-                                class="text-gray-900"
-                                v-html="rowStatus(row)"
-                            />
-
-                            <inertia-link
-                                v-if="
-                                    !row.hasOwnProperty('trashed') ||
-                                    !row.trashed
-                                "
-                                class="text-blue-800 focus:outline-none hover:underline"
-                                :href="rowUrl(row)"
-                            >
-                                <slot
-                                    :name="column.field"
-                                    :[column.field]="row[column.field]"
-                                    :row="row"
-                                >
-                                    {{ row[column.field] }}
-                                </slot>
-                            </inertia-link>
-
-                            <slot
-                                v-else
-                                :name="column.field"
-                                :[column.field]="row[column.field]"
-                                :row="row"
-                            >
-                                {{ row[column.field] }}
-                            </slot>
-                        </td>
-
-                        <td v-else class="px-6 py-4 text-sm" :key="columnIndex">
-                            <slot
-                                :name="column.field"
-                                :[column.field]="row[column.field]"
-                                :row="row"
-                            >
-                                {{ row[column.field] }}
-                            </slot>
-                            <!-- <component
-                                :is="rowsAreClickable ? 'inertia-link' : 'div'"
-                                class="block px-6 py-4 focus:outline-none"
-                                :href="rowsAreClickable ? rowUrl(row) : false"
-                                :tabindex="!rowsAreClickable || columnIndex === 0 ? false : -1"
-                            >
-                                <slot :name="column.field" :[column.field]="row[column.field]" :row="row">
-                                    {{ row[column.field] }}
-                                </slot>
-                            </component> -->
-                        </td>
+                        <slot :name="name" v-bind="slotData" />
                     </template>
-                </tr>
+                </table-row>
             </tbody>
         </table>
     </div>

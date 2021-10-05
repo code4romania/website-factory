@@ -13,6 +13,6 @@
 
     export default defineBlock({
         type: 'text',
-        fields: ['text'],
+        translatableFields: ['text'],
     });
 </script>

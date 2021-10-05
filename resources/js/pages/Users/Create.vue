@@ -23,7 +23,7 @@
             breadcrumbs() {
                 return [
                     {
-                        label: this.$tc('user.label', 2),
+                        label: this.$t('user.label', 2),
                         href: this.route('admin.users.index'),
                     },
                 ];

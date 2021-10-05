@@ -12,10 +12,10 @@
 
             <form-label
                 v-if="label"
-                :target="id"
+                :target="name"
                 :text="label"
                 :required="required && !disabled"
-                :class="[hasErrors ? 'text-red-600' : 'text-gray-700']"
+                class="text-gray-700"
             />
         </div>
 
@@ -46,9 +46,8 @@
         computed: {
             proxyChecked: {
                 get() {
-                    return new Boolean(this.modelValue);
+                    return !!this.modelValue;
                 },
-
                 set(value) {
                     this.emit(value);
                 },
