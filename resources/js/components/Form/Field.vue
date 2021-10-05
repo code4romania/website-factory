@@ -19,7 +19,7 @@
             </label>
 
             <button
-                v-if="locale"
+                v-if="showLocaleSwitchButton"
                 type="button"
                 @click="nextLocale"
                 class="ml-2 text-xs font-medium text-center text-white uppercase bg-gray-400 w-7"
@@ -27,12 +27,23 @@
             />
         </div>
 
-        <div class="relative flex flex-wrap" :class="[hasErrors ? 'border-red-600' : 'border-gray-400']">
+        <div
+            class="relative flex flex-wrap"
+            :class="[hasErrors ? 'border-red-600' : 'border-gray-400']"
+        >
             <slot />
         </div>
 
-        <div v-if="hasErrors" class="mt-2 space-y-1 text-sm text-red-600" role="alert">
-            <p v-for="(message, locale) in errors" :key="locale" v-text="message" />
+        <div
+            v-if="hasErrors"
+            class="mt-2 space-y-1 text-sm text-red-600"
+            role="alert"
+        >
+            <p
+                v-for="(message, locale) in errors"
+                :key="locale"
+                v-text="message"
+            />
         </div>
     </div>
 </template>
@@ -44,7 +55,6 @@
 
     export default {
         name: 'FormField',
-
         props: {
             locale: {
                 type: String,
@@ -76,7 +86,7 @@
             },
         },
         setup(props) {
-            const { nextLocale } = useLocale(props);
+            const { hasMultipleLocales, nextLocale } = useLocale(props);
 
             const errors = computed(() => {
                 const initialErrors = usePage().props.value.errors;
@@ -95,10 +105,15 @@
 
             const hasErrors = computed(() => Object.keys(errors.value).length > 0);
 
+            const showLocaleSwitchButton = computed(
+                () => props.locale !== null && hasMultipleLocales.value
+            );
+
             return {
                 errors,
                 hasErrors,
                 nextLocale,
+                showLocaleSwitchButton,
             };
         },
     };

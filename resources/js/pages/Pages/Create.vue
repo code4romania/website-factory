@@ -5,22 +5,25 @@
             class="grid gap-y-8"
         >
             <panel-model action="save" :form="form">
-                <localized-field
-                    type="form-input"
-                    :label="$t('field.title')"
-                    name="title"
-                    v-model="form.title"
-                    required
-                />
+                <div class="space-y-1">
+                    <localized-field
+                        type="form-input"
+                        :label="$t('field.title')"
+                        name="title"
+                        v-model="form.title"
+                        required
+                    />
 
-                <localized-field
-                    type="form-slug"
-                    :label="$t('field.slug')"
-                    name="slug"
-                    v-model="form.slug"
-                    route-name="front.pages.show"
-                    required
-                />
+                    <localized-field
+                        type="form-slug"
+                        :label="$t('field.slug')"
+                        name="slug"
+                        v-model="form.slug"
+                        route-name="front.pages.show"
+                        :source="form.title"
+                        required
+                    />
+                </div>
             </panel-model>
 
             <block-list v-model:blocks="form.blocks" />

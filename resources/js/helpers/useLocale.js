@@ -17,6 +17,7 @@ export default function (props) {
     const isCurrentLocale = computed(() =>
         hasLocale.value ? props.locale === currentLocale.value : true
     );
+    const hasMultipleLocales = computed(() => locales.value.length > 1);
 
     const isValidLocale = (locale) => locales.value.includes(locale);
     const isTranslatable = (field) => translatableFields.value.includes(field);
@@ -41,6 +42,7 @@ export default function (props) {
         currentLocale,
         hasLocale,
         isCurrentLocale,
+        hasMultipleLocales,
         isValidLocale,
         isTranslatable,
         changeLocale,
