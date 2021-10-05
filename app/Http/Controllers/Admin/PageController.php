@@ -36,7 +36,6 @@ class PageController extends Controller
 
     public function store(PageRequest $request): RedirectResponse
     {
-        dd($request->validated());
         $page = Page::create($request->validated());
 
         return redirect()->route('admin.pages.edit', $page)
@@ -52,7 +51,6 @@ class PageController extends Controller
 
     public function update(PageRequest $request, Page $page): RedirectResponse
     {
-        // dd($request->validated());
         $page->fill($request->validated());
 
         $page->save();
