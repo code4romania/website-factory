@@ -2,6 +2,7 @@ const mix = require('laravel-mix');
 const path = require('path');
 
 require('laravel-mix-valet');
+require('laravel-mix-bundle-analyzer');
 
 /*
  |--------------------------------------------------------------------------
@@ -16,9 +17,10 @@ require('laravel-mix-valet');
 
 if (mix.inProduction()) {
     mix.version();
-} else {
-    // require('laravel-mix-bundle-analyzer');
-    // mix.bundleAnalyzer({ openAnalyzer: false });
+}
+
+if (mix.isWatching()) {
+    mix.bundleAnalyzer({ openAnalyzer: false });
 }
 
 mix.valet('primarie.test')
@@ -54,11 +56,17 @@ mix.valet('primarie.test')
             },
         });
 
-        const initialSvgRule = config.module.rules.find((rule) =>
+        const imageRule = config.module.rules.find((rule) =>
             rule.test.test('.svg')
         );
 
-        initialSvgRule.test = /\.(png|jpe?g|gif|webp)$/;
+        imageRule.test = /\.(png|jpe?g|gif|webp)$/;
+
+        const fontRule = config.module.rules.find((rule) =>
+            rule.test.test('font.*.svg')
+        );
+
+        fontRule.test = /\.(woff2?|ttf|eot|otf)$/;
 
         config.module.rules.push({
             test: /\.svg$/,

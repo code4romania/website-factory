@@ -85,7 +85,7 @@
                 ],
                 adminMenu: [
                     {
-                        href: this.route('admin.settings.index'),
+                        href: '#',
                         label: this.$t('app.settings'),
                         route: 'admin.settings.index',
                     },

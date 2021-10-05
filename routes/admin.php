@@ -26,6 +26,8 @@ Route::post('pages/{page}/duplicate', [Admin\PageController::class, 'duplicate']
 Route::post('pages/{page}/preview', [Admin\PageController::class, 'preview'])->name('pages.preview');
 Route::put('pages/{page}', [Admin\PageController::class, 'update'])->name('pages.update');
 Route::delete('pages/{page}', [Admin\PageController::class, 'destroy'])->name('pages.destroy');
+Route::put('pages/{page}/restore', [Admin\PageController::class, 'restore'])->name('pages.restore')->withTrashed();
+Route::delete('pages/{page}/force', [Admin\PageController::class, 'forceDelete'])->name('pages.forceDelete')->withTrashed();
 
 Route::get('forms', [Admin\FormController::class, 'index'])->name('forms.index');
 Route::get('forms/create', [Admin\FormController::class, 'create'])->name('forms.create');
