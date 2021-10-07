@@ -10,12 +10,11 @@
     </div>
 
     <div class="my-4 overflow-x-scroll md:overflow-visible">
-        <table class="min-w-full text-gray-900 table-fixed">
+        <table class="w-full text-gray-900 border-collapse table-fixed">
             <table-header
                 :columns="collection.columns"
                 :sort="collection.sort"
-                :base-url="baseUrl"
-                v-model:selectedAll="selectedAll"
+                v-model:selectAll="selectAll"
             />
 
             <tbody class="divide-y divide-gray-200">
@@ -24,9 +23,11 @@
                     :key="rowIndex"
                     :collection="collection"
                     :row="row"
+                    :selected="selected.includes(row.id)"
+                    @toggle="toggleRow"
                     class="text-gray-900"
                     :class="{
-                        'hover:bg-gray-50 focus-within:bg-gray-50 group': rowsAreClickable,
+                        'hover:bg-gray-50 focus-within:bg-gray-50 group': canInteractWithRows,
                     }"
                 >
                     <template
@@ -50,7 +51,7 @@
 </template>
 
 <script>
-    import { usePage } from '@inertiajs/inertia-vue3';
+    import { ref, computed } from 'vue';
 
     export default {
         name: 'InertiaTable',
@@ -63,30 +64,6 @@
                 type: Boolean,
                 default: true,
             },
-            routeName: {
-                type: String,
-                default: null,
-            },
-            routeArgs: {
-                type: Object,
-                default: () => ({}),
-            },
-            sortable: {
-                type: Boolean,
-                default: true,
-            },
-            emptyTitle: {
-                type: String,
-                default: null,
-            },
-            emptyDescription: {
-                type: String,
-                default: null,
-            },
-            emptyActionLabel: {
-                type: String,
-                default: null,
-            },
             emptyAction: {
                 type: String,
                 default: null,
@@ -96,90 +73,70 @@
                 default: null,
             },
         },
-        data() {
-            return {
-                selected: [],
-            };
-        },
-        computed: {
-            rowsAreClickable() {
+        setup(props) {
+            const selected = ref([]);
+
+            const canInteractWithRows = computed(() => {
                 if (
-                    this.collection.filters.hasOwnProperty('status') &&
-                    this.collection.filters.status === 'trashed'
+                    props.collection.filters.hasOwnProperty('status') &&
+                    props.collection.filters.status === 'trashed'
                 ) {
                     return false;
                 }
 
                 return true;
-            },
-            baseUrl() {
-                if (!this.routeName || !this.sortable) {
-                    return null;
+            });
+
+            const visibleIds = computed(() =>
+                props.collection.data.map((item) => item.id)
+            );
+
+            const toggleSelect = (checked, row) => {
+                if (checked) {
+                    selected.value.push(row.id);
+                } else {
+                    selected.value = selected.value.filter((id) => id !== row.id);
                 }
+            };
 
-                return this.route(usePage().props.value.route, this.sortArgs);
-            },
-            visibleIds() {
-                return this.collection.data.map((item) => item.id);
-            },
-            selectedAll: {
-                set(value) {
-                    if (value === true) {
-                        this.selected = this.visibleIds;
-                    } else {
-                        this.selected = [];
-                    }
-                },
+            const toggleRow = ({ id, checked }) => {
+                if (checked) {
+                    selected.value.push(id);
+                } else {
+                    selected.value = selected.value.filter((rowId) => rowId !== id);
+                }
+            };
 
-                get() {
-                    const visible = new Int8Array(this.visibleIds).sort();
-                    const selected = new Int8Array(this.selected).sort();
+            const selectAll = computed({
+                get: () => {
+                    const sortedVisible = new Int8Array(visibleIds.value).sort();
+                    const sortedSelected = new Int8Array(selected.value).sort();
 
                     return (
-                        selected.length === visible.length &&
-                        selected.every((value, index) => value === visible[index])
+                        sortedSelected.length === sortedVisible.length &&
+                        sortedSelected.every(
+                            (value, index) => value === sortedVisible[index]
+                        )
                     );
                 },
-            },
 
-            // selectedAll() {
-            //     const visible = new Int8Array(
-            //         this.collection.data.map((item) => item.id)
-            //     ).sort();
+                set: (value) => {
+                    if (value === true) {
+                        selected.value = visibleIds.value;
+                    } else {
+                        selected.value = [];
+                    }
+                },
+            });
 
-            //     const selected = new Int8Array(this.selected).sort();
-
-            //     return (
-            //         selected.length === visible.length &&
-            //         selected.every((value, index) => value === visible[index])
-            //     );
-            // },
-        },
-        methods: {
-            rowStatus(row) {
-                if (
-                    !row.hasOwnProperty('status') ||
-                    row.status === 'published' ||
-                    row.trashed
-                ) {
-                    return null;
-                }
-
-                return this.$t(row.status) + ' &mdash; ';
-            },
-            rowUrl(row) {
-                return this.route(
-                    this.collection.properties.route_prefix + '.edit',
-                    row
-                );
-            },
-            toggleSelect(checked, row) {
-                if (checked) {
-                    this.selected.push(row.id);
-                } else {
-                    this.selected = this.selected.filter((id) => id !== row.id);
-                }
-            },
+            return {
+                selected,
+                canInteractWithRows,
+                visibleIds,
+                toggleSelect,
+                toggleRow,
+                selectAll,
+            };
         },
     };
 </script>

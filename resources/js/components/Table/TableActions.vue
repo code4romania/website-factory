@@ -1,25 +1,23 @@
 <template>
-    <td class="p-5 pl-2.5 flex justify-end">
-        <dropdown
-            v-if="actions.length"
-            origin="top-right"
-            trigger-class="px-1 py-1 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-full hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            with-arrow
-        >
-            <template #content>
-                <dropdown-item
-                    v-for="(action, index) in actions"
-                    :key="index"
-                    :href="action.href"
-                    :target="action.target"
-                    :method="action.method"
-                    :as="action.method !== 'get' ? 'button' : 'a'"
-                >
-                    <span v-text="action.label" />
-                </dropdown-item>
-            </template>
-        </dropdown>
-    </td>
+    <dropdown
+        v-if="actions.length"
+        origin="top-right"
+        trigger-class="px-1 py-1 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-full hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        with-arrow
+    >
+        <template #content>
+            <dropdown-item
+                v-for="(action, index) in actions"
+                :key="index"
+                :href="action.href"
+                :target="action.target"
+                :method="action.method"
+                :as="action.method !== 'get' ? 'button' : 'a'"
+            >
+                <span v-text="action.label" />
+            </dropdown-item>
+        </template>
+    </dropdown>
 </template>
 
 <script>

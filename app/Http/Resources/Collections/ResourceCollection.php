@@ -129,11 +129,7 @@ abstract class ResourceCollection extends BaseCollection
             throw new \Exception("Property `$property` not defined on " . get_class($this));
         }
 
-        return collect([
-            'bulk',
-            ...$this->$property,
-            'actions',
-        ]);
+        return collect($this->$property);
     }
 
     protected function isColumnSortable(string $column): bool

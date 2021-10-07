@@ -1,36 +1,25 @@
 <template>
     <tr>
+        <td class="w-0 py-4 pl-3">
+            <form-checkbox v-model="selected" :value="row.id" />
+        </td>
+
         <template v-for="(column, columnIndex) in collection.columns">
             <td
-                v-if="column.field === 'bulk'"
-                :key="`bulk-${columnIndex}`"
-                class="w-0 p-5 pr-2.5"
-            >
-                <form-checkbox
-                    v-model="selected"
-                    :value="row.id"
-                    @update="(checked) => toggleSelect(checked, row)"
-                />
-            </td>
-
-            <table-actions
-                v-else-if="column.field === 'actions'"
-                :key="`actions-${columnIndex}`"
-                :properties="collection.properties"
-                :row="row"
-            />
-
-            <td
-                v-else-if="columnIndex === 1"
+                v-if="columnIndex === 0"
                 :key="`title-${columnIndex}`"
                 class="px-6 py-4 text-sm font-medium"
             >
-                <span class="text-gray-900" v-html="rowStatus(row)" />
+                <span v-if="status" class="text-gray-900">
+                    {{ $t(status) }} &mdash;
+                </span>
 
                 <inertia-link
                     v-if="!row.hasOwnProperty('trashed') || !row.trashed"
                     class="text-blue-800 focus:outline-none hover:underline"
-                    :href="rowUrl(row)"
+                    :href="
+                        route(collection.properties.route_prefix + '.edit', row)
+                    "
                 >
                     <slot
                         :name="column.field"
@@ -51,7 +40,11 @@
                 </slot>
             </td>
 
-            <td v-else class="px-6 py-4 text-sm" :key="columnIndex">
+            <td
+                v-else
+                class="hidden px-6 py-4 text-sm sm:table-cell"
+                :key="columnIndex"
+            >
                 <slot
                     :name="column.field"
                     :[column.field]="row[column.field]"
@@ -61,10 +54,16 @@
                 </slot>
             </td>
         </template>
+
+        <td class="flex justify-end py-4 pr-3">
+            <table-actions :properties="collection.properties" :row="row" />
+        </td>
     </tr>
 </template>
 
 <script>
+    import { computed, ref } from 'vue';
+
     export default {
         name: 'TableRow',
         props: {
@@ -72,32 +71,43 @@
                 type: Object,
                 required: true,
             },
+            selected: {
+                type: Boolean,
+                default: false,
+            },
             collection: {},
         },
-        setup(props) {
-            // console.log(t);
-
-            return {};
-        },
-        methods: {
-            rowStatus(row) {
+        emits: ['toggle'],
+        setup(props, { emit }) {
+            const status = computed(() => {
                 if (
-                    !row.hasOwnProperty('status') ||
-                    row.status === 'published' ||
-                    row.trashed
+                    !props.row.hasOwnProperty('status') ||
+                    props.row.status === 'published' ||
+                    props.row.trashed
                 ) {
                     return null;
                 }
 
-                return this.$t(row.status) + ' &mdash; ';
-            },
-            rowUrl(row) {
-                return this.route(
-                    this.collection.properties.route_prefix + '.edit',
-                    row
-                );
-            },
+                return props.row.status;
+            });
+
+            const selected = computed({
+                get: () => props.selected,
+                set: (value) => {
+                    emit('toggle', { id: props.row.id, checked: value });
+                },
+            });
+
+            return {
+                status,
+                selected,
+            };
+        },
+
+        methods: {
             toggleSelect(checked, row) {
+                this.$emit;
+
                 if (checked) {
                     this.selected.push(row.id);
                 } else {
