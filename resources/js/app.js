@@ -10,7 +10,7 @@ createInertiaApp({
     resolve: (name) => require(`@/pages/${name}`).default,
     setup({ el, app, props, plugin }) {
         createApp({ render: () => h(app, props) })
-            .use(ZiggyVue, Ziggy)
+            .use(ZiggyVue)
             .use(plugin)
             .use(registerComponents)
             .use(i18n)
