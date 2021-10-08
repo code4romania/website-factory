@@ -32,6 +32,10 @@ export default function (...args) {
         {}
     );
 
+    if (!rememberKey) {
+        return useForm(fields);
+    }
+
     return useForm(
         isPlainObject(model) ? rememberKey + '.' + model.id : rememberKey,
         fields

@@ -12,6 +12,7 @@
         "test": "jest"
     },
     "dependencies": {
+        "@alpinejs/collapse": "^3.4.2",
         "@inertiajs/inertia": "^0.10.1",
         "@inertiajs/inertia-vue3": "^0.5.2",
         "@inertiajs/progress": "^0.2.6",

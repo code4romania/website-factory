@@ -8,7 +8,7 @@
     />
 
     <localized-field
-        type="form-textarea"
+        type="form-editor"
         label="Text"
         name="blocks[text]"
         required
@@ -17,11 +17,13 @@
 </template>
 
 <script>
-    import { defineBlock } from '@/helpers';
+    import { defineRepeater } from '@/helpers';
 
-    export default defineBlock({
-        type: 'call-to-action',
-        icon: 'Communication/feedback-line',
-        translatableFields: ['title', 'text'],
+    export default defineRepeater({
+        type: 'accordion-item',
+        fields: {
+            title: Object,
+            text: Object,
+        },
     });
 </script>

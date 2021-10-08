@@ -23,10 +23,15 @@
         <template #item="{ element, index }">
             <block-item
                 :id="element.id"
-                :type="element.type"
+                type="item"
+                :component="element.type"
                 :class="{ 'md:col-span-2': element.content.fullwidth }"
                 v-model:content="element.content"
-                @delete="deleteBlockAt(index)"
+                v-model:children="element.children"
+                @duplicate="duplicateBlock(index)"
+                @delete="deleteBlock(index)"
+                can-duplicate
+                can-expand
             />
         </template>
 
@@ -72,6 +77,7 @@
 <script>
     import { computed } from 'vue';
     import { usePage } from '@inertiajs/inertia-vue3';
+    import cloneDeep from 'lodash/cloneDeep';
     import Draggable from 'vuedraggable';
 
     export default {
@@ -98,19 +104,30 @@
                     id: Date.now(),
                     type: type,
                     content: {
-                        fullwidth: false,
+                        fullwidth: true,
                     },
+                    children: [],
                 });
             };
 
-            const deleteBlockAt = (index) => {
+            const duplicateBlock = (index) => {
+                const block = {
+                    ...cloneDeep(props.blocks[index]),
+                    id: Date.now(),
+                };
+
+                props.blocks.splice(index + 1, 0, block);
+            };
+
+            const deleteBlock = (index) => {
                 props.blocks.splice(index, 1);
             };
 
             return {
                 blockTypes,
                 addBlock,
-                deleteBlockAt,
+                duplicateBlock,
+                deleteBlock,
             };
         },
     };

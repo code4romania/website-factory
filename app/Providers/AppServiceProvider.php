@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Services\BlockTypeCollection;
+use App\Services\BlockCollection;
 use App\Traits\HasBlocks;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
@@ -80,7 +80,8 @@ class AppServiceProvider extends ServiceProvider
 
             return $this->with([
                 'model' => [
-                    'blocks' => \in_array(HasBlocks::class, $traits) ? (new BlockTypeCollection())->all() : [],
+                    'blocks'       => \in_array(HasBlocks::class, $traits) ? (new BlockCollection('block'))->all() : [],
+                    'repeaters'    => \in_array(HasBlocks::class, $traits) ? (new BlockCollection('repeater'))->all() : [],
                     'translatable' => \in_array(Translatable::class, $traits) ? $model->translatable : [],
                 ],
             ]);

@@ -24,14 +24,31 @@ trait HasBlocks
     {
         $this->blocks()->delete();
 
-        $this->blocks()->createMany(
-            collect($blocks)->map(function (array $block, int $index) {
-                $block['blockable_id'] = $this->id;
-                $block['blockable_type'] = $this->getMorphClass();
-                $block['position'] = $index + 1;
+        $blocks = collect($blocks)->map(fn (array $block, int $index) => [
+            'blockable_id'   => $this->id,
+            'blockable_type' => $this->getMorphClass(),
+            'position'       => $index + 1,
+            'type'           => $block['type'],
+            'content'        => $block['content'] ?? [],
+            'children'       => $block['children'] ?? [],
+        ]);
 
-                return $block;
-            })
-        );
+        $this->blocks()->createMany($blocks)
+            ->each(function (Block $block) use ($blocks) {
+                $block->children()->createMany(
+                    $blocks
+                        ->where('type', $block->type)
+                        ->where('position', $block->position)
+                        ->pluck('children')
+                        ->flatten(1)
+                        ->map(fn (array $block, int $index) => [
+                            'blockable_id'   => $this->id,
+                            'blockable_type' => $this->getMorphClass(),
+                            'position'       => $index + 1,
+                            'type'           => $block['type'],
+                            'content'        => $block['content'] ?? [],
+                        ])
+                );
+            });
     }
 }

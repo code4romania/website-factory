@@ -22,7 +22,9 @@
     export default defineBlock({
         type: 'o-embed',
         icon: 'Development/code-s-slash-line',
-        translatableFields: ['title'],
-        fields: ['url'],
+        fields: {
+            title: Object,
+            url: String,
+        },
     });
 </script>

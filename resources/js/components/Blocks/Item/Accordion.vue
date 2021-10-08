@@ -7,7 +7,7 @@
         v-model="content.title"
     />
 
-    <block-repeater type="accordion-item" v-model="blocks" />
+    <block-repeater component="accordion-item" v-model="children" />
 </template>
 
 <script>
@@ -16,6 +16,8 @@
     export default defineBlock({
         type: 'accordion',
         icon: 'Editor/list-check-2',
-        fields: ['text', 'blocks'],
+        fields: {
+            title: Object,
+        },
     });
 </script>

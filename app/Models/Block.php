@@ -23,6 +23,7 @@ class Block extends Model
         'type',
         'position',
         'content',
+        'parent_id',
     ];
 
     protected $casts = [

@@ -4,27 +4,46 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use Exception;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Symfony\Component\Finder\SplFileInfo;
 
-class BlockTypeCollection extends Collection
+class BlockCollection extends Collection
 {
     private Filesystem $filesystem;
 
     public ?string $source;
 
-    public function __construct()
+    public function __construct(string $type)
     {
+        if (! \in_array($type, ['block', 'repeater'])) {
+            throw new Exception('Invalid block type');
+        }
+
         $this->filesystem = app(Filesystem::class);
 
-        parent::__construct($this->getBlockList());
+        $method = Str::camel("get-${type}-list");
+
+        parent::__construct($this->$method());
     }
 
     private function getBlockList(): ?iterable
     {
-        $source = config('blocks.source_dir', resource_path('js/components/Blocks/Type'));
+        $source = config('blocks.source_dir', resource_path('js/components/Blocks/Item'));
+
+        if (! $this->filesystem->exists($source)) {
+            return null;
+        }
+
+        return collect($this->filesystem->files($source))
+            ->map(fn (SplFileInfo $file) => $this->getBlockInfo($file, 'block'));
+    }
+
+    private function getRepeaterList(): ?iterable
+    {
+        $source = config('blocks.source_dir', resource_path('js/components/Blocks/Repeater'));
 
         if (! $this->filesystem->exists($source)) {
             return null;
