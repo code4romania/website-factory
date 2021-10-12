@@ -40,8 +40,6 @@ mix.valet('primarie.test')
     .copyDirectory('resources/svg', 'public/assets/svg')
     .copyDirectory('resources/images', 'public/assets/images')
     .sourceMaps(false)
-    .extract()
-    .extract(['alpinejs'], 'public/assets/public.vendor.js')
 
     .override((config) => {
         config.module.rules.push({

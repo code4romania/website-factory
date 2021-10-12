@@ -7,9 +7,14 @@
 
     <link rel="stylesheet" href="{{ mix('assets/app.css') }}">
 
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
+    </style>
+
     {{-- Scripts --}}
-    <script src="{{ mix('assets/manifest.js') }}" defer></script>
-    <script src="{{ mix('assets/public.vendor.js') }}" defer></script>
     <script src="{{ mix('assets/public.js') }}" defer></script>
 </head>
 
