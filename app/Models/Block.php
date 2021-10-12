@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Traits\HasChildren;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Arr;
 
 class Block extends Model
 {
-    use HasChildren;
     use HasFactory;
 
     public $timestamps = false;
@@ -30,9 +30,24 @@ class Block extends Model
         'content' => 'json',
     ];
 
+    protected $with = [
+        'children',
+    ];
+
     public function blockable(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    public function children(): HasMany
+    {
+        return $this->hasMany(self::class, 'parent_id')
+            ->orderBy('position');
+    }
+
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(self::class);
     }
 
     public function input(string $field)

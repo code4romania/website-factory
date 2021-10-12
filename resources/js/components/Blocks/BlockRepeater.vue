@@ -3,6 +3,9 @@
         v-model="modelValue"
         item-key="id"
         class="grid gap-4"
+        handle=".handle"
+        ghost-class="opacity-50"
+        :animation="200"
         @change="$emit('update:blocks', blocks)"
     >
         <template #item="{ element, index }">
@@ -11,7 +14,6 @@
                 type="repeater"
                 :component="component"
                 v-model:content="element.content"
-                v-model:children="element.children"
                 @duplicate="duplicateBlock(index)"
                 @delete="deleteBlock(index)"
                 can-duplicate

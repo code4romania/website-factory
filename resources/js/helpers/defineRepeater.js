@@ -9,6 +9,10 @@ export default function (block) {
                 type: Object,
                 default: () => ({}),
             },
+            children: {
+                type: Array,
+                default: () => [],
+            },
             ...block.props,
         },
         emits: ['update:content'],

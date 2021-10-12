@@ -20,7 +20,13 @@ return new class extends Migration {
             $table->morphs('blockable');
             $table->unsignedInteger('position');
             $table->json('content');
-            $table->unsignedBigInteger('parent_id')->nullable()->index();
+
+            $table->foreignId('parent_id')
+                ->nullable()
+                ->references('id')
+                ->on('blocks')
+                ->constrained()
+                ->cascadeOnDelete();
         });
     }
 };

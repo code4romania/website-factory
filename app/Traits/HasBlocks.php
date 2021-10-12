@@ -17,6 +17,7 @@ trait HasBlocks
     public function blocks(): MorphMany
     {
         return $this->morphMany(Block::class, 'blockable')
+            ->whereNull('parent_id')
             ->orderBy('blocks.position');
     }
 

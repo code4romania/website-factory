@@ -23,10 +23,7 @@ class Accordion extends Component
     {
         $this->title = $block->translatedInput('title');
 
-        $this->items = $block->children->map(fn (Block $item) => [
-            'title' => $item->translatedInput('title'),
-            'text'  => $item->translatedInput('text'),
-        ]);
+        $this->items = $block->children;
     }
 
     /**

@@ -1,20 +1,29 @@
 <template>
     <section class="bg-white border">
-        <header class="flex items-stretch bg-gray-50">
+        <header class="relative flex items-stretch bg-gray-50">
             <div
                 class="handle flex-shrink-0 w-5 px-1.5 py-2 bg-gray-100 border-r cursor-move"
             >
                 <icon name="drag" class="w-full h-full text-gray-400" local />
             </div>
 
-            <div class="flex-1 p-3">
-                <h1
-                    class="text-sm font-medium"
-                    v-text="$t(`block.${component}`)"
-                />
-            </div>
+            <button
+                type="button"
+                @click="toggleOpen"
+                class="flex-1 p-3 text-left text-gray-400 truncate focus:outline-none"
+            >
+                <h1 class="text-sm font-medium truncate">
+                    <span class="text-gray-900" v-t="blockName" />
 
-            <div class="flex items-center pr-3 space-x-3">
+                    <span v-if="blockTitle && !open">
+                        &mdash; {{ blockTitle }}
+                    </span>
+                </h1>
+            </button>
+
+            <div
+                class="relative flex items-center flex-shrink-0 pr-3 space-x-3"
+            >
                 <button
                     v-if="canExpand"
                     type="button"
@@ -35,28 +44,41 @@
                 </button>
 
                 <button
-                    v-if="canDuplicate"
                     type="button"
-                    @click="$emit('duplicate')"
+                    @click="toggleOpen"
                     class="text-gray-400 hover:text-gray-900 focus:outline-none"
                 >
                     <icon
-                        name="Document/file-copy-line"
-                        class="block w-4 h-4"
+                        name="System/arrow-down-s-line"
+                        class="w-5 h-5 text-gray-400"
+                        :class="{ 'rotate-180': open }"
                     />
                 </button>
 
-                <button
-                    type="button"
-                    @click="$emit('delete')"
-                    class="text-gray-400 hover:text-red-500 focus:outline-none"
+                <dropdown
+                    trigger-class="flex items-center py-1 text-gray-400 hover:text-gray-900 focus:outline-none"
+                    origin="top-right"
+                    with-more
                 >
-                    <icon name="System/delete-bin-line" class="block w-4 h-4" />
-                </button>
+                    <template #content>
+                        <dropdown-item
+                            v-if="canDuplicate"
+                            type="button"
+                            @click="$emit('duplicate')"
+                            v-text="$t('app.action.duplicate')"
+                        />
+
+                        <dropdown-item
+                            type="button"
+                            @click="$emit('delete')"
+                            v-text="$t('app.action.delete')"
+                        />
+                    </template>
+                </dropdown>
             </div>
         </header>
 
-        <div class="px-4 py-5 space-y-8 sm:p-6">
+        <div v-show="open" class="px-4 py-5 space-y-8 sm:p-6">
             <component
                 :is="component"
                 v-model:content="content"
@@ -80,7 +102,9 @@
 </template>
 
 <script>
-    import { computed } from 'vue';
+    import { computed, ref } from 'vue';
+    import { useLocale } from '@/helpers';
+    import get from 'lodash/get';
 
     export default {
         name: 'BlockItem',
@@ -103,8 +127,8 @@
                 required: true,
             },
             children: {
-                type: Object,
-                required: true,
+                type: Array,
+                default: () => [],
             },
             canDuplicate: {
                 type: Boolean,
@@ -117,16 +141,36 @@
         },
         emits: ['duplicate', 'delete'],
         setup(props) {
+            const { currentLocale } = useLocale();
+
             const component = computed(() =>
                 `block-${props.type}-${props.component}`.toLowerCase()
             );
+
+            const blockName = computed(() => `block.${props.component}`);
+            const blockTitle = computed(() =>
+                get(props.content, `title.${currentLocale.value}`, null)
+            );
+
             const toggleWidth = () => {
                 props.content.fullwidth = !props.content.fullwidth;
             };
 
+            const open = ref(true);
+
+            const toggleOpen = () => {
+                open.value = !open.value;
+            };
+
             return {
+                currentLocale,
                 component,
+                blockName,
+                blockTitle,
                 toggleWidth,
+
+                open,
+                toggleOpen,
             };
         },
     };

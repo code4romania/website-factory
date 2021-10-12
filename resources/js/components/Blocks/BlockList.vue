@@ -2,8 +2,10 @@
     <draggable
         v-model="blocks"
         item-key="id"
-        class="grid grid-cols-1 gap-4 md:grid-cols-2"
+        class="grid items-start grid-cols-1 gap-4 md:grid-cols-2"
         handle=".handle"
+        ghost-class="opacity-50"
+        :animation="200"
         @change="$emit('update:blocks', blocks)"
     >
         <template #header>
