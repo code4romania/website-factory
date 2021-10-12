@@ -18,7 +18,7 @@
         "guzzlehttp/guzzle": "^7.3",
         "inertiajs/inertia-laravel": "^0.4",
         "kalnoy/nestedset": "^6.0",
-        "laravel/framework": "^8.63",
+        "laravel/framework": "^8.64",
         "laravel/tinker": "^2.6",
         "spatie/laravel-translatable": "^4.6",
         "tightenco/ziggy": "^1.4"

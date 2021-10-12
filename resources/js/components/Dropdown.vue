@@ -8,6 +8,12 @@
                 name="System/arrow-down-s-line"
                 class="w-4 h-4"
             />
+
+            <icon
+                v-else-if="withMore"
+                name="System/more-fill"
+                class="w-4 h-4"
+            />
         </button>
 
         <!-- Full Screen Dropdown Overlay -->
@@ -25,7 +31,6 @@
                 v-show="open"
                 class="absolute z-50 mt-2 shadow-lg"
                 :class="[width, alignmentClasses]"
-                style="display: none"
                 @click="open = false"
             >
                 <div
@@ -45,9 +50,6 @@
     export default {
         name: 'Dropdown',
         props: {
-            align: {
-                default: 'right',
-            },
             width: {
                 type: String,
                 default: 'w-48',
@@ -64,6 +66,10 @@
                 default: null,
             },
             withArrow: {
+                type: Boolean,
+                default: false,
+            },
+            withMore: {
                 type: Boolean,
                 default: false,
             },
@@ -99,14 +105,6 @@
                     'bottom-right': 'origin-bottom-right bottom-full right-0 mb-2',
                     'bottom-left': 'origin-bottom-left bottom-full left-0 mb-2',
                 }[this.origin];
-
-                if (this.align === 'left') {
-                    return 'origin-top-left left-0';
-                } else if (this.align === 'right') {
-                    return 'origin-top-right right-0';
-                } else {
-                    return 'origin-top';
-                }
             },
         },
     };
