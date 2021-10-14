@@ -45,7 +45,7 @@
 </template>
 
 <script>
-    import { computed, ref, onMounted } from 'vue';
+    import { computed, ref, watch } from 'vue';
     import { useMedia } from '@/helpers';
 
     export default {
@@ -81,7 +81,10 @@
                 });
             };
 
-            onMounted(refreshItems);
+            watch(
+                () => props.show,
+                (show) => show && refreshItems()
+            );
 
             const selectedItems = ref([]);
             const toggleSelected = (id) => {
