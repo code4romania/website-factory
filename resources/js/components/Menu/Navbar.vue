@@ -67,22 +67,22 @@
                     <menu-item
                         v-for="(item, index) in mainMenu"
                         :key="index"
-                        :href="item.href"
-                        :route-name="item.route"
-                        :label="item.label"
+                        v-bind="item"
                         class="text-sm"
-                    />
+                    >
+                        {{ item.label }}
+                    </menu-item>
                 </div>
 
                 <div class="flex space-x-4">
                     <menu-item
-                        v-for="(item, index) in adminMenu"
+                        v-for="(item, index) in secondaryMenu"
                         :key="index"
-                        :href="item.href"
-                        :route-name="item.route"
-                        :label="item.label"
+                        v-bind="item"
                         class="text-sm"
-                    />
+                    >
+                        {{ item.label }}
+                    </menu-item>
                 </div>
             </div>
 
@@ -95,22 +95,22 @@
                     <menu-item
                         v-for="(item, index) in mainMenu"
                         :key="index"
-                        :href="item.href"
-                        :route-name="item.route"
-                        :label="item.label"
+                        v-bind="item"
                         class="text-base"
-                    />
+                    >
+                        {{ item.label }}
+                    </menu-item>
                 </div>
 
-                <div v-if="adminMenu.length" class="pt-4 space-y-1">
+                <div v-if="secondaryMenu.length" class="pt-4 space-y-1">
                     <menu-item
-                        v-for="(item, index) in adminMenu"
+                        v-for="(item, index) in secondaryMenu"
                         :key="index"
-                        :href="item.href"
-                        :route-name="item.route"
-                        :label="item.label"
+                        v-bind="item"
                         class="text-base"
-                    />
+                    >
+                        {{ item.label }}
+                    </menu-item>
                 </div>
 
                 <div class="pt-4 space-y-3">
@@ -129,13 +129,12 @@
                         <menu-item
                             v-for="(item, index) in profileMenu"
                             :key="index"
-                            :method="item.method || 'get'"
                             :as="item.method === 'post' ? 'button' : 'a'"
+                            v-bind="item"
                             class="block w-full text-sm"
-                            :href="item.href"
-                            :route-name="item.route"
-                            :label="item.label"
-                        />
+                        >
+                            {{ item.label }}
+                        </menu-item>
                     </div>
                 </div>
             </div>
@@ -151,7 +150,7 @@
                 type: Array,
                 default: () => [],
             },
-            adminMenu: {
+            secondaryMenu: {
                 type: Array,
                 default: () => [],
             },

@@ -13,6 +13,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Inertia\Response;
+use Intervention\Image\Image;
+use Plank\Mediable\Facades\ImageManipulator;
+use Plank\Mediable\ImageManipulation;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -43,6 +46,7 @@ class AppServiceProvider extends ServiceProvider
         Relation::morphMap([
             'block' => \App\Models\Block::class,
             'form'  => \App\Models\Form::class,
+            'media' => \App\Models\Media::class,
             'page'  => \App\Models\Page::class,
             'post'  => \App\Models\Post::class,
             'user'  => \App\Models\User::class,
@@ -54,6 +58,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->registerBlueprintMacros();
         $this->registerInertiaMacros();
+        $this->registerImageVariants();
     }
 
     protected function registerBlueprintMacros(): void
@@ -86,5 +91,13 @@ class AppServiceProvider extends ServiceProvider
                 ],
             ]);
         });
+    }
+
+    protected function registerImageVariants(): void
+    {
+        ImageManipulator::defineVariant(
+            'thumb',
+            ImageManipulation::make(fn (Image $image) => $image->fit(256, 256))
+        );
     }
 }

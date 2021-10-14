@@ -50,6 +50,11 @@ class Block extends Model
         return $this->belongsTo(self::class);
     }
 
+    public function getComponentAttribute(): string
+    {
+        return "blocks.{$this->type}";
+    }
+
     public function input(string $field)
     {
         return $this->content[$field] ?? null;
@@ -69,10 +74,5 @@ class Block extends Model
     public function checkbox(string $field): bool
     {
         return (bool) $this->input($field);
-    }
-
-    public function getComponentAttribute(): string
-    {
-        return "blocks.{$this->type}";
     }
 }

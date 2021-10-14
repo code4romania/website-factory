@@ -17,6 +17,7 @@ return [
         'create'    => 'Adaugă',
         'delete'    => 'Șterge',
         'disable'   => 'Dezactivează',
+        'download'  => 'Descarcă',
         'draft'     => 'Salvează draft',
         'duplicate' => 'Duplică',
         'edit'      => 'Editează',
@@ -30,6 +31,7 @@ return [
         'search'    => 'Caută',
         'select'    => 'Selectează',
         'update'    => 'Actualizează',
+        'upload'    => 'Încarcă',
         'view'      => 'Vezi',
     ],
 

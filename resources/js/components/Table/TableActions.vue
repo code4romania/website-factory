@@ -9,19 +9,49 @@
             <dropdown-item
                 v-for="(action, index) in actions"
                 :key="index"
-                :href="action.href"
-                :target="action.target"
-                :method="action.method"
-                :as="action.method !== 'get' ? 'button' : 'a'"
+                @click="action.click"
+                v-bind="action"
             >
-                <span v-text="action.label" />
+                <span v-t="action.label" />
             </dropdown-item>
         </template>
     </dropdown>
+
+    <!-- Delete confirmation modal -->
+    <confirmation-modal
+        :show="confirmAction === 'delete'"
+        @close="confirmAction = null"
+        @submit="actionDelete"
+    >
+        <template #title>{{ $t('app.action.delete') }}</template>
+
+        <template #content>
+            {{ $t('app.action.deleteConfirm') }}
+        </template>
+
+        <template #footer>
+            <form-button
+                type="button"
+                @click.prevent="confirmAction = null"
+                :label="$t('app.action.cancel')"
+                :disabled="form.processing"
+                color="white"
+            />
+
+            <form-button
+                type="submit"
+                :label="$t('app.action.delete')"
+                :disabled="form.processing"
+                color="red"
+            />
+        </template>
+    </confirmation-modal>
 </template>
 
 <script>
-    import { usePage } from '@inertiajs/inertia-vue3';
+    import { ref, computed } from 'vue';
+    import { useForm, useLocale } from '@/helpers';
+    import route from 'ziggy-js';
 
     export default {
         name: 'TableActions',
@@ -35,49 +65,70 @@
                 required: true,
             },
         },
-        computed: {
-            actions() {
+        setup(props) {
+            const form = useForm();
+
+            const { currentLocale } = useLocale();
+
+            const confirmAction = ref(null);
+
+            const adminRoute = (suffix, args) =>
+                route(props.properties.route_prefix + '.' + suffix, {
+                    id: props.row.id,
+                    ...args,
+                });
+
+            const actions = computed(() => {
                 const actions = [];
 
-                if (this.row.hasOwnProperty('slug')) {
+                if (props.row.hasOwnProperty('slug')) {
                     actions.push({
-                        href: this.route('front.pages.show', {
-                            locale: usePage().props.value.locales.current,
-                            page: this.row.slug,
+                        href: route('front.pages.show', {
+                            locale: currentLocale.value,
+                            page: props.row.slug,
                         }),
-                        label: this.$t('app.action.view'),
+                        label: 'app.action.view',
                         target: '_blank',
+                        type: 'link',
                     });
                 }
 
-                if (this.row.can.update && !this.row.trashed) {
+                if (props.row.can.update && !props.row.trashed) {
                     actions.push({
-                        href: this.adminRoute('edit', this.row.id),
-                        label: this.$t('app.action.edit'),
+                        href: adminRoute('edit'),
+                        label: 'app.action.edit',
+                        type: 'link',
                     });
                 }
 
-                if (this.row.can.delete && !this.row.trashed) {
+                if (props.row.can.delete && !props.row.trashed) {
                     actions.push({
-                        href: this.adminRoute('destroy', this.row.id),
-                        label: this.$t('app.action.delete'),
-                        method: 'delete',
+                        click: () => (confirmAction.value = 'delete'),
+                        label: 'app.action.delete',
+                        type: 'button',
                     });
                 }
 
-                if (this.row.can.delete && this.row.trashed) {
+                if (props.row.can.delete && props.row.trashed) {
                     actions.push({
-                        href: this.adminRoute('restore', this.row.id),
-                        label: this.$t('app.action.restore'),
-                        method: 'put',
+                        click: () => (confirmAction.value = 'restore'),
+                        label: 'app.action.restore',
+                        type: 'button',
+                        // target: adminRoute('restore'),
+                        // method: 'put',
                     });
 
                     actions.push({
-                        href: this.adminRoute('forceDelete', this.row.id),
-                        label: this.$t('app.action.forceDelete'),
-                        method: 'delete',
+                        click: () => (confirmAction.value = 'forceDelete'),
+                        label: 'app.action.forceDelete',
+                        type: 'button',
+                        // target: adminRoute('forceDelete'),
+                        // label: 'app.action.forceDelete',
+                        // method: 'delete',
                     });
                 }
+
+                return actions;
 
                 return actions.map((action) => {
                     if (!action.hasOwnProperty('method')) {
@@ -90,15 +141,22 @@
 
                     return action;
                 });
-            },
-        },
-        methods: {
-            adminRoute(suffix, args) {
-                return this.route(
-                    this.properties.route_prefix + '.' + suffix,
-                    args
-                );
-            },
+            });
+
+            const actionDelete = () => {
+                return form.delete(adminRoute('destroy'), {
+                    onSuccess: () => (confirmAction.value = null),
+                });
+            };
+
+            return {
+                confirmAction,
+                actions,
+
+                //
+                form,
+                actionDelete,
+            };
         },
     };
 </script>

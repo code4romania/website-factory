@@ -34,7 +34,7 @@ trait HasUuid
         // Generate UUID if none provided
         static::creating(function (Model $model) {
             if (! $model->getKey()) {
-                $model->{$model->getKeyName()} = (string) Str::orderedUuid()->toString();
+                $model->{$model->getKeyName()} = (string) Str::orderedUuid();
             }
         });
 

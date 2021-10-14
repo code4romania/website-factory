@@ -44,3 +44,8 @@ Route::post('users', [Admin\UserController::class, 'store'])->name('users.store'
 Route::get('users/{user}/edit', [Admin\UserController::class, 'edit'])->name('users.edit');
 Route::put('users/{user}', [Admin\UserController::class, 'update'])->name('users.update');
 Route::delete('users/{user}', [Admin\UserController::class, 'destroy'])->name('users.destroy');
+
+Route::get('media', [Admin\MediaController::class, 'index'])->name('media.index');
+Route::post('media', [Admin\MediaController::class, 'store'])->name('media.store');
+Route::put('media/{media}', [Admin\MediaController::class, 'update'])->name('media.update');
+Route::delete('media/{media}', [Admin\MediaController::class, 'destroy'])->name('media.destroy');

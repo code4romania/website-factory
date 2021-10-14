@@ -20,6 +20,7 @@
         "kalnoy/nestedset": "^6.0",
         "laravel/framework": "^8.64",
         "laravel/tinker": "^2.6",
+        "plank/laravel-mediable": "^5.2",
         "spatie/laravel-translatable": "^4.6",
         "tightenco/ziggy": "^1.4"
     },

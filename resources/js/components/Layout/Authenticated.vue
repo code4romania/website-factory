@@ -5,7 +5,7 @@
         <header>
             <menu-navbar
                 :main-menu="mainMenu"
-                :admin-menu="adminMenu"
+                :secondary-menu="secondaryMenu"
                 :profile-menu="profileMenu"
             />
 
@@ -51,6 +51,11 @@
         </footer>
 
         <flash-toast />
+
+        <media-manager
+            :show="showMediaManager"
+            @close="showMediaManager = false"
+        />
     </div>
 </template>
 
@@ -69,50 +74,58 @@
         },
         data() {
             return {
+                showMediaManager: false,
                 mainMenu: [
                     {
+                        type: 'link',
                         href: this.route('admin.dashboard'),
                         label: this.$t('app.dashboard'),
-                        route: 'admin.dashboard',
                     },
                     {
+                        type: 'link',
                         href: this.route('admin.pages.index'),
                         label: this.$t('page.label', 2),
-                        route: 'admin.pages.index',
                     },
                     // {
+                    //     type: 'link',
                     //     href: this.route('admin.categories.index'),
                     //     label: this.$t('category.label', 2),
                     //     route: 'admin.categories.index',
                     // },
                     {
+                        type: 'link',
                         href: this.route('admin.forms.index'),
                         label: this.$t('form.label', 2),
-                        route: 'admin.forms.index',
                     },
                     {
+                        type: 'link',
                         href: this.route('admin.users.index'),
                         label: this.$t('user.label', 2),
-                        route: 'admin.users.index',
                     },
                 ],
-                adminMenu: [
+                secondaryMenu: [
                     {
+                        type: 'button',
+                        label: this.$t('media.library'),
+                        onClick: () => (this.showMediaManager = true),
+                    },
+                    {
+                        type: 'link',
                         href: '#',
                         label: this.$t('app.settings'),
-                        route: 'admin.settings.index',
                     },
                 ],
                 profileMenu: [
                     {
+                        type: 'link',
                         href: '#',
                         label: this.$t('app.profile'),
                     },
                     {
+                        type: 'link',
                         href: this.route('auth.logout'),
                         label: this.$t('auth.logout'),
                         method: 'post',
-                        route: 'auth.logout',
                     },
                 ],
             };
