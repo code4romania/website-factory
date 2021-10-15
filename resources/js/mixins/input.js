@@ -2,6 +2,10 @@ import uniqid from 'uniqid';
 export default {
     inheritAttrs: false,
     props: {
+        id: {
+            type: String,
+            default: () => uniqid('field-id-'),
+        },
         name: {
             type: String,
             default: () => uniqid('field-'),

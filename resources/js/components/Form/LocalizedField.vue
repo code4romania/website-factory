@@ -6,7 +6,6 @@
                 :is="type"
                 v-if="locale === currentLocale"
                 v-bind="$attrs"
-                :name="$attrs.name"
                 v-model="modelValue[locale]"
                 :locale="locale"
             >

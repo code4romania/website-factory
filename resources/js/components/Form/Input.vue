@@ -2,7 +2,7 @@
     <form-field
         :name="name"
         :label="label"
-        :label-for="name"
+        :label-for="id"
         :help="null"
         :required="required"
         :disabled="disabled"
@@ -12,7 +12,7 @@
             class="block w-full border-inherit"
             :type="type"
             :name="name"
-            :id="name"
+            :id="id"
             :required="required"
             :disabled="disabled"
             :autofocus="autofocus"

@@ -2,14 +2,20 @@
     <form-field
         :name="name"
         :label="label"
-        :label-for="name"
+        :label-for="id"
         :help-text="null"
         :required="required"
         :disabled="disabled"
         :locale="locale"
     >
-        <div v-if="editor" class="flex flex-col w-full overflow-hidden bg-white border border-inherit max-h-[75vh]">
-            <editor-toolbar :editor="editor" class="sticky top-0 flex-shrink-0" />
+        <div
+            v-if="editor"
+            class="flex flex-col w-full overflow-hidden bg-white border border-inherit max-h-[75vh]"
+        >
+            <editor-toolbar
+                :editor="editor"
+                class="sticky top-0 flex-shrink-0"
+            />
 
             <!-- <editor-bubble-menus :editor="editor" /> -->
 

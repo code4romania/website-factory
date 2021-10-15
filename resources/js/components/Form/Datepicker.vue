@@ -2,7 +2,7 @@
     <form-field
         :name="name"
         :label="label"
-        :label-for="name"
+        :label-for="id"
         :help="null"
         :required="required"
         :disabled="disabled"
@@ -11,7 +11,7 @@
         <flat-pickr
             class="block w-full border-inherit"
             :name="name"
-            :id="name"
+            :id="id"
             :required="required"
             :disabled="disabled"
             :autofocus="autofocus"

@@ -3,7 +3,7 @@
         <div class="flex space-x-2">
             <input
                 type="checkbox"
-                :id="name"
+                :id="id"
                 :name="name"
                 class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                 v-model="proxyChecked"
@@ -12,7 +12,7 @@
 
             <form-label
                 v-if="label"
-                :target="name"
+                :target="id"
                 :text="label"
                 :required="required && !disabled"
                 class="text-gray-700"

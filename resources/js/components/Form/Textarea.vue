@@ -2,7 +2,7 @@
     <form-field
         :name="name"
         :label="label"
-        :label-for="name"
+        :label-for="id"
         :help-text="null"
         :required="required"
         :disabled="disabled"
@@ -10,7 +10,7 @@
     >
         <textarea
             class="block w-full overflow-hidden resize-none border-inherit"
-            :id="name"
+            :id="id"
             :name="name"
             :required="required"
             :disabled="disabled"
@@ -64,7 +64,11 @@
             onMounted(resize);
 
             watch(
-                computed(() => [props.modelValue, props.minHeight, props.maxHeight]),
+                computed(() => [
+                    props.modelValue,
+                    props.minHeight,
+                    props.maxHeight,
+                ]),
                 resize
             );
 
