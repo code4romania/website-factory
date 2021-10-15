@@ -32,15 +32,11 @@
         </div>
 
         <template v-else>
-            <div
-                class="block w-full overflow-hidden border border-gray-200 group aspect-w-1 aspect-h-1"
-            >
-                <img
-                    :src="item.urls.thumb"
-                    class="object-cover object-center"
-                    alt=""
-                />
-            </div>
+            <img
+                :src="item.urls.thumb"
+                class="block w-full border border-gray-200"
+                alt=""
+            />
 
             <div>
                 <h2 class="font-medium leading-tight text-gray-900">
