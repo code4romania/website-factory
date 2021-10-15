@@ -16,7 +16,7 @@
             :disabled="disabled"
             v-bind="$attrs"
             :value="modelValue"
-            @input="emit"
+            @input="$emit('update:modelValue', $event.target.value)"
             rows="3"
             ref="textarea"
         />
@@ -24,12 +24,11 @@
 </template>
 
 <script>
-    import InputMixin from '@/mixins/input';
     import { ref, computed, nextTick, onMounted, watch } from 'vue';
+    import { defineInput } from '@/helpers';
 
-    export default {
+    export default defineInput({
         name: 'FormTextarea',
-        mixins: [InputMixin],
         props: {
             minHeight: {
                 type: Number,
@@ -74,9 +73,8 @@
 
             return {
                 textarea,
-                resize,
             };
         },
-    };
+    });
 </script>
 

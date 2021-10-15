@@ -3,16 +3,18 @@ export default function () {
         const match = type.toString().match(/^\s*function (\w+)/);
         type = match ? match[1] : '';
 
-        return (
-            {
+        try {
+            return {
                 Array: [],
                 Boolean: false,
                 Date: new Date(),
                 Number: 0,
                 Object: {},
                 String: null,
-            }[type] || null
-        );
+            }[type];
+        } catch (e) {
+            return null;
+        }
     };
 
     const initializeFields = (block, props) => {

@@ -18,24 +18,22 @@
             :autofocus="autofocus"
             v-bind="$attrs"
             :value="modelValue"
-            @input="emit"
+            @input="$emit('update:modelValue', $event.target.value)"
         />
     </form-field>
 </template>
 
 <script>
-    import InputMixin from '@/mixins/input';
+    import { defineInput } from '@/helpers';
 
-    export default {
+    export default defineInput({
         name: 'FormInput',
-        mixins: [InputMixin],
-        inheritAttrs: false,
         props: {
             type: {
                 type: String,
                 default: 'text',
             },
         },
-    };
+    });
 </script>
 

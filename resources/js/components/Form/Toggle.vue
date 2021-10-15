@@ -6,66 +6,38 @@
         :locale="locale"
     >
         <button
-            @click.prevent="checked = !checked"
+            @click.prevent="$emit('update:modelValue', !modelValue)"
             type="button"
-            :aria-pressed="checked"
-            aria-labelledby="toggleLabel"
-            class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600"
-            :class="{
-                'bg-gray-200': !checked,
-                'bg-green-600': checked,
-            }"
+            :aria-pressed="modelValue"
+            class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
+            :class="modelValue ? 'bg-blue-600' : 'bg-gray-200'"
         >
             <span
                 aria-hidden="true"
-                :class="checked ? 'translate-x-5' : 'translate-x-0'"
-                class="inline-block w-5 h-5 transition duration-200 ease-in-out transform translate-x-0 bg-white rounded-full shadow ring-0"
+                :class="modelValue ? 'translate-x-5' : 'translate-x-0'"
+                class="inline-block w-5 h-5 transition duration-200 ease-in-out transform bg-white rounded-full shadow ring-0"
             />
         </button>
-    </form-field>
 
-    <div>
-        <div
-            class="flex items-center"
-            :class="inverse ? 'flex-row-reverse' : ''"
-        >
+        <div v-if="label" class="flex items-center">
             <div
-                class="flex my-1 text-xs leading-tight text-gray-700"
-                :class="inverse ? 'mr-2' : 'ml-2'"
-                v-text="computedLabel"
+                class="flex my-1 ml-2 text-xs leading-tight text-gray-700"
+                v-text="label"
             />
         </div>
-    </div>
+    </form-field>
 </template>
 
 <script>
-    import InputMixin from '@/mixins/input';
+    import { defineInput } from '@/helpers';
 
-    export default {
+    export default defineInput({
         name: 'FormToggle',
-        mixins: [InputMixin],
-        inheritAttrs: false,
-        props: {},
-        data() {
-            return {
-                checked: false,
-            };
-        },
-        methods: {
-            toggle() {
-                this.checked = !this.checked;
+        props: {
+            modelValue: {
+                type: Boolean,
+                default: false,
             },
         },
-        watch: {
-            value: {
-                immediate: true,
-                handler: function (value) {
-                    this.checked = value;
-                },
-            },
-            checked(cv) {
-                this.$emit('input', cv);
-            },
-        },
-    };
+    });
 </script>

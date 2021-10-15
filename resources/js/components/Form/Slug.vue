@@ -16,51 +16,57 @@
 
 <script>
     import slug from 'slug';
-    import InputMixin from '@/mixins/input';
+    import { computed, watch } from 'vue';
+    import { route } from '@/helpers';
 
     export default {
         name: 'FormSlug',
-        mixins: [InputMixin],
-        inheritAttrs: false,
         props: {
-            type: {
-                type: String,
-                default: 'text',
-            },
             routeName: {
                 type: String,
                 required: true,
+            },
+            modelValue: {
+                type: String,
+                default: null,
             },
             source: {
                 type: Object,
                 default: null,
             },
+            locale: {},
         },
-        computed: {
-            fullUrl() {
-                if (!this.modelValue) {
+        setup(props, { emit }) {
+            const fullUrl = computed(() => {
+                if (!props.modelValue) {
                     return null;
                 }
 
-                return this.route(this.routeName, {
-                    locale: this.locale,
-                    page: this.modelValue,
+                return route(props.routeName, {
+                    locale: props.locale,
+                    page: props.modelValue,
                 });
-            },
-        },
-        watch: {
-            source: {
-                deep: true,
-                handler(source) {
+            });
+
+            watch(
+                () => props.source,
+                (source) => {
+                    console.log(source);
                     if (!source) {
                         return;
                     }
 
-                    this.emit(
-                        source[this.locale] ? slug(source[this.locale]) : null
+                    emit(
+                        'update:modelValue',
+                        source[props.locale] ? slug(source[props.locale]) : null
                     );
                 },
-            },
+                { deep: true }
+            );
+
+            return {
+                fullUrl,
+            };
         },
     };
 </script>

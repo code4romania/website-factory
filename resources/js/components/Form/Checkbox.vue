@@ -32,26 +32,26 @@
 </template>
 
 <script>
-    import InputMixin from '@/mixins/input';
+    import { computed } from 'vue';
+    import { defineInput } from '@/helpers';
 
-    export default {
+    export default defineInput({
         name: 'FormCheckbox',
-        mixins: [InputMixin],
         props: {
-            help: {
-                type: String,
-                default: null,
+            modelValue: {
+                type: Boolean,
+                default: false,
             },
         },
-        computed: {
-            proxyChecked: {
-                get() {
-                    return !!this.modelValue;
-                },
-                set(value) {
-                    this.emit(value);
-                },
-            },
+        setup(props, { emit }) {
+            const proxyChecked = computed({
+                get: () => !!props.modelValue,
+                set: (checked) => emit('update:modelValue', checked),
+            });
+
+            return {
+                proxyChecked,
+            };
         },
-    };
+    });
 </script>

@@ -51,23 +51,11 @@
 <script>
     import { computed } from 'vue';
     import { usePage } from '@inertiajs/inertia-vue3';
-    import { useLocale } from '@/helpers';
+    import { defineInput, useLocale } from '@/helpers';
 
-    export default {
+    export default defineInput({
         name: 'FormField',
         props: {
-            locale: {
-                type: String,
-                default: null,
-            },
-            name: {
-                type: String,
-                required: true,
-            },
-            label: {
-                type: String,
-                default: null,
-            },
             labelFor: {
                 type: String,
                 default: null,
@@ -75,14 +63,6 @@
             help: {
                 type: String,
                 default: null,
-            },
-            required: {
-                type: Boolean,
-                default: false,
-            },
-            disabled: {
-                type: Boolean,
-                default: false,
             },
         },
         setup(props) {
@@ -116,5 +96,5 @@
                 showLocaleSwitchButton,
             };
         },
-    };
+    });
 </script>

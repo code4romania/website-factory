@@ -1,4 +1,5 @@
 export { default as defineBlock } from './defineBlock';
+export { default as defineInput } from './defineInput';
 export { default as defineRepeater } from './defineRepeater';
 export { default as route } from './useRoute';
 export { default as useBlock } from './useBlock';

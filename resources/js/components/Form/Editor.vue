@@ -55,15 +55,14 @@
     import Typography from '@tiptap/extension-typography';
     import Underline from '@tiptap/extension-underline';
 
-    import InputMixin from '@/mixins/input';
+    import { defineInput } from '@/helpers';
     import { watch } from 'vue';
 
-    export default {
+    export default defineInput({
         name: 'FormEditor',
         components: {
             EditorContent,
         },
-        mixins: [InputMixin],
         props: {
             minHeight: {
                 type: Number,
@@ -74,7 +73,7 @@
                 default: null,
             },
         },
-        setup(props, context) {
+        setup(props, { emit }) {
             watch(
                 () => props.modelValue,
                 (modelValue) => {
@@ -125,7 +124,7 @@
                 content: props.modelValue || '',
 
                 onUpdate({ editor }) {
-                    context.emit('update:modelValue', editor.getHTML());
+                    emit('update:modelValue', editor.getHTML());
                 },
             });
 
@@ -133,6 +132,6 @@
                 editor,
             };
         },
-    };
+    });
 </script>
 

@@ -18,7 +18,7 @@
             v-bind="$attrs"
             :value="modelValue"
             :config="config"
-            @input="emit"
+            @input="$emit('update:modelValue', $event)"
         />
     </form-field>
 </template>
@@ -26,33 +26,27 @@
 <script>
     import flatPickr from 'vue-flatpickr-component';
     import 'flatpickr/dist/flatpickr.css';
-    import InputMixin from '@/mixins/input';
+    import { computed } from 'vue';
+    import { defineInput } from '@/helpers';
 
-    export default {
+    export default defineInput({
         name: 'FormDatepicker',
-        mixins: [InputMixin],
-        inheritAttrs: false,
         components: {
             flatPickr,
         },
-        computed: {
-            config() {
-                return {
-                    allowInput: true,
-                    enableTime: true,
-                    enableSeconds: true,
-                    time_24hr: true,
-                    defaultDate: new Date(),
-                };
-            },
+        setup(props) {
+            const config = computed(() => ({
+                allowInput: true,
+                enableTime: true,
+                enableSeconds: true,
+                time_24hr: true,
+                defaultDate: new Date(),
+            }));
+
+            return {
+                config,
+            };
         },
-        methods: {
-            emit(arg) {
-                this.$emit('update:modelValue', arg);
-                console.log(arg);
-                // this.$emit('update:modelValue', arg instanceof InputEvent ? arg.target.value : arg);
-            },
-        },
-    };
+    });
 </script>
 
