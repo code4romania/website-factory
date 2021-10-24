@@ -14,19 +14,19 @@ trait HasMedia
     public static function bootHasMedia(): void
     {
         static::saved(function (Model $model) {
-            debug($model->attributes);
+            // debug($model->attributes);
             //
         });
 
         static::deleting(function (Model $model) {
-            debug('deleting');
-            $model->media()->detachz;
+            // debug('deleting');
+            // $model->media()->detachz;
 
             // debug($model)
         });
 
         static::deleted(function ($model) {
-            dd($model);
+            // dd($model);
             $model->handleMediableDeletion();
         });
     }
