@@ -51,9 +51,8 @@ class PageController extends Controller
 
     public function update(PageRequest $request, Page $page): RedirectResponse
     {
-        $page->fill($request->validated());
-
-        $page->save();
+        // dd($request->validated());
+        $page->update($request->validated());
 
         return redirect()->route('admin.pages.edit', $page)
             ->with('success', __('page.event.updated'));

@@ -14,7 +14,7 @@ class PageController extends Controller
     {
         return view('front.page', [
             'page' => Page::query()
-                ->with('blocks')
+                ->with('blocks.media')
                 ->firstOrFail(),
         ]);
     }

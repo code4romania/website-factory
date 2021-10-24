@@ -1,0 +1,54 @@
+import:
+  - recipe/laravel.php
+  - contrib/php-fpm.php
+  - deploy/tasks/npm.php
+  # - deploy/tasks/artisan.php
+
+config:
+  application: 'Website Factory'
+  repository: 'git@github.com:code4romania/website-factory-primarie.git'
+  php_fpm_version: '7.4'
+  remote_user: ubuntu
+  writable_use_sudo: true
+
+hosts:
+  sinaia:
+    hostname: 'website-factory.code4.ro'
+    deploy_path: '/var/www/website-factory/sinaia'
+    labels:
+      stage: staging
+  brasov:
+    hostname: 'website-factory.code4.ro'
+    deploy_path: '/var/www/website-factory/brasov'
+    labels:
+      stage: staging
+  demo:
+    hostname: 'website-factory.code4.ro'
+    deploy_path: '/var/www/website-factory/demo'
+    labels:
+      stage: staging
+  cds:
+    hostname: 'website-factory.code4.ro'
+    deploy_path: '/var/www/website-factory/cds'
+    labels:
+      stage: staging
+
+tasks:
+  deploy:
+    - deploy:prepare
+    - deploy:vendors
+    - artisan:storage:link
+    - artisan:view:cache
+    - artisan:config:cache
+    - artisan:route:cache
+    - artisan:migrate
+    - assets:build
+    - deploy:publish
+    - php-fpm:reload
+  assets:build:
+    - npm:install
+    - npm:build
+    - npm:upload
+
+after:
+  deploy:failed: deploy:unlock

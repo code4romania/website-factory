@@ -79,11 +79,23 @@ class AppServiceProvider extends ServiceProvider
             $model = \resolve($model);
             $traits = \class_uses_recursive($model);
 
+            if (\in_array(HasBlocks::class, $traits)) {
+                $blocks = (new BlockCollection('block'))->all();
+            }
+
+            if (\in_array(HasBlocks::class, $traits)) {
+                $repeaters = (new BlockCollection('repeater'))->all();
+            }
+
+            if (\in_array(Translatable::class, $traits)) {
+                $translatable = $model->translatable;
+            }
+
             return $this->with([
                 'model' => [
-                    'blocks'       => \in_array(HasBlocks::class, $traits) ? (new BlockCollection('block'))->all() : [],
-                    'repeaters'    => \in_array(HasBlocks::class, $traits) ? (new BlockCollection('repeater'))->all() : [],
-                    'translatable' => \in_array(Translatable::class, $traits) ? $model->translatable : [],
+                    'blocks'       => $blocks ?? [],
+                    'repeaters'    => $repeaters ?? [],
+                    'translatable' => $translatable ?? [],
                 ],
             ]);
         });

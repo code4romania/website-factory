@@ -6,6 +6,7 @@ return [
 
     'actions' => 'Acțiuni',
     'content' => 'Conținut',
+    'description' => 'Descriere',
     'email' => 'Email',
     'name' => 'Nume',
     'required' => 'Câmp necesar',

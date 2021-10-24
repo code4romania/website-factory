@@ -1,5 +1,5 @@
 <template>
-    <aside class="p-8 pb-16 space-y-6 overflow-y-auto bg-white">
+    <aside class="px-6 py-8 pb-16 space-y-6 overflow-y-auto bg-white">
         <p
             v-if="!items.length"
             class="text-sm text-gray-500"
@@ -23,7 +23,7 @@
 
             <div class="flex mt-4">
                 <button
-                    type="b=utton"
+                    type="button"
                     class="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     @click="$emit('delete-selected')"
                     v-text="$t('app.action.delete')"
@@ -33,8 +33,10 @@
 
         <template v-else>
             <img
-                :src="item.urls.thumb"
+                :src="item.sizes.thumb.url"
                 class="block w-full border border-gray-200"
+                :width="item.sizes.thumb.width"
+                :height="item.sizes.thumb.height"
                 alt=""
             />
 
@@ -59,28 +61,28 @@
                         <dt class="text-gray-500">File size</dt>
                         <dd class="text-gray-900" v-text="item.size" />
                     </div>
+
+                    <div class="flex justify-between py-3">
+                        <dt class="text-gray-500">Dimensions</dt>
+                        <dd class="text-gray-900">
+                            <span v-text="item.sizes.original.width" />
+                            &times;
+                            <span v-text="item.sizes.original.height" />
+                        </dd>
+                    </div>
                 </dl>
             </div>
 
-            <div>
-                <h3 class="font-medium text-gray-900">Description</h3>
-                <div class="flex items-center justify-between mt-2">
-                    <p class="text-sm italic text-gray-500">
-                        Add a description to this image.
-                    </p>
-                    <button
-                        type="button"
-                        class="flex items-center justify-center w-8 h-8 text-gray-400 bg-white rounded-full hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        title="Add description"
-                    >
-                        <icon name="Design/pencil-fill" class="w-5 h-5" />
-                    </button>
-                </div>
-            </div>
+            <localized-field
+                type="form-textarea"
+                :label="$t('field.description')"
+                v-model="item.caption"
+                @blur="updateMedia(item.id, item)"
+            />
 
             <div class="flex">
                 <a
-                    :href="item.urls.original"
+                    :href="item.sizes.original.url"
                     class="flex-1 px-4 py-2 text-sm font-medium text-center text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     download
                     v-text="$t('app.action.download')"
@@ -98,7 +100,8 @@
 </template>
 
 <script>
-    import { computed } from 'vue';
+    import { ref, watch } from 'vue';
+    import { useMedia } from '@/helpers';
 
     export default {
         name: 'MediaDetails',
@@ -109,17 +112,22 @@
             },
         },
         emits: ['clear-selected', 'delete-selected'],
-        setup(props, { emit }) {
-            const item = computed(() => {
-                if (props.items.length !== 1) {
-                    return null;
-                }
+        setup(props) {
+            const { updateMedia } = useMedia();
 
-                return props.items[0];
-            });
+            const item = ref(null);
+
+            watch(
+                () => props.items,
+                (items) => {
+                    item.value = items.length === 1 ? items[0] : null;
+                },
+                { deep: true, immediate: true }
+            );
 
             return {
                 item,
+                updateMedia,
             };
         },
     };

@@ -52,10 +52,7 @@
 
         <flash-toast />
 
-        <media-manager
-            :show="showMediaManager"
-            @close="showMediaManager = false"
-        />
+        <media-library />
     </div>
 </template>
 
@@ -72,9 +69,9 @@
                 default: null,
             },
         },
+        inject: ['bus'],
         data() {
             return {
-                showMediaManager: false,
                 mainMenu: [
                     {
                         type: 'link',
@@ -107,7 +104,7 @@
                     {
                         type: 'button',
                         label: this.$t('media.library'),
-                        onClick: () => (this.showMediaManager = true),
+                        onClick: () => this.bus.emit('media-library:open'),
                     },
                     {
                         type: 'link',

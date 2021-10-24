@@ -3,8 +3,8 @@
         v-model="blocks"
         item-key="id"
         class="grid items-start grid-cols-1 gap-4 md:grid-cols-2"
-        handle=".handle"
         ghost-class="opacity-50"
+        handle=".handle"
         :animation="200"
         @change="$emit('update:blocks', blocks)"
     >
@@ -30,6 +30,7 @@
                 :class="{ 'md:col-span-2': element.content.fullwidth }"
                 v-model:content="element.content"
                 v-model:children="element.children"
+                v-model:media="element.media"
                 @duplicate="duplicateBlock(index)"
                 @delete="deleteBlock(index)"
                 can-duplicate
@@ -109,6 +110,7 @@
                         fullwidth: true,
                     },
                     children: [],
+                    media: [],
                 });
             };
 

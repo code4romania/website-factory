@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\MediaRequest;
+use App\Http\Requests\Admin\MediaStoreRequest;
+use App\Http\Requests\Admin\MediaUpdateRequest;
 use App\Http\Resources\MediaResource;
 use App\Models\Media;
 use Illuminate\Http\JsonResponse;
 use Plank\Mediable\Exceptions\MediaUploadException;
 use Plank\Mediable\Facades\MediaUploader;
 use Plank\Mediable\HandlesMediaUploadExceptions;
-use Plank\Mediable\Jobs\CreateImageVariants;
 
 class MediaController extends Controller
 {
@@ -30,20 +30,16 @@ class MediaController extends Controller
         );
     }
 
-    public function store(MediaRequest $request): JsonResponse
+    public function store(MediaStoreRequest $request): JsonResponse
     {
         try {
-            $media = MediaUploader::fromSource($request->file('file'))
-                ->upload();
-
-            CreateImageVariants::dispatchSync($media, ['thumb']);
+            return response()->json(
+                MediaUploader::fromSource($request->file('file'))
+                    ->upload()
+            );
         } catch (MediaUploadException $e) {
             throw $this->transformMediaUploadException($e);
         }
-
-        return response()->json(
-            MediaResource::make($media)
-        );
     }
 
     /**
@@ -53,9 +49,13 @@ class MediaController extends Controller
      * @param  \App\Models\Media         $media
      * @return \Illuminate\Http\Response
      */
-    public function update(MediaRequest $request, Media $media): JsonResponse
+    public function update(MediaUpdateRequest $request, Media $media): JsonResponse
     {
-        return response()->json(); // TODO
+        $media->update($request->validated());
+
+        return response()->json(
+            MediaResource::make($media)
+        );
     }
 
     /**

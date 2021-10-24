@@ -21,6 +21,9 @@ class BlockResource extends Resource
             'type'     => $this->type,
             'content'  => $this->content,
             'children' => self::collection($this->children),
+            'media'    => MediaResource::collection(
+                $this->media()->whereIsOriginal()->get()
+            ),
         ];
     }
 }

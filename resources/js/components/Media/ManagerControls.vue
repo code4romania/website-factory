@@ -29,7 +29,6 @@
                         ]"
                         @click="currentType = type"
                         v-text="$t(`media.type.${type}`)"
-                        disabled
                     />
                 </div>
 
@@ -46,7 +45,6 @@
                                 ? 'bg-blue-500 text-blue-50 shadow-sm'
                                 : 'text-gray-400 hover:bg-blue-400 hover:text-blue-50 hover:shadow-sm',
                         ]"
-                        disabled
                     >
                         <icon :name="view.icon" class="w-5 h-5" />
                     </button>

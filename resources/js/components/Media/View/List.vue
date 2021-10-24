@@ -6,8 +6,7 @@
             v-for="(item, index) in items"
             :key="index"
             :item="item"
-            :selected="selectedItems.some((i) => i.id === item.id)"
-            :disabled="disabledItems.includes(item.id)"
+            :selected="selectedItems.includes(item.id)"
             @toggle-selected="$emit('toggle-selected', $event)"
         />
     </div>
@@ -15,17 +14,13 @@
 
 <script>
     export default {
-        name: 'MediaViewGrid',
+        name: 'MediaViewList',
         props: {
             items: {
                 type: Array,
                 default: () => [],
             },
             selectedItems: {
-                type: Array,
-                default: () => [],
-            },
-            disabledItems: {
                 type: Array,
                 default: () => [],
             },

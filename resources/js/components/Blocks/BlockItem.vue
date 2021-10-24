@@ -83,6 +83,7 @@
                 :is="component"
                 v-model:content="content"
                 v-model:children="children"
+                v-model:media="media"
             />
 
             <details v-if="$page.props.app.debug">
@@ -127,6 +128,10 @@
                 required: true,
             },
             children: {
+                type: Array,
+                default: () => [],
+            },
+            media: {
                 type: Array,
                 default: () => [],
             },

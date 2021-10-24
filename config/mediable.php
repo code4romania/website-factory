@@ -230,4 +230,9 @@ return [
      * Detach associated media when mediable model is soft deleted.
      */
     'detach_on_soft_delete' => false,
+
+    /*
+     * Variants that should be generated.
+     */
+    'variants' => ['thumb'],
 ];

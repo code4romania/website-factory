@@ -32,6 +32,7 @@ trait HasBlocks
             'type'           => $block['type'],
             'content'        => $block['content'] ?? [],
             'children'       => $block['children'] ?? [],
+            'media'          => collect($block['media'] ?? [])->pluck('id')->all(),
         ]);
 
         $this->blocks()->createMany($blocks)
@@ -49,6 +50,14 @@ trait HasBlocks
                             'type'           => $block['type'],
                             'content'        => $block['content'] ?? [],
                         ])
+                );
+
+                $block->attachMedia(
+                    $blocks->where('type', $block->type)
+                        ->where('position', $block->position)
+                        ->pluck('media')
+                        ->first(),
+                    ['image']
                 );
             });
     }

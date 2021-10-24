@@ -11,8 +11,10 @@ use Spatie\Translatable\HasTranslations;
 
 trait Translatable
 {
-    use HasTranslations;
     use Localizable;
+    use HasTranslations {
+        getTranslations as parentGetTranslations;
+    }
 
     public function initializeTranslatable(): void
     {
@@ -34,5 +36,13 @@ trait Translatable
                     ]),
                 ])
             );
+    }
+
+    public function getTranslations(string $key = null): array
+    {
+        return collect(config('translatable.locales'))
+            ->mapWithKeys(fn (string $locale) => [$locale => null])
+            ->merge($this->parentGetTranslations($key))
+            ->toArray();
     }
 }

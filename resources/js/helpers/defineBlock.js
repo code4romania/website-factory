@@ -15,9 +15,13 @@ export default function (block) {
                 type: Array,
                 default: () => [],
             },
+            media: {
+                type: Array,
+                default: () => [],
+            },
             ...block.props,
         },
-        emits: ['update:content', 'update:children'],
+        emits: ['update:content', 'update:children', 'update:*'],
         setup(props) {
             const { initializeFields } = useBlock();
 

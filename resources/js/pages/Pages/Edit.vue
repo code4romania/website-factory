@@ -40,7 +40,7 @@
         },
         setup(props) {
             const form = useForm(
-                'edit.page',
+                // 'edit.page',
                 ['title', 'slug', 'blocks'],
                 props.page
             );

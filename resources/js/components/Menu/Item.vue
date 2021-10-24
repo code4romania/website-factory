@@ -28,6 +28,7 @@
     <button
         v-else-if="type === 'button'"
         type="button"
+        class="w-full lg:w-auto"
         :class="[classBase, classInactive]"
         @click="onClick"
     >

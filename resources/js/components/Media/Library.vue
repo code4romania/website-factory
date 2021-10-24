@@ -1,17 +1,29 @@
 <template>
     <base-modal
-        :show="show"
+        :show="isOpen"
         container-class="flex flex-col h-full"
-        @close="$emit('close')"
+        @close="close"
     >
-        <div class="px-4 py-3 bg-gray-100 border-b border-gray-200 md:px-6">
+        <div
+            class="flex justify-between py-3 pl-4 pr-3 bg-gray-100 border-b border-gray-200 md:pl-6"
+        >
             <h1
                 class="text-lg font-medium text-gray-900"
                 v-text="$t('media.library')"
             />
+
+            <button
+                type="button"
+                @click="close"
+                class="text-gray-400 hover:text-gray-700 focus:outline-none"
+            >
+                <icon name="System/close-line" class="w-5 h-5" />
+            </button>
         </div>
 
-        <div class="flex items-stretch flex-1 h-full overflow-hidden bg-white">
+        <div
+            class="flex flex-col items-stretch flex-1 h-full overflow-hidden bg-white lg:flex-row"
+        >
             <!-- Main -->
             <div class="flex-1 overflow-y-auto">
                 <div class="flex flex-col flex-1 max-h-full gap-8 px-4 md:px-6">
@@ -25,41 +37,55 @@
 
                     <media-uploader @upload="upload" />
 
-                    <media-view-grid
-                        v-if="currentView === 'grid'"
+                    <component
+                        :is="`media-view-${currentView}`"
                         :items="items"
                         :selectedItems="selectedItems"
+                        :disabledItems="disabledItems"
                         @toggle-selected="toggleSelected"
                     />
                 </div>
             </div>
 
-            <media-details
-                class="hidden border-l border-gray-200 w-80 lg:block xl:w-96"
-                :items="items.filter((item) => selectedItems.includes(item.id))"
-                @clear-selected="selectedItems = []"
-                @delete-selected="deleteSelected"
-            />
+            <div class="flex flex-col border-gray-200 lg:border-l">
+                <media-details
+                    class="hidden lg:flex-1 lg:w-80 lg:block xl:w-96"
+                    :items="selectedItems"
+                    @clear-selected="clearSelected"
+                    @delete-selected="deleteSelected"
+                />
+
+                <media-attach
+                    v-if="attachingMediaTo && selectedItems.length"
+                    class="border-t border-inherit"
+                    :selected-items="selectedItems"
+                    :to="attachingMediaTo"
+                />
+            </div>
         </div>
     </base-modal>
 </template>
 
 <script>
-    import { computed, ref, watch } from 'vue';
+    import { computed, ref, inject } from 'vue';
     import { useMedia } from '@/helpers';
 
     export default {
-        name: 'MediaManager',
-        props: {
-            show: {
-                type: Boolean,
-                default: false,
-            },
-        },
-        emits: ['close'],
-        setup(props) {
-            const { fetchMedia, uploadMedia, deleteMedia } = useMedia();
+        name: 'MediaLibrary',
+        setup() {
+            const isOpen = ref(false);
             const loading = ref(true);
+
+            const attachingMediaTo = ref(null);
+            const remainingItems = ref(0);
+            const selectedItems = ref([]);
+            const disabledItems = ref([]);
+
+            const close = () => {
+                isOpen.value = false;
+
+                clearSelected();
+            };
 
             const types = computed(() => ['images', 'files']);
             const views = computed(() => ['grid', 'list']);
@@ -68,6 +94,9 @@
             const currentView = ref(views.value[0]);
 
             const items = ref([]);
+
+            const { fetchMedia, uploadMedia, deleteMedia } = useMedia();
+
             const refreshItems = () => {
                 fetchMedia({
                     onSuccess: (response) => {
@@ -81,20 +110,24 @@
                 });
             };
 
-            watch(
-                () => props.show,
-                (show) => show && refreshItems()
-            );
-
-            const selectedItems = ref([]);
             const toggleSelected = (id) => {
-                if (!selectedItems.value.includes(id)) {
-                    return selectedItems.value.push(id);
-                }
-
-                selectedItems.value = selectedItems.value.filter(
-                    (item) => item !== id
+                const alreadyExists = selectedItems.value.find(
+                    (item) => item.id === id
                 );
+
+                if (!alreadyExists) {
+                    selectedItems.value.push(
+                        items.value.find((item) => item.id === id)
+                    );
+                } else {
+                    selectedItems.value = selectedItems.value.filter(
+                        (item) => item.id !== id
+                    );
+                }
+            };
+
+            const clearSelected = () => {
+                selectedItems.value = [];
             };
 
             const upload = (files) => {
@@ -127,7 +160,26 @@
                 });
             };
 
+            const bus = inject('bus');
+            bus.on('media-library:open', (attach) => {
+                isOpen.value = true;
+
+                refreshItems();
+
+                if (attach) {
+                    console.log(attach, attach.selected);
+
+                    attachingMediaTo.value = attach.id;
+                    remainingItems.value = attach.remaining;
+                    disabledItems.value = attach.selected.map((item) => item.id);
+                }
+            });
+
+            bus.on('media-library:close', close);
+
             return {
+                isOpen,
+                close,
                 types,
                 currentType,
 
@@ -136,10 +188,15 @@
 
                 items,
                 selectedItems,
+                disabledItems,
                 toggleSelected,
                 deleteSelected,
+                clearSelected,
 
                 upload,
+
+                attachingMediaTo,
+                remainingItems,
             };
         },
     };

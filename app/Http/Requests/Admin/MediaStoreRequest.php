@@ -6,7 +6,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
 
-class MediaRequest extends BaseRequest
+class MediaStoreRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class MediaRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'file' => ['required', 'file'],
+            'file' => ['required', 'file', 'max:' . config('mediable.max_size')],
         ];
     }
 }
