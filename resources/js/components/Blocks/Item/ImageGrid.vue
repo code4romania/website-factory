@@ -2,7 +2,6 @@
     <localized-field
         type="form-input"
         :label="$t('field.title')"
-        name="blocks[title]"
         required
         v-model="content.title"
     />
@@ -23,7 +22,7 @@
 
     export default defineBlock({
         type: 'image-grid',
-        icon: 'Media/image-2-line',
+        icon: 'Media/image-add-line',
         fields: {
             title: Object,
             columns: Number,
