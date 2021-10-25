@@ -2,7 +2,6 @@
     <localized-field
         type="form-editor"
         label="Text"
-        name="blocks[text]"
         required
         v-model="content.text"
     />

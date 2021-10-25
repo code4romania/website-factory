@@ -2,7 +2,6 @@
     <localized-field
         type="form-input"
         :label="$t('field.title')"
-        name="blocks[title]"
         required
         v-model="content.title"
     />
