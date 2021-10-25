@@ -33,9 +33,11 @@ class MediaController extends Controller
     public function store(MediaStoreRequest $request): JsonResponse
     {
         try {
+            $media = MediaUploader::fromSource($request->file('file'))
+                ->upload();
+
             return response()->json(
-                MediaUploader::fromSource($request->file('file'))
-                    ->upload()
+                MediaResource::make($media)
             );
         } catch (MediaUploadException $e) {
             throw $this->transformMediaUploadException($e);
