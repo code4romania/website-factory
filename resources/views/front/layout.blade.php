@@ -19,13 +19,13 @@
 </head>
 
 <body class="flex flex-col min-h-screen antialiased">
-    <x-header />
+    <x-site.header />
 
     <main class="flex-1">
         @yield('content')
     </main>
 
-    <x-footer />
+    <x-site.footer />
 </body>
 
 </html>

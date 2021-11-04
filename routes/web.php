@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [Front\PageController::class, 'index'])->name('home');
+Route::get('/', [Front\PageController::class, 'index'])->name('pages.index');
 Route::get('/{page:slug}', [Front\PageController::class, 'show'])->name('pages.show');
 
 Route::get('/forms/{form}', [Front\FormController::class, 'show'])->name('forms.show');
