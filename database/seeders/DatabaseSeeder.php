@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CategorySeeder::class,
             PageSeeder::class,
+            PersonSeeder::class,
             FormSeeder::class,
             FormSubmissionSeeder::class,
         ]);

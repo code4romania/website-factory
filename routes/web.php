@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/people', [Front\PersonController::class, 'index'])->name('people.index');
+Route::get('/people/{person:slug}', [Front\PersonController::class, 'show'])->name('people.show');
+
 Route::get('/', [Front\PageController::class, 'index'])->name('pages.index');
 Route::get('/{page:slug}', [Front\PageController::class, 'show'])->name('pages.show');
 
