@@ -53,7 +53,11 @@ trait HasSlug
      */
     public function resolveRouteBinding($value, $field = null)
     {
-        if ($field === 'slug') {
+        if (
+            $field === 'slug' &&
+            \in_array(Translatable::class, \class_uses_recursive($this)) &&
+            \in_array('slug', $this->translatable)
+        ) {
             $field = 'slug->' . app()->getLocale();
         }
 
