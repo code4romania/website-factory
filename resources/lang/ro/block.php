@@ -7,7 +7,10 @@ return [
     'accordion-item' => 'Element',
     'accordion'      => 'Acordeon',
     'call-to-action' => 'Call to action',
-    'images'         => 'Images',
+    'image-grid'     => 'Grilă de imagini',
+    'image-text'     => 'Imagine cu text',
+    'image'          => 'Imagine',
+    'images'         => 'Imagini',
     'o-embed'        => 'oEmbed',
     'text'           => 'Text',
 

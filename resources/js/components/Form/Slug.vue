@@ -63,6 +63,8 @@
             });
 
             const update = (source) => {
+                console.log(source);
+
                 emit('update:modelValue', source ? slug(source) : null);
             };
 
