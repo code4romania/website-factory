@@ -1,33 +1,28 @@
 <template>
     <layout :breadcrumbs="breadcrumbs" :title="pageTitle">
         <form
-            @submit.prevent="form.post(route('admin.pages.store'))"
+            @submit.prevent="form.put(route('admin.people.update', person))"
             class="grid gap-y-8"
         >
             <panel-model action="save" :form="form">
                 <div class="space-y-1">
-                    <localized-field
-                        type="form-input"
-                        :label="$t('field.title')"
-                        name="title"
-                        v-model="form.title"
+                    <form-input
+                        :label="$t('field.name')"
+                        v-model="form.name"
                         required
                     />
 
-                    <localized-field
-                        type="form-slug"
+                    <form-slug
                         :label="$t('field.slug')"
                         name="slug"
                         v-model="form.slug"
-                        route-name="front.pages.show"
-                        route-key="page"
-                        :source="form.title"
+                        route-name="front.people.show"
+                        route-key="person"
+                        :source="form.name"
                         required
                     />
                 </div>
             </panel-model>
-
-            <block-list v-model:blocks="form.blocks" />
         </form>
     </layout>
 </template>
@@ -36,22 +31,30 @@
     import { useForm } from '@/helpers';
 
     export default {
+        props: {
+            person: Object,
+        },
         setup(props) {
-            const form = useForm('create.page', ['title', 'slug', 'blocks']);
+            const form = useForm(
+                'edit.person',
+                ['name', 'title', 'slug'],
+                props.person
+            );
 
             return {
                 form,
             };
         },
+
         computed: {
             pageTitle() {
-                return this.$t('page.action.create');
+                return this.$t('person.action.edit');
             },
             breadcrumbs() {
                 return [
                     {
-                        label: this.$t('page.label', 2),
-                        href: this.route('admin.pages.index'),
+                        label: this.$t('person.label', 2),
+                        href: this.route('admin.people.index'),
                     },
                 ];
             },

@@ -1,7 +1,7 @@
 <template>
     <layout :breadcrumbs="breadcrumbs" :title="pageTitle">
         <form
-            @submit.prevent="form.post(route('admin.pages.store'))"
+            @submit.prevent="form.post(route('admin.people.store'))"
             class="grid gap-y-8"
         >
             <panel-model action="save" :form="form">
@@ -14,20 +14,17 @@
                         required
                     />
 
-                    <localized-field
-                        type="form-slug"
+                    <form-slug
                         :label="$t('field.slug')"
                         name="slug"
                         v-model="form.slug"
-                        route-name="front.pages.show"
-                        route-key="page"
+                        route-name="front.people.show"
+                        route-key="person"
                         :source="form.title"
                         required
                     />
                 </div>
             </panel-model>
-
-            <block-list v-model:blocks="form.blocks" />
         </form>
     </layout>
 </template>
@@ -37,7 +34,7 @@
 
     export default {
         setup(props) {
-            const form = useForm('create.page', ['title', 'slug', 'blocks']);
+            const form = useForm('create.person', ['title', 'slug', 'blocks']);
 
             return {
                 form,
@@ -45,13 +42,13 @@
         },
         computed: {
             pageTitle() {
-                return this.$t('page.action.create');
+                return this.$t('person.action.create');
             },
             breadcrumbs() {
                 return [
                     {
-                        label: this.$t('page.label', 2),
-                        href: this.route('admin.pages.index'),
+                        label: this.$t('person.label', 2),
+                        href: this.route('admin.people.index'),
                     },
                 ];
             },

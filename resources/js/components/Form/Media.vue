@@ -11,8 +11,8 @@
         <draggable
             :list="media"
             item-key="id"
-            class="w-full border divide-y divide-gray-200 border-inherit list-group"
             group="media"
+            class="w-full border divide-y divide-gray-200 border-inherit list-group"
             ghost-class="opacity-50"
             handle=".handle"
             :animation="200"

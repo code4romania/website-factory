@@ -16,8 +16,9 @@
 
 <script>
     import slug from 'slug';
+    import get from 'lodash/get';
     import { computed, watch } from 'vue';
-    import { route } from '@/helpers';
+    import { route, useLocale } from '@/helpers';
 
     export default {
         name: 'FormSlug',
@@ -26,39 +27,56 @@
                 type: String,
                 required: true,
             },
+            routeKey: {
+                type: String,
+                required: true,
+            },
             modelValue: {
                 type: String,
                 default: null,
             },
             source: {
-                type: Object,
+                type: [Object, String],
                 default: null,
             },
-            locale: {},
+            translatable: {
+                type: Boolean,
+                default: false,
+            },
+            locale: {
+                type: String,
+                default: null,
+            },
         },
         setup(props, { emit }) {
+            const { currentLocale } = useLocale();
+
             const fullUrl = computed(() => {
                 if (!props.modelValue) {
                     return null;
                 }
 
                 return route(props.routeName, {
-                    locale: props.locale,
-                    page: props.modelValue,
+                    locale: props.locale || currentLocale.value,
+                    [props.routeKey]: props.modelValue,
                 });
             });
+
+            const update = (source) => {
+                emit('update:modelValue', source ? slug(source) : null);
+            };
 
             watch(
                 () => props.source,
                 (source) => {
-                    console.log(source);
                     if (!source) {
                         return;
                     }
 
-                    emit(
-                        'update:modelValue',
-                        source[props.locale] ? slug(source[props.locale]) : null
+                    update(
+                        props.translatable && props.locale
+                            ? source[props.locale]
+                            : source
                     );
                 },
                 { deep: true }

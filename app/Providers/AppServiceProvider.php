@@ -41,12 +41,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Relation::morphMap([
-            'block' => \App\Models\Block::class,
-            'form'  => \App\Models\Form::class,
-            'media' => \App\Models\Media::class,
-            'page'  => \App\Models\Page::class,
-            'post'  => \App\Models\Post::class,
-            'user'  => \App\Models\User::class,
+            'block'  => \App\Models\Block::class,
+            'form'   => \App\Models\Form::class,
+            'media'  => \App\Models\Media::class,
+            'page'   => \App\Models\Page::class,
+            'person' => \App\Models\Person::class,
+            'post'   => \App\Models\Post::class,
+            'user'   => \App\Models\User::class,
         ]);
 
         Validator::excludeUnvalidatedArrayKeys();

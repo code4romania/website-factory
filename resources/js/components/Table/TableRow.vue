@@ -16,7 +16,7 @@
 
                 <inertia-link
                     v-if="!row.hasOwnProperty('trashed') || !row.trashed"
-                    class="text-blue-800 focus:outline-none hover:underline"
+                    class="text-blue-800"
                     :href="
                         route(collection.properties.route_prefix + '.edit', row)
                     "

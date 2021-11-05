@@ -96,8 +96,8 @@
                     },
                     {
                         type: 'link',
-                        href: this.route('admin.users.index'),
-                        label: this.$t('user.label', 2),
+                        href: this.route('admin.people.index'),
+                        label: this.$t('person.label', 2),
                     },
                 ],
                 secondaryMenu: [
@@ -105,6 +105,11 @@
                         type: 'button',
                         label: this.$t('media.library'),
                         onClick: () => this.bus.emit('media-library:open'),
+                    },
+                    {
+                        type: 'link',
+                        href: this.route('admin.users.index'),
+                        label: this.$t('user.label', 2),
                     },
                     {
                         type: 'link',

@@ -29,6 +29,17 @@ Route::delete('pages/{page}', [Admin\PageController::class, 'destroy'])->name('p
 Route::put('pages/{page}/restore', [Admin\PageController::class, 'restore'])->name('pages.restore')->withTrashed();
 Route::delete('pages/{page}/force', [Admin\PageController::class, 'forceDelete'])->name('pages.forceDelete')->withTrashed();
 
+Route::get('people', [Admin\PersonController::class, 'index'])->name('people.index');
+Route::get('people/create', [Admin\PersonController::class, 'create'])->name('people.create');
+Route::post('people', [Admin\PersonController::class, 'store'])->name('people.store');
+Route::get('people/{person}/edit', [Admin\PersonController::class, 'edit'])->name('people.edit');
+Route::post('people/{person}/duplicate', [Admin\PersonController::class, 'duplicate'])->name('people.duplicate');
+Route::post('people/{person}/preview', [Admin\PersonController::class, 'preview'])->name('people.preview');
+Route::put('people/{person}', [Admin\PersonController::class, 'update'])->name('people.update');
+Route::delete('people/{person}', [Admin\PersonController::class, 'destroy'])->name('people.destroy');
+Route::put('people/{person}/restore', [Admin\PersonController::class, 'restore'])->name('people.restore')->withTrashed();
+Route::delete('people/{person}/force', [Admin\PersonController::class, 'forceDelete'])->name('people.forceDelete')->withTrashed();
+
 Route::get('forms', [Admin\FormController::class, 'index'])->name('forms.index');
 Route::get('forms/create', [Admin\FormController::class, 'create'])->name('forms.create');
 Route::post('forms', [Admin\FormController::class, 'store'])->name('forms.store');
