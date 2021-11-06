@@ -1,7 +1,6 @@
 import camelCase from 'lodash/camelCase';
 import upperFirst from 'lodash/upperFirst';
 import { useBlock } from '@/helpers';
-import { ref } from 'vue';
 
 export default function (block) {
     return {
@@ -22,16 +21,17 @@ export default function (block) {
             ...block.props,
         },
         emits: ['update:content', 'update:children', 'update:*'],
-        setup(props) {
+        setup(props, context) {
             const { initializeFields } = useBlock();
 
-            initializeFields(block, props);
+            props = initializeFields(block, props);
 
-            const children = ref(props.children);
-
-            return {
-                children,
-            };
+            if (
+                block.hasOwnProperty('setup') &&
+                block.setup instanceof Function
+            ) {
+                return block.setup(props, context);
+            }
         },
     };
 }

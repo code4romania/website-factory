@@ -6,3 +6,9 @@
     @apply w-full mx-auto max-w-screen-2xl;
     @apply px-4 sm:px-6 lg:px-8;
 }
+
+@screen lg {
+    .hero-side-image-clip {
+        clip-path: polygon(15% 0%, 100% 0, 100% 100%, 0% 100%);
+    }
+}

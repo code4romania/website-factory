@@ -1,10 +1,11 @@
 @props([
+    'class' => 'block w-full',
     'src' => null,
     'alt' => '',
 ])
 
 <img
-    @class(['block', 'w-full'])
+    class="{{ $class }}"
     src="{{ $src }}"
     alt="{{ $alt }}"
     loading="lazy" />
