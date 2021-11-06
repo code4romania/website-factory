@@ -6,11 +6,9 @@
         >
             <panel-model action="save" :form="form">
                 <div class="space-y-1">
-                    <localized-field
-                        type="form-input"
-                        :label="$t('field.title')"
-                        name="title"
-                        v-model="form.title"
+                    <form-input
+                        :label="$t('field.name')"
+                        v-model="form.name"
                         required
                     />
 
@@ -20,10 +18,22 @@
                         v-model="form.slug"
                         route-name="front.people.show"
                         route-key="person"
-                        :source="form.title"
+                        :source="form.name"
                         required
                     />
                 </div>
+
+                <localized-field
+                    type="form-input"
+                    :label="$t('field.job_title')"
+                    v-model="form.title"
+                />
+
+                <localized-field
+                    type="form-textarea"
+                    :label="$t('field.description')"
+                    v-model="form.description"
+                />
             </panel-model>
         </form>
     </layout>
@@ -34,7 +44,12 @@
 
     export default {
         setup(props) {
-            const form = useForm('create.person', ['title', 'slug', 'blocks']);
+            const form = useForm('create.person', [
+                'name',
+                'slug',
+                'title',
+                'description',
+            ]);
 
             return {
                 form,

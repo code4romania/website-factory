@@ -1,5 +1,5 @@
 <template>
-    <div class="relative flex flex-col w-full h-full bg-white shadow md:w-80">
+    <div class="relative flex flex-col w-full bg-white shadow md:w-64 lg:w-80">
         <div class="flex-1">
             <accordion>
                 <template #title> Publish </template>

@@ -22,6 +22,18 @@
                         required
                     />
                 </div>
+
+                <localized-field
+                    type="form-input"
+                    :label="$t('field.job_title')"
+                    v-model="form.title"
+                />
+
+                <localized-field
+                    type="form-textarea"
+                    :label="$t('field.description')"
+                    v-model="form.description"
+                />
             </panel-model>
         </form>
     </layout>
@@ -37,7 +49,7 @@
         setup(props) {
             const form = useForm(
                 'edit.person',
-                ['name', 'title', 'slug'],
+                ['name', 'slug', 'title', 'description'],
                 props.person
             );
 

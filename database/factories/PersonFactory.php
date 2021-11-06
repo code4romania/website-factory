@@ -22,7 +22,6 @@ class PersonFactory extends Factory
             'slug'         => Str::slug($name),
             'title'        => $this->translatedFaker('jobTitle'),
             'description'  => $this->translatedFaker('realText'),
-            'published_at' => $this->faker->boolean(95) ? $this->faker->dateTimeThisYear() : null,
             'deleted_at'   => $this->faker->boolean(5) ? $this->faker->dateTime() : null,
         ];
     }

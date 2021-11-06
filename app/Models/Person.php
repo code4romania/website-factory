@@ -7,7 +7,6 @@ namespace App\Models;
 use App\Traits\Filterable;
 use App\Traits\HasMedia;
 use App\Traits\HasSlug;
-use App\Traits\Publishable;
 use App\Traits\Sortable;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,12 +19,15 @@ class Person extends Model
     use HasFactory;
     use HasMedia;
     use HasSlug;
-    use Publishable;
     use SoftDeletes;
     use Sortable;
     use Translatable;
 
     public string $slugFieldSource = 'name';
+
+    public $fillable = [
+        'name',
+    ];
 
     public array $translatable = [
         'title', 'description',

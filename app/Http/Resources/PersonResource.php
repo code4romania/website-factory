@@ -18,12 +18,11 @@ class PersonResource extends Resource
     {
         return [
             'id'         => $this->id,
-            'name'      => $this->name,
+            'name'       => $this->name,
             'title'      => $this->title,
             'slug'       => $this->slug,
             'created_at' => $this->created_at->toDateTimeString(),
             'trashed'    => $this->trashed(),
-            'status'     => $this->status(),
         ];
     }
 
@@ -31,11 +30,11 @@ class PersonResource extends Resource
     {
         return [
             'id'           => $this->id,
-            'name'      => $this->name,
+            'name'         => $this->name,
             'slug'         => $this->slug,
             'title'        => $this->getTranslations('title'),
+            'description'  => $this->getTranslations('description'),
             'created_at'   => $this->created_at->toDateTimeString(),
-            'published_at' => optional($this->published_at)->toDateTimeString(),
         ];
     }
 

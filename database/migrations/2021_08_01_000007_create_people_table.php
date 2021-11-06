@@ -15,7 +15,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('people', function (Blueprint $table) {
-            $table->commonFields();
+            $table->commonFields(true, false);
 
             $table->string('name');
             $table->string('slug');
