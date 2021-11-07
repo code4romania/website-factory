@@ -26,6 +26,25 @@
                         required
                     />
                 </div>
+
+                <localized-field
+                    field="form-editor"
+                    :label="$t('field.text')"
+                    required
+                    v-model="form.text"
+                />
+
+                <form-select
+                    :label="$t('field.layout')"
+                    v-model="form.layout"
+                    :options="model.layouts"
+                />
+
+                <form-media
+                    :label="$t('field.image')"
+                    v-model:media="form.media"
+                    :limit="1"
+                />
             </panel-model>
 
             <block-list v-model:blocks="form.blocks" />
@@ -39,11 +58,12 @@
     export default {
         props: {
             page: Object,
+            model: Object,
         },
         setup(props) {
             const form = useForm(
-                // 'edit.page',
-                ['title', 'slug', 'blocks'],
+                'edit.page',
+                ['title', 'slug', 'layout', 'blocks', 'media'],
                 props.page
             );
 

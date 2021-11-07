@@ -6,6 +6,8 @@ namespace App\Models;
 
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
+use App\Traits\HasLayout;
+use App\Traits\HasMedia;
 use App\Traits\HasSlug;
 use App\Traits\Publishable;
 use App\Traits\Sortable;
@@ -19,6 +21,8 @@ class Page extends Model
     use Filterable;
     use HasBlocks;
     use HasFactory;
+    use HasLayout;
+    use HasMedia;
     use HasSlug;
     use Publishable;
     use SoftDeletes;

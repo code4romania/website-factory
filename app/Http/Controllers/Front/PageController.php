@@ -21,7 +21,7 @@ class PageController extends Controller
 
     public function show(string $locale, Page $page): View
     {
-        return view('front.page', [
+        return $page->view([
             'page' => $page,
         ]);
     }

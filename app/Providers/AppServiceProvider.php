@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use App\Services\BlockCollection;
 use App\Traits\HasBlocks;
+use App\Traits\HasLayout;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -82,10 +83,11 @@ class AppServiceProvider extends ServiceProvider
 
             if (\in_array(HasBlocks::class, $traits)) {
                 $blocks = (new BlockCollection('block'))->all();
+                $repeaters = (new BlockCollection('repeater'))->all();
             }
 
-            if (\in_array(HasBlocks::class, $traits)) {
-                $repeaters = (new BlockCollection('repeater'))->all();
+            if (\in_array(HasLayout::class, $traits)) {
+                $layouts = $model->getAvailableLayouts();
             }
 
             if (\in_array(Translatable::class, $traits)) {
@@ -96,6 +98,7 @@ class AppServiceProvider extends ServiceProvider
                 'model' => [
                     'blocks'       => $blocks ?? [],
                     'repeaters'    => $repeaters ?? [],
+                    'layouts'      => $layouts ?? [],
                     'translatable' => $translatable ?? [],
                 ],
             ]);

@@ -20,7 +20,7 @@ export default function (...args) {
                     {}
                 );
             } else {
-                let fallback = field === 'blocks' ? [] : null;
+                let fallback = ['blocks', 'media'].includes(field) ? [] : null;
 
                 fields[field] = isPlainObject(model)
                     ? model[field] || fallback

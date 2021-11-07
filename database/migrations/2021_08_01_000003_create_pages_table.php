@@ -19,6 +19,7 @@ return new class extends Migration {
 
             $table->json('title');
             $table->json('slug');
+            $table->string('layout')->default('default');
         });
     }
 };
