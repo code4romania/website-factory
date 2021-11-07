@@ -1,13 +1,13 @@
 <template>
     <localized-field
-        type="form-input"
+        field="form-input"
         :label="$t('field.title')"
         required
         v-model="content.title"
     />
 
     <localized-field
-        type="form-editor"
+        field="form-editor"
         label="Text"
         required
         v-model="content.text"

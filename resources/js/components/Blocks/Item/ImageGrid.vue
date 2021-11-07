@@ -1,6 +1,6 @@
 <template>
     <localized-field
-        type="form-input"
+        field="form-input"
         :label="$t('field.title')"
         required
         v-model="content.title"

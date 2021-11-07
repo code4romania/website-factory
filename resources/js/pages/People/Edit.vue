@@ -24,13 +24,13 @@
                 </div>
 
                 <localized-field
-                    type="form-input"
+                    field="form-input"
                     :label="$t('field.job_title')"
                     v-model="form.title"
                 />
 
                 <localized-field
-                    type="form-textarea"
+                    field="form-textarea"
                     :label="$t('field.description')"
                     v-model="form.description"
                 />

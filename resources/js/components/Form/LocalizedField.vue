@@ -3,7 +3,7 @@
         <template v-for="locale in locales">
             <component
                 :key="locale"
-                :is="type"
+                :is="field"
                 v-if="locale === currentLocale"
                 v-bind="$attrs"
                 v-model="modelValue[locale]"
@@ -28,7 +28,7 @@
                 type: String,
                 default: null,
             },
-            type: {
+            field: {
                 type: String,
                 required: true,
             },

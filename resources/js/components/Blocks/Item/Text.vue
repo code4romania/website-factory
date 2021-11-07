@@ -1,6 +1,6 @@
 <template>
     <localized-field
-        type="form-editor"
+        field="form-editor"
         label="Text"
         required
         v-model="content.text"

@@ -6,7 +6,7 @@
         >
             <panel-model action="save" :form="form">
                 <localized-field
-                    type="form-input"
+                    field="form-input"
                     :label="$t('field.title')"
                     name="title"
                     v-model="form.title"

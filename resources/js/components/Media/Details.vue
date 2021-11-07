@@ -74,7 +74,7 @@
             </div>
 
             <localized-field
-                type="form-textarea"
+                field="form-textarea"
                 :label="$t('field.description')"
                 v-model="item.caption"
                 @blur="updateMedia(item.id, item)"
