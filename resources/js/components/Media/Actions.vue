@@ -38,7 +38,7 @@
 
             const attach = () => {
                 bus.emit('media-library:attach', {
-                    id: props.to,
+                    id: props.attachTo,
                     items: props.items,
                 });
 
