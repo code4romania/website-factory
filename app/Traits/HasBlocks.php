@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Traits;
 
 use App\Models\Block;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasBlocks
@@ -16,7 +17,7 @@ trait HasBlocks
             ->orderBy('blocks.position');
     }
 
-    public function saveBlocks(iterable $blocks): void
+    public function saveBlocks(iterable $blocks): Model
     {
         $this->blocks()->delete();
 
@@ -55,5 +56,7 @@ trait HasBlocks
                     ['image']
                 );
             });
+
+        return $this;
     }
 }

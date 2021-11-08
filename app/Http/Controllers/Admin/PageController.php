@@ -40,7 +40,8 @@ class PageController extends Controller
 
         $page = Page::create($attributes);
 
-        $page->saveBlocks($attributes['blocks']);
+        $page->saveBlocks($attributes['blocks'])
+            ->saveImages($attributes['media']);
 
         return redirect()->route('admin.pages.edit', $page)
             ->with('success', __('page.event.created'));
@@ -59,14 +60,8 @@ class PageController extends Controller
 
         $page->update($attributes);
 
-        $page->saveBlocks($attributes['blocks']);
-
-        $page->attachMedia(
-            collect($request->media)
-                ->pluck('id')
-                ->all(),
-            ['image']
-        );
+        $page->saveBlocks($attributes['blocks'])
+            ->saveImages($attributes['media']);
 
         return redirect()->route('admin.pages.edit', $page)
             ->with('success', __('page.event.updated'));
