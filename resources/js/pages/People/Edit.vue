@@ -1,9 +1,6 @@
 <template>
-    <layout :breadcrumbs="breadcrumbs" :title="pageTitle">
-        <form
-            @submit.prevent="form.put(route('admin.people.update', person))"
-            class="grid gap-y-8"
-        >
+    <layout :title="$t(pageTitle)">
+        <form @submit.prevent="form.submit(method, url)" class="grid gap-y-8">
             <panel-model action="save" :form="form">
                 <div class="space-y-1">
                     <form-input
@@ -40,36 +37,39 @@
 </template>
 
 <script>
-    import { useForm } from '@/helpers';
+    import { computed } from 'vue';
+    import { useForm, route } from '@/helpers';
 
     export default {
         props: {
             person: Object,
+            model: Object,
         },
         setup(props) {
-            const form = useForm(
-                'edit.person',
-                ['name', 'slug', 'title', 'description'],
-                props.person
+            const action = props.person === undefined ? 'create' : 'edit';
+
+            const form = useForm(`${action}.person`, props.person, [
+                'name',
+                'slug',
+                'title',
+                'description',
+            ]);
+
+            const method = computed(() => (action === 'edit' ? 'put' : 'post'));
+            const url = computed(() =>
+                action === 'edit'
+                    ? route('admin.people.update', props.person)
+                    : route('admin.people.store')
             );
+
+            const pageTitle = computed(() => `person.action.${action}`);
 
             return {
                 form,
+                method,
+                url,
+                pageTitle,
             };
-        },
-
-        computed: {
-            pageTitle() {
-                return this.$t('person.action.edit');
-            },
-            breadcrumbs() {
-                return [
-                    {
-                        label: this.$t('person.label', 2),
-                        href: this.route('admin.people.index'),
-                    },
-                ];
-            },
         },
     };
 </script>

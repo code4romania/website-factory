@@ -29,7 +29,7 @@ class PageRequest extends BaseRequest
     {
         return TranslatableFormRequestRules::make(Page::class, [
             'title'               => ['required', 'string', 'max:200'],
-            'slug'                => ['required', 'string', 'max:200', 'unique_translation:pages,slug,' . optional($this->page)->id],
+            'slug'                => ['required', 'string', 'max:200'/* 'unique_translation:pages,slug,' . optional($this->page)->id */],
             'layout'              => ['required', 'string'],
             'media.*.id'          => ['required', 'exists:media'],
             'blocks'              => ['sometimes', 'array'],

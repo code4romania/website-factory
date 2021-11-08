@@ -52,14 +52,14 @@
                     class="hidden lg:flex-1 lg:w-80 lg:block xl:w-96"
                     :items="selectedItems"
                     @clear-selected="clearSelected"
-                    @delete-selected="deleteSelected"
                 />
 
-                <media-attach
-                    v-if="attachingMediaTo && selectedItems.length"
+                <media-actions
+                    v-if="selectedItems.length"
                     class="border-t border-inherit"
-                    :selected-items="selectedItems"
-                    :to="attachingMediaTo"
+                    :items="selectedItems"
+                    :attach-to="attachingMediaTo"
+                    @delete-selected="deleteSelected"
                 />
             </div>
         </div>

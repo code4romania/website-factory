@@ -20,15 +20,6 @@
                     class="text-blue-500 focus:underline hover:underline"
                 />
             </div>
-
-            <div class="flex mt-4">
-                <button
-                    type="button"
-                    class="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                    @click="$emit('delete-selected')"
-                    v-text="$t('app.action.delete')"
-                />
-            </div>
         </div>
 
         <template v-else>
@@ -79,22 +70,6 @@
                 v-model="item.caption"
                 @blur="updateMedia(item.id, item)"
             />
-
-            <div class="flex">
-                <a
-                    :href="item.sizes.original.url"
-                    class="flex-1 px-4 py-2 text-sm font-medium text-center text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                    download
-                    v-text="$t('app.action.download')"
-                />
-
-                <button
-                    type="button"
-                    class="flex-1 px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                    @click="$emit('delete-selected')"
-                    v-text="$t('app.action.delete')"
-                />
-            </div>
         </template>
     </aside>
 </template>
@@ -111,7 +86,7 @@
                 default: () => [],
             },
         },
-        emits: ['clear-selected', 'delete-selected'],
+        emits: ['clear-selected'],
         setup(props) {
             const { updateMedia } = useMedia();
 

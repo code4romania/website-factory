@@ -10,6 +10,7 @@ return [
 
     'action' => [
         'apply'     => 'Aplică',
+        'attach'    => 'Atașează',
         'cancel'    => 'Anulează',
         'clear'     => 'Clear',
         'close'     => 'Închide',

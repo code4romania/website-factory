@@ -29,7 +29,7 @@ class PersonController extends Controller
 
     public function create(): Response
     {
-        return Inertia::render('People/Create', [
+        return Inertia::render('People/Edit', [
             //
         ])->model(Person::class);
     }

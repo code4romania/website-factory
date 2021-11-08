@@ -29,7 +29,7 @@ class PageController extends Controller
 
     public function create(): Response
     {
-        return Inertia::render('Pages/Create', [
+        return Inertia::render('Pages/Edit', [
             //
         ])->model(Page::class);
     }

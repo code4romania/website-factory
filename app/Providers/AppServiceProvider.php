@@ -78,6 +78,7 @@ class AppServiceProvider extends ServiceProvider
     protected function registerInertiaMacros(): void
     {
         Response::macro('model', function (string $model) {
+            /** @var Model */
             $model = \resolve($model);
             $traits = \class_uses_recursive($model);
 

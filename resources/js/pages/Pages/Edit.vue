@@ -1,9 +1,6 @@
 <template>
-    <layout :breadcrumbs="breadcrumbs" :title="pageTitle">
-        <form
-            @submit.prevent="form.put(route('admin.pages.update', page))"
-            class="grid gap-y-8"
-        >
+    <layout :title="$t(pageTitle)">
+        <form @submit.prevent="form.submit(method, url)" class="grid gap-y-8">
             <panel-model action="save" :form="form">
                 <div class="space-y-1">
                     <localized-field
@@ -29,9 +26,9 @@
 
                 <localized-field
                     field="form-editor"
-                    :label="$t('field.text')"
+                    :label="$t('field.description')"
                     required
-                    v-model="form.text"
+                    v-model="form.description"
                 />
 
                 <form-select
@@ -53,7 +50,8 @@
 </template>
 
 <script>
-    import { useForm } from '@/helpers';
+    import { computed } from 'vue';
+    import { useForm, route } from '@/helpers';
 
     export default {
         props: {
@@ -61,29 +59,32 @@
             model: Object,
         },
         setup(props) {
-            const form = useForm(
-                'edit.page',
-                ['title', 'slug', 'layout', 'blocks', 'media'],
-                props.page
+            const action = props.page === undefined ? 'create' : 'edit';
+
+            const form = useForm(`${action}.page`, props.page, [
+                'title',
+                'slug',
+                'description',
+                'layout',
+                'blocks',
+                'media',
+            ]);
+
+            const method = computed(() => (action === 'edit' ? 'put' : 'post'));
+            const url = computed(() =>
+                action === 'edit'
+                    ? route('admin.pages.update', props.page)
+                    : route('admin.pages.store')
             );
+
+            const pageTitle = computed(() => `page.action.${action}`);
 
             return {
                 form,
+                method,
+                url,
+                pageTitle,
             };
-        },
-
-        computed: {
-            pageTitle() {
-                return this.$t('page.action.edit');
-            },
-            breadcrumbs() {
-                return [
-                    {
-                        label: this.$t('page.label', 2),
-                        href: this.route('admin.pages.index'),
-                    },
-                ];
-            },
         },
     };
 </script>

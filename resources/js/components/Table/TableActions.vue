@@ -50,7 +50,8 @@
 
 <script>
     import { ref, computed } from 'vue';
-    import { useForm, useLocale } from '@/helpers';
+    import { useLocale } from '@/helpers';
+    import { useForm } from '@inertiajs/inertia-vue3';
     import route from 'ziggy-js';
 
     export default {

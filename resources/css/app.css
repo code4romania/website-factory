@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities';
 
 .container {
-    @apply w-full mx-auto max-w-screen-2xl;
+    @apply mx-auto w-full max-w-screen-2xl;
     @apply px-4 sm:px-6 lg:px-8;
 }
 

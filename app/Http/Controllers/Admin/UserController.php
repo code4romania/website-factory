@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Collections\UserCollection;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
@@ -32,9 +33,9 @@ class UserController extends Controller
 
     public function create(): Response
     {
-        return Inertia::render('Users/Create', [
+        return Inertia::render('Users/Edit', [
             //
-        ]);
+        ])->model(User::class);
     }
 
     public function store(UserRequest $request): RedirectResponse
@@ -45,18 +46,11 @@ class UserController extends Controller
             ->with('success', __('user.event.created'));
     }
 
-    public function show(User $user): Response
-    {
-        return Inertia::render('Users/Show', [
-            //
-        ]);
-    }
-
     public function edit(User $user): Response
     {
         return Inertia::render('Users/Edit', [
-            //
-        ]);
+            'user' => UserResource::make($user),
+        ])->model(User::class);
     }
 
     public function update(UserRequest $request, User $user): RedirectResponse
