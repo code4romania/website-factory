@@ -1,6 +1,9 @@
-<div class="container grid grid-cols-1 gap-8 my-8 md:grid-cols-2 lg:gap-12">
+<div class="container grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12">
     @forelse ($blocks as $block)
-        <div @class([ 'md:col-span-2'=> $block->checkbox('fullwidth') ])>
+        <div
+            @class([
+                'md:col-span-2' => $block->checkbox('fullwidth'),
+            ])>
             <x-dynamic-component :component="$block->component" :block="$block" />
 
             @if (config('app.debug'))

@@ -36,7 +36,11 @@ class PageController extends Controller
 
     public function store(PageRequest $request): RedirectResponse
     {
-        $page = Page::create($request->validated());
+        $attributes = $request->validated();
+
+        $page = Page::create($attributes);
+
+        $page->saveBlocks($attributes['blocks']);
 
         return redirect()->route('admin.pages.edit', $page)
             ->with('success', __('page.event.created'));
@@ -51,8 +55,18 @@ class PageController extends Controller
 
     public function update(PageRequest $request, Page $page): RedirectResponse
     {
-        // dd($request->validated());
-        $page->update($request->validated());
+        $attributes = $request->validated();
+
+        $page->update($attributes);
+
+        $page->saveBlocks($attributes['blocks']);
+
+        $page->attachMedia(
+            collect($request->media)
+                ->pluck('id')
+                ->all(),
+            ['image']
+        );
 
         return redirect()->route('admin.pages.edit', $page)
             ->with('success', __('page.event.updated'));
