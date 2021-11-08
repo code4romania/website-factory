@@ -32,7 +32,7 @@ class Page extends Model
     public string $slugFieldSource = 'title';
 
     public array $translatable = [
-        'title', 'slug',
+        'title', 'slug', 'description',
     ];
 
     public array $allowedSorts = [

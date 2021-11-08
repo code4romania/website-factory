@@ -31,6 +31,7 @@ class PageResource extends Resource
         return [
             'id'           => $this->id,
             'title'        => $this->getTranslations('title'),
+            'description'  => $this->getTranslations('description'),
             'slug'         => $this->getTranslations('slug'),
             'layout'       => $this->layout,
             'created_at'   => $this->created_at->toDateTimeString(),

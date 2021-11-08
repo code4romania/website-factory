@@ -9,11 +9,6 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasBlocks
 {
-    public function initializeHasBlocks(): void
-    {
-        $this->fillable[] = 'blocks';
-    }
-
     public function blocks(): MorphMany
     {
         return $this->morphMany(Block::class, 'blockable')
@@ -21,7 +16,7 @@ trait HasBlocks
             ->orderBy('blocks.position');
     }
 
-    public function setBlocksAttribute(iterable $blocks): void
+    public function saveBlocks(iterable $blocks): void
     {
         $this->blocks()->delete();
 

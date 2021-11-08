@@ -33,8 +33,8 @@ trait HasSlug
 
     public static function bootHasSlug(): void
     {
-        static::creating(fn (Model $model) => $model->fillMissingSlugs());
-        static::updating(fn (Model $model) => $model->fillMissingSlugs());
+        static::creating(fn (Model $model) => $model->fillSlugs());
+        static::updating(fn (Model $model) => $model->fillSlugs());
     }
 
     /**
@@ -78,11 +78,11 @@ trait HasSlug
         return 'slug';
     }
 
-    protected function fillMissingSlugs()
+    protected function fillSlugs()
     {
         locales()->each(function (string $locale) {
             $this->withLocale($locale, function () {
-                if ($this->slug === null) {
+                if (! $this->slug || $this->slugAlreadyUsed($this->slug)) {
                     $this->slug = $this->generateSlug();
                 }
             });

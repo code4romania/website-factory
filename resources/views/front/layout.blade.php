@@ -16,6 +16,8 @@
 
     {{-- Scripts --}}
     <script src="{{ mix('assets/public.js') }}" defer></script>
+
+    {!! SEO::generate() !!}
 </head>
 
 <body class="flex flex-col min-h-screen antialiased">
