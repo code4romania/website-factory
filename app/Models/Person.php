@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Traits\Filterable;
+use App\Traits\HasBlocks;
 use App\Traits\HasMedia;
 use App\Traits\HasSlug;
 use App\Traits\Sortable;
@@ -16,6 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Person extends Model
 {
     use Filterable;
+    use HasBlocks;
     use HasFactory;
     use HasMedia;
     use HasSlug;
