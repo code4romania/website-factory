@@ -35,6 +35,10 @@ class PersonResource extends Resource
             'title'        => $this->getTranslations('title'),
             'description'  => $this->getTranslations('description'),
             'created_at'   => $this->created_at->toDateTimeString(),
+            'blocks'       => BlockResource::collection($this->blocks),
+            'media'        => MediaResource::collection(
+                $this->media()->whereIsOriginal()->get()
+            ),
         ];
     }
 

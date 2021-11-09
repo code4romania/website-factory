@@ -31,7 +31,15 @@
                     :label="$t('field.description')"
                     v-model="form.description"
                 />
+
+                <form-media
+                    :label="$t('field.image')"
+                    v-model:media="form.media"
+                    :limit="1"
+                />
             </panel-model>
+
+            <block-list v-model:blocks="form.blocks" />
         </form>
     </layout>
 </template>
@@ -53,6 +61,8 @@
                 'slug',
                 'title',
                 'description',
+                'blocks',
+                'media',
             ]);
 
             const method = computed(() => (action === 'edit' ? 'put' : 'post'));

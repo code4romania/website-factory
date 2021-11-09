@@ -18,7 +18,10 @@
                     v-if="!row.hasOwnProperty('trashed') || !row.trashed"
                     class="text-blue-800"
                     :href="
-                        route(collection.properties.route_prefix + '.edit', row)
+                        route(
+                            collection.properties.admin_route_prefix + '.edit',
+                            row
+                        )
                     "
                 >
                     <slot

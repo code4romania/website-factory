@@ -78,8 +78,9 @@ abstract class ResourceCollection extends BaseCollection
             'sort'       => $this->sort($request),
             'data'       => $this->collection,
             'properties' => [
-                'model'        => $morphClass,
-                'route_prefix' => 'admin.' . Str::plural($morphClass),
+                'model'              => $morphClass,
+                'admin_route_prefix' => 'admin.' . Str::plural($morphClass),
+                'front_route_prefix' => 'front.' . Str::plural($morphClass),
             ],
         ], $this->appends);
     }

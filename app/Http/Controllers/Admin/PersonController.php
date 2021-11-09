@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PersonRequest;
 use App\Http\Resources\Collections\PersonCollection;
 use App\Http\Resources\PersonResource;
@@ -13,7 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class PersonController extends Controller
+class PersonController extends AdminController
 {
     public function index(): Response
     {
@@ -36,7 +35,12 @@ class PersonController extends Controller
 
     public function store(PersonRequest $request): RedirectResponse
     {
-        $person = Person::create($request->validated());
+        $attributes = $request->validated();
+
+        $person = Person::create($attributes);
+
+        $person->saveBlocks($attributes['blocks'])
+            ->saveImages($attributes['media']);
 
         return redirect()->route('admin.people.edit', $person)
             ->with('success', __('person.event.created'));
@@ -51,34 +55,13 @@ class PersonController extends Controller
 
     public function update(PersonRequest $request, Person $person): RedirectResponse
     {
-        // dd($request->validated());
-        $person->update($request->validated());
+        $attributes = $request->validated();
+        $person->update($attributes);
+
+        $person->saveBlocks($attributes['blocks'])
+            ->saveImages($attributes['media']);
 
         return redirect()->route('admin.people.edit', $person)
             ->with('success', __('person.event.updated'));
-    }
-
-    public function destroy(Person $person): RedirectResponse
-    {
-        $person->delete();
-
-        return redirect()->route('admin.people.index')
-            ->with('success', __('person.event.deleted'));
-    }
-
-    public function restore(Person $person): RedirectResponse
-    {
-        $person->restore();
-
-        return redirect()->route('admin.people.index')
-            ->with('success', __('person.event.restored'));
-    }
-
-    public function forceDelete(Person $person): RedirectResponse
-    {
-        $person->forceDelete();
-
-        return redirect()->route('admin.people.index')
-            ->with('success', __('person.event.forceDeleted'));
     }
 }

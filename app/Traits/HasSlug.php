@@ -19,16 +19,16 @@ trait HasSlug
 
     public function initializeHasSlug(): void
     {
+        if (! \property_exists($this, 'slugFieldSource')) {
+            throw new Exception('Property slugFieldSource not defined on ' . \get_class($this));
+        }
+
         $this->fillable[] = 'slug';
     }
 
     public function getSlugFieldSource(): string
     {
-        if (! \property_exists($this, 'slugFieldSource')) {
-            throw new Exception('Property slugFieldSource not defined on ' . \get_class($this));
-        }
-
-        return $this->slugFieldSource;
+        return $this->{$this->slugFieldSource};
     }
 
     public static function bootHasSlug(): void
@@ -91,11 +91,11 @@ trait HasSlug
 
     public function generateSlug(): string
     {
-        $slug = Str::slug($this->{$this->getSlugFieldSource()}, $this->slugSeparator, app()->getLocale());
+        $base = $slug = Str::slug($this->getSlugFieldSource());
         $suffix = 1;
 
         while ($this->slugAlreadyUsed($slug)) {
-            $slug .= $this->slugSeparator . $suffix++;
+            $slug = Str::slug($base . '_' . $suffix++);
         }
 
         return $slug;

@@ -17,6 +17,36 @@
         </template>
     </dropdown>
 
+    <!-- Duplicate confirmation modal -->
+    <confirmation-modal
+        :show="confirmAction === 'duplicate'"
+        @close="confirmAction = null"
+        @submit="actionDuplicate"
+    >
+        <template #title>{{ $t('app.action.duplicate') }}</template>
+
+        <template #content>
+            {{ $t('app.action.duplicateConfirm') }}
+        </template>
+
+        <template #footer>
+            <form-button
+                type="button"
+                @click.prevent="confirmAction = null"
+                :label="$t('app.action.cancel')"
+                :disabled="form.processing"
+                color="white"
+            />
+
+            <form-button
+                type="submit"
+                :label="$t('app.action.duplicate')"
+                :disabled="form.processing"
+                color="red"
+            />
+        </template>
+    </confirmation-modal>
+
     <!-- Delete confirmation modal -->
     <confirmation-modal
         :show="confirmAction === 'delete'"
@@ -41,6 +71,66 @@
             <form-button
                 type="submit"
                 :label="$t('app.action.delete')"
+                :disabled="form.processing"
+                color="red"
+            />
+        </template>
+    </confirmation-modal>
+
+    <!-- Force delete confirmation modal -->
+    <confirmation-modal
+        :show="confirmAction === 'forceDelete'"
+        @close="confirmAction = null"
+        @submit="actionForceDelete"
+    >
+        <template #title>{{ $t('app.action.forceDelete') }}</template>
+
+        <template #content>
+            {{ $t('app.action.forceDeleteConfirm') }}
+        </template>
+
+        <template #footer>
+            <form-button
+                type="button"
+                @click.prevent="confirmAction = null"
+                :label="$t('app.action.cancel')"
+                :disabled="form.processing"
+                color="white"
+            />
+
+            <form-button
+                type="submit"
+                :label="$t('app.action.delete')"
+                :disabled="form.processing"
+                color="red"
+            />
+        </template>
+    </confirmation-modal>
+
+    <!-- Restore confirmation modal -->
+    <confirmation-modal
+        :show="confirmAction === 'restore'"
+        @close="confirmAction = null"
+        @submit="actionRestore"
+    >
+        <template #title>{{ $t('app.action.restore') }}</template>
+
+        <template #content>
+            {{ $t('app.action.restoreConfirm') }}
+        </template>
+
+        <template #footer>
+            <form-button
+                type="button"
+                @click.prevent="confirmAction = null"
+                :label="$t('app.action.cancel')"
+                :disabled="form.processing"
+                color="white"
+            />
+
+            <form-button
+                type="submit"
+                :label="$t('app.action.restore')"
                 :disabled="form.processing"
                 color="red"
             />
@@ -74,7 +164,7 @@
             const confirmAction = ref(null);
 
             const adminRoute = (suffix, args) =>
-                route(props.properties.route_prefix + '.' + suffix, {
+                route(props.properties.admin_route_prefix + '.' + suffix, {
                     id: props.row.id,
                     ...args,
                 });
@@ -84,9 +174,10 @@
 
                 if (props.row.hasOwnProperty('slug')) {
                     actions.push({
-                        href: route('front.pages.show', {
+                        href: route(props.properties.front_route_prefix + '.show', {
                             locale: currentLocale.value,
-                            page: props.row.slug,
+                            [props.properties.model]:
+                                props.row.slug || props.row.id,
                         }),
                         label: 'app.action.view',
                         target: '_blank',
@@ -99,6 +190,12 @@
                         href: adminRoute('edit'),
                         label: 'app.action.edit',
                         type: 'link',
+                    });
+
+                    actions.push({
+                        click: () => (confirmAction.value = 'duplicate'),
+                        label: 'app.action.duplicate',
+                        type: 'button',
                     });
                 }
 
@@ -130,22 +227,27 @@
                 }
 
                 return actions;
-
-                return actions.map((action) => {
-                    if (!action.hasOwnProperty('method')) {
-                        action.method = 'get';
-                    }
-
-                    if (!action.hasOwnProperty('target')) {
-                        action.target = null;
-                    }
-
-                    return action;
-                });
             });
+
+            const actionDuplicate = () => {
+                return form.post(adminRoute('duplicate'), {
+                    onSuccess: () => (confirmAction.value = null),
+                });
+            };
 
             const actionDelete = () => {
                 return form.delete(adminRoute('destroy'), {
+                    onSuccess: () => (confirmAction.value = null),
+                });
+            };
+            const actionForceDelete = () => {
+                return form.delete(adminRoute('forceDelete'), {
+                    onSuccess: () => (confirmAction.value = null),
+                });
+            };
+
+            const actionRestore = () => {
+                return form.put(adminRoute('restore'), {
                     onSuccess: () => (confirmAction.value = null),
                 });
             };
@@ -156,7 +258,10 @@
 
                 //
                 form,
+                actionDuplicate,
                 actionDelete,
+                actionForceDelete,
+                actionRestore,
             };
         },
     };

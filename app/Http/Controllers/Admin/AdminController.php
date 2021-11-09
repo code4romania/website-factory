@@ -1,0 +1,74 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Str;
+
+class AdminController extends Controller
+{
+    public string $model;
+
+    public function __construct()
+    {
+        $this->model = 'App\\Models\\' . Str::replace('Controller', '', \class_basename($this));
+    }
+
+    public function destroy(int $id): RedirectResponse
+    {
+        $this->model::find($id)->delete();
+
+        return $this->success('index', 'deleted');
+    }
+
+    public function restore(int $id): RedirectResponse
+    {
+        $model = $this->model::onlyTrashed()
+            ->find($id);
+
+        $model->restore();
+
+        return $this->success('edit', 'restored', $model);
+    }
+
+    public function forceDelete(int $id): RedirectResponse
+    {
+        $this->model::onlyTrashed()
+            ->find($id)
+            ->forceDelete();
+
+        return $this->success('index', 'forceDeleted');
+    }
+
+    public function duplicate(int $id): RedirectResponse
+    {
+        /** @var Model */
+        $source = $this->model::query()
+            ->with('blocks', 'media')
+            ->find($id);
+
+        /** @var Model */
+        $duplicate = $source->replicate();
+
+        $duplicate->push();
+
+        $duplicate->saveBlocks($source->blocks->toArray())
+            ->saveImages($source->media->toArray());
+
+        return $this->success('edit', 'duplicated', $duplicate);
+    }
+
+    protected function success(string $route, string $event, ?Model $model = null): RedirectResponse
+    {
+        $singular = Str::camel(\class_basename($this->model));
+        $plural = Str::plural($singular);
+
+        return redirect()
+            ->route("admin.$plural.$route", $model)
+            ->with('success', __("$singular.event.$event"));
+    }
+}

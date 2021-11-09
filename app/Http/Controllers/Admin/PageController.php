@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PageRequest;
 use App\Http\Resources\Collections\PageCollection;
 use App\Http\Resources\PageResource;
@@ -13,7 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class PageController extends Controller
+class PageController extends AdminController
 {
     public function index(): Response
     {
@@ -65,29 +64,5 @@ class PageController extends Controller
 
         return redirect()->route('admin.pages.edit', $page)
             ->with('success', __('page.event.updated'));
-    }
-
-    public function destroy(Page $page): RedirectResponse
-    {
-        $page->delete();
-
-        return redirect()->route('admin.pages.index')
-            ->with('success', __('page.event.deleted'));
-    }
-
-    public function restore(Page $page): RedirectResponse
-    {
-        $page->restore();
-
-        return redirect()->route('admin.pages.index')
-            ->with('success', __('page.event.restored'));
-    }
-
-    public function forceDelete(Page $page): RedirectResponse
-    {
-        $page->forceDelete();
-
-        return redirect()->route('admin.pages.index')
-            ->with('success', __('page.event.forceDeleted'));
     }
 }

@@ -70,7 +70,7 @@
                 </div>
             </template>
 
-            <template #footer>
+            <template #footer v-if="remainingImages">
                 <div
                     class="flex items-center justify-between px-6 py-4 list-group-item"
                 >
@@ -95,7 +95,7 @@
 <script>
     import Draggable from 'vuedraggable';
     import { defineInput, useMedia } from '@/helpers';
-    import { computed, ref, inject } from 'vue';
+    import { computed, inject } from 'vue';
 
     export default defineInput({
         name: 'FormMedia',
@@ -118,8 +118,6 @@
         },
         emits: ['update:media'],
         setup(props) {
-            // const media = ref(props.media);
-
             const remainingImages = computed(() =>
                 Math.max(0, props.limit - props.media.length)
             );
@@ -155,7 +153,6 @@
             };
 
             return {
-                // media,
                 remainingImages,
                 addImage,
                 deleteImage,

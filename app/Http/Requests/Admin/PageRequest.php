@@ -33,7 +33,6 @@ class PageRequest extends BaseRequest
             'description'         => ['required', 'string'],
             'layout'              => ['required', 'string'],
             'media.*.id'          => ['required', 'exists:media'],
-            'blocks'              => ['sometimes', 'array'],
             'blocks.*.id'         => ['required', 'numeric', 'integer'],
             'blocks.*.type'       => ['required', 'string'],
             'blocks.*.content'    => ['required', 'array'],
