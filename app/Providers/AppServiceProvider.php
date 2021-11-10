@@ -55,7 +55,7 @@ class AppServiceProvider extends ServiceProvider
 
         Validator::excludeUnvalidatedArrayKeys();
 
-        Model::preventLazyLoading(! $this->app->isProduction());
+        Model::preventLazyLoading($this->app->isLocal());
 
         $this->registerBlueprintMacros();
         $this->registerInertiaMacros();
