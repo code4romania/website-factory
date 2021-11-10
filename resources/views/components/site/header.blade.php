@@ -1,26 +1,25 @@
 <header class="relative text-white bg-teal-700">
-    <nav class="container flex justify-between py-4">
-        <a href="{{ route('front.pages.index') }}" class="inline-flex">
-            {{-- <x-icon-logo class="w-auto h-8" /> --}}
+    <div class="container lg:divide-teal-600 lg:divide-y">
+        <div class="relative flex items-center justify-between py-4">
+            <a href="{{ route('front.pages.index') }}" class="inline-flex">
+                <img src="{{ $logo }}" alt="" class="h-10">
+            </a>
 
-            <img src="{{ $logo }}" alt="" class="h-8">
-        </a>
-
-
-
-
-        @if ($alternateUrls)
             <div>
-                @foreach ($alternateUrls as $locale => $url)
-                    <a
-                        class="inline-flex p-2 text-sm rounded"
-                        title="{{-- TODO --}}"
-                        hreflang="{{ $locale }}"
-                        href="{{ $url }}">
-                        {{ strtoupper($locale) }}
-                    </a>
-                @endforeach
+                @if ($alternateUrls)
+                    <div>
+                        @foreach ($alternateUrls as $locale => $url)
+                            <a
+                                class="inline-flex p-2 text-sm rounded"
+                                title="{{-- TODO --}}"
+                                hreflang="{{ $locale }}"
+                                href="{{ $url }}">
+                                {{ strtoupper($locale) }}
+                            </a>
+                        @endforeach
+                    </div>
+                @endif
             </div>
-        @endif
-    </nav>
+        </div>
+    </div>
 </header>
