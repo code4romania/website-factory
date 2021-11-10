@@ -49,7 +49,7 @@ class PageController extends AdminController
     public function edit(Page $page): Response
     {
         return Inertia::render('Pages/Edit', [
-            'page' => PageResource::make($page),
+            'resource' => PageResource::make($page),
         ])->model(Page::class);
     }
 

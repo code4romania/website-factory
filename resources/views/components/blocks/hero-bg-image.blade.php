@@ -1,6 +1,9 @@
 <div class="relative overflow-hidden shadow-xl rounded-xl">
-    <x-media.image class="absolute inset-0 object-cover w-full h-full" :src="$image->getUrl()"
-        :alt="$image->caption" />
+    @if ($image)
+
+        <x-media.image class="absolute inset-0 object-cover w-full h-full" :src="$image->getUrl()"
+            :alt="$image->caption" />
+    @endif
 
     <div class="absolute inset-0 bg-teal-700 mix-blend-multiply"></div>
 

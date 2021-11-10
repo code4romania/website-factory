@@ -22,7 +22,7 @@ class Header extends Component
 
     public function __construct()
     {
-        $this->logo = asset('assets/svg/logo.svg');
+        $this->logo = asset('assets/images/logo.png');
 
         $this->alternateUrls = $this->getAlternateUrls();
     }

@@ -56,7 +56,7 @@
         "alpinejs": "^3.5.0",
         "autoprefixer": "^10.4.0",
         "axios": "^0.24.0",
-        "laravel-mix": "^6.0.38",
+        "laravel-mix": "^6.0.39",
         "laravel-mix-bundle-analyzer": "^1.0.5",
         "laravel-mix-valet": "^1.1.1",
         "lodash": "^4.17.21",

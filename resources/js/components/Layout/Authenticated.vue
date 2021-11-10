@@ -83,12 +83,16 @@
                         href: this.route('admin.pages.index'),
                         label: this.$t('page.label', 2),
                     },
-                    // {
-                    //     type: 'link',
-                    //     href: this.route('admin.categories.index'),
-                    //     label: this.$t('category.label', 2),
-                    //     route: 'admin.categories.index',
-                    // },
+                    {
+                        type: 'link',
+                        href: this.route('admin.posts.index'),
+                        label: this.$t('post.label', 2),
+                    },
+                    {
+                        type: 'link',
+                        href: this.route('admin.decisions.index'),
+                        label: this.$t('decision.label', 2),
+                    },
                     {
                         type: 'link',
                         href: this.route('admin.forms.index'),

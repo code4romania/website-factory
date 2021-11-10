@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Admin;
 
-use App\Models\Person;
+use App\Models\Decision;
 use App\Services\TranslatableFormRequestRules;
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
 
-class PersonRequest extends BaseRequest
+class DecisionRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,13 +27,10 @@ class PersonRequest extends BaseRequest
      */
     public function rules(): array
     {
-        return TranslatableFormRequestRules::make(Person::class, [
-            'name'                => ['required', 'string', 'max:200'],
-            'slug'                => ['required', 'string', 'max:200', 'unique_translation:people,slug,' . optional($this->person)->id],
+        return TranslatableFormRequestRules::make(Decision::class, [
             'title'               => ['required', 'string', 'max:200'],
+            'slug'                => ['required', 'string', 'max:200'],
             'description'         => ['required', 'string'],
-            'media'               => ['array'],
-            'media.*.id'          => ['required', 'exists:media'],
             'blocks'              => ['array'],
             'blocks.*.id'         => ['required', 'numeric', 'integer'],
             'blocks.*.type'       => ['required', 'string'],

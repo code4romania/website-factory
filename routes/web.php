@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/decisions', [Front\DecisionController::class, 'index'])->name('decisions.index');
+Route::get('/decisions/{decision:slug}', [Front\DecisionController::class, 'show'])->name('decisions.show');
+
+Route::get('/blog', [Front\PostController::class, 'index'])->name('posts.index');
+Route::get('/blog/{post:slug}', [Front\PostController::class, 'show'])->name('posts.show');
+
 Route::get('/people', [Front\PersonController::class, 'index'])->name('people.index');
 Route::get('/people/{person:slug}', [Front\PersonController::class, 'show'])->name('people.show');
 

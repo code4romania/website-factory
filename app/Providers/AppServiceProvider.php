@@ -11,6 +11,7 @@ use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Inertia\Response;
@@ -42,13 +43,14 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Relation::morphMap([
-            'block'  => \App\Models\Block::class,
-            'form'   => \App\Models\Form::class,
-            'media'  => \App\Models\Media::class,
-            'page'   => \App\Models\Page::class,
-            'person' => \App\Models\Person::class,
-            'post'   => \App\Models\Post::class,
-            'user'   => \App\Models\User::class,
+            'block'    => \App\Models\Block::class,
+            'decision' => \App\Models\Decision::class,
+            'form'     => \App\Models\Form::class,
+            'media'    => \App\Models\Media::class,
+            'page'     => \App\Models\Page::class,
+            'person'   => \App\Models\Person::class,
+            'post'     => \App\Models\Post::class,
+            'user'     => \App\Models\User::class,
         ]);
 
         Validator::excludeUnvalidatedArrayKeys();
@@ -57,6 +59,9 @@ class AppServiceProvider extends ServiceProvider
 
         $this->registerBlueprintMacros();
         $this->registerInertiaMacros();
+
+        Paginator::defaultView('pagination.default');
+        Paginator::defaultSimpleView('pagination.simple');
     }
 
     protected function registerBlueprintMacros(): void

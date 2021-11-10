@@ -116,4 +116,12 @@ trait HasSlug
 
         return $query->exists();
     }
+
+    public function getUrlAttribute(): string
+    {
+        return route('front.posts.show', [
+            'locale' => app()->getLocale(),
+            $this->getMorphClass()        => $this->slug,
+        ]);
+    }
 }

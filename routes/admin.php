@@ -40,6 +40,28 @@ Route::delete('people/{person}', [Admin\PersonController::class, 'destroy'])->na
 Route::put('people/{person}/restore', [Admin\PersonController::class, 'restore'])->name('people.restore')->withTrashed();
 Route::delete('people/{person}/force', [Admin\PersonController::class, 'forceDelete'])->name('people.forceDelete')->withTrashed();
 
+Route::get('posts', [Admin\PostController::class, 'index'])->name('posts.index');
+Route::get('posts/create', [Admin\PostController::class, 'create'])->name('posts.create');
+Route::post('posts', [Admin\PostController::class, 'store'])->name('posts.store');
+Route::get('posts/{post}/edit', [Admin\PostController::class, 'edit'])->name('posts.edit');
+Route::post('posts/{post}/duplicate', [Admin\PostController::class, 'duplicate'])->name('posts.duplicate');
+Route::post('posts/{post}/preview', [Admin\PostController::class, 'preview'])->name('posts.preview');
+Route::put('posts/{post}', [Admin\PostController::class, 'update'])->name('posts.update');
+Route::delete('posts/{post}', [Admin\PostController::class, 'destroy'])->name('posts.destroy');
+Route::put('posts/{post}/restore', [Admin\PostController::class, 'restore'])->name('posts.restore')->withTrashed();
+Route::delete('posts/{post}/force', [Admin\PostController::class, 'forceDelete'])->name('posts.forceDelete')->withTrashed();
+
+Route::get('decisions', [Admin\DecisionController::class, 'index'])->name('decisions.index');
+Route::get('decisions/create', [Admin\DecisionController::class, 'create'])->name('decisions.create');
+Route::post('decisions', [Admin\DecisionController::class, 'store'])->name('decisions.store');
+Route::get('decisions/{decision}/edit', [Admin\DecisionController::class, 'edit'])->name('decisions.edit');
+Route::post('decisions/{decision}/duplicate', [Admin\DecisionController::class, 'duplicate'])->name('decisions.duplicate');
+Route::post('decisions/{decision}/preview', [Admin\DecisionController::class, 'preview'])->name('decisions.preview');
+Route::put('decisions/{decision}', [Admin\DecisionController::class, 'update'])->name('decisions.update');
+Route::delete('decisions/{decision}', [Admin\DecisionController::class, 'destroy'])->name('decisions.destroy');
+Route::put('decisions/{decision}/restore', [Admin\DecisionController::class, 'restore'])->name('decisions.restore')->withTrashed();
+Route::delete('decisions/{decision}/force', [Admin\DecisionController::class, 'forceDelete'])->name('decisions.forceDelete')->withTrashed();
+
 Route::get('forms', [Admin\FormController::class, 'index'])->name('forms.index');
 Route::get('forms/create', [Admin\FormController::class, 'create'])->name('forms.create');
 Route::post('forms', [Admin\FormController::class, 'store'])->name('forms.store');

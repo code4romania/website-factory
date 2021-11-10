@@ -17,5 +17,6 @@ return [
 
     'previous' => 'Înapoi',
     'next' => 'Înainte',
+    'goto' => 'Mergi la pagina :page',
 
 ];

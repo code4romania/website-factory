@@ -49,7 +49,7 @@ class PersonController extends AdminController
     public function edit(Person $person): Response
     {
         return Inertia::render('People/Edit', [
-            'person' => PersonResource::make($person),
+            'resource' => PersonResource::make($person),
         ])->model(Person::class);
     }
 

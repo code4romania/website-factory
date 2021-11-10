@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Models\Decision;
+use App\Models\Form;
+use App\Models\Page;
+use App\Models\Person;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 
@@ -16,14 +22,35 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            UserSeeder::class,
-            CategorySeeder::class,
-            PageSeeder::class,
-            PersonSeeder::class,
-            FormSeeder::class,
-            FormSubmissionSeeder::class,
-        ]);
+        // Create an admin
+        User::factory(['email' => 'admin@example.com'])
+            ->admin()
+            ->create();
+
+        // Create users with no role
+        User::factory()
+            ->count(25)
+            ->create();
+
+        Page::factory()
+            ->count(250)
+            ->create();
+
+        Post::factory()
+            ->count(250)
+            ->create();
+
+        Person::factory()
+            ->count(50)
+            ->create();
+
+        Decision::factory()
+            ->count(250)
+            ->create();
+
+        Form::factory()
+            ->count(10)
+            ->create();
 
         Artisan::call('media:import');
     }

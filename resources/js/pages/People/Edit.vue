@@ -5,6 +5,7 @@
                 <div class="space-y-1">
                     <form-input
                         :label="$t('field.name')"
+                        name="name"
                         v-model="form.name"
                         required
                     />
@@ -22,12 +23,14 @@
 
                 <localized-field
                     field="form-input"
+                    name="title"
                     :label="$t('field.job_title')"
                     v-model="form.title"
                 />
 
                 <localized-field
                     field="form-textarea"
+                    name="description"
                     :label="$t('field.description')"
                     v-model="form.description"
                 />
@@ -50,13 +53,13 @@
 
     export default {
         props: {
-            person: Object,
+            resource: Object,
             model: Object,
         },
         setup(props) {
-            const action = props.person === undefined ? 'create' : 'edit';
+            const action = props.resource === undefined ? 'create' : 'edit';
 
-            const form = useForm(`${action}.person`, props.person, [
+            const form = useForm(`${action}.person`, props.resource, [
                 'name',
                 'slug',
                 'title',
@@ -68,7 +71,7 @@
             const method = computed(() => (action === 'edit' ? 'put' : 'post'));
             const url = computed(() =>
                 action === 'edit'
-                    ? route('admin.people.update', props.person)
+                    ? route('admin.people.update', props.resource)
                     : route('admin.people.store')
             );
 

@@ -16,8 +16,8 @@
                         :label="$t('field.slug')"
                         name="slug"
                         v-model="form.slug"
-                        route-name="front.pages.show"
-                        route-key="page"
+                        route-name="front.decisions.show"
+                        route-key="decision"
                         :source="form.title"
                         translatable
                         required
@@ -29,18 +29,6 @@
                     :label="$t('field.description')"
                     required
                     v-model="form.description"
-                />
-
-                <form-select
-                    :label="$t('field.layout')"
-                    v-model="form.layout"
-                    :options="model.layouts"
-                />
-
-                <form-media
-                    :label="$t('field.image')"
-                    v-model:media="form.media"
-                    :limit="1"
                 />
             </panel-model>
 
@@ -61,7 +49,7 @@
         setup(props) {
             const action = props.resource === undefined ? 'create' : 'edit';
 
-            const form = useForm(`${action}.page`, props.resource, [
+            const form = useForm(`${action}.decision`, props.resource, [
                 'title',
                 'slug',
                 'description',
@@ -73,11 +61,11 @@
             const method = computed(() => (action === 'edit' ? 'put' : 'post'));
             const url = computed(() =>
                 action === 'edit'
-                    ? route('admin.pages.update', props.resource)
-                    : route('admin.pages.store')
+                    ? route('admin.decisions.update', props.resource)
+                    : route('admin.decisions.store')
             );
 
-            const pageTitle = computed(() => `page.action.${action}`);
+            const pageTitle = computed(() => `decision.action.${action}`);
 
             return {
                 form,
