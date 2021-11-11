@@ -119,8 +119,8 @@
                     },
                     {
                         type: 'link',
-                        href: '#',
-                        label: this.$t('app.settings'),
+                        href: this.route('admin.menus.index'),
+                        label: this.$t('menu.label', 2),
                     },
                 ],
                 profileMenu: [
