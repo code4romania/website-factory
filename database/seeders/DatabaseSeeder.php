@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Decision;
 use App\Models\Form;
+use App\Models\MenuItem;
 use App\Models\Page;
 use App\Models\Person;
 use App\Models\Post;
@@ -50,6 +51,10 @@ class DatabaseSeeder extends Seeder
 
         Form::factory()
             ->count(10)
+            ->create();
+
+        MenuItem::factory()
+            ->count(20)
             ->create();
 
         Artisan::call('media:import');

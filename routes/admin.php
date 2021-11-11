@@ -82,3 +82,9 @@ Route::get('media', [Admin\MediaController::class, 'index'])->name('media.index'
 Route::post('media', [Admin\MediaController::class, 'store'])->name('media.store');
 Route::put('media/{media}', [Admin\MediaController::class, 'update'])->name('media.update');
 Route::delete('media/{media}', [Admin\MediaController::class, 'destroy'])->name('media.destroy');
+
+Route::where(['location' => '(header|footer)'])->group(function () {
+    Route::get('menus', [Admin\MenuController::class, 'index'])->name('menus.index');
+    Route::get('menus/{location}', [Admin\MenuController::class, 'edit'])->name('menus.edit');
+    Route::post('menus/{location}', [Admin\MenuController::class, 'update'])->name('menus.update');
+});

@@ -2,7 +2,7 @@
     <section class="bg-white border">
         <header class="relative flex items-stretch bg-gray-50">
             <div
-                class="handle flex-shrink-0 w-5 px-1.5 py-2 bg-gray-100 border-r cursor-move"
+                class="handle flex-shrink-0 w-6 px-1.5 py-2 bg-gray-100 border-r cursor-move"
             >
                 <icon name="drag" class="w-full h-full text-gray-400" local />
             </div>
@@ -12,7 +12,7 @@
                 @click="toggleOpen"
                 class="flex-1 p-3 text-left text-gray-400 truncate focus:outline-none"
             >
-                <h1 class="text-sm font-medium truncate">
+                <h1 class="text-sm font-semibold truncate">
                     <span class="text-gray-900" v-t="blockName" />
 
                     <span v-if="blockTitle && !open">

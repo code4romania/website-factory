@@ -9,27 +9,29 @@
                 :profile-menu="profileMenu"
             />
 
-            <div v-if="$slots.subnav" class="py-2 bg-gray-200">
-                <div class="container flex items-center py-3">
+            <div v-if="$slots.subnav" class="bg-gray-200">
+                <div
+                    class="container flex items-center py-3 space-x-3 overflow-x-auto"
+                >
                     <slot name="subnav" />
                 </div>
             </div>
 
-            <div class="container items-center justify-between mt-12 lg:flex">
-                <div class="flex-1 space-y-2">
-                    <breadcrumbs :items="breadcrumbs" />
+            <div class="container items-center justify-between mt-12 space-y-2">
+                <breadcrumbs :items="breadcrumbs" />
 
+                <div class="flex flex-col gap-4 md:flex-row">
                     <h1
-                        class="text-2xl font-bold text-gray-900 md:text-3xl md:truncate"
+                        class="flex-1 text-2xl font-bold text-gray-900 md:text-3xl md:truncate"
                         v-text="title"
                     />
-                </div>
 
-                <div
-                    v-if="$slots.actions"
-                    class="flex items-center justify-end mt-4 space-x-3 lg:mt-0"
-                >
-                    <slot name="actions" />
+                    <div
+                        v-if="$slots.actions"
+                        class="flex items-center space-x-3 md:justify-end"
+                    >
+                        <slot name="actions" />
+                    </div>
                 </div>
             </div>
         </header>

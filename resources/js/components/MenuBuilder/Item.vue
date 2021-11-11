@@ -1,0 +1,145 @@
+<template>
+    <li>
+        <div class="relative flex items-stretch border bg-gray-50">
+            <div
+                class="handle flex-shrink-0 w-6 px-1.5 py-2 bg-gray-100 border-r cursor-move"
+            >
+                <icon name="drag" class="w-full h-full text-gray-400" local />
+            </div>
+
+            <div
+                class="flex items-stretch flex-1 p-3 text-sm text-left text-gray-400 truncate focus:outline-none"
+            >
+                <button
+                    type="button"
+                    @click="toggleOpen"
+                    class="font-semibold text-left text-gray-900 hover:text-blue-600"
+                    v-text="itemLabel"
+                />
+
+                <button
+                    v-if="item.children.length"
+                    type="button"
+                    @click="toggleCollapse"
+                    class="ml-3 text-gray-400 hover:text-gray-900 focus:outline-none"
+                >
+                    <icon
+                        name="System/arrow-down-s-line"
+                        class="w-5 h-5 text-gray-400"
+                        :class="{ '-rotate-90': collapsed }"
+                    />
+                </button>
+
+                <!-- <span v-if="true"> &mdash; {{ item.type }} </span> -->
+            </div>
+
+            <div
+                class="relative flex items-center flex-shrink-0 pr-3 space-x-3"
+            >
+                <dropdown
+                    trigger-class="flex items-center py-1 text-gray-400 hover:text-gray-900 focus:outline-none"
+                    origin="top-right"
+                    with-more
+                >
+                    <template #content>
+                        <dropdown-item
+                            type="button"
+                            @click="$emit('delete')"
+                            v-text="$t('app.action.delete')"
+                        />
+                    </template>
+                </dropdown>
+            </div>
+        </div>
+
+        <div v-if="open" class="px-4 py-5 space-y-8 bg-white sm:p-6">
+            <localized-field
+                field="form-input"
+                :label="$t('field.label')"
+                name="label"
+                v-model="item.label"
+                required
+            />
+
+            <localized-field
+                field="form-input"
+                type="url"
+                :label="$t('field.url')"
+                name="external_url"
+                v-model="item.external_url"
+                required
+            />
+        </div>
+
+        <menu-builder-list
+            v-if="!collapsed && level < maxLevel"
+            class="pl-6 -mt-px"
+            :items="item.children"
+            :level="level + 1"
+        />
+    </li>
+</template>
+
+<script>
+    import { computed, ref, watch } from 'vue';
+    import { useLocale } from '@/helpers';
+    import get from 'lodash/get';
+
+    export default {
+        name: 'MenuBuilderItem',
+        props: {
+            item: {
+                type: Object,
+                required: true,
+            },
+            children: {
+                type: Array,
+                default: () => [],
+            },
+            level: {
+                type: Number,
+                default: 0,
+            },
+            maxLevel: {
+                type: Number,
+                default: 2,
+            },
+        },
+        emits: ['delete'],
+        setup(props) {
+            const { currentLocale } = useLocale();
+
+            const itemLabel = computed(() =>
+                get(props.item, `label.${currentLocale.value}`, null)
+            );
+
+            const collapsed = ref(false);
+            const toggleCollapse = () => {
+                collapsed.value = !collapsed.value;
+            };
+
+            const open = ref(false);
+            const toggleOpen = () => {
+                open.value = !open.value;
+            };
+
+            watch(
+                open,
+                () => {
+                    if (!itemLabel.value) {
+                        open.value = true;
+                    }
+                },
+                { immediate: true }
+            );
+
+            return {
+                itemLabel,
+                collapsed,
+                toggleCollapse,
+                open,
+                toggleOpen,
+            };
+        },
+    };
+</script>

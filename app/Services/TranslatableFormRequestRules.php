@@ -13,6 +13,12 @@ class TranslatableFormRequestRules
         $rules = collect();
 
         foreach ($input as $key => $rule) {
+            // Check for nested array keys
+            $parts = \explode('.', $key);
+            if (count($parts) > 1) {
+                $key = end($parts);
+            }
+
             if ($model->isTranslatableAttribute($key)) {
                 locales()->each(fn ($locale) => $rules->put("$key.$locale", $rule));
             } else {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\View\Components\Site;
 
+use App\Models\MenuItem;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
@@ -18,11 +19,15 @@ class Header extends Component
 
     public string $logo;
 
+    public Collection $menu;
+
     public Collection $alternateUrls;
 
     public function __construct()
     {
         $this->logo = asset('assets/images/logo.png');
+
+        $this->menu = $this->getMenuItems();
 
         $this->alternateUrls = $this->getAlternateUrls();
     }
@@ -30,6 +35,14 @@ class Header extends Component
     public function render(): View
     {
         return view('components.site.header');
+    }
+
+    private function getMenuItems(): Collection
+    {
+        return MenuItem::query()
+            ->location('header')
+            ->get()
+            ->toTree();
     }
 
     private function getAlternateUrls(): Collection
