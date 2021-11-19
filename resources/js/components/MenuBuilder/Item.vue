@@ -56,7 +56,7 @@
             <localized-field
                 field="form-input"
                 :label="$t('field.label')"
-                name="label"
+                :name="`${prefix}.label`"
                 v-model="item.label"
                 required
             />
@@ -65,17 +65,18 @@
                 field="form-input"
                 type="url"
                 :label="$t('field.url')"
-                name="external_url"
+                :name="`${prefix}.external_url`"
                 v-model="item.external_url"
                 required
             />
         </div>
 
         <menu-builder-list
-            v-if="!collapsed && level < maxLevel"
+            v-if="!collapsed && depth < maxDepth"
             class="pl-6 -mt-px"
             :items="item.children"
-            :level="level + 1"
+            :depth="depth + 1"
+            :prefix="`${prefix}.children`"
         />
     </li>
 </template>
@@ -96,13 +97,21 @@
                 type: Array,
                 default: () => [],
             },
-            level: {
+            index: {
                 type: Number,
                 default: 0,
             },
-            maxLevel: {
+            depth: {
+                type: Number,
+                default: 0,
+            },
+            maxDepth: {
                 type: Number,
                 default: 2,
+            },
+            prefix: {
+                type: String,
+                required: true,
             },
         },
         emits: ['delete'],
@@ -123,6 +132,8 @@
                 open.value = !open.value;
             };
 
+            const prefix = computed(() => `${props.prefix}.${props.index}`);
+
             watch(
                 open,
                 () => {
@@ -139,6 +150,7 @@
                 toggleCollapse,
                 open,
                 toggleOpen,
+                prefix,
             };
         },
     };

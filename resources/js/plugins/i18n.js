@@ -7,28 +7,19 @@ export default createI18n({
     legacy: false,
     globalInjection: true,
     messages,
-    pluralizationRules: {
-        /**
-         * @param choice {number} a choice index given by the input to $tc: `$tc('path.to.rule', choiceIndex)`
-         * @param choicesLength {number} an overall amount of available choices
-         * @returns a final choice index to select plural word by
-         */
+    pluralRules: {
         ro: (choice, choicesLength) => {
-            if (choice === 1) {
-                return 0;
+            choice = Math.abs(choice);
+            if ([0, 1].includes(choice)) {
+                return choice;
             }
 
-            if (choice === 0) {
-                return 1;
-            }
-
-            let endsWith = choice % 100;
-
+            const endsWith = choice % 100;
             if (1 <= endsWith && endsWith <= 19) {
-                return 1;
+                return Math.min(choicesLength - 1, 2);
             }
 
-            return 2;
+            return Math.min(choicesLength - 1, 3);
         },
     },
 });

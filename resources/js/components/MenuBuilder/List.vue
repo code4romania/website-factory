@@ -6,22 +6,23 @@
         ghost-class="opacity-50"
         handle=".handle"
         animation="200"
-        class="grid"
-        :class="{
-            'gap-8': level === 0,
-        }"
         tag="ol"
     >
-        <template #item="{ element }">
+        <template #item="{ element, index }">
             <menu-builder-item
                 :item="element"
-                :max-level="maxLevel"
+                :index="index"
+                :depth="depth"
+                :max-depth="maxDepth"
                 @delete="deleteItem(index)"
+                :class="{ 'py-4': !depth }"
+                :prefix="prefix"
             />
         </template>
 
-        <template v-if="level === 0" #footer>
-            <div>
+
+        <template #footer v-if="!depth">
+            <div class="pt-8">
                 <button
                     type="button"
                     class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-100"
@@ -52,13 +53,17 @@
                 type: Array,
                 required: true,
             },
-            level: {
+            depth: {
                 type: Number,
                 default: 0,
             },
-            maxLevel: {
+            maxDepth: {
                 type: Number,
                 default: 2,
+            },
+            prefix: {
+                type: String,
+                required: true,
             },
         },
         setup(props) {
