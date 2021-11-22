@@ -30,10 +30,6 @@ class MenuItem extends Model
         'type', 'location', 'position', 'external_url',
     ];
 
-    protected $with = [
-        'children',
-    ];
-
     protected static function booted()
     {
         static::addGlobalScope('position', function (Builder $query) {
@@ -44,11 +40,6 @@ class MenuItem extends Model
     public function scopeLocation(Builder $query, string $location): Builder
     {
         return $query->where('location', $location);
-    }
-
-    public function scopeRoot(Builder $query): Builder
-    {
-        return $query->whereNull('parent_id');
     }
 
     public function getUrlAttribute(): ?string
@@ -67,5 +58,10 @@ class MenuItem extends Model
     public function getNewTabAttribute(): bool
     {
         return $this->type === 'external' && $this->attributes['new_tab'];
+    }
+
+    public function getComponentAttribute(): string
+    {
+        return "menu-item.{$this->type}";
     }
 }

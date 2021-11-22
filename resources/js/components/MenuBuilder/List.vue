@@ -20,6 +20,9 @@
             />
         </template>
 
+        <template #header v-if="!depth">
+            <div><!-- collapse controls --></div>
+        </template>
 
         <template #footer v-if="!depth">
             <div class="pt-8">

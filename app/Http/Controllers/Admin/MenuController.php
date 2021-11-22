@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\MenuRequest;
 use App\Http\Resources\Collections\MenuItemCollection;
 use App\Models\MenuItem;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Cache;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -27,6 +28,7 @@ class MenuController extends Controller
                 MenuItem::query()
                     ->location($location)
                     ->get()
+                    ->toTree()
             ),
         ])->model(MenuItem::class);
     }
@@ -38,6 +40,8 @@ class MenuController extends Controller
         MenuItem::query()->location($location)->delete();
 
         MenuItem::rebuildTree($this->prepareItems($attributes['items'], $location));
+
+        Cache::forget("menu-$location");
 
         return redirect()->route('admin.menus.edit', ['location' => $location])
             ->with('success', __('menu.event.updated'));

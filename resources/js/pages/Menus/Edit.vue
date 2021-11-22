@@ -26,7 +26,11 @@
         </template>
 
         <form id="menu-builder" @submit.prevent="form.post(url)">
-            <menu-builder-list :items="form.items" prefix="items" />
+            <menu-builder-list
+                prefix="items"
+                :items="form.items"
+                :max-depth="maxDepth"
+            />
         </form>
     </layout>
 </template>
@@ -35,7 +39,6 @@
     import { computed } from 'vue';
     import { route } from '@/helpers';
     import { useForm } from '@inertiajs/inertia-vue3';
-    import cloneDeep from 'lodash/cloneDeep';
     import Draggable from 'vuedraggable';
 
     export default {
@@ -57,9 +60,12 @@
 
             const url = route('admin.menus.update', { location: props.location });
 
+            const maxDepth = computed(() => (props.location === 'header' ? 2 : 1));
+
             return {
                 form,
                 url,
+                maxDepth,
             };
         },
     };

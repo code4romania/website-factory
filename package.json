@@ -1,4 +1,5 @@
 {
+    "name": "website-factory-primarie",
     "private": true,
     "scripts": {
         "dev": "npm run development",
@@ -12,7 +13,7 @@
         "test": "jest"
     },
     "dependencies": {
-        "@alpinejs/collapse": "^3.5.1",
+        "@alpinejs/collapse": "^3.5.2",
         "@inertiajs/inertia": "^0.10.1",
         "@inertiajs/inertia-vue3": "^0.5.2",
         "@inertiajs/progress": "^0.2.6",
@@ -52,8 +53,8 @@
         "@tiptap/extension-underline": "^2.0.0-beta.16",
         "@tiptap/vue-3": "^2.0.0-beta.61",
         "@vue/compiler-sfc": "^3.2.22",
-        "@vueuse/core": "^6.9.2",
-        "alpinejs": "^3.5.1",
+        "@vueuse/core": "^7.0.1",
+        "alpinejs": "^3.5.2",
         "autoprefixer": "^10.4.0",
         "axios": "^0.24.0",
         "laravel-mix": "^6.0.39",

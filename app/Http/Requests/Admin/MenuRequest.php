@@ -28,7 +28,9 @@ class MenuRequest extends BaseRequest
      */
     public function rules(): array
     {
-        return TranslatableFormRequestRules::make(MenuItem::class, $this->nestedRules(2));
+        return TranslatableFormRequestRules::make(MenuItem::class, $this->nestedRules(
+            $this->location === 'header' ? 2 : 1
+        ));
     }
 
     protected function nestedRules(int $depth): array

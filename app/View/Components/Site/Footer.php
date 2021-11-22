@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace App\View\Components\Site;
 
+use App\Models\MenuItem;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Component;
 
 class Footer extends Component
 {
+    public Collection $menu;
+
     /**
      * Create a new component instance.
      *
@@ -15,7 +20,7 @@ class Footer extends Component
      */
     public function __construct()
     {
-        //
+        $this->menu = $this->getMenuItems();
     }
 
     /**
@@ -26,5 +31,15 @@ class Footer extends Component
     public function render()
     {
         return view('components.site.footer');
+    }
+
+    private function getMenuItems(): Collection
+    {
+        return Cache::rememberForever('menu-footer', function () {
+            return MenuItem::query()
+                ->location('footer')
+                ->get()
+                ->toTree();
+        });
     }
 }

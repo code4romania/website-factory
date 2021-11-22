@@ -1,11 +1,11 @@
-<header class="relative text-white bg-teal-700">
-    <div class="container lg:divide-teal-600 lg:divide-y">
+<header x-data="{ menuOpen: false }" x-on:click.outside="menuOpen = false" class="relative bg-teal-700">
+    <nav class="container text-white lg:divide-teal-600 lg:divide-y">
         <div class="relative flex items-center justify-between py-4">
             <a href="{{ route('front.pages.index') }}" class="inline-flex">
                 <img src="{{ $logo }}" alt="" class="h-10">
             </a>
 
-            <div>
+            <div class="flex items-center gap-3">
                 @if ($alternateUrls)
                     <div>
                         @foreach ($alternateUrls as $locale => $url)
@@ -19,28 +19,80 @@
                         @endforeach
                     </div>
                 @endif
+
+                <button type="button" @@click="menuOpen = !menuOpen" class="lg:hidden">
+                    <x-ri-menu-line x-show="!menuOpen" class="w-5 h-5" />
+                    <x-ri-close-line x-show="menuOpen" class="w-5 h-5" x-cloak />
+                </button>
             </div>
         </div>
 
-        <x-menu.header :items="$menu" class="hidden lg:flex" />
+        <ul class="relative items-center hidden py-3 text-sm gap-x-3 lg:flex lg:flex-wrap">
+            @foreach ($menu as $item)
+                @if ($item->children->count())
+                    <li x-data="{ open: false }" x-on:click.outside="open = false">
+                        <button
+                            @@click="open = !open"
+                            class="flex items-center px-3 py-2 font-medium text-teal-50 hover:text-teal-100"
+                            :class="{ 'bg-teal-800': open }">
+                            <span>{{ $item->label }}</span>
 
-        {{-- <button type="button"
-                class="flex px-3 py-2 font-medium text-gray-300 hover:bg-teal-800 hover:text-white focus:bg-teal-800 focus:text-white">
-                <span>Solutions</span>
-                <!--
-                  Heroicon name: solid/chevron-down
+                            <x-ri-arrow-down-s-line
+                                class="w-5 h-5 p-0.5 ml-1 -mr-2" />
+                        </button>
 
-                  Item active: "text-gray-600", Item inactive: "text-gray-400"
-                -->
-                <svg class="w-5 h-5 ml-2 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clip-rule="evenodd" />
-                </svg>
-            </button> --}}
+                        <div
+                            class="absolute inset-x-0 z-10 text-gray-500 transform bg-white shadow-lg top-full"
+                            x-show="open"
+                            x-cloak>
+                            <ul
+                                class="container relative grid grid-cols-1 py-8 text-sm sm:grid-cols-2 lg:grid-cols-4 gap-y-10 sm:gap-x-8 sm:py-12">
+                                @foreach ($item->children as $subitemL1)
+                                    <li>
+                                        <x-dynamic-component
+                                            :component="$subitemL1->component"
+                                            :item="$subitemL1"
+                                            class="text-base font-semibold text-gray-900 hover:text-gray-800" />
 
+                                        @if ($subitemL1->children)
+                                            <ol class="mt-3 space-y-3">
+                                                @foreach ($subitemL1->children as $subitemL2)
+                                                    <li class="flex">
+                                                        <x-dynamic-component
+                                                            :component="$subitemL2->component"
+                                                            :item="$subitemL2"
+                                                            class=" hover:text-gray-800" />
+                                                    </li>
+                                                @endforeach
+                                            </ol>
+                                        @endif
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </li>
+                @else
+                    <li>
+                        <x-dynamic-component :component="$item->component" :item="$item"
+                            class="px-3 py-2 text-teal-50 hover:text-teal-100" />
+                    </li>
+                @endif
+            @endforeach
+        </ul>
+    </nav>
 
+    <nav
+        class="absolute inset-x-0 z-50 transition origin-top transform bg-white shadow-lg top-full lg:hidden"
+        x-show="menuOpen"
+        x-collapse
+        x-cloak>
+        <ul class="container py-4 md:py-8">
+            @foreach ($menu as $item)
+                <li>
+                    <x-dynamic-component :component="$item->component" :item="$item" />
+                </li>
+            @endforeach
+        </ul>
 
-    </div>
+    </nav>
 </header>

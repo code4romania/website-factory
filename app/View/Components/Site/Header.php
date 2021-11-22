@@ -8,6 +8,7 @@ use App\Models\MenuItem;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Localizable;
@@ -39,10 +40,12 @@ class Header extends Component
 
     private function getMenuItems(): Collection
     {
-        return MenuItem::query()
-            ->location('header')
-            ->get()
-            ->toTree();
+        return Cache::rememberForever('menu-header', function () {
+            return MenuItem::query()
+                ->location('header')
+                ->get()
+                ->toTree();
+        });
     }
 
     private function getAlternateUrls(): Collection

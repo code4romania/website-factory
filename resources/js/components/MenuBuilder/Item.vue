@@ -76,6 +76,7 @@
             class="pl-6 -mt-px"
             :items="item.children"
             :depth="depth + 1"
+            :max-depth="maxDepth"
             :prefix="`${prefix}.children`"
         />
     </li>
