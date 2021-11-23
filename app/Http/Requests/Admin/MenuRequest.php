@@ -39,7 +39,9 @@ class MenuRequest extends BaseRequest
             '%prefix%'                => ['array'],
             '%prefix%.*.label'        => ['required', 'string'],
             '%prefix%.*.type'         => ['required', 'string'],
-            '%prefix%.*.external_url' => ['nullable', 'url'],
+            '%prefix%.*.external_url' => ['required_if:%prefix%.*.type,external', 'nullable', 'url'],
+            '%prefix%.*.new_tab'      => ['required_if:%prefix%.*.type,external', 'boolean'],
+            '%prefix%.*.model'        => ['required_unless:%prefix%.*.type,external'],
         ];
 
         $rules = collect();
@@ -48,7 +50,12 @@ class MenuRequest extends BaseRequest
             $prefix = 'items' . \str_repeat('.*.children', $level);
 
             foreach ($template as $key => $value) {
-                $rules->put(Str::replace('%prefix%', $prefix, $key), $value);
+                $rules->put(
+                    Str::replace('%prefix%', $prefix, $key),
+                    collect($value)
+                        ->map(fn ($rule) => Str::replace('%prefix%', $prefix, $rule))
+                        ->all()
+                );
             }
         }
 

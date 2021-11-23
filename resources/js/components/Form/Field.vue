@@ -70,10 +70,18 @@
 
             const errors = computed(() => {
                 const initialErrors = usePage().props.value.errors;
+
+                if (!props.locale && initialErrors.hasOwnProperty(props.name)) {
+                    return [initialErrors[props.name]];
+                }
+
                 const errors = {};
 
                 Object.keys(initialErrors).forEach((key) => {
-                    const [name, locale] = key.split('.');
+                    let parts = key.split('.');
+
+                    const locale = parts.pop();
+                    const name = parts.join('.');
 
                     if (props.name === name) {
                         errors[locale] = initialErrors[key];

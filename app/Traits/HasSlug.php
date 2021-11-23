@@ -119,9 +119,11 @@ trait HasSlug
 
     public function getUrlAttribute(): string
     {
-        return route('front.posts.show', [
+        $key = $this->getMorphClass();
+
+        return route('front.' . Str::plural($key) . '.show', [
             'locale' => app()->getLocale(),
-            $this->getMorphClass()        => $this->slug,
+            $key     => $this->slug,
         ]);
     }
 }

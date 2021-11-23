@@ -54,7 +54,7 @@
             },
         },
         setup(props) {
-            const form = useForm(`edit.menu.${location}`, {
+            const form = useForm({
                 items: props.collection.data,
             });
 

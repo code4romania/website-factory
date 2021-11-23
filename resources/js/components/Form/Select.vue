@@ -29,7 +29,7 @@
 
 <script>
     import { computed } from 'vue';
-    import { defineInput } from '@/helpers';
+    import { defineInput, useLocale } from '@/helpers';
 
     export default defineInput({
         name: 'FormSelect',
@@ -48,10 +48,18 @@
             },
         },
         setup(props, { emit }) {
+            const { currentLocale } = useLocale();
+
+            const get = (option, key) => {
+                return option.hasOwnProperty(key)
+                    ? option[key][currentLocale.value] || option[key]
+                    : option[currentLocale.value] || option || null;
+            };
+
             const options = computed(() =>
                 props.options.map((option) => ({
-                    value: option[props.optionValueKey] || option || null,
-                    label: option[props.optionLabelKey] || option || null,
+                    value: get(option, props.optionValueKey),
+                    label: get(option, props.optionLabelKey),
                 }))
             );
 

@@ -8,10 +8,6 @@ use Illuminate\Http\Request;
 
 class MenuItemResource extends Resource
 {
-    public array $routeMap = [
-        //
-    ];
-
     protected function default(Request $request): array
     {
         $this->withoutPermissions();
@@ -22,6 +18,7 @@ class MenuItemResource extends Resource
             'label'        => $this->getTranslations('label'),
             'external_url' => $this->getTranslations('external_url'),
             'new_tab'      => $this->new_tab,
+            'model'        => $this->model_id,
             'children'     => self::collection($this->children),
         ];
     }

@@ -8,6 +8,9 @@ use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 use Kalnoy\Nestedset\NodeTrait;
 
 class MenuItem extends Model
@@ -27,7 +30,7 @@ class MenuItem extends Model
     ];
 
     protected $fillable = [
-        'type', 'location', 'position', 'external_url',
+        'type', 'location', 'position', 'external_url', 'new_tab', 'model_type', 'model_id',
     ];
 
     protected static function booted()
@@ -37,9 +40,15 @@ class MenuItem extends Model
         });
     }
 
+    public function model(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
     public function scopeLocation(Builder $query, string $location): Builder
     {
-        return $query->where('location', $location);
+        return $query->where('location', $location)
+            ->with('model:id,title,slug');
     }
 
     public function getUrlAttribute(): ?string
@@ -63,5 +72,18 @@ class MenuItem extends Model
     public function getComponentAttribute(): string
     {
         return "menu-item.{$this->type}";
+    }
+
+    public function isCurrentUrl(): bool
+    {
+        if (! $this->model) {
+            return false;
+        }
+
+        if (Route::currentRouteName() === 'front.pages.index') {
+            return false;
+        }
+
+        return Str::startsWith(url()->current(), $this->model->url);
     }
 }

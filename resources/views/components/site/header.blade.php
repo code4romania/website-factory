@@ -74,7 +74,8 @@
                 @else
                     <li>
                         <x-dynamic-component :component="$item->component" :item="$item"
-                            class="px-3 py-2 text-teal-50 hover:text-teal-100" />
+                            class="px-3 py-2 text-teal-50 hover:text-teal-100"
+                            active-class="bg-teal-800 hover:text-teal-50" />
                     </li>
                 @endif
             @endforeach

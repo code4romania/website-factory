@@ -18,7 +18,12 @@
                     <button
                         type="button"
                         @click="toggleOpen"
-                        class="font-semibold text-left text-gray-900 hover:text-blue-600"
+                        class="font-semibold text-left"
+                        :class="[
+                            hasErrors
+                                ? 'text-red-600'
+                                : 'text-gray-900 hover:text-blue-600',
+                        ]"
                         v-text="itemLabel"
                     />
 
@@ -69,14 +74,38 @@
                     required
                 />
 
-                <localized-field
-                    field="form-input"
-                    type="url"
-                    :label="$t('field.url')"
-                    :name="`${prefix}.external_url`"
-                    v-model="item.external_url"
-                    required
+                <form-select
+                    :label="$t('field.type')"
+                    v-model="item.type"
+                    :options="types"
                 />
+
+                <template v-if="item.type === 'external'">
+                    <localized-field
+                        field="form-input"
+                        type="url"
+                        :label="$t('field.url')"
+                        :name="`${prefix}.external_url`"
+                        v-model="item.external_url"
+                        required
+                    />
+
+                    <form-checkbox
+                        :label="$t('field.new_tab')"
+                        v-model="item.new_tab"
+                    />
+                </template>
+
+                <template v-if="item.type === 'page'">
+                    <form-select
+                        :label="$t('field.page')"
+                        :name="`${prefix}.model`"
+                        v-model="item.model"
+                        :options="models"
+                        option-value-key="id"
+                        option-label-key="title"
+                    />
+                </template>
             </div>
         </div>
 
@@ -93,6 +122,7 @@
 
 <script>
     import { computed, ref, watch } from 'vue';
+    import { usePage } from '@inertiajs/inertia-vue3';
     import { useLocale } from '@/helpers';
     import get from 'lodash/get';
 
@@ -128,6 +158,14 @@
         setup(props) {
             const { currentLocale } = useLocale();
 
+            const types = usePage().props.value.types || [];
+
+            const models = computed(() => {
+                if (props.item.type === 'page') {
+                    return usePage().props.value.items.pages || [];
+                }
+            });
+
             const itemLabel = computed(() =>
                 get(props.item, `label.${currentLocale.value}`, null)
             );
@@ -144,6 +182,24 @@
 
             const prefix = computed(() => `${props.prefix}.${props.index}`);
 
+            const errors = computed(() => {
+                const initialErrors = usePage().props.value.errors;
+                const errors = {};
+
+                Object.keys(initialErrors).forEach((key) => {
+                    if (
+                        key.startsWith(prefix.value) &&
+                        !key.startsWith(prefix.value + '.children')
+                    ) {
+                        errors[key] = initialErrors[key];
+                    }
+                });
+
+                return errors;
+            });
+
+            const hasErrors = computed(() => Object.keys(errors.value).length > 0);
+
             watch(
                 open,
                 () => {
@@ -155,12 +211,16 @@
             );
 
             return {
+                types,
+                models,
                 itemLabel,
                 collapsed,
                 toggleCollapse,
                 open,
                 toggleOpen,
                 prefix,
+                errors,
+                hasErrors,
             };
         },
     };
