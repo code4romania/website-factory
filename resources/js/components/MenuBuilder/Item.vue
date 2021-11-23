@@ -1,74 +1,83 @@
 <template>
-    <li>
-        <div class="relative flex items-stretch border bg-gray-50">
-            <div
-                class="handle flex-shrink-0 w-6 px-1.5 py-2 bg-gray-100 border-r cursor-move"
-            >
-                <icon name="drag" class="w-full h-full text-gray-400" local />
-            </div>
-
-            <div
-                class="flex items-stretch flex-1 p-3 text-sm text-left text-gray-400 truncate focus:outline-none"
-            >
-                <button
-                    type="button"
-                    @click="toggleOpen"
-                    class="font-semibold text-left text-gray-900 hover:text-blue-600"
-                    v-text="itemLabel"
-                />
-
-                <button
-                    v-if="item.children.length"
-                    type="button"
-                    @click="toggleCollapse"
-                    class="ml-3 text-gray-400 hover:text-gray-900 focus:outline-none"
+    <li :data-depth="depth">
+        <div class="relative border">
+            <div class="relative flex items-stretch bg-gray-50">
+                <div
+                    class="handle flex-shrink-0 w-6 px-1.5 py-2 bg-gray-100 border-r cursor-move"
                 >
                     <icon
-                        name="System/arrow-down-s-line"
-                        class="w-5 h-5 text-gray-400"
-                        :class="{ '-rotate-90': collapsed }"
+                        name="drag"
+                        class="w-full h-full text-gray-400"
+                        local
                     />
-                </button>
+                </div>
 
-                <!-- <span v-if="true"> &mdash; {{ item.type }} </span> -->
+                <div
+                    class="flex items-stretch flex-1 p-3 text-sm text-left text-gray-400 truncate focus:outline-none"
+                >
+                    <button
+                        type="button"
+                        @click="toggleOpen"
+                        class="font-semibold text-left text-gray-900 hover:text-blue-600"
+                        v-text="itemLabel"
+                    />
+
+                    <button
+                        v-if="item.children.length"
+                        type="button"
+                        @click="toggleCollapse"
+                        class="ml-3 text-gray-400 hover:text-gray-900 focus:outline-none"
+                    >
+                        <icon
+                            name="System/arrow-down-s-line"
+                            class="w-5 h-5 text-gray-400"
+                            :class="{ '-rotate-90': collapsed }"
+                        />
+                    </button>
+
+                    <!-- <span v-if="true"> &mdash; {{ item.type }} </span> -->
+                </div>
+
+                <div
+                    class="relative flex items-center flex-shrink-0 pr-3 space-x-3"
+                >
+                    <dropdown
+                        trigger-class="flex items-center py-1 text-gray-400 hover:text-gray-900 focus:outline-none"
+                        origin="top-right"
+                        with-more
+                    >
+                        <template #content>
+                            <dropdown-item
+                                type="button"
+                                @click="$emit('delete')"
+                                v-text="$t('app.action.delete')"
+                            />
+                        </template>
+                    </dropdown>
+                </div>
             </div>
 
             <div
-                class="relative flex items-center flex-shrink-0 pr-3 space-x-3"
+                v-if="open"
+                class="px-4 py-5 space-y-8 bg-white border-t sm:p-6"
             >
-                <dropdown
-                    trigger-class="flex items-center py-1 text-gray-400 hover:text-gray-900 focus:outline-none"
-                    origin="top-right"
-                    with-more
-                >
-                    <template #content>
-                        <dropdown-item
-                            type="button"
-                            @click="$emit('delete')"
-                            v-text="$t('app.action.delete')"
-                        />
-                    </template>
-                </dropdown>
+                <localized-field
+                    field="form-input"
+                    :label="$t('field.label')"
+                    :name="`${prefix}.label`"
+                    v-model="item.label"
+                    required
+                />
+
+                <localized-field
+                    field="form-input"
+                    type="url"
+                    :label="$t('field.url')"
+                    :name="`${prefix}.external_url`"
+                    v-model="item.external_url"
+                    required
+                />
             </div>
-        </div>
-
-        <div v-if="open" class="px-4 py-5 space-y-8 bg-white sm:p-6">
-            <localized-field
-                field="form-input"
-                :label="$t('field.label')"
-                :name="`${prefix}.label`"
-                v-model="item.label"
-                required
-            />
-
-            <localized-field
-                field="form-input"
-                type="url"
-                :label="$t('field.url')"
-                :name="`${prefix}.external_url`"
-                v-model="item.external_url"
-                required
-            />
         </div>
 
         <menu-builder-list

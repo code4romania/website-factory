@@ -2,11 +2,15 @@
     <draggable
         :list="items"
         item-key="id"
-        :group="{ name: 'menu-items' }"
+        :group="{ name: 'menu-items', pull }"
         ghost-class="opacity-50"
         handle=".handle"
         animation="200"
         tag="ol"
+        :fallback-on-body="true"
+        :swap-treshold="0.65"
+        :data-depth="depth"
+        class="-space-y-px"
     >
         <template #item="{ element, index }">
             <menu-builder-item
@@ -15,7 +19,6 @@
                 :depth="depth"
                 :max-depth="maxDepth"
                 @delete="deleteItem(index)"
-                :class="{ 'py-4': !depth }"
                 :prefix="prefix"
             />
         </template>
@@ -83,9 +86,24 @@
                 props.items.splice(index, 1);
             };
 
+            const pull = (to, from, el) => {
+                const toDepth = to.el.dataset.depth;
+
+                if (toDepth > props.maxDepth) {
+                    return false;
+                }
+
+                if (el.querySelector('ol').children.length) {
+                    return false;
+                }
+
+                return true;
+            };
+
             return {
                 addItem,
                 deleteItem,
+                pull,
             };
         },
     };
