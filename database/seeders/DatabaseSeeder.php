@@ -13,6 +13,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Cache;
 
 class DatabaseSeeder extends Seeder
 {
@@ -54,9 +55,40 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         MenuItem::factory()
-            ->count(20)
+            ->header()
+            ->external()
+            ->count(8)
+            ->has(
+                MenuItem::factory()
+                    ->header()
+                    ->external()
+                    ->count(4)
+                    ->has(
+                        MenuItem::factory()
+                            ->header()
+                            ->external()
+                            ->count(5),
+                        'children'
+                    ),
+                'children'
+            )
+            ->create();
+
+        MenuItem::factory()
+            ->footer()
+            ->external()
+            ->count(4)
+            ->has(
+                MenuItem::factory()
+                    ->footer()
+                    ->external()
+                    ->count(6),
+                'children'
+            )
             ->create();
 
         Artisan::call('media:import');
+
+        Cache::flush();
     }
 }

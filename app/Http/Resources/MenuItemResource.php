@@ -16,8 +16,8 @@ class MenuItemResource extends Resource
             'id'           => $this->id,
             'type'         => $this->type,
             'label'        => $this->getTranslations('label'),
-            'external_url' => $this->getTranslations('external_url'),
-            'new_tab'      => $this->new_tab,
+            'url'          => $this->getTranslations('url'),
+            'model_type'   => $this->model_type,
             'model'        => $this->model_id,
             'children'     => self::collection($this->children),
         ];

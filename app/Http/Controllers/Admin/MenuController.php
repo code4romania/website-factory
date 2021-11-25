@@ -45,11 +45,11 @@ class MenuController extends Controller
     {
         $attributes = $request->validated();
 
-        // dd($attributes);
-
-        MenuItem::query()->location($location)->delete();
-
-        MenuItem::rebuildTree($this->prepareItems($attributes['items'], $location));
+        MenuItem::location($location)
+            ->rebuildTree(
+                $this->prepareItems($attributes['items'], $location),
+                true
+            );
 
         Cache::forget("menu-$location");
 
@@ -65,12 +65,12 @@ class MenuController extends Controller
 
         return collect($items)
             ->map(fn (array $item, int $index) => [
+                'id'           => $item['id'] ?? null,
                 'location'     => $location,
                 'position'     => $index + 1,
                 'label'        => $item['label'],
                 'type'         => $item['type'],
-                'external_url' => $item['type'] === 'external' ? $item['external_url'] : null,
-                'new_tab'      => $item['new_tab'] ?? false,
+                'url'          => $item['type'] === 'external' ? $item['url'] : null,
                 'model_type'   => $item['type'] !== 'external' ? $item['type'] : null,
                 'model_id'     => $item['type'] !== 'external' ? $item['model'] : null,
                 'children'     => $this->prepareItems($item['children'] ?? [], $location, ++$depth),

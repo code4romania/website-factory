@@ -22,7 +22,7 @@ class MenuItem extends Model
     public $timestamps = false;
 
     public array $translatable = [
-        'label', 'external_url',
+        'label', 'url',
     ];
 
     public $casts = [
@@ -30,7 +30,7 @@ class MenuItem extends Model
     ];
 
     protected $fillable = [
-        'type', 'location', 'position', 'external_url', 'new_tab', 'model_type', 'model_id',
+        'id', 'type', 'location', 'position', 'model_type', 'model_id',
     ];
 
     protected static function booted()
@@ -49,24 +49,6 @@ class MenuItem extends Model
     {
         return $query->where('location', $location)
             ->with('model:id,title,slug');
-    }
-
-    public function getUrlAttribute(): ?string
-    {
-        switch ($this->type) {
-            case 'external':
-                return $this->external_url;
-                break;
-
-            default:
-                return null;
-                break;
-        }
-    }
-
-    public function getNewTabAttribute(): bool
-    {
-        return $this->type === 'external' && $this->attributes['new_tab'];
     }
 
     public function getComponentAttribute(): string

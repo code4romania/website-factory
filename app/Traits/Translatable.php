@@ -45,4 +45,13 @@ trait Translatable
             ->merge($this->parentGetTranslations($key))
             ->toArray();
     }
+
+    public function getAttributeValue($key)
+    {
+        if (! $this->isTranslatableAttribute($key)) {
+            return parent::getAttributeValue($key);
+        }
+
+        return $this->translate($key);
+    }
 }

@@ -19,8 +19,7 @@ return new class extends Migration {
             $table->string('location')->index();
             $table->string('type');
             $table->json('label');
-            $table->json('external_url')->nullable();
-            $table->boolean('new_tab')->default(false);
+            $table->json('url')->nullable();
 
             $table->nullableMorphs('model');
             $table->unsignedInteger('position');

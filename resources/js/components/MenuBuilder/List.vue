@@ -77,7 +77,7 @@
                 props.items.push({
                     label: {},
                     type: 'external',
-                    external_url: {},
+                    url: {},
                     children: [],
                 });
             };

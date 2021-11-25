@@ -15,10 +15,31 @@ class MenuItemFactory extends Factory
     {
         return [
             'location'  => $this->faker->randomElement(['header', 'footer']),
-            'type'      => 'external',
             'label'     => $this->translatedFaker('word'),
             'position'  => $this->faker->randomDigit(),
             'parent_id' => null,
         ];
+    }
+
+    public function header(): self
+    {
+        return $this->state(fn (array $attributes) => [
+            'location' => 'header',
+        ]);
+    }
+
+    public function footer(): self
+    {
+        return $this->state(fn (array $attributes) => [
+            'location' => 'footer',
+        ]);
+    }
+
+    public function external(): self
+    {
+        return $this->state(fn (array $attributes) => [
+            'type' => 'external',
+            'url'  => 'https://example.com/',
+        ]);
     }
 }

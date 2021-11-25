@@ -85,14 +85,9 @@
                         field="form-input"
                         type="url"
                         :label="$t('field.url')"
-                        :name="`${prefix}.external_url`"
-                        v-model="item.external_url"
+                        :name="`${prefix}.url`"
+                        v-model="item.url"
                         required
-                    />
-
-                    <form-checkbox
-                        :label="$t('field.new_tab')"
-                        v-model="item.new_tab"
                     />
                 </template>
 

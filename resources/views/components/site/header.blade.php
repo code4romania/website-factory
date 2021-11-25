@@ -42,29 +42,29 @@
                         </button>
 
                         <div
-                            class="absolute inset-x-0 z-10 text-gray-500 transform bg-white shadow-lg top-full"
+                            class="absolute inset-x-0 z-10 text-gray-600 transform bg-white shadow-lg top-full"
                             x-show="open"
                             x-cloak>
                             <ul
                                 class="container relative grid grid-cols-1 py-8 text-sm sm:grid-cols-2 lg:grid-cols-4 gap-y-10 sm:gap-x-8 sm:py-12">
-                                @foreach ($item->children as $subitemL1)
+                                @foreach ($item->children as $item)
                                     <li>
                                         <x-dynamic-component
-                                            :component="$subitemL1->component"
-                                            :item="$subitemL1"
+                                            :component="$item->component"
+                                            :item="$item"
                                             class="text-base font-semibold text-gray-900 hover:text-gray-800" />
 
-                                        @if ($subitemL1->children)
-                                            <ol class="mt-3 space-y-3">
-                                                @foreach ($subitemL1->children as $subitemL2)
+                                        @if ($item->children)
+                                            <ul class="mt-3 space-y-3">
+                                                @foreach ($item->children as $item)
                                                     <li class="flex">
                                                         <x-dynamic-component
-                                                            :component="$subitemL2->component"
-                                                            :item="$subitemL2"
-                                                            class=" hover:text-gray-800" />
+                                                            :component="$item->component"
+                                                            :item="$item"
+                                                            class="hover:text-gray-800" />
                                                     </li>
                                                 @endforeach
-                                            </ol>
+                                            </ul>
                                         @endif
                                     </li>
                                 @endforeach
@@ -87,10 +87,52 @@
         x-show="menuOpen"
         x-collapse
         x-cloak>
-        <ul class="container py-4 md:py-8">
+        <ul x-data="{
+            open: null,
+            toggle(id) {
+                this.open = this.open !== id ? id : null;
+            }
+        }" class="container py-4 text-sm text-gray-600 md:py-8">
             @foreach ($menu as $item)
-                <li>
-                    <x-dynamic-component :component="$item->component" :item="$item" />
+                <li class="flex flex-wrap">
+                    <x-dynamic-component
+                        :component="$item->component"
+                        :item="$item"
+                        class="flex-1" />
+
+                    @if ($item->children->count())
+                        <button
+                            @@click="toggle({{ $loop->index }}) "
+                            type="button">
+
+                            <x-ri-arrow-down-s-line
+                                class="transform w-7 h-7 p-0.5 text-gray-400"
+                                ::class="{ '-rotate-180': open === {{ $loop->index }}, 'rotate-0': !(open)  }" />
+                        </button>
+
+                        <ul class="w-full pl-6" x-show="open === {{ $loop->index }}" x-collapse>
+                            @foreach ($item->children as $item)
+                                <li>
+                                    <x-dynamic-component
+                                        :component="$item->component"
+                                        :item="$item"
+                                        class="font-semibold" />
+
+                                    @if ($item->children->count())
+                                        <ul class="pl-6">
+                                            @foreach ($item->children as $item)
+                                                <li>
+                                                    <x-dynamic-component
+                                                        :component="$item->component"
+                                                        :item="$item" />
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </li>
             @endforeach
         </ul>

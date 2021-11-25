@@ -36,12 +36,12 @@ class MenuRequest extends BaseRequest
     protected function nestedRules(int $depth): array
     {
         $template = [
-            '%prefix%'                => ['array'],
-            '%prefix%.*.label'        => ['required', 'string'],
-            '%prefix%.*.type'         => ['required', 'string'],
-            '%prefix%.*.external_url' => ['required_if:%prefix%.*.type,external', 'nullable', 'url'],
-            '%prefix%.*.new_tab'      => ['required_if:%prefix%.*.type,external', 'boolean'],
-            '%prefix%.*.model'        => ['required_unless:%prefix%.*.type,external'],
+            '%prefix%'         => ['array'],
+            '%prefix%.*.id'    => ['nullable', 'integer'],
+            '%prefix%.*.label' => ['required', 'string'],
+            '%prefix%.*.type'  => ['required', 'string'],
+            '%prefix%.*.url'   => ['required_if:%prefix%.*.type,external', 'url'],
+            '%prefix%.*.model' => ['required_unless:%prefix%.*.type,external'],
         ];
 
         $rules = collect();
