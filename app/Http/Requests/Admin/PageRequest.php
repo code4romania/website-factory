@@ -32,6 +32,7 @@ class PageRequest extends BaseRequest
             'slug'                => ['required', 'string', 'max:200'],
             'description'         => ['required', 'string'],
             'layout'              => ['required', 'string'],
+            'published_at'        => ['nullable', 'date'],
             'media'               => ['array'],
             'media.*.id'          => ['required', 'exists:media'],
             'blocks'              => ['array'],

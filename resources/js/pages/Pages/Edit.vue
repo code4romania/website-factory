@@ -68,6 +68,7 @@
                 'layout',
                 'blocks',
                 'media',
+                'published_at',
             ]);
 
             const method = computed(() => (action === 'edit' ? 'put' : 'post'));

@@ -1,38 +1,38 @@
 <template>
-    <div class="relative flex flex-col w-full bg-white shadow md:w-64 lg:w-80">
-        <div class="flex-1">
+    <div
+        class="relative flex flex-col w-full text-sm bg-white divide-y divide-gray-200 shadow md:w-64 lg:w-80"
+    >
+        <div class="flex items-center justify-between flex-1 px-5 py-4">
+            {{ $t('field.publish') }}
+
+            <form-toggle v-model="proxyPublished" />
+        </div>
+
+        <div v-if="proxyPublished" class="flex-1">
             <accordion>
-                <template #title> Publish </template>
+                <template #title>{{ $t('field.published_at') }}</template>
+                <template #value>{{ form.published_at }}</template>
 
                 <form-datepicker v-model="form.published_at" />
             </accordion>
         </div>
 
         <div class="px-3 py-3">
-            <div class="relative z-0 flex shadow-sm">
-                <button
-                    type="submit"
-                    :disabled="form.processing"
-                    class="relative inline-flex items-center justify-center flex-1 px-4 py-2 text-sm font-semibold tracking-wider text-white transition duration-150 ease-in-out bg-green-600 border border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-green-700 focus:ring-green-500 disabled:opacity-50 disabled:cursor-default"
-                    v-text="label"
-                />
-
-                <dropdown
-                    trigger-class="flex items-center justify-center w-full h-full px-2 text-white transition duration-150 ease-in-out bg-green-600 border border-transparent divide-x divide-green-300 hover:bg-green-700 focus:ring-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2"
-                    origin="top-right"
-                    with-arrow
-                >
-                    <template #content> other options </template>
-                </dropdown>
-            </div>
+            <form-button
+                class="w-full"
+                type="submit"
+                :disabled="form.processing"
+                :label="$t(`app.action.${action}`)"
+            />
         </div>
     </div>
 </template>
 
 <script>
+    import { computed } from 'vue';
+
     export default {
         name: 'PanelPublisher',
-
         props: {
             action: {
                 type: String,
@@ -43,10 +43,19 @@
                 required: true,
             },
         },
-        computed: {
-            label() {
-                return this.$t(`app.action.${this.action}`);
-            },
+        setup(props) {
+            const proxyPublished = computed({
+                get: () => props.form.published_at !== null,
+                set: (published) => {
+                    props.form.published_at = published
+                        ? new Date().toISOString().slice(0, 19).replace('T', ' ')
+                        : null;
+                },
+            });
+
+            return {
+                proxyPublished,
+            };
         },
     };
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="border-b border-gray-200">
+    <div class="text-sm">
         <button
             type="button"
             class="flex items-center w-full px-5 py-4 hover:bg-blue-50"

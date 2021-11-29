@@ -16,16 +16,16 @@
             :disabled="disabled"
             :autofocus="autofocus"
             v-bind="$attrs"
-            :value="modelValue"
+            :model-value="modelValue"
             :config="config"
-            @input="$emit('update:modelValue', $event)"
+            @input="$emit('update:modelValue', $event.target.value)"
         />
     </form-field>
 </template>
 
 <script>
     import flatPickr from 'vue-flatpickr-component';
-    import 'flatpickr/dist/flatpickr.css';
+    import 'flatpickr/dist/themes/airbnb.css';
     import { computed } from 'vue';
     import { defineInput } from '@/helpers';
 
@@ -40,6 +40,7 @@
                 enableTime: true,
                 enableSeconds: true,
                 time_24hr: true,
+                dateFormat: 'Y-m-d H:i:S',
                 defaultDate: new Date(),
             }));
 
