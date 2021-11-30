@@ -19,4 +19,10 @@ return [
         'none' => 'Niciun fișier selectat',
     ],
 
+    'upload' => [
+        'file' => 'Încarcă un fișier',
+        'drag' => 'sau drag and drop',
+        'limits' => ':types până la :size',
+    ],
+
 ];

@@ -56,7 +56,7 @@ trait Publishable
     /**
      * Determine the publish status of the model instance.
      *
-     * @return bool
+     * @return string
      */
     public function status(): string
     {

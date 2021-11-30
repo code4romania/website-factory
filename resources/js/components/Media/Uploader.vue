@@ -16,7 +16,7 @@
                 <label
                     class="relative font-medium text-blue-600 rounded-md cursor-pointer hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
                 >
-                    <span>Upload a file</span>
+                    <span v-text="$t('media.upload.file')" />
                     <input
                         type="file"
                         class="sr-only"
@@ -26,9 +26,18 @@
                         :accept="accept"
                     />
                 </label>
-                <p class="pl-1">or drag and drop</p>
+
+                <p class="pl-1" v-text="$t('media.upload.drag')" />
             </div>
-            <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+            <p
+                class="text-xs text-gray-500"
+                v-text="
+                    $t('media.upload.limits', {
+                        types: 'PNG, JPG, GIF',
+                        size: '10MB',
+                    })
+                "
+            />
         </div>
     </div>
 

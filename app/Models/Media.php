@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Traits\Sortable;
 use App\Traits\Translatable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Intervention\Image\Facades\Image;
 use Plank\Mediable\Jobs\CreateImageVariants;
@@ -50,17 +51,6 @@ class Media extends BaseMedia
         });
     }
 
-    public function getUrlsAttribute(): Collection
-    {
-        $urls = $this->getAllVariantsAndSelf()->map->getUrl();
-
-        if (! $urls->has('thumb')) {
-            $urls->put('thumb', $urls->get('original'));
-        }
-
-        return $urls;
-    }
-
     public function getSizesAttribute(): Collection
     {
         $variants = $this->getAllVariantsAndSelf();
@@ -87,5 +77,20 @@ class Media extends BaseMedia
         }
 
         return $this->width . ' x ' . $this->height;
+    }
+
+    public function scopeWhereImages(Builder $query): Builder
+    {
+        return $query->whereIn('aggregate_type', [self::TYPE_IMAGE, self::TYPE_IMAGE_VECTOR]);
+    }
+
+    public function scopeWhereNotImages(Builder $query): Builder
+    {
+        return $query->whereNotIn('aggregate_type', [self::TYPE_IMAGE, self::TYPE_IMAGE_VECTOR]);
+    }
+
+    public function isImage(): bool
+    {
+        return \in_array($this->aggregate_type, [self::TYPE_IMAGE, self::TYPE_IMAGE_VECTOR]);
     }
 }

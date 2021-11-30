@@ -15,16 +15,20 @@
 
 
     <div class="container">
-        <div class="grid gap-8 mb-8 md:grid-cols-2 lg:grid-cols-4">
+        <div class="grid gap-8 mb-8 md:grid-cols-2 xl:grid-cols-4">
             @foreach ($posts as $post)
                 <article class="flex flex-col overflow-hidden rounded-lg shadow-lg">
                     <a href="{{ $post->url }}" class="flex-shrink-0">
-                        <img class="object-cover w-full h-48"
-                            src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1679&amp;q=80"
-                            alt="">
+                        <x-media.image
+                            :src="$post->getMediaUrl('image', 'thumb')"
+                            class="object-cover w-full h-56" />
                     </a>
                     <div class="flex-1 p-6 space-y-2 bg-white">
                         {{-- TODO: categories --}}
+
+                        <time class="text-sm text-gray-500" datetime="{{ $post->published_at->toDateString() }}">
+                            {{ $post->published_at->toLocaleDateString() }}
+                        </time>
 
                         <a href="{{ $post->url }}" class="block space-y-3">
                             <h1 class="text-xl font-semibold text-gray-900">

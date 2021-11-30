@@ -11,8 +11,6 @@ trait HasMedia
 {
     use Mediable;
 
-    //
-
     public function saveImages(iterable $media): Model
     {
         $this->syncMedia(
@@ -21,5 +19,16 @@ trait HasMedia
         );
 
         return $this;
+    }
+
+    public function getMediaUrl($tags, string $variant): ?string
+    {
+        $media = $this->firstMedia($tags);
+
+        if (! $media) {
+            return null;
+        }
+
+        return optional($media->findVariant($variant))->getUrl();
     }
 }

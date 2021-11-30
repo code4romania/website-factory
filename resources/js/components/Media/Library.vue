@@ -24,27 +24,23 @@
         <div
             class="flex flex-col items-stretch flex-1 h-full overflow-hidden bg-white lg:flex-row"
         >
-            <!-- Main -->
-            <div class="flex-1 overflow-y-auto">
-                <div class="flex flex-col flex-1 max-h-full gap-8 px-4 md:px-6">
-                    <media-manager-controls
-                        :types="types"
-                        :current-type="currentType"
-                        :current-view="currentView"
-                        @change-view="currentView = $event"
-                        @change-type="currentType = $event"
-                    />
+            <div
+                class="flex flex-col flex-1 gap-8 px-4 overflow-y-auto md:px-6"
+            >
+                <media-manager-controls
+                    :types="types"
+                    :current-type="currentType"
+                    @change-type="changeType"
+                />
 
-                    <media-uploader @upload="upload" />
-
-                    <component
-                        :is="`media-view-${currentView}`"
-                        :items="items"
-                        :selectedItems="selectedItems"
-                        :disabledItems="disabledItems"
-                        @toggle-selected="toggleSelected"
-                    />
-                </div>
+                <component
+                    :is="`media-view-${currentType}`"
+                    :items="items"
+                    :selectedItems="selectedItems"
+                    :disabledItems="disabledItems"
+                    @toggle-selected="toggleSelected"
+                    @upload="upload"
+                />
             </div>
 
             <div class="flex flex-col border-gray-200 lg:border-l">
@@ -88,17 +84,15 @@
             };
 
             const types = computed(() => ['images', 'files']);
-            const views = computed(() => ['grid', 'list']);
 
             const currentType = ref(types.value[0]);
-            const currentView = ref(views.value[0]);
 
             const items = ref([]);
 
             const { fetchMedia, uploadMedia, deleteMedia } = useMedia();
 
             const refreshItems = () => {
-                fetchMedia({
+                fetchMedia(currentType.value, {
                     onSuccess: (response) => {
                         items.value = response.data;
 
@@ -167,13 +161,18 @@
                 refreshItems();
 
                 if (attach) {
-                    console.log(attach, attach.selected);
-
                     attachingMediaTo.value = attach.id;
                     remainingItems.value = attach.remaining;
                     disabledItems.value = attach.selected.map((item) => item.id);
                 }
             });
+
+            const changeType = (type) => {
+                items.value = [];
+                currentType.value = type;
+
+                refreshItems();
+            };
 
             bus.on('media-library:close', close);
 
@@ -182,9 +181,7 @@
                 close,
                 types,
                 currentType,
-
-                views,
-                currentView,
+                changeType,
 
                 items,
                 selectedItems,

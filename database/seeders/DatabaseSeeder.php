@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Decision;
 use App\Models\Form;
+use App\Models\Media;
 use App\Models\MenuItem;
 use App\Models\Page;
 use App\Models\Person;
@@ -24,6 +25,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Cache::flush();
+
+        Artisan::call('media:import');
+
+        $images = Media::query()
+            ->whereImages()
+            ->whereIsOriginal()
+            ->get();
+
         // Create an admin
         User::factory(['email' => 'admin@example.com'])
             ->admin()
@@ -40,6 +50,7 @@ class DatabaseSeeder extends Seeder
 
         Post::factory()
             ->count(250)
+            ->afterCreating(fn (Post $post) => $post->saveImages([$images->random()]))
             ->create();
 
         Person::factory()
@@ -86,9 +97,5 @@ class DatabaseSeeder extends Seeder
                 'children'
             )
             ->create();
-
-        Artisan::call('media:import');
-
-        Cache::flush();
     }
 }

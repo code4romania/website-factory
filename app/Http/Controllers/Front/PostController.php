@@ -17,7 +17,9 @@ class PostController extends Controller
     {
         return view('front.posts.index', [
             'posts' => Post::query()
-                ->paginate(),
+                ->withMedia()
+                ->published()
+                ->paginate(12),
         ]);
     }
 

@@ -18,11 +18,25 @@ class MediaController extends Controller
 {
     use HandlesMediaUploadExceptions;
 
-    public function index(): JsonResponse
+    public function images(): JsonResponse
     {
         return response()->json(
             MediaResource::collection(
                 Media::query()
+                    ->whereImages()
+                    ->whereIsOriginal()
+                    ->orderByDesc('created_at')
+                    ->get()
+            )
+        );
+    }
+
+    public function files(): JsonResponse
+    {
+        return response()->json(
+            MediaResource::collection(
+                Media::query()
+                    ->whereNotImages()
                     ->whereIsOriginal()
                     ->orderByDesc('created_at')
                     ->get()

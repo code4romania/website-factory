@@ -31,24 +31,6 @@
                         v-text="$t(`media.type.${type}`)"
                     />
                 </div>
-
-                <!-- View controls -->
-                <div class="hidden ml-6 p-0.5 items-center sm:flex space-x-1">
-                    <button
-                        type="button"
-                        v-for="(view, index) in views"
-                        :key="index"
-                        class="p-1.5 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 rounded-md"
-                        @click="changeView(view.id)"
-                        :class="[
-                            currentView === view.id
-                                ? 'bg-blue-500 text-blue-50 shadow-sm'
-                                : 'text-gray-400 hover:bg-blue-400 hover:text-blue-50 hover:shadow-sm',
-                        ]"
-                    >
-                        <icon :name="view.icon" class="w-5 h-5" />
-                    </button>
-                </div>
             </div>
         </div>
     </div>

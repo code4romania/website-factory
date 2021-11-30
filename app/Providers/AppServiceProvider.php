@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Inertia\Response;
@@ -58,6 +59,7 @@ class AppServiceProvider extends ServiceProvider
         Model::preventLazyLoading($this->app->isLocal());
 
         $this->registerBlueprintMacros();
+        $this->registerCarbonMacros();
         $this->registerInertiaMacros();
 
         Paginator::defaultView('pagination.default');
@@ -78,6 +80,12 @@ class AppServiceProvider extends ServiceProvider
                 $this->timestamp('published_at')->nullable();
             }
         });
+    }
+
+    protected function registerCarbonMacros(): void
+    {
+        Carbon::macro('toLocaleDateString', fn () => self::this()->isoFormat('D MMMM YYYY'));
+        Carbon::macro('toLocaleDateTimeString', fn () => self::this()->isoFormat('LLL'));
     }
 
     protected function registerInertiaMacros(): void

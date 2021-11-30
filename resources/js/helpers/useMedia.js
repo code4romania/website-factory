@@ -27,22 +27,18 @@ export default function () {
         });
     };
 
-    const fetchMedia = async (callbacks) => {
+    const fetchMedia = async (type, callbacks) => {
         const { onSuccess, onError } = ensureCallbacks(callbacks);
 
         return await axios
-            .get(route('admin.media.index'))
+            .get(route(`admin.media.${type}`))
             .then(onSuccess)
             .catch(onError);
     };
 
     const uploadMedia = (files, callbacks) => {
-        const {
-            beforeStart,
-            onUploadProgress,
-            onSuccess,
-            onError,
-        } = ensureCallbacks(callbacks);
+        const { beforeStart, onUploadProgress, onSuccess, onError } =
+            ensureCallbacks(callbacks);
 
         files.forEach((file) => {
             const payload = new FormData();
