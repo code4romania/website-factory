@@ -39,6 +39,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \Spatie\ResponseCache\Middlewares\CacheResponse::class,
         ],
 
         'admin' => [
@@ -67,15 +68,16 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth'             => \App\Http\Middleware\Authenticate::class,
-        'auth.basic'       => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'cache.headers'    => \Illuminate\Http\Middleware\SetCacheHeaders::class,
-        'can'              => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest'            => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'localized'        => \App\Http\Middleware\Front\SetLocale::class,
-        'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
-        'signed'           => \Illuminate\Routing\Middleware\ValidateSignature::class,
-        'throttle'         => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'verified'         => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'auth'               => \App\Http\Middleware\Authenticate::class,
+        'auth.basic'         => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'cache.headers'      => \Illuminate\Http\Middleware\SetCacheHeaders::class,
+        'can'                => \Illuminate\Auth\Middleware\Authorize::class,
+        'doNotCacheResponse' => \Spatie\ResponseCache\Middlewares\DoNotCacheResponse::class,
+        'guest'              => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'localized'          => \App\Http\Middleware\Front\SetLocale::class,
+        'password.confirm'   => \Illuminate\Auth\Middleware\RequirePassword::class,
+        'signed'             => \Illuminate\Routing\Middleware\ValidateSignature::class,
+        'throttle'           => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'verified'           => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
 }
