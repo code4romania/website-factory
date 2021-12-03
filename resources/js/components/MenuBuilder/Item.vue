@@ -93,7 +93,7 @@
 
                 <template v-else>
                     <form-select
-                        :label="$t('field.page')"
+                        :label="$t(`field.${item.type}`)"
                         :name="`${prefix}.model`"
                         v-model="item.model"
                         :options="models"
@@ -156,6 +156,14 @@
             const types = usePage().props.value.types || [];
 
             const models = computed(() => {
+                return usePage().props.value.models[props.item.type] || [];
+
+                if (!props.models.hasOwnProperty(props.item.type)) {
+                    return [];
+                }
+
+                return props.models[props.item.type];
+
                 if (props.item.type === 'page') {
                     return usePage().props.value.items.pages || [];
                 }

@@ -52,6 +52,10 @@
                 type: Array,
                 default: () => ['header', 'footer'],
             },
+            models: {
+                type: Object,
+                default: () => {},
+            },
         },
         setup(props) {
             const form = useForm({

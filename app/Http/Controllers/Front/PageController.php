@@ -33,6 +33,8 @@ class PageController extends Controller
                 optional($image)->getUrl()
             );
 
+        $page->loadMissing('blocks.media');
+
         return $page->view([
             'page'  => $page,
             'image' => $image,

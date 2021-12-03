@@ -6,7 +6,6 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 class Resource extends JsonResource
@@ -46,11 +45,13 @@ class Resource extends JsonResource
 
     protected function getAttributesByRouteName(Request $request): array
     {
-        $routeName = optional($request->route())->getName();
+        $routeName = (string) $request->route()?->getName();
 
-        $method = Arr::last(explode('.', (string) $routeName));
+        $method = \array_key_exists($routeName, $this->routeMap)
+            ? $this->routeMap[$routeName]
+            : 'default';
 
-        if (! method_exists($this, $method)) {
+        if (! \method_exists($this, $method)) {
             $method = 'default';
         }
 

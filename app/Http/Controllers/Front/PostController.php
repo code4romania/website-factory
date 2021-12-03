@@ -18,7 +18,8 @@ class PostController extends Controller
         return view('front.posts.index', [
             'posts' => Post::query()
                 ->withMedia()
-                ->published()
+                ->with('categories')
+                ->orderByDesc('published_at')
                 ->paginate(12),
         ]);
     }

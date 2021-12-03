@@ -40,7 +40,7 @@ class MenuRequest extends BaseRequest
             '%prefix%.*.id'    => ['nullable', 'integer'],
             '%prefix%.*.label' => ['required', 'string'],
             '%prefix%.*.type'  => ['required', 'string'],
-            '%prefix%.*.url'   => ['required_if:%prefix%.*.type,external', 'url'],
+            '%prefix%.*.url'   => ['required_if:%prefix%.*.type,external', 'nullable', 'url'],
             '%prefix%.*.model' => ['required_unless:%prefix%.*.type,external'],
         ];
 

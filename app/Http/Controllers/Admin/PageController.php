@@ -19,6 +19,7 @@ class PageController extends AdminController
         return Inertia::render('Pages/Index', [
             'collection' => new PageCollection(
                 Page::query()
+                    ->withDrafted()
                     ->sort()
                     ->filter()
                     ->paginate()

@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-    <nav class="flex items-center justify-between border-t border-gray-200">
+    <nav class="flex items-center justify-between mt-16 border-t border-gray-200 sm:mt-24 lg:mt-32">
         <div class="flex flex-1 w-0 -mt-px">
             @if (!$paginator->onFirstPage())
                 <a href="{{ $paginator->previousPageUrl() }}"

@@ -12,6 +12,6 @@ class PostCollection extends ResourceCollection
      * @var array
      */
     protected array $columns = [
-        'title', 'created_at',
+        'title', 'created_at', 'published_at',
     ];
 }

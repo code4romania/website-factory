@@ -33,6 +33,15 @@ class MenuItem extends Model
         'id', 'type', 'location', 'position', 'model_type', 'model_id',
     ];
 
+    /**
+     * Models that can be added as menu items.
+     *
+     * @var array
+     */
+    public array $allowedModels = [
+        'page', 'post', 'post_category',
+    ];
+
     protected static function booted()
     {
         static::addGlobalScope('position', function (Builder $query) {
@@ -67,5 +76,17 @@ class MenuItem extends Model
         }
 
         return Str::startsWith(url()->current(), $this->model->url);
+    }
+
+    public function setTypeAttribute(string $type): void
+    {
+        $this->attributes['type'] = \in_array($type, $this->allowedModels) ? 'model' : $type;
+    }
+
+    public function getNormalizedTypeAttribute(): string
+    {
+        return $this->type === 'model'
+            ? $this->model_type
+            : $this->type;
     }
 }

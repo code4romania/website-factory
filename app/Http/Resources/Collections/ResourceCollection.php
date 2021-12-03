@@ -187,25 +187,31 @@ abstract class ResourceCollection extends BaseCollection
 
         $statuses = collect();
 
-        $statuses->push([
-            'name' => 'all',
-            'count' => $this->model->newQuery()->count(),
-        ]);
-
         if (\in_array(Publishable::class, $traits)) {
             $statuses->push([
-                'name' => 'published',
-                'count' => $this->model->newQuery()->published()->count(),
+                'name'  => 'all',
+                'count' => $this->model->newQuery()->withDrafted()->count(),
             ]);
+
             $statuses->push([
-                'name' => 'draft',
-                'count' => $this->model->newQuery()->onlyDraft()->count(),
+                'name'  => 'published',
+                'count' => $this->model->newQuery()->count(),
+            ]);
+
+            $statuses->push([
+                'name'  => 'draft',
+                'count' => $this->model->newQuery()->onlyDrafted()->count(),
+            ]);
+        } else {
+            $statuses->push([
+                'name'  => 'all',
+                'count' => $this->model->newQuery()->count(),
             ]);
         }
 
         if (\in_array(SoftDeletes::class, $traits)) {
             $statuses->push([
-                'name' => 'trashed',
+                'name'  => 'trashed',
                 'count' => $this->model->newQuery()->onlyTrashed()->count(),
             ]);
         }
