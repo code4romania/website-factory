@@ -91,11 +91,11 @@ trait Filterable
 
         if (\in_array(Publishable::class, $traits)) {
             if ($status === 'published') {
-                return $query->published();
+                return $query->onlyPublished();
             }
 
             if ($status === 'draft') {
-                return $query->onlyDraft();
+                return $query->onlyDrafted();
             }
         }
 

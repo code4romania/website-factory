@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace App\View\Components\Blocks;
 
-use App\Models\Block;
-use Illuminate\View\Component;
-
-class Header extends Component
+class Header extends BlockComponent
 {
     public ?string $title;
 
@@ -15,27 +12,12 @@ class Header extends Component
 
     public bool $center;
 
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct(Block $block)
+    public function setup(): void
     {
-        $this->title = $block->translatedInput('title');
+        $this->title = $this->block->translatedInput('title');
 
-        $this->text = $block->translatedInput('text');
+        $this->text = $this->block->translatedInput('text');
 
-        $this->center = $block->input('align') === 'center';
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
-    public function render()
-    {
-        return view('components.blocks.header');
+        $this->center = $this->block->input('align') === 'center';
     }
 }

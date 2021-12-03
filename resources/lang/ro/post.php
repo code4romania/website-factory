@@ -18,4 +18,9 @@ return [
         'updated' => 'Postarea a fost actualizată.',
         'deleted' => 'Postarea a fost ștersă.',
     ],
+
+    'subnav' => [
+        'posts' => 'Postări',
+        'categories' => 'Categorii',
+    ],
 ];

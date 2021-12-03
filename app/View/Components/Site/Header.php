@@ -58,26 +58,19 @@ class Header extends Component
 
         return locales()
             ->reject(fn (string $locale) => app()->getLocale() === $locale)
-            ->mapWithKeys(function (string $locale) use ($routeName, $model) {
-                if (Str::endsWith($routeName, '.index')) {
-                    return $this->withLocale($locale, fn () => [
-                        $locale => route($routeName, ['locale' => $locale]),
-                    ]);
-                }
+            ->mapWithKeys(fn (string $locale) => [
+                $locale => $this->withLocale($locale, function () use ($routeName, $model, $locale) {
+                    if (Str::endsWith($routeName, '.index')) {
+                        return route($routeName, ['locale' => $locale]);
+                    }
 
-                if (! \is_null($model)) {
-                    $key = $model->getMorphClass();
+                    if (! \is_null($model)) {
+                        return $model->url;
+                    }
 
-                    return $this->withLocale($locale, fn () => [
-                        $locale => route($routeName, [
-                            'locale' => $locale,
-                            $key     => $model->slug,
-                        ]),
-                    ]);
-                }
-
-                return [];
-            })
+                    return null;
+                }),
+            ])
             ->filter();
     }
 }

@@ -6,11 +6,11 @@ namespace App\View\Components\Blocks;
 
 use Illuminate\Support\Collection;
 
-class ImageGrid extends BlockComponent
+class Cards extends BlockComponent
 {
     public ?string $title;
 
-    public Collection $images;
+    public Collection $items;
 
     public string $columns;
 
@@ -18,7 +18,7 @@ class ImageGrid extends BlockComponent
     {
         $this->title = $this->block->translatedInput('title');
 
-        $this->images = $this->block->getMedia('image');
+        $this->items = $this->block->children;
 
         $this->columns = $this->columnsFromInput();
     }

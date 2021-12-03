@@ -16,26 +16,38 @@ trait Publishable
         $this->casts['published_at'] = 'datetime';
     }
 
-    public function scopePublished(Builder $query): Builder
+    public static function bootPublishable(): void
     {
-        return $query->whereNotNull('published_at')
-            ->where('published_at', '<=', Carbon::now());
+        static::addGlobalScope('published', function (Builder $query) {
+            $query->onlyPublished();
+        });
     }
 
-    public function scopeUnpublished(Builder $query): Builder
+    public function scopeWithDrafted(Builder $query): Builder
     {
-        return $query->whereNull('published_at')
-            ->orWhere('published_at', '>', Carbon::now());
+        return $query->withoutGlobalScope('published');
     }
 
-    public function scopeOnlyDraft(Builder $query): Builder
+    public function scopeOnlyDrafted(Builder $query): Builder
     {
-        return $query->whereNull('published_at');
+        return $query
+            ->withDrafted()
+            ->whereNull('published_at');
     }
 
     public function scopeOnlyScheduled(Builder $query): Builder
     {
-        return $query->where('published_at', '>', Carbon::now());
+        return $query
+            ->withDrafted()
+            ->whereNotNull('published_at')
+            ->where('published_at', '>', Carbon::now());
+    }
+
+    public function scopeOnlyPublished(Builder $query): Builder
+    {
+        return $query
+            ->whereNotNull('published_at')
+            ->where('published_at', '<=', Carbon::now());
     }
 
     public function isDraft(): bool

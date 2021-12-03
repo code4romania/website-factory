@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace App\View\Components\Blocks;
 
-use App\Models\Block;
 use App\Services\Time;
 use Embed\Embed;
 use Embed\EmbedCode;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\View\Component;
 
-class OEmbed extends Component
+class OEmbed extends BlockComponent
 {
     protected ?EmbedCode $code;
 
@@ -23,16 +21,11 @@ class OEmbed extends Component
 
     public ?string $html = null;
 
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct(Block $block)
+    public function setup(): void
     {
-        $this->title = $block->translatedInput('title');
+        $this->title = $this->block->translatedInput('title');
 
-        $this->url = $block->input('url');
+        $this->url = $this->block->input('url');
 
         if (! $this->url) {
             return;
@@ -40,19 +33,9 @@ class OEmbed extends Component
 
         $this->code = $this->getEmbedCode();
 
-        $this->html = optional($this->code)->html;
+        $this->html = $this->code?->html;
 
         $this->aspectRatio = $this->getAspectRatio();
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
-    public function render()
-    {
-        return view('components.blocks.o-embed');
     }
 
     private function getAspectRatio(): ?string
@@ -80,7 +63,7 @@ class OEmbed extends Component
             'aspect-w-1 aspect-h-3' => 1 / 3,
         ];
 
-        $search = round($this->code->width / $this->code->height, 3);
+        $search = \round($this->code->width / $this->code->height, 3);
         $closest = $ratio = null;
 
         foreach ($ratioMap as $name => $value) {

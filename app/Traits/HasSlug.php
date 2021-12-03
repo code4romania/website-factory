@@ -8,6 +8,7 @@ use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Localizable;
 
@@ -61,7 +62,13 @@ trait HasSlug
             $field = $this->getSlugColumn();
         }
 
-        return parent::resolveRouteBinding($value, $field);
+        $isAdminRoute = Str::startsWith(Route::currentRouteName(), 'admin.');
+        $isPublishable = \in_array(Publishable::class, \class_uses_recursive($this));
+
+        return $this
+            ->when($isAdminRoute && $isPublishable, fn (Builder $query) => $query->withDrafted())
+            ->where($field ?? $this->getRouteKeyName(), $value)
+            ->first();
     }
 
     protected function getSlugColumn(?string $locale = null): string
@@ -123,7 +130,7 @@ trait HasSlug
 
         return route('front.' . Str::plural($key) . '.show', [
             'locale' => app()->getLocale(),
-            $key     => $this->slug,
+            $key     => $this->getTranslationWithoutFallback('slug', app()->getLocale()),
         ]);
     }
 }

@@ -13,6 +13,10 @@ export default function (block) {
                 type: Array,
                 default: () => [],
             },
+            media: {
+                type: Array,
+                default: () => [],
+            },
             ...block.props,
         },
         emits: ['update:content'],

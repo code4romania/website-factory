@@ -91,7 +91,7 @@
                     />
                 </template>
 
-                <template v-if="item.type === 'page'">
+                <template v-else>
                     <form-select
                         :label="$t('field.page')"
                         :name="`${prefix}.model`"

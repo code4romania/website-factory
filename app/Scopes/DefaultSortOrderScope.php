@@ -19,6 +19,9 @@ class DefaultSortOrderScope implements Scope
      */
     public function apply(Builder $query, Model $model): void
     {
-        $query->orderByDesc($model->getKeyName());
+        $query->orderby(
+            $model->orderByColumn ?? $model->getKeyName(),
+            $model->orderByDirection ?? 'desc'
+        );
     }
 }

@@ -1,0 +1,30 @@
+<template>
+    <localized-field
+        field="form-input"
+        :label="$t('field.title')"
+        required
+        v-model="content.title"
+    />
+
+    <form-input
+        type="number"
+        :label="$t('field.columns')"
+        v-model.number="content.columns"
+        :min="1"
+        :max="5"
+    />
+
+    <block-repeater component="card-item" v-model="children" />
+</template>
+
+<script>
+    import { defineBlock } from '@/helpers';
+
+    export default defineBlock({
+        type: 'cards',
+        icon: 'Editor/list-check-2',
+        fields: {
+            title: Object,
+        },
+    });
+</script>

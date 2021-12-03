@@ -66,9 +66,11 @@ class Block extends Model
     {
         $input = Arr::wrap($this->input($field));
 
-        $locale ??= config('translatable.use_fallback') && ! \array_key_exists(app()->getLocale(), $input)
-            ? config('app.fallback_locale')
-            : app()->getLocale();
+        $locale ??= app()->getLocale();
+
+        if (! \array_key_exists($locale, $input) || $input[$locale] === '') {
+            $locale = config('app.fallback_locale');
+        }
 
         return $input[$locale] ?? null;
     }

@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace App\View\Components\Blocks;
 
-use App\Models\Block;
 use App\Models\Media;
-use Illuminate\View\Component;
 
-class HeroBgImage extends Component
+class HeroBgImage extends BlockComponent
 {
     public ?string $title;
 
@@ -16,27 +14,12 @@ class HeroBgImage extends Component
 
     public ?Media $image;
 
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct(Block $block)
+    public function setup(): void
     {
-        $this->title = $block->translatedInput('title');
+        $this->title = $this->block->translatedInput('title');
 
-        $this->text = $block->translatedInput('text');
+        $this->text = $this->block->translatedInput('text');
 
-        $this->image = $block->firstMedia('image');
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
-    public function render()
-    {
-        return view('components.blocks.hero-bg-image');
+        $this->image = $this->block->firstMedia('image');
     }
 }
