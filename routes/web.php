@@ -20,6 +20,8 @@ Route::get('/decisions', [Front\DecisionController::class, 'index'])->name('deci
 Route::get('/decisions/{decision:slug}', [Front\DecisionController::class, 'show'])->name('decisions.show');
 
 Route::get('/blog', [Front\PostController::class, 'index'])->name('posts.index');
+Route::get('/blog/category', [Front\PostCategoryController::class, 'index'])->name('post_categories.index');
+Route::get('/blog/category/{post_category:slug}', [Front\PostCategoryController::class, 'show'])->name('post_categories.show');
 Route::get('/blog/{post:slug}', [Front\PostController::class, 'show'])->name('posts.show');
 
 Route::get('/people', [Front\PersonController::class, 'index'])->name('people.index');

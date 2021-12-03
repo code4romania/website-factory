@@ -1,0 +1,11 @@
+@props(['categories'])
+
+<div {{ $attributes->class('flex flex-wrap text-teal-600 space-x-1') }}>
+    @foreach ($categories as $category)
+        <a href="{{ $category->url }}" class="hover:underline">{{ $category->title }}</a>
+
+        @if (!$loop->last)
+            ,
+        @endif
+    @endforeach
+</div>

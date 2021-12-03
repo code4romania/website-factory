@@ -1,5 +1,18 @@
 <template>
     <layout :title="$t(pageTitle)">
+        <template #subnav>
+            <menu-item
+                v-for="(item, index) in subnav"
+                :key="index"
+                :href="route(item.route)"
+                class="text-sm"
+                class-active="bg-gray-50 text-gray-900"
+                class-inactive="text-gray-900 hover:bg-gray-100 hover:text-gray-900"
+            >
+                {{ $t(item.label) }}
+            </menu-item>
+        </template>
+
         <form @submit.prevent="form.submit(method, url)" class="grid gap-y-8">
             <panel-model action="save" :form="form">
                 <div class="space-y-1">
@@ -36,6 +49,15 @@
                     v-model:media="form.media"
                     :limit="1"
                 />
+
+                <form-select
+                    :label="$t('field.categories')"
+                    v-model="form.categories"
+                    :options="categories"
+                    option-value-key="id"
+                    option-label-key="title"
+                    multiple
+                />
             </panel-model>
 
             <block-list v-model:blocks="form.blocks" />
@@ -51,6 +73,8 @@
         props: {
             resource: Object,
             model: Object,
+            subnav: Array,
+            categories: Array,
         },
         setup(props) {
             const action = props.resource === undefined ? 'create' : 'edit';
@@ -61,6 +85,7 @@
                 'description',
                 'blocks',
                 'media',
+                'categories',
             ]);
 
             const method = computed(() => (action === 'edit' ? 'put' : 'post'));

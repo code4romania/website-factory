@@ -40,16 +40,29 @@ Route::delete('people/{person}', [Admin\PersonController::class, 'destroy'])->na
 Route::put('people/{person}/restore', [Admin\PersonController::class, 'restore'])->name('people.restore')->withTrashed();
 Route::delete('people/{person}/force', [Admin\PersonController::class, 'forceDelete'])->name('people.forceDelete')->withTrashed();
 
-Route::get('posts', [Admin\PostController::class, 'index'])->name('posts.index');
-Route::get('posts/create', [Admin\PostController::class, 'create'])->name('posts.create');
-Route::post('posts', [Admin\PostController::class, 'store'])->name('posts.store');
-Route::get('posts/{post}/edit', [Admin\PostController::class, 'edit'])->name('posts.edit');
-Route::post('posts/{post}/duplicate', [Admin\PostController::class, 'duplicate'])->name('posts.duplicate');
-Route::post('posts/{post}/preview', [Admin\PostController::class, 'preview'])->name('posts.preview');
-Route::put('posts/{post}', [Admin\PostController::class, 'update'])->name('posts.update');
-Route::delete('posts/{post}', [Admin\PostController::class, 'destroy'])->name('posts.destroy');
-Route::put('posts/{post}/restore', [Admin\PostController::class, 'restore'])->name('posts.restore')->withTrashed();
-Route::delete('posts/{post}/force', [Admin\PostController::class, 'forceDelete'])->name('posts.forceDelete')->withTrashed();
+Route::prefix('posts')->group(function () {
+    Route::get('categories', [Admin\PostCategoryController::class, 'index'])->name('post_categories.index');
+    Route::get('categories/create', [Admin\PostCategoryController::class, 'create'])->name('post_categories.create');
+    Route::post('categories', [Admin\PostCategoryController::class, 'store'])->name('post_categories.store');
+    Route::get('categories/{post_category}/edit', [Admin\PostCategoryController::class, 'edit'])->name('post_categories.edit');
+    Route::post('categories/{post_category}/duplicate', [Admin\PostCategoryController::class, 'duplicate'])->name('post_categories.duplicate');
+    Route::post('categories/{post_category}/preview', [Admin\PostCategoryController::class, 'preview'])->name('post_categories.preview');
+    Route::put('categories/{post_category}', [Admin\PostCategoryController::class, 'update'])->name('post_categories.update');
+    Route::delete('categories/{post_category}', [Admin\PostCategoryController::class, 'destroy'])->name('post_categories.destroy');
+    Route::put('categories/{post_category}/restore', [Admin\PostCategoryController::class, 'restore'])->name('post_categories.restore')->withTrashed();
+    Route::delete('categories/{post_category}/force', [Admin\PostCategoryController::class, 'forceDelete'])->name('post_categories.forceDelete')->withTrashed();
+
+    Route::get('/', [Admin\PostController::class, 'index'])->name('posts.index');
+    Route::get('create', [Admin\PostController::class, 'create'])->name('posts.create');
+    Route::post('/', [Admin\PostController::class, 'store'])->name('posts.store');
+    Route::get('{post}/edit', [Admin\PostController::class, 'edit'])->name('posts.edit');
+    Route::post('{post}/duplicate', [Admin\PostController::class, 'duplicate'])->name('posts.duplicate');
+    Route::post('{post}/preview', [Admin\PostController::class, 'preview'])->name('posts.preview');
+    Route::put('{post}', [Admin\PostController::class, 'update'])->name('posts.update');
+    Route::delete('{post}', [Admin\PostController::class, 'destroy'])->name('posts.destroy');
+    Route::put('{post}/restore', [Admin\PostController::class, 'restore'])->name('posts.restore')->withTrashed();
+    Route::delete('{post}/force', [Admin\PostController::class, 'forceDelete'])->name('posts.forceDelete')->withTrashed();
+});
 
 Route::get('decisions', [Admin\DecisionController::class, 'index'])->name('decisions.index');
 Route::get('decisions/create', [Admin\DecisionController::class, 'create'])->name('decisions.create');
@@ -89,3 +102,6 @@ Route::where(['location' => '(header|footer)'])->group(function () {
     Route::get('menus/{location}', [Admin\MenuController::class, 'edit'])->name('menus.edit');
     Route::post('menus/{location}', [Admin\MenuController::class, 'update'])->name('menus.update');
 });
+
+Route::get('settings', [Admin\SettingController::class, 'index'])->name('settings.index');
+Route::post('settings', [Admin\SettingController::class, 'store'])->name('settings.store');

@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\PostRequest;
 use App\Http\Resources\Collections\PostCollection;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
+use App\Models\PostCategory;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -19,10 +20,13 @@ class PostController extends AdminController
         return Inertia::render('Posts/Index', [
             'collection' => new PostCollection(
                 Post::query()
+                    ->withDrafted()
                     ->sort()
                     ->filter()
                     ->paginate()
             ),
+            'categories' => PostCategory::all(['id', 'title']),
+            'subnav' => $this->subnav(),
         ]);
     }
 
@@ -39,6 +43,8 @@ class PostController extends AdminController
 
         $post = Post::create($attributes);
 
+        $post->categories()->sync($attributes['categories']);
+
         $post->saveBlocks($attributes['blocks'])
             ->saveImages($attributes['media']);
 
@@ -50,6 +56,8 @@ class PostController extends AdminController
     {
         return Inertia::render('Posts/Edit', [
             'resource' => PostResource::make($post),
+            'categories' => PostCategory::all(['id', 'title']),
+            'subnav' => $this->subnav(),
         ])->model(Post::class);
     }
 
@@ -59,10 +67,26 @@ class PostController extends AdminController
 
         $post->update($attributes);
 
+        $post->categories()->sync($attributes['categories']);
+
         $post->saveBlocks($attributes['blocks'])
             ->saveImages($attributes['media']);
 
         return redirect()->route('admin.posts.edit', $post)
             ->with('success', __('post.event.updated'));
+    }
+
+    protected function subnav(): array
+    {
+        return [
+            [
+                'label' => 'post.subnav.posts',
+                'route' => 'admin.posts.index',
+            ],
+            [
+                'label' => 'post.subnav.categories',
+                'route' => 'admin.post_categories.index',
+            ],
+        ];
     }
 }

@@ -11,6 +11,7 @@ use App\Models\MenuItem;
 use App\Models\Page;
 use App\Models\Person;
 use App\Models\Post;
+use App\Models\PostCategory;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
@@ -48,9 +49,13 @@ class DatabaseSeeder extends Seeder
             ->count(250)
             ->create();
 
-        Post::factory()
-            ->count(250)
-            ->afterCreating(fn (Post $post) => $post->saveImages([$images->random()]))
+        PostCategory::factory()
+            ->count(10)
+            ->has(
+                Post::factory()
+                    ->count(20)
+                    ->afterCreating(fn (Post $post) => $post->saveImages([$images->random()]))
+            )
             ->create();
 
         Person::factory()

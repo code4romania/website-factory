@@ -3,15 +3,14 @@
 @section('content')
     <header class="container relative my-16 sm:my-24 lg:my-32">
         <h1 class="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
-            {{ trans_choice('post.label', 2) }}
-
+            {{ $category->title }}
         </h1>
 
         <div class="mt-4 prose text-gray-500 max-w-prose sm:prose-lg lg:prose-xl">
-            {{-- {!! $post->description !!} --}}
+            {!! $category->description !!}
         </div>
 
-        <div class="mt-16 border-b border-gray-300"></div>
+        <div class="mt-8 border-b border-gray-300"></div>
     </header>
 
     <div class="container">
@@ -24,13 +23,11 @@
                             class="object-cover w-full h-56" />
                     </a>
                     <div class="flex-1 p-6 space-y-2 bg-white">
-                        <div class="text-sm">
-                            <x-categories :categories="$post->categories" />
+                        <x-categories :categories="$post->categories" />
 
-                            <time class="text-gray-500" datetime="{{ $post->published_at->toDateString() }}">
-                                {{ $post->published_at->toLocaleDateString() }}
-                            </time>
-                        </div>
+                        <time class="text-sm text-gray-500" datetime="{{ $post->published_at->toDateString() }}">
+                            {{ $post->published_at->toLocaleDateString() }}
+                        </time>
 
                         <a href="{{ $post->url }}" class="block space-y-3">
                             <h1 class="text-xl font-semibold text-gray-900 line-clamp-2">

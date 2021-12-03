@@ -22,5 +22,28 @@ return new class extends Migration {
             $table->json('description');
             $table->string('layout')->default('default');
         });
+
+        Schema::create('post_categories', function (Blueprint $table) {
+            $table->commonFields(true, false);
+            $table->json('title');
+            $table->json('slug');
+            $table->json('description');
+        });
+
+        Schema::create('category_post', function (Blueprint $table) {
+            $table->id();
+
+            $table->foreignId('post_category_id')
+                ->references('id')
+                ->on('post_categories')
+                ->constrained()
+                ->cascadeOnDelete();
+
+            $table->foreignId('post_id')
+                ->references('id')
+                ->on('posts')
+                ->constrained()
+                ->cascadeOnDelete();
+        });
     }
 };
