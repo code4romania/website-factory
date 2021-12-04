@@ -4,24 +4,46 @@
 
 <div @class(['grid gap-x-8 gap-y-16', $columns])>
     @foreach ($items as $item)
-        <div>
-            <dt>
-                <div class="flex items-center justify-center w-12 h-12 text-white bg-teal-500 rounded-md">
-                    <svg class="w-6 h-6" x-description="Heroicon name: outline/globe-alt"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                        aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
-                        </path>
-                    </svg>
+        <div @class([
+            'bg-white shadow-lg rounded-lg overflow-hidden' => $shadow,
+        ])>
+            <div
+                @class([
+                    'px-4 py-5 sm:p-6' => $shadow,
+                ])>
+                <dt>
+                    @if ($item->input('icon'))
+                        <div class="flex items-center justify-center w-12 h-12 text-white bg-teal-500 rounded-md">
+                            {{ svg("ri-{$item->input('icon')}", 'w-6 h-6') }}
+                        </div>
+                    @endif
+
+                    <p class="mt-5 text-lg font-semibold leading-6 text-gray-900">
+                        {{ $item->translatedInput('title') }}
+                    </p>
+                </dt>
+                <dd class="mt-2 prose prose-blue">
+                    {!! $item->translatedInput('text') !!}
+                </dd>
+
+            </div>
+
+            @if ($item->translatedInput('button_url') && $item->translatedInput('button_text'))
+                <div
+                    @class([
+                        'text-sm',
+                        'bg-gray-50 px-4 py-4 sm:px-6' => $shadow,
+                        'mt-4' => !$shadow,
+                    ])>
+                    <a
+                        href="{{ $item->translatedInput('button_url') }}"
+                        class="flex items-center font-semibold text-teal-600 hover:underline">
+                        {{ $item->translatedInput('button_text') }}
+
+                        <x-ri-arrow-right-line class="flex-shrink-0 w-5 h-5 ml-2" />
+                    </a>
                 </div>
-                <p class="mt-5 text-lg font-medium leading-6 text-gray-900">
-                    {{ $item->translatedInput('title') }}
-                </p>
-            </dt>
-            <dd class="mt-2 prose prose-blue">
-                {!! $item->translatedInput('text') !!}
-            </dd>
+            @endif
         </div>
     @endforeach
 </div>

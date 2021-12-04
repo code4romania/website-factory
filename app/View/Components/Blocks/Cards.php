@@ -14,6 +14,8 @@ class Cards extends BlockComponent
 
     public string $columns;
 
+    public bool $shadow;
+
     public function setup(): void
     {
         $this->title = $this->block->translatedInput('title');
@@ -21,5 +23,9 @@ class Cards extends BlockComponent
         $this->items = $this->block->children;
 
         $this->columns = $this->columnsFromInput();
+
+        $this->shadow = $this->block->checkbox('shadow');
+
+        $this->button_text = $this->block->translatedInput('button_text');
     }
 }

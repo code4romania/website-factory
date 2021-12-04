@@ -55,8 +55,8 @@ abstract class BlockComponent extends Component
             default => 'md:grid-cols-1',
             2 => 'md:grid-cols-2',
             3 => 'md:grid-cols-3',
-            4 => 'md:grid-cols-4',
-            5 => 'md:grid-cols-5',
+            4 => 'md:grid-cols-2 lg:grid-cols-4',
+            5 => 'md:grid-cols-3 lg:grid-cols-5',
         };
     }
 }
