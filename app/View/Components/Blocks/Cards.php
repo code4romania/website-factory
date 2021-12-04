@@ -25,7 +25,5 @@ class Cards extends BlockComponent
         $this->columns = $this->columnsFromInput();
 
         $this->shadow = $this->block->checkbox('shadow');
-
-        $this->button_text = $this->block->translatedInput('button_text');
     }
 }

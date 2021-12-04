@@ -4,6 +4,7 @@
             @class([
                 'md:col-span-2' => $block->checkbox('fullwidth'),
             ])>
+
             <x-dynamic-component :component="$block->component" :block="$block" />
 
             @if (config('app.debug'))

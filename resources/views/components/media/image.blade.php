@@ -4,8 +4,10 @@
     'alt' => '',
 ])
 
-<img
-    class="{{ $class }}"
-    src="{{ $src }}"
-    alt="{{ $alt }}"
-    loading="lazy" />
+@if ($src)
+    <img
+        class="{{ $class }}"
+        src="{{ $src }}"
+        alt="{{ $alt }}"
+        loading="lazy" />
+@endif

@@ -29,6 +29,6 @@ trait HasMedia
             return null;
         }
 
-        return optional($media->findVariant($variant))->getUrl();
+        return $media->findVariant($variant)?->getUrl();
     }
 }
