@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Services\BlockCollection;
-use App\Traits\HasBlocks;
+use App\Services\SupportsTrait;
 use App\Traits\HasLayout;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
@@ -96,7 +96,7 @@ class AppServiceProvider extends ServiceProvider
             $model = \resolve($model);
             $traits = \class_uses_recursive($model);
 
-            if (\in_array(HasBlocks::class, $traits)) {
+            if (SupportsTrait::blocks($model)) {
                 $blocks = (new BlockCollection('block'))->all();
                 $repeaters = (new BlockCollection('repeater'))->all();
             }

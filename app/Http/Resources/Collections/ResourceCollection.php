@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Resources\Collections;
 
-use App\Traits\Filterable;
-use App\Traits\Publishable;
-use App\Traits\Sortable;
+use App\Services\SupportsTrait;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection as BaseCollection;
 use Illuminate\Support\Collection;
@@ -135,7 +133,7 @@ abstract class ResourceCollection extends BaseCollection
 
     protected function isColumnSortable(string $column): bool
     {
-        if (! \in_array(Sortable::class, \class_uses_recursive($this->model))) {
+        if (! SupportsTrait::sortable($this->model)) {
             return false;
         }
 
@@ -144,7 +142,7 @@ abstract class ResourceCollection extends BaseCollection
 
     protected function filters(): array
     {
-        if (! \in_array(Filterable::class, \class_uses_recursive($this->model))) {
+        if (! SupportsTrait::filterable($this->model)) {
             return [];
         }
 
@@ -183,36 +181,51 @@ abstract class ResourceCollection extends BaseCollection
 
     protected function statuses(): array
     {
-        $traits = \class_uses_recursive($this->model);
-
         $statuses = collect();
 
-        if (\in_array(Publishable::class, $traits)) {
+        if (SupportsTrait::publishable($this->model)) {
             $statuses->push([
                 'name'  => 'all',
-                'count' => $this->model->newQuery()->withDrafted()->count(),
+                'count' => $this->model
+                    ->newQuery()
+                    ->withDrafted()
+                    ->count(),
             ]);
 
             $statuses->push([
                 'name'  => 'published',
-                'count' => $this->model->newQuery()->count(),
+                'count' => $this->model
+                    ->newQuery()
+                    ->count(),
             ]);
 
             $statuses->push([
                 'name'  => 'draft',
-                'count' => $this->model->newQuery()->onlyDrafted()->count(),
+                'count' => $this->model
+                    ->newQuery()
+                    ->onlyDrafted()
+                    ->count(),
             ]);
         } else {
             $statuses->push([
                 'name'  => 'all',
-                'count' => $this->model->newQuery()->count(),
+                'count' => $this->model
+                    ->newQuery()
+                    ->count(),
             ]);
         }
 
-        if (\in_array(SoftDeletes::class, $traits)) {
+        if (SupportsTrait::softDeletes($this->model)) {
             $statuses->push([
                 'name'  => 'trashed',
-                'count' => $this->model->newQuery()->onlyTrashed()->count(),
+                'count' => $this->model
+                    ->newQuery()
+                    ->onlyTrashed()
+                    ->when(
+                        SupportsTrait::publishable($this->model),
+                        fn (Builder $query) => $query->withDrafted()
+                    )
+                    ->count(),
             ]);
         }
 

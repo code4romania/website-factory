@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Services\SupportsTrait;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Localizable;
@@ -15,8 +15,6 @@ use Illuminate\Support\Traits\Localizable;
 trait HasSlug
 {
     use Localizable;
-
-    public string $slugSeparator = '-';
 
     public function initializeHasSlug(): void
     {
@@ -29,6 +27,13 @@ trait HasSlug
 
     public function getSlugFieldSource(): string
     {
+        if (
+            SupportsTrait::translatable($this) &&
+            \in_array($this->slugFieldSource, $this->translatable)
+        ) {
+            return $this->translate($this->slugFieldSource);
+        }
+
         return $this->{$this->slugFieldSource};
     }
 
@@ -63,20 +68,16 @@ trait HasSlug
         }
 
         $isAdminRoute = Str::startsWith(Route::currentRouteName(), 'admin.');
-        $isPublishable = \in_array(Publishable::class, \class_uses_recursive($this));
 
         return $this
-            ->when($isAdminRoute && $isPublishable, fn (Builder $query) => $query->withDrafted())
+            ->when($isAdminRoute && SupportsTrait::publishable($this), fn (Builder $query) => $query->withDrafted())
             ->where($field ?? $this->getRouteKeyName(), $value)
             ->first();
     }
 
     protected function getSlugColumn(?string $locale = null): string
     {
-        if (
-            \in_array(Translatable::class, \class_uses_recursive($this)) &&
-            \in_array('slug', $this->translatable)
-        ) {
+        if ($this->slugIsTranslatable()) {
             $locale ??= app()->getLocale();
 
             return "slug->{$locale}";
@@ -117,11 +118,16 @@ trait HasSlug
             $query->where($this->getKeyName(), '!=', $this->getKey());
         }
 
-        if (\in_array(SoftDeletes::class, \class_uses_recursive($this))) {
+        if (SupportsTrait::softDeletes($this)) {
             $query->withTrashed();
         }
 
         return $query->exists();
+    }
+
+    protected function slugIsTranslatable(): bool
+    {
+        return SupportsTrait::translatable($this) && \in_array('slug', $this->translatable);
     }
 
     public function getUrlAttribute(): string
@@ -130,7 +136,9 @@ trait HasSlug
 
         return route('front.' . Str::plural($key) . '.show', [
             'locale' => app()->getLocale(),
-            $key     => $this->getTranslationWithoutFallback('slug', app()->getLocale()),
+            $key     => $this->slugIsTranslatable()
+                ? $this->getTranslationWithoutFallback('slug', app()->getLocale())
+                : $this->slug,
         ]);
     }
 }

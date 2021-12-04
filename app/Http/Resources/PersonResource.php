@@ -9,9 +9,8 @@ use Illuminate\Http\Request;
 class PersonResource extends Resource
 {
     public array $routeMap = [
-        'admin.pages.index'  => 'index',
-        // 'admin.pages.create' => 'create',
-        'admin.pages.edit'   => 'edit',
+        'admin.people.index'  => 'index',
+        'admin.people.edit'   => 'edit',
     ];
 
     protected function index(Request $request): array

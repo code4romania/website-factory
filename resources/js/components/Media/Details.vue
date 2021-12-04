@@ -32,9 +32,30 @@
             />
 
             <div>
-                <h2 class="font-medium leading-tight text-gray-900">
-                    {{ item.filename }}.{{ item.extension }}
-                </h2>
+                <div class="flex items-center">
+                    <h2
+                        class="flex-1 font-semibold leading-tight text-gray-900"
+                    >
+                        {{ item.filename }}.{{ item.extension }}
+                    </h2>
+
+                    <button
+                        v-if="isSupported"
+                        class="inline-flex items-center flex-shrink-0 p-2 ml-2 transition-colors duration-75 bg-white border border-gray-300 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
+                        @click="copy(item.sizes.original.url)"
+                    >
+                        <icon
+                            v-if="!copied"
+                            name="Document/clipboard-line"
+                            class="w-4 h-4 text-gray-600"
+                        />
+                        <icon
+                            v-else
+                            name="System/check-line"
+                            class="w-4 h-4 text-green-600"
+                        />
+                    </button>
+                </div>
                 <dl
                     class="mt-2 text-sm font-medium border-t border-b border-gray-200 divide-y divide-gray-200"
                 >
@@ -77,6 +98,7 @@
 <script>
     import { ref, watch } from 'vue';
     import { useMedia } from '@/helpers';
+    import { useClipboard } from '@vueuse/core';
 
     export default {
         name: 'MediaDetails',
@@ -89,6 +111,7 @@
         emits: ['clear-selected'],
         setup(props) {
             const { updateMedia } = useMedia();
+            const { isSupported, copy, copied } = useClipboard();
 
             const item = ref(null);
 
@@ -103,6 +126,10 @@
             return {
                 item,
                 updateMedia,
+
+                isSupported,
+                copy,
+                copied,
             };
         },
     };

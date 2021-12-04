@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Services\SupportsTrait;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
@@ -87,9 +87,7 @@ trait Filterable
 
     final public function filterByStatus(Builder $query, string $status): Builder
     {
-        $traits = \class_uses_recursive($query->getModel());
-
-        if (\in_array(Publishable::class, $traits)) {
+        if (SupportsTrait::publishable($query->getModel())) {
             if ($status === 'published') {
                 return $query->onlyPublished();
             }
@@ -100,10 +98,15 @@ trait Filterable
         }
 
         if (
-            \in_array(SoftDeletes::class, $traits) &&
+            SupportsTrait::softDeletes($query->getModel()) &&
             $status === 'trashed'
         ) {
-            return $query->onlyTrashed();
+            return $query
+                ->when(
+                    SupportsTrait::publishable($query->getModel()),
+                    fn (Builder $query) => $query->withDrafted()
+                )
+                ->onlyTrashed();
         }
 
         return $query;

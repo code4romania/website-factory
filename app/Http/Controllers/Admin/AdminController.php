@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\SupportsTrait;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
@@ -20,7 +22,13 @@ class AdminController extends Controller
 
     public function destroy(int $id): RedirectResponse
     {
-        $this->model::find($id)->delete();
+        $this->model::query()
+            ->when(
+                SupportsTrait::publishable($this->model),
+                fn (Builder $query) => $query->withDrafted()
+            )
+            ->find($id)
+            ->delete();
 
         return $this->success('index', 'deleted');
     }
@@ -47,24 +55,27 @@ class AdminController extends Controller
     public function duplicate(int $id): RedirectResponse
     {
         /** @var Model */
-        $source = $this->model::query()
-            ->with('blocks', 'media')
-            ->find($id);
+        $source = $this->model::find($id);
 
         /** @var Model */
         $duplicate = $source->replicate();
 
         $duplicate->push();
 
-        $duplicate->saveBlocks($source->blocks->toArray())
-            ->saveImages($source->media->toArray());
+        if (SupportsTrait::blocks($this->model)) {
+            $duplicate->saveBlocks($source->blocks->toArray());
+        }
+
+        if (SupportsTrait::media($this->model)) {
+            $duplicate->saveImages($source->media->toArray());
+        }
 
         return $this->success('edit', 'duplicated', $duplicate);
     }
 
     protected function success(string $route, string $event, ?Model $model = null): RedirectResponse
     {
-        $singular = Str::camel(\class_basename($this->model));
+        $singular = Str::snake(\class_basename($this->model));
         $plural = Str::plural($singular);
 
         return redirect()

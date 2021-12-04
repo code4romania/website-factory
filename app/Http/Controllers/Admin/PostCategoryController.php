@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Admin\PostCategoryRequest;
 use App\Http\Requests\Admin\PostRequest;
 use App\Http\Resources\Collections\PostCategoryCollection;
-use App\Http\Resources\PostCategoryRequest;
 use App\Http\Resources\PostCategoryResource;
 use App\Models\PostCategory;
 use Illuminate\Database\Eloquent\Builder;
@@ -64,9 +64,6 @@ class PostCategoryController extends AdminController
         $attributes = $request->validated();
 
         $postCategory->update($attributes);
-
-        $postCategory->saveBlocks($attributes['blocks'])
-            ->saveImages($attributes['media']);
 
         return redirect()->route('admin.post_categories.edit', $postCategory)
             ->with('success', __('post.event.updated'));

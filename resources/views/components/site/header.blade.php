@@ -2,7 +2,8 @@
     <nav class="container text-white lg:divide-teal-600 lg:divide-y">
         <div class="relative flex items-center justify-between py-4">
             <a href="{{ route('front.pages.index') }}" class="inline-flex">
-                <img src="{{ $logo }}" alt="" class="h-10">
+
+                <x-icon-logo class="h-12" />
             </a>
 
             <div class="flex items-center gap-3">

@@ -90,11 +90,11 @@
                         href: this.route('admin.posts.index'),
                         label: this.$t('post.label', 2),
                     },
-                    {
-                        type: 'link',
-                        href: this.route('admin.decisions.index'),
-                        label: this.$t('decision.label', 2),
-                    },
+                    // {
+                    //     type: 'link',
+                    //     href: this.route('admin.decisions.index'),
+                    //     label: this.$t('decision.label', 2),
+                    // },
                     {
                         type: 'link',
                         href: this.route('admin.forms.index'),

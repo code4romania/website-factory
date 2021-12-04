@@ -4,7 +4,7 @@
     >
         <div>
             <inertia-link href="/">
-                <app-logo class="w-20 h-20 text-gray-500 fill-current" />
+                <app-logo class="w-full h-20 text-gray-500 fill-current" />
             </inertia-link>
         </div>
 
