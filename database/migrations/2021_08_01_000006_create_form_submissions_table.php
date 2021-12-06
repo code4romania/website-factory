@@ -15,13 +15,15 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('form_submissions', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->timestamps();
-            $table->softDeletes();
+            $table->commonFields();
 
             $table->json('data')->nullable();
 
-            $table->foreignUuid('form')->nullable()->constrained()->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignId('form')
+                ->nullable()
+                ->constrained()
+                ->nullOnDelete()
+                ->cascadeOnUpdate();
         });
     }
 };

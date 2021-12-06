@@ -17,4 +17,10 @@ return [
         'title' => 'No forms',
         'description' => 'Get started by creating a new form',
     ],
+
+    'blocks' => [
+        'title' => 'Câmpuri',
+        'action' => 'Adaugă câmp nou',
+    ],
+
 ];

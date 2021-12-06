@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\FormRequest;
 use App\Http\Resources\Collections\FormCollection;
 use App\Http\Resources\FormResource;
 use App\Models\Form;
@@ -28,14 +29,18 @@ class FormController extends Controller
 
     public function create(): Response
     {
-        return Inertia::render('Forms/Create', [
+        return Inertia::render('Forms/Edit', [
             //
-        ]);
+        ])->model(Form::class);
     }
 
     public function store(FormRequest $request): RedirectResponse
     {
-        $form = Form::create($request->validated());
+        $attributes = $request->validated();
+
+        $form = Form::create($attributes);
+
+        $form->saveBlocks($attributes['blocks']);
 
         return redirect()->route('admin.forms.show', $form)
             ->with('success', __('form.event.created'));
@@ -52,14 +57,18 @@ class FormController extends Controller
     {
         return Inertia::render('Forms/Edit', [
             'resource' => FormResource::make($form),
-        ]);
+        ])->model(Form::class);
     }
 
     public function update(FormRequest $request, Form $form): RedirectResponse
     {
-        $form->fill($request->validated());
+        $attributes = $request->validated();
 
-        $form->save();
+        // dd($attributes);
+
+        $form->update($attributes);
+
+        $form->saveBlocks($attributes['blocks']);
 
         return redirect()->route('admin.forms.show', $form)
             ->with('success', __('form.event.updated'));

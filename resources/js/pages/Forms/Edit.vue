@@ -1,10 +1,12 @@
 <template>
-    <layout :breadcrumbs="breadcrumbs" :title="pageTitle">
-        <form
-            @submit.prevent="form.put(route('admin.forms.update', resource))"
-            class="grid gap-y-8"
+    <layout :title="$t(`form.action.${action}`)">
+        <form-container
+            :resource="resource"
+            :model="model"
+            :action="action"
+            :fields="['title', 'blocks', 'published_at']"
         >
-            <panel-model action="save" :form="form">
+            <template #panel="{ form }">
                 <localized-field
                     field="form-input"
                     :label="$t('field.title')"
@@ -12,42 +14,32 @@
                     v-model="form.title"
                     required
                 />
-            </panel-model>
-        </form>
+            </template>
+
+            <template #content="{ form }">
+                <block-list
+                    v-model:blocks="form.blocks"
+                    block-type="form-block"
+                    :title="$t('form.blocks.title')"
+                    :action="$t('form.blocks.action')"
+                />
+            </template>
+        </form-container>
     </layout>
 </template>
 
 <script>
-    import { useForm } from '@inertiajs/inertia-vue3';
-
     export default {
         props: {
             resource: Object,
+            model: Object,
         },
         setup(props) {
-            const form = useForm(
-                /* `edit.form.${props.resource.id}`, */ {
-                    title: props.resource.title,
-                    blocks: props.resource.blocks,
-                }
-            );
+            const action = props.resource === undefined ? 'create' : 'edit';
 
             return {
-                form,
+                action,
             };
-        },
-        computed: {
-            pageTitle() {
-                return this.$t('form.action.edit');
-            },
-            breadcrumbs() {
-                return [
-                    {
-                        label: this.$t('form.label', 2),
-                        href: this.route('admin.forms.index'),
-                    },
-                ];
-            },
         },
     };
 </script>

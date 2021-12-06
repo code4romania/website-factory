@@ -15,9 +15,8 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('forms', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->timestamps();
-            $table->softDeletes();
+            $table->commonFields();
+            $table->uuid('uuid')->nullable()->unique()->index();
 
             $table->boolean('store_submissions')->default(false);
             $table->boolean('send_submissions')->default(false);

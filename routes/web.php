@@ -30,4 +30,5 @@ Route::get('/people/{person:slug}', [Front\PersonController::class, 'show'])->na
 Route::get('/', [Front\PageController::class, 'index'])->name('pages.index');
 Route::get('/{page:slug}', [Front\PageController::class, 'show'])->name('pages.show');
 
-Route::get('/forms/{form}', [Front\FormController::class, 'show'])->name('forms.show');
+Route::get('/forms/{form:uuid}', [Front\FormController::class, 'show'])->name('forms.show');
+Route::post('/forms/{form:uuid}', [Front\FormController::class, 'submit'])->name('forms.submit');

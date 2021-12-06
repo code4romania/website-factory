@@ -122,5 +122,11 @@ class AppServiceProvider extends ServiceProvider
                 ],
             ]);
         });
+
+        Response::macro('submenu', function (array $items) {
+            return $this->with([
+                'submenu' => $items,
+            ]);
+        });
     }
 }

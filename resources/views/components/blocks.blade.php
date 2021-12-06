@@ -8,7 +8,7 @@
             <x-dynamic-component :component="$block->component" :block="$block" />
 
             @if (config('app.debug'))
-                <details class="hidden mt-2">
+                <details class="mt-2 not-hidden">
                     <summary>Debug</summary>
 
                     @dump($block->content)
