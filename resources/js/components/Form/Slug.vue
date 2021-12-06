@@ -16,7 +16,6 @@
 
 <script>
     import slug from 'slug';
-    import get from 'lodash/get';
     import { computed, watch } from 'vue';
     import { route, useLocale } from '@/helpers';
 
@@ -63,8 +62,6 @@
             });
 
             const update = (source) => {
-                console.log(source);
-
                 emit('update:modelValue', source ? slug(source) : null);
             };
 

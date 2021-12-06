@@ -117,7 +117,7 @@
             type: {
                 type: String,
                 required: true,
-                validator: (type) => ['item', 'repeater'].includes(type),
+                validator: (type) => ['block', 'repeater', 'form'].includes(type),
             },
             component: {
                 type: String,
@@ -149,7 +149,7 @@
             const { currentLocale } = useLocale();
 
             const component = computed(() =>
-                `block-${props.type}-${props.component}`.toLowerCase()
+                `${props.type}-${props.component}`.toLowerCase()
             );
 
             const blockName = computed(() => `block.${props.component}`);

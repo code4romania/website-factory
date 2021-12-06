@@ -10,8 +10,7 @@ class TranslatableFormRequestRules
 {
     public static function make(string $model, array $input): array
     {
-        $fallbackLocale = config('translatable.fallback_locale')
-            ?? config('app.fallback_locale');
+        $modelHasSlug = SupportsTrait::slug($model);
 
         $model = app($model);
 
@@ -26,16 +25,12 @@ class TranslatableFormRequestRules
                 continue;
             }
 
-            locales()->each(function (string $locale) use ($fallbackLocale, $rules, $key, $rule) {
-                if ($locale !== $fallbackLocale) {
-                    $rule = collect($rule)
-                        ->map(function (string $rule) {
-                            if (Str::of($rule)->startsWith('required')) {
-                                return 'nullable';
-                            }
+            $isSlugSource = $modelHasSlug && ($key === $model->slugFieldSource);
 
-                            return $rule;
-                        })
+            locales()->each(function (string $locale) use ($rules, $key, $rule, $isSlugSource) {
+                if (! $isSlugSource && $locale !== config('app.fallback_locale')) {
+                    $rule = collect($rule)
+                        ->map(fn (string $rule) => Str::startsWith($rule, 'required') ? 'nullable' : $rule)
                         ->all();
                 }
 

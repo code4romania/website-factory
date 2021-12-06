@@ -49,7 +49,7 @@ class UserController extends Controller
     public function edit(User $user): Response
     {
         return Inertia::render('Users/Edit', [
-            'user' => UserResource::make($user),
+            'resource' => UserResource::make($user),
         ])->model(User::class);
     }
 
@@ -61,13 +61,5 @@ class UserController extends Controller
 
         return redirect()->route('admin.users.show', $user)
             ->with('success', __('user.event.updated'));
-    }
-
-    public function destroy(User $user): RedirectResponse
-    {
-        $user->delete();
-
-        return redirect()->route('admin.users.show', $user)
-            ->with('success', __('user.event.deleted'));
     }
 }

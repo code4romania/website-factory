@@ -16,11 +16,17 @@ class FormFactory extends Factory
      */
     public function definition(): array
     {
+        $send_submissions = $this->faker->boolean();
+
         return [
             'title'             => $this->translatedFaker('sentence'),
-            'store_submissions' => false,
-            'send_submissions'  => false,
-            'recipients'        => null,
+            'store_submissions' => $this->faker->boolean(),
+            'send_submissions'  => $send_submissions,
+            'recipients'        => $send_submissions ? [
+                $this->faker->safeEmail(),
+                $this->faker->safeEmail(),
+                $this->faker->safeEmail(),
+            ] : null,
         ];
     }
 

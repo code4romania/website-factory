@@ -1,5 +1,5 @@
 <template>
-    <layout :title="$t(pageTitle)">
+    <layout :title="$t(`post.action.${action}`)">
         <template #subnav>
             <menu-item
                 v-for="(item, index) in subnav"
@@ -13,8 +13,21 @@
             </menu-item>
         </template>
 
-        <form @submit.prevent="form.submit(method, url)" class="grid gap-y-8">
-            <panel-model action="save" :form="form">
+        <form-container
+            :resource="resource"
+            :model="model"
+            :action="action"
+            :fields="[
+                'title',
+                'slug',
+                'description',
+                'blocks',
+                'media',
+                'categories',
+                'published_at',
+            ]"
+        >
+            <template #panel="{ form }">
                 <div class="space-y-1">
                     <localized-field
                         field="form-input"
@@ -58,17 +71,16 @@
                     option-label-key="title"
                     multiple
                 />
-            </panel-model>
+            </template>
 
-            <block-list v-model:blocks="form.blocks" />
-        </form>
+            <template #content="{ form }">
+                <block-list v-model:blocks="form.blocks" />
+            </template>
+        </form-container>
     </layout>
 </template>
 
 <script>
-    import { computed } from 'vue';
-    import { useForm, route } from '@/helpers';
-
     export default {
         props: {
             resource: Object,
@@ -79,29 +91,8 @@
         setup(props) {
             const action = props.resource === undefined ? 'create' : 'edit';
 
-            const form = useForm(`${action}.post`, props.resource, [
-                'title',
-                'slug',
-                'description',
-                'blocks',
-                'media',
-                'categories',
-            ]);
-
-            const method = computed(() => (action === 'edit' ? 'put' : 'post'));
-            const url = computed(() =>
-                action === 'edit'
-                    ? route('admin.posts.update', props.resource)
-                    : route('admin.posts.store')
-            );
-
-            const pageTitle = computed(() => `post.action.${action}`);
-
             return {
-                form,
-                method,
-                url,
-                pageTitle,
+                action,
             };
         },
     };

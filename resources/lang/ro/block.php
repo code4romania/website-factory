@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 return [
 
+    'add-new'        => 'Adaugă bloc nou',
+
     'accordion-item' => 'Element',
     'accordion'      => 'Acordeon',
     'call-to-action' => 'Call to action',

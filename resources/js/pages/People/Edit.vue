@@ -1,7 +1,19 @@
 <template>
-    <layout :title="$t(pageTitle)">
-        <form @submit.prevent="form.submit(method, url)" class="grid gap-y-8">
-            <panel-model action="save" :form="form">
+    <layout :title="$t(`person.action.${action}`)">
+        <form-container
+            :resource="resource"
+            :model="model"
+            :action="action"
+            :fields="[
+                'name',
+                'slug',
+                'title',
+                'description',
+                'blocks',
+                'media',
+            ]"
+        >
+            <template #panel="{ form }">
                 <div class="space-y-1">
                     <form-input
                         :label="$t('field.name')"
@@ -40,17 +52,16 @@
                     v-model:media="form.media"
                     :limit="1"
                 />
-            </panel-model>
+            </template>
 
-            <block-list v-model:blocks="form.blocks" />
-        </form>
+            <template #content="{ form }">
+                <block-list v-model:blocks="form.blocks" />
+            </template>
+        </form-container>
     </layout>
 </template>
 
 <script>
-    import { computed } from 'vue';
-    import { useForm, route } from '@/helpers';
-
     export default {
         props: {
             resource: Object,
@@ -59,29 +70,8 @@
         setup(props) {
             const action = props.resource === undefined ? 'create' : 'edit';
 
-            const form = useForm(`${action}.person`, props.resource, [
-                'name',
-                'slug',
-                'title',
-                'description',
-                'blocks',
-                'media',
-            ]);
-
-            const method = computed(() => (action === 'edit' ? 'put' : 'post'));
-            const url = computed(() =>
-                action === 'edit'
-                    ? route('admin.people.update', props.resource)
-                    : route('admin.people.store')
-            );
-
-            const pageTitle = computed(() => `person.action.${action}`);
-
             return {
-                form,
-                method,
-                url,
-                pageTitle,
+                action,
             };
         },
     };

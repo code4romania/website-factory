@@ -60,7 +60,7 @@ class ImportMediaCommand extends Command
         ]);
 
         CreateImageVariants::dispatchSync(
-            Media::whereImages()->whereIsOriginal()->get(),
+            Media::whereAggregateType('image')->whereIsOriginal()->get(),
             $this->variants()
         );
 

@@ -16,6 +16,7 @@ class SupportsTrait
         'publishable'  => \App\Traits\Publishable::class,
         'softDeletes'  => \Illuminate\Database\Eloquent\SoftDeletes::class,
         'sortable'     => \App\Traits\Sortable::class,
+        'slug'         => \App\Traits\HasSlug::class,
         'translatable' => \App\Traits\Translatable::class,
         'uuid'         => \App\Traits\HasUuid::class,
     ];

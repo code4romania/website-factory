@@ -40,6 +40,14 @@ class Form extends Model
         //
     ];
 
+    public $casts = [
+        'store_submissions' => 'boolean',
+        'send_submissions' => 'boolean',
+        'recipients' => 'array',
+    ];
+
+    public string $allowedBlockType = 'form';
+
     public function submissions(): HasMany
     {
         return $this->hasMany(FormSubmission::class);

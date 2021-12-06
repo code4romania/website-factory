@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Artesaos\SEOTools\Traits\SEOTools;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\View;
 
 class PageController extends Controller
 {

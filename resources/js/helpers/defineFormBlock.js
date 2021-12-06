@@ -3,19 +3,11 @@ import upperFirst from 'lodash/upperFirst';
 import { useBlock } from '@/helpers';
 export default function (block) {
     return {
-        name: 'Repeater' + upperFirst(camelCase(block.type)),
+        name: 'FormBlock' + upperFirst(camelCase(block.type)),
         props: {
             content: {
                 type: Object,
                 default: () => ({}),
-            },
-            children: {
-                type: Array,
-                default: () => [],
-            },
-            media: {
-                type: Array,
-                default: () => [],
             },
             ...block.props,
         },

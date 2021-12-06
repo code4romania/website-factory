@@ -11,7 +11,6 @@ class FormResource extends Resource
     public array $routeMap = [
         'admin.forms.index'  => 'index',
         // 'admin.forms.show'   => 'show',
-        // 'admin.forms.create' => 'create',
         'admin.forms.edit'   => 'edit',
     ];
 
@@ -31,6 +30,7 @@ class FormResource extends Resource
             'id'           => $this->id,
             'title'        => $this->getTranslations('title'),
             'created_at'   => $this->created_at->toDateTimeString(),
+            'published_at' => $this->published_at?->toDateTimeString(),
             'blocks'       => BlockResource::collection($this->blocks),
         ];
     }

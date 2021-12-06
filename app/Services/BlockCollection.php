@@ -16,58 +16,43 @@ class BlockCollection extends Collection
 
     public ?string $source;
 
-    public function __construct(string $type)
+    public function __construct(string $type = 'block')
     {
-        if (! \in_array($type, ['block', 'repeater'])) {
+        if (! \in_array($type, ['block', 'repeater', 'form'])) {
             throw new Exception('Invalid block type');
         }
 
         $this->filesystem = app(Filesystem::class);
 
-        $method = Str::camel("get-${type}-list");
-
-        parent::__construct($this->$method());
+        parent::__construct(
+            $this->getItems($type)
+        );
     }
 
-    private function getBlockList(): ?iterable
+    private function getItems(string $type): ?iterable
     {
-        $source = config('blocks.source_dir', resource_path('js/components/Blocks/Item'));
+        $source = \resource_path('js/components/Blocks/' . \ucfirst($type));
 
         if (! $this->filesystem->exists($source)) {
             return null;
         }
 
         return collect($this->filesystem->files($source))
-            ->map(fn (SplFileInfo $file) => $this->getBlockInfo($file, 'block'));
-    }
+            ->map(function (SplFileInfo $file) {
+                $component = (string) Str::of($this->filesystem->get($file))
+                    ->after('<script>')
+                    ->before('</script>');
 
-    private function getRepeaterList(): ?iterable
-    {
-        $source = config('blocks.source_dir', resource_path('js/components/Blocks/Repeater'));
-
-        if (! $this->filesystem->exists($source)) {
-            return null;
-        }
-
-        return collect($this->filesystem->files($source))
-            ->map(fn (SplFileInfo $file) => $this->getBlockInfo($file));
-    }
-
-    private function getBlockInfo(SplFileInfo $file): array
-    {
-        $component = (string) Str::of($this->filesystem->get($file))
-            ->after('<script>')
-            ->before('</script>');
-
-        return [
-            'icon' => $this->getProperty('icon', $component) ?? config('blocks.default_icon', 'Design/layout-top-2-line'),
-            'type' => $this->getProperty('type', $component) ?? Str::kebab(preg_replace('/(.vue|.js)$/u', '', $file->getFilename())),
-        ];
+                return [
+                    'icon' => $this->getProperty('icon', $component) ?? 'Design/layout-top-2-line',
+                    'type' => $this->getProperty('type', $component) ?? Str::kebab(preg_replace('/(.vue|.js)$/u', '', $file->getFilename())),
+                ];
+            });
     }
 
     private function getProperty(string $name, string $subject): ?string
     {
-        preg_match("/^\\s+{$name}: '([a-z0-9\/-]+)',$/uim", $subject, $matches);
+        \preg_match("/^\\s+{$name}: '([a-z0-9\/-]+)',$/uim", $subject, $matches);
 
         return $matches[1] ?? null;
     }

@@ -16,7 +16,7 @@
             >
                 <span
                     class="pr-3 text-lg font-medium text-gray-900"
-                    v-text="label || $t('field.content')"
+                    v-text="title || $t('field.content')"
                 />
 
                 <div class="flex-1 border-t border-gray-300" />
@@ -26,7 +26,7 @@
         <template #item="{ element, index }">
             <block-item
                 :id="element.id"
-                type="item"
+                :type="blockType"
                 :component="element.type"
                 :class="{ 'md:col-span-2': element.content.fullwidth }"
                 v-model:content="element.content"
@@ -51,25 +51,25 @@
                         class="w-5 h-5 mr-2 -ml-1"
                     />
 
-                    <span class=""> Add new block </span>
+                    <span v-text="action || $t('block.add-new')" />
                 </template>
 
                 <template #content>
                     <dropdown-item
-                        v-for="(blockType, index) in blockTypes"
+                        v-for="(item, index) in allowedBlocks"
                         :key="index"
                         type="button"
-                        @click="addBlock(blockType.type)"
+                        @click="addBlock(item.type)"
                         class="flex items-center"
                     >
                         <icon
-                            :name="blockType.icon"
+                            :name="item.icon"
                             class="w-5 h-5 mr-3 text-gray-500 group-hover:text-gray-600"
                         />
 
                         <span
                             class="flex-1"
-                            v-text="$t(`block.${blockType.type}`)"
+                            v-text="$t(`block.${item.type}`)"
                         />
                     </dropdown-item>
                 </template>
@@ -94,14 +94,24 @@
                 type: Array,
                 required: true,
             },
-            label: {
+            blockType: {
+                type: String,
+                default: 'block',
+            },
+            title: {
+                type: String,
+                default: null,
+            },
+            action: {
                 type: String,
                 default: null,
             },
         },
         emits: ['update:blocks'],
         setup(props) {
-            const blockTypes = computed(() => usePage().props.value.model.blocks);
+            const allowedBlocks = computed(
+                () => usePage().props.value.model.blocks
+            );
 
             const addBlock = (type) => {
                 props.blocks.push({
@@ -129,7 +139,7 @@
             };
 
             return {
-                blockTypes,
+                allowedBlocks,
                 addBlock,
                 duplicateBlock,
                 deleteBlock,

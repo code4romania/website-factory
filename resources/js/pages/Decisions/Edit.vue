@@ -1,7 +1,20 @@
 <template>
-    <layout :title="$t(pageTitle)">
-        <form @submit.prevent="form.submit(method, url)" class="grid gap-y-8">
-            <panel-model action="save" :form="form">
+    <layout :title="$t(`decision.action.${action}`)">
+        <form-container
+            :resource="resource"
+            :model="model"
+            :action="action"
+            :fields="[
+                'title',
+                'slug',
+                'description',
+                'layout',
+                'blocks',
+                'media',
+                'published_at',
+            ]"
+        >
+            <template #panel="{ form }">
                 <div class="space-y-1">
                     <localized-field
                         field="form-input"
@@ -30,17 +43,16 @@
                     required
                     v-model="form.description"
                 />
-            </panel-model>
+            </template>
 
-            <block-list v-model:blocks="form.blocks" />
-        </form>
+            <template #content="{ form }">
+                <block-list v-model:blocks="form.blocks" />
+            </template>
+        </form-container>
     </layout>
 </template>
 
 <script>
-    import { computed } from 'vue';
-    import { useForm, route } from '@/helpers';
-
     export default {
         props: {
             resource: Object,
@@ -49,29 +61,8 @@
         setup(props) {
             const action = props.resource === undefined ? 'create' : 'edit';
 
-            const form = useForm(`${action}.decision`, props.resource, [
-                'title',
-                'slug',
-                'description',
-                'layout',
-                'blocks',
-                'media',
-            ]);
-
-            const method = computed(() => (action === 'edit' ? 'put' : 'post'));
-            const url = computed(() =>
-                action === 'edit'
-                    ? route('admin.decisions.update', props.resource)
-                    : route('admin.decisions.store')
-            );
-
-            const pageTitle = computed(() => `decision.action.${action}`);
-
             return {
-                form,
-                method,
-                url,
-                pageTitle,
+                action,
             };
         },
     };

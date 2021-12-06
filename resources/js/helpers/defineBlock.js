@@ -4,7 +4,7 @@ import { useBlock } from '@/helpers';
 
 export default function (block) {
     return {
-        name: 'BlockItem' + upperFirst(camelCase(block.type)),
+        name: 'Block' + upperFirst(camelCase(block.type)),
         props: {
             content: {
                 type: Object,

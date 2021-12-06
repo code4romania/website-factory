@@ -34,7 +34,7 @@ class PageResource extends Resource
             'slug'         => $this->getTranslations('slug'),
             'layout'       => $this->layout,
             'created_at'   => $this->created_at->toDateTimeString(),
-            'published_at' => optional($this->published_at)->toDateTimeString(),
+            'published_at' => $this->published_at?->toDateTimeString(),
             'blocks'       => BlockResource::collection($this->blocks),
             'media'        => MediaResource::collection(
                 $this->media()->whereIsOriginal()->get()

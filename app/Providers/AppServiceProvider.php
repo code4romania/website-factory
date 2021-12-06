@@ -15,6 +15,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use Inertia\Response;
 
 class AppServiceProvider extends ServiceProvider
@@ -97,8 +98,7 @@ class AppServiceProvider extends ServiceProvider
             $traits = \class_uses_recursive($model);
 
             if (SupportsTrait::blocks($model)) {
-                $blocks = (new BlockCollection('block'))->all();
-                $repeaters = (new BlockCollection('repeater'))->all();
+                $blocks = (new BlockCollection($model->allowedBlockType ?? 'block'))->all();
             }
 
             if (\in_array(HasLayout::class, $traits)) {
@@ -109,12 +109,16 @@ class AppServiceProvider extends ServiceProvider
                 $translatable = $model->translatable;
             }
 
+            $morphClass = $model->getMorphClass();
+
             return $this->with([
                 'model' => [
-                    'blocks'       => $blocks ?? [],
-                    'repeaters'    => $repeaters ?? [],
-                    'layouts'      => $layouts ?? [],
-                    'translatable' => $translatable ?? [],
+                    'name'               => $morphClass,
+                    'admin_route_prefix' => 'admin.' . Str::plural($morphClass),
+                    'front_route_prefix' => 'front.' . Str::plural($morphClass),
+                    'blocks'             => $blocks ?? [],
+                    'layouts'            => $layouts ?? [],
+                    'translatable'       => $translatable ?? [],
                 ],
             ]);
         });
