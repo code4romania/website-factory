@@ -7,10 +7,26 @@
     />
 
     <localized-field
-        field="form-textarea"
+        field="form-editor"
         :label="$t('field.text')"
         required
         v-model="content.text"
+    />
+
+    <localized-field
+        field="form-input"
+        type="text"
+        :label="$t('field.button_text')"
+        :name="`${prefix}.button_text`"
+        v-model="content.button_text"
+    />
+
+    <localized-field
+        field="form-input"
+        type="url"
+        :label="$t('field.button_url')"
+        :name="`${prefix}.button_url`"
+        v-model="content.button_url"
     />
 </template>
 
@@ -23,6 +39,8 @@
         fields: {
             title: Object,
             text: Object,
+            button_text: Object,
+            button_url: Object,
         },
     });
 </script>

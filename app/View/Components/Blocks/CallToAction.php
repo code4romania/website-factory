@@ -8,9 +8,11 @@ class CallToAction extends BlockComponent
 {
     public ?string $title;
 
-    public ?string $html = null;
+    public ?string $html;
 
-    public bool $fullwidth;
+    public ?string $button_url;
+
+    public ?string $button_text;
 
     public function setup(): void
     {
@@ -18,6 +20,7 @@ class CallToAction extends BlockComponent
 
         $this->html = $this->block->translatedInput('text');
 
-        $this->fullwidth = $this->block->checkbox('fullwidth');
+        $this->button_url = $this->block->translatedInput('button_url');
+        $this->button_text = $this->block->translatedInput('button_text');
     }
 }
