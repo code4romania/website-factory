@@ -78,7 +78,7 @@ class User extends Authenticatable implements HasLocalePreference
     {
         static::creating(function (self $user) {
             if (! $user->password) {
-                $user->password = Str::random(64);
+                $user->password = Hash::make(Str::random(64));
             }
         });
     }
@@ -91,10 +91,5 @@ class User extends Authenticatable implements HasLocalePreference
     public function preferredLocale(): ?string
     {
         return $this->locale;
-    }
-
-    public function setPasswordAttribute(string $value): void
-    {
-        $this->attributes['password'] = Hash::make($value);
     }
 }
