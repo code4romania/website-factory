@@ -3,7 +3,7 @@
 @section('content')
     <header
         class="container relative flex flex-col items-center justify-center my-16 text-center sm:my-24 lg:my-32">
-        <h1 class="text-3xl font-extrabold text-gray-900 md:text-4xl lg:text-5xl">
+        <h1 class="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
             {{ $page->title }}
         </h1>
 

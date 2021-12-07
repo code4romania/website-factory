@@ -15,4 +15,8 @@
     <div class="relative block w-full">
         {{ $slot }}
     </div>
+
+    @if ($block->translatedInput('help'))
+        <p class="mt-2 text-sm text-gray-500">{{ $block->translatedInput('help') }}</p>
+    @endif
 </label>

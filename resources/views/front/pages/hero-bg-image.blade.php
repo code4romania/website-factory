@@ -13,7 +13,7 @@
             <div class="absolute inset-0 bg-teal-700 mix-blend-multiply"></div>
 
             <div class="relative px-6 py-24 space-y-8 text-center sm:px-12 md:py-32 lg:py-40">
-                <h1 class="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
+                <h1 class="text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
                     {{ $page->title }}
                 </h1>
 

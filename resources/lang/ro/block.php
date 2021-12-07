@@ -19,6 +19,10 @@ return [
     'image'          => 'Imagine',
     'images'         => 'Imagini',
     'o-embed'        => 'oEmbed',
+    'people'         => 'Persoane',
     'text'           => 'Text',
+
+    'email'  => 'Email',
+    'link'   => 'Link',
 
 ];

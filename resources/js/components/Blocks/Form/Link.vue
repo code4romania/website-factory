@@ -3,6 +3,7 @@
         field="form-input"
         :label="$t('field.label')"
         v-model="content.label"
+        required
     />
 
     <localized-field

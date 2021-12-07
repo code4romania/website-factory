@@ -4,16 +4,26 @@
             :resource="resource"
             :model="model"
             :action="action"
-            :fields="['title', 'blocks', 'published_at']"
+            :fields="['title', 'slug', 'blocks']"
         >
             <template #panel="{ form }">
-                <localized-field
-                    field="form-input"
-                    :label="$t('field.title')"
-                    name="title"
-                    v-model="form.title"
-                    required
-                />
+                <div class="space-y-1">
+                    <localized-field
+                        field="form-input"
+                        :label="$t('field.title')"
+                        name="title"
+                        v-model="form.title"
+                        required
+                    />
+
+                    <form-slug
+                        :label="$t('field.slug')"
+                        name="slug"
+                        v-model="form.slug"
+                        route-name="front.forms.show"
+                        route-key="form"
+                    />
+                </div>
             </template>
 
             <template #content="{ form }">
@@ -29,13 +39,17 @@
 </template>
 
 <script>
+    import { computed } from 'vue';
+
     export default {
         props: {
             resource: Object,
             model: Object,
         },
         setup(props) {
-            const action = props.resource === undefined ? 'create' : 'edit';
+            const action = computed(() =>
+                props.resource === undefined ? 'create' : 'edit'
+            );
 
             return {
                 action,

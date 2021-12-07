@@ -13,9 +13,16 @@ return [
         'delete' => 'Șterge utilizator',
     ],
 
+    'event' => [
+        'created' => 'Utilizatorul a fost creat.',
+        'updated' => 'Utilizatorul a fost actualizat.',
+        'deleted' => 'Utilizatorul a fost șters.',
+    ],
+
     'role' => [
-        'admin' => 'Administrator',
-        'user' => 'Utilizator',
+        'admin'  => 'Administrator',
+        'editor' => 'Editor',
+        'user'   => 'Utilizator',
     ],
 
 ];

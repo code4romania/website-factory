@@ -31,6 +31,7 @@ class PostRequest extends BaseRequest
             'title'               => ['required', 'string', 'max:200'],
             'slug'                => ['required', 'string', 'max:200'],
             'description'         => ['required', 'string'],
+            'published_at'        => ['nullable', 'date'],
             'categories'          => ['array'],
             'categories.*'        => ['required', 'exists:post_categories,id'],
             'media'               => ['array'],

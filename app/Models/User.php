@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable implements HasLocalePreference
 {
@@ -68,6 +70,20 @@ class User extends Authenticatable implements HasLocalePreference
     }
 
     /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::creating(function (self $user) {
+            if (! $user->password) {
+                $user->password = Str::random(64);
+            }
+        });
+    }
+
+    /**
      * Get the user’s preferred locale.
      *
      * @return string|null
@@ -75,5 +91,10 @@ class User extends Authenticatable implements HasLocalePreference
     public function preferredLocale(): ?string
     {
         return $this->locale;
+    }
+
+    public function setPasswordAttribute(string $value): void
+    {
+        $this->attributes['password'] = Hash::make($value);
     }
 }

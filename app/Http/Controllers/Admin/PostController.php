@@ -25,7 +25,6 @@ class PostController extends AdminController
                     ->filter()
                     ->paginate()
             ),
-            'categories' => PostCategory::all(['id', 'title']),
             'subnav' => $this->subnav(),
         ]);
     }
@@ -33,7 +32,8 @@ class PostController extends AdminController
     public function create(): Response
     {
         return Inertia::render('Posts/Edit', [
-            //
+            'categories' => PostCategory::all(['id', 'title']),
+            'subnav' => $this->subnav(),
         ])->model(Post::class);
     }
 

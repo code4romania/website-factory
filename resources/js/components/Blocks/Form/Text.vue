@@ -3,6 +3,7 @@
         field="form-input"
         :label="$t('field.label')"
         v-model="content.label"
+        required
     />
 
     <localized-field
@@ -26,7 +27,7 @@
 
     export default defineFormBlock({
         type: 'text',
-        icon: 'Media/image-2-line',
+        icon: 'Editor/text',
         fields: {
             label: Object,
             help: Object,

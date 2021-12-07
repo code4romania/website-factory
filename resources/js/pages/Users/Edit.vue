@@ -23,18 +23,23 @@
                     required
                 />
 
-                <form-input
-                    type="text"
+                <form-select
                     :label="$t('field.role')"
                     name="role"
+                    :options="
+                        ['admin', 'editor', 'user'].map((role) => ({
+                            label: $t(`user.role.${role}`),
+                            value: role,
+                        }))
+                    "
                     v-model="form.role"
                     required
                 />
 
-                <form-input
-                    type="text"
+                <form-select
                     :label="$t('field.locale')"
                     name="locale"
+                    :options="['ro', 'en']"
                     v-model="form.locale"
                     required
                 />
@@ -44,13 +49,17 @@
 </template>
 
 <script>
+    import { computed } from 'vue';
+
     export default {
         props: {
             resource: Object,
             model: Object,
         },
         setup(props) {
-            const action = props.resource === undefined ? 'create' : 'edit';
+            const action = computed(() =>
+                props.resource === undefined ? 'create' : 'edit'
+            );
 
             return {
                 action,

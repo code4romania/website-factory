@@ -13,6 +13,13 @@ return [
         'delete' => 'Șterge formular',
     ],
 
+    'event' => [
+        'created' => 'Formularul a fost creat.',
+        'updated' => 'Formularul a fost actualizat.',
+        'deleted' => 'Formularul a fost șters.',
+        'sent'    => 'Formularul a fost trimis cu succes.',
+    ],
+
     'empty' => [
         'title' => 'No forms',
         'description' => 'Get started by creating a new form',

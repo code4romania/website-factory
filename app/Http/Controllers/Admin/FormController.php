@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\FormRequest;
 use App\Http\Resources\Collections\FormCollection;
 use App\Http\Resources\FormResource;
@@ -13,7 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class FormController extends Controller
+class FormController extends AdminController
 {
     public function index(): Response
     {
@@ -42,7 +41,7 @@ class FormController extends Controller
 
         $form->saveBlocks($attributes['blocks']);
 
-        return redirect()->route('admin.forms.show', $form)
+        return redirect()->route('admin.forms.edit', $form)
             ->with('success', __('form.event.created'));
     }
 
@@ -70,15 +69,7 @@ class FormController extends Controller
 
         $form->saveBlocks($attributes['blocks']);
 
-        return redirect()->route('admin.forms.show', $form)
+        return redirect()->route('admin.forms.edit', $form)
             ->with('success', __('form.event.updated'));
-    }
-
-    public function destroy(Form $form): RedirectResponse
-    {
-        $form->delete();
-
-        return redirect()->route('admin.forms.show', $form)
-            ->with('success', __('form.event.deleted'));
     }
 }

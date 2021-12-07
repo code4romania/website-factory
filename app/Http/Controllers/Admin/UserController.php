@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UserRequest;
 use App\Http\Resources\Collections\UserCollection;
 use App\Http\Resources\UserResource;
 use App\Models\User;
@@ -12,13 +12,8 @@ use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class UserController extends Controller
+class UserController extends AdminController
 {
-    public function __construct()
-    {
-        // $this->authorizeResource(User::class);
-    }
-
     public function index(): Response
     {
         return Inertia::render('Users/Index', [
@@ -40,9 +35,11 @@ class UserController extends Controller
 
     public function store(UserRequest $request): RedirectResponse
     {
-        $user = User::create($request->validated());
+        $attributes = $request->validated();
 
-        return redirect()->route('admin.users.show', $user)
+        $user = User::create($attributes);
+
+        return redirect()->route('admin.users.edit', $user)
             ->with('success', __('user.event.created'));
     }
 
@@ -55,11 +52,15 @@ class UserController extends Controller
 
     public function update(UserRequest $request, User $user): RedirectResponse
     {
-        $user->fill($request->validated());
+        $attributes = $request->validated();
+
+        // dd($attributes);
+
+        $user->fill($attributes);
 
         $user->save();
 
-        return redirect()->route('admin.users.show', $user)
+        return redirect()->route('admin.users.edit', $user)
             ->with('success', __('user.event.updated'));
     }
 }

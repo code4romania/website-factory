@@ -19,6 +19,7 @@ class FormResource extends Resource
         return [
             'id'         => $this->id,
             'title'      => $this->title,
+            'slug'       => $this->uuid,
             'created_at' => $this->created_at->toDateTimeString(),
             'trashed'    => $this->trashed(),
         ];
@@ -29,8 +30,9 @@ class FormResource extends Resource
         return [
             'id'           => $this->id,
             'title'        => $this->getTranslations('title'),
+            'slug'         => $this->uuid,
             'created_at'   => $this->created_at->toDateTimeString(),
-            'published_at' => $this->published_at?->toDateTimeString(),
+            // 'published_at' => $this->published_at?->toDateTimeString(),
             'blocks'       => BlockResource::collection($this->blocks),
         ];
     }

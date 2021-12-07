@@ -54,6 +54,8 @@
 </template>
 
 <script>
+    import { computed } from 'vue';
+
     export default {
         props: {
             resource: Object,
@@ -61,7 +63,9 @@
             subnav: Array,
         },
         setup(props) {
-            const action = props.resource === undefined ? 'create' : 'edit';
+            const action = computed(() =>
+                props.resource === undefined ? 'create' : 'edit'
+            );
 
             return {
                 action,

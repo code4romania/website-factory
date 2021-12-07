@@ -4,7 +4,7 @@
     <header class="relative mb-16 sm:mb-24 lg:mb-32">
         <div class="container grid py-8 sm:py-12 lg:py-16 lg:grid-cols-2 lg:min-h-[50vh] items-center">
             <div class="space-y-8">
-                <h1 class="text-4xl font-extrabold text-gray-900 md:text-5xl lg:text-6xl">
+                <h1 class="text-4xl font-bold text-gray-900 md:text-5xl lg:text-6xl">
                     {{ $page->title }}
                 </h1>
 

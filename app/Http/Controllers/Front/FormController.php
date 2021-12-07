@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Form;
 use Artesaos\SEOTools\Traits\SEOTools;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class FormController extends Controller
@@ -24,8 +25,13 @@ class FormController extends Controller
         ]);
     }
 
-    public function submit(string $locale, Request $request, Form $form)
+    public function submit(string $locale, Request $request, Form $form): RedirectResponse
     {
-        dd($request->all());
+        $form->loadMissing('blocks');
+
+        // dd($request->all());
+
+        return redirect()->route('front.forms.show', ['form' => $form])
+            ->with('success', __('form.event.sent'));
     }
 }
