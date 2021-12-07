@@ -3,11 +3,11 @@
 <div @class(['grid gap-x-8 gap-y-16', $columns])>
     @foreach ($items as $item)
         <div @class([
-            'bg-white shadow-lg rounded-lg overflow-hidden' => $shadow,
+            'bg-white shadow-lg rounded-lg overflow-hidden flex flex-col' => $shadow,
         ])>
             <div
                 @class([
-                    'px-4 py-5 sm:p-6' => $shadow,
+                    'px-4 py-5 sm:p-6 flex-1' => $shadow,
                 ])>
                 <dt>
                     @if ($item->input('icon'))
