@@ -11,6 +11,7 @@ return [
     'call-to-action' => 'Call to action',
     'card-item'      => 'Card',
     'cards'          => 'Carduri',
+    'divider'        => 'Separator',
     'header'         => 'Header',
     'hero-bg-image'  => 'Header cu imagine pe fundal',
     'image-grid'     => 'Grilă de imagini',
