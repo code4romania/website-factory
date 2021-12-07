@@ -12,6 +12,24 @@
         v-model="content.text"
     />
 
+    <form-select
+        :label="$t('field.position')"
+        v-model="content.position"
+        :options="['left', 'right']"
+    />
+
+    <form-select
+        :label="$t('field.image_width')"
+        v-model="content.width"
+        :options="['25%', '33%', '50%']"
+    />
+
+    <form-select
+        :label="$t('field.align')"
+        v-model="content.align"
+        :options="['top', 'center', 'bottom']"
+    />
+
     <form-media :label="$t('field.image')" v-model:media="media" :limit="1" />
 </template>
 
@@ -24,6 +42,9 @@
         fields: {
             title: Object,
             text: Object,
+            position: String,
+            align: String,
+            width: String,
         },
     });
 </script>

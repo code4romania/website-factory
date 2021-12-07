@@ -4,7 +4,7 @@
     'caption' => '',
 ])
 
-<figure class="">
+<figure {{ $attributes->class('') }}>
     <x-media.image :src="$src" :alt="$alt" />
 
     @if ($caption)
