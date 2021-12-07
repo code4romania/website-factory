@@ -7,7 +7,6 @@
                 {!! $html !!}
             </div>
 
-
             @if ($button_url && $button_text)
                 <a href="{{ $button_url }}"
                     class="items-center block w-full px-5 py-3 mt-8 text-base font-medium text-center text-teal-600 bg-white border border-transparent rounded-md shadow sm:w-auto sm:inline-block hover:bg-teal-50">

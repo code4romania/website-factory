@@ -21,6 +21,7 @@ class CallToAction extends BlockComponent
         $this->html = $this->block->translatedInput('text');
 
         $this->button_url = $this->block->translatedInput('button_url');
+
         $this->button_text = $this->block->translatedInput('button_text');
     }
 }

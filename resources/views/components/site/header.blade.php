@@ -1,3 +1,5 @@
+<x-site.code4 />
+
 <header x-data="{ menuOpen: false }" x-on:click.outside="menuOpen = false" class="relative bg-teal-700">
     <nav class="container text-white lg:divide-teal-600 lg:divide-y">
         <div class="relative flex items-center justify-between py-4">

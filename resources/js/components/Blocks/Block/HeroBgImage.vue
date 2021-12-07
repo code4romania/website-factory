@@ -12,6 +12,22 @@
         v-model="content.text"
     />
 
+    <localized-field
+        field="form-input"
+        type="text"
+        :label="$t('field.button_text')"
+        :name="`${prefix}.button_text`"
+        v-model="content.button_text"
+    />
+
+    <localized-field
+        field="form-input"
+        type="url"
+        :label="$t('field.button_url')"
+        :name="`${prefix}.button_url`"
+        v-model="content.button_url"
+    />
+
     <form-media :label="$t('field.image')" v-model:media="media" :limit="1" />
 </template>
 
@@ -24,6 +40,8 @@
         fields: {
             title: Object,
             text: Object,
+            button_text: Object,
+            button_url: Object,
         },
     });
 </script>

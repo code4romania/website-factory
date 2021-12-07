@@ -14,6 +14,10 @@ class HeroBgImage extends BlockComponent
 
     public ?Media $image;
 
+    public ?string $button_url;
+
+    public ?string $button_text;
+
     public function setup(): void
     {
         $this->title = $this->block->translatedInput('title');
@@ -21,5 +25,9 @@ class HeroBgImage extends BlockComponent
         $this->text = $this->block->translatedInput('text');
 
         $this->image = $this->block->firstMedia('image');
+
+        $this->button_url = $this->block->translatedInput('button_url');
+
+        $this->button_text = $this->block->translatedInput('button_text');
     }
 }

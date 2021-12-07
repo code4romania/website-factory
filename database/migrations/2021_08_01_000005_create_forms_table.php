@@ -23,6 +23,7 @@ return new class extends Migration {
             $table->json('recipients')->nullable();
 
             $table->json('title')->nullable();
+            $table->json('description')->nullable();
         });
     }
 };

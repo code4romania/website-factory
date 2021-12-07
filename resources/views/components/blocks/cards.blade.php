@@ -16,9 +16,11 @@
                         </div>
                     @endif
 
-                    <p class="mt-5 text-lg font-semibold leading-6 text-gray-900">
-                        {{ $item->translatedInput('title') }}
-                    </p>
+                    @if ($item->translatedInput('title'))
+                        <p class="mt-5 text-lg font-semibold leading-6 text-gray-900">
+                            {{ $item->translatedInput('title') }}
+                        </p>
+                    @endif
                 </dt>
                 <dd class="mt-2 prose prose-blue">
                     {!! $item->translatedInput('text') !!}

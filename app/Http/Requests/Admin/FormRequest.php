@@ -29,6 +29,7 @@ class FormRequest extends BaseRequest
     {
         return TranslatableFormRequestRules::make(Page::class, [
             'title'               => ['required', 'string', 'max:200'],
+            'description'         => ['required', 'string'],
             'published_at'        => ['nullable', 'date'],
             'blocks'              => ['array'],
             'blocks.*.id'         => ['required', 'numeric', 'integer'],

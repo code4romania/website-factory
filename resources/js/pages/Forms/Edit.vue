@@ -4,7 +4,7 @@
             :resource="resource"
             :model="model"
             :action="action"
-            :fields="['title', 'slug', 'blocks']"
+            :fields="['title', 'slug', 'description', 'blocks']"
         >
             <template #panel="{ form }">
                 <div class="space-y-1">
@@ -24,6 +24,14 @@
                         route-key="form"
                     />
                 </div>
+
+                <localized-field
+                    field="form-editor"
+                    name="description"
+                    :label="$t('field.description')"
+                    required
+                    v-model="form.description"
+                />
             </template>
 
             <template #content="{ form }">

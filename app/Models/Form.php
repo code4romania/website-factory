@@ -29,7 +29,7 @@ class Form extends Model
     use Translatable;
 
     public array $translatable = [
-        'title',
+        'title', 'description',
     ];
 
     public array $allowedSorts = [

@@ -14,5 +14,12 @@
         <div class="mx-auto prose text-white max-w-prose sm:prose-lg md:prose-xl">
             {!! $text !!}
         </div>
+
+        @if ($button_url && $button_text)
+            <a href="{{ $button_url }}"
+                class="items-center block w-full px-5 py-3 mt-8 text-base font-medium text-center text-teal-600 bg-white border border-transparent rounded-md shadow sm:w-auto sm:inline-block hover:bg-teal-50">
+                {{ $button_text }}
+            </a>
+        @endif
     </div>
 </div>

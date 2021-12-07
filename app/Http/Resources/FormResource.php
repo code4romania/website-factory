@@ -30,6 +30,7 @@ class FormResource extends Resource
         return [
             'id'           => $this->id,
             'title'        => $this->getTranslations('title'),
+            'description'  => $this->getTranslations('description'),
             'slug'         => $this->uuid,
             'created_at'   => $this->created_at->toDateTimeString(),
             // 'published_at' => $this->published_at?->toDateTimeString(),

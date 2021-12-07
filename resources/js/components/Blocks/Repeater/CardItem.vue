@@ -4,7 +4,6 @@
     <localized-field
         field="form-input"
         :label="$t('field.title')"
-        required
         v-model="content.title"
     />
 
