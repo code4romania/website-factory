@@ -4,6 +4,7 @@ import { ZiggyVue } from 'ziggy-js/dist/vue';
 import mitt from 'mitt';
 
 import registerComponents from '@/plugins/registerComponents';
+import progress from '@/plugins/progress';
 import i18n from '@/plugins/i18n';
 
 createInertiaApp({
@@ -14,6 +15,7 @@ createInertiaApp({
             .use(ZiggyVue)
             .use(plugin)
             .use(registerComponents)
+            .use(progress)
             .use(i18n)
             .component('InertiaHead', Head)
             .component('InertiaLink', Link)

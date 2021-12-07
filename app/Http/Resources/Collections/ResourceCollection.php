@@ -17,7 +17,7 @@ abstract class ResourceCollection extends BaseCollection
     /**
      * The collection's corresponding model.
      *
-     * @var string
+     * @var \Illuminate\Database\Eloquent\Model
      */
     protected Model $model;
 
