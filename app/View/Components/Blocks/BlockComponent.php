@@ -12,6 +12,8 @@ abstract class BlockComponent extends Component
 {
     protected Block $block;
 
+    public bool $fullwidth;
+
     /**
      * Create a new component instance.
      *
@@ -20,6 +22,8 @@ abstract class BlockComponent extends Component
     final public function __construct(Block $block)
     {
         $this->block = $block;
+
+        $this->fullwidth = $block->checkbox('fullwidth');
 
         $this->setup();
     }
