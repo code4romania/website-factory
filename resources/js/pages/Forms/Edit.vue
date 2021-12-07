@@ -4,7 +4,14 @@
             :resource="resource"
             :model="model"
             :action="action"
-            :fields="['title', 'slug', 'description', 'blocks']"
+            :fields="[
+                'title',
+                'slug',
+                'description',
+                'store_submissions',
+                'send_submissions',
+                'blocks',
+            ]"
         >
             <template #panel="{ form }">
                 <div class="space-y-1">
@@ -31,6 +38,26 @@
                     :label="$t('field.description')"
                     required
                     v-model="form.description"
+                />
+
+                <form-checkbox
+                    name="store_submissions"
+                    :label="$t('field.store_submissions')"
+                    v-model="form.store_submissions"
+                />
+
+                <form-checkbox
+                    name="send_submissions"
+                    :label="$t('field.send_submissions')"
+                    v-model="form.send_submissions"
+                />
+
+                <form-textarea
+                    v-if="form.send_submissions"
+                    :label="$t('field.recipients')"
+                    name="recipients"
+                    v-model="form.recipients"
+                    required
                 />
             </template>
 
