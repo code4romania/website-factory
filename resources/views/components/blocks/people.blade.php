@@ -1,8 +1,6 @@
 <div class="grid gap-8 lg:grid-cols-3">
     <div>
-        @if ($title)
-            <h2 class="mb-4 text-xl font-bold sm:text-2xl md:text-3xl">{{ $title }}</h2>
-        @endif
+        <x-blocks._title :title="$title" />
 
         <div class="prose text-gray-500 prose-blue md:prose-lg max-w-prose">
             {!! $html !!}

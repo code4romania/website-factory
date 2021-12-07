@@ -1,5 +1,12 @@
 <template>
     <localized-field
+        field="form-input"
+        :label="$t('field.title')"
+        required
+        v-model="content.title"
+    />
+
+    <localized-field
         field="form-editor"
         label="Text"
         required
@@ -13,6 +20,7 @@
     export default defineBlock({
         type: 'text',
         fields: {
+            title: Object,
             text: Object,
         },
     });

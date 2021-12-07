@@ -1,6 +1,4 @@
-@if ($title)
-    <h1 class="text-xl font-semibold sm:text-2xl">{{ $title }}</h1>
-@endif
+<x-blocks._title :title="$title" />
 
 <div class="prose prose-blue md:prose-lg">
     {!! $html !!}

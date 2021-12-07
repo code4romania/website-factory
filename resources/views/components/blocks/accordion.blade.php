@@ -1,8 +1,6 @@
-@if ($title)
-    <h1 class="text-xl font-semibold">{{ $title }}</h1>
-@endif
+<x-blocks._title :title="$title" />
 
-<dl class="mt-4 divide-y divide-gray-200">
+<dl class="divide-y divide-gray-200">
     @foreach ($items as $item)
         <div x-data="{ isOpen: false }" class="py-4">
             <dt>

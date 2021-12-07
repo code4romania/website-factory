@@ -2,7 +2,7 @@
     'relative py-16 space-y-8 sm:py-24 flex flex-col',
     'text-center items-center justify-center' => $center,
 ])>
-    <h1 class="text-3xl font-extrabold text-gray-900 md:text-4xl lg:text-5xl">
+    <h1 class="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
         {{ $title }}
     </h1>
 

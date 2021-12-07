@@ -1,6 +1,4 @@
-@if ($title)
-    <h1 class="text-xl font-semibold">{{ $title }}</h1>
-@endif
+<x-blocks._title :title="$title" />
 
 <div @class(['grid gap-8', $columns])>
     @foreach ($images as $image)

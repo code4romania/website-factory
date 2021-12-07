@@ -1,5 +1,3 @@
-@if ($title)
-    <h1 class="text-xl font-semibold">{{ $title }}</h1>
-@endif
+<x-blocks._title :title="$title" />
 
 <x-media.figure :src="$image->getUrl()" :caption="$image->caption" />

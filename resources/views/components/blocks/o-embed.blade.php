@@ -1,6 +1,4 @@
-@if ($title)
-    <h1 class="mb-2 text-xl font-semibold">{{ $title }}</h1>
-@endif
+<x-blocks._title :title="$title" />
 
 <div class="{{ $aspectRatio }}">
     {!! $html !!}
