@@ -20,13 +20,13 @@
                         <icon
                             v-if="toastType === 'success'"
                             name="System/checkbox-circle-line"
-                            class="flex-shrink-0 w-6 h-6 text-green-400"
+                            class="shrink-0 w-6 h-6 text-green-400"
                         />
 
                         <icon
                             v-else-if="toastType === 'error'"
                             name="System/error-warning-line"
-                            class="flex-shrink-0 w-6 h-6 text-red-400"
+                            class="shrink-0 w-6 h-6 text-red-400"
                         />
 
                         <div class="flex-1 pt-0.5 text-sm space-y-1">
@@ -42,7 +42,7 @@
                             />
                         </div>
 
-                        <div class="flex flex-shrink-0">
+                        <div class="flex shrink-0">
                             <button
                                 @click="visible = false"
                                 class="inline-flex text-gray-400 bg-white hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 p-0.5"

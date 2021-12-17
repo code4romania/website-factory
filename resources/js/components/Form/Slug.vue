@@ -9,7 +9,7 @@
 
         <icon
             name="System/external-link-line"
-            class="flex-shrink-0 w-3 h-3 ml-1"
+            class="shrink-0 w-3 h-3 ml-1"
         />
     </a>
 </template>

@@ -26,7 +26,7 @@
                         {{ $decision->title }}
                     </p>
 
-                    <div class="flex flex-shrink-0 ml-2">
+                    <div class="flex shrink-0 ml-2">
                         <p
                             class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
                             Hotărâre
@@ -37,14 +37,14 @@
                 <div class="sm:flex sm:justify-between">
                     <div class="space-y-2 text-sm text-gray-500 sm:flex sm:space-y-0 sm:space-x-6">
                         <p class="flex items-center">
-                            <x-ri-calendar-event-fill class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" />
+                            <x-ri-calendar-event-fill class="shrink-0 mr-1.5 h-5 w-5 text-gray-400" />
 
                             <time
                                 datetime="{{ $decision->created_at->toDateString() }}">{{ $decision->created_at->toDateString() }}</time>
                         </p>
                         <p class="flex items-center">
                             <!-- Heroicon name: solid/location-marker -->
-                            <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+                            <svg class="shrink-0 mr-1.5 h-5 w-5 text-gray-400"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 aria-hidden="true">
                                 <path fill-rule="evenodd"
@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="flex items-center mt-2 text-sm text-gray-500 sm:mt-0">
-                        <x-ri-calendar-event-fill class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" />
+                        <x-ri-calendar-event-fill class="shrink-0 mr-1.5 h-5 w-5 text-gray-400" />
 
                         <time
                             datetime="{{ $decision->created_at->toDateString() }}">{{ $decision->created_at->toDateString() }}</time>

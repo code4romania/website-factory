@@ -3,7 +3,7 @@
         <div class="container lg:divide-gray-700 lg:divide-y">
             <div class="relative flex items-center justify-between h-16">
                 <div class="flex items-center px-2 lg:px-0">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <app-logo class="block h-10" light link />
                     </div>
                 </div>

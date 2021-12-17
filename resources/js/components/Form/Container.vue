@@ -23,7 +23,11 @@
                                 {{ form.published_at }}
                             </template>
 
-                            <form-datepicker v-model="form.published_at" />
+                            <form-datepicker
+                                v-model="form.published_at"
+                                :default-date="new Date()"
+                                enable-time
+                            />
                         </accordion>
                     </div>
                 </template>

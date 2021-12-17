@@ -40,7 +40,7 @@
                         class="flex items-center font-semibold text-teal-600 hover:underline">
                         {{ $item->translatedInput('button_text') }}
 
-                        <x-ri-arrow-right-line class="flex-shrink-0 w-5 h-5 ml-2" />
+                        <x-ri-arrow-right-line class="shrink-0 w-5 h-5 ml-2" />
                     </a>
                 </div>
             @endif

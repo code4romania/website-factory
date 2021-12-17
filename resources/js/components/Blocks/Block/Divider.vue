@@ -7,6 +7,6 @@
 
     export default defineBlock({
         type: 'divider',
-        icon: 'Editor/space',
+        icon: 'Editor/separator',
     });
 </script>

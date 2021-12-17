@@ -17,7 +17,7 @@
 
                     <icon
                         name="System/arrow-right-line"
-                        class="flex-shrink-0 w-4 h-4 ml-2 opacity-0 group-hover:opacity-100"
+                        class="shrink-0 w-4 h-4 ml-2 opacity-0 group-hover:opacity-100"
                     />
                 </div>
 

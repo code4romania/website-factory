@@ -17,7 +17,7 @@
         @if (session()->has('success'))
             <div class="p-4 rounded-md bg-green-50">
                 <div class="flex">
-                    <x-ri-mail-send-fill class="flex-shrink-0 w-5 h-5 text-green-400" />
+                    <x-ri-mail-send-fill class="shrink-0 w-5 h-5 text-green-400" />
 
                     <p class="ml-3 text-sm font-medium text-green-800">
                         {{ session()->get('success') }}

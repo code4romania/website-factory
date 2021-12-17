@@ -38,7 +38,7 @@
                     <input type="email" name="email-address" id="email-address" autocomplete="email" required
                         class="w-full min-w-0 px-4 py-2 text-base text-gray-900 placeholder-gray-500 bg-white border border-transparent rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white focus:placeholder-gray-400"
                         placeholder="Enter your email">
-                    <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+                    <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:shrink-0">
                         <button type="submit"
                             class="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white bg-teal-500 border border-transparent rounded-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-teal-500">
                             Subscribe

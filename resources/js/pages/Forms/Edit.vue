@@ -10,6 +10,7 @@
                 'description',
                 'store_submissions',
                 'send_submissions',
+                'recipients',
                 'blocks',
             ]"
         >

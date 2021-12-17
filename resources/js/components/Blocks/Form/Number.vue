@@ -16,18 +16,14 @@
 
     <form-input
         type="number"
-        :label="$t('field.min_length')"
-        help="0 = disabled"
-        v-model.number="content.min_length"
-        :min="0"
+        :label="$t('field.min_value')"
+        v-model.number="content.min_value"
     />
 
     <form-input
         type="number"
-        :label="$t('field.max_length')"
-        help="0 = disabled"
-        v-model.number="content.max_length"
-        :min="0"
+        :label="$t('field.max_value')"
+        v-model.number="content.max_value"
     />
 </template>
 
@@ -35,14 +31,14 @@
     import { defineFormBlock } from '@/helpers';
 
     export default defineFormBlock({
-        type: 'text',
-        icon: 'Editor/text',
+        type: 'number',
+        icon: 'Editor/number-3',
         fields: {
             label: Object,
             help: Object,
             required: Boolean,
-            min_length: Number,
-            max_length: Number,
+            min_value: Number,
+            max_value: Number,
         },
     });
 </script>

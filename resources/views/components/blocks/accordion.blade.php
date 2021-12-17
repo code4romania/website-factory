@@ -9,7 +9,7 @@
                     class="flex items-start justify-between w-full gap-4 text-lg font-medium text-left text-gray-900"
                     @@click="isOpen = !isOpen">
 
-                    <span class="flex-shrink-0">
+                    <span class="shrink-0">
                         {{ $loop->iteration }}.
                     </span>
 

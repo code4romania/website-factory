@@ -1,12 +1,6 @@
-const colors = require('tailwindcss/colors');
-
 module.exports = {
-    mode: 'jit',
-    darkMode: 'class',
     theme: {
         extend: {
-            colors: colors,
-
             minWidth: (theme) => theme('spacing'),
             maxWidth: (theme) => theme('spacing'),
             minHeight: (theme) => theme('spacing'),
@@ -29,11 +23,6 @@ module.exports = {
             }),
         },
     },
-    variants: {
-        extend: {
-            //
-        },
-    },
     corePlugins: {
         container: false,
     },
@@ -43,18 +32,11 @@ module.exports = {
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/typography'),
     ],
-    purge: {
-        content: [
-            'vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-            'app/View/Components/**/*.php',
-            'resources/views/**/*.blade.php',
-            'resources/js/**/*.vue',
-            'resources/js/**/*.js',
-        ],
-        options: {
-            safelist: [
-                //
-            ],
-        },
-    },
+    content: [
+        'vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        'app/View/Components/**/*.php',
+        'resources/views/**/*.blade.php',
+        'resources/js/**/*.vue',
+        'resources/js/**/*.js',
+    ],
 };

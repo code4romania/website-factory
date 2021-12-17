@@ -5,7 +5,7 @@
                 type="checkbox"
                 :id="id"
                 :name="name"
-                class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                class="text-blue-600 border-gray-300 rounded shadow-sm  focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                 v-model="proxyChecked"
                 v-bind="$attrs"
             />
@@ -44,9 +44,13 @@
             },
         },
         setup(props, { emit }) {
+            if (props.modelValue === null) {
+                emit('update:modelValue', false);
+            }
+
             const proxyChecked = computed({
                 get: () => !!props.modelValue,
-                set: (checked) => emit('update:modelValue', checked),
+                set: (checked) => emit('update:modelValue', !!checked),
             });
 
             return {

@@ -8,7 +8,7 @@
             >
                 <icon
                     name="System/arrow-drop-left-line"
-                    class="flex-shrink-0 w-5 h-5 mr-1 -ml-1 text-gray-500"
+                    class="shrink-0 w-5 h-5 mr-1 -ml-1 text-gray-500"
                 />
 
                 <span v-text="back.label" />
@@ -25,7 +25,7 @@
                     <icon
                         v-if="index > 0"
                         name="System/arrow-drop-right-line"
-                        class="flex-shrink-0 w-5 h-5 mr-4 text-gray-500"
+                        class="shrink-0 w-5 h-5 mr-4 text-gray-500"
                     />
 
                     <component

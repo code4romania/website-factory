@@ -14,35 +14,23 @@
 
     <form-checkbox :label="$t('field.required')" v-model="content.required" />
 
-    <form-input
-        type="number"
-        :label="$t('field.min_length')"
-        help="0 = disabled"
-        v-model.number="content.min_length"
-        :min="0"
-    />
+    <form-datepicker :label="$t('field.min_date')" v-model="content.min_date" />
 
-    <form-input
-        type="number"
-        :label="$t('field.max_length')"
-        help="0 = disabled"
-        v-model.number="content.max_length"
-        :min="0"
-    />
+    <form-datepicker :label="$t('field.max_date')" v-model="content.max_date" />
 </template>
 
 <script>
     import { defineFormBlock } from '@/helpers';
 
     export default defineFormBlock({
-        type: 'text',
-        icon: 'Editor/text',
+        type: 'date',
+        icon: 'Business/calendar-event-line',
         fields: {
             label: Object,
             help: Object,
             required: Boolean,
-            min_length: Number,
-            max_length: Number,
+            min_date: String,
+            max_date: String,
         },
     });
 </script>

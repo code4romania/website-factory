@@ -41,7 +41,7 @@
 
                     <button
                         v-if="isSupported"
-                        class="inline-flex items-center flex-shrink-0 p-2 ml-2 transition-colors duration-75 bg-white border border-gray-300 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
+                        class="inline-flex items-center shrink-0 p-2 ml-2 transition-colors duration-75 bg-white border border-gray-300 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
                         @click="copy(item.sizes.original.url)"
                     >
                         <icon

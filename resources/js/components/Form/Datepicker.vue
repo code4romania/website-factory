@@ -34,14 +34,34 @@
         components: {
             flatPickr,
         },
+        props: {
+            enableTime: {
+                type: Boolean,
+                default: false,
+            },
+            minDate: {
+                type: [Date, String],
+                default: null,
+            },
+            maxDate: {
+                type: [Date, String],
+                default: null,
+            },
+            defaultDate: {
+                type: Date,
+                default: null,
+            },
+        },
         setup(props) {
             const config = computed(() => ({
                 allowInput: true,
-                enableTime: true,
+                enableTime: props.enableTime,
                 enableSeconds: true,
                 time_24hr: true,
-                dateFormat: 'Y-m-d H:i:S',
-                defaultDate: new Date(),
+                altInput: true,
+                altFormat: 'j F Y' + (props.enableTime ? ' H:i:S' : ''),
+                dateFormat: 'Y-m-d' + (props.enableTime ? ' H:i:S' : ''),
+                defaultDate: props.defaultDate,
             }));
 
             return {

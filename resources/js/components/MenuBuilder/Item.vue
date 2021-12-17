@@ -3,7 +3,7 @@
         <div class="relative border">
             <div class="relative flex items-stretch bg-gray-50">
                 <div
-                    class="handle flex-shrink-0 w-6 px-1.5 py-2 bg-gray-100 border-r cursor-move"
+                    class="handle shrink-0 w-6 px-1.5 py-2 bg-gray-100 border-r cursor-move"
                 >
                     <icon
                         name="drag"
@@ -44,7 +44,7 @@
                 </div>
 
                 <div
-                    class="relative flex items-center flex-shrink-0 pr-3 space-x-3"
+                    class="relative flex items-center shrink-0 pr-3 space-x-3"
                 >
                     <dropdown
                         trigger-class="flex items-center py-1 text-gray-400 hover:text-gray-900 focus:outline-none"

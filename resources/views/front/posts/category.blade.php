@@ -17,7 +17,7 @@
         <div class="grid gap-8 mb-8 md:grid-cols-2 xl:grid-cols-4">
             @foreach ($posts as $post)
                 <article class="flex flex-col overflow-hidden rounded-lg shadow-lg">
-                    <a href="{{ $post->url }}" class="flex-shrink-0">
+                    <a href="{{ $post->url }}" class="shrink-0">
                         <x-media.image
                             :src="$post->getMediaUrl('image', 'thumb')"
                             class="object-cover w-full h-56" />

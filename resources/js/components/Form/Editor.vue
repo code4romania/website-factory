@@ -14,7 +14,7 @@
         >
             <editor-toolbar
                 :editor="editor"
-                class="sticky top-0 flex-shrink-0"
+                class="sticky top-0 shrink-0"
             />
 
             <!-- <editor-bubble-menus :editor="editor" /> -->

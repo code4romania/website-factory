@@ -1,18 +1,18 @@
 <template>
-    <div>
-        <div class="flex mb-1">
+    <div class="space-y-1">
+        <div class="flex space-x-2">
             <label
                 v-if="label"
                 :for="labelFor"
-                class="block w-full text-sm font-medium"
+                class="text-sm font-medium"
                 :class="[hasErrors ? 'text-red-600' : 'text-gray-700']"
             >
-                <span v-html="label" />
+                <span class="inline-block" v-html="label" />
 
                 <span
                     role="presentation"
                     :title="$t('field.required')"
-                    class="ml-1 font-bold text-red-500"
+                    class="inline-block font-bold text-red-500"
                     v-if="required && !disabled"
                     v-text="'*'"
                 />
@@ -20,9 +20,9 @@
 
             <button
                 v-if="showLocaleSwitchButton"
+                class="text-xs font-semibold text-center text-white uppercase bg-gray-400 w-7"
                 type="button"
                 @click="nextLocale"
-                class="ml-2 text-xs font-medium text-center text-white uppercase bg-gray-400 w-7"
                 v-text="locale"
             />
         </div>
@@ -34,9 +34,11 @@
             <slot />
         </div>
 
+        <p v-if="help" class="text-sm text-gray-500" v-text="help" />
+
         <div
             v-if="hasErrors"
-            class="mt-2 space-y-1 text-sm text-red-600"
+            class="space-y-1 text-sm text-red-600"
             role="alert"
         >
             <p
@@ -57,10 +59,6 @@
         name: 'FormField',
         props: {
             labelFor: {
-                type: String,
-                default: null,
-            },
-            help: {
                 type: String,
                 default: null,
             },

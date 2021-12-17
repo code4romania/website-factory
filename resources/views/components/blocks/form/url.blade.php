@@ -1,9 +1,7 @@
-@props(['block'])
-
 <x-blocks.form._field :block="$block">
     <input
         {{ $attributes->class(['block w-full border-inherit rounded'])->merge([
-            'type' => 'email',
+            'type' => 'url',
             'name' => "field-{$block->id}",
             'value' => old("field-{$block->id}"),
             'required' => $block->checkbox('required'),
