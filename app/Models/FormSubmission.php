@@ -14,8 +14,16 @@ class FormSubmission extends Model
     use HasFactory;
     use HasUuid;
 
+    protected $fillable = [
+        'data',
+    ];
+
+    public $casts = [
+        'data' => 'array',
+    ];
+
     public function form(): BelongsTo
     {
-        return $this->belongsTo('form');
+        return $this->belongsTo(Form::class);
     }
 }

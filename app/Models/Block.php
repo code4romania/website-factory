@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Traits\HasMedia;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -81,5 +82,16 @@ class Block extends Model
     public function checkbox(string $field): bool
     {
         return (bool) $this->input($field);
+    }
+
+    public function date(string $field): ?Carbon
+    {
+        $input = $this->input($field);
+
+        if (\is_null($input)) {
+            return null;
+        }
+
+        return Carbon::parse($input);
     }
 }

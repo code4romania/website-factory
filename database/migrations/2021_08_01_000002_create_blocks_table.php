@@ -23,9 +23,7 @@ return new class extends Migration {
 
             $table->foreignId('parent_id')
                 ->nullable()
-                ->references('id')
-                ->on('blocks')
-                ->constrained()
+                ->constrained('blocks')
                 ->cascadeOnDelete();
         });
     }

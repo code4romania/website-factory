@@ -22,9 +22,7 @@ return new class extends Migration {
             $table->foreignId('original_media_id')
                 ->after('variant_name')
                 ->nullable()
-                ->references('id')
-                ->on('media')
-                ->constrained()
+                ->constrained('media')
                 ->nullOnDelete();
         });
     }

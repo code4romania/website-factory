@@ -35,9 +35,7 @@ return new class extends Migration {
 
         Schema::create('mediables', function (Blueprint $table) {
             $table->foreignId('media_id')
-                ->references('id')
-                ->on('media')
-                ->constrained()
+                ->constrained('media')
                 ->cascadeOnDelete();
 
             $table->morphs('mediable');

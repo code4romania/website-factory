@@ -20,7 +20,7 @@ return new class extends Migration {
 
             $table->boolean('store_submissions')->default(false);
             $table->boolean('send_submissions')->default(false);
-            $table->json('recipients')->nullable();
+            $table->text('recipients')->nullable();
 
             $table->json('title')->nullable();
             $table->json('description')->nullable();

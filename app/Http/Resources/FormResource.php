@@ -28,13 +28,16 @@ class FormResource extends Resource
     protected function edit(Request $request): array
     {
         return [
-            'id'           => $this->id,
-            'title'        => $this->getTranslations('title'),
-            'description'  => $this->getTranslations('description'),
-            'slug'         => $this->uuid,
-            'created_at'   => $this->created_at->toDateTimeString(),
-            // 'published_at' => $this->published_at?->toDateTimeString(),
-            'blocks'       => BlockResource::collection($this->blocks),
+            'id'                => $this->id,
+            'title'             => $this->getTranslations('title'),
+            'description'       => $this->getTranslations('description'),
+            'slug'              => $this->uuid,
+            'created_at'        => $this->created_at->toDateTimeString(),
+            // 'published_at'      => $this->published_at?->toDateTimeString(),
+            'store_submissions' => $this->store_submissions,
+            'send_submissions'  => $this->send_submissions,
+            'recipients'        => $this->recipients,
+            'blocks'            => BlockResource::collection($this->blocks),
         ];
     }
 

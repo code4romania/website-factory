@@ -22,12 +22,39 @@ class FormFactory extends Factory
             'title'             => $this->translatedFaker('sentence'),
             'store_submissions' => $this->faker->boolean(),
             'send_submissions'  => $send_submissions,
-            'recipients'        => $send_submissions ? [
+            'recipients'        => $send_submissions ? collect([
                 $this->faker->safeEmail(),
                 $this->faker->safeEmail(),
                 $this->faker->safeEmail(),
-            ] : null,
+            ])->join(PHP_EOL) : null,
         ];
+    }
+
+    public function withFields(array $fields = []): self
+    {
+        return $this->afterCreating(function (Form $form) use ($fields) {
+            $fields = collect($fields)
+                ->map(function (array $field, int $position) use ($form) {
+                    $type = $field['type'];
+
+                    unset($field['type']);
+
+                    $content = \array_merge([
+                        'label' => $this->translatedFaker('word'),
+                        'help'  => $this->translatedFaker('sentence'),
+                    ], $field);
+
+                    return [
+                        'blockable_id'   => $form->id,
+                        'blockable_type' => $form->getMorphClass(),
+                        'position'       => $position,
+                        'type'           => $type,
+                        'content'        => $content,
+                    ];
+                });
+
+            $form->blocks()->createMany($fields);
+        });
     }
 
     /**

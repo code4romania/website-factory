@@ -16,14 +16,13 @@ return new class extends Migration {
     {
         Schema::create('form_submissions', function (Blueprint $table) {
             $table->commonFields();
+            $table->uuid('uuid')->nullable()->unique()->index();
 
-            $table->json('data')->nullable();
+            $table->json('data');
 
-            $table->foreignId('form')
-                ->nullable()
-                ->constrained()
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
+            $table->foreignId('form_id')
+                ->constrained('forms')
+                ->cascadeOnDelete();
         });
     }
 };

@@ -34,15 +34,11 @@ return new class extends Migration {
             $table->id();
 
             $table->foreignId('post_category_id')
-                ->references('id')
-                ->on('post_categories')
-                ->constrained()
+                ->constrained('post_categories')
                 ->cascadeOnDelete();
 
             $table->foreignId('post_id')
-                ->references('id')
-                ->on('posts')
-                ->constrained()
+                ->constrained('posts')
                 ->cascadeOnDelete();
         });
     }

@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App\Http\Requests\Admin;
 
 use App\Models\Page;
+use App\Rules\OneEmailPerLine;
 use App\Services\TranslatableFormRequestRules;
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
+use Illuminate\Validation\Rule;
 
 class FormRequest extends BaseRequest
 {
@@ -28,13 +30,16 @@ class FormRequest extends BaseRequest
     public function rules(): array
     {
         return TranslatableFormRequestRules::make(Page::class, [
-            'title'               => ['required', 'string', 'max:200'],
-            'description'         => ['required', 'string'],
-            'published_at'        => ['nullable', 'date'],
-            'blocks'              => ['array'],
-            'blocks.*.id'         => ['required', 'numeric', 'integer'],
-            'blocks.*.type'       => ['required', 'string'],
-            'blocks.*.content'    => ['required', 'array'],
+            'title'             => ['required', 'string', 'max:200'],
+            'description'       => ['required', 'string'],
+            'published_at'      => ['nullable', 'date'],
+            'store_submissions' => ['required', 'boolean'],
+            'send_submissions'  => ['required', 'boolean'],
+            'recipients'        => [Rule::requiredIf($this->send_submissions), new OneEmailPerLine],
+            'blocks'            => ['array'],
+            'blocks.*.id'       => ['required', 'numeric', 'integer'],
+            'blocks.*.type'     => ['required', 'string'],
+            'blocks.*.content'  => ['required', 'array'],
         ]);
     }
 }
