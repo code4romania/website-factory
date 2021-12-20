@@ -4634,16 +4634,16 @@
         },
         {
             "name": "spatie/laravel-package-tools",
-            "version": "1.9.2",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "f710fe196c126fb9e0aee67eb5af49ad8f13f528"
+                "reference": "97c24d0bc58e04d55e4a6a7b6d6102cb45b75789"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/f710fe196c126fb9e0aee67eb5af49ad8f13f528",
-                "reference": "f710fe196c126fb9e0aee67eb5af49ad8f13f528",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/97c24d0bc58e04d55e4a6a7b6d6102cb45b75789",
+                "reference": "97c24d0bc58e04d55e4a6a7b6d6102cb45b75789",
                 "shasum": ""
             },
             "require": {
@@ -4652,8 +4652,8 @@
             },
             "require-dev": {
                 "mockery/mockery": "^1.4",
-                "orchestra/testbench": "^5.0|^6.0",
-                "phpunit/phpunit": "^9.3",
+                "orchestra/testbench": "^5.0|^6.23",
+                "phpunit/phpunit": "^9.4",
                 "spatie/test-time": "^1.2"
             },
             "type": "library",
@@ -4682,7 +4682,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.9.2"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.10.0"
             },
             "funding": [
                 {
@@ -4690,7 +4690,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-09-21T13:06:51+00:00"
+            "time": "2021-12-18T20:33:51+00:00"
         },
         {
             "name": "spatie/laravel-responsecache",
