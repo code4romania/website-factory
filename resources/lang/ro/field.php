@@ -24,6 +24,7 @@ return [
     'max_length'        => 'Lungime maximă',
     'min_length'        => 'Lungime minimă',
     'name'              => 'Nume',
+    'options'           => 'Opțiuni',
     'people'            => 'Persoane',
     'position'          => 'Poziție imagine',
     'posts_count'       => 'Număr de postări',

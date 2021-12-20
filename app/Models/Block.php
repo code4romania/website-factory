@@ -55,10 +55,7 @@ class Block extends Model
 
     public function getComponentAttribute(): string
     {
-        return match ($this->blockable_type) {
-            'form' => "blocks.form.{$this->type}",
-            default => "blocks.{$this->type}",
-        };
+        return "blocks.{$this->type}";
     }
 
     public function input(string $field)

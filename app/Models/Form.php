@@ -52,6 +52,8 @@ class Form extends Model
 
     public string $allowedBlockType = 'form';
 
+    protected $blockable = FormField::class;
+
     public function submissions(): HasMany
     {
         return $this->hasMany(FormSubmission::class);

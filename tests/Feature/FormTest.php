@@ -10,10 +10,10 @@ use Tests\TestCase;
 class FormTest extends TestCase
 {
     /** @dataProvider fields */
-    public function test_it_configures_field(array $expected)
+    public function test_it_generates_form_fields(array $expected)
     {
         $form = Form::factory()
-            ->withFields([$expected])
+            ->withField($expected)
             ->create();
 
         $field = $form->blocks->first();
@@ -44,25 +44,14 @@ class FormTest extends TestCase
         if (\array_key_exists('max_date', $expected)) {
             $this->assertEquals($expected['max_date'], $field->input('max_date'));
         }
-    }
 
-    /** @test */
-    public function test_it_generates_the_form()
-    {
-        $form = Form::factory()
-            ->withFields(
-                collect($this->fields())
-                    ->flatten(1)
-                    ->all()
-            )
-            ->create();
-
-        $response = $this->get(route('front.forms.show', [
-            'locale' => app()->getLocale(),
-            'form'   => $form,
+        // Show
+        $response = $this->get(localized_route('front.forms.show', [
+            'form' => $form->uuid,
         ]));
 
         $response->assertSuccessful();
+        $response->assertViewIs('front.forms.show');
 
         // dd($response);
     }

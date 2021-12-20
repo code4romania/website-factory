@@ -1,9 +1,11 @@
-@props(['block'])
+@props(['block', 'tag' => 'label', 'noShadow' => false, 'inlineHelp' => true])
 
-<label class="block">
+
+<{{ $tag }} class="block">
     <div @class([
         'flex mb-1',
-        'text-red-700' => $errors->has("field-{$block->id}"),
+        'text-red-700' => $errors->has($block->name),
+        'flex-wrap' => !$inlineHelp,
     ])>
         <span class="font-medium">
             {{ $block->translatedInput('label') }}
@@ -17,24 +19,30 @@
         @endif
 
         @if ($block->translatedInput('help'))
-            <p class="flex-1 ml-2 text-sm text-right text-gray-500">
+            <p
+                @class([
+                    'text-sm text-gray-500 leading-tight',
+                    'flex-1 ml-2 text-right' => $inlineHelp,
+                    'w-full' => !$inlineHelp,
+                ])>
                 {{ $block->translatedInput('help') }}
             </p>
         @endif
     </div>
 
     <div @class([
-        'relative block w-full shadow-sm',
+        'relative block w-full',
+        'shadow-sm' => !$noShadow,
         'border-red-300 text-red-700 placeholder-red-300' => $errors->has(
-            "field-{$block->id}",
+            $block->name,
         ),
     ])>
         {{ $slot }}
     </div>
 
-    @error("field-{$block->id}")
+    @error($block->name)
         <p class="mt-2 text-sm text-red-600">
             {{ $message }}
         </p>
     @enderror
-</label>
+    </{{ $tag }}>

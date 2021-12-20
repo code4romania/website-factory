@@ -4,9 +4,9 @@
     <textarea
         {{ $attributes->class(['block w-full border-inherit rounded'])->merge([
             'rows' => 4,
-            'name' => "field-{$block->id}",
+            'name' => $block->name,
             'required' => $block->checkbox('required'),
             'minlength' => $block->input('min_length'),
             'maxlength' => $block->input('max_length'),
-        ]) }}>{{ old("field-{$block->id}") }}</textarea>
+        ]) }}>{{ old($block->name) }}</textarea>
 </x-blocks.form._field>

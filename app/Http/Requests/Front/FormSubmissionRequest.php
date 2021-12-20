@@ -26,12 +26,13 @@ class FormSubmissionRequest extends BaseRequest
 
                 return [
                     "field-{$field->id}" => match ($field->type) {
-                        'checkbox' => $this->rulesCheckbox($field, $rules),
+                        'checkbox' => $this->rulesOptions($field, $rules),
                         'date'     => $this->rulesDate($field, $rules),
                         'email'    => $this->rulesEmail($field, $rules),
                         'file'     => $this->rulesFile($field, $rules),
                         'number'   => $this->rulesNumber($field, $rules),
-                        'radio'    => $this->rulesRadio($field, $rules),
+                        'radio'    => $this->rulesOption($field, $rules),
+                        'select'   => $this->rulesOptions($field, $rules),
                         'text'     => $this->rulesText($field, $rules),
                         'textarea' => $this->rulesText($field, $rules),
                         'url'      => $this->rulesUrl($field, $rules),
@@ -39,6 +40,7 @@ class FormSubmissionRequest extends BaseRequest
                     },
                 ];
             })
+            // ->dd()
             ->all();
     }
 
@@ -54,17 +56,6 @@ class FormSubmissionRequest extends BaseRequest
                 "field-{$field->id}" => $field->translatedInput('label'),
             ])
             ->all();
-    }
-
-    /**
-     * @todo refactor
-     */
-    private function rulesCheckbox(Block $field, array $rules): array
-    {
-        $rules[] = 'array';
-        $rules[] = Rule::in($field->translatedInput('options'));
-
-        return $rules;
     }
 
     private function rulesDate(Block $field, array $rules): array
@@ -123,12 +114,17 @@ class FormSubmissionRequest extends BaseRequest
         return $rules;
     }
 
-    /**
-     * @todo refactor
-     */
-    private function rulesRadio(Block $field, array $rules): array
+    private function rulesOption(Block $field, array $rules): array
     {
-        $rules[] = Rule::in($field->translatedInput('options'));
+        $rules[] = Rule::in($field->translatedOptions());
+
+        return $rules;
+    }
+
+    private function rulesOptions(Block $field, array $rules): array
+    {
+        $rules[] = 'array';
+        $rules[] = Rule::in($field->translatedOptions());
 
         return $rules;
     }

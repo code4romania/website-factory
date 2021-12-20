@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Models\Block;
 use App\Models\Form;
 
 class FormFactory extends Factory
@@ -30,66 +29,27 @@ class FormFactory extends Factory
         ];
     }
 
-    public function withFields(array $fields = []): self
+    public function withField(array $field = []): self
     {
-        return $this->afterCreating(function (Form $form) use ($fields) {
-            $fields = collect($fields)
-                ->map(function (array $field, int $position) use ($form) {
-                    $type = $field['type'];
+        return $this->afterCreating(function (Form $form) use ($field) {
+            $type = $field['type'];
 
-                    unset($field['type']);
+            unset($field['type']);
 
-                    $content = \array_merge([
-                        'label' => $this->translatedFaker('word'),
-                        'help'  => $this->translatedFaker('sentence'),
-                    ], $field);
+            if (\array_key_exists('options', $field) && \is_array($field['options'])) {
+                $field['options'] = \implode(\PHP_EOL, $field['options']);
+            }
 
-                    return [
-                        'blockable_id'   => $form->id,
-                        'blockable_type' => $form->getMorphClass(),
-                        'position'       => $position,
-                        'type'           => $type,
-                        'content'        => $content,
-                    ];
-                });
-
-            $form->blocks()->createMany($fields);
-        });
-    }
-
-    /**
-     * @param  string|array|null               $fields
-     * @return \Database\Factories\FormFactory
-     */
-    public function withSection($fields = null): self
-    {
-        $fields = collect($fields);
-
-        return $this->afterCreating(function (Form $form) use ($fields) {
-            Block::factory()
-                ->for($form, 'blockable')
-                ->state([
-                    'type'    => 'form_section',
-                    'content' => [
-                        'title'       => $this->translatedFaker('word'),
-                        'description' => $this->translatedFaker('sentence'),
-                    ],
-                ])
-                ->afterCreating(function (Block $section) use ($fields) {
-                    $section->children()->createMany(
-                        $fields->map(fn (array $field, int $position) => [
-                            'blockable_id'   => $section->blockable_id,
-                            'blockable_type' => $section->blockable_type,
-                            'position'       => $position,
-                            'type'           => 'form_field',
-                            'content'        => $field,
-                            'parent_id'      => $section->id,
-                        ])
-                    );
-                })
-                ->create();
-
-            $form->loadMissing('blocks.children');
+            $form->blocks()->create([
+                'blockable_id'   => $form->id,
+                'blockable_type' => $form->getMorphClass(),
+                'position'       => 1,
+                'type'           => $type,
+                'content'        => \array_merge([
+                    'label' => $this->translatedFaker('word'),
+                    'help'  => $this->translatedFaker('sentence'),
+                ], $field),
+            ]);
         });
     }
 }
