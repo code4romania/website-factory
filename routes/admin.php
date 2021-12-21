@@ -75,14 +75,20 @@ Route::delete('decisions/{decision}', [Admin\DecisionController::class, 'destroy
 Route::put('decisions/{decision}/restore', [Admin\DecisionController::class, 'restore'])->name('decisions.restore')->withTrashed();
 Route::delete('decisions/{decision}/force', [Admin\DecisionController::class, 'forceDelete'])->name('decisions.forceDelete')->withTrashed();
 
-Route::get('forms', [Admin\FormController::class, 'index'])->name('forms.index');
-Route::get('forms/create', [Admin\FormController::class, 'create'])->name('forms.create');
-Route::post('forms', [Admin\FormController::class, 'store'])->name('forms.store');
-Route::get('forms/{form}/edit', [Admin\FormController::class, 'edit'])->name('forms.edit');
-Route::post('forms/{form}/duplicate', [Admin\FormController::class, 'duplicate'])->name('forms.duplicate');
-Route::post('forms/{form}/preview', [Admin\FormController::class, 'preview'])->name('forms.preview');
-Route::put('forms/{form}', [Admin\FormController::class, 'update'])->name('forms.update');
-Route::delete('forms/{form}', [Admin\FormController::class, 'destroy'])->name('forms.destroy');
+Route::prefix('forms')->group(function () {
+    Route::get('/', [Admin\FormController::class, 'index'])->name('forms.index');
+    Route::get('create', [Admin\FormController::class, 'create'])->name('forms.create');
+    Route::post('/', [Admin\FormController::class, 'store'])->name('forms.store');
+    Route::get('{form}', [Admin\FormController::class, 'show'])->name('forms.show');
+    Route::get('{form}/edit', [Admin\FormController::class, 'edit'])->name('forms.edit');
+    Route::post('{form}/duplicate', [Admin\FormController::class, 'duplicate'])->name('forms.duplicate');
+    Route::post('{form}/preview', [Admin\FormController::class, 'preview'])->name('forms.preview');
+    Route::put('{form}', [Admin\FormController::class, 'update'])->name('forms.update');
+    Route::delete('{form}', [Admin\FormController::class, 'destroy'])->name('forms.destroy');
+
+    Route::get('{form}/submission/{form_submission}', [Admin\FormSubmissionController::class, 'show'])->name('form_submissions.show');
+    Route::delete('{form}/submission/{form_submission}', [Admin\FormSubmissionController::class, 'destroy'])->name('form_submissions.destroy');
+});
 
 Route::get('users', [Admin\UserController::class, 'index'])->name('users.index');
 Route::get('users/create', [Admin\UserController::class, 'create'])->name('users.create');

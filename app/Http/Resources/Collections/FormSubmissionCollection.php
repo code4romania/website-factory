@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Resources\Collections;
 
-class FormCollection extends ResourceCollection
+class FormSubmissionCollection extends ResourceCollection
 {
     /**
      * The default table columns.
@@ -12,8 +12,8 @@ class FormCollection extends ResourceCollection
      * @var array
      */
     protected array $columns = [
-        'title', 'created_at',
+        'uuid', 'created_at',
     ];
 
-    protected string $mainActionRoute = 'admin.forms.show';
+    protected string $mainActionRoute = 'admin.form_submissions.show';
 }

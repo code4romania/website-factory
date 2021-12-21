@@ -77,6 +77,7 @@ abstract class ResourceCollection extends BaseCollection
             'data'       => $this->collection,
             'properties' => [
                 'model'              => $morphClass,
+                'main_action_route'  => $this->mainActionRoute ?? 'admin.' . Str::plural($morphClass) . '.edit',
                 'admin_route_prefix' => 'admin.' . Str::plural($morphClass),
                 'front_route_prefix' => 'front.' . Str::plural($morphClass),
             ],

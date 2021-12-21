@@ -33,6 +33,12 @@
                         <slot name="actions" />
                     </div>
                 </div>
+
+                <div
+                    v-if="description"
+                    class="max-w-4xl mt-2 text-sm prose text-gray-500"
+                    v-html="description"
+                />
             </div>
         </header>
 
@@ -67,6 +73,10 @@
                 default: () => [],
             },
             title: {
+                type: String,
+                default: null,
+            },
+            description: {
                 type: String,
                 default: null,
             },

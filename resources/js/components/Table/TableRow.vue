@@ -17,12 +17,7 @@
                 <inertia-link
                     v-if="!row.hasOwnProperty('trashed') || !row.trashed"
                     class="text-blue-800"
-                    :href="
-                        route(
-                            collection.properties.admin_route_prefix + '.edit',
-                            row
-                        )
-                    "
+                    :href="route(collection.properties.main_action_route, row)"
                 >
                     <slot
                         :name="column.field"
@@ -65,7 +60,7 @@
 </template>
 
 <script>
-    import { computed, ref } from 'vue';
+    import { computed } from 'vue';
 
     export default {
         name: 'TableRow',

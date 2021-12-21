@@ -15,7 +15,7 @@
                 <inertia-link
                     v-if="column.sortable"
                     class="flex items-center group focus:outline-none"
-                    :href="route(route().current())"
+                    :href="route(route().current(), route().params)"
                     :data="sortData(column)"
                 >
                     <div

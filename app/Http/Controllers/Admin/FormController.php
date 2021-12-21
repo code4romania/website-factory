@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Admin\FormRequest;
 use App\Http\Resources\Collections\FormCollection;
+use App\Http\Resources\Collections\FormSubmissionCollection;
 use App\Http\Resources\FormResource;
 use App\Models\Form;
 use Illuminate\Http\RedirectResponse;
@@ -48,8 +49,14 @@ class FormController extends AdminController
     public function show(Form $form): Response
     {
         return Inertia::render('Forms/Show', [
-            //
-        ]);
+            'resource' => FormResource::make($form),
+            'collection' => new FormSubmissionCollection(
+                $form->submissions()
+                    ->sort()
+                    ->filter()
+                    ->paginate()
+            ),
+        ])->model(Form::class);
     }
 
     public function edit(Form $form): Response
