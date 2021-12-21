@@ -116,7 +116,7 @@ class FormSubmissionRequest extends BaseRequest
 
     private function rulesOption(Block $field, array $rules): array
     {
-        $rules[] = Rule::in($field->translatedOptions());
+        $rules[] = Rule::in($field->options());
 
         return $rules;
     }
@@ -124,7 +124,7 @@ class FormSubmissionRequest extends BaseRequest
     private function rulesOptions(Block $field, array $rules): array
     {
         $rules[] = 'array';
-        $rules[] = Rule::in($field->translatedOptions());
+        $rules[] = Rule::in($field->options());
 
         return $rules;
     }

@@ -53,7 +53,43 @@ class FormTest extends TestCase
         $response->assertSuccessful();
         $response->assertViewIs('front.forms.show');
 
-        // dd($response);
+        // submit
+        $response = $this->post(
+            localized_route('front.forms.show', ['form' => $form->uuid]),
+            []
+        );
+    }
+
+    /** @dataProvider fields */
+    public function test_it_accepts_valid_submissions(array $expected, array $input)
+    {
+        $form = Form::factory()
+            ->withField($expected)
+            ->create();
+
+        $field = $form->blocks->first();
+
+        $response = $this->post(localized_route('front.forms.submit', ['form' => $form->uuid]), [
+            $field->name => $input['valid'],
+        ]);
+
+        $response->assertValid($field->name);
+    }
+
+    /** @dataProvider fields */
+    public function test_it_rejects_invalid_submissions(array $expected, array $input)
+    {
+        $form = Form::factory()
+            ->withField($expected)
+            ->create();
+
+        $field = $form->blocks->first();
+
+        $response = $this->post(localized_route('front.forms.submit', ['form' => $form->uuid]), [
+            $field->name => $input['invalid'],
+        ]);
+
+        $response->assertInvalid($field->name);
     }
 
     public function fields(): array
@@ -67,6 +103,10 @@ class FormTest extends TestCase
                     'min_length' => null,
                     'max_length' => null,
                 ],
+                [
+                    'valid'   => 'Test',
+                    'invalid' => null,
+                ],
             ],
             'text-optional' => [
                 [
@@ -75,13 +115,21 @@ class FormTest extends TestCase
                     'min_length' => null,
                     'max_length' => null,
                 ],
+                [
+                    'valid'   => null,
+                    'invalid' => [],
+                ],
             ],
             'text-min' => [
                 [
                     'type'       => 'text',
                     'required'   => false,
-                    'min_length' => \mt_rand(1, 9),
+                    'min_length' => 25,
                     'max_length' => null,
+                ],
+                [
+                    'valid'   => 'This text is long enough to validate',
+                    'invalid' => 'This is too short',
                 ],
             ],
             'text-max' => [
@@ -89,7 +137,11 @@ class FormTest extends TestCase
                     'type'       => 'text',
                     'required'   => false,
                     'min_length' => null,
-                    'max_length' => \mt_rand(1, 9),
+                    'max_length' => 25,
+                ],
+                [
+                    'valid'   => 'This is short enough',
+                    'invalid' => 'This is way too much text to validate',
                 ],
             ],
 
@@ -101,6 +153,10 @@ class FormTest extends TestCase
                     'min_length' => null,
                     'max_length' => null,
                 ],
+                [
+                    'valid'   => 'Test',
+                    'invalid' => null,
+                ],
             ],
             'textarea-optional' => [
                 [
@@ -109,13 +165,21 @@ class FormTest extends TestCase
                     'min_length' => null,
                     'max_length' => null,
                 ],
+                [
+                    'valid'   => null,
+                    'invalid' => [],
+                ],
             ],
             'textarea-min' => [
                 [
                     'type'       => 'textarea',
                     'required'   => false,
-                    'min_length' => \mt_rand(1, 9),
+                    'min_length' => 25,
                     'max_length' => null,
+                ],
+                [
+                    'valid'   => 'This text is long enough to validate',
+                    'invalid' => 'This is too short',
                 ],
             ],
             'textarea-max' => [
@@ -123,7 +187,11 @@ class FormTest extends TestCase
                     'type'       => 'textarea',
                     'required'   => false,
                     'min_length' => null,
-                    'max_length' => \mt_rand(1, 9),
+                    'max_length' => 25,
+                ],
+                [
+                    'valid'   => 'This is short enough',
+                    'invalid' => 'This is way too much text to validate',
                 ],
             ],
 
@@ -133,11 +201,19 @@ class FormTest extends TestCase
                     'type'     => 'email',
                     'required' => true,
                 ],
+                [
+                    'valid'   => 'test@example.com',
+                    'invalid' => null,
+                ],
             ],
             'email-optional' => [
                 [
                     'type'     => 'email',
                     'required' => false,
+                ],
+                [
+                    'valid'   => null,
+                    'invalid' => 'not an email',
                 ],
             ],
 
@@ -147,11 +223,19 @@ class FormTest extends TestCase
                     'type'     => 'url',
                     'required' => true,
                 ],
+                [
+                    'valid'   => 'https://example.com',
+                    'invalid' => null,
+                ],
             ],
             'url-optional' => [
                 [
                     'type'     => 'url',
                     'required' => false,
+                ],
+                [
+                    'valid'   => null,
+                    'invalid' => 'not a url',
                 ],
             ],
 
@@ -163,6 +247,10 @@ class FormTest extends TestCase
                     'min_value' => null,
                     'max_value' => null,
                 ],
+                [
+                    'valid'   => 17,
+                    'invalid' => null,
+                ],
             ],
             'number-optional' => [
                 [
@@ -171,13 +259,21 @@ class FormTest extends TestCase
                     'min_value' => null,
                     'max_value' => null,
                 ],
+                [
+                    'valid'   => null,
+                    'invalid' => 'not a number',
+                ],
             ],
             'number-min' => [
                 [
                     'type'      => 'number',
                     'required'  => false,
-                    'min_value' => \mt_rand(1, 9),
+                    'min_value' => 17,
                     'max_value' => null,
+                ],
+                [
+                    'valid'   => 17,
+                    'invalid' => 5,
                 ],
             ],
             'number-max' => [
@@ -185,7 +281,11 @@ class FormTest extends TestCase
                     'type'      => 'number',
                     'required'  => false,
                     'min_value' => null,
-                    'max_value' => \mt_rand(1, 9),
+                    'max_value' => 17,
+                ],
+                [
+                    'valid'   => 17,
+                    'invalid' => 25,
                 ],
             ],
 
@@ -197,6 +297,10 @@ class FormTest extends TestCase
                     'min_date' => null,
                     'max_date' => null,
                 ],
+                [
+                    'valid'   => today(),
+                    'invalid' => null,
+                ],
             ],
             'date-optional' => [
                 [
@@ -204,6 +308,10 @@ class FormTest extends TestCase
                     'required' => false,
                     'min_date' => null,
                     'max_date' => null,
+                ],
+                [
+                    'valid'   => null,
+                    'invalid' => 'not a date',
                 ],
             ],
             'date-min' => [
@@ -213,6 +321,10 @@ class FormTest extends TestCase
                     'min_date' => '2020-01-01',
                     'max_date' => null,
                 ],
+                [
+                    'valid'   => '2022-01-01',
+                    'invalid' => '1999-01-01',
+                ],
             ],
             'date-max' => [
                 [
@@ -221,6 +333,10 @@ class FormTest extends TestCase
                     'min_date' => null,
                     'max_date' => '2021-12-31',
                 ],
+                [
+                    'valid'   => '1999-01-01',
+                    'invalid' => '2022-01-01',
+                ],
             ],
             'date-minmax' => [
                 [
@@ -228,6 +344,10 @@ class FormTest extends TestCase
                     'required' => false,
                     'min_date' => '2020-01-01',
                     'max_date' => '2021-12-31',
+                ],
+                [
+                    'valid'   => '2020-06-01',
+                    'invalid' => '2022-01-01',
                 ],
             ],
 
@@ -243,6 +363,10 @@ class FormTest extends TestCase
                         'deleniti',
                     ],
                 ],
+                [
+                    'valid'   => 'similique',
+                    'invalid' => null,
+                ],
             ],
 
             'radio-optional' => [
@@ -255,6 +379,10 @@ class FormTest extends TestCase
                         'impedit',
                         'autem',
                     ],
+                ],
+                [
+                    'valid'   => null,
+                    'invalid' => 'not a valid option',
                 ],
             ],
 
@@ -269,6 +397,10 @@ class FormTest extends TestCase
                         'maiores',
                     ],
                 ],
+                [
+                    'valid'   => ['quis', 'maiores'],
+                    'invalid' => null,
+                ],
             ],
 
             'checkbox-optional' => [
@@ -282,8 +414,11 @@ class FormTest extends TestCase
                         'reprehenderit',
                     ],
                 ],
+                [
+                    'valid'   => ['iure'],
+                    'invalid' => 'not a valid option',
+                ],
             ],
-
         ];
     }
 }
