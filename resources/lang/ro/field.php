@@ -11,6 +11,7 @@ return [
     'categories'        => 'Categorii',
     'columns'           => 'Coloane',
     'content'           => 'Conținut',
+    'created_at'        => 'Creat la',
     'description'       => 'Descriere',
     'email'             => 'Email',
     'help'              => 'Text ajutător',

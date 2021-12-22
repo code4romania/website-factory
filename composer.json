@@ -19,7 +19,7 @@
         "guzzlehttp/guzzle": "^7.4",
         "inertiajs/inertia-laravel": "^0.4",
         "kalnoy/nestedset": "^6.0",
-        "laravel/framework": "^8.76",
+        "laravel/framework": "^8.77",
         "laravel/tinker": "^2.6",
         "plank/laravel-mediable": "^5.2",
         "sentry/sentry-laravel": "^2.10",

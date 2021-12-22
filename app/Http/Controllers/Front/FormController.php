@@ -6,8 +6,8 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\FormSubmissionRequest;
-use App\Models\Block;
 use App\Models\Form;
+use App\Models\FormField;
 use Artesaos\SEOTools\Traits\SEOTools;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -32,16 +32,24 @@ class FormController extends Controller
         $attributes = $request->validated();
 
         $data = $form->blocks
-            ->map(fn (Block $field) => [
-                'label' => $field->translatedInput('label'),
-                'value' => $attributes["field-{$field->id}"] ?? '&mdash;',
-            ])
+            ->map(function (FormField $field) use ($attributes) {
+                $value = $attributes[$field->name] ?? '&mdash;';
+
+                if (\is_array($value)) {
+                    $value = \implode(', ', $value);
+                }
+
+                return [
+                    'label' => $field->translatedInput('label'),
+                    'value' => $value,
+                ];
+            })
             ->all();
 
         $form->storeSubmission($data);
-        // $form->sendSubmission($data);
+        $form->sendSubmission($data);
 
-        return redirect()->route('front.forms.show', ['form' => $form])
+        return redirect()->route('front.forms.show', ['form' => $form, 'locale' => $locale])
             ->with('success', __('form.event.sent'));
     }
 }
