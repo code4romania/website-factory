@@ -43,9 +43,12 @@ class PersonResource extends Resource
 
     protected function default(Request $request): array
     {
+        $this->withoutPermissions();
+
         return [
             'id'    => $this->id,
-            'title' => $this->title,
+            'type'  => $this->getMorphClass(),
+            'title' => $this->name,
         ];
     }
 }

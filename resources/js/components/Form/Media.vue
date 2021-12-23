@@ -3,7 +3,7 @@
         :name="name"
         :label="label"
         :label-for="id"
-        :help="null"
+        :help="help"
         :required="required"
         :disabled="disabled"
         :locale="locale"
@@ -21,7 +21,7 @@
             <template #item="{ element, index }">
                 <div class="relative flex text-sm bg-white list-group-item">
                     <div
-                        class="shrink-0 w-5 px-1 py-2 bg-gray-100 border-r cursor-move handle"
+                        class="w-5 px-1 py-2 bg-gray-100 border-r cursor-move shrink-0 handle"
                     >
                         <icon
                             name="drag"
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="flex flex-1 px-2 py-4">
-                        <div class="shrink-0 w-24">
+                        <div class="w-24 shrink-0">
                             <div
                                 class="overflow-hidden border border-gray-200 group aspect-w-1 aspect-h-1"
                             >

@@ -53,7 +53,7 @@
         "@tiptap/extension-underline": "^2.0.0-beta.22",
         "@tiptap/vue-3": "^2.0.0-beta.84",
         "@vue/compiler-sfc": "^3.2.26",
-        "@vueuse/core": "^7.4.0",
+        "@vueuse/core": "^7.4.1",
         "alpinejs": "^3.7.1",
         "autoprefixer": "^10.4.0",
         "axios": "^0.24.0",
