@@ -19,7 +19,7 @@ trait HasBlocks
 
     public function saveBlocks(iterable $blocks): Model
     {
-        $this->blocks()->delete();
+        $this->blocks->map->delete();
 
         $blocks = collect($blocks)->map(fn (array $block, int $index) => [
             'blockable_id'   => $this->id,
@@ -29,15 +29,17 @@ trait HasBlocks
             'content'        => $block['content'] ?? [],
             'children'       => $block['children'] ?? [],
             'media'          => collect($block['media'] ?? [])->pluck('id')->all(),
+            'related'        => collect($block['related'] ?? [])->pluck('id')->all(),
         ]);
 
         $this->blocks()->createMany($blocks)
             ->each(function (Block $block) use ($blocks) {
+                $currentBlock = $blocks
+                    ->where('type', $block->type)
+                    ->firstWhere('position', $block->position);
+
                 $block->children()->createMany(
-                    $blocks
-                        ->where('type', $block->type)
-                        ->where('position', $block->position)
-                        ->pluck('children')
+                    collect($currentBlock['children'])
                         ->flatten(1)
                         ->map(fn (array $block, int $index) => [
                             'blockable_id'   => $this->id,
@@ -49,11 +51,12 @@ trait HasBlocks
                 );
 
                 $block->attachMedia(
-                    $blocks->where('type', $block->type)
-                        ->where('position', $block->position)
-                        ->pluck('media')
-                        ->first(),
+                    $currentBlock['media'],
                     ['image']
+                );
+
+                $block->saveRelated(
+                    $currentBlock['related']
                 );
             });
 

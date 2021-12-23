@@ -9,15 +9,22 @@ use App\Services\SupportsTrait;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
     public string $model;
 
+    public string $resource;
+
     public function __construct()
     {
-        $this->model = 'App\\Models\\' . Str::replace('Controller', '', \class_basename($this));
+        $model = Str::replace('Controller', '', \class_basename($this));
+
+        $this->model = 'App\\Models\\' . $model;
+
+        $this->resource = 'App\\Http\\Resources\\' . $model . 'Resource';
     }
 
     public function destroy(int $id): RedirectResponse
@@ -71,6 +78,13 @@ class AdminController extends Controller
         }
 
         return $this->success('edit', 'duplicated', $duplicate);
+    }
+
+    public function collection(): JsonResource
+    {
+        return $this->resource::collection(
+            $this->model::all()
+        );
     }
 
     protected function success(string $route, string $event, ?Model $model = null): RedirectResponse

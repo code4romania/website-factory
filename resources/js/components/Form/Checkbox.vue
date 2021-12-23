@@ -1,13 +1,16 @@
 <template>
-    <div>
+    <div v-bind="$attrs">
         <div class="flex space-x-2">
             <input
                 type="checkbox"
                 :id="id"
                 :name="name"
-                class="text-blue-600 border-gray-300 rounded shadow-sm  focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 my-0.5"
                 v-model="proxyChecked"
-                v-bind="$attrs"
+                :value="value"
+                :required="required"
+                :disabled="disabled"
+                :autofocus="autofocus"
             />
 
             <form-label
@@ -38,19 +41,14 @@
     export default defineInput({
         name: 'FormCheckbox',
         props: {
-            modelValue: {
-                type: Boolean,
-                default: false,
+            value: {
+                default: null,
             },
         },
         setup(props, { emit }) {
-            if (props.modelValue === null) {
-                emit('update:modelValue', false);
-            }
-
             const proxyChecked = computed({
-                get: () => !!props.modelValue,
-                set: (checked) => emit('update:modelValue', !!checked),
+                get: () => props.modelValue,
+                set: (value) => emit('update:modelValue', value),
             });
 
             return {

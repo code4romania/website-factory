@@ -24,6 +24,9 @@ class BlockResource extends Resource
             'media'    => MediaResource::collection(
                 $this->media()->whereIsOriginal()->get()
             ),
+            'related'  => RelatedResource::collection(
+                $this->related,
+            ),
         ];
     }
 }

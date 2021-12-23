@@ -1,20 +1,6 @@
 import { inject } from 'vue';
-import { route } from '@/helpers';
+import { ensureCallbacks, route } from '@/helpers';
 import axios from 'axios';
-
-const ensureCallbacks = (callbacks = {}) => {
-    ['beforeStart', 'onUploadProgress', 'onSuccess', 'onError'].forEach(
-        (callback) => {
-            if (callbacks.hasOwnProperty(callback)) {
-                return;
-            }
-
-            callbacks[callback] = () => {};
-        }
-    );
-
-    return callbacks;
-};
 
 export default function () {
     const bus = inject('bus');

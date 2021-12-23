@@ -18,9 +18,13 @@ export default function (block) {
                 type: Array,
                 default: () => [],
             },
+            related: {
+                type: Array,
+                default: () => [],
+            },
             ...block.props,
         },
-        emits: ['update:content', 'update:children', 'update:*'],
+        emits: ['update:content', 'update:children', 'update:related', 'update:*'],
         setup(props, context) {
             const { initializeFields } = useBlock();
 

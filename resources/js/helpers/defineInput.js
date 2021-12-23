@@ -50,6 +50,9 @@ export default function (field) {
             },
             ...field.props,
         },
-        emits: ['update:modelValue'],
+        emits: [
+            'update:modelValue',
+            ...(field.emits || [])
+        ],
     };
 }

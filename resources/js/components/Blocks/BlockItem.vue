@@ -82,6 +82,7 @@
                 v-model:content="content"
                 v-model:children="children"
                 v-model:media="media"
+                v-model:related="related"
             />
 
             <details v-if="$page.props.app.debug">
@@ -130,6 +131,10 @@
                 default: () => [],
             },
             media: {
+                type: Array,
+                default: () => [],
+            },
+            related: {
                 type: Array,
                 default: () => [],
             },

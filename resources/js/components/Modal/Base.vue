@@ -7,7 +7,7 @@
             <component
                 :is="isForm ? 'form' : 'div'"
                 v-show="show"
-                class="fixed inset-0 z-50 flex items-start justify-center min-h-screen sm:p-4 md:p-8"
+                class="fixed inset-0 z-50 flex items-start justify-center min-h-screen sm:p-4 md:p-8 lg:p-16 xl:p-32"
                 @submit.prevent="submit"
             >
                 <transition

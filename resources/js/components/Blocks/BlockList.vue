@@ -32,6 +32,7 @@
                 v-model:content="element.content"
                 v-model:children="element.children"
                 v-model:media="element.media"
+                v-model:related="element.related"
                 @duplicate="duplicateBlock(index)"
                 @delete="deleteBlock(index)"
                 can-duplicate
@@ -122,6 +123,7 @@
                     },
                     children: [],
                     media: [],
+                    related: [],
                 });
             };
 

@@ -18,13 +18,11 @@
         v-model="content.show_images"
     />
 
-    <form-select
+    <form-related
         :label="$t('field.people')"
-        v-model="content.people"
-        :options="people"
-        option-value-key="id"
-        option-label-key="name"
-        multiple
+        v-model:related="related"
+        type="people"
+        :limit="100"
     />
 </template>
 
@@ -38,7 +36,6 @@
             title: Object,
             text: Object,
             show_images: Boolean,
-            people: Array,
         },
     });
 </script>

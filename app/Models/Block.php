@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Traits\HasMedia;
+use App\Traits\HasRelated;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -17,6 +18,7 @@ class Block extends Model
 {
     use HasFactory;
     use HasMedia;
+    use HasRelated;
 
     public $timestamps = false;
 
@@ -34,7 +36,7 @@ class Block extends Model
     ];
 
     protected $with = [
-        'children',
+        'children', 'related',
     ];
 
     public function blockable(): MorphTo

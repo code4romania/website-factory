@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\View\Components\Blocks;
 
-use App\Models\Person;
 use Illuminate\Support\Collection;
 
 class People extends BlockComponent
@@ -23,7 +22,10 @@ class People extends BlockComponent
 
         $this->html = $this->block->translatedInput('text');
 
-        $this->people = Person::query()->withMedia()->take(4)->get();
+        $this->people = $this->block->related
+            ->with('related.media')
+            ->get()
+            ->pluck('related');
 
         $this->show_images = $this->block->checkbox('show_images');
     }

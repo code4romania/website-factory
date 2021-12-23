@@ -32,6 +32,7 @@ Route::delete('pages/{page}/force', [Admin\PageController::class, 'forceDelete']
 Route::get('people', [Admin\PersonController::class, 'index'])->name('people.index');
 Route::get('people/create', [Admin\PersonController::class, 'create'])->name('people.create');
 Route::post('people', [Admin\PersonController::class, 'store'])->name('people.store');
+Route::get('people/collection', [Admin\PersonController::class, 'collection'])->name('people.collection');
 Route::get('people/{person}/edit', [Admin\PersonController::class, 'edit'])->name('people.edit');
 Route::post('people/{person}/duplicate', [Admin\PersonController::class, 'duplicate'])->name('people.duplicate');
 Route::post('people/{person}/preview', [Admin\PersonController::class, 'preview'])->name('people.preview');

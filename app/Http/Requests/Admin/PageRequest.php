@@ -28,20 +28,22 @@ class PageRequest extends BaseRequest
     public function rules(): array
     {
         return TranslatableFormRequestRules::make(Page::class, [
-            'title'               => ['required', 'string', 'max:200'],
-            'slug'                => ['required', 'string', 'max:200'],
-            'description'         => ['required', 'string'],
-            'layout'              => ['required', 'string'],
-            'published_at'        => ['nullable', 'date'],
-            'media'               => ['array'],
-            'media.*.id'          => ['required', 'exists:media'],
-            'blocks'              => ['array'],
-            'blocks.*.id'         => ['required', 'numeric', 'integer'],
-            'blocks.*.type'       => ['required', 'string'],
-            'blocks.*.content'    => ['required', 'array'],
-            'blocks.*.children'   => ['array'],
-            'blocks.*.media'      => ['array'],
-            'blocks.*.media.*.id' => ['required', 'exists:media'],
+            'title'                 => ['required', 'string', 'max:200'],
+            'slug'                  => ['required', 'string', 'max:200'],
+            'description'           => ['required', 'string'],
+            'layout'                => ['required', 'string'],
+            'published_at'          => ['nullable', 'date'],
+            'media'                 => ['array'],
+            'media.*.id'            => ['required', 'exists:media'],
+            'blocks'                => ['array'],
+            'blocks.*.id'           => ['required', 'numeric', 'integer'],
+            'blocks.*.type'         => ['required', 'string'],
+            'blocks.*.content'      => ['required', 'array'],
+            'blocks.*.children'     => ['array'],
+            'blocks.*.media'        => ['array'],
+            'blocks.*.media.*.id'   => ['required', 'exists:media'],
+            'blocks.*.related'      => ['array'],
+            'blocks.*.related.*.id' => ['required', 'numeric', 'integer'],
         ]);
     }
 }
