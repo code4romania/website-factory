@@ -16,6 +16,7 @@
 
     {{-- Scripts --}}
     <script src="{{ mix('assets/public.js') }}" defer></script>
+    @stack('scripts')
 
     {!! SEO::generate() !!}
 </head>

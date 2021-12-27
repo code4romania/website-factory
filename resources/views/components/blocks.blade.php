@@ -7,7 +7,6 @@
 
             <x-dynamic-component :component="$block->component" :block="$block" />
 
-
             @if (app()->environment(['local']))
                 <details class="mt-2">
                     <summary class="text-sm cursor-pointer">Debug</summary>

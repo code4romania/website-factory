@@ -38,6 +38,15 @@ class BlockCollection extends Collection
         }
 
         return collect($this->filesystem->files($source))
+            ->filter(function (SplFileInfo $file) {
+                $name = Str::kebab(preg_replace('/(.vue|.js)$/u', '', $file->getFilename()));
+
+                if (! Features::hasDonations()) {
+                    return ! Str::startsWith($name, 'donation-');
+                }
+
+                return true;
+            })
             ->map(function (SplFileInfo $file) {
                 $component = (string) Str::of($this->filesystem->get($file))
                     ->after('<script>')
