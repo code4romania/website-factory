@@ -20,6 +20,7 @@ services:
     depends_on:
       - mysql
   mysql:
+    platform: linux/x86_64
     image: "mysql:8.0"
     ports:
       - "${FORWARD_DB_PORT:-3306}:3306"
@@ -34,7 +35,7 @@ services:
     networks:
       - sail
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
+      test: [ "CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}" ]
       retries: 3
       timeout: 5s
 networks:
