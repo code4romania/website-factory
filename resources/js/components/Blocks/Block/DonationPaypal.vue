@@ -15,16 +15,11 @@
     <form-input
         type="text"
         :label="$t('field.button_id')"
-        :name="`${prefix}.button_id`"
         v-model="content.button_id"
         required
     />
 
-    <form-checkbox
-        :label="$t('field.open_popup')"
-        :name="`${prefix}.popup`"
-        v-model="content.popup"
-    />
+    <form-checkbox :label="$t('field.open_popup')" v-model="content.popup" />
 </template>
 
 <script>

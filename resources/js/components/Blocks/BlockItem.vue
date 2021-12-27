@@ -10,15 +10,17 @@
             <button
                 type="button"
                 @click="toggleOpen"
-                class="flex-1 p-3 text-left text-gray-400 truncate focus:outline-none"
+                class="flex flex-wrap flex-1 p-3 space-x-1 text-sm font-semibold text-left text-gray-400 truncate focus:outline-none"
             >
-                <h1 class="text-sm font-semibold truncate">
-                    <span class="text-gray-900" v-t="blockName" />
+                <icon
+                    v-if="icon"
+                    :name="icon"
+                    class="flex-shrink-0 w-5 h-5 mr-1 text-gray-500 group-hover:text-gray-600"
+                />
 
-                    <span v-if="blockTitle && !open">
-                        &mdash; {{ blockTitle }}
-                    </span>
-                </h1>
+                <h1 class="text-gray-900" v-text="$t(name)" />
+
+                <span v-if="title">&mdash; {{ title }}</span>
             </button>
 
             <div class="relative flex items-center pr-3 space-x-3 shrink-0">
@@ -86,7 +88,7 @@
             />
 
             <details v-if="$page.props.app.debug">
-                <summary>Debug</summary>
+                <summary class="text-sm cursor-pointer">Debug</summary>
                 <div class="p-3 text-sm bg-gray-100">
                     <pre class="whitespace-pre-line">
                         id: {{ id }}
@@ -103,6 +105,7 @@
 
 <script>
     import { computed, ref } from 'vue';
+    import { usePage } from '@inertiajs/inertia-vue3';
     import { useLocale } from '@/helpers';
     import get from 'lodash/get';
 
@@ -155,9 +158,16 @@
                 `${props.type}-${props.component}`.toLowerCase()
             );
 
-            const blockName = computed(() => `block.${props.component}`);
-            const blockTitle = computed(() =>
+            const name = computed(() => `block.${props.component}`);
+            const title = computed(() =>
                 get(props.content, `title.${currentLocale.value}`, null)
+            );
+
+            const icon = computed(
+                () =>
+                    usePage().props.value.model.blocks.find(
+                        ({ type }) => type === props.component
+                    ).icon || null
             );
 
             const toggleWidth = () => {
@@ -173,8 +183,10 @@
             return {
                 currentLocale,
                 component,
-                blockName,
-                blockTitle,
+
+                name,
+                title,
+                icon,
                 toggleWidth,
 
                 open,
