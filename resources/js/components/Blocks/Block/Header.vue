@@ -37,12 +37,10 @@
         },
         setup(props) {
             const alignmentOptions = ['left', 'center'];
-            console.log(props.content);
+
             if (!props.content.align) {
                 props.content.align = alignmentOptions[0];
             }
-
-            console.log(props.content);
 
             return {
                 alignmentOptions,

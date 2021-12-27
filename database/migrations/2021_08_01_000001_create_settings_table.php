@@ -17,7 +17,7 @@ return new class extends Migration {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
 
-            $table->string('section')->index();
+            $table->string('section')->nullable()->index();
             $table->string('key')->index();
             $table->json('value')->nullable();
 

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Front;
+use App\Services\Features;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/decisions', [Front\DecisionController::class, 'index'])->name('decisions.index');
-Route::get('/decisions/{decision:slug}', [Front\DecisionController::class, 'show'])->name('decisions.show');
+if (Features::hasDecisions()) {
+    Route::get('decisions', [Front\DecisionController::class, 'index'])->name('decisions.index');
+    Route::get('decisions/{decision:slug}', [Front\DecisionController::class, 'show'])->name('decisions.show');
+}
 
 Route::get('/blog', [Front\PostController::class, 'index'])->name('posts.index');
 Route::get('/blog/category', [Front\PostCategoryController::class, 'index'])->name('post_categories.index');
@@ -27,8 +30,8 @@ Route::get('/blog/{post:slug}', [Front\PostController::class, 'show'])->name('po
 Route::get('/people', [Front\PersonController::class, 'index'])->name('people.index');
 Route::get('/people/{person:slug}', [Front\PersonController::class, 'show'])->name('people.show');
 
-Route::get('/', [Front\PageController::class, 'index'])->name('pages.index');
-Route::get('/{page:slug}', [Front\PageController::class, 'show'])->name('pages.show');
-
 Route::get('/forms/{form:uuid}', [Front\FormController::class, 'show'])->name('forms.show');
 Route::post('/forms/{form:uuid}', [Front\FormController::class, 'submit'])->name('forms.submit');
+
+Route::get('/', [Front\PageController::class, 'index'])->name('pages.index');
+Route::get('/{page:slug}', [Front\PageController::class, 'show'])->name('pages.show');

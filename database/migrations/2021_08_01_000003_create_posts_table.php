@@ -24,7 +24,7 @@ return new class extends Migration {
         });
 
         Schema::create('post_categories', function (Blueprint $table) {
-            $table->commonFields(true, false);
+            $table->commonFields(published: false);
             $table->json('title');
             $table->json('slug');
             $table->json('description');

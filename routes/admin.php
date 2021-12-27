@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Admin;
+use App\Services\Features;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,16 +66,20 @@ Route::prefix('posts')->group(function () {
     Route::delete('{post}/force', [Admin\PostController::class, 'forceDelete'])->name('posts.forceDelete')->withTrashed();
 });
 
-Route::get('decisions', [Admin\DecisionController::class, 'index'])->name('decisions.index');
-Route::get('decisions/create', [Admin\DecisionController::class, 'create'])->name('decisions.create');
-Route::post('decisions', [Admin\DecisionController::class, 'store'])->name('decisions.store');
-Route::get('decisions/{decision}/edit', [Admin\DecisionController::class, 'edit'])->name('decisions.edit');
-Route::post('decisions/{decision}/duplicate', [Admin\DecisionController::class, 'duplicate'])->name('decisions.duplicate');
-Route::post('decisions/{decision}/preview', [Admin\DecisionController::class, 'preview'])->name('decisions.preview');
-Route::put('decisions/{decision}', [Admin\DecisionController::class, 'update'])->name('decisions.update');
-Route::delete('decisions/{decision}', [Admin\DecisionController::class, 'destroy'])->name('decisions.destroy');
-Route::put('decisions/{decision}/restore', [Admin\DecisionController::class, 'restore'])->name('decisions.restore')->withTrashed();
-Route::delete('decisions/{decision}/force', [Admin\DecisionController::class, 'forceDelete'])->name('decisions.forceDelete')->withTrashed();
+if (Features::hasDecisions()) {
+    Route::prefix('decisions')->group(function () {
+        Route::get('/', [Admin\DecisionController::class, 'index'])->name('decisions.index');
+        Route::get('create', [Admin\DecisionController::class, 'create'])->name('decisions.create');
+        Route::post('/', [Admin\DecisionController::class, 'store'])->name('decisions.store');
+        Route::get('{decision}/edit', [Admin\DecisionController::class, 'edit'])->name('decisions.edit');
+        Route::post('{decision}/duplicate', [Admin\DecisionController::class, 'duplicate'])->name('decisions.duplicate');
+        Route::post('{decision}/preview', [Admin\DecisionController::class, 'preview'])->name('decisions.preview');
+        Route::put('{decision}', [Admin\DecisionController::class, 'update'])->name('decisions.update');
+        Route::delete('{decision}', [Admin\DecisionController::class, 'destroy'])->name('decisions.destroy');
+        Route::put('{decision}/restore', [Admin\DecisionController::class, 'restore'])->name('decisions.restore')->withTrashed();
+        Route::delete('{decision}/force', [Admin\DecisionController::class, 'forceDelete'])->name('decisions.forceDelete')->withTrashed();
+    });
+}
 
 Route::prefix('forms')->group(function () {
     Route::get('/', [Admin\FormController::class, 'index'])->name('forms.index');

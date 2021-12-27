@@ -15,7 +15,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->commonFields(false, false);
+            $table->commonFields(softDeletes: false, published: false);
 
             $table->string('name');
             $table->string('email')->unique();
