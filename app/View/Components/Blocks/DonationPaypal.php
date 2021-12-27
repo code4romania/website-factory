@@ -14,8 +14,6 @@ class DonationPaypal extends BlockComponent
 
     public string $button_id;
 
-    public bool $popup;
-
     public function setup(): void
     {
         $this->title = $this->block->translatedInput('title');
@@ -23,8 +21,6 @@ class DonationPaypal extends BlockComponent
         $this->text = $this->block->translatedInput('text');
 
         $this->button_id = $this->block->input('button_id');
-
-        $this->popup = $this->block->checkbox('popup');
     }
 
     /**

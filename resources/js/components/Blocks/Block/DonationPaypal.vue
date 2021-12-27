@@ -18,8 +18,6 @@
         v-model="content.button_id"
         required
     />
-
-    <form-checkbox :label="$t('field.open_popup')" v-model="content.popup" />
 </template>
 
 <script>
@@ -32,7 +30,6 @@
             title: Object,
             text: Object,
             button_id: String,
-            popup: Boolean,
         },
     });
 </script>
