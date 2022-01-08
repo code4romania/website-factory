@@ -1,5 +1,13 @@
 module.exports = {
     theme: {
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: '1rem',
+                sm: '1.5rem',
+                lg: '2rem',
+            },
+        },
         extend: {
             minWidth: (theme) => theme('spacing'),
             maxWidth: (theme) => theme('spacing'),
@@ -23,20 +31,10 @@ module.exports = {
             }),
         },
     },
-    corePlugins: {
-        container: false,
-    },
     plugins: [
         require('@tailwindcss/aspect-ratio'),
         require('@tailwindcss/forms'),
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/typography'),
-    ],
-    content: [
-        'vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        'app/View/Components/**/*.php',
-        'resources/views/**/*.blade.php',
-        'resources/js/**/*.vue',
-        'resources/js/**/*.js',
     ],
 };
