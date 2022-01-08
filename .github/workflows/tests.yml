@@ -11,10 +11,8 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - '8.0'
           - '8.1'
         dependency-version:
-          - prefer-lowest
           - prefer-stable
 
     env:
