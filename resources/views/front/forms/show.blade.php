@@ -1,6 +1,4 @@
-@extends('front.layout')
-
-@section('content')
+<x-layout>
     <header class="container relative my-16 sm:my-24 lg:my-32">
         <h1 class="text-2xl font-bold text-gray-900 md:text-3xl lg:text-4xl">
             {{ $form->title }}
@@ -40,4 +38,4 @@
             </form>
         @endif
     </div>
-@endsection
+</x-layout>
