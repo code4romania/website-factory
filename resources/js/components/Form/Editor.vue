@@ -3,7 +3,7 @@
         :name="name"
         :label="label"
         :label-for="id"
-        :help-text="null"
+        :help="help"
         :required="required"
         :disabled="disabled"
         :locale="locale"
@@ -12,10 +12,7 @@
             v-if="editor"
             class="flex flex-col w-full overflow-hidden bg-white border border-inherit max-h-[75vh]"
         >
-            <editor-toolbar
-                :editor="editor"
-                class="sticky top-0 shrink-0"
-            />
+            <editor-toolbar :editor="editor" class="sticky top-0 shrink-0" />
 
             <!-- <editor-bubble-menus :editor="editor" /> -->
 

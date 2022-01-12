@@ -3,7 +3,7 @@
         :name="name"
         :label="label"
         :label-for="id"
-        :help="null"
+        :help="help"
         :required="required"
         :disabled="disabled"
         :locale="locale"
@@ -30,7 +30,7 @@
     import { defineInput } from '@/helpers';
 
     export default defineInput({
-        name: 'FormDatepicker',
+        name: 'FormDatePicker',
         components: {
             flatPickr,
         },

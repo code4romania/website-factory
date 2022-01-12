@@ -93,7 +93,7 @@
                     return false;
                 }
 
-                if (el.querySelector('ol').children.length) {
+                if (el.querySelector('ol')?.children.length) {
                     return false;
                 }
 

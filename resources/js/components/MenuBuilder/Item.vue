@@ -27,6 +27,8 @@
                         v-text="itemLabel"
                     />
 
+                    <span class="ml-1">&mdash; {{ item.type }}</span>
+
                     <button
                         v-if="item.children.length"
                         type="button"
@@ -39,13 +41,9 @@
                             :class="{ '-rotate-90': collapsed }"
                         />
                     </button>
-
-                    <!-- <span v-if="true"> &mdash; {{ item.type }} </span> -->
                 </div>
 
-                <div
-                    class="relative flex items-center shrink-0 pr-3 space-x-3"
-                >
+                <div class="relative flex items-center pr-3 space-x-3 shrink-0">
                     <dropdown
                         trigger-class="flex items-center py-1 text-gray-400 hover:text-gray-900 focus:outline-none"
                         origin="top-right"
@@ -155,19 +153,9 @@
 
             const types = usePage().props.value.types || [];
 
-            const models = computed(() => {
-                return usePage().props.value.models[props.item.type] || [];
-
-                if (!props.models.hasOwnProperty(props.item.type)) {
-                    return [];
-                }
-
-                return props.models[props.item.type];
-
-                if (props.item.type === 'page') {
-                    return usePage().props.value.items.pages || [];
-                }
-            });
+            const models = computed(
+                () => usePage().props.value.models[props.item.type] || []
+            );
 
             const itemLabel = computed(() =>
                 get(props.item, `label.${currentLocale.value}`, null)

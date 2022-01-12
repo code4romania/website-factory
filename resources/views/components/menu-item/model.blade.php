@@ -1,9 +1,9 @@
-@props(['item', 'activeClass' => ''])
+@props(['item', 'inactiveClass' => '', 'activeClass' => ''])
 
 <a
-    href="{{ $item->model->url }}"
-    {{ $attributes->class([
-        $activeClass => $item->isCurrentUrl(),
+    {{ $attributes->merge([
+        'href' => $item->model->url,
+        'class' => $item->isCurrentUrl() ? $activeClass : $inactiveClass,
     ]) }}>
-    {{ $item->model->title }}
+    {{ $item->label }}
 </a>

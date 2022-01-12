@@ -163,12 +163,17 @@
                 get(props.content, `title.${currentLocale.value}`, null)
             );
 
-            const icon = computed(
-                () =>
-                    usePage().props.value.model.blocks.find(
-                        ({ type }) => type === props.component
-                    ).icon || null
-            );
+            const icon = computed(() => {
+                const block = usePage().props.value.model.blocks.find(
+                    ({ type }) => type === props.component
+                );
+
+                if (typeof block === 'undefined' || !block.hasOwnProperty('icon')) {
+                    return null;
+                }
+
+                return block.icon;
+            });
 
             const toggleWidth = () => {
                 props.content.fullwidth = !props.content.fullwidth;

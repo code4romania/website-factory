@@ -3,7 +3,7 @@
         :name="name"
         :label="$t('field.icon')"
         :label-for="id"
-        :help="null"
+        :help="help"
         :required="required"
         :disabled="disabled"
         :locale="locale"

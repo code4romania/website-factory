@@ -17,7 +17,7 @@
                         }}</template>
                         <template #value>{{ form.published_at }}</template>
 
-                        <form-datepicker v-model="form.published_at" />
+                        <form-date-picker v-model="form.published_at" />
                     </accordion>
                 </div>
             </template>

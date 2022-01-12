@@ -14,9 +14,15 @@
 
     <form-checkbox :label="$t('field.required')" v-model="content.required" />
 
-    <form-datepicker :label="$t('field.min_date')" v-model="content.min_date" />
+    <form-date-picker
+        :label="$t('field.min_date')"
+        v-model="content.min_date"
+    />
 
-    <form-datepicker :label="$t('field.max_date')" v-model="content.max_date" />
+    <form-date-picker
+        :label="$t('field.max_date')"
+        v-model="content.max_date"
+    />
 </template>
 
 <script>
