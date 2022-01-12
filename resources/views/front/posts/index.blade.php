@@ -1,6 +1,4 @@
-@extends('front.layout')
-
-@section('content')
+<x-layout>
     <header class="container relative my-16 sm:my-24 lg:my-32">
         <h1 class="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
             {{ trans_choice('post.label', 2) }}
@@ -47,4 +45,4 @@
 
         {{ $posts->links() }}
     </div>
-@endsection
+</x-layout>

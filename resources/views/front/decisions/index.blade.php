@@ -1,7 +1,4 @@
-@extends('front.layout')
-
-@section('content')
-
+<x-layout>
     <header class="container relative my-16 space-y-4 sm:my-24 lg:my-32">
         <h1 class="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
             {{ trans_choice('decision.label', 2) }}
@@ -26,7 +23,7 @@
                         {{ $decision->title }}
                     </p>
 
-                    <div class="flex shrink-0 ml-2">
+                    <div class="flex ml-2 shrink-0">
                         <p
                             class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
                             Hotărâre
@@ -74,4 +71,4 @@
         {{ $decisions->links() }}
 
     </div>
-@endsection
+</x-layout>

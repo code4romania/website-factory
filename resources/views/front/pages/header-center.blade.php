@@ -1,6 +1,4 @@
-@extends('front.layout')
-
-@section('content')
+<x-layout>
     <header
         class="container relative flex flex-col items-center justify-center my-16 text-center sm:my-24 lg:my-32">
         <h1 class="text-2xl font-bold text-gray-900 md:text-3xl lg:text-4xl">
@@ -15,4 +13,4 @@
     </header>
 
     <x-blocks :model="$page" class="test" />
-@endsection
+</x-layout>

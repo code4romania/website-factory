@@ -3,6 +3,7 @@ import upperFirst from 'lodash/upperFirst';
 import { useBlock } from '@/helpers';
 export default function (block) {
     return {
+        inheritAttrs: false,
         name: 'Repeater' + upperFirst(camelCase(block.type)),
         props: {
             content: {
@@ -19,7 +20,7 @@ export default function (block) {
             },
             ...block.props,
         },
-        emits: ['update:content'],
+        emits: ['update:content', 'update:children'],
         setup(props) {
             const { initializeFields } = useBlock();
 

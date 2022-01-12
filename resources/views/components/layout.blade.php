@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{{ mix('assets/public.css') }}">
 
     <style>
+        :root {
+            {{ $colors }}
+        }
+
         [x-cloak] {
             display: none !important;
         }
@@ -25,7 +29,7 @@
     <x-site.header />
 
     <main class="flex-1">
-        @yield('content')
+        {{ $slot }}
     </main>
 
     <x-site.footer />

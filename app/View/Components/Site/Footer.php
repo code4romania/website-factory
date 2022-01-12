@@ -13,6 +13,8 @@ class Footer extends Component
 {
     public Collection $menu;
 
+    public string $title;
+
     /**
      * Create a new component instance.
      *
@@ -21,6 +23,8 @@ class Footer extends Component
     public function __construct()
     {
         $this->menu = $this->getMenuItems();
+
+        $this->title = app('seotools')->getTitle();
     }
 
     /**

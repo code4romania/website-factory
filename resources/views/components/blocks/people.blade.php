@@ -19,16 +19,16 @@
                 @endif
 
                 <h3 class="text-lg font-semibold text-gray-900">{{ $person->name }}</h3>
-                <p class="text-lg font-medium text-teal-600">{{ $person->title }}</p>
+                <p class="text-lg font-medium text-primary">{{ $person->title }}</p>
 
                 <div class="mt-4 prose text-gray-500 prose-teal md:prose-lg">
                     {!! $person->description !!}
                 </div>
 
                 <a href="{{ $person->url }}"
-                    class="flex items-center mt-4 font-semibold text-teal-600 hover:underline">
+                    class="flex items-center mt-4 font-semibold text-primary hover:underline">
                     Profil
-                    <x-ri-arrow-right-line class="shrink-0 w-5 h-5 ml-2" />
+                    <x-ri-arrow-right-line class="w-5 h-5 ml-2 shrink-0" />
                 </a>
             </li>
         @endforeach

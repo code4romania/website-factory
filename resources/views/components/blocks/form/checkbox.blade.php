@@ -6,7 +6,7 @@
             <div>
                 <label class="inline-flex items-center space-x-2">
                     <input
-                        {{ $attributes->class('w-4 h-4 text-teal-600 border-gray-300 focus:ring-teal-500')->merge([
+                        {{ $attributes->class('w-4 h-4 text-primary border-gray-300 focus:ring-primary')->merge([
                             'type' => 'checkbox',
                             'name' => "{$block->name}[]",
                             // 'required' => $block->checkbox('required'),

@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Localizable;
 use Illuminate\View\Component;
@@ -20,15 +21,25 @@ class Header extends Component
 
     public string $logo;
 
+    public string $title;
+
     public Collection $menu;
 
     public Collection $alternateUrls;
 
     public function __construct()
     {
-        $this->logo = asset('assets/images/logo.png');
+        $this->logo = Storage::disk('public')->url(settings('logo')); // TODO: fallback
 
-        $this->menu = $this->getMenuItems();
+        $this->title = app('seotools')->getTitle();
+
+        $this->menu = Cache::rememberForever(
+            'menu-header',
+            fn () => MenuItem::query()
+                ->location('header')
+                ->get()
+                ->toTree()
+        );
 
         $this->alternateUrls = $this->getAlternateUrls();
     }
@@ -36,16 +47,6 @@ class Header extends Component
     public function render(): View
     {
         return view('components.site.header');
-    }
-
-    private function getMenuItems(): Collection
-    {
-        return Cache::rememberForever('menu-header', function () {
-            return MenuItem::query()
-                ->location('header')
-                ->get()
-                ->toTree();
-        });
     }
 
     private function getAlternateUrls(): Collection

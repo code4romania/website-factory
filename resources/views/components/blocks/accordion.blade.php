@@ -6,12 +6,9 @@
             <dt>
                 <button
                     type="button"
-                    class="flex items-start justify-between w-full gap-4 text-lg font-medium text-left text-gray-900"
+                    class="flex items-start justify-between w-full gap-4 text-lg font-medium text-left text-gray-900 focus:outline-none focus:"
                     @@click="isOpen = !isOpen">
 
-                    <span class="shrink-0">
-                        {{ $loop->iteration }}.
-                    </span>
 
                     <span class="flex-1">
                         {{ $item->translatedInput('title') }}
@@ -24,7 +21,7 @@
             </dt>
 
             <dd x-show="isOpen" x-collapse x-cloak>
-                <div class="my-2 prose prose-blue">
+                <div class="my-2 prose prose-primary">
                     {!! $item->translatedInput('text') !!}
                 </div>
             </dd>

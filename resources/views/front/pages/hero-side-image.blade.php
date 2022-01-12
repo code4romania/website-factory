@@ -1,6 +1,4 @@
-@extends('front.layout')
-
-@section('content')
+<x-layout>
     <header class="relative mb-16 sm:mb-24 lg:mb-32">
         <div class="container grid py-8 sm:py-12 lg:py-16 lg:grid-cols-2 lg:min-h-[50vh] items-center">
             <div class="space-y-8">
@@ -26,4 +24,4 @@
     </header>
 
     <x-blocks :model="$page" class="test" />
-@endsection
+</x-layout>

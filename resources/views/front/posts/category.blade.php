@@ -1,6 +1,4 @@
-@extends('front.layout')
-
-@section('content')
+<x-layout>
     <header class="container relative my-16 sm:my-24 lg:my-32">
         <h1 class="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
             {{ $category->title }}
@@ -44,4 +42,4 @@
 
         {{ $posts->links() }}
     </div>
-@endsection
+</x-layout>

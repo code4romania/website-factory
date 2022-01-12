@@ -116,4 +116,5 @@ Route::where(['location' => '(header|footer)'])->group(function () {
 });
 
 Route::get('settings', [Admin\SettingController::class, 'index'])->name('settings.index');
-Route::post('settings', [Admin\SettingController::class, 'store'])->name('settings.store');
+Route::get('settings/{section}', [Admin\SettingController::class, 'edit'])->name('settings.edit');
+Route::post('settings/{section}', [Admin\SettingController::class, 'store'])->name('settings.store');
