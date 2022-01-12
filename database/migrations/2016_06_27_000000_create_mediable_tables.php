@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Query\Expression;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
@@ -28,7 +27,7 @@ return new class extends Migration {
             $table->unsignedInteger('height')->nullable();
             $table->unsignedInteger('size');
 
-            $table->json('caption')->default(new Expression('(JSON_ARRAY())'));
+            $table->json('caption')->default('[]');
 
             $table->unique(['disk', 'directory', 'filename', 'extension']);
         });

@@ -1,7 +1,7 @@
 const merge = require('lodash/merge');
 
 module.exports = merge(
-    require('./common.tailwind.config.js'),
+    require('../../tailwind.config.js'),
     {
         content: [
             'resources/views/admin/**/*.blade.php',

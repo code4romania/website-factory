@@ -14,7 +14,7 @@ class HandleInertiaRequests extends Middleware
      *
      * @var string
      */
-    protected $rootView = 'admin.layout';
+    protected $rootView = 'admin';
 
     /**
      * Determine the current asset version.

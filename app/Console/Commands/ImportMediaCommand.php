@@ -6,7 +6,7 @@ namespace App\Console\Commands;
 
 use App\Models\Media;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Plank\Mediable\Commands\ImportMediaCommand as BaseImportCommand;
@@ -42,9 +42,11 @@ class ImportMediaCommand extends Command
      */
     public function handle()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::disableForeignKeyConstraints();
+
         Media::truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
+        Schema::enableForeignKeyConstraints();
 
         collect(Storage::disk($this->disk)->files())
             ->each(function (string $path) {
