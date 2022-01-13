@@ -15,8 +15,8 @@ class MenuItemResource extends Resource
         return [
             'id'           => $this->id,
             'type'         => $this->normalized_type,
-            'label'        => $this->getTranslations('label'),
-            'url'          => $this->getTranslations('url'),
+            'label'        => $this->getTranslationsWithFallback('label'),
+            'url'          => $this->getTranslationsWithFallback('url'),
             'model_type'   => $this->model_type,
             'model'        => $this->model_id,
             'children'     => self::collection($this->children),

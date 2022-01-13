@@ -18,7 +18,7 @@ class Layout extends Component
      */
     public function __construct()
     {
-        $this->colors = collect(settings('colors'))
+        $this->colors = collect(settings('site.colors'))
             ->map(
                 fn (string $value, string $key) => \sprintf(
                     '--color-%s: %s;',

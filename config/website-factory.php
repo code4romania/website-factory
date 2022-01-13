@@ -8,4 +8,7 @@ return [
 
     'edition' => Features::edition('develop'),
 
+    'settings' => [
+        // This will be populated from the database
+    ],
 ];

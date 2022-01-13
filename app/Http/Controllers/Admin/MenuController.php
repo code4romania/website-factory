@@ -34,6 +34,7 @@ class MenuController extends Controller
                     ->toTree()
             ),
             'types' => [
+                'text',
                 'external',
                 'page',
                 'post',

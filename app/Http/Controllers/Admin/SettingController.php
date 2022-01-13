@@ -10,8 +10,6 @@ use App\Models\Setting;
 use Closure;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -43,33 +41,40 @@ class SettingController extends Controller
 
     public function store(string $section, SettingRequest $request): RedirectResponse
     {
-        $attributes = collect($request->validated()['settings']);
+        $attributes = collect($request->validated()['settings'])
+            ->filter(fn ($value, $key) => Setting::allowedSettings($section)->has($key));
 
-        match ($section) {
-            'site'  => $this->storeSiteSection($attributes),
-            default => '',
+        $settings = match ($section) {
+            'site' => $attributes->map(
+                fn ($value, $key) => match ($key) {
+                    default => $value,
+                    'logo'  => $value?->storePubliclyAs('assets', 'logo.' . $value?->extension()),
+                }
+            ),
+            'donations' => $attributes->map(
+                fn ($value, $key) => match ($key) {
+                    default                => $value,
+                    'mobilpay_enabled'     => \boolval($value),
+                    'mobilpay_public_key'  => $value?->storeAs('private/donations', $value?->getClientOriginalName()),
+                    'mobilpay_private_key' => $value?->storeAs('private/donations', $value?->getClientOriginalName()),
+                }
+            ),
+            default => collect(),
         };
 
-        Cache::tags('settings')->flush();
+        $settings = $settings
+            ->reject(fn ($value) => \is_null($value))
+            ->map(fn ($value, $key) => [
+                'section' => $section,
+                'key'     => $key,
+                'value'   => \json_encode($value),
+            ])
+            ->values()
+            ->toArray();
+
+        Setting::upsert($settings, ['key', 'section']);
 
         return redirect()->route('admin.settings.edit', $section)
             ->with('success', __('setting.event.updated'));
-    }
-
-    protected function storeSiteSection(Collection $settings): void
-    {
-        $settings
-            ->filter(fn ($value, $key) => Setting::allowedSettings('site')->has($key))
-            ->each(function ($value, $key) {
-                if ($key === 'logo') {
-                    if (\is_null($value)) {
-                        return;
-                    }
-
-                    $value = $value->storeAs('assets', 'logo.' . $value->extension(), 'public');
-                }
-
-                Setting::set($key, $value, 'site');
-            });
     }
 }

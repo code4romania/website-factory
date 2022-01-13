@@ -1,27 +1,25 @@
 <template>
     <settings-section>
         <template #settings="{ form }">
-            <div class="space-y-1">
-                <localized-field
-                    field="form-input"
-                    :label="$t('field.title')"
-                    name="title"
-                    v-model="form.settings.site_title"
-                    required
-                />
-            </div>
+            <localized-field
+                field="form-input"
+                :label="$t('setting.site.title')"
+                name="settings.title"
+                v-model="form.settings.title"
+                required
+            />
 
             <localized-field
                 field="form-textarea"
-                :label="$t('field.description')"
-                name="description"
+                :label="$t('setting.site.description')"
+                name="settings.description"
                 required
-                v-model="form.settings.site_description"
+                v-model="form.settings.description"
             />
 
             <form-file
-                :label="$t('field.logo')"
-                name="logo"
+                :label="$t('setting.site.logo')"
+                name="settings.logo"
                 v-model="form.settings.logo"
                 :accept="[
                     'image/x-png',
@@ -32,7 +30,8 @@
             />
 
             <form-color-picker
-                :label="$t('field.color_primary')"
+                :label="$t('setting.site.colors.primary')"
+                name="settings.colors.primary"
                 v-model="form.settings.colors.primary"
             />
         </template>

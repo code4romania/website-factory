@@ -65,6 +65,10 @@
 </template>
 
 <script>
+    import { computed } from 'vue';
+    import { usePage } from '@inertiajs/inertia-vue3';
+    import { route } from '@/helpers';
+
     export default {
         name: 'Layout',
         props: {
@@ -84,61 +88,7 @@
         inject: ['bus'],
         data() {
             return {
-                mainMenu: [
-                    {
-                        type: 'link',
-                        href: this.route('admin.dashboard'),
-                        label: this.$t('app.dashboard'),
-                    },
-                    {
-                        type: 'link',
-                        href: this.route('admin.pages.index'),
-                        label: this.$t('page.label', 2),
-                    },
-                    {
-                        type: 'link',
-                        href: this.route('admin.posts.index'),
-                        label: this.$t('post.label', 2),
-                    },
-                    // {
-                    //     type: 'link',
-                    //     href: this.route('admin.decisions.index'),
-                    //     label: this.$t('decision.label', 2),
-                    // },
-                    {
-                        type: 'link',
-                        href: this.route('admin.forms.index'),
-                        label: this.$t('form.label', 2),
-                    },
-                    {
-                        type: 'link',
-                        href: this.route('admin.people.index'),
-                        label: this.$t('person.label', 2),
-                    },
-                ],
-                secondaryMenu: [
-                    {
-                        type: 'button',
-                        label: this.$t('media.library'),
-                        onClick: () => this.bus.emit('media-library:open'),
-                    },
-                    {
-                        type: 'link',
-                        href: this.route('admin.users.index'),
-                        label: this.$t('user.label', 2),
-                    },
-                    {
-                        type: 'link',
-                        href: this.route('admin.menus.index'),
-                        label: this.$t('menu.label', 2),
-                    },
-                ],
                 profileMenu: [
-                    {
-                        type: 'link',
-                        href: '#',
-                        label: this.$t('app.profile'),
-                    },
                     {
                         type: 'link',
                         href: this.route('auth.logout'),
@@ -146,6 +96,29 @@
                         method: 'post',
                     },
                 ],
+            };
+        },
+        setup() {
+            const buildMenu = (items) =>
+                items.map((item) => {
+                    if (item.hasOwnProperty('route')) {
+                        item.href = route(item.route);
+                    }
+
+                    return item;
+                });
+
+            const mainMenu = computed(() =>
+                buildMenu(usePage().props.value.navigation.primary)
+            );
+
+            const secondaryMenu = computed(() =>
+                buildMenu(usePage().props.value.navigation.secondary)
+            );
+
+            return {
+                mainMenu,
+                secondaryMenu,
             };
         },
     };

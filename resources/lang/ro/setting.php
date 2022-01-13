@@ -18,4 +18,8 @@ return [
         'site'      => 'Site',
         'donations' => 'Donații',
     ],
+
+    'site' => [
+        //
+    ],
 ];

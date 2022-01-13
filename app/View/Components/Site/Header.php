@@ -29,9 +29,9 @@ class Header extends Component
 
     public function __construct()
     {
-        $this->logo = Storage::disk('public')->url(settings('logo')); // TODO: fallback
+        $this->logo = Storage::disk('public')->url(settings('site.logo')); // TODO: fallback
 
-        $this->title = app('seotools')->getTitle();
+        $this->title = settings('site.title', true);
 
         $this->menu = Cache::rememberForever(
             'menu-header',

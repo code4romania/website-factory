@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\Setting;
 use App\Rules\ValidRGB;
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
 
@@ -16,7 +17,7 @@ class SettingRequest extends BaseRequest
      */
     public function authorize(): bool
     {
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() && Setting::sections()->contains($this->section);
     }
 
     /**
@@ -27,19 +28,20 @@ class SettingRequest extends BaseRequest
     public function rules(): array
     {
         return match ($this->section) {
-            'site' => $this->sectionSiteRules(),
-            default => [],
+            'default' => [],
+            'site' => [
+                'settings.title'          => ['array'],
+                'settings.description'    => ['array'],
+                'settings.logo'           => ['nullable', 'image'],
+                'settings.colors'         => ['array'],
+                'settings.colors.primary' => ['required', new ValidRGB],
+            ],
+            'donations' => [
+                'settings.mobilpay_enabled'     => ['boolean'],
+                'settings.mobilpay_signature'   => ['nullable', 'regex:/^([A-Z0-9]{4}-?){5}$/'],
+                'settings.mobilpay_public_key'  => ['nullable', 'file'],
+                'settings.mobilpay_private_key' => ['nullable', 'file'],
+            ],
         };
-    }
-
-    protected function sectionSiteRules(): array
-    {
-        return [
-            'settings.site_title'       => ['array'],
-            'settings.site_description' => ['array'],
-            'settings.logo'             => ['nullable', 'image'],
-            'settings.colors'           => ['array'],
-            'settings.colors.primary'   => ['required', new ValidRGB],
-        ];
     }
 }

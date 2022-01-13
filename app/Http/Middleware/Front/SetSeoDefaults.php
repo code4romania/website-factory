@@ -8,7 +8,6 @@ use Closure;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Arr;
 
 class SetSeoDefaults
 {
@@ -21,30 +20,15 @@ class SetSeoDefaults
      */
     public function handle(Request $request, Closure $next): Response|RedirectResponse
     {
-        tap(settings('site_title'), function ($value) {
-            $value = Arr::wrap($value);
+        $title = settings('site.title', true);
+        $description = settings('site.description', true);
 
-            $value = Arr::get($value, app()->getLocale())
-                ?? Arr::get($value, config('app.fallback_locale'));
+        app('seotools')
+            ->setTitle($title)
+            ->setDescription($description);
 
-            if (! $value) {
-                return;
-            }
-
-            app('seotools')->setTitle($value);
-            app('seotools.metatags')->setTitleDefault($value);
-        });
-
-        tap(settings('site_description'), function ($value) {
-            $value = Arr::get($value, app()->getLocale())
-                ?? Arr::get($value, config('app.fallback_locale'));
-
-            if (! $value) {
-                return;
-            }
-
-            app('seotools')->setDescription($value);
-        });
+        app('seotools.metatags')
+            ->setTitleDefault($title);
 
         return $next($request);
     }

@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Models\Setting;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Cache;
 
 if (! function_exists('locales')) {
     /**
@@ -39,19 +37,18 @@ if (! function_exists('localized_route')) {
 if (! function_exists('settings')) {
     /**
      * @param  null|string $key
+     * @param  bool        $localized
      * @return mixed
      */
-    function settings(?string $key = null): mixed
+    function settings(?string $key = null, bool $localized = false): mixed
     {
-        $settings = Cache::tags('settings')->rememberForever(
-            'settings–' . app()->getLocale(),
-            fn () => Setting::query()->pluck('value', 'key')
-        );
+        $key = rtrim("website-factory.settings.{$key}", '.');
 
-        if (! is_null($key)) {
-            return $settings->get($key);
+        if (! $localized) {
+            return config($key);
         }
 
-        return $settings;
+        return config($key . '.' . app()->getLocale())
+            ?? config($key . '.' . config('app.fallback_locale'));
     }
 }

@@ -30,7 +30,7 @@
         type="button"
         class="w-full lg:w-auto"
         :class="[classBase, classInactive]"
-        @click="onClick"
+        @click="$emit('click', $event)"
     >
         <slot />
     </button>
@@ -78,6 +78,7 @@
                 default: `text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white`,
             },
         },
+        emits: ['click'],
         setup(props) {
             const isCurrentRoute = computed(
                 () => usePage().props.value.route === props.route

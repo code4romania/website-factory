@@ -8,8 +8,15 @@
                     </div>
                 </div>
 
-                <div class="hidden lg:block lg:ml-4">
-                    <!-- Settings Dropdown -->
+                <div class="hidden lg:flex lg:space-x-4 lg:items-center">
+                    <menu-item
+                        type="button"
+                        @click="bus.emit('media-library:open')"
+                        class="text-sm"
+                    >
+                        {{ $t('media.library') }}
+                    </menu-item>
+
                     <div class="relative ml-3">
                         <dropdown
                             origin="top-right"
@@ -96,18 +103,23 @@
                         v-for="(item, index) in mainMenu"
                         :key="index"
                         v-bind="item"
-                        class="text-base"
                     >
                         {{ item.label }}
                     </menu-item>
                 </div>
 
-                <div v-if="secondaryMenu.length" class="pt-4 space-y-1">
+                <div class="pt-4 space-y-1">
+                    <menu-item
+                        type="button"
+                        @click="bus.emit('media-library:open')"
+                    >
+                        {{ $t('media.library') }}
+                    </menu-item>
+
                     <menu-item
                         v-for="(item, index) in secondaryMenu"
                         :key="index"
                         v-bind="item"
-                        class="text-base"
                     >
                         {{ item.label }}
                     </menu-item>
@@ -116,7 +128,7 @@
                 <div class="pt-4 space-y-3">
                     <div class="px-3">
                         <div
-                            class="text-base font-medium text-white"
+                            class="font-medium text-white"
                             v-text="$page.props.auth.user.name"
                         />
                         <div
@@ -159,6 +171,7 @@
                 default: () => [],
             },
         },
+        inject: ['bus'],
         data() {
             return {
                 open: false,

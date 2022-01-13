@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Traits\HasMedia;
+use App\Services\Features;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
 class Setting extends Model
 {
-    use HasMedia;
-
     public $timestamps = false;
 
     protected $fillable = [
@@ -30,13 +28,22 @@ class Setting extends Model
         $sections = collect();
 
         $sections->put('site', [
-            'site_title'       => $translatable,
-            'site_description' => $translatable,
-            'logo'             => null,
-            'colors'           => [
+            'title'       => $translatable,
+            'description' => $translatable,
+            'logo'        => null,
+            'colors'      => [
                 'primary' => null,
             ],
         ]);
+
+        if (Features::hasDonations()) {
+            $sections->put('donations', [
+                'mobilpay_enabled'     => false,
+                'mobilpay_signature'   => null,
+                'mobilpay_public_key'  => null,
+                'mobilpay_private_key' => null,
+            ]);
+        }
 
         return $sections;
     }
@@ -69,9 +76,7 @@ class Setting extends Model
         return static::allowedSettings($section)
             ->merge(
                 static::query()
-                    ->withMedia()
                     ->where('section', $section)
-                    ->get()
                     ->pluck('value', 'key')
             );
     }

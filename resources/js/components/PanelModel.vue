@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-col items-start gap-8 md:flex-row-reverse">
+    <div class="flex flex-col items-start gap-8 lg:flex-row-reverse">
         <div
-            class="relative flex flex-col w-full text-sm bg-white divide-y divide-gray-200 shadow md:w-64 lg:w-80"
+            class="relative flex flex-col w-full text-sm bg-white divide-y divide-gray-200 shadow lg:w-80"
         >
             <template v-if="!noPublisher">
                 <div class="flex items-center justify-between flex-1 px-5 py-4">
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <panel class="w-full md:flex-1">
+        <panel class="w-full lg:flex-1">
             <div class="space-y-8">
                 <slot />
             </div>
