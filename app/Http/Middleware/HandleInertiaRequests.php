@@ -9,8 +9,6 @@ use App\Models\Setting;
 use App\Models\User;
 use App\Services\Features;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -35,8 +33,8 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
             'flash' => fn () => $this->flash($request),
-            'route'  => fn () => $request->route()->getName(),
-            'app'    => fn () => [
+            'route' => fn () => $request->route()->getName(),
+            'app'   => fn () => [
                 'debug'   => config('app.debug'),
                 'edition' => config('website-factory.edition'),
                 'version' => config('app.version'),
@@ -45,21 +43,7 @@ class HandleInertiaRequests extends Middleware
                 'available' => config('translatable.locales', []),
                 'current'   => app()->getLocale(),
             ],
-            'navigation' => fn () => collect(['primary', 'secondary'])
-                ->mapWithKeys(fn (string $key) => [
-                    $key => $this->{Str::camel("navigation-$key")}($request)
-                        ->filter(function (array $item) {
-                            if (! \array_key_exists('enabled', $item)) {
-                                return true;
-                            }
-
-                            return \boolval($item['enabled']);
-                        })
-                        ->forget('enabled')
-                        ->values()
-                        ->all(),
-                ]),
-
+            'navigation' => fn () => $this->navigation($request),
         ]);
     }
 
@@ -83,66 +67,69 @@ class HandleInertiaRequests extends Middleware
     }
 
     /**
-     * Define the application's primary navigation.
+     * Define the application's admin navigation.
      *
-     * @param  \Illuminate\Http\Request       $request
-     * @return \Illuminate\Support\Collection
+     * @param  \Illuminate\Http\Request $request
+     * @return array
      */
-    protected function navigationPrimary(Request $request): Collection
+    protected function navigation(Request $request): array
     {
-        return collect([
-            [
-                'route' => 'admin.dashboard',
-                'label' => __('app.dashboard'),
-            ],
-            [
-                'route' => 'admin.pages.index',
-                'label' => \trans_choice('page.label', 2),
-            ],
-            [
-                'route' => 'admin.posts.index',
-                'label' => \trans_choice('post.label', 2),
-            ],
-            [
-                'enabled' => Features::hasDecisions(),
-                'route' => 'admin.decisions.index',
-                'label' => \trans_choice('decision.label', 2),
-            ],
-            [
-                'route' => 'admin.forms.index',
-                'label' => \trans_choice('form.label', 2),
-            ],
-            [
-                'route' => 'admin.people.index',
-                'label' => \trans_choice('person.label', 2),
-            ],
-        ]);
-    }
+        if (! auth()->check()) {
+            return [];
+        }
 
-    /**
-     * Define the application's secondary navigation.
-     *
-     * @param  \Illuminate\Http\Request       $request
-     * @return \Illuminate\Support\Collection
-     */
-    protected function navigationSecondary(Request $request): Collection
-    {
-        return collect([
-            [
-                'enabled' => auth()->user()->can('create', MenuItem::class),
-                'route' => 'admin.menus.index',
-                'label' => \trans_choice('menu.label', 2),
+        $menus = [
+            'primary' => [
+                [
+                    'route' => 'admin.dashboard',
+                    'label' => __('app.dashboard'),
+                ],
+                [
+                    'route' => 'admin.pages.index',
+                    'label' => \trans_choice('page.label', 2),
+                ],
+                [
+                    'route' => 'admin.posts.index',
+                    'label' => \trans_choice('post.label', 2),
+                ],
+                [
+                    'enabled' => Features::hasDecisions(),
+                    'route' => 'admin.decisions.index',
+                    'label' => \trans_choice('decision.label', 2),
+                ],
+                [
+                    'route' => 'admin.forms.index',
+                    'label' => \trans_choice('form.label', 2),
+                ],
+                [
+                    'route' => 'admin.people.index',
+                    'label' => \trans_choice('person.label', 2),
+                ],
             ],
-            [
-                'enabled' => auth()->user()->can('create', User::class),
-                'route' => 'admin.users.index',
-                'label' => \trans_choice('user.label', 2),
+            'secondary' => [
+                [
+                    'enabled' => auth()->user()->can('create', MenuItem::class),
+                    'route' => 'admin.menus.index',
+                    'label' => \trans_choice('menu.label', 2),
+                ],
+                [
+                    'enabled' => auth()->user()->can('create', User::class),
+                    'route' => 'admin.users.index',
+                    'label' => \trans_choice('user.label', 2),
+                ],
+                [
+                    'enabled' => auth()->user()->can('create', Setting::class),
+                    'route' => 'admin.settings.index',
+                    'label' => \trans_choice('setting.label', 2),
+                ],
             ],
-            [
-                'enabled' => auth()->user()->can('create', Setting::class),
-                'route' => 'admin.settings.index',
-                'label' => \trans_choice('setting.label', 2),
-            ],
-        ]);
+        ];
+
+        return collect($menus)
+            ->map(function (array $items) {
+                return collect($items)
+                    ->filter(fn (array $item) => \boolval($item['enabled'] ?? true));
+            })
+            ->toArray();
     }
 }
