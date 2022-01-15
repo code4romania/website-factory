@@ -22,7 +22,7 @@ class MediaResource extends Resource
             'mime_type'      => $this->mime_type,
             'aggregate_type' => $this->aggregate_type,
             'size'           => $this->readableSize(),
-            'caption'        => $this->getTranslations('caption'),
+            'caption'        => $this->getTranslationsWithFallback('caption'),
             'created_at'     => $this->created_at->toDateTimeString(),
             'updated_at'     => $this->updated_at->toDateTimeString(),
         ];

@@ -8,6 +8,7 @@ use App\Models\Setting;
 use App\Services\Features;
 use App\Services\PaymentGateway;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,6 +21,10 @@ class ConfigServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (! Schema::hasTable('settings')) {
+            return;
+        }
+
         Config::set(
             'website-factory.settings',
             Setting::all()

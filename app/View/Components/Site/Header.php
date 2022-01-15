@@ -21,7 +21,7 @@ class Header extends Component
 
     public string $logo;
 
-    public string $title;
+    public ?string $title;
 
     public Collection $menu;
 

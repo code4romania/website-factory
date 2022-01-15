@@ -27,7 +27,7 @@ return new class extends Migration {
             $table->unsignedInteger('height')->nullable();
             $table->unsignedInteger('size');
 
-            $table->json('caption')->default('[]');
+            $table->json('caption')->nullable();
 
             $table->unique(['disk', 'directory', 'filename', 'extension']);
         });
