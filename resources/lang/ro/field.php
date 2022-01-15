@@ -14,6 +14,7 @@ return [
     'created_at'        => 'Creat la',
     'description'       => 'Descriere',
     'email'             => 'Email',
+    'enabled'           => 'Activat',
     'help'              => 'Text ajutător',
     'icon'              => 'Icon',
     'image_width'       => 'Dimensiune imagine',

@@ -50,7 +50,9 @@
             <div
                 class="flex justify-between py-8 text-sm text-center text-gray-500 border-t border-gray-200 sm:text-left"
             >
-                <span class="block sm:inline">Website Factory</span>
+                <span class="block sm:inline">
+                    Website Factory: {{ $page.props.app.edition }}</span
+                >
                 <span
                     class="block sm:inline"
                     v-text="$page.props.app.version"

@@ -55,24 +55,26 @@ class SettingController extends Controller
                 fn ($value, $key) => match ($key) {
                     default                => $value,
                     'mobilpay_enabled'     => \boolval($value),
-                    'mobilpay_public_key'  => $value?->storeAs('private/donations', $value?->getClientOriginalName()),
+                    'mobilpay_certificate' => $value?->storeAs('private/donations', $value?->getClientOriginalName()),
                     'mobilpay_private_key' => $value?->storeAs('private/donations', $value?->getClientOriginalName()),
                 }
             ),
-            default => collect(),
+            default => null,
         };
 
-        $settings = $settings
+        $settings = collect($settings)
             ->reject(fn ($value) => \is_null($value))
-            ->map(fn ($value, $key) => [
-                'section' => $section,
-                'key'     => $key,
-                'value'   => \json_encode($value),
-            ])
-            ->values()
-            ->toArray();
-
-        Setting::upsert($settings, ['key', 'section']);
+            ->each(
+                fn ($value, $key) => Setting::updateOrCreate(
+                    [
+                        'key'     => $key,
+                        'section' => $section,
+                    ],
+                    [
+                        'value' => $value,
+                    ]
+                )
+            );
 
         return redirect()->route('admin.settings.edit', $section)
             ->with('success', __('setting.event.updated'));

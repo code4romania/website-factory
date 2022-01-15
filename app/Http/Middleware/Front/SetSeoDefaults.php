@@ -20,8 +20,8 @@ class SetSeoDefaults
      */
     public function handle(Request $request, Closure $next): Response|RedirectResponse
     {
-        $title = settings('site.title', true);
-        $description = settings('site.description', true);
+        $title = localized_settings('site.title');
+        $description = localized_settings('site.description');
 
         app('seotools')
             ->setTitle($title)

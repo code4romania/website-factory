@@ -17,10 +17,9 @@ module.exports = {
             borderColor: (theme) => ({
                 inherit: 'inherit',
             }),
-            typography: (theme) => ({
+            typography: {
                 DEFAULT: {
                     css: {
-                        color: theme('colors.gray.900'),
                         maxWidth: null,
                         '> ul > li > *:first-child': null,
                         '> ul > li > *:last-child': null,
@@ -28,7 +27,7 @@ module.exports = {
                         '> ol > li > *:last-child': null,
                     },
                 },
-            }),
+            },
         },
     },
     plugins: [

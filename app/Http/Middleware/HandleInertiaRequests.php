@@ -38,6 +38,7 @@ class HandleInertiaRequests extends Middleware
             'route'  => fn () => $request->route()->getName(),
             'app'    => fn () => [
                 'debug'   => config('app.debug'),
+                'edition' => config('website-factory.edition'),
                 'version' => config('app.version'),
             ],
             'locales' => fn () => [

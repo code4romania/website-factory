@@ -43,9 +43,7 @@
             </div>
 
             <panel class="w-full md:flex-1">
-                <div class="space-y-8">
-                    <slot name="panel" :form="form" />
-                </div>
+                <slot name="panel" :form="form" />
             </panel>
         </div>
 

@@ -31,7 +31,7 @@ class Header extends Component
     {
         $this->logo = Storage::disk('public')->url(settings('site.logo')); // TODO: fallback
 
-        $this->title = settings('site.title', true);
+        $this->title = localized_settings('site.title');
 
         $this->menu = Cache::rememberForever(
             'menu-header',

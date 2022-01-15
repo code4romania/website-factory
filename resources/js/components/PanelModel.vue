@@ -33,9 +33,7 @@
         </div>
 
         <panel class="w-full lg:flex-1">
-            <div class="space-y-8">
-                <slot />
-            </div>
+            <slot />
         </panel>
     </div>
 </template>

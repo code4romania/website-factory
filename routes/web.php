@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Front;
+use App\Http\Middleware\VerifyCsrfToken;
 use App\Services\Features;
 use Illuminate\Support\Facades\Route;
 
@@ -18,8 +19,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 if (Features::hasDecisions()) {
-    Route::get('decisions', [Front\DecisionController::class, 'index'])->name('decisions.index');
-    Route::get('decisions/{decision:slug}', [Front\DecisionController::class, 'show'])->name('decisions.show');
+    Route::get('/decisions', [Front\DecisionController::class, 'index'])->name('decisions.index');
+    Route::get('/decisions/{decision:slug}', [Front\DecisionController::class, 'show'])->name('decisions.show');
+}
+
+if (Features::hasDonations()) {
+    Route::post('/donate', [Front\DonationController::class, 'submit'])->name('donations.submit');
+    Route::get('/donate/return', [Front\DonationController::class, 'return'])->name('donations.return');
+    // Route::post('/donate/webhook', [Front\DonationController::class, 'webhook'])->name('donations.webhook')
+    //     ->withoutMiddleware(VerifyCsrfToken::class);
 }
 
 Route::get('/blog', [Front\PostController::class, 'index'])->name('posts.index');

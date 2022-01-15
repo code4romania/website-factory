@@ -18,9 +18,24 @@
         </template>
 
         <form @submit.prevent="form.post(url)" class="grid gap-y-8">
-            <panel-model action="save" :form="form" no-publisher>
-                <slot name="settings" :form="form" />
-            </panel-model>
+            <div class="flex flex-col items-start gap-8 lg:flex-row-reverse">
+                <div
+                    class="relative flex flex-col w-full text-sm bg-white divide-y divide-gray-200 shadow lg:w-80"
+                >
+                    <div class="px-3 py-3">
+                        <form-button
+                            class="w-full"
+                            type="submit"
+                            :disabled="form.processing"
+                            :label="$t('app.action.save')"
+                        />
+                    </div>
+                </div>
+
+                <div class="w-full space-y-8 lg:flex-1">
+                    <slot name="fields" :form="form" />
+                </div>
+            </div>
         </form>
     </layout>
 </template>

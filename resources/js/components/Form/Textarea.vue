@@ -14,6 +14,7 @@
             :name="name"
             :required="required"
             :disabled="disabled"
+            :placeholder="placeholder"
             v-bind="$attrs"
             :value="modelValue"
             @input="$emit('update:modelValue', $event.target.value)"

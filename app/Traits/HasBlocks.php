@@ -40,7 +40,6 @@ trait HasBlocks
 
                 $block->children()->createMany(
                     collect($currentBlock['children'])
-                        ->flatten(1)
                         ->map(fn (array $block, int $index) => [
                             'blockable_id'   => $this->id,
                             'blockable_type' => $this->getMorphClass(),

@@ -20,6 +20,23 @@ return [
     ],
 
     'site' => [
-        //
+        'title'       => 'Titlu site',
+        'description' => 'Descriere site',
+        'logo'        => 'Logo',
+        'colors'      => [
+            'primary' => 'Culoare principală',
+        ],
+    ],
+
+    'donations' => [
+        'euplatesc' => [
+            'mid' => 'Cod comerciant',
+            'key' => 'Cheie',
+        ],
+        'mobilpay' => [
+            'signature'   => 'Cod comerciant',
+            'certificate' => 'Cheie publică',
+            'private_key' => 'Cheie privată',
+        ],
     ],
 ];

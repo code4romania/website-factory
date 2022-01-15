@@ -36,17 +36,35 @@ if (! function_exists('localized_route')) {
 
 if (! function_exists('settings')) {
     /**
-     * @param  null|string $key
-     * @param  bool        $localized
+     * @param  array|string|null $key
      * @return mixed
      */
-    function settings(?string $key = null, bool $localized = false): mixed
+    function settings(array|string|null $key = null): mixed
+    {
+        $prefix = 'website-factory.settings';
+
+        if (is_null($key)) {
+            return config($prefix);
+        }
+
+        if (is_array($key)) {
+            return config()->set(
+                collect($key)
+                    ->mapWithKeys(fn ($v, $k) => [
+                        "{$prefix}.{$k}" => $v,
+                    ])
+                    ->toArray()
+            );
+        }
+
+        return config()->get("{$prefix}.{$key}");
+    }
+}
+
+if (! function_exists('localized_settings')) {
+    function localized_settings(?string $key = null): mixed
     {
         $key = rtrim("website-factory.settings.{$key}", '.');
-
-        if (! $localized) {
-            return config($key);
-        }
 
         return config($key . '.' . app()->getLocale())
             ?? config($key . '.' . config('app.fallback_locale'));

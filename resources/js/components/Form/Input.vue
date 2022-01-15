@@ -16,6 +16,7 @@
             :required="required"
             :disabled="disabled"
             :autofocus="autofocus"
+            :placeholder="placeholder"
             v-bind="$attrs"
             :value="modelValue"
             @input="$emit('update:modelValue', $event.target.value)"

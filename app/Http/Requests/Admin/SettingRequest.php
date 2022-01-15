@@ -41,6 +41,10 @@ class SettingRequest extends BaseRequest
                 'settings.mobilpay_signature'   => ['nullable', 'regex:/^([A-Z0-9]{4}-?){5}$/'],
                 'settings.mobilpay_public_key'  => ['nullable', 'file'],
                 'settings.mobilpay_private_key' => ['nullable', 'file'],
+
+                'settings.euplatesc_enabled' => ['boolean'],
+                'settings.euplatesc_mid'     => ['nullable', 'string'],
+                'settings.euplatesc_key'     => ['nullable', 'string'],
             ],
         };
     }

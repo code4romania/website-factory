@@ -7,7 +7,7 @@
         'text-red-700' => $errors->has($block->name),
         'flex-wrap' => !$inlineHelp,
     ])>
-        <span class="font-medium">
+        <span class="font-semibold">
             {{ $block->translatedInput('label') }}
         </span>
 

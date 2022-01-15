@@ -1,6 +1,7 @@
 @if ($element === 'a')
-    <a href="{{ $href }}"
+    <a
         {{ $attributes->merge([
+            'href' => $href,
             'class' => $class(),
         ]) }}>
 
@@ -11,8 +12,9 @@
         {{ $slot }}
     </a>
 @else
-    <button type="button"
+    <button
         {{ $attributes->merge([
+            'type' => 'button',
             'class' => $class(),
         ]) }}>
 
