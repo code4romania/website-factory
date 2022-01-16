@@ -21,6 +21,10 @@ class ConfigServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if ($this->app->runningInConsole()) {
+            return;
+        }
+
         if (! Schema::hasTable('settings')) {
             return;
         }
