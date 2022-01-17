@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
+use Throwable;
 
 class ConfigServiceProvider extends ServiceProvider
 {
@@ -21,24 +22,26 @@ class ConfigServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->runningInConsole()) {
-            return;
+        try {
+            if (! Schema::hasTable('settings')) {
+                return;
+            }
+
+            Config::set(
+                'website-factory.settings',
+                Setting::all()
+                    ->groupBy('section')
+                    ->map
+                    ->pluck('value', 'key')
+                    ->toArray()
+            );
+
+            $this->configurePaymentGateways();
+        } catch (Throwable $th) {
+            \logger('Could not open connection to database server. Skipping loading site settings...', [
+                'error' => $th->getMessage(),
+            ]);
         }
-
-        if (! Schema::hasTable('settings')) {
-            return;
-        }
-
-        Config::set(
-            'website-factory.settings',
-            Setting::all()
-                ->groupBy('section')
-                ->map
-                ->pluck('value', 'key')
-                ->toArray()
-        );
-
-        $this->configurePaymentGateways();
     }
 
     protected function configurePaymentGateways(): void

@@ -33,6 +33,7 @@ class SettingRequest extends BaseRequest
                 'settings.title'          => ['array'],
                 'settings.description'    => ['array'],
                 'settings.logo'           => ['nullable', 'image'],
+                'settings.front_page'     => ['required', 'exists:pages,id'],
                 'settings.colors'         => ['array'],
                 'settings.colors.primary' => ['required', new ValidRGB],
             ],

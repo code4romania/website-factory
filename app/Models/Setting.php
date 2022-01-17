@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Http\Resources\PageResource;
 use App\Services\Features;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 class Setting extends Model
@@ -30,6 +32,7 @@ class Setting extends Model
         $sections->put('site', [
             'title'       => $translatable,
             'description' => $translatable,
+            'front_page'  => null,
             'logo'        => null,
             'colors'      => [
                 'primary' => null,
@@ -49,6 +52,19 @@ class Setting extends Model
         }
 
         return $sections;
+    }
+
+    protected static function sectionData(string $section): array
+    {
+        $sections = collect();
+
+        $sections->put('site', [
+            'pages' => PageResource::collection(Page::all()),
+        ]);
+
+        return Arr::wrap(
+            $sections->get($section)
+        );
     }
 
     public static function sections(): Collection

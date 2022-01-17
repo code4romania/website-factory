@@ -36,6 +36,7 @@ class SettingController extends Controller
             'section'  => $section,
             'sections' => Setting::sections(),
             'settings' => Setting::section($section),
+            'data'     => Setting::sectionData($section),
         ])->model(Setting::class);
     }
 

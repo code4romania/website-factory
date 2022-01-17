@@ -15,6 +15,7 @@ return [
     'description'       => 'Descriere',
     'email'             => 'Email',
     'enabled'           => 'Activat',
+    'front_page'        => 'Prima pagină',
     'help'              => 'Text ajutător',
     'icon'              => 'Icon',
     'image_width'       => 'Dimensiune imagine',

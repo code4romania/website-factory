@@ -15,10 +15,14 @@ class PageController extends Controller
 
     public function index(): View
     {
+        $front_page = settings('site.front_page');
+
+        \abort_unless($front_page, 404);
+
         return view('front.pages.default', [
             'page' => Page::query()
                 ->with('blocks.media')
-                ->firstOrFail(),
+                ->findOrFail($front_page),
         ]);
     }
 

@@ -14,8 +14,8 @@
                     field="form-textarea"
                     :label="$t('setting.site.description')"
                     name="settings.description"
-                    required
                     v-model="form.settings.description"
+                    required
                 />
 
                 <form-file
@@ -35,8 +35,29 @@
                     name="settings.colors.primary"
                     v-model="form.settings.colors.primary"
                 />
+
+                <form-select
+                    :label="$t('field.front_page')"
+                    name="settings.front_page"
+                    v-model="form.settings.front_page"
+                    :options="data.pages.data"
+                    option-value-key="id"
+                    option-label-key="title"
+                    required
+                />
             </panel>
         </template>
     </settings-section>
 </template>
+
+<script>
+    export default {
+        props: {
+            data: {
+                type: Array,
+                default: () => [],
+            },
+        },
+    };
+</script>
 
