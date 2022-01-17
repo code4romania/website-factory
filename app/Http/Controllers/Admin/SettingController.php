@@ -49,7 +49,7 @@ class SettingController extends Controller
             'site' => $attributes->map(
                 fn ($value, $key) => match ($key) {
                     default => $value,
-                    'logo'  => $value?->storePubliclyAs('assets', 'logo.' . $value?->extension()),
+                    'logo'  => $value?->storePubliclyAs('assets', 'logo.' . $value?->extension(), config('filesystems.cloud')),
                 }
             ),
             'donations' => $attributes->map(
