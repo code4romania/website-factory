@@ -62,7 +62,7 @@ class Form extends Model
     public function getRecipientsListAttribute(): Collection
     {
         return collect(preg_split('/\r\n|\r|\n/', $this->recipients))
-            ->map(fn ($email) => \filter_var($email, \FILTER_VALIDATE_EMAIL));
+            ->map(fn ($email) => filter_var($email, \FILTER_VALIDATE_EMAIL));
     }
 
     public function storeSubmission(array $data): void

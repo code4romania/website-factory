@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Resources\Collections;
 
 use App\Services\SupportsTrait;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -69,7 +70,7 @@ abstract class ResourceCollection extends BaseCollection
     {
         $morphClass = $this->model->getMorphClass();
 
-        return \array_merge([
+        return array_merge([
             'columns'    => $this->tableColumns($request),
             'statuses'   => $this->statuses(),
             'filters'    => $this->filters($request),
@@ -94,7 +95,7 @@ abstract class ResourceCollection extends BaseCollection
     {
         return $this->getColumnsByRouteName($request)
             ->map(fn (string $column) => [
-                'field'    => \str_replace('.', '___', $column),
+                'field'    => Str::replace('.', '___', $column),
                 'label'    => __("field.{$column}"),
                 'sortable' => $this->isColumnSortable($column),
             ]);
@@ -102,14 +103,14 @@ abstract class ResourceCollection extends BaseCollection
 
     protected function resolveModel(): Model
     {
-        $model = Str::replace('Collection', '', \class_basename($this));
+        $model = Str::replace('Collection', '', class_basename($this));
 
         return app('App\\Models\\' . $model);
     }
 
     protected function resolveResourceName(): string
     {
-        $resource = Str::replace('Collection', 'Resource', \class_basename($this));
+        $resource = Str::replace('Collection', 'Resource', class_basename($this));
 
         return 'App\\Http\\Resources\\' . $resource;
     }
@@ -123,10 +124,10 @@ abstract class ResourceCollection extends BaseCollection
             : 'columns';
 
         if (
-            ! \property_exists($this, $property) ||
+            ! property_exists($this, $property) ||
             ! \is_array($this->$property)
         ) {
-            throw new \Exception("Property `$property` not defined on " . get_class($this));
+            throw new Exception("Property `$property` not defined on " . \get_class($this));
         }
 
         return collect($this->$property);
@@ -163,7 +164,7 @@ abstract class ResourceCollection extends BaseCollection
         }
 
         if (Str::startsWith($column, '-')) {
-            $column = \ltrim($column, '-');
+            $column = ltrim($column, '-');
             $direction = 'desc';
         }
 

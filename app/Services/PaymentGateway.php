@@ -38,7 +38,7 @@ class PaymentGateway
     {
         $class = config("website-factory.payments.gateways.{$gateway}.driver");
 
-        return ! \is_null($class) && \class_exists($class) ? $class : null;
+        return ! \is_null($class) && class_exists($class) ? $class : null;
     }
 
     public static function getConfig(string $name): ?array

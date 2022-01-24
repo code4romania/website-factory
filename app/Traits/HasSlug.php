@@ -18,7 +18,7 @@ trait HasSlug
 
     public function initializeHasSlug(): void
     {
-        if (! \property_exists($this, 'slugFieldSource')) {
+        if (! property_exists($this, 'slugFieldSource')) {
             throw new Exception('Property slugFieldSource not defined on ' . \get_class($this));
         }
 

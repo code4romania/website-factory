@@ -27,6 +27,6 @@ class SupportsTrait
             throw new Exception("Couldn't find corresponding trait for $method.");
         }
 
-        return \in_array(self::$traitMap[$method], \class_uses_recursive($args[0]));
+        return \in_array(self::$traitMap[$method], class_uses_recursive($args[0]));
     }
 }

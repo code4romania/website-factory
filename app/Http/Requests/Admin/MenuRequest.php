@@ -47,7 +47,7 @@ class MenuRequest extends BaseRequest
         $rules = collect();
 
         for ($level = 0; $level <= $depth; $level++) {
-            $prefix = 'items' . \str_repeat('.*.children', $level);
+            $prefix = 'items' . str_repeat('.*.children', $level);
 
             foreach ($template as $key => $value) {
                 $rules->put(

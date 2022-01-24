@@ -63,11 +63,11 @@ class OEmbed extends BlockComponent
             'aspect-w-1 aspect-h-3' => 1 / 3,
         ];
 
-        $search = \round($this->code->width / $this->code->height, 3);
+        $search = round($this->code->width / $this->code->height, 3);
         $closest = $ratio = null;
 
         foreach ($ratioMap as $name => $value) {
-            if (is_null($closest) || abs($search - $closest) > abs($value - $search)) {
+            if (\is_null($closest) || abs($search - $closest) > abs($value - $search)) {
                 $ratio = $name;
                 $closest = $value;
             }
@@ -79,7 +79,7 @@ class OEmbed extends BlockComponent
     private function getEmbedCode(): ?EmbedCode
     {
         return Cache::remember(
-            'block-embed-' . \hash('sha256', $this->url),
+            'block-embed-' . hash('sha256', $this->url),
             config('blocks.cache_ttl', Time::MONTH_IN_SECONDS),
             function () {
                 try {

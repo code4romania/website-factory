@@ -17,7 +17,7 @@ class DonationRequest extends FormRequest
     public function rules()
     {
         return [
-            'gateway'    => ['required', Rule::in(\array_keys(config('website-factory.payments.gateways', [])))],
+            'gateway'    => ['required', Rule::in(array_keys(config('website-factory.payments.gateways', [])))],
             'amount'     => ['required', 'integer'],
             'currency'   => ['required', 'in:RON,EUR'],
             'first_name' => ['required', 'string', 'max:100'],

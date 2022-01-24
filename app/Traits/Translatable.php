@@ -14,12 +14,12 @@ trait Translatable
 
     public function initializeTranslatable(): void
     {
-        $this->fillable = \array_merge($this->fillable, $this->translatable);
+        $this->fillable = array_merge($this->fillable, $this->translatable);
     }
 
     public function getTranslationsWithFallback(?string $key = null): array
     {
-        return \locales()
+        return locales()
             ->mapWithKeys(fn (string $locale) => [$locale => null])
             ->merge($this->getTranslations($key))
             ->toArray();

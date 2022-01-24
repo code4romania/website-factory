@@ -15,7 +15,7 @@ trait Filterable
 {
     public function initializeFilterable(): void
     {
-        if (! \property_exists($this, 'allowedFilters') || ! \is_array($this->allowedFilters)) {
+        if (! property_exists($this, 'allowedFilters') || ! \is_array($this->allowedFilters)) {
             throw new Exception('Property allowedFilters not defined on ' . \get_class($this));
         }
 
@@ -27,7 +27,7 @@ trait Filterable
         $filters = Request::query('filter', []);
 
         if (\is_string($filters)) {
-            $filters = \json_decode($filters, true);
+            $filters = json_decode($filters, true);
         }
 
         collect($filters)
@@ -35,7 +35,7 @@ trait Filterable
             ->each(function ($value, $key) use ($query) {
                 $filter = Str::camel("filter_by_{$key}");
 
-                if (! \method_exists($this, $filter)) {
+                if (! method_exists($this, $filter)) {
                     throw new Exception("Method $filter not defined on " . \get_class($this), 1);
                 }
 
@@ -66,7 +66,7 @@ trait Filterable
         }
 
         if (Str::contains($value, ',')) {
-            return \explode(',', $value);
+            return explode(',', $value);
         }
 
         if ($value === 'true') {

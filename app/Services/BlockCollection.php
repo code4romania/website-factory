@@ -31,7 +31,7 @@ class BlockCollection extends Collection
 
     private function getItems(string $type): ?iterable
     {
-        $source = \resource_path('js/components/Blocks/' . \ucfirst($type));
+        $source = resource_path('js/components/Blocks/' . ucfirst($type));
 
         if (! $this->filesystem->exists($source)) {
             return null;
@@ -61,7 +61,7 @@ class BlockCollection extends Collection
 
     private function getProperty(string $name, string $subject): ?string
     {
-        \preg_match("/^\\s+{$name}: '([a-z0-9\/-]+)',$/uim", $subject, $matches);
+        preg_match("/^\\s+{$name}: '([a-z0-9\/-]+)',$/uim", $subject, $matches);
 
         return $matches[1] ?? null;
     }

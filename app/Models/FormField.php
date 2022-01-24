@@ -24,7 +24,7 @@ class FormField extends Block
     {
         $rawOptions = $this->translatedInput($field) ?? $this->input($field);
 
-        return collect(\preg_split('/\r\n|\r|\n/', (string) $rawOptions))
+        return collect(preg_split('/\r\n|\r|\n/', (string) $rawOptions))
             ->filter();
     }
 }

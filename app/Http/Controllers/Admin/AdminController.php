@@ -20,7 +20,7 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        $model = Str::replace('Controller', '', \class_basename($this));
+        $model = Str::replace('Controller', '', class_basename($this));
 
         $this->model = 'App\\Models\\' . $model;
 
@@ -89,7 +89,7 @@ class AdminController extends Controller
 
     protected function success(string $route, string $event, ?Model $model = null): RedirectResponse
     {
-        $singular = Str::snake(\class_basename($this->model));
+        $singular = Str::snake(class_basename($this->model));
         $plural = Str::plural($singular);
 
         return redirect()

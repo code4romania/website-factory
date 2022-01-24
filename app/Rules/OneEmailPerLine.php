@@ -27,7 +27,7 @@ class OneEmailPerLine implements Rule
      */
     public function passes($attribute, $value)
     {
-        return collect(\preg_split('/\r\n|\r|\n/', (string) $value))
+        return collect(preg_split('/\r\n|\r|\n/', (string) $value))
             ->filter()
             ->every(
                 fn (string $email) => Validator::make(

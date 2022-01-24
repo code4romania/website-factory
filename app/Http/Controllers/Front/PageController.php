@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Artesaos\SEOTools\Traits\SEOTools;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class PageController extends Controller
 {
@@ -15,27 +16,40 @@ class PageController extends Controller
 
     public function index(): View
     {
-        $front_page = settings('site.front_page');
+        $frontPage = settings('site.front_page');
 
-        \abort_unless($front_page, 404);
+        abort_unless($frontPage, 404);
 
-        return view('front.pages.default', [
-            'page' => Page::query()
-                ->with('blocks.media')
-                ->findOrFail($front_page),
-        ]);
-    }
+        $page = Page::query()
+            ->with('blocks.media')
+            ->findOrFail($frontPage);
 
-    public function show(string $locale, Page $page): View
-    {
         $image = $page->firstMedia('image');
 
         $this->seo()
             ->setTitle($page->title)
             ->setDescription($page->description)
-            ->addImages(
-                optional($image)->getUrl()
-            );
+            ->addImages($image?->getUrl());
+
+        return $page->view([
+            'page'  => $page,
+            'image' => $image,
+        ]);
+    }
+
+    public function show(string $locale, Page $page): RedirectResponse|View
+    {
+        // Redirect to home if set as front page
+        if ($page->id === settings('site.front_page')) {
+            return redirect()->route('front.pages.index', ['locale' => $locale]);
+        }
+
+        $image = $page->firstMedia('image');
+
+        $this->seo()
+            ->setTitle($page->title)
+            ->setDescription($page->description)
+            ->addImages($image?->getUrl());
 
         $page->loadMissing('blocks.media');
 

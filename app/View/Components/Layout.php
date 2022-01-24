@@ -20,7 +20,7 @@ class Layout extends Component
     {
         $this->colors = collect(settings('site.colors'))
             ->map(
-                fn (string $value, string $key) => \sprintf(
+                fn (string $value, string $key) => sprintf(
                     '--color-%s: %s;',
                     $key,
                     Str::between($value, 'rgb(', ')')

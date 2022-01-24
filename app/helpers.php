@@ -26,7 +26,7 @@ if (! function_exists('localized_route')) {
      * @param  bool   $absolute
      * @return string
      */
-    function localized_route($name, $parameters = [], ?string $locale = null, bool $absolute = true): string
+    function localized_route($name, array $parameters = [], ?string $locale = null, bool $absolute = true): string
     {
         $parameters['locale'] = $locale ?? app()->getLocale();
 

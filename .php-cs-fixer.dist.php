@@ -49,7 +49,17 @@ $rules = [
     'magic_constant_casing' => true,
     'method_argument_space' => true,
     'method_chaining_indentation' => true,
+    'native_constant_invocation' => [
+        'fix_built_in' => true,
+        'scope' => 'namespaced',
+        'strict' => true,
+    ],
     'native_function_casing' => true,
+    'native_function_invocation' => [
+        'include' => ['@compiler_optimized'],
+        'scope' => 'namespaced',
+        'strict' => true,
+    ],
     'no_alias_functions' => true,
     'no_extra_blank_lines' => [
         'tokens' => [

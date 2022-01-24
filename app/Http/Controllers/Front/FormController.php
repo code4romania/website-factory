@@ -36,7 +36,7 @@ class FormController extends Controller
                 $value = $attributes[$field->name] ?? '&mdash;';
 
                 if (\is_array($value)) {
-                    $value = \implode(', ', $value);
+                    $value = implode(', ', $value);
                 }
 
                 return [

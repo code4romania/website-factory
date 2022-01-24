@@ -51,7 +51,7 @@ class Resource extends JsonResource
             ? $this->routeMap[$routeName]
             : 'default';
 
-        if (! \method_exists($this, $method)) {
+        if (! method_exists($this, $method)) {
             $method = 'default';
         }
 

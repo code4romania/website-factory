@@ -38,7 +38,7 @@ class ConfigServiceProvider extends ServiceProvider
 
             $this->configurePaymentGateways();
         } catch (Throwable $th) {
-            \logger('Could not open connection to database server. Skipping loading site settings...', [
+            logger('Could not open connection to database server. Skipping loading site settings...', [
                 'error' => $th->getMessage(),
             ]);
         }

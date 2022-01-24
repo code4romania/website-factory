@@ -50,7 +50,7 @@ class ImportMediaCommand extends Command
 
         collect(Storage::disk($this->disk)->files())
             ->each(function (string $path) {
-                $filename = \pathinfo($path, \PATHINFO_FILENAME);
+                $filename = pathinfo($path, \PATHINFO_FILENAME);
 
                 if (Str::endsWith($filename, $this->variants())) {
                     Storage::disk($this->disk)->delete($path);

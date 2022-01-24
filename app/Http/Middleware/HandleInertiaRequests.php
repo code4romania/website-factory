@@ -86,41 +86,41 @@ class HandleInertiaRequests extends Middleware
                 ],
                 [
                     'route' => 'admin.pages.index',
-                    'label' => \trans_choice('page.label', 2),
+                    'label' => trans_choice('page.label', 2),
                 ],
                 [
                     'route' => 'admin.posts.index',
-                    'label' => \trans_choice('post.label', 2),
+                    'label' => trans_choice('post.label', 2),
                 ],
                 [
                     'enabled' => Features::hasDecisions(),
                     'route' => 'admin.decisions.index',
-                    'label' => \trans_choice('decision.label', 2),
+                    'label' => trans_choice('decision.label', 2),
                 ],
                 [
                     'route' => 'admin.forms.index',
-                    'label' => \trans_choice('form.label', 2),
+                    'label' => trans_choice('form.label', 2),
                 ],
                 [
                     'route' => 'admin.people.index',
-                    'label' => \trans_choice('person.label', 2),
+                    'label' => trans_choice('person.label', 2),
                 ],
             ],
             'secondary' => [
                 [
                     'enabled' => auth()->user()->can('create', MenuItem::class),
                     'route' => 'admin.menus.index',
-                    'label' => \trans_choice('menu.label', 2),
+                    'label' => trans_choice('menu.label', 2),
                 ],
                 [
                     'enabled' => auth()->user()->can('create', User::class),
                     'route' => 'admin.users.index',
-                    'label' => \trans_choice('user.label', 2),
+                    'label' => trans_choice('user.label', 2),
                 ],
                 [
                     'enabled' => auth()->user()->can('create', Setting::class),
                     'route' => 'admin.settings.index',
-                    'label' => \trans_choice('setting.label', 2),
+                    'label' => trans_choice('setting.label', 2),
                 ],
             ],
         ];
@@ -128,7 +128,8 @@ class HandleInertiaRequests extends Middleware
         return collect($menus)
             ->map(function (array $items) {
                 return collect($items)
-                    ->filter(fn (array $item) => \boolval($item['enabled'] ?? true));
+                    ->filter(fn (array $item) => \boolval($item['enabled'] ?? true))
+                    ->values();
             })
             ->toArray();
     }

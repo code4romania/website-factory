@@ -14,7 +14,7 @@ trait Sortable
 {
     public function initializeSortable(): void
     {
-        if (! \property_exists($this, 'allowedSorts') || ! \is_array($this->allowedSorts)) {
+        if (! property_exists($this, 'allowedSorts') || ! \is_array($this->allowedSorts)) {
             throw new Exception('Property allowedSorts not defined on ' . \get_class($this));
         }
 
@@ -36,7 +36,7 @@ trait Sortable
             return $query;
         }
 
-        $column = \ltrim($sort, '-');
+        $column = ltrim($sort, '-');
         $direction = $sort[0] === '-' ? 'DESC' : 'ASC';
 
         if (! $this->isSortableAttribute($column)) {
@@ -67,7 +67,7 @@ trait Sortable
             return true;
         }
 
-        if (\method_exists($this, $key)) {
+        if (method_exists($this, $key)) {
             return is_a($this->$key(), Relation::class);
         }
 

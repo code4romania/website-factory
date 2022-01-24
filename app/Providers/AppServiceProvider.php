@@ -96,8 +96,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Response::macro('model', function (string $model) {
             /** @var Model */
-            $model = \resolve($model);
-            $traits = \class_uses_recursive($model);
+            $model = resolve($model);
+            $traits = class_uses_recursive($model);
 
             if (SupportsTrait::blocks($model)) {
                 $blocks = (new BlockCollection($model->allowedBlockType ?? 'block'))->all();

@@ -15,12 +15,12 @@ class DonationController extends Controller
     {
         $attributes = $request->validated();
 
-        \abort_unless(PaymentGateway::isActive($attributes['gateway']), 403);
+        abort_unless(PaymentGateway::isActive($attributes['gateway']), 403);
 
         $response = PaymentGateway::purchase($attributes['gateway'], [
             'amount'    => $attributes['amount'],
             'currency'  => $attributes['currency'],
-            'orderId'   => \time(),
+            'orderId'   => time(),
             'orderName' => 'donation',
             'returnUrl' => localized_route('front.donations.return'),
             'notifyUrl' => localized_route('front.donations.webhook'),

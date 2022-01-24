@@ -25,7 +25,7 @@ trait HasLayout
 
     public function getAvailableLayouts(): Collection
     {
-        return collect(\glob(resource_path("views/front/{$this->getTable()}/*.blade.php")))
-            ->map(fn (string $path) => \preg_replace('/.blade.php$/ui', '', \basename($path)));
+        return collect(glob(resource_path("views/front/{$this->getTable()}/*.blade.php")))
+            ->map(fn (string $path) => preg_replace('/.blade.php$/ui', '', basename($path)));
     }
 }

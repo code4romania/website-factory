@@ -19,7 +19,7 @@ class SettingController extends Controller
     public function __construct()
     {
         $this->middleware(function (Request $request, Closure $next) {
-            \abort_unless(Setting::sections()->contains($request->section), 404);
+            abort_unless(Setting::sections()->contains($request->section), 404);
 
             return $next($request);
         })->except('index');

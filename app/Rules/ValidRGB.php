@@ -17,7 +17,7 @@ class ValidRGB implements Rule
      */
     public function passes($attribute, $value)
     {
-        return \preg_match('/^rgb\(([01]?\d\d?|2[0-4]\d|25[0-5])(\W+)([01]?\d\d?|2[0-4]\d|25[0-5])\W+(([01]?\d\d?|2[0-4]\d|25[0-5])\))$/i', $value);
+        return preg_match('/^rgb\(([01]?\d\d?|2[0-4]\d|25[0-5])(\W+)([01]?\d\d?|2[0-4]\d|25[0-5])\W+(([01]?\d\d?|2[0-4]\d|25[0-5])\))$/i', $value);
     }
 
     /**
