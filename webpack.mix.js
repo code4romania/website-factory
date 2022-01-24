@@ -24,7 +24,7 @@ if (mix.isWatching()) {
     mix.bundleAnalyzer({ openAnalyzer: false });
 }
 
-mix.valet('primarie.test')
+mix.valet()
     .alias({
         '@': path.resolve('resources/js'),
         '~': path.resolve('resources'),
@@ -36,8 +36,6 @@ mix.valet('primarie.test')
         tailwindcss('resources/themes/admin.tailwind.config.js'),
         require('postcss-100vh-fix'),
     ])
-    .copyDirectory('resources/svg', 'public/assets/svg')
-    .copyDirectory('resources/images', 'public/assets/images')
     .sourceMaps(false)
 
     .override((config) => {

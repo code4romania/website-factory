@@ -19,28 +19,40 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Admin\DashboardController::class)->name('dashboard');
 
-Route::get('pages', [Admin\PageController::class, 'index'])->name('pages.index');
-Route::get('pages/create', [Admin\PageController::class, 'create'])->name('pages.create');
-Route::post('pages', [Admin\PageController::class, 'store'])->name('pages.store');
-Route::get('pages/{page}/edit', [Admin\PageController::class, 'edit'])->name('pages.edit');
-Route::post('pages/{page}/duplicate', [Admin\PageController::class, 'duplicate'])->name('pages.duplicate');
-Route::post('pages/{page}/preview', [Admin\PageController::class, 'preview'])->name('pages.preview');
-Route::put('pages/{page}', [Admin\PageController::class, 'update'])->name('pages.update');
-Route::delete('pages/{page}', [Admin\PageController::class, 'destroy'])->name('pages.destroy');
-Route::put('pages/{page}/restore', [Admin\PageController::class, 'restore'])->name('pages.restore')->withTrashed();
-Route::delete('pages/{page}/force', [Admin\PageController::class, 'forceDelete'])->name('pages.forceDelete')->withTrashed();
+Route::group([
+    'prefix'     => 'pages',
+    'as'         => 'pages.',
+    'controller' => Admin\PageController::class,
+], function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+    Route::get('/{page}/edit', 'edit')->name('edit');
+    Route::post('/{page}/duplicate', 'duplicate')->name('duplicate');
+    Route::post('/{page}/preview', 'preview')->name('preview');
+    Route::put('/{page}', 'update')->name('update');
+    Route::delete('/{page}', 'destroy')->name('destroy');
+    Route::put('/{page}/restore', 'restore')->name('restore')->withTrashed();
+    Route::delete('/{page}/force', 'forceDelete')->name('forceDelete')->withTrashed();
+});
 
-Route::get('people', [Admin\PersonController::class, 'index'])->name('people.index');
-Route::get('people/create', [Admin\PersonController::class, 'create'])->name('people.create');
-Route::post('people', [Admin\PersonController::class, 'store'])->name('people.store');
-Route::get('people/collection', [Admin\PersonController::class, 'collection'])->name('people.collection');
-Route::get('people/{person}/edit', [Admin\PersonController::class, 'edit'])->name('people.edit');
-Route::post('people/{person}/duplicate', [Admin\PersonController::class, 'duplicate'])->name('people.duplicate');
-Route::post('people/{person}/preview', [Admin\PersonController::class, 'preview'])->name('people.preview');
-Route::put('people/{person}', [Admin\PersonController::class, 'update'])->name('people.update');
-Route::delete('people/{person}', [Admin\PersonController::class, 'destroy'])->name('people.destroy');
-Route::put('people/{person}/restore', [Admin\PersonController::class, 'restore'])->name('people.restore')->withTrashed();
-Route::delete('people/{person}/force', [Admin\PersonController::class, 'forceDelete'])->name('people.forceDelete')->withTrashed();
+Route::group([
+    'prefix'     => 'people',
+    'as'         => 'people.',
+    'controller' => Admin\PersonController::class,
+], function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+    Route::get('/collection', 'collection')->name('collection');
+    Route::get('/{person}/edit', 'edit')->name('edit');
+    Route::post('/{person}/duplicate', 'duplicate')->name('duplicate');
+    Route::post('/{person}/preview', 'preview')->name('preview');
+    Route::put('/{person}', 'update')->name('update');
+    Route::delete('/{person}', 'destroy')->name('destroy');
+    Route::put('/{person}/restore', 'restore')->name('restore')->withTrashed();
+    Route::delete('/{person}/force', 'forceDelete')->name('forceDelete')->withTrashed();
+});
 
 Route::prefix('posts')->group(function () {
     Route::get('categories', [Admin\PostCategoryController::class, 'index'])->name('post_categories.index');
@@ -67,17 +79,21 @@ Route::prefix('posts')->group(function () {
 });
 
 if (Features::hasDecisions()) {
-    Route::prefix('decisions')->group(function () {
-        Route::get('/', [Admin\DecisionController::class, 'index'])->name('decisions.index');
-        Route::get('create', [Admin\DecisionController::class, 'create'])->name('decisions.create');
-        Route::post('/', [Admin\DecisionController::class, 'store'])->name('decisions.store');
-        Route::get('{decision}/edit', [Admin\DecisionController::class, 'edit'])->name('decisions.edit');
-        Route::post('{decision}/duplicate', [Admin\DecisionController::class, 'duplicate'])->name('decisions.duplicate');
-        Route::post('{decision}/preview', [Admin\DecisionController::class, 'preview'])->name('decisions.preview');
-        Route::put('{decision}', [Admin\DecisionController::class, 'update'])->name('decisions.update');
-        Route::delete('{decision}', [Admin\DecisionController::class, 'destroy'])->name('decisions.destroy');
-        Route::put('{decision}/restore', [Admin\DecisionController::class, 'restore'])->name('decisions.restore')->withTrashed();
-        Route::delete('{decision}/force', [Admin\DecisionController::class, 'forceDelete'])->name('decisions.forceDelete')->withTrashed();
+    Route::group([
+        'prefix'     => 'decisions',
+        'as'         => 'decisions.',
+        'controller' => Admin\DecisionController::class,
+    ], function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('{decision}/edit', 'edit')->name('edit');
+        Route::post('{decision}/duplicate', 'duplicate')->name('duplicate');
+        Route::post('{decision}/preview', 'preview')->name('preview');
+        Route::put('{decision}', 'update')->name('update');
+        Route::delete('{decision}', 'destroy')->name('destroy');
+        Route::put('{decision}/restore', 'restore')->name('restore')->withTrashed();
+        Route::delete('{decision}/force', 'forceDelete')->name('forceDelete')->withTrashed();
     });
 }
 
@@ -96,25 +112,48 @@ Route::prefix('forms')->group(function () {
     Route::delete('{form}/submission/{form_submission}', [Admin\FormSubmissionController::class, 'destroy'])->name('form_submissions.destroy');
 });
 
-Route::get('users', [Admin\UserController::class, 'index'])->name('users.index');
-Route::get('users/create', [Admin\UserController::class, 'create'])->name('users.create');
-Route::post('users', [Admin\UserController::class, 'store'])->name('users.store');
-Route::get('users/{user}/edit', [Admin\UserController::class, 'edit'])->name('users.edit');
-Route::put('users/{user}', [Admin\UserController::class, 'update'])->name('users.update');
-Route::delete('users/{user}', [Admin\UserController::class, 'destroy'])->name('users.destroy');
-
-Route::get('media/images', [Admin\MediaController::class, 'images'])->name('media.images');
-Route::get('media/files', [Admin\MediaController::class, 'files'])->name('media.files');
-Route::post('media', [Admin\MediaController::class, 'store'])->name('media.store');
-Route::put('media/{media}', [Admin\MediaController::class, 'update'])->name('media.update');
-Route::delete('media/{media}', [Admin\MediaController::class, 'destroy'])->name('media.destroy');
-
-Route::where(['location' => '(header|footer)'])->group(function () {
-    Route::get('menus', [Admin\MenuController::class, 'index'])->name('menus.index');
-    Route::get('menus/{location}', [Admin\MenuController::class, 'edit'])->name('menus.edit');
-    Route::post('menus/{location}', [Admin\MenuController::class, 'update'])->name('menus.update');
+Route::group([
+    'prefix'     => 'users',
+    'as'         => 'users.',
+    'controller' => Admin\UserController::class,
+], function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+    Route::get('/{user}/edit', 'edit')->name('edit');
+    Route::put('/{user}', 'update')->name('update');
+    Route::delete('/{user}', 'destroy')->name('destroy');
 });
 
-Route::get('settings', [Admin\SettingController::class, 'index'])->name('settings.index');
-Route::get('settings/{section}', [Admin\SettingController::class, 'edit'])->name('settings.edit');
-Route::post('settings/{section}', [Admin\SettingController::class, 'store'])->name('settings.store');
+Route::group([
+    'prefix'     => 'media',
+    'as'         => 'media.',
+    'controller' => Admin\MediaController::class,
+], function () {
+    Route::get('/images', 'images')->name('images');
+    Route::get('/files', 'files')->name('files');
+    Route::post('/', 'store')->name('store');
+    Route::put('/{media}', 'update')->name('update');
+    Route::delete('/{media}', 'destroy')->name('destroy');
+});
+
+Route::group([
+    'prefix'     => 'menus',
+    'as'         => 'menus.',
+    'controller' => Admin\MenuController::class,
+    'where'      => ['location' => '(header|footer)'],
+], function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/{location}', 'edit')->name('edit');
+    Route::post('/{location}', 'update')->name('update');
+});
+
+Route::group([
+    'prefix'     => 'settings',
+    'as'         => 'settings.',
+    'controller' => Admin\SettingController::class,
+], function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/{section}', 'edit')->name('edit');
+    Route::post('/{section}', 'store')->name('store');
+});

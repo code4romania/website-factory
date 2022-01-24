@@ -8,8 +8,8 @@ use Exception;
 
 class InvalidWebsiteFactoryEdition extends Exception
 {
-    public function __construct(string $edition)
+    public function __construct(string $edition, array $allowed = [])
     {
-        parent::__construct("Invalid website factory edition `$edition`.");
+        parent::__construct("Invalid website factory edition `$edition`. Allowed editions: " . implode(', ', $allowed));
     }
 }

@@ -8,7 +8,11 @@ use App\Exceptions\InvalidWebsiteFactoryEdition;
 
 class Features
 {
-    private const FEATURES_CONFIG_KEY = '_website_factory_features';
+    private const DECISIONS = 'decisions';
+
+    private const DONATIONS = 'donations';
+
+    private static array $enabledFeatures = [];
 
     /**
      * Configure the website factory edition.
@@ -17,22 +21,22 @@ class Features
      */
     public static function edition(string $edition): string
     {
-        config()->set(static::FEATURES_CONFIG_KEY, match ($edition) {
+        static::$enabledFeatures = match ($edition) {
             'ong' => [
-                static::donations(),
+                static::DONATIONS,
             ],
             'primarie' => [
-                static::decisions(),
+                static::DECISIONS,
             ],
             'minister' => [
-                static::decisions(),
+                static::DECISIONS,
             ],
             'develop' => [
-                static::donations(),
-                static::decisions(),
+                static::DONATIONS,
+                static::DECISIONS,
             ],
-            default => throw new InvalidWebsiteFactoryEdition($edition),
-        });
+            default => throw new InvalidWebsiteFactoryEdition($edition, ['ong', 'primarie', 'minister']),
+        };
 
         return $edition;
     }
@@ -45,7 +49,7 @@ class Features
      */
     public static function enabled(string $feature): bool
     {
-        return \in_array($feature, config(static::FEATURES_CONFIG_KEY, []));
+        return \in_array($feature, static::$enabledFeatures);
     }
 
     /**
@@ -55,7 +59,7 @@ class Features
      */
     public static function hasDecisions(): bool
     {
-        return static::enabled(static::decisions());
+        return static::enabled(static::DECISIONS);
     }
 
     /**
@@ -65,26 +69,6 @@ class Features
      */
     public static function hasDonations(): bool
     {
-        return static::enabled(static::donations());
-    }
-
-    /**
-     *  Enable the decision feature.
-     *
-     * @return string
-     */
-    private static function decisions(): string
-    {
-        return 'decisions';
-    }
-
-    /**
-     *  Enable the donation feature.
-     *
-     * @return string
-     */
-    private static function donations(): string
-    {
-        return 'donations';
+        return static::enabled(static::DONATIONS);
     }
 }

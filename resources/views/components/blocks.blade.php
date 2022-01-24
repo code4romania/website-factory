@@ -3,6 +3,7 @@
         <div
             @class([
                 'md:col-span-2' => $block->checkbox('fullwidth'),
+                'empty:hidden',
             ])>
 
             <x-dynamic-component :component="$block->component" :block="$block" />

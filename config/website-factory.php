@@ -6,7 +6,7 @@ use App\Services\Features;
 
 return [
 
-    'edition' => Features::edition('develop'),
+    'edition' => Features::edition(env('WEBSITE_FACTORY_EDITION', 'ong')),
 
     'settings' => [
         // This will be populated from the database
