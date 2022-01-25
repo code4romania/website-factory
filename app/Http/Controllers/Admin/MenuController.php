@@ -71,17 +71,24 @@ class MenuController extends Controller
         }
 
         return collect($items)
-            ->map(fn (array $item, int $index) => [
-                'id'           => $item['id'] ?? null,
-                'location'     => $location,
-                'position'     => $index + 1,
-                'label'        => $item['label'],
-                'type'         => $item['type'],
-                'url'          => $item['type'] === 'external' ? $item['url'] : null,
-                'model_type'   => $item['type'] !== 'external' ? $item['type'] : null,
-                'model_id'     => $item['type'] !== 'external' ? $item['model'] : null,
-                'children'     => $this->prepareItems($item['children'] ?? [], $location, ++$depth),
-            ])
+            ->map(function (array $item, int $index) use ($location, $depth) {
+                $prepared = [
+                    'location'     => $location,
+                    'position'     => $index + 1,
+                    'label'        => $item['label'],
+                    'type'         => $item['type'],
+                    'url'          => $item['type'] === 'external' ? $item['url'] : null,
+                    'model_type'   => ! \in_array($item['type'], ['external', 'text']) ? $item['type'] : null,
+                    'model_id'     => ! \in_array($item['type'], ['external', 'text']) ? $item['model'] : null,
+                    'children'     => $this->prepareItems($item['children'] ?? [], $location, ++$depth),
+                ];
+
+                if (\array_key_exists('id', $item) && ! \is_null($item['id'])) {
+                    $prepared['id'] = $item['id'];
+                }
+
+                return $prepared;
+            })
             ->all();
     }
 }

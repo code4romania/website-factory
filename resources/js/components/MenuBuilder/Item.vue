@@ -89,6 +89,10 @@
                     />
                 </template>
 
+                <template v-else-if="item.type === 'text'">
+                    <!-- blank -->
+                </template>
+
                 <template v-else>
                     <form-select
                         :label="$t(`field.${item.type}`)"
