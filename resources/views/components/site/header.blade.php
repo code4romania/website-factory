@@ -32,14 +32,13 @@
         <ul class="items-center hidden text-sm gap-x-6 lg:flex lg:flex-wrap">
             @foreach ($menu as $item)
                 <li
-                    @if ($item->children->isNotEmpty()) x-data="{ open: false }" x-on:click.outside="open = false" @endif
+                    @if ($item->children->isNotEmpty()) x-data="{ open: false }" x-on:click.outside="open = false" :class="{ 'bg-primary bg-opacity-10': open }" @endif
                     @class([
                         'flex flex-wrap border-b-2 border-transparent',
                         $item->isCurrentUrl()
                             ? 'border-primary text-primary'
                             : 'text-gray-700 hover:text-primary',
-                    ])
-                    :class="{ 'bg-primary bg-opacity-10': open }">
+                    ])>
 
                     <x-dynamic-component
                         :component="$item->component"
