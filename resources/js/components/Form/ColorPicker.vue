@@ -8,27 +8,34 @@
         :disabled="disabled"
         :locale="locale"
     >
-        <color-picker
-            v-model:pureColor="color"
-            disable-history
-            disable-alpha
-            lang="en"
-            @pureColorChange="$emit('update:modelValue', $event)"
-        />
+        <div class="relative">
+            <button
+                type="button"
+                class="w-10 h-6 border"
+                :style="{ backgroundColor: modelValue }"
+                @click="open = !open"
+            />
+
+            <twitter
+                v-click-away="() => (open = false)"
+                v-if="open"
+                class="!absolute top-full z-50"
+                v-model="color"
+            />
+        </div>
     </form-field>
 </template>
 
 <script>
-    import { ColorPicker } from 'vue3-colorpicker';
-    import 'vue3-colorpicker/style.css';
+    import { Twitter } from '@ckpack/vue-color';
 
-    import { ref } from 'vue';
+    import { ref, watch } from 'vue';
     import { defineInput } from '@/helpers';
 
     export default defineInput({
         name: 'FormColorPicker',
         components: {
-            ColorPicker,
+            Twitter,
         },
         props: {
             modelValue: {
@@ -36,10 +43,14 @@
                 default: '#000',
             },
         },
-        setup(props) {
+        setup(props, { emit }) {
+            const open = ref(false);
+
             const color = ref(props.modelValue);
 
-            return { color };
+            watch(color, (color) => emit('update:modelValue', color.hex));
+
+            return { color, open };
         },
     });
 </script>

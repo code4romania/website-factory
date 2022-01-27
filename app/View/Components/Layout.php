@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace App\View\Components;
 
-use Illuminate\Support\Str;
 use Illuminate\View\Component;
 
 class Layout extends Component
 {
-    public string $colors;
-
     /**
      * Create a new component instance.
      *
@@ -18,15 +15,7 @@ class Layout extends Component
      */
     public function __construct()
     {
-        $this->colors = collect(settings('site.colors'))
-            ->map(
-                fn (string $value, string $key) => sprintf(
-                    '--color-%s: %s;',
-                    $key,
-                    Str::between($value, 'rgb(', ')')
-                )
-            )
-            ->implode(' ');
+        //
     }
 
     /**

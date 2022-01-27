@@ -53,4 +53,3 @@
         </template>
     </settings-section>
 </template>
-

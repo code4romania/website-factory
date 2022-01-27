@@ -6,12 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{{ mix('assets/public.css') }}">
+    <link rel="stylesheet" href="{{ route('front.theme') }}">
 
     <style>
-        :root {
-            {{ $colors }}
-        }
-
         [x-cloak] {
             display: none !important;
         }

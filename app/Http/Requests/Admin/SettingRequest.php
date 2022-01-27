@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Requests\Admin;
 
 use App\Models\Setting;
-use App\Rules\ValidRGB;
+use App\Rules\ValidHex;
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
 
 class SettingRequest extends BaseRequest
@@ -35,7 +35,7 @@ class SettingRequest extends BaseRequest
                 'settings.logo'           => ['nullable', 'image'],
                 'settings.front_page'     => ['required', 'exists:pages,id'],
                 'settings.colors'         => ['array'],
-                'settings.colors.primary' => ['required', new ValidRGB],
+                'settings.colors.primary' => ['required', new ValidHex],
             ],
             'donations' => [
                 'settings.mobilpay_enabled'     => ['boolean'],

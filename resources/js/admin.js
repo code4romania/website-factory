@@ -2,6 +2,7 @@ import { createApp, h } from 'vue';
 import { createInertiaApp, Head, Link } from '@inertiajs/inertia-vue3';
 import { ZiggyVue } from 'ziggy-js/dist/vue';
 import mitt from 'mitt';
+import VueClickAway from "vue3-click-away";
 
 import registerComponents from '@/plugins/registerComponents';
 import progress from '@/plugins/progress';
@@ -17,6 +18,7 @@ createInertiaApp({
             .use(registerComponents)
             .use(progress)
             .use(i18n)
+            .use(VueClickAway)
             .component('InertiaHead', Head)
             .component('InertiaLink', Link)
             .provide('bus', mitt())
