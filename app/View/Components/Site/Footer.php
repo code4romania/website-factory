@@ -11,9 +11,11 @@ use Illuminate\View\Component;
 
 class Footer extends Component
 {
+    public string $title;
+
     public Collection $menu;
 
-    public string $title;
+    public array $social;
 
     /**
      * Create a new component instance.
@@ -22,9 +24,17 @@ class Footer extends Component
      */
     public function __construct()
     {
-        $this->menu = $this->getMenuItems();
+        $this->title = localized_settings('site.title');
 
-        $this->title = app('seotools')->getTitle();
+        $this->menu = Cache::rememberForever(
+            'menu-footer',
+            fn () => MenuItem::query()
+                ->location('footer')
+                ->get()
+                ->toTree()
+        );
+
+        $this->social = settings('site.social');
     }
 
     /**
@@ -35,15 +45,5 @@ class Footer extends Component
     public function render()
     {
         return view('components.site.footer');
-    }
-
-    private function getMenuItems(): Collection
-    {
-        return Cache::rememberForever('menu-footer', function () {
-            return MenuItem::query()
-                ->location('footer')
-                ->get()
-                ->toTree();
-        });
     }
 }

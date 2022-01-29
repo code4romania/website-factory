@@ -42,9 +42,13 @@
                 </div>
             </div>
 
-            <panel class="w-full md:flex-1">
-                <slot name="panel" :form="form" />
-            </panel>
+            <div class="w-full space-y-8 md:flex-1">
+                <panel>
+                    <slot name="panel" :form="form" />
+                </panel>
+
+                <slot name="extra" :form="form" />
+            </div>
         </div>
 
         <slot name="content" :form="form" />

@@ -8,19 +8,33 @@
         :disabled="disabled"
         :locale="locale"
     >
-        <input
-            class="block w-full border-inherit"
-            :type="type"
-            :name="name"
-            :id="id"
-            :required="required"
-            :disabled="disabled"
-            :autofocus="autofocus"
-            :placeholder="placeholder"
-            v-bind="$attrs"
-            :value="modelValue"
-            @input="$emit('update:modelValue', $event.target.value)"
-        />
+        <div
+            class="flex w-full border border-inherit focus-within:ring-1 focus-within:ring-blue-500"
+        >
+            <label
+                :for="id"
+                v-if="prefix"
+                class="inline-flex items-center pl-3 text-gray-400 select-none"
+                v-html="prefix"
+            />
+
+            <input
+                class="flex-1 block w-full min-w-0 border-none focus:outline-none focus:ring-0"
+                :class="{
+                    'pl-0': prefix,
+                }"
+                :type="type"
+                :name="name"
+                :id="id"
+                :required="required"
+                :disabled="disabled"
+                :autofocus="autofocus"
+                :placeholder="placeholder"
+                v-bind="$attrs"
+                :value="modelValue"
+                @input="$emit('update:modelValue', $event.target.value)"
+            />
+        </div>
     </form-field>
 </template>
 
@@ -33,6 +47,10 @@
             type: {
                 type: String,
                 default: 'text',
+            },
+            prefix: {
+                type: String,
+                default: null,
             },
         },
     });

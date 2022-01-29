@@ -31,7 +31,7 @@ class PageController extends Controller
             ->setDescription($page->description)
             ->addImages($image?->getUrl());
 
-        return $page->view([
+        return view('front.pages.show', [
             'page'  => $page,
             'image' => $image,
         ]);
@@ -53,7 +53,7 @@ class PageController extends Controller
 
         $page->loadMissing('blocks.media');
 
-        return $page->view([
+        return view('front.pages.show', [
             'page'  => $page,
             'image' => $image,
         ]);

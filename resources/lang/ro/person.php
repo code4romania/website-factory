@@ -18,4 +18,6 @@ return [
         'updated' => 'Persoana a fost actualizată.',
         'deleted' => 'Persoana a fost ștersă.',
     ],
+
+    'view_profile' => 'Vezi profil',
 ];

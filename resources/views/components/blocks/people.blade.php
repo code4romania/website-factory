@@ -9,27 +9,37 @@
 
     <ul class="grid lg:col-span-2 sm:grid-cols-2 gap-x-6 gap-y-8 lg:gap-y-12 lg:gap-x-8">
         @foreach ($people as $person)
-            <li>
+            <li class="space-y-4">
                 @if ($show_images && $person->hasMedia('image'))
-                    <div class="mb-4 overflow-hidden rounded-lg shadow-lg aspect-w-3 aspect-h-2">
+                    <a
+                        href="{{ $person->url }}"
+                        title="{{ __('person.view_profile') }}"
+                        class="block overflow-hidden transition-shadow duration-150 rounded-lg shadow-lg aspect-w-3 aspect-h-2 hover:shadow-xl">
                         <x-media.image
                             :src="$person->getMediaUrl('image', 'thumb')"
                             class="object-cover" />
-                    </div>
+                    </a>
                 @endif
 
-                <h3 class="text-lg font-semibold text-gray-900">{{ $person->name }}</h3>
-                <p class="text-lg font-medium text-primary">{{ $person->title }}</p>
+                <div class="text-lg">
+                    <a
+                        href="{{ $person->url }}"
+                        title="{{ __('person.view_profile') }}"
+                        class="flex justify-between hover:underline">
+                        <h3 class="font-semibold text-gray-900">
+                            {{ $person->name }}
+                        </h3>
 
-                <div class="mt-4 prose text-gray-500 prose-teal md:prose-lg">
+                        <x-ri-arrow-right-line class="w-5 h-5 ml-2 shrink-0" />
+                    </a>
+                    <p class="font-medium text-primary">{{ $person->title }}</p>
+                </div>
+
+                <div class="prose text-gray-500 md:prose-lg">
                     {!! $person->description !!}
                 </div>
 
-                <a href="{{ $person->url }}"
-                    class="flex items-center mt-4 font-semibold text-primary hover:underline">
-                    Profil
-                    <x-ri-arrow-right-line class="w-5 h-5 ml-2 shrink-0" />
-                </a>
+                <x-social-media-links :links="$person->social" />
             </li>
         @endforeach
     </ul>

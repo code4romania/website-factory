@@ -27,6 +27,10 @@ class SettingRequest extends BaseRequest
      */
     public function rules(): array
     {
+        $platforms = collect(config('website-factory.social_platforms'))
+            ->keys()
+            ->implode(',');
+
         return match ($this->section) {
             'default' => [],
             'site' => [
@@ -36,6 +40,7 @@ class SettingRequest extends BaseRequest
                 'settings.front_page'     => ['required', 'exists:pages,id'],
                 'settings.colors'         => ['array'],
                 'settings.colors.primary' => ['required', new ValidHex],
+                'settings.social'         => ['required', "array:$platforms"],
             ],
             'donations' => [
                 'settings.mobilpay_enabled'     => ['boolean'],

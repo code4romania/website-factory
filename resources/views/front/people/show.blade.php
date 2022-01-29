@@ -15,6 +15,8 @@
                 <div class="prose text-gray-500 max-w-prose sm:prose-lg md:prose-xl">
                     {!! $person->description !!}
                 </div>
+
+                <x-social-media-links :links="$person->social" />
             </div>
         </div>
 

@@ -32,7 +32,6 @@ class PageResource extends Resource
             'title'        => $this->getTranslations('title'),
             'description'  => $this->getTranslations('description'),
             'slug'         => $this->getTranslations('slug'),
-            'layout'       => $this->layout,
             'created_at'   => $this->created_at->toDateTimeString(),
             'published_at' => $this->published_at?->toDateTimeString(),
             'blocks'       => BlockResource::collection($this->blocks),

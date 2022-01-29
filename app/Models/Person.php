@@ -27,8 +27,12 @@ class Person extends Model
 
     public string $slugFieldSource = 'name';
 
+    public $casts = [
+        'social' => 'json',
+    ];
+
     public $fillable = [
-        'name',
+        'name', 'social',
     ];
 
     public array $translatable = [
@@ -42,4 +46,13 @@ class Person extends Model
     public array $allowedFilters = [
         //
     ];
+
+    public function getSocialProfiles(): array
+    {
+        return collect(config('website-factory.social_platforms'))
+            ->mapWithKeys(fn (array $config, string $id) => [
+                $id => data_get($this->social, $id),
+            ])
+            ->all();
+    }
 }

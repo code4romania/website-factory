@@ -23,17 +23,20 @@
             },
         },
         setup(props) {
-            const svgString = (props.local === true
-                ? require(`~/svg/${props.name}.svg`)
-                : require(`remixicon/icons/${props.name}.svg`)
-            ).default;
+            const svgString = computed(
+                () =>
+                    (props.local === true
+                        ? require(`~/svg/${props.name}.svg`)
+                        : require(`remixicon/icons/${props.name}.svg`)
+                    ).default
+            );
 
             const viewBox = computed(
-                () => (/viewBox="([^"]+)"/.exec(svgString) || '')[1]
+                () => (/viewBox="([^"]+)"/.exec(svgString.value) || '')[1]
             );
 
             const content = computed(() =>
-                svgString.replace(
+                svgString.value.replace(
                     /^(<template>)?<svg[^>]*>|<\/svg>(<\/template>)?$/g,
                     ''
                 )

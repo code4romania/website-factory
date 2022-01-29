@@ -9,6 +9,7 @@ return [
     'profile'   => 'Profil',
 
     'action' => [
+        'add'         => 'Adaugă',
         'apply'       => 'Aplică',
         'attach'      => 'Atașează',
         'cancel'      => 'Anulează',

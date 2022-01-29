@@ -9,6 +9,7 @@
                 'slug',
                 'title',
                 'description',
+                'social',
                 'blocks',
                 'media',
             ]"
@@ -52,6 +53,19 @@
                     v-model:media="form.media"
                     :limit="1"
                 />
+            </template>
+
+            <template #extra="{ form }">
+                <panel title="Social Profiles">
+                    <form-input
+                        v-for="(platform, id) in resource.platforms"
+                        :key="id"
+                        :label="platform.label"
+                        name="social"
+                        v-model="form.social[id]"
+                        :prefix="platform.prefix"
+                    />
+                </panel>
             </template>
 
             <template #content="{ form }">

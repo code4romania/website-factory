@@ -8,7 +8,6 @@
                 'title',
                 'slug',
                 'description',
-                'layout',
                 'blocks',
                 'media',
                 'published_at',
@@ -42,12 +41,6 @@
                     :label="$t('field.description')"
                     required
                     v-model="form.description"
-                />
-
-                <form-select
-                    :label="$t('field.layout')"
-                    v-model="form.layout"
-                    :options="model.layouts"
                 />
 
                 <form-media

@@ -27,10 +27,15 @@ class PersonRequest extends BaseRequest
      */
     public function rules(): array
     {
+        $platforms = collect(config('website-factory.social_platforms'))
+            ->keys()
+            ->implode(',');
+
         return TranslatableFormRequestRules::make(Person::class, [
             'name'                => ['required', 'string', 'max:200'],
-            'slug'                => ['required', 'string', 'max:200', 'unique_translation:people,slug,' . optional($this->person)->id],
+            'slug'                => ['required', 'string', 'max:200', "unique_translation:people,slug,{$this->person?->id}"],
             'title'               => ['required', 'string', 'max:200'],
+            'social'              => ['required', "array:$platforms"],
             'description'         => ['required', 'string'],
             'media'               => ['array'],
             'media.*.id'          => ['required', 'exists:media'],

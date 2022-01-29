@@ -37,6 +37,8 @@ class Setting extends Model
             'colors'      => [
                 'primary' => null,
             ],
+            'social'      => collect(config('website-factory.social_platforms'))
+                ->mapWithKeys(fn (array $config, string $id) => [$id => null]),
         ]);
 
         if (Features::hasDonations()) {
@@ -59,7 +61,8 @@ class Setting extends Model
         $sections = collect();
 
         $sections->put('site', [
-            'pages' => PageResource::collection(Page::all()),
+            'pages'     => PageResource::collection(Page::all('id', 'title')),
+            'platforms' => config('website-factory.social_platforms', []),
         ]);
 
         return Arr::wrap(

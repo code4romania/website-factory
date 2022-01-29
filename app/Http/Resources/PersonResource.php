@@ -32,6 +32,8 @@ class PersonResource extends Resource
             'name'         => $this->name,
             'slug'         => $this->slug,
             'title'        => $this->getTranslations('title'),
+            'social'       => $this->getSocialProfiles(),
+            'platforms'    => config('website-factory.social_platforms', []),
             'description'  => $this->getTranslations('description'),
             'created_at'   => $this->created_at->toDateTimeString(),
             'blocks'       => BlockResource::collection($this->blocks),

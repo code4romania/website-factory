@@ -1,7 +1,7 @@
 <template>
     <settings-section>
         <template #fields="{ form }">
-            <panel>
+            <panel title="General">
                 <localized-field
                     field="form-input"
                     :label="$t('setting.site.title')"
@@ -18,6 +18,24 @@
                     required
                 />
 
+                <form-select
+                    :label="$t('field.front_page')"
+                    name="settings.front_page"
+                    v-model="form.settings.front_page"
+                    :options="data.pages.data"
+                    option-value-key="id"
+                    option-label-key="title"
+                    required
+                />
+            </panel>
+
+            <panel title="Branding">
+                <form-color-picker
+                    :label="$t('setting.site.colors.primary')"
+                    name="settings.colors.primary"
+                    v-model="form.settings.colors.primary"
+                />
+
                 <form-file
                     :label="$t('setting.site.logo')"
                     name="settings.logo"
@@ -29,21 +47,16 @@
                         'image/svg+xml',
                     ]"
                 />
+            </panel>
 
-                <form-color-picker
-                    :label="$t('setting.site.colors.primary')"
-                    name="settings.colors.primary"
-                    v-model="form.settings.colors.primary"
-                />
-
-                <form-select
-                    :label="$t('field.front_page')"
-                    name="settings.front_page"
-                    v-model="form.settings.front_page"
-                    :options="data.pages.data"
-                    option-value-key="id"
-                    option-label-key="title"
-                    required
+            <panel title="Social Media">
+                <form-input
+                    v-for="(platform, id) in data.platforms"
+                    :key="id"
+                    :label="platform.label"
+                    name="settings.social"
+                    v-model="form.settings.social[id]"
+                    :prefix="platform.prefix"
                 />
             </panel>
         </template>

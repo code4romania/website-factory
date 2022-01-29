@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->string('slug');
             $table->json('title');
             $table->json('description');
+            $table->json('social')->nullable();
         });
     }
 };

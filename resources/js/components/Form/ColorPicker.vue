@@ -17,8 +17,8 @@
             />
 
             <twitter
-                v-click-away="() => (open = false)"
                 v-if="open"
+                v-click-away="() => (open = false)"
                 class="!absolute top-full z-50"
                 v-model="color"
             />
@@ -50,7 +50,10 @@
 
             watch(color, (color) => emit('update:modelValue', color.hex));
 
-            return { color, open };
+            return {
+                color,
+                open,
+            };
         },
     });
 </script>

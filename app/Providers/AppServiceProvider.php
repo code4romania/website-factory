@@ -6,7 +6,6 @@ namespace App\Providers;
 
 use App\Services\BlockCollection;
 use App\Services\SupportsTrait;
-use App\Traits\HasLayout;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -103,10 +102,6 @@ class AppServiceProvider extends ServiceProvider
                 $blocks = (new BlockCollection($model->allowedBlockType ?? 'block'))->all();
             }
 
-            if (\in_array(HasLayout::class, $traits)) {
-                $layouts = $model->getAvailableLayouts();
-            }
-
             if (\in_array(Translatable::class, $traits)) {
                 $translatable = $model->translatable;
             }
@@ -119,7 +114,6 @@ class AppServiceProvider extends ServiceProvider
                     'admin_route_prefix' => 'admin.' . Str::plural($morphClass),
                     'front_route_prefix' => 'front.' . Str::plural($morphClass),
                     'blocks'             => $blocks ?? [],
-                    'layouts'            => $layouts ?? [],
                     'translatable'       => $translatable ?? [],
                 ],
             ]);

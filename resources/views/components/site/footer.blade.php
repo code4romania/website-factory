@@ -26,30 +26,11 @@
                     @endforeach
                 </ul>
             </nav>
-
-            <div>
-                <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">
-                    Subscribe to our newsletter
-                </h3>
-                <p class="mt-4 text-base text-gray-100">
-                    The latest news, articles, and resources, sent to your inbox weekly.
-                </p>
-                <form class="mt-4 sm:flex sm:max-w-md">
-                    <label for="email-address" class="sr-only">Email address</label>
-                    <input type="email" name="email-address" id="email-address" autocomplete="email" required
-                        class="w-full min-w-0 px-4 py-2 text-base text-gray-900 placeholder-gray-500 bg-white border border-transparent rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white focus:placeholder-gray-400"
-                        placeholder="Enter your email">
-                    <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:shrink-0">
-                        <button type="submit"
-                            class="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white bg-primary opacity-90 border border-transparent rounded-md hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-primary">
-                            Subscribe
-                        </button>
-                    </div>
-                </form>
-            </div>
         </div>
 
-        <div class="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
+        <div class="pt-8 mt-8 border-t border-gray-200 md:flex md:items-center md:justify-between">
+            <x-social-media-links :links="$social" class="md:order-2" />
+
             <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
                 &copy; {{ date('Y') }} {{ $title }}
             </p>

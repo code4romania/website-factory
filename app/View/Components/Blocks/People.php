@@ -23,8 +23,7 @@ class People extends BlockComponent
         $this->html = $this->block->translatedInput('text');
 
         $this->people = $this->block->related
-            ->with('related.media')
-            ->get()
+            ->loadMissing('related.media')
             ->pluck('related');
 
         $this->show_images = $this->block->checkbox('show_images');
