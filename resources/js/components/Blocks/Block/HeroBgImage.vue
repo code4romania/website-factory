@@ -7,8 +7,7 @@
 
     <localized-field
         field="form-editor"
-        label="Text"
-        required
+        :label="$t('field.text')"
         v-model="content.text"
     />
 

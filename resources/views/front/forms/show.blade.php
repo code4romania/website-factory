@@ -29,11 +29,12 @@
                 <div class="container flex mt-8 lg:mt-12">
                     @csrf
 
-                    <button
+                    <x-button
                         type="submit"
-                        class="items-center justify-center block w-full px-5 py-3 text-base font-medium text-white bg-teal-600 border border-transparent rounded-md shadow-sm sm:w-auto sm:inline-block hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
-                        Submit
-                    </button>
+                        class="items-center justify-center block w-full font-semibold text-white border border-transparent sm:w-auto sm:inline-block bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                        size="lg">
+                        @lang('form.action.submit')
+                    </x-button>
                 </div>
             </form>
         @endif

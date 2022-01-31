@@ -11,11 +11,11 @@ use Illuminate\View\Component;
 
 class Footer extends Component
 {
-    public string $title;
+    public ?string $title;
 
     public Collection $menu;
 
-    public array $social;
+    public ?array $social;
 
     /**
      * Create a new component instance.

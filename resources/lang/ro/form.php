@@ -11,6 +11,7 @@ return [
         'edit' => 'Editează formular',
         'update' => 'Actualizează formular',
         'delete' => 'Șterge formular',
+        'submit' => 'Trimite',
     ],
 
     'event' => [

@@ -32,10 +32,17 @@ mix.valet()
     .js('resources/js/public.js', 'public/assets')
     .js('resources/js/admin.js', 'public/assets')
     .vue({ version: 3 })
+
     .postCss('resources/css/admin.css', 'public/assets/admin.css', [
         tailwindcss('resources/themes/admin.tailwind.config.js'),
         require('postcss-100vh-fix'),
     ])
+
+    .postCss('resources/css/public.css', 'public/assets/public.css', [
+        tailwindcss('resources/themes/public.tailwind.config.js'),
+        require('postcss-100vh-fix'),
+    ])
+
     .sourceMaps(false)
 
     .override((config) => {
@@ -98,8 +105,3 @@ mix.valet()
             }),
         ],
     }));
-
-    mix.postCss('resources/css/public.css', 'public/assets/public.css', [
-        tailwindcss('resources/themes/public.tailwind.config.js'),
-        require('postcss-100vh-fix'),
-    ]);

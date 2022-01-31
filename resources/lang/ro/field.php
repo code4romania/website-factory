@@ -31,6 +31,7 @@ return [
     'people'            => 'Persoane',
     'position'          => 'Poziție imagine',
     'posts_count'       => 'Număr de postări',
+    'progress'          => 'Progres',
     'publish'           => 'Publică',
     'published_at'      => 'Publicat la',
     'recipients'        => 'Destinatari',

@@ -27,6 +27,7 @@ return [
     'number'             => 'Număr',
     'o-embed'            => 'oEmbed',
     'people'             => 'Persoane',
+    'progress'           => 'Progres',
     'radio'              => 'Radio',
     'select'             => 'Select',
     'text'               => 'Text',

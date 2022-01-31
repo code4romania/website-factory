@@ -8,9 +8,14 @@
     />
 
     <localized-field
-        field="form-editor"
-        :label="$t('field.text')"
-        v-model="content.text"
+        field="form-input"
+        :label="$t('field.description')"
+        v-model="content.description"
+    />
+
+    <form-range
+        :label="$t('field.progress')"
+        v-model.number="content.progress"
     />
 
     <localized-field
@@ -29,16 +34,18 @@
 </template>
 
 <script>
-    import { defineRepeater } from '@/helpers';
+    import { defineBlock } from '@/helpers';
 
-    export default defineRepeater({
-        type: 'card-item',
+    export default defineBlock({
+        type: 'progress',
+        icon: 'Development/git-commit-line',
         fields: {
             icon: String,
             title: Object,
-            text: Object,
+            description: Object,
             button_text: Object,
             button_url: Object,
+            progress: Number,
         },
     });
 </script>

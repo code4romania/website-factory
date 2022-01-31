@@ -10,11 +10,12 @@
     >
         <button
             type="button"
-            class="w-16 h-16 p-4 border border-gray-400"
+            class="w-16 h-16 p-3 border border-gray-400"
             :title="$t('app.action.select')"
             @click="open"
         >
             <icon v-if="selectedIcon" :name="selectedIcon" />
+            <span v-else>&mdash;</span>
         </button>
 
         <div

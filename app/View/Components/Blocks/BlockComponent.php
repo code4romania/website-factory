@@ -67,4 +67,13 @@ abstract class BlockComponent extends Component
             5 => 'md:grid-cols-3 lg:grid-cols-5',
         };
     }
+
+    protected function iconComponent(?string $name, ?string $prefix = 'ri'): ?string
+    {
+        if (! $name) {
+            return null;
+        }
+
+        return implode('-', [$prefix, $name]);
+    }
 }

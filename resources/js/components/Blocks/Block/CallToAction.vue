@@ -2,14 +2,12 @@
     <localized-field
         field="form-input"
         :label="$t('field.title')"
-        required
         v-model="content.title"
     />
 
     <localized-field
         field="form-editor"
         :label="$t('field.text')"
-        required
         v-model="content.text"
     />
 

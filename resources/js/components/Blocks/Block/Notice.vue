@@ -1,11 +1,5 @@
 <template>
     <localized-field
-        field="form-input"
-        :label="$t('field.title')"
-        v-model="content.title"
-    />
-
-    <localized-field
         field="form-editor"
         :label="$t('field.text')"
         v-model="content.text"
@@ -16,10 +10,11 @@
     import { defineBlock } from '@/helpers';
 
     export default defineBlock({
-        type: 'text',
+        type: 'notice',
+        icon: 'System/alert-line',
         fields: {
-            title: Object,
             text: Object,
+            color: String,
         },
     });
 </script>

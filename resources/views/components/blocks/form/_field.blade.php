@@ -1,7 +1,7 @@
 @props(['block', 'tag' => 'label', 'noShadow' => false, 'inlineHelp' => true])
 
 
-<{{ $tag }} class="block">
+<{{ $tag }} {{ $attributes->class('block') }}>
     <div @class([
         'flex mb-1',
         'text-red-700' => $errors->has($block->name),
