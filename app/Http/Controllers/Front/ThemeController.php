@@ -24,7 +24,7 @@ class ThemeController extends Controller
                 $rgb = match (Str::length($hex)) {
                     3       => str_split($hex, 1),
                     6       => str_split($hex, 2),
-                    default => [0, 0, 0]
+                    default => str_split('000', 1),
                 };
 
                 $rgb = collect($rgb)
