@@ -28,7 +28,7 @@ class ThemeController extends Controller
                 };
 
                 $rgb = collect($rgb)
-                    ->map(fn ($c) => hexdec(str_pad($c, 2, $c)))
+                    ->map(fn (string $c) => hexdec(str_pad($c, 2, $c)))
                     ->implode(',');
 
                 return "--color-${name}:${rgb};";

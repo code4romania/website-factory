@@ -1,3 +1,5 @@
 <x-blocks._title :title="$title" />
 
-<x-media.figure :src="$image->getUrl()" :caption="$image->caption" />
+@if ($image)
+    <x-media.figure :src="$image->getUrl()" :caption="$image->caption" />
+@endif
