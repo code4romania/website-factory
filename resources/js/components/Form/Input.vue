@@ -33,6 +33,7 @@
                 v-bind="$attrs"
                 :value="modelValue"
                 @input="$emit('update:modelValue', $event.target.value)"
+                @blur="ensureHttpOnInputUrl"
             />
         </div>
     </form-field>
@@ -52,6 +53,27 @@
                 type: String,
                 default: null,
             },
+        },
+        setup(props, { emit }) {
+            const ensureHttpOnInputUrl = (e) => {
+                if (props.type !== 'url') {
+                    return;
+                }
+
+                if (!e.target.value) {
+                    return;
+                }
+
+                try {
+                    new URL(e.target.value);
+                } catch (error) {
+                    emit('update:modelValue', `http://${e.target.value}`);
+                }
+            };
+
+            return {
+                ensureHttpOnInputUrl,
+            };
         },
     });
 </script>
