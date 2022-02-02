@@ -29,7 +29,7 @@ class BlockCollection extends Collection
         );
     }
 
-    private function getItems(string $type): ?iterable
+    private function getItems(string $type): ?Collection
     {
         $source = resource_path('js/components/Blocks/' . ucfirst($type));
 
@@ -56,7 +56,8 @@ class BlockCollection extends Collection
                     'icon' => $this->getProperty('icon', $component) ?? 'Design/layout-top-2-line',
                     'type' => $this->getProperty('type', $component) ?? Str::kebab(preg_replace('/(.vue|.js)$/u', '', $file->getFilename())),
                 ];
-            });
+            })
+            ->values();
     }
 
     private function getProperty(string $name, string $subject): ?string
