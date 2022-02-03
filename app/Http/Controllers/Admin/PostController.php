@@ -21,7 +21,10 @@ class PostController extends AdminController
             'collection' => new PostCollection(
                 Post::query()
                     ->withDrafted()
-                    ->sort()
+                    ->sort(
+                        defaultSortColumn: 'created_at',
+                        defaultSortOrder: 'desc'
+                    )
                     ->filter()
                     ->paginate()
             ),

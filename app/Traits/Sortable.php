@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Services\SupportsTrait;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -28,11 +29,15 @@ trait Sortable
      * @return \Illuminate\Database\Eloquent\Builder
      * @throws \InvalidArgumentException
      */
-    public function scopeSort(Builder $query): Builder
+    public function scopeSort(Builder $query, ?string $defaultOrderColumn = null, ?string $defaultOrderDirection = null): Builder
     {
         $sort = Request::query('sort');
 
         if (! $sort || ! \is_string($sort)) {
+            if ($defaultOrderColumn && $defaultOrderDirection) {
+                $query->orderBy($defaultOrderColumn, $defaultOrderDirection);
+            }
+
             return $query;
         }
 
@@ -56,6 +61,13 @@ trait Sortable
             return $query->join($plural, "{$plural}.id", '=', $this->getTable() . ".{$singular}_id")
                 ->orderBy("{$plural}.{$attribute}", $direction)
                 ->with($relationship);
+        }
+
+        if (
+            SupportsTrait::translatable($this) &&
+            $this->isTranslatableAttribute($column)
+        ) {
+            $column .= '->' . app()->getLocale();
         }
 
         return $query->orderBy($column, $direction);

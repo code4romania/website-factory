@@ -15,7 +15,7 @@
                 <inertia-link
                     v-if="column.sortable"
                     class="flex items-center group focus:outline-none"
-                    :href="route(route().current(), route().params)"
+                    :href="currentUrl"
                     :data="sortData(column)"
                 >
                     <div
@@ -58,6 +58,7 @@
 <script>
     import { computed } from 'vue';
     import { usePage } from '@inertiajs/inertia-vue3';
+    import { route } from '@/helpers';
     import pickBy from 'lodash/pickBy';
 
     export default {
@@ -82,6 +83,12 @@
         },
         emits: ['update:selectAll'],
         setup(props, { emit }) {
+            const currentUrl = computed(() => {
+                const { sort, ...params } = route().params;
+
+                return route(route().current(), params);
+            });
+
             const sortData = (column) => {
                 const request = {
                     filters: pickBy(usePage().props.value.filters),
@@ -109,6 +116,7 @@
             });
 
             return {
+                currentUrl,
                 sortData,
                 sortIconClass,
                 selectAll,

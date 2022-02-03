@@ -20,7 +20,10 @@ class PageController extends AdminController
             'collection' => new PageCollection(
                 Page::query()
                     ->withDrafted()
-                    ->sort()
+                    ->sort(
+                        defaultSortColumn: 'created_at',
+                        defaultSortOrder: 'desc'
+                    )
                     ->filter()
                     ->paginate()
             ),
