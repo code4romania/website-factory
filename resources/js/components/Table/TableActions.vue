@@ -19,7 +19,7 @@
 
     <!-- Duplicate confirmation modal -->
     <confirmation-modal
-        :show="confirmAction === 'duplicate'"
+        v-if="confirmAction === 'duplicate'"
         @close="confirmAction = null"
         @submit="actionDuplicate"
     >
@@ -49,7 +49,7 @@
 
     <!-- Delete confirmation modal -->
     <confirmation-modal
-        :show="confirmAction === 'delete'"
+        v-if="confirmAction === 'delete'"
         @close="confirmAction = null"
         @submit="actionDelete"
     >
@@ -79,7 +79,7 @@
 
     <!-- Force delete confirmation modal -->
     <confirmation-modal
-        :show="confirmAction === 'forceDelete'"
+        v-if="confirmAction === 'forceDelete'"
         @close="confirmAction = null"
         @submit="actionForceDelete"
     >
@@ -109,7 +109,7 @@
 
     <!-- Restore confirmation modal -->
     <confirmation-modal
-        :show="confirmAction === 'restore'"
+        v-if="confirmAction === 'restore'"
         @close="confirmAction = null"
         @submit="actionRestore"
     >

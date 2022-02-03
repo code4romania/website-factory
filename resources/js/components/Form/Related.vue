@@ -75,7 +75,7 @@
         </draggable>
     </form-field>
 
-    <action-modal max-width="lg" :show="open" @close="open = false">
+    <action-modal max-width="lg" v-if="open" @close="open = false">
         <template #title>Attach related</template>
 
         <template #content>

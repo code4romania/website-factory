@@ -1,50 +1,19 @@
 <template>
     <teleport to="body">
-        <transition
-            enter-active-class="duration-300 ease-out"
-            leave-active-class="duration-200"
+        <component
+            :is="isForm ? 'form' : 'div'"
+            class="fixed inset-0 z-50 flex items-start justify-center min-h-screen sm:p-4 md:p-8 lg:p-16 xl:p-32"
+            @submit.prevent="submit"
         >
-            <component
-                :is="isForm ? 'form' : 'div'"
-                v-show="show"
-                class="fixed inset-0 z-50 flex items-start justify-center min-h-screen sm:p-4 md:p-8 lg:p-16 xl:p-32"
-                @submit.prevent="submit"
-            >
-                <transition
-                    enter-active-class="duration-300 ease-out"
-                    enter-class="opacity-0"
-                    enter-to-class="opacity-100"
-                    leave-active-class="duration-200 ease-in"
-                    leave-class="opacity-100"
-                    leave-to-class="opacity-0"
-                >
-                    <div
-                        v-show="show"
-                        class="fixed inset-0 transition-opacity transform"
-                        @click="close"
-                    >
-                        <div class="absolute inset-0 bg-gray-500 opacity-75" />
-                    </div>
-                </transition>
+            <div class="fixed inset-0 bg-gray-500 opacity-75" @click="close" />
 
-                <transition
-                    enter-active-class="duration-300 ease-out"
-                    enter-class="translate-y-4 opacity-0 sm:translate-y-0 sm:scale-95"
-                    enter-to-class="translate-y-0 opacity-100 sm:scale-100"
-                    leave-active-class="duration-200 ease-in"
-                    leave-class="translate-y-0 opacity-100 sm:scale-100"
-                    leave-to-class="translate-y-4 opacity-0 sm:translate-y-0 sm:scale-95"
-                >
-                    <div
-                        v-if="show"
-                        class="w-full max-h-full transition-all transform bg-white shadow-xl"
-                        :class="[maxWidth, containerClass]"
-                    >
-                        <slot />
-                    </div>
-                </transition>
-            </component>
-        </transition>
+            <div
+                class="w-full max-h-full transition-all transform bg-white shadow-xl"
+                :class="[maxWidth, containerClass]"
+            >
+                <slot />
+            </div>
+        </component>
     </teleport>
 </template>
 

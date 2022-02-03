@@ -1,6 +1,6 @@
 <template>
     <base-modal
-        :show="isOpen"
+        v-if="isOpen"
         container-class="flex flex-col h-full"
         @close="close"
     >
