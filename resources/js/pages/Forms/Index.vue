@@ -1,5 +1,5 @@
 <template>
-    <layout :title="$t('form.label', 2)">
+    <layout :title="$tChoice('form.label', 2)">
         <inertia-table :collection="collection"> </inertia-table>
     </layout>
 </template>

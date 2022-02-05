@@ -46,18 +46,6 @@ mix.valet()
     .sourceMaps(false)
 
     .override((config) => {
-        config.module.rules.push({
-            test: path.resolve('resources/lang/index.js'),
-            loader: '@kirschbaum-development/laravel-translations-loader/php',
-            options: {
-                parameters: '{$1}',
-                exclude: [
-                    //
-                    'validation',
-                ],
-            },
-        });
-
         const imageRule = config.module.rules.find((rule) =>
             rule.test.test('.svg')
         );
@@ -95,13 +83,4 @@ mix.valet()
                 },
             ],
         });
-    })
-
-    .webpackConfig((webpack) => ({
-        plugins: [
-            new webpack.DefinePlugin({
-                __VUE_OPTIONS_API__: true,
-                __VUE_PROD_DEVTOOLS__: false,
-            }),
-        ],
-    }));
+    });

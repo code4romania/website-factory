@@ -1,5 +1,5 @@
 <template>
-    <layout :title="$t('post.label', 2)">
+    <layout :title="$tChoice('post.label', 2)">
         <template #subnav>
             <menu-item
                 v-for="(item, index) in subnav"

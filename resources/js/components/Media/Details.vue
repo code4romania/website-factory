@@ -3,14 +3,14 @@
         <p
             v-if="!items.length"
             class="text-sm text-gray-500"
-            v-text="$t('media.selected', 0)"
+            v-text="$tChoice('media.selected', 0)"
         />
 
         <div v-else-if="items.length > 1" class="">
             <div class="flex items-center justify-between space-x-6 text-sm">
                 <p
                     class="text-gray-900"
-                    v-text="$t('media.selected', items.length)"
+                    v-text="$tChoice('media.selected', items.length)"
                 />
 
                 <button

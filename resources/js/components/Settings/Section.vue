@@ -1,9 +1,5 @@
 <template>
-    <layout
-        :title="
-            $t('setting.label', 2) + ': ' + $t(`setting.section.${section}`)
-        "
-    >
+    <layout :title="title">
         <template #subnav>
             <menu-item
                 v-for="section in sections"
@@ -44,6 +40,7 @@
     import { computed } from 'vue';
     import { useForm, usePage } from '@inertiajs/inertia-vue3';
     import { route } from '@/helpers';
+    import { trans, transChoice } from 'laravel-vue-i18n';
 
     export default {
         name: 'SettingsSection',
@@ -57,11 +54,19 @@
 
             const url = route('admin.settings.store', { section: section.value });
 
+            const title = computed(() => {
+                let prefix = transChoice('setting.label', 2),
+                    sectionLabel = trans(`setting.section.${section.value}`);
+
+                return `${prefix}: ${sectionLabel}`;
+            });
+
             return {
                 sections,
                 section,
                 form,
                 url,
+                title,
             };
         },
     };

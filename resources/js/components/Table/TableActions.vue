@@ -12,7 +12,7 @@
                 @click="action.click"
                 v-bind="action"
             >
-                <span v-t="action.label" />
+                <span v-text="$t('action.label')" />
             </dropdown-item>
         </template>
     </dropdown>

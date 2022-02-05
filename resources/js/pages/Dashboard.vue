@@ -12,7 +12,7 @@
                 <div class="flex items-center mb-1">
                     <dt
                         class="font-medium truncate"
-                        v-text="$t(`${item.type}.label`, 2)"
+                        v-text="$tChoice(`${item.type}.label`, 2)"
                     />
 
                     <icon
