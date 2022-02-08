@@ -29,13 +29,13 @@ trait Sortable
      * @return \Illuminate\Database\Eloquent\Builder
      * @throws \InvalidArgumentException
      */
-    public function scopeSort(Builder $query, ?string $defaultOrderColumn = null, ?string $defaultOrderDirection = null): Builder
+    public function scopeSort(Builder $query, ?string $defaultColumn = null, ?string $defaultDirection = null): Builder
     {
         $sort = Request::query('sort');
 
         if (! $sort || ! \is_string($sort)) {
-            if ($defaultOrderColumn && $defaultOrderDirection) {
-                $query->orderBy($defaultOrderColumn, $defaultOrderDirection);
+            if ($defaultColumn && $defaultDirection) {
+                $query->orderBy($defaultColumn, $defaultDirection);
             }
 
             return $query;

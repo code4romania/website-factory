@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Scopes\DefaultSortOrderScope;
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
 use App\Traits\HasMedia;
@@ -46,11 +45,6 @@ class Post extends Model
     public $with = [
         'categories',
     ];
-
-    protected static function booted()
-    {
-        static::addGlobalScope(new DefaultSortOrderScope);
-    }
 
     public function categories(): BelongsToMany
     {

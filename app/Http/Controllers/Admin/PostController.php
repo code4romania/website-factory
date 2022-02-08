@@ -22,8 +22,8 @@ class PostController extends AdminController
                 Post::query()
                     ->withDrafted()
                     ->sort(
-                        defaultSortColumn: 'created_at',
-                        defaultSortOrder: 'desc'
+                        defaultColumn: 'created_at',
+                        defaultDirection: 'desc'
                     )
                     ->filter()
                     ->paginate()
