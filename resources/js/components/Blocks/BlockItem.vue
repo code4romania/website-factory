@@ -15,7 +15,7 @@
                 <icon
                     v-if="icon"
                     :name="icon"
-                    class="flex-shrink-0 w-5 h-5 mr-1 text-gray-500 group-hover:text-gray-600"
+                    class="w-5 h-5 mr-1 text-gray-500 shrink-0 group-hover:text-gray-600"
                 />
 
                 <h1 class="text-gray-900" v-text="$t(name)" />

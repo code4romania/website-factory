@@ -30,8 +30,8 @@
                         />
                     </div>
 
-                    <div class="flex flex-1 px-2 py-4">
-                        <div class="w-24 shrink-0">
+                    <div class="flex flex-1 gap-4 px-2 py-4">
+                        <div class="w-16 sm:w-24 shrink-0">
                             <div
                                 class="overflow-hidden border border-gray-200 group aspect-w-1 aspect-h-1"
                             >
@@ -44,13 +44,10 @@
                             </div>
                         </div>
 
-                        <div class="flex-1 flex-shrink px-4">
-                            <div
-                                class="font-bold truncate"
-                                v-text="
-                                    `${element.filename}.${element.extension}`
-                                "
-                            />
+                        <div class="flex-1 w-0 shrink">
+                            <div class="font-bold truncate">
+                                {{ element.filename }}.{{ element.extension }}
+                            </div>
                             <div class="truncate" v-text="element.size" />
                         </div>
 

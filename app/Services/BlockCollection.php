@@ -60,10 +60,10 @@ class BlockCollection extends Collection
             ->values();
     }
 
-    private function getProperty(string $name, string $subject): ?string
+    private function getProperty(string $name, string $subject, mixed $default = null): ?string
     {
         preg_match("/^\\s+{$name}: '([a-z0-9\/-]+)',$/uim", $subject, $matches);
 
-        return $matches[1] ?? null;
+        return $matches[1] ?? $default;
     }
 }

@@ -74,7 +74,6 @@
                 default: false,
             },
         },
-
         setup() {
             const open = ref(false);
 

@@ -32,6 +32,21 @@ hosts:
     deploy_path: '/var/www/website-factory/cds'
     labels:
       stage: staging
+  cris:
+    hostname: 'website-factory.code4.ro'
+    deploy_path: '/var/www/website-factory/cris'
+    labels:
+      stage: staging
+  code4:
+    hostname: 'website-factory.code4.ro'
+    deploy_path: '/var/www/website-factory/code4'
+    labels:
+      stage: staging
+  career-center:
+    hostname: 'website-factory.code4.ro'
+    deploy_path: '/var/www/website-factory/career-center'
+    labels:
+      stage: staging
 
 tasks:
   deploy:

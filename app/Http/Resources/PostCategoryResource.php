@@ -31,7 +31,6 @@ class PostCategoryResource extends Resource
             'title'        => $this->getTranslations('title'),
             'description'  => $this->getTranslations('description'),
             'slug'         => $this->getTranslations('slug'),
-
         ];
     }
 

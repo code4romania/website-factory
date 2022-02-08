@@ -1,7 +1,7 @@
 <div class="flex flex-wrap justify-between mb-8 gap-y-4 gap-x-8 md:flex-nowrap">
     <div class="flex gap-3">
         <div
-            class="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-md text-primary bg-opacity-10 bg-primary">
+            class="flex items-center justify-center shrink-0 w-12 h-12 rounded-md text-primary bg-opacity-10 bg-primary">
             <x-dynamic-component
                 :component="$icon"
                 class="w-6 h-6"
@@ -20,7 +20,7 @@
     </div>
 
     @if ($buttonUrl && $buttonText)
-        <div class="flex justify-end flex-shrink-0 w-full text-sm items-bottom md:w-auto">
+        <div class="flex justify-end shrink-0 w-full text-sm items-bottom md:w-auto">
             <a
                 href="{{ $buttonUrl }}"
                 class="flex items-center text-primary hover:underline">

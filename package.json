@@ -53,8 +53,8 @@
         "@tiptap/extension-typography": "^2.0.0-beta.19",
         "@tiptap/extension-underline": "^2.0.0-beta.22",
         "@tiptap/vue-3": "^2.0.0-beta.84",
-        "@vue/compiler-sfc": "^3.2.29",
-        "@vueuse/core": "^7.5.5",
+        "@vue/compiler-sfc": "^3.2.30",
+        "@vueuse/core": "^7.6.0",
         "alpinejs": "^3.8.1",
         "autoprefixer": "^10.4.2",
         "axios": "^0.25.0",
@@ -70,9 +70,9 @@
         "raw-loader": "^4.0.2",
         "remixicon": "^2.5.0",
         "slug": "^5.2.0",
-        "tailwindcss": "^3.0.18",
+        "tailwindcss": "^3.0.19",
         "uniqid": "^5.4.0",
-        "vue": "^3.2.29",
+        "vue": "^3.2.30",
         "vue-flatpickr-component": "^9.0.5",
         "vue-i18n": "^9.2.0-beta.6",
         "vue-loader": "^17.0.0",
@@ -86,7 +86,7 @@
         "cz-conventional-changelog": "^3.2.0",
         "husky": "^7.0.4",
         "prettier": "^2.5.1",
-        "prettier-plugin-tailwindcss": "^0.1.5"
+        "prettier-plugin-tailwindcss": "^0.1.6"
     },
     "config": {
         "commitizen": {

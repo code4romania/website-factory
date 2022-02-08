@@ -88,18 +88,6 @@
             },
         },
         inject: ['bus'],
-        data() {
-            return {
-                profileMenu: [
-                    {
-                        type: 'link',
-                        href: this.route('auth.logout'),
-                        label: this.$t('auth.logout'),
-                        method: 'post',
-                    },
-                ],
-            };
-        },
         setup() {
             const buildMenu = (items) =>
                 items.map((item) => {
@@ -118,9 +106,14 @@
                 buildMenu(usePage().props.value.navigation.secondary)
             );
 
+            const profileMenu = computed(() =>
+                buildMenu(usePage().props.value.navigation.profile)
+            );
+
             return {
                 mainMenu,
                 secondaryMenu,
+                profileMenu,
             };
         },
     };
