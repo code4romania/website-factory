@@ -61,6 +61,13 @@ class Header extends Component
             ->reject(fn (string $locale) => app()->getLocale() === $locale)
             ->mapWithKeys(fn (string $locale) => [
                 $locale => $this->withLocale($locale, function () use ($routeName, $model, $locale) {
+                    if (Str::endsWith($routeName, '.search')) {
+                        return route($routeName, [
+                            ...request()->query(),
+                            'locale' => $locale,
+                        ]);
+                    }
+
                     if (Str::endsWith($routeName, '.index')) {
                         return route($routeName, ['locale' => $locale]);
                     }

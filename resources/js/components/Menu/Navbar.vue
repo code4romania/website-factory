@@ -1,46 +1,42 @@
 <template>
     <div class="bg-gray-800">
         <div class="container lg:divide-gray-700 lg:divide-y">
-            <div class="relative flex items-center justify-between h-16">
-                <div class="flex items-center px-2 lg:px-0">
-                    <div class="shrink-0">
-                        <app-logo class="block h-10" light link />
-                    </div>
+            <div
+                class="relative flex items-center justify-between h-16 gap-x-4 md:gap-x-8"
+            >
+                <div class="flex items-center px-2 shrink-0 lg:px-0">
+                    <app-logo class="block h-10" light link />
                 </div>
 
-                <div class="hidden lg:flex lg:space-x-4 lg:items-center">
-                    <menu-item
-                        type="button"
-                        @click="bus.emit('media-library:open')"
-                        class="text-sm"
+                <search class="flex-1" />
+
+                <div
+                    class="hidden shrink-0 lg:flex lg:space-x-4 lg:items-center"
+                >
+                    <dropdown
+                        class="relative"
+                        origin="top-right"
+                        trigger-class="flex rounded-full focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                     >
-                        {{ $t('media.library') }}
-                    </menu-item>
+                        <template #trigger>
+                            <img
+                                class="w-8 h-8 rounded-full"
+                                :src="$page.props.auth.user.avatar"
+                                :alt="$page.props.auth.user.name"
+                            />
+                        </template>
 
-                    <div class="relative ml-3">
-                        <dropdown
-                            origin="top-right"
-                            trigger-class="flex items-center px-3 py-2 text-sm font-medium text-gray-300 transition duration-150 ease-in-out hover:text-white hover:bg-gray-700"
-                            with-arrow
-                        >
-                            <template #trigger>
-                                <span v-text="$page.props.auth.user.name" />
-                            </template>
-
-                            <template #content>
-                                <dropdown-item
-                                    v-for="(item, index) in profileMenu"
-                                    :key="index"
-                                    :method="item.method || 'get'"
-                                    :as="
-                                        item.method === 'post' ? 'button' : 'a'
-                                    "
-                                    :href="item.href"
-                                    v-text="item.label"
-                                />
-                            </template>
-                        </dropdown>
-                    </div>
+                        <template #content>
+                            <dropdown-item
+                                v-for="(item, index) in profileMenu"
+                                :key="index"
+                                :method="item.method || 'get'"
+                                :as="item.method === 'post' ? 'button' : 'a'"
+                                :href="item.href"
+                                v-text="item.label"
+                            />
+                        </template>
+                    </dropdown>
                 </div>
 
                 <div class="flex lg:hidden">
@@ -70,7 +66,7 @@
             </div>
 
             <div class="hidden lg:flex lg:py-3 lg:space-x-4 lg:justify-between">
-                <div class="flex space-x-4">
+                <div class="flex space-x-2">
                     <menu-item
                         v-for="(item, index) in mainMenu"
                         :key="index"
@@ -81,14 +77,13 @@
                     </menu-item>
                 </div>
 
-                <div class="flex space-x-4">
+                <div class="flex space-x-2">
                     <menu-item
-                        v-for="(item, index) in secondaryMenu"
-                        :key="index"
-                        v-bind="item"
+                        type="button"
+                        @click="bus.emit('media-library:open')"
                         class="text-sm"
                     >
-                        {{ item.label }}
+                        {{ $t('media.library') }}
                     </menu-item>
                 </div>
             </div>
@@ -126,15 +121,23 @@
                 </div>
 
                 <div class="pt-4 space-y-3">
-                    <div class="px-3">
-                        <div
-                            class="font-medium text-white"
-                            v-text="$page.props.auth.user.name"
+                    <div class="flex items-center px-3">
+                        <img
+                            class="w-10 h-10 rounded-full shrink-0"
+                            :src="$page.props.auth.user.avatar"
+                            alt=""
                         />
-                        <div
-                            class="text-sm font-medium text-gray-300"
-                            v-text="$page.props.auth.user.email"
-                        />
+
+                        <div class="ml-3 font-medium">
+                            <div
+                                class="text-white"
+                                v-text="$page.props.auth.user.name"
+                            />
+                            <div
+                                class="text-xs text-gray-300"
+                                v-text="$page.props.auth.user.email"
+                            />
+                        </div>
                     </div>
 
                     <div class="space-y-1">
@@ -155,6 +158,8 @@
 </template>
 
 <script>
+    import { ref } from 'vue';
+
     export default {
         name: 'MenuNavbar',
         props: {
@@ -172,9 +177,11 @@
             },
         },
         inject: ['bus'],
-        data() {
+        setup(props) {
+            const open = ref(false);
+
             return {
-                open: false,
+                open,
             };
         },
     };

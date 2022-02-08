@@ -27,7 +27,7 @@
                 type="search"
                 class="block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border-transparent focus:outline-none focus:placeholder-gray-400 focus:ring-0 sm:text-sm"
                 autocomplete="off"
-                :placeholder="$t('app.action.search')"
+                :placeholder="$t('app.search.placeholder')"
                 @keydown.stop
                 @keydown.enter.prevent
                 @keydown.esc.stop="close"

@@ -26,7 +26,6 @@
     "app.action.reset": "Resetează",
     "app.action.restore": "Restaurează",
     "app.action.save": "Salvează",
-    "app.action.search": "Caută",
     "app.action.select": "Selectează",
     "app.action.update": "Actualizează",
     "app.action.upload": "Încarcă",
@@ -37,6 +36,9 @@
     "app.table_status.draft": "Draft",
     "app.table_status.trashed": "Șterse",
 
+    "app.time.edited": "Ultima modificare cu :ago",
+
+    "app.search.placeholder": "Caută",
     "app.search.results": "Rezultatele căutării pentru “:query”",
     "app.search.empty": "Nu am găsit niciun rezultat.",
 

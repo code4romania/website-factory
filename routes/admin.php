@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Admin\DashboardController::class)->name('dashboard');
 
+Route::get('/search', Admin\SearchController::class)->name('search');
+
 Route::group([
     'prefix'     => 'pages',
     'as'         => 'pages.',

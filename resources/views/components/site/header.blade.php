@@ -8,12 +8,13 @@
             </a>
 
             <div class="flex items-center gap-3">
+                <x-site.search-form />
+
                 @if ($alternateUrls)
                     <div>
                         @foreach ($alternateUrls as $locale => $url)
                             <a
                                 class="inline-flex p-2 text-sm rounded"
-                                title="{{-- TODO --}}"
                                 hreflang="{{ $locale }}"
                                 href="{{ $url }}">
                                 {{ strtoupper($locale) }}

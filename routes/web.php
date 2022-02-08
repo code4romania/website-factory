@@ -46,6 +46,8 @@ Route::prefix('{locale?}')->group(function () {
     Route::get('/forms/{form:uuid}', [Front\FormController::class, 'show'])->name('forms.show');
     Route::post('/forms/{form:uuid}', [Front\FormController::class, 'submit'])->name('forms.submit');
 
+    Route::get('/search', Front\SearchController::class)->name('search')->middleware('throttle:20,1');
+
     Route::get('/', [Front\PageController::class, 'index'])->name('pages.index');
     Route::get('/{page:slug}', [Front\PageController::class, 'show'])->name('pages.show');
 });
