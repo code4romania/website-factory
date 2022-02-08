@@ -40,7 +40,7 @@ class HandleInertiaRequests extends Middleware
                 'version' => config('app.version'),
             ],
             'locales' => fn () => [
-                'available' => config('translatable.locales', []),
+                'available' => locales()->keys(),
                 'current'   => app()->getLocale(),
             ],
             'navigation' => fn () => $this->navigation($request),
@@ -121,6 +121,28 @@ class HandleInertiaRequests extends Middleware
                     'enabled' => auth()->user()->can('create', Setting::class),
                     'route' => 'admin.settings.index',
                     'label' => trans_choice('setting.label', 2),
+                ],
+            ],
+            'profile' => [
+                [
+                    'enabled' => auth()->user()->can('create', MenuItem::class),
+                    'route' => 'admin.menus.index',
+                    'label' => trans_choice('menu.label', 2),
+                ],
+                [
+                    'enabled' => auth()->user()->can('create', User::class),
+                    'route' => 'admin.users.index',
+                    'label' => trans_choice('user.label', 2),
+                ],
+                [
+                    'enabled' => auth()->user()->can('create', Setting::class),
+                    'route' => 'admin.settings.index',
+                    'label' => trans_choice('setting.label', 2),
+                ],
+                [
+                    'route' => 'auth.logout',
+                    'label' => __('auth.logout'),
+                    'method' => 'post',
                 ],
             ],
         ];

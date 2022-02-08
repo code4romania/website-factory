@@ -30,7 +30,7 @@ class UserRequest extends BaseRequest
             'name'   => ['required', 'string', 'max:200'],
             'email'  => ['required', 'email', Rule::unique('users')->ignore($this->user)],
             'role'   => ['required', 'string'],
-            'locale' => ['required', 'string', Rule::in(config('translatable.locales'))],
+            'locale' => ['required', 'string', Rule::in(locales()->keys())],
         ];
     }
 }

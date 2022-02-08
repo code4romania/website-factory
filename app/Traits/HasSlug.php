@@ -77,13 +77,13 @@ trait HasSlug
 
     protected function getSlugColumn(?string $locale = null): string
     {
-        if ($this->slugIsTranslatable()) {
-            $locale ??= app()->getLocale();
+        $column = 'slug';
 
-            return "slug->{$locale}";
+        if ($this->slugIsTranslatable()) {
+            $column .= '->' . ($locale ?? app()->getLocale());
         }
 
-        return 'slug';
+        return $column;
     }
 
     protected function fillSlugs()

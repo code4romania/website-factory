@@ -22,7 +22,7 @@ class SetLocale
             ? auth()->user()->preferredLocale()
             : null;
 
-        if (\in_array($locale, config('translatable.locales'))) {
+        if (locales()->has($locale)) {
             app()->setLocale($locale);
         }
 

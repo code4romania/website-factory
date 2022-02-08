@@ -20,7 +20,7 @@ trait Translatable
     public function getTranslationsWithFallback(?string $key = null): array
     {
         return locales()
-            ->mapWithKeys(fn (string $locale) => [$locale => null])
+            ->mapWithKeys(fn (array $config, string $locale) => [$locale => null])
             ->merge($this->getTranslations($key))
             ->toArray();
     }
