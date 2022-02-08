@@ -79,13 +79,13 @@ if (! function_exists('localized_settings')) {
 
 if (! function_exists('color_var')) {
     /**
-     * @param  string $hex
-     * @param  string $name
+     * @param  null|string $hex
+     * @param  string      $name
      * @return string
      */
-    function color_var(string $hex, string $name): string
+    function color_var(?string $hex, string $name): string
     {
-        $hex = ltrim($hex, '#');
+        $hex = ltrim((string) $hex, '#');
 
         $rgb = match (Str::length($hex)) {
             3       => str_split($hex, 1),
