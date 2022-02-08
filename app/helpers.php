@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 if (! function_exists('locales')) {
     /**
@@ -63,11 +64,39 @@ if (! function_exists('settings')) {
 }
 
 if (! function_exists('localized_settings')) {
+    /**
+     * @param  null|string $key
+     * @return mixed
+     */
     function localized_settings(?string $key = null): mixed
     {
         $key = rtrim("website-factory.settings.{$key}", '.');
 
         return config($key . '.' . app()->getLocale())
             ?? config($key . '.' . config('app.fallback_locale'));
+    }
+}
+
+if (! function_exists('color_var')) {
+    /**
+     * @param  string $hex
+     * @param  string $name
+     * @return string
+     */
+    function color_var(string $hex, string $name): string
+    {
+        $hex = ltrim($hex, '#');
+
+        $rgb = match (Str::length($hex)) {
+            3       => str_split($hex, 1),
+            6       => str_split($hex, 2),
+            default => str_split('000', 1),
+        };
+
+        $rgb = collect($rgb)
+            ->map(fn (string $c) => hexdec(str_pad($c, 2, $c)))
+            ->implode(',');
+
+        return "--color-{$name}:{$rgb};";
     }
 }

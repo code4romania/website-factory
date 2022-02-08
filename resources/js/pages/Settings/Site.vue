@@ -49,6 +49,26 @@
                 />
             </panel>
 
+            <panel title="Global Notice">
+                <form-checkbox
+                    :label="$t('field.enabled')"
+                    v-model="form.settings.notice.enabled"
+                />
+
+                <form-color-picker
+                    :label="$t('setting.site.notice.color')"
+                    name="settings.notice.color"
+                    v-model="form.settings.notice.color"
+                />
+
+                <localized-field
+                    field="form-editor"
+                    :label="$t('setting.site.notice.text')"
+                    name="settings.notice.text"
+                    v-model="form.settings.notice.text"
+                />
+            </panel>
+
             <panel title="Social Media">
                 <form-input
                     v-for="(platform, id) in data.platforms"

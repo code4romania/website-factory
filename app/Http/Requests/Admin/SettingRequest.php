@@ -41,6 +41,11 @@ class SettingRequest extends BaseRequest
                 'settings.colors'         => ['array'],
                 'settings.colors.primary' => ['required', new ValidHex],
                 'settings.social'         => ['required', "array:$platforms"],
+                'settings.notice'         => ['array'],
+                'settings.notice.enabled' => ['required', 'boolean'],
+                'settings.notice.color'   => ['required', new ValidHex],
+                'settings.notice.text'    => ['array'],
+
             ],
             'donations' => [
                 'settings.mobilpay_enabled'     => ['boolean'],

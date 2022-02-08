@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Str;
 
 class ThemeController extends Controller
 {
@@ -18,21 +17,7 @@ class ThemeController extends Controller
     protected static function theme(): string
     {
         $colors = collect(settings('site.colors'))
-            ->map(function (string $hex, string $name) {
-                $hex = ltrim($hex, '#');
-
-                $rgb = match (Str::length($hex)) {
-                    3       => str_split($hex, 1),
-                    6       => str_split($hex, 2),
-                    default => str_split('000', 1),
-                };
-
-                $rgb = collect($rgb)
-                    ->map(fn (string $c) => hexdec(str_pad($c, 2, $c)))
-                    ->implode(',');
-
-                return "--color-${name}:${rgb};";
-            })
+            ->map('color_var')
             ->implode('');
 
         return <<<CSS

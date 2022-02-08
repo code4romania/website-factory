@@ -25,7 +25,7 @@ class Setting extends Model
     protected static function defaults(): Collection
     {
         $translatable = locales()
-            ->mapWithKeys(fn (string $locale) => [$locale => null]);
+            ->mapWithKeys(fn (array $config, string $locale) => [$locale => null]);
 
         $sections = collect();
 
@@ -36,6 +36,11 @@ class Setting extends Model
             'logo'        => null,
             'colors'      => [
                 'primary' => null,
+            ],
+            'notice' => [
+                'enabled' => false,
+                'color'   => null,
+                'text'    => $translatable,
             ],
             'social'      => collect(config('website-factory.social_platforms'))
                 ->mapWithKeys(fn (array $config, string $id) => [$id => null]),

@@ -40,13 +40,13 @@
         props: {
             modelValue: {
                 type: String,
-                default: '#000',
+                default: null,
             },
         },
         setup(props, { emit }) {
             const open = ref(false);
 
-            const color = ref(props.modelValue);
+            const color = ref(props.modelValue || '#000');
 
             watch(color, (color) => emit('update:modelValue', color.hex));
 

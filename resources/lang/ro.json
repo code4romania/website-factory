@@ -223,6 +223,8 @@
     "setting.site.description": "Descriere site",
     "setting.site.logo": "Logo",
     "setting.site.colors.primary": "Culoare principală",
+    "setting.site.notice.color": "Culoare",
+    "setting.site.notice.text": "Text",
     "setting.donations.euplatesc.mid": "Cod comerciant",
     "setting.donations.euplatesc.key": "Cheie",
     "setting.donations.mobilpay.signature": "Cod comerciant",

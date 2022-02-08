@@ -11,7 +11,7 @@ abstract class Factory extends BaseFactory
     public function translatedFaker(string $method): array
     {
         return locales()
-            ->mapWithKeys(fn (string $locale) => [
+            ->mapWithKeys(fn (array $config, string $locale) => [
                 $locale => $this->faker->$method(),
             ])
             ->toArray();

@@ -25,6 +25,8 @@
 <body class="flex flex-col min-h-screen antialiased">
     <x-site.header />
 
+    <x-site.notice />
+
     <main class="flex-1">
         {{ $slot }}
     </main>
