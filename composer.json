@@ -10,7 +10,7 @@
     "require": {
         "php": "^8.0",
         "andreiio/blade-remix-icon": "^1.0",
-        "artesaos/seotools": "^0.21",
+        "artesaos/seotools": "^0.22",
         "blade-ui-kit/blade-icons": "^1.2",
         "codezero/laravel-unique-translation": "^3.4",
         "creativeorange/gravatar": "^1.0",

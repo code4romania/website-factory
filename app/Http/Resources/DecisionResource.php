@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class DecisionResource extends Resource
 {
     public array $routeMap = [
-        'admin.pages.index'  => 'index',
-        'admin.pages.edit'   => 'edit',
+        'admin.decisions.index'  => 'index',
+        'admin.decisions.edit'   => 'edit',
     ];
 
     protected function index(Request $request): array
@@ -33,7 +33,7 @@ class DecisionResource extends Resource
             'description'  => $this->getTranslations('description'),
             'slug'         => $this->getTranslations('slug'),
             'created_at'   => $this->created_at->toDateTimeString(),
-            'published_at' => optional($this->published_at)->toDateTimeString(),
+            'published_at' => $this->published_at?->toDateTimeString(),
             'blocks'       => BlockResource::collection($this->blocks),
         ];
     }
