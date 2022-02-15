@@ -12,7 +12,7 @@ class Features
 
     private const DONATIONS = 'donations';
 
-    private static array $enabledFeatures = [];
+    private static string $featureKey = '_website-factory-features';
 
     /**
      * Configure the website factory edition.
@@ -21,7 +21,7 @@ class Features
      */
     public static function edition(string $edition): string
     {
-        static::$enabledFeatures = match ($edition) {
+        config()->set(static::$featureKey, match ($edition) {
             'ong' => [
                 static::DONATIONS,
             ],
@@ -36,7 +36,7 @@ class Features
                 static::DECISIONS,
             ],
             default => throw new InvalidWebsiteFactoryEdition($edition, ['ong', 'primarie', 'minister']),
-        };
+        });
 
         return $edition;
     }
@@ -49,7 +49,7 @@ class Features
      */
     public static function enabled(string $feature): bool
     {
-        return \in_array($feature, static::$enabledFeatures);
+        return \in_array($feature, config(static::$featureKey, []));
     }
 
     /**
