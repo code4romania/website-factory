@@ -46,9 +46,13 @@
             },
         },
         setup(props, { emit }) {
+            if (typeof props.modelValue !== 'boolean') {
+                emit('update:modelValue', Boolean(props.modelValue));
+            }
+
             const proxyChecked = computed({
-                get: () => props.modelValue,
-                set: (value) => emit('update:modelValue', value),
+                get: () => Boolean(props.modelValue),
+                set: (value) => emit('update:modelValue', !!value),
             });
 
             return {
