@@ -20,13 +20,13 @@
                         <icon
                             v-if="toastType === 'success'"
                             name="System/checkbox-circle-line"
-                            class="shrink-0 w-6 h-6 text-green-400"
+                            class="w-6 h-6 text-green-400 shrink-0"
                         />
 
                         <icon
                             v-else-if="toastType === 'error'"
                             name="System/error-warning-line"
-                            class="shrink-0 w-6 h-6 text-red-400"
+                            class="w-6 h-6 text-red-400 shrink-0"
                         />
 
                         <div class="flex-1 pt-0.5 text-sm space-y-1">
@@ -65,6 +65,7 @@
 <script>
     import { watch, computed, ref, nextTick } from 'vue';
     import { usePage } from '@inertiajs/inertia-vue3';
+    import { transChoice } from 'laravel-vue-i18n';
 
     import isEmpty from 'lodash/isEmpty';
 
@@ -132,7 +133,7 @@
             },
             toastMessage() {
                 if (!isEmpty(this.errors)) {
-                    return this.$t(
+                    return transChoice(
                         'error.validation',
                         Object.keys(this.errors).length
                     );

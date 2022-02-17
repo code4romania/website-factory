@@ -1,8 +1,12 @@
 <footer class="relative mt-16 bg-gray-50 sm:mt-24 lg:mt-32">
     <div class="container py-12 lg:py-16">
-        <div class="grid gap-8 xl:grid-cols-3">
-            <nav class="xl:col-span-2">
-                <ul class="grid grid-cols-2 gap-10 md:grid-cols-4">
+        <div class="grid gap-8 xl:grid-cols-2">
+            <div>
+                {{-- TODO --}}
+            </div>
+
+            <nav>
+                <ul class="grid grid-cols-2 gap-10">
                     @foreach ($menu as $item)
                         <li class="space-y-4">
                             <x-dynamic-component
