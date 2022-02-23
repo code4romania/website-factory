@@ -88,7 +88,7 @@ trait HasSlug
 
     protected function fillSlugs()
     {
-        locales()->each(function (string $locale) {
+        locales()->each(function (array $config, string $locale) {
             $this->withLocale($locale, function () {
                 if (! $this->slug || $this->slugAlreadyUsed($this->slug)) {
                     $this->slug = $this->generateSlug();
