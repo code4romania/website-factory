@@ -27,8 +27,15 @@ This project uses Laravel Sail, Laravel's default Docker development environment
 
 After running the [initial setup](#initial-setup), run this command to start up the environment:
 ```sh
-./vendor/bin/sail up
+./vendor/bin/sail up -d
 ```
+
+and then this command to rebuild the css / js assets on change:
+
+```sh
+./vendor/bin/sail npm run watch
+```
+
 ### Initial setup
 
 ```sh
@@ -41,10 +48,16 @@ cp .env.example .env
 # 3. Start the application
 ./vendor/bin/sail up -d
 
-# 4. Generate the app secret key
+# 4. Install npm dependencies
+./vendor/bin/sail npm ci
+
+# 5. Build the frontend
+./vendor/bin/sail npm run dev
+
+# 6. Generate the app secret key
 ./vendor/bin/sail artisan key:generate
 
-# 5. Migrate and seed the database
+# 7. Migrate and seed the database
 ./vendor/bin/sail artisan migrate:fresh --seed
 ```
 
