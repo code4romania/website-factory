@@ -53,7 +53,6 @@
                 <localized-field
                     field="form-editor"
                     :label="$t('field.description')"
-                    required
                     v-model="form.description"
                 />
 

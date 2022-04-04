@@ -30,7 +30,7 @@ class PageRequest extends BaseRequest
         return TranslatableFormRequestRules::make(Page::class, [
             'title'                 => ['required', 'string', 'max:200'],
             'slug'                  => ['required', 'string', 'max:200'],
-            'description'           => ['required', 'string'],
+            'description'           => ['nullable', 'string'],
             'published_at'          => ['nullable', 'date'],
             'media'                 => ['array'],
             'media.*.id'            => ['required', 'exists:media'],

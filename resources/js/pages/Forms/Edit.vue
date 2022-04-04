@@ -37,7 +37,6 @@
                     field="form-editor"
                     name="description"
                     :label="$t('field.description')"
-                    required
                     v-model="form.description"
                 />
 

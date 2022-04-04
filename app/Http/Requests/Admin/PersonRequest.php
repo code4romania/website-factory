@@ -36,7 +36,7 @@ class PersonRequest extends BaseRequest
             'slug'                => ['required', 'string', 'max:200', "unique_translation:people,slug,{$this->person?->id}"],
             'title'               => ['required', 'string', 'max:200'],
             'social'              => ['required', "array:$platforms"],
-            'description'         => ['required', 'string'],
+            'description'         => ['nullable', 'string'],
             'media'               => ['array'],
             'media.*.id'          => ['required', 'exists:media'],
             'blocks'              => ['array'],

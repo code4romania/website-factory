@@ -30,7 +30,7 @@ class DecisionRequest extends BaseRequest
         return TranslatableFormRequestRules::make(Decision::class, [
             'title'               => ['required', 'string', 'max:200'],
             'slug'                => ['required', 'string', 'max:200'],
-            'description'         => ['required', 'string'],
+            'description'         => ['nullable', 'string'],
             'blocks'              => ['array'],
             'blocks.*.id'         => ['required', 'numeric', 'integer'],
             'blocks.*.type'       => ['required', 'string'],
