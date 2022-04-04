@@ -33,6 +33,6 @@ class Notice extends Component
      */
     public function shouldRender(): bool
     {
-        return \boolval(settings('site.notice.enabled') ?? false);
+        return (bool) settings('site.notice.enabled');
     }
 }

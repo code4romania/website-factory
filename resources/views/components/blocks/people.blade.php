@@ -17,7 +17,8 @@
                         class="block overflow-hidden transition-shadow duration-150 rounded-lg shadow-lg aspect-w-3 aspect-h-2 hover:shadow-xl">
                         <x-media.image
                             :src="$person->getMediaUrl('image', 'thumb')"
-                            class="object-cover" />
+                            class="object-cover"
+                            :preload="$shouldPreload()" />
                     </a>
                 @endif
 

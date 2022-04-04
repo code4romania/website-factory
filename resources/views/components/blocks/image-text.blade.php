@@ -8,7 +8,8 @@
         <x-media.figure
             :class="$imageColumns()"
             :src="$image->getUrl()"
-            :caption="$image->caption" />
+            :caption="$image->caption"
+            :preload="$shouldPreload()" />
     @endif
 
     <div @class([$contentColumns()])>

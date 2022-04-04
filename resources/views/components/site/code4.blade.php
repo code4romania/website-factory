@@ -3,13 +3,13 @@
         <x-icon-code4 class="h-6" />
 
         <div class="ml-6 text-sm font-medium text-gray-700">
-            <span>O soluție Code for Romania.</span>
+            <span>@lang('banner.code4')</span>
             <a
                 href="https://www.code4.ro/"
                 target="_blank"
                 rel="noopener"
                 class="text-blue-600 hover:underline whitespace-nowrap">
-                Află mai multe
+                @lang('banner.more')
             </a>
         </div>
     </div>

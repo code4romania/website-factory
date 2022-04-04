@@ -5,7 +5,8 @@
                 <x-media.image
                     class="absolute inset-0 object-cover w-full h-full"
                     :src="$image->getUrl()"
-                    :alt="$image->caption" />
+                    :alt="$image->caption"
+                    :preload="$shouldPreload()" />
             @endif
 
             <div class="absolute inset-0 bg-primary mix-blend-multiply"></div>

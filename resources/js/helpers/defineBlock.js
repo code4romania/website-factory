@@ -24,7 +24,12 @@ export default function (block) {
             },
             ...block.props,
         },
-        emits: ['update:content', 'update:children', 'update:related', 'update:*'],
+        emits: [
+            'update:content',
+            'update:children',
+            'update:media',
+            'update:related',
+        ],
         setup(props, context) {
             const { initializeFields } = useBlock();
 

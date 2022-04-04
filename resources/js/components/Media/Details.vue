@@ -24,6 +24,7 @@
 
         <template v-else>
             <img
+                v-if="item.sizes"
                 :src="item.sizes.thumb.url"
                 class="block w-full border border-gray-200"
                 :width="item.sizes.thumb.width"
@@ -41,8 +42,8 @@
 
                     <button
                         v-if="isSupported"
-                        class="inline-flex items-center shrink-0 p-2 ml-2 transition-colors duration-75 bg-white border border-gray-300 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
-                        @click="copy(item.sizes.original.url)"
+                        class="inline-flex items-center p-2 ml-2 transition-colors duration-75 bg-white border border-gray-300 shadow-sm shrink-0 hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
+                        @click="copy(item.sizes?.original.url || item.url)"
                     >
                         <icon
                             v-if="!copied"
@@ -74,7 +75,7 @@
                         <dd class="text-gray-900" v-text="item.size" />
                     </div>
 
-                    <div class="flex justify-between py-3">
+                    <div v-if="item.sizes" class="flex justify-between py-3">
                         <dt class="text-gray-500">Dimensions</dt>
                         <dd class="text-gray-900">
                             <span v-text="item.sizes.original.width" />

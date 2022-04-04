@@ -130,15 +130,21 @@ trait HasSlug
         return SupportsTrait::translatable($this) && \in_array('slug', $this->translatable);
     }
 
-    public function getUrlAttribute(): string
+    public function getUrlAttribute(): ?string
     {
         $key = $this->getMorphClass();
 
+        $slug = $this->slugIsTranslatable()
+            ? $this->getTranslationWithoutFallback('slug', app()->getLocale())
+            : $this->slug;
+
+        if (! $slug) {
+            return null;
+        }
+
         return route('front.' . Str::plural($key) . '.show', [
             'locale' => app()->getLocale(),
-            $key     => $this->slugIsTranslatable()
-                ? $this->getTranslationWithoutFallback('slug', app()->getLocale())
-                : $this->slug,
+            $key     => $slug,
         ]);
     }
 }

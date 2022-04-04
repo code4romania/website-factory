@@ -28,7 +28,7 @@ class PageController extends Controller
 
         $this->seo()
             ->setTitle($page->title)
-            ->setDescription($page->description)
+            ->setDescription(strip_tags($page->description))
             ->addImages($image?->getUrl());
 
         return view('front.pages.show', [
@@ -40,7 +40,7 @@ class PageController extends Controller
     public function show(string $locale, Page $page): RedirectResponse|View
     {
         // Redirect to home if set as front page
-        if ($page->id === settings('site.front_page')) {
+        if ($page->id === (int) settings('site.front_page')) {
             return redirect()->route('front.pages.index', ['locale' => $locale]);
         }
 
@@ -48,7 +48,7 @@ class PageController extends Controller
 
         $this->seo()
             ->setTitle($page->title)
-            ->setDescription($page->description)
+            ->setDescription(strip_tags($page->description))
             ->addImages($image?->getUrl());
 
         $page->loadMissing('blocks.media');

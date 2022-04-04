@@ -99,28 +99,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Locales
-    |--------------------------------------------------------------------------
-    |
-    | This list determines the locales available to your application. You may
-    | change the value to correspond to any of the language folders that
-    | are provided through your application.
-    |
-    */
-
-    'locales' => [
-        'ro' => [
-            'name' => 'Română',
-            'code' => 'ro_RO',
-        ],
-        'en' => [
-            'name' => 'English',
-            'code' => 'en_GB',
-        ],
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
     | Faker Locale
     |--------------------------------------------------------------------------
     |

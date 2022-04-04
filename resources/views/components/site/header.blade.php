@@ -1,27 +1,18 @@
 <x-site.code4 />
 
 <header x-data="{ menuOpen: false }" x-on:click.outside="menuOpen = false" class="relative shadow">
+    <x-site.search-form class="container py-4 md:hidden" />
+
     <nav class="container py-4 space-y-4">
-        <div class="relative flex items-center justify-between">
+        <div class="relative flex items-center justify-between gap-3">
             <a href="{{ route('front.pages.index') }}" class="inline-flex">
-                <img src="{{ $logo }}" class="h-16" alt="{{ $title }}">
+                <img src="{{ $logo }}" class="h-16 max-w-48 sm:max-w-64" alt="{{ $title }}">
             </a>
 
             <div class="flex items-center gap-3">
-                <x-site.search-form />
+                <x-site.search-form class="hidden md:block" />
 
-                @if ($alternateUrls)
-                    <div>
-                        @foreach ($alternateUrls as $locale => $url)
-                            <a
-                                class="inline-flex p-2 text-sm rounded"
-                                hreflang="{{ $locale }}"
-                                href="{{ $url }}">
-                                {{ strtoupper($locale) }}
-                            </a>
-                        @endforeach
-                    </div>
-                @endif
+                <x-site.language-switcher :urls="$alternateUrls" />
 
                 <button type="button" @@click="menuOpen = !menuOpen" class="lg:hidden">
                     <x-ri-menu-line x-show="!menuOpen" class="w-5 h-5" />

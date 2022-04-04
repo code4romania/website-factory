@@ -52,6 +52,9 @@
     "auth.change_password": "Schimbă parola",
     "auth.forgot": "Ți-ai uitat parola?",
 
+    "banner.code4": "O soluție Code for Romania.",
+    "banner.more": "Află mai multe",
+
     "block.add-new": "Adaugă bloc nou",
     "block.accordion-item": "Element",
     "block.accordion": "Acordeon",
@@ -67,9 +70,12 @@
     "block.email": "Email",
     "block.header": "Header",
     "block.hero-bg-image": "Header cu imagine pe fundal",
+    "block.iframe": "Iframe",
     "block.image-grid": "Grilă de imagini",
     "block.image-text": "Imagine cu text",
+    "block.image-with-link": "Imagine cu link",
     "block.image": "Imagine",
+    "block.images-with-links": "Imagini cu link",
     "block.images": "Imagini",
     "block.link": "Link",
     "block.number": "Număr",
@@ -109,6 +115,7 @@
 
     "field.actions": "Acțiuni",
     "field.align": "Aliniere",
+    "field.aspect_ratio": "Proporție",
     "field.button_text": "Text buton",
     "field.button_url": "Link buton",
     "field.categories": "Categorii",
@@ -147,6 +154,7 @@
     "field.store_submissions": "Salvează răspunsurile în panou",
     "field.text": "Text",
     "field.title": "Titlu",
+    "field.url": "URL",
 
     "form.label": "Formular|Formulare",
     "form.action.create": "Adaugă formular",

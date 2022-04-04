@@ -20,7 +20,12 @@ export default function (block) {
             },
             ...block.props,
         },
-        emits: ['update:content', 'update:children'],
+        emits: [
+            'update:content',
+            'update:children',
+            'update:media',
+            'update:related',
+        ],
         setup(props) {
             const { initializeFields } = useBlock();
 

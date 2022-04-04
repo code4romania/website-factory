@@ -38,25 +38,32 @@ trait HasBlocks
                     ->where('type', $block->type)
                     ->firstWhere('position', $block->position);
 
-                $block->children()->createMany(
-                    collect($currentBlock['children'])
-                        ->map(fn (array $block, int $index) => [
-                            'blockable_id'   => $this->id,
-                            'blockable_type' => $this->getMorphClass(),
-                            'position'       => $index + 1,
-                            'type'           => $block['type'],
-                            'content'        => $block['content'] ?? [],
-                        ])
-                );
+                $children = collect($currentBlock['children'])
+                    ->map(fn (array $block, int $index) => [
+                        'blockable_id'   => $this->id,
+                        'blockable_type' => $this->getMorphClass(),
+                        'position'       => $index + 1,
+                        'type'           => $block['type'],
+                        'content'        => $block['content'] ?? [],
+                        'children'       => $block['children'] ?? [],
+                        'media'          => collect($block['media'] ?? [])->pluck('id')->all(),
+                        'related'        => collect($block['related'] ?? [])->pluck('id')->all(),
+                    ]);
 
-                $block->attachMedia(
-                    $currentBlock['media'],
-                    ['image']
-                );
+                $block->children()->createMany($children)
+                    ->each(function (Block $block) use ($children) {
+                        $currentBlock = $children
+                            ->where('type', $block->type)
+                            ->firstWhere('position', $block->position);
 
-                $block->saveRelated(
-                    $currentBlock['related']
-                );
+                        $block->attachMedia($currentBlock['media'], ['image']);
+
+                        $block->saveRelated($currentBlock['related']);
+                    });
+
+                $block->attachMedia($currentBlock['media'], ['image']);
+
+                $block->saveRelated($currentBlock['related']);
             });
 
         return $this;

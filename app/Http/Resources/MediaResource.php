@@ -31,6 +31,8 @@ class MediaResource extends Resource
             $resource['width'] = $this->width;
             $resource['sizes'] = $this->sizes;
             $resource['height'] = $this->height;
+        } else {
+            $resource['url'] = $this->getUrl();
         }
 
         return $resource;

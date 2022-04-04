@@ -18,7 +18,8 @@
                 <x-media.image
                     class="w-full lg:object-cover lg:h-full"
                     :src="$image->getUrl()"
-                    :alt="$image->caption" />
+                    :alt="$image->caption"
+                    :preload="$shouldPreload()" />
             @endif
         </div>
     </header>

@@ -40,12 +40,7 @@
                     :label="$t('setting.site.logo')"
                     name="settings.logo"
                     v-model="form.settings.logo"
-                    :accept="[
-                        'image/x-png',
-                        'image/gif',
-                        'image/jpeg',
-                        'image/svg+xml',
-                    ]"
+                    :accept="['.png', '.gif', '.jpg', '.jpeg', '.svg']"
                 />
             </panel>
 

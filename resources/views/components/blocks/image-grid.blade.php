@@ -2,6 +2,6 @@
 
 <div @class(['grid gap-8', $columns])>
     @foreach ($images as $image)
-        <x-media.figure :src="$image->getUrl()" :caption="$image->caption" />
+        <x-media.figure :src="$image->getUrl()" :caption="$image->caption" :preload="$shouldPreload()" />
     @endforeach
 </div>

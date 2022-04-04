@@ -18,7 +18,7 @@ createInertiaApp({
             .use(registerComponents)
             .use(progress)
             .use(i18nVue, {
-                resolve: (lang) => import(`lang/${lang}.json`),
+                resolve: (lang) => import(`../../lang/${lang}.json`),
             })
             .use(VueClickAway)
             .component('InertiaHead', Head)

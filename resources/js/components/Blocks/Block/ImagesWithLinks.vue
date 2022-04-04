@@ -13,21 +13,22 @@
         :max="5"
     />
 
-    <form-checkbox :label="$t('field.shadow')" v-model="content.shadow" />
-
-    <block-repeater component="card-item" v-model="children" />
+    <block-repeater
+        component="image-with-link"
+        v-model="children"
+        v-model:media="media"
+    />
 </template>
 
 <script>
     import { defineBlock } from '@/helpers';
 
     export default defineBlock({
-        type: 'cards',
-        icon: 'Editor/list-check-2',
+        type: 'images-with-links',
+        icon: 'Media/image-add-line',
         fields: {
             title: Object,
             columns: Number,
-            shadow: Boolean,
         },
     });
 </script>

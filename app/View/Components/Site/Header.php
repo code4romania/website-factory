@@ -7,6 +7,7 @@ namespace App\View\Components\Site;
 use App\Models\MenuItem;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,9 @@ class Header extends Component
 
     public function __construct()
     {
-        $this->logo = Storage::disk('public')->url(settings('site.logo')); // TODO: fallback
+        $this->logo = settings('site.logo')
+            ? Storage::cloud()->url(settings('site.logo'))
+            : ''; // TODO: fallback
 
         $this->title = localized_settings('site.title');
 
@@ -62,10 +65,10 @@ class Header extends Component
             ->mapWithKeys(fn (array $config, string $locale) => [
                 $locale => $this->withLocale($locale, function () use ($routeName, $model, $locale) {
                     if (Str::endsWith($routeName, '.search')) {
-                        return route($routeName, [
-                            ...request()->query(),
-                            'locale' => $locale,
-                        ]);
+                        return route($routeName, array_merge(
+                            Arr::wrap(request()->query()),
+                            ['locale' => $locale]
+                        ));
                     }
 
                     if (Str::endsWith($routeName, '.index')) {

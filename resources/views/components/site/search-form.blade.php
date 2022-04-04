@@ -9,7 +9,7 @@
     ]) }}>
 
     <label class="relative flex items-center ">
-        <span class="sr-only">__('app.search.placeholder')</span>
+        <span class="sr-only">@lang('app.search.placeholder')</span>
 
         <button
             type="submit"

@@ -14,6 +14,8 @@ abstract class BlockComponent extends Component
 
     public int $id;
 
+    public int $index;
+
     public bool $fullwidth;
 
     /**
@@ -21,8 +23,10 @@ abstract class BlockComponent extends Component
      *
      * @return void
      */
-    final public function __construct(Block $block)
+    final public function __construct(Block $block, int $index)
     {
+        $this->index = $index;
+
         $this->block = $block;
 
         $this->id = $block->id;
@@ -75,5 +79,10 @@ abstract class BlockComponent extends Component
         }
 
         return implode('-', [$prefix, $name]);
+    }
+
+    public function shouldPreload(): bool
+    {
+        return $this->index < 4;
     }
 }
