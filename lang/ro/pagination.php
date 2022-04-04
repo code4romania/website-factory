@@ -15,8 +15,8 @@ return [
     |
     */
 
-    'previous' => 'Previous',
-    'next' => 'Next',
-    'goto' => 'Go to page :page',
+    'previous' => 'Înapoi',
+    'next' => 'Înainte',
+    'goto' => 'Mergi la pagina :page',
 
 ];

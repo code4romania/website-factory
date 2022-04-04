@@ -134,7 +134,7 @@
             toastMessage() {
                 if (!isEmpty(this.errors)) {
                     return transChoice(
-                        'error.validation',
+                        'validation.error',
                         Object.keys(this.errors).length
                     );
                 }

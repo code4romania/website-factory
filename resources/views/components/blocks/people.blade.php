@@ -13,7 +13,7 @@
                 @if ($show_images && $person->hasMedia('image'))
                     <a
                         href="{{ $person->url }}"
-                        title="{{ __('person.view_profile') }}"
+                        title="{{ __('person.action.view') }}"
                         class="block overflow-hidden transition-shadow duration-150 rounded-lg shadow-lg aspect-w-3 aspect-h-2 hover:shadow-xl">
                         <x-media.image
                             :src="$person->getMediaUrl('image', 'thumb')"
@@ -25,7 +25,7 @@
                 <div class="text-lg">
                     <a
                         href="{{ $person->url }}"
-                        title="{{ __('person.view_profile') }}"
+                        title="{{ __('person.action.view') }}"
                         class="flex justify-between hover:underline">
                         <h3 class="font-semibold text-gray-900">
                             {{ $person->name }}

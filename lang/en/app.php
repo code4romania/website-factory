@@ -31,4 +31,10 @@ return [
         'update'  => 'Update',
         'view'    => 'View',
     ],
+
+    'banner' => [
+        'code4' => 'A Code for Romania solution.',
+        'more'  => 'Find out more',
+    ],
+
 ];

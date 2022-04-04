@@ -4,6 +4,7 @@ const tailwindcss = require('tailwindcss');
 
 require('laravel-mix-valet');
 require('laravel-mix-bundle-analyzer');
+require('laravel-vue-i18n/mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -28,8 +29,8 @@ mix.valet()
     .alias({
         '@': path.resolve('resources/js'),
         '~': path.resolve('resources'),
-        lang: path.resolve('lang'),
     })
+    .i18n()
     .js('resources/js/public.js', 'public/assets')
     .js('resources/js/admin.js', 'public/assets')
     .vue({ version: 3 })
