@@ -15,7 +15,7 @@
 
     <block-repeater
         component="image-with-link"
-        v-model="children"
+        :items="children"
         v-model:media="media"
     />
 </template>

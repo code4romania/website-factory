@@ -5,7 +5,7 @@
         v-model="content.title"
     />
 
-    <block-repeater component="accordion-item" v-model="children" />
+    <block-repeater component="accordion-item" :items="children" />
 </template>
 
 <script>

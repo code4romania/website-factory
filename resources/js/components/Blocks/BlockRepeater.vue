@@ -1,12 +1,12 @@
 <template>
     <draggable
-        v-model="modelValue"
+        :list="items"
         item-key="id"
         class="grid gap-4"
         handle=".handle"
         ghost-class="opacity-50"
         :animation="200"
-        @change="$emit('update:blocks', blocks)"
+        @change="$emit('update:modelValue', items)"
     >
         <template #item="{ element, index }">
             <block-item
@@ -43,7 +43,7 @@
                 type: String,
                 required: true,
             },
-            modelValue: {
+            items: {
                 type: Array,
                 default: () => [],
             },

@@ -15,7 +15,7 @@
 
     <form-checkbox :label="$t('field.shadow')" v-model="content.shadow" />
 
-    <block-repeater component="card-item" v-model="children" />
+    <block-repeater component="card-item" :items="children" />
 </template>
 
 <script>
