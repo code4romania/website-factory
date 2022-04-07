@@ -51,7 +51,7 @@
         emits: ['update:modelValue'],
         setup(props) {
             const addBlock = () => {
-                props.modelValue.push({
+                props.items.push({
                     id: Date.now(),
                     type: props.component,
                     content: {},
@@ -63,15 +63,15 @@
 
             const duplicateBlock = (index) => {
                 const block = {
-                    ...cloneDeep(props.modelValue[index]),
+                    ...cloneDeep(props.items[index]),
                     id: Date.now(),
                 };
 
-                props.modelValue.splice(index + 1, 0, block);
+                props.items.splice(index + 1, 0, block);
             };
 
             const deleteBlock = (index) => {
-                props.modelValue.splice(index, 1);
+                props.items.splice(index, 1);
             };
 
             return {
