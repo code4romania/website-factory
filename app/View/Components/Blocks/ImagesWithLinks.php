@@ -28,8 +28,9 @@ class ImagesWithLinks extends BlockComponent
         $this->items = $this->block->children
             ->loadMissing('media')
             ->map(fn (Block $block) => [
-                'url'   => $block->translatedInput('url'),
-                'image' => $block->firstMedia('image'),
+                'url'     => $block->translatedInput('url'),
+                'caption' => $block->translatedInput('caption'),
+                'image'   => $block->firstMedia('image'),
             ]);
     }
 }

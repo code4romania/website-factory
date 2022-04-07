@@ -2,6 +2,12 @@
     <form-media :label="$t('field.image')" v-model:media="media" :limit="1" />
 
     <localized-field
+        field="form-editor"
+        :label="$t('field.caption')"
+        v-model="content.caption"
+    />
+
+    <localized-field
         field="form-input"
         type="url"
         :label="$t('field.url')"
@@ -16,6 +22,7 @@
         type: 'image-with-link',
         fields: {
             url: Object,
+            caption: Object,
         },
     });
 </script>
