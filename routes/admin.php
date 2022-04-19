@@ -21,6 +21,11 @@ Route::get('/', Admin\DashboardController::class)->name('dashboard');
 
 Route::get('/search', Admin\SearchController::class)->name('search');
 
+Route::get('/i18n/{locale}.json', [Admin\LanguageController::class, 'lines'])
+    ->withoutMiddleware(['auth', 'web'])
+    ->middleware('cache.headers:public;max_age=2628000;etag')
+    ->name('i18n');
+
 Route::group([
     'prefix'     => 'pages',
     'as'         => 'pages.',
@@ -158,4 +163,17 @@ Route::group([
     Route::get('/', 'index')->name('index');
     Route::get('/{section}', 'edit')->name('edit');
     Route::post('/{section}', 'store')->name('store');
+});
+
+Route::group([
+    'prefix'     => 'languages',
+    'as'         => 'languages.',
+    'controller' => Admin\LanguageController::class,
+], function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+    Route::get('/{language}/edit', 'edit')->name('edit');
+    Route::put('/{language}', 'update')->name('update');
+    Route::delete('/{language}', 'destroy')->name('destroy');
 });

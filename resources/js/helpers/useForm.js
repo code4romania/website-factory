@@ -19,7 +19,9 @@ export default function (rememberKey, model, fields) {
                     {}
                 );
             } else {
-                let fallback = ['blocks', 'media'].includes(field) ? [] : null;
+                let fallback = ['blocks', 'media', 'lines'].includes(field)
+                    ? []
+                    : null;
 
                 fields[field] = isPlainObject(model)
                     ? model[field] || fallback

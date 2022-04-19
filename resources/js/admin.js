@@ -6,7 +6,7 @@ import VueClickAway from 'vue3-click-away';
 
 import registerComponents from '@/plugins/registerComponents';
 import progress from '@/plugins/progress';
-import { i18nVue } from 'laravel-vue-i18n';
+import i18n from '@/plugins/i18n';
 
 createInertiaApp({
     title: (title) => `${title} - Admin`,
@@ -14,12 +14,10 @@ createInertiaApp({
     setup({ el, app, props, plugin }) {
         createApp({ render: () => h(app, props) })
             .use(ZiggyVue)
+            .use(i18n)
             .use(plugin)
             .use(registerComponents)
             .use(progress)
-            .use(i18nVue, {
-                resolve: (lang) => import(`../../lang/${lang}.json`),
-            })
             .use(VueClickAway)
             .component('InertiaHead', Head)
             .component('InertiaLink', Link)

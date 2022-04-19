@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
+use App\Models\Language;
 use App\Models\MenuItem;
 use App\Models\Setting;
 use App\Models\User;
@@ -107,21 +108,7 @@ class HandleInertiaRequests extends Middleware
                 ],
             ],
             'secondary' => [
-                [
-                    'enabled' => auth()->user()->can('create', MenuItem::class),
-                    'route' => 'admin.menus.index',
-                    'label' => trans_choice('menu.label', 2),
-                ],
-                [
-                    'enabled' => auth()->user()->can('create', User::class),
-                    'route' => 'admin.users.index',
-                    'label' => trans_choice('user.label', 2),
-                ],
-                [
-                    'enabled' => auth()->user()->can('create', Setting::class),
-                    'route' => 'admin.settings.index',
-                    'label' => trans_choice('setting.label', 2),
-                ],
+                //
             ],
             'profile' => [
                 [
@@ -138,6 +125,11 @@ class HandleInertiaRequests extends Middleware
                     'enabled' => auth()->user()->can('create', Setting::class),
                     'route' => 'admin.settings.index',
                     'label' => trans_choice('setting.label', 2),
+                ],
+                [
+                    'enabled' => auth()->user()->can('create', Language::class),
+                    'route' => 'admin.languages.index',
+                    'label' => trans_choice('language.label', 2),
                 ],
                 [
                     'route' => 'auth.logout',

@@ -30,6 +30,7 @@
         "spatie/data-transfer-object": "^3.7",
         "spatie/laravel-responsecache": "^7.2",
         "spatie/laravel-translatable": "^6.0",
+        "spatie/laravel-translation-loader": "^2.7",
         "tightenco/ziggy": "^1.4"
     },
     "require-dev": {

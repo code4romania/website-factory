@@ -48,6 +48,7 @@ class AppServiceProvider extends ServiceProvider
             'decision'        => \App\Models\Decision::class,
             'form_submission' => \App\Models\FormSubmission::class,
             'form'            => \App\Models\Form::class,
+            'language'        => \App\Models\Language::class,
             'media'           => \App\Models\Media::class,
             'page'            => \App\Models\Page::class,
             'person'          => \App\Models\Person::class,

@@ -13,8 +13,7 @@ if (! function_exists('locales')) {
      */
     function locales(): Collection
     {
-        return collect(config('translatable.locales'))
-            ->reject(fn (array $config, string $locale) => ! $config['enabled']);
+        return collect(app('languages'));
     }
 }
 
