@@ -192,11 +192,17 @@
                         type: 'link',
                     });
 
-                    actions.push({
-                        click: () => (confirmAction.value = 'duplicate'),
-                        label: 'app.action.duplicate',
-                        type: 'button',
-                    });
+                    if (
+                        route().has(
+                            props.properties.admin_route_prefix + '.duplicate'
+                        )
+                    ) {
+                        actions.push({
+                            click: () => (confirmAction.value = 'duplicate'),
+                            label: 'app.action.duplicate',
+                            type: 'button',
+                        });
+                    }
                 }
 
                 if (props.row.can.delete && !props.row.trashed) {

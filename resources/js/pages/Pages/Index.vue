@@ -1,6 +1,6 @@
 <template>
     <layout :title="$tChoice('page.label', 2)">
-        <inertia-table :collection="collection"> </inertia-table>
+        <inertia-table :collection="collection" />
     </layout>
 </template>
 
