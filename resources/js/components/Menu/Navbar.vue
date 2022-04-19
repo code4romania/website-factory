@@ -4,9 +4,7 @@
             <div
                 class="relative flex items-center justify-between h-16 gap-x-4 md:gap-x-8"
             >
-                <div class="flex items-center px-2 shrink-0 lg:px-0">
-                    <app-logo class="block h-10" light link />
-                </div>
+                <app-logo class="block h-10 text-gray-100 shrink-0" link />
 
                 <search class="flex-1" />
 
