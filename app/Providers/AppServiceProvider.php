@@ -15,6 +15,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rules\Password;
 use Inertia\Response;
 
 class AppServiceProvider extends ServiceProvider
@@ -61,6 +62,13 @@ class AppServiceProvider extends ServiceProvider
         Validator::excludeUnvalidatedArrayKeys();
 
         Model::preventLazyLoading($this->app->isLocal());
+
+        Password::defaults(
+            fn () => Password::min(8)
+                ->letters()
+                ->symbols()
+                ->uncompromised()
+        );
 
         $this->registerBlueprintMacros();
         $this->registerCarbonMacros();

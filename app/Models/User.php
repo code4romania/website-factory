@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Notifications\WelcomeNotification;
 use App\Traits\Filterable;
 use App\Traits\HasRole;
 use App\Traits\Sortable;
@@ -84,27 +85,35 @@ class User extends Authenticatable implements HasLocalePreference
      *
      * @return void
      */
-    protected static function booted()
+    protected static function booted(): void
     {
         static::creating(function (self $user) {
             if (! $user->password) {
-                $user->password = Hash::make(Str::random(64));
+                $user->password = '_pending_' . Hash::make(Str::random(64));
             }
+        });
+
+        static::created(function (self $user) {
+            $user->notify(new WelcomeNotification);
         });
     }
 
     /**
      * Get the user’s preferred locale.
      *
-     * @return string|null
+     * @return string
      */
-    public function preferredLocale(): ?string
+    public function preferredLocale(): string
     {
-        return $this->locale;
+        return $this->locale ?? config('app.fallback_locale');
     }
 
     public function getAvatarAttribute(): string
     {
         return Gravatar::get($this->email);
+    }
+    public function hasSetPassword(): bool
+    {
+        return ! Str::startsWith($this->password, '_pending_');
     }
 }
