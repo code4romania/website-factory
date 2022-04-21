@@ -23,8 +23,6 @@
         "laravel/tinker": "^2.6",
         "league/flysystem-aws-s3-v3": "^3.0",
         "league/omnipay": "^3.2",
-        "paytic/omnipay-euplatesc": "^3.0",
-        "paytic/omnipay-mobilpay": "^3.0",
         "plank/laravel-mediable": "^5.4",
         "sentry/sentry-laravel": "^2.12",
         "spatie/data-transfer-object": "^3.7",

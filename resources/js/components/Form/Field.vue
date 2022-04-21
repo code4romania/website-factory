@@ -12,7 +12,7 @@
                 <span
                     role="presentation"
                     :title="$t('field.required')"
-                    class="inline-block font-bold text-red-500"
+                    class="inline-block font-bold text-red-500 ml-0.5"
                     v-if="required && !disabled"
                     v-text="'*'"
                 />

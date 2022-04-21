@@ -13,7 +13,7 @@
         "test": "jest"
     },
     "dependencies": {
-        "@alpinejs/collapse": "^3.10.0",
+        "@alpinejs/collapse": "^3.10.2",
         "@ckpack/vue-color": "^1.1.9",
         "@inertiajs/inertia": "^0.11.0",
         "@inertiajs/inertia-vue3": "^0.6.0",
@@ -54,8 +54,8 @@
         "@tiptap/extension-underline": "^2.0.0-beta.22",
         "@tiptap/vue-3": "^2.0.0-beta.84",
         "@vue/compiler-sfc": "^3.2.33",
-        "@vueuse/core": "^8.2.6",
-        "alpinejs": "^3.10.0",
+        "@vueuse/core": "^8.3.0",
+        "alpinejs": "^3.10.2",
         "autoprefixer": "^10.4.4",
         "axios": "^0.26.1",
         "laravel-mix": "^6.0.43",
@@ -86,7 +86,7 @@
         "cz-conventional-changelog": "^3.2.0",
         "husky": "^7.0.4",
         "prettier": "^2.6.2",
-        "prettier-plugin-tailwindcss": "^0.1.8"
+        "prettier-plugin-tailwindcss": "^0.1.10"
     },
     "config": {
         "commitizen": {
