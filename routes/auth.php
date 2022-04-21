@@ -5,13 +5,6 @@ declare(strict_types=1);
 use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/register', [Auth\RegisteredUserController::class, 'create'])
-    ->middleware('guest')
-    ->name('register');
-
-Route::post('/register', [Auth\RegisteredUserController::class, 'store'])
-    ->middleware('guest');
-
 Route::get('/login', [Auth\AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
     ->name('login');
