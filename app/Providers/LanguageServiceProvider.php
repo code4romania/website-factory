@@ -6,7 +6,6 @@ namespace App\Providers;
 
 use App\Models\Language;
 use Illuminate\Support\ServiceProvider;
-use Throwable;
 
 class LanguageServiceProvider extends ServiceProvider
 {
@@ -18,27 +17,11 @@ class LanguageServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('languages', function () {
-            try {
-                return Language::all()
-                    ->mapWithKeys(fn (Language $language) => [
-                        $language->code => $language->only(['name', 'enabled']),
-                    ])
-                    ->reject(fn (array $config) => ! $config['enabled']);
-            } catch (Throwable $th) {
-                logger('Could not open connection to database server. Skipping loading site languages...', [
-                    'error' => $th->getMessage(),
-                ]);
-            }
+            return Language::all()
+                ->mapWithKeys(fn (Language $language) => [
+                    $language->code => $language->only(['name', 'enabled']),
+                ])
+                ->reject(fn (array $config) => ! $config['enabled']);
         });
-    }
-
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
     }
 }

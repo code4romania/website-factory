@@ -175,11 +175,11 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\ConfigServiceProvider::class,
-        App\Providers\LanguageServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        App\Providers\LanguageServiceProvider::class,
         App\Providers\MediaServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
+        App\Providers\SettingsServiceProvider::class,
 
     ],
 

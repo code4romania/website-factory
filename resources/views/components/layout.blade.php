@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="{{ asset(mix('assets/public.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('public.css', 'assets')) }}">
     <link rel="stylesheet" href="{{ route('front.theme') }}">
 
     <style>
@@ -18,7 +18,7 @@
     @stack('preload')
 
     {{-- Scripts --}}
-    <script src="{{ asset(mix('assets/public.js')) }}" defer></script>
+    <script src="{{ asset(mix('public.js', 'assets')) }}" defer></script>
     @stack('scripts')
 
     {!! SEO::generate() !!}

@@ -42,23 +42,11 @@ if (! function_exists('settings')) {
      */
     function settings(array|string|null $key = null): mixed
     {
-        $prefix = 'website-factory.settings';
-
         if (is_null($key)) {
-            return config($prefix);
+            return app('settings');
         }
 
-        if (is_array($key)) {
-            return config()->set(
-                collect($key)
-                    ->mapWithKeys(fn ($v, $k) => [
-                        "{$prefix}.{$k}" => $v,
-                    ])
-                    ->toArray()
-            );
-        }
-
-        return config()->get("{$prefix}.{$key}");
+        return data_get(app('settings'), $key);
     }
 }
 
@@ -69,10 +57,8 @@ if (! function_exists('localized_settings')) {
      */
     function localized_settings(?string $key = null): mixed
     {
-        $key = rtrim("website-factory.settings.{$key}", '.');
-
-        return config($key . '.' . app()->getLocale())
-            ?? config($key . '.' . config('app.fallback_locale'));
+        return settings($key . '.' . app()->getLocale())
+            ?? settings($key . '.' . config('app.fallback_locale'));
     }
 }
 

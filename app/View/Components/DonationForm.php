@@ -25,7 +25,7 @@ class DonationForm extends Component
 
         $this->action = localized_route('front.donations.submit');
 
-        $this->recurring = config("website-factory.payments.gateways.{$gateway}.recurring", false);
+        $this->recurring = settings("payments.gateways.{$gateway}.recurring", false);
     }
 
     /**

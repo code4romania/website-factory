@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="{{ asset(mix('assets/admin.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('admin.css', 'assets')) }}">
 
     {{-- Scripts --}}
-    <script src="{{ asset(mix('assets/admin.js')) }}" defer></script>
+    <script src="{{ asset(mix('admin.js', 'assets')) }}" defer></script>
 
     @routes
 </head>
