@@ -3,7 +3,6 @@ const path = require('path');
 const tailwindcss = require('tailwindcss');
 
 require('laravel-mix-valet');
-require('laravel-mix-bundle-analyzer');
 
 /*
  |--------------------------------------------------------------------------
