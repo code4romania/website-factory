@@ -21,20 +21,13 @@ use Inertia\Response;
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * The Website Factory version.
-     *
-     * @var string
-     */
-    public const VERSION = '0.1.0';
-
-    /**
      * Register any application services.
      *
      * @return void
      */
     public function register()
     {
-        config(['app.version' => static::VERSION]);
+        config(['app.version' => $this->getAppVersion()]);
     }
 
     /**
@@ -133,5 +126,21 @@ class AppServiceProvider extends ServiceProvider
                 'submenu' => $items,
             ]);
         });
+    }
+
+    /**
+     * Read the application version.
+     *
+     * @return string
+     */
+    public function getAppVersion(): string
+    {
+        $version = base_path('.version');
+
+        if (! file_exists($version)) {
+            return 'develop';
+        }
+
+        return trim(file_get_contents($version));
     }
 }
