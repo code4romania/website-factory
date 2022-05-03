@@ -20,10 +20,6 @@ if (mix.inProduction()) {
     mix.version();
 }
 
-if (mix.isWatching()) {
-    mix.bundleAnalyzer({ openAnalyzer: false });
-}
-
 mix.valet()
     .alias({
         '@': path.resolve('resources/js'),
