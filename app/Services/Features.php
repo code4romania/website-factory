@@ -31,10 +31,7 @@ class Features
             'minister' => [
                 static::DECISIONS,
             ],
-            'develop' => [
-                static::DONATIONS,
-                static::DECISIONS,
-            ],
+            'develop' => null,
             default => throw new InvalidWebsiteFactoryEdition($edition, ['ong', 'primarie', 'minister']),
         });
 
@@ -49,6 +46,10 @@ class Features
      */
     public static function enabled(string $feature): bool
     {
+        if (config('website-factory.edition') === 'develop') {
+            return true;
+        }
+
         return \in_array($feature, config(static::$featureKey, []));
     }
 

@@ -8,10 +8,6 @@ return [
 
     'edition' => Features::edition(env('WEBSITE_FACTORY_EDITION', 'ong')),
 
-    'settings' => [
-        // This will be populated from the database
-    ],
-
     'social_platforms' => [
         'facebook' => [
             'label'  => 'Facebook',
