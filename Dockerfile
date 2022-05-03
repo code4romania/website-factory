@@ -81,6 +81,11 @@ COPY --chown=www-data:www-data . /var/www
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 COPY --from=assets --chown=www-data:www-data /app/public/assets /var/www/public/assets
 
+ARG VERSION
+ARG REVISION
+
+RUN echo "$VERSION (${REVISION:0:7})" > /var/www/.version
+
 RUN composer install \
     --optimize-autoloader \
     --no-interaction \

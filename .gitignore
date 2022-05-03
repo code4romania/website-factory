@@ -17,6 +17,7 @@ _ide_helper.php
 .php-cs-fixer.cache
 .phpstorm.meta.php
 .phpunit.result.cache
+.version
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
