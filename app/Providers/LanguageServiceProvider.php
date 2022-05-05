@@ -20,8 +20,7 @@ class LanguageServiceProvider extends ServiceProvider
             return Language::all()
                 ->mapWithKeys(fn (Language $language) => [
                     $language->code => $language->only(['name', 'enabled']),
-                ])
-                ->reject(fn (array $config) => ! $config['enabled']);
+                ]);
         });
     }
 }

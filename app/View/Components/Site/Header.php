@@ -60,7 +60,7 @@ class Header extends Component
             ->filter(fn ($value) => $value instanceof Model)
             ->first();
 
-        return locales()
+        return active_locales()
             ->reject(fn (array $config, string $locale) => app()->getLocale() === $locale)
             ->mapWithKeys(fn (array $config, string $locale) => [
                 $locale => $this->withLocale($locale, function () use ($routeName, $model, $locale) {

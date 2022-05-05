@@ -7,13 +7,26 @@ use Illuminate\Support\Str;
 
 if (! function_exists('locales')) {
     /**
-     * Return the currently enabled locales.
+     * Return the available locales.
      *
      * @return \Illuminate\Support\Collection
      */
     function locales(): Collection
     {
         return collect(app('languages'));
+    }
+}
+
+if (! function_exists('active_locales')) {
+    /**
+     * Return the currently enabled locales.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    function active_locales(): Collection
+    {
+        return collect(app('languages'))
+            ->reject(fn (array $config) => ! $config['enabled']);
     }
 }
 

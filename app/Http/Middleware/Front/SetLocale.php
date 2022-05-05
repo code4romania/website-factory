@@ -22,7 +22,7 @@ class SetLocale
     {
         $locale = $request->segment(1);
 
-        if (! locales()->has($locale)) {
+        if (! active_locales()->has($locale)) {
             return redirect()->to(
                 collect($request->segments())
                     ->prepend(config('app.locale'))

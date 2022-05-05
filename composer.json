@@ -19,7 +19,7 @@
         "guzzlehttp/guzzle": "^7.4",
         "inertiajs/inertia-laravel": "^0.5.4",
         "kalnoy/nestedset": "^6.0.1",
-        "laravel/framework": "^9.10",
+        "laravel/framework": "^9.11",
         "laravel/tinker": "^2.6",
         "league/flysystem-aws-s3-v3": "^3.0",
         "league/omnipay": "^3.2",
