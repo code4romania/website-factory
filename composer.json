@@ -43,9 +43,6 @@
         "nunomaduro/collision": "^6.2",
         "phpunit/phpunit": "^9.5"
     },
-    "replace": {
-        "bytic/utility": "*"
-    },
     "autoload": {
         "files": [
             "app/helpers.php"
