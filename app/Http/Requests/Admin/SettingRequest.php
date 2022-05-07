@@ -48,6 +48,9 @@ class SettingRequest extends BaseRequest
 
             ],
             'donations' => [
+                'settings.amounts'          => ['array'],
+                'settings.amounts.*.amount' => ['required', 'integer'],
+
                 'settings.mobilpay_enabled'     => ['boolean'],
                 'settings.mobilpay_signature'   => ['nullable', 'regex:/^([A-Z0-9]{4}-?){5}$/'],
                 'settings.mobilpay_public_key'  => ['nullable', 'file'],

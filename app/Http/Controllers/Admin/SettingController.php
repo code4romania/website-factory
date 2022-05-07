@@ -55,6 +55,8 @@ class SettingController extends Controller
             'donations' => $attributes->map(
                 fn ($value, $key) => match ($key) {
                     default                => $value,
+                    'euplatesc_enabled'    => \boolval($value),
+
                     'mobilpay_enabled'     => \boolval($value),
                     'mobilpay_certificate' => $value?->storeAs('private/donations', $value?->getClientOriginalName()),
                     'mobilpay_private_key' => $value?->storeAs('private/donations', $value?->getClientOriginalName()),

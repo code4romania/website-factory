@@ -1,6 +1,15 @@
 <template>
     <settings-section>
         <template #fields="{ form }">
+            <panel :title="$t('setting.donations.amounts.default')">
+                <form-draggable
+                    :label="$t('setting.donations.amounts.default')"
+                    name="settings.amounts"
+                    type="number"
+                    v-model="form.settings.amounts"
+                />
+            </panel>
+
             <panel title="EuPlătesc">
                 <form-checkbox
                     :label="$t('field.enabled')"

@@ -48,6 +48,7 @@ class Setting extends Model
 
         if (Features::hasDonations()) {
             $sections->put('donations', [
+                'amounts'              => [],
                 'mobilpay_enabled'     => false,
                 'mobilpay_signature'   => null,
                 'mobilpay_certificate' => null,
