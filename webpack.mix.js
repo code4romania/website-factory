@@ -59,24 +59,29 @@ mix.valet()
             use: [
                 'raw-loader',
                 {
-                    loader: 'vue-svg-loader',
+                    loader: 'svgo-loader',
                     options: {
-                        svgo: {
-                            plugins: [
-                                { removeDimensions: true },
-                                { removeViewBox: false },
-                                { removeXMLNS: true },
-                                {
-                                    removeUselessStrokeAndFill: {
-                                        fill: true,
-                                        stroke: true,
-                                        removeNone: true,
+                        multipass: true,
+                        plugins: [
+                            {
+                                name: 'preset-default',
+                                params: {
+                                    overrides: {
+                                        removeViewbox: false,
+                                        removeUselessStrokeAndFill: {
+                                            fill: true,
+                                            stroke: true,
+                                            removeNone: true,
+                                        },
                                     },
                                 },
-                            ],
-                        },
+                            },
+                            { name: 'removeDimensions' },
+                            { name: 'removeXMLNS' },
+                        ],
                     },
                 },
+                'vue-svg-component-loader',
             ],
         });
     });
