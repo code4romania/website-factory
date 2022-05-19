@@ -38,6 +38,8 @@ mix.valet()
         require('postcss-100vh-fix'),
     ])
 
+    .copyDirectory('resources/images', 'public/assets/images')
+
     .setPublicPath('public/assets')
     .sourceMaps(false)
 

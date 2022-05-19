@@ -10,6 +10,9 @@
     {{-- Scripts --}}
     <script src="{{ asset(mix('admin.js', 'assets')) }}" defer></script>
 
+    <link rel="icon" type="image/svg+xml" href="{{ asset(mix('images/favicon.svg', 'assets')) }}">
+    <link rel="icon" type="image/png" href="{{ asset(mix('images/favicon.png', 'assets')) }}">
+
     @routes
 </head>
 
