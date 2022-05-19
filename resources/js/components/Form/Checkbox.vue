@@ -8,6 +8,7 @@
                 class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 my-0.5"
                 v-model="proxyChecked"
                 :value="value"
+                :checked="checked"
                 :required="required"
                 :disabled="disabled"
                 :autofocus="autofocus"
@@ -44,15 +45,14 @@
             value: {
                 default: null,
             },
+            checked: {
+                type: Boolean,
+            },
         },
         setup(props, { emit }) {
-            if (typeof props.modelValue !== 'boolean') {
-                emit('update:modelValue', Boolean(props.modelValue));
-            }
-
             const proxyChecked = computed({
-                get: () => Boolean(props.modelValue),
-                set: (value) => emit('update:modelValue', !!value),
+                get: () => props.modelValue,
+                set: (value) => emit('update:modelValue', value),
             });
 
             return {

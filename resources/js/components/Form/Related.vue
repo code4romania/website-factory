@@ -54,17 +54,22 @@
                 </div>
             </template>
 
-            <template #footer v-if="remainingItems">
+            <template #footer>
                 <div
                     class="flex items-center justify-between px-6 py-4 list-group-item"
                 >
                     <button
                         type="button"
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-100 disabled:opacity-50"
                         :disabled="!remainingItems"
                         @click="openList"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-100 disabled:opacity-50"
                     >
-                        Add Item
+                        <icon
+                            name="System/add-line"
+                            class="w-5 h-5 mr-2 -ml-1"
+                        />
+
+                        <span v-text="$t('app.action.add')" />
                     </button>
 
                     <div v-if="limit > 1" class="text-sm text-gray-500">
@@ -95,14 +100,14 @@
             <button
                 type="button"
                 class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-100 disabled:opacity-50"
-                :disabled="!remainingItems"
+                :disabled="selectedItems.length > limit"
                 @click="addSelectedItems"
             >
                 Attach
             </button>
 
             <div class="text-sm text-gray-500">
-                {{ remainingItems }}/{{ limit }}
+                {{ selectedItems.length }}/{{ limit }}
             </div>
         </template>
     </action-modal>
@@ -126,6 +131,7 @@
             related: {
                 type: Array,
                 required: true,
+                default: () => [],
             },
             limit: {
                 type: Number,
@@ -134,14 +140,26 @@
         },
         emits: ['update:related'],
         setup(props, { emit }) {
+            const selectedItems = ref([]);
+
+            const getSelectedItems = () => {
+                selectedItems.value = props.related.map((related) => related.id);
+            };
+
+            getSelectedItems();
+
             const open = ref(false);
 
             const items = ref([]);
-            const selectedItems = ref(props.related.map((related) => related.id));
 
             const remainingItems = computed(() =>
                 Math.max(0, props.limit - props.related.length)
             );
+
+            const proxySelected = computed({
+                get: () => props.related,
+                set: (value) => emit('update:related', value),
+            });
 
             const { fetchData } = useRelated();
 
@@ -176,6 +194,8 @@
 
             const deleteItem = (index) => {
                 props.related.splice(index, 1);
+
+                getSelectedItems();
             };
 
             return {
@@ -183,6 +203,7 @@
                 openList,
                 remainingItems,
                 selectedItems,
+                proxySelected,
                 items,
                 addSelectedItems,
                 deleteItem,
