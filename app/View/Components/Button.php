@@ -48,14 +48,14 @@ class Button extends Component
 
     public function class(): string
     {
-        $class = collect('flex items-center w-full font-semibold sm:inline-flex sm:w-auto focus:outline-none focus:ring-2 focus:ring-offset-2');
+        $class = collect('flex items-center justify-center w-full font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2');
 
         $class->push(match ($this->size) {
-            'xs' => 'px-2.5 py-1.5 shadow-sm text-xs rounded',
-            'sm' => 'px-3 py-2 text-sm leading-4 rounded-md shadow-sm',
-            'md' => 'px-4 py-2 text-sm rounded-md shadow-sm',
-            'lg' => 'px-4 py-2 text-base rounded-md shadow-sm',
-            'xl' => 'px-6 py-3 text-base rounded-md shadow-sm',
+            'xs' => 'px-2.5 py-1.5 shadow-sm text-xs',
+            'sm' => 'px-3 py-2 text-sm leading-4 shadow-sm',
+            'md' => 'px-4 py-2 text-sm shadow-sm',
+            'lg' => 'px-4 py-2 text-base shadow-sm',
+            'xl' => 'px-6 py-3 text-base shadow-sm',
             default => '',
         });
 

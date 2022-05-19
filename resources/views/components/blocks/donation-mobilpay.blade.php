@@ -6,5 +6,5 @@
         {!! $text !!}
     </div>
 
-    <x-donation-form class="px-4 py-12 sm:px-6 md:px-10" gateway="mobilpay" />
+    <x-donation-form gateway="mobilpay" />
 </div>

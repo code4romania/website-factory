@@ -97,6 +97,24 @@
                     </pre>
 
                     <pre class="whitespace-pre-wrap" v-text="content" />
+
+                    <pre class="mt-4 whitespace-pre-line">
+                        children:
+                    </pre>
+
+                    <pre class="whitespace-pre-wrap" v-text="children" />
+
+                    <pre class="mt-4 whitespace-pre-line">
+                        media:
+                    </pre>
+
+                    <pre class="whitespace-pre-wrap" v-text="media" />
+
+                    <pre class="mt-4 whitespace-pre-line">
+                        related:
+                    </pre>
+
+                    <pre class="whitespace-pre-wrap" v-text="related" />
                 </div>
             </details>
         </div>
