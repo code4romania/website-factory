@@ -38,8 +38,7 @@
 
 <script>
     import { computed } from 'vue';
-
-    import { usePage } from '@inertiajs/inertia-vue3';
+    import { route } from '@/helpers';
 
     export default {
         name: 'MenuItem',
@@ -80,25 +79,23 @@
         },
         emits: ['click'],
         setup(props) {
-            const isCurrentRoute = computed(
-                () => usePage().props.value.route === props.route
-            );
-
-            return {
-                isCurrentRoute,
-            };
-        },
-
-        computed: {
-            isCurrentUrl() {
+            const isCurrentUrl = computed(() => {
                 const currentUrl = location.origin + location.pathname;
 
-                if (this.href === this.route('admin.dashboard')) {
-                    return this.href === currentUrl.replace(/\/$/, '');
+                if (route().current().endsWith('.index')) {
+                    return props.href === currentUrl;
                 }
 
-                return currentUrl.startsWith(this.href);
-            },
+                if (props.href === route('admin.dashboard')) {
+                    return props.href === currentUrl.replace(/\/$/, '');
+                }
+
+                return currentUrl.startsWith(props.href);
+            });
+
+            return {
+                isCurrentUrl,
+            };
         },
     };
 </script>

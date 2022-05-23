@@ -142,7 +142,7 @@
     import { ref, computed } from 'vue';
     import { useLocale } from '@/helpers';
     import { useForm } from '@inertiajs/inertia-vue3';
-    import route from 'ziggy-js';
+    import { route } from '@/helpers';
 
     export default {
         name: 'TableActions',
