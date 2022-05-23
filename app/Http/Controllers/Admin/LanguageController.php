@@ -73,4 +73,14 @@ class LanguageController extends Controller
         return redirect()->route('admin.languages.edit', $language)
             ->with('success', __('language.event.updated'));
     }
+
+    public function destroy(string $code): RedirectResponse
+    {
+        Language::query()
+            ->where('code', $code)
+            ->delete();
+
+        return redirect()->route('admin.languages.index')
+            ->with('success', __('language.event.deleted'));
+    }
 }
