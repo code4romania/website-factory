@@ -24,7 +24,11 @@ class FormField extends Block
     {
         $rawOptions = $this->translatedInput($field) ?? $this->input($field);
 
-        return collect(preg_split('/\r\n|\r|\n/', (string) $rawOptions))
+        if (! \is_string($rawOptions)) {
+            $rawOptions = '';
+        }
+
+        return collect(preg_split('/\r\n|\r|\n/', $rawOptions))
             ->filter();
     }
 }

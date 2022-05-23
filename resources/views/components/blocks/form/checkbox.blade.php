@@ -1,6 +1,6 @@
 @props(['block'])
 
-<x-blocks.form._field :block="$block" tag="div" :inline-help="false" no-shadow>
+<x-blocks.form._field :block="$block" tag="div" no-shadow>
     <fieldset class="mt-3 space-y-3">
         @foreach ($block->options() as $option)
             <div>

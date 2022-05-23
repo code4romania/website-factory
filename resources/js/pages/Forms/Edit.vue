@@ -12,6 +12,10 @@
             'recipients',
             'blocks',
         ]"
+        :field-types="{
+            store_submissions: Boolean,
+            send_submissions: Boolean,
+        }"
     >
         <template #panel="{ form }">
             <div class="space-y-1">
