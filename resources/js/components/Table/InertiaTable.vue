@@ -48,8 +48,7 @@
 
     <table-empty
         v-if="!collection.data.length"
-        :id="collection.properties.model"
-        :action="emptyAction"
+        :properties="collection.properties"
     />
 </template>
 
