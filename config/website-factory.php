@@ -16,7 +16,7 @@ return [
         ],
         'linkedin' => [
             'label'  => 'LinkedIn',
-            'prefix' => 'https://www.linkedin.com/in/',
+            'prefix' => 'https://www.linkedin.com/',
             'icon'   => 'ri-linkedin-fill',
         ],
         'instagram' => [

@@ -60,7 +60,7 @@
         <template #extra="{ form }">
             <panel title="Social Profiles">
                 <form-input
-                    v-for="(platform, id) in resource.platforms"
+                    v-for="(platform, id) in platforms"
                     :key="id"
                     :label="platform.label"
                     name="social"
@@ -79,6 +79,7 @@
 <script>
     export default {
         props: {
+            platforms: Array,
             resource: Object,
             model: Object,
         },

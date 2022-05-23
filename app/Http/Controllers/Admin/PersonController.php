@@ -29,7 +29,7 @@ class PersonController extends AdminController
     public function create(): Response
     {
         return Inertia::render('People/Edit', [
-            //
+            'platforms' => config('website-factory.social_platforms', []),
         ])->model(Person::class);
     }
 
@@ -49,7 +49,8 @@ class PersonController extends AdminController
     public function edit(Person $person): Response
     {
         return Inertia::render('People/Edit', [
-            'resource' => PersonResource::make($person),
+            'resource'  => PersonResource::make($person),
+            'platforms' => config('website-factory.social_platforms', []),
         ])->model(Person::class);
     }
 
