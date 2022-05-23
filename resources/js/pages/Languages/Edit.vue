@@ -5,6 +5,10 @@
             :model="model"
             :action="action"
             :fields="['code', 'name', 'enabled', 'lines']"
+            :field-types="{
+                enabled: Boolean,
+                lines: Array,
+            }"
         >
             <template #panel="{ form }">
                 <form-input

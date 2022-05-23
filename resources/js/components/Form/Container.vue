@@ -74,6 +74,10 @@
                 type: Array,
                 default: () => [],
             },
+            fieldTypes: {
+                type: Object,
+                default: () => ({}),
+            },
             action: {
                 type: String,
                 required: true,
@@ -84,7 +88,8 @@
             const form = useForm(
                 `${props.action}.${props.model.name}`,
                 props.resource,
-                props.fields
+                props.fields,
+                props.fieldTypes
             );
 
             const method = computed(() =>

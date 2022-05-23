@@ -1,9 +1,15 @@
 import isPlainObject from 'lodash/isPlainObject';
 import { useForm } from '@inertiajs/inertia-vue3';
-import { useLocale } from '@/helpers';
+import { defaultValue, useLocale } from '@/helpers';
 
-export default function (rememberKey, model, fields) {
+export default function (rememberKey, model, fields, fieldTypes = {}) {
     const { isTranslatable, locales } = useLocale();
+
+    fieldTypes = {
+        blocks: Array,
+        media: Array,
+        ...fieldTypes,
+    };
 
     return useForm(
         isPlainObject(model) ? rememberKey + '.' + model.id : rememberKey,
@@ -19,8 +25,8 @@ export default function (rememberKey, model, fields) {
                     {}
                 );
             } else {
-                let fallback = ['blocks', 'media', 'lines'].includes(field)
-                    ? []
+                const fallback = fieldTypes.hasOwnProperty(field)
+                    ? defaultValue(fieldTypes[field])
                     : null;
 
                 fields[field] = isPlainObject(model)

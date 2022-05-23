@@ -1,3 +1,4 @@
+export { default as defaultValue } from './defaultValue';
 export { default as defineBlock } from './defineBlock';
 export { default as defineFormBlock } from './defineFormBlock';
 export { default as defineInput } from './defineInput';
