@@ -8,12 +8,14 @@
             enabled: Boolean,
             lines: Array,
         }"
+        hide-language-switcher
     >
         <template #panel="{ form }">
             <form-input
                 :label="$t('field.code')"
                 name="code"
                 v-model="form.code"
+                size="2"
                 required
             />
 

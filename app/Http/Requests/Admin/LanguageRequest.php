@@ -26,7 +26,7 @@ class LanguageRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'code'    => ['required', 'size:2'],
+            'code'    => ['required', 'size:2', 'unique:languages,code'],
             'name'    => ['required', 'string'],
             'enabled' => ['boolean'],
             'lines'   => ['array'],

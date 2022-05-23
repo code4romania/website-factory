@@ -1,7 +1,11 @@
 <template>
     <layout :title="$t(`${model.name}.action.${action}`)">
-        <template #subnav>
+        <template #subnav v-if="$slots.subnav">
             <slot name="subnav" />
+        </template>
+
+        <template #actions>
+            <language-switcher v-if="!hideLanguageSwitcher" />
         </template>
 
         <form @submit.prevent="form.submit(method, url)" class="grid gap-y-8">
@@ -83,6 +87,10 @@
             fieldTypes: {
                 type: Object,
                 default: () => ({}),
+            },
+            hideLanguageSwitcher: {
+                type: Boolean,
+                default: false,
             },
         },
         setup(props) {
