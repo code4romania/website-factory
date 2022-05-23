@@ -5,6 +5,9 @@ export default function (props) {
     const locales = computed(
         () => usePage().props.value.locales.available || []
     );
+    const activeLocales = computed(
+        () => usePage().props.value.locales.active || []
+    );
     const translatableFields = computed(
         () => usePage().props.value.model.translatable || []
     );
@@ -14,12 +17,12 @@ export default function (props) {
     });
 
     const hasLocale = computed(() => props.locale !== null);
-    const isCurrentLocale = computed(() =>
-        hasLocale.value ? props.locale === currentLocale.value : true
-    );
     const hasMultipleLocales = computed(() => locales.value.length > 1);
 
     const isValidLocale = (locale) => locales.value.includes(locale);
+    const isActiveLocale = (locale) => activeLocales.value.includes(locale);
+    const isCurrentLocale = (locale) => currentLocale.value === locale;
+
     const isTranslatable = (field) => translatableFields.value.includes(field);
     const changeLocale = (to) => {
         if (!isValidLocale(to)) {
@@ -38,12 +41,14 @@ export default function (props) {
 
     return {
         locales,
+        activeLocales,
         translatableFields,
         currentLocale,
         hasLocale,
         isCurrentLocale,
         hasMultipleLocales,
         isValidLocale,
+        isActiveLocale,
         isTranslatable,
         changeLocale,
         nextLocale,
