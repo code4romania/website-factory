@@ -61,22 +61,34 @@
                     class="mt-2 text-sm font-medium border-t border-b border-gray-200 divide-y divide-gray-200"
                 >
                     <div class="flex justify-between py-3">
-                        <dt class="text-gray-500">Created</dt>
+                        <dt
+                            class="text-gray-500"
+                            v-text="$t('media.details.created')"
+                        />
                         <dd class="text-gray-900" v-text="item.created_at" />
                     </div>
 
                     <div class="flex justify-between py-3">
-                        <dt class="text-gray-500">Last modified</dt>
+                        <dt
+                            class="text-gray-500"
+                            v-text="$t('media.details.last_modified')"
+                        />
                         <dd class="text-gray-900" v-text="item.updated_at" />
                     </div>
 
                     <div class="flex justify-between py-3">
-                        <dt class="text-gray-500">File size</dt>
+                        <dt
+                            class="text-gray-500"
+                            v-text="$t('media.details.file_size')"
+                        />
                         <dd class="text-gray-900" v-text="item.size" />
                     </div>
 
                     <div v-if="item.sizes" class="flex justify-between py-3">
-                        <dt class="text-gray-500">Dimensions</dt>
+                        <dt
+                            class="text-gray-500"
+                            v-text="$t('media.details.dimensions')"
+                        />
                         <dd class="text-gray-900">
                             <span v-text="item.sizes.original.width" />
                             &times;
