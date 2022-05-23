@@ -59,6 +59,7 @@ class ImportMediaCommand extends Command
 
         $this->call(BaseImportCommand::class, [
             'disk' => $this->disk,
+            '--non-recursive' => true,
         ]);
 
         CreateImageVariants::dispatchSync(

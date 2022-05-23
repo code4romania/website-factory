@@ -30,6 +30,10 @@ class DatabaseSeeder extends Seeder
 
         Artisan::call('media:import');
 
+        $this->call([
+            LanguageSeeder::class,
+        ]);
+
         $images = Media::query()
             ->whereImages()
             ->whereIsOriginal()
