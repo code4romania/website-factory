@@ -1,5 +1,17 @@
 <template>
-    <layout :title="$t(`post.action.${action}`)">
+    <form-container
+        :resource="resource"
+        :model="model"
+        :fields="[
+            'title',
+            'slug',
+            'description',
+            'blocks',
+            'media',
+            'categories',
+            'published_at',
+        ]"
+    >
         <template #subnav>
             <menu-item
                 v-for="(item, index) in subnav"
@@ -13,90 +25,64 @@
             </menu-item>
         </template>
 
-        <form-container
-            :resource="resource"
-            :model="model"
-            :action="action"
-            :fields="[
-                'title',
-                'slug',
-                'description',
-                'blocks',
-                'media',
-                'categories',
-                'published_at',
-            ]"
-        >
-            <template #panel="{ form }">
-                <div class="space-y-1">
-                    <localized-field
-                        field="form-input"
-                        :label="$t('field.title')"
-                        name="title"
-                        v-model="form.title"
-                        required
-                    />
-
-                    <localized-field
-                        field="form-slug"
-                        :label="$t('field.slug')"
-                        name="slug"
-                        v-model="form.slug"
-                        route-name="front.posts.show"
-                        route-key="post"
-                        :source="form.title"
-                        translatable
-                        required
-                    />
-                </div>
+        <template #panel="{ form }">
+            <div class="space-y-1">
+                <localized-field
+                    field="form-input"
+                    :label="$t('field.title')"
+                    name="title"
+                    v-model="form.title"
+                    required
+                />
 
                 <localized-field
-                    field="form-editor"
-                    :label="$t('field.description')"
-                    v-model="form.description"
+                    field="form-slug"
+                    :label="$t('field.slug')"
+                    name="slug"
+                    v-model="form.slug"
+                    route-name="front.posts.show"
+                    route-key="post"
+                    :source="form.title"
+                    translatable
+                    required
                 />
+            </div>
 
-                <form-media
-                    :label="$t('field.image')"
-                    v-model:media="form.media"
-                    :limit="1"
-                />
+            <localized-field
+                field="form-editor"
+                :label="$t('field.description')"
+                v-model="form.description"
+            />
 
-                <form-select
-                    :label="$t('field.categories')"
-                    v-model="form.categories"
-                    :options="categories"
-                    option-value-key="id"
-                    option-label-key="title"
-                    multiple
-                />
-            </template>
+            <form-media
+                :label="$t('field.image')"
+                v-model:media="form.media"
+                :limit="1"
+            />
 
-            <template #content="{ form }">
-                <block-list v-model:blocks="form.blocks" />
-            </template>
-        </form-container>
-    </layout>
+            <form-select
+                :label="$t('field.categories')"
+                v-model="form.categories"
+                :options="categories"
+                option-value-key="id"
+                option-label-key="title"
+                multiple
+            />
+        </template>
+
+        <template #content="{ form }">
+            <block-list v-model:blocks="form.blocks" />
+        </template>
+    </form-container>
 </template>
 
 <script>
-    import { computed } from 'vue';
-
     export default {
         props: {
             resource: Object,
             model: Object,
             subnav: Array,
             categories: Array,
-        },
-        setup(props) {
-            const action = computed(() =>
-                props.resource === undefined ? 'create' : 'edit'
-            );
-
-            return {
-                action,
-            };
         },
     };
 </script>

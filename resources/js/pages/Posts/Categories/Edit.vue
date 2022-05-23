@@ -1,5 +1,9 @@
 <template>
-    <layout :title="$t(`category.action.${action}`)">
+    <form-container
+        :resource="resource"
+        :model="model"
+        :fields="['title', 'slug', 'description']"
+    >
         <template #subnav>
             <menu-item
                 v-for="(item, index) in subnav"
@@ -13,62 +17,44 @@
             </menu-item>
         </template>
 
-        <form-container
-            :resource="resource"
-            :model="model"
-            :action="action"
-            :fields="['title', 'slug', 'description']"
-        >
-            <template #panel="{ form }">
-                <div class="space-y-1">
-                    <localized-field
-                        field="form-input"
-                        :label="$t('field.title')"
-                        name="title"
-                        v-model="form.title"
-                        required
-                    />
-
-                    <localized-field
-                        field="form-slug"
-                        :label="$t('field.slug')"
-                        name="slug"
-                        v-model="form.slug"
-                        route-name="front.post_categories.show"
-                        route-key="post_category"
-                        :source="form.title"
-                        translatable
-                        required
-                    />
-                </div>
+        <template #panel="{ form }">
+            <div class="space-y-1">
+                <localized-field
+                    field="form-input"
+                    :label="$t('field.title')"
+                    name="title"
+                    v-model="form.title"
+                    required
+                />
 
                 <localized-field
-                    field="form-editor"
-                    :label="$t('field.description')"
-                    v-model="form.description"
+                    field="form-slug"
+                    :label="$t('field.slug')"
+                    name="slug"
+                    v-model="form.slug"
+                    route-name="front.post_categories.show"
+                    route-key="post_category"
+                    :source="form.title"
+                    translatable
+                    required
                 />
-            </template>
-        </form-container>
-    </layout>
+            </div>
+
+            <localized-field
+                field="form-editor"
+                :label="$t('field.description')"
+                v-model="form.description"
+            />
+        </template>
+    </form-container>
 </template>
 
 <script>
-    import { computed } from 'vue';
-
     export default {
         props: {
             resource: Object,
             model: Object,
             subnav: Array,
-        },
-        setup(props) {
-            const action = computed(() =>
-                props.resource === undefined ? 'create' : 'edit'
-            );
-
-            return {
-                action,
-            };
         },
     };
 </script>
