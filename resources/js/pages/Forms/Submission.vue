@@ -1,5 +1,21 @@
 <template>
-    <layout :title="$t('form.label', 2)">
+    <layout
+        :title="$t('form.label', 2)"
+        :breadcrumbs="[
+            {
+                label: $t('app.dashboard'),
+                url: route('admin.dashboard'),
+            },
+            {
+                label: $tChoice('form.label', 2),
+                url: route('admin.forms.index'),
+            },
+            {
+                label: resource.form.title,
+                url: route('admin.forms.show', resource.form.id),
+            },
+        ]"
+    >
         <dl class="space-y-8">
             <div v-for="(row, index) in data" :key="index">
                 <dt

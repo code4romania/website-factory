@@ -1,6 +1,14 @@
 <template>
-    <layout :title="$tChoice('decision.label', 2)">
-        <inertia-table :collection="collection"> </inertia-table>
+    <layout
+        :title="$tChoice('decision.label', 2)"
+        :breadcrumbs="[
+            {
+                label: $t('app.dashboard'),
+                url: route('admin.dashboard'),
+            },
+        ]"
+    >
+        <inertia-table :collection="collection" />
     </layout>
 </template>
 

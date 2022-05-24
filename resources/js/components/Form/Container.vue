@@ -1,5 +1,8 @@
 <template>
-    <layout :title="$t(`${model.name}.action.${action}`)">
+    <layout
+        :title="$t(`${model.name}.action.${action}`)"
+        :breadcrumbs="breadcrumbs"
+    >
         <template #subnav v-if="$slots.subnav">
             <slot name="subnav" />
         </template>
@@ -87,6 +90,10 @@
             fieldTypes: {
                 type: Object,
                 default: () => ({}),
+            },
+            breadcrumbs: {
+                type: Array,
+                default: () => [],
             },
             hideLanguageSwitcher: {
                 type: Boolean,

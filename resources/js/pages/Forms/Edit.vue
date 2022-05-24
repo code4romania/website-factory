@@ -16,6 +16,16 @@
             store_submissions: Boolean,
             send_submissions: Boolean,
         }"
+        :breadcrumbs="[
+            {
+                label: $t('app.dashboard'),
+                url: route('admin.dashboard'),
+            },
+            {
+                label: $tChoice('form.label', 2),
+                url: route('admin.forms.index'),
+            },
+        ]"
     >
         <template #panel="{ form }">
             <div class="space-y-1">

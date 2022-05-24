@@ -8,6 +8,16 @@
             enabled: Boolean,
             lines: Array,
         }"
+        :breadcrumbs="[
+            {
+                label: $t('app.dashboard'),
+                url: route('admin.dashboard'),
+            },
+            {
+                label: $tChoice('language.label', 2),
+                url: route('admin.languages.index'),
+            },
+        ]"
         hide-language-switcher
     >
         <template #panel="{ form }">

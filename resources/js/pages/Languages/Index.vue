@@ -1,5 +1,13 @@
 <template>
-    <layout :title="$tChoice('language.label', 2)">
+    <layout
+        :title="$tChoice('language.label', 2)"
+        :breadcrumbs="[
+            {
+                label: $t('app.dashboard'),
+                url: route('admin.dashboard'),
+            },
+        ]"
+    >
         <inertia-table :collection="collection">
             <template #enabled="{ row }">
                 <icon

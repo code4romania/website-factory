@@ -3,6 +3,20 @@
         :resource="resource"
         :model="model"
         :fields="['title', 'slug', 'description']"
+        :breadcrumbs="[
+            {
+                label: $t('app.dashboard'),
+                url: route('admin.dashboard'),
+            },
+            {
+                label: $t('post.subnav.posts'),
+                url: route('admin.posts.index'),
+            },
+            {
+                label: $t('post.subnav.categories'),
+                url: route('admin.post_categories.index'),
+            },
+        ]"
     >
         <template #subnav>
             <menu-item

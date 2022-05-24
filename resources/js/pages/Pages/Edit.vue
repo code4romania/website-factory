@@ -10,6 +10,16 @@
             'media',
             'published_at',
         ]"
+        :breadcrumbs="[
+            {
+                label: $t('app.dashboard'),
+                url: route('admin.dashboard'),
+            },
+            {
+                label: $tChoice('page.label', 2),
+                url: route('admin.pages.index'),
+            },
+        ]"
     >
         <template #panel="{ form }">
             <div class="space-y-1">

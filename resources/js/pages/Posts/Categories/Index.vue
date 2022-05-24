@@ -1,5 +1,17 @@
 <template>
-    <layout :title="$tChoice('category.label', 2)">
+    <layout
+        :title="$tChoice('category.label', 2)"
+        :breadcrumbs="[
+            {
+                label: $t('app.dashboard'),
+                url: route('admin.dashboard'),
+            },
+            {
+                label: $t('post.subnav.posts'),
+                url: route('admin.posts.index'),
+            },
+        ]"
+    >
         <template #subnav>
             <menu-item
                 v-for="(item, index) in subnav"

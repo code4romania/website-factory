@@ -3,6 +3,16 @@
         :resource="resource"
         :model="model"
         :fields="['name', 'email', 'role', 'locale']"
+        :breadcrumbs="[
+            {
+                label: $t('app.dashboard'),
+                url: route('admin.dashboard'),
+            },
+            {
+                label: $tChoice('user.label', 2),
+                url: route('admin.users.index'),
+            },
+        ]"
     >
         <template #panel="{ form }">
             <form-input
