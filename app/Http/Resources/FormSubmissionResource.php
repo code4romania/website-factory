@@ -16,7 +16,7 @@ class FormSubmissionResource extends Resource
     {
         return [
             'form_submission' => $this->id,
-            'form'            => $this->form_id,
+            'form'            => FormResource::make($this->form),
             'created_at'      => $this->created_at->toDateTimeString(),
             'uuid'            => $this->uuid,
             'data'            => $this->data,

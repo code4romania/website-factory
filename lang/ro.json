@@ -17,6 +17,7 @@
     "app.action.download": "Descarcă",
     "app.action.draft": "Salvează draft",
     "app.action.duplicate": "Duplică",
+    "app.action.duplicateConfirm": "Ești sigur că dorești să duplici aceast item?",
     "app.action.edit": "Editează",
     "app.action.enable": "Activează",
     "app.action.filter": "Filtrează",
@@ -259,7 +260,15 @@
     "post.subnav.posts": "Postări",
     "post.subnav.categories": "Categorii",
 
+    "post_category.label": "Categorie|Categorii",
+    "post_category.action.create": "Adaugă categorie",
+    "post_category.action.edit": "Editează categoria",
+    "post_category.action.update": "Actualizează categoria",
+    "post_category.action.delete": "Șterge categoria",
     "post_category.empty.title": "Nu am găsit nicio categorie",
+    "post_category.event.created": "Categoria a fost creată.",
+    "post_category.event.updated": "Categoria a fost actualizată.",
+    "post_category.event.deleted": "Categoria a fost ștersă.",
 
     "setting.label": "Setare|Setări",
     "setting.action.update": "Salvează setări",

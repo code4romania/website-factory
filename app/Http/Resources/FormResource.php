@@ -60,6 +60,8 @@ class FormResource extends Resource
 
     protected function default(Request $request): array
     {
+        $this->withoutPermissions();
+
         return [
             'id'     => $this->id,
             'title'  => $this->title,

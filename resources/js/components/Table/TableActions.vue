@@ -22,6 +22,7 @@
         v-if="confirmAction === 'duplicate'"
         @close="confirmAction = null"
         @submit="actionDuplicate"
+        color="blue"
     >
         <template #title>{{ $t('app.action.duplicate') }}</template>
 
@@ -42,7 +43,7 @@
                 type="submit"
                 :label="$t('app.action.duplicate')"
                 :disabled="form.processing"
-                color="red"
+                color="blue"
             />
         </template>
     </confirmation-modal>
@@ -52,6 +53,7 @@
         v-if="confirmAction === 'delete'"
         @close="confirmAction = null"
         @submit="actionDelete"
+        color="red"
     >
         <template #title>{{ $t('app.action.delete') }}</template>
 
@@ -82,6 +84,7 @@
         v-if="confirmAction === 'forceDelete'"
         @close="confirmAction = null"
         @submit="actionForceDelete"
+        color="red"
     >
         <template #title>{{ $t('app.action.forceDelete') }}</template>
 
@@ -112,6 +115,7 @@
         v-if="confirmAction === 'restore'"
         @close="confirmAction = null"
         @submit="actionRestore"
+        color="blue"
     >
         <template #title>{{ $t('app.action.restore') }}</template>
 
@@ -132,7 +136,7 @@
                 type="submit"
                 :label="$t('app.action.restore')"
                 :disabled="form.processing"
-                color="red"
+                color="blue"
             />
         </template>
     </confirmation-modal>
