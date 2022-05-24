@@ -52,11 +52,16 @@ class BlockCollection extends Collection
                     ->after('<script>')
                     ->before('</script>');
 
+                $icon = $this->getProperty('icon', $component) ?? 'Design/layout-top-2-line';
+                $type = $this->getProperty('type', $component) ?? Str::kebab(preg_replace('/(.vue|.js)$/u', '', $file->getFilename()));
+
                 return [
-                    'icon' => $this->getProperty('icon', $component) ?? 'Design/layout-top-2-line',
-                    'type' => $this->getProperty('type', $component) ?? Str::kebab(preg_replace('/(.vue|.js)$/u', '', $file->getFilename())),
+                    'icon' => $icon,
+                    'type' => $type,
+                    'label' => __("block.$type"),
                 ];
             })
+            ->sortBy('label', \SORT_NATURAL | \SORT_FLAG_CASE)
             ->values();
     }
 

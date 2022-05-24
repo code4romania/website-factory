@@ -182,7 +182,7 @@
             );
 
             const icon = computed(() => {
-                const block = usePage().props.value.model.blocks.find(
+                const block = usePage().props.value.model.allowed_blocks.find(
                     ({ type }) => type === props.component
                 );
 

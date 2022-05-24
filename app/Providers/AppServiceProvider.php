@@ -101,7 +101,7 @@ class AppServiceProvider extends ServiceProvider
             $traits = class_uses_recursive($model);
 
             if (SupportsTrait::blocks($model)) {
-                $blocks = (new BlockCollection($model->allowedBlockType ?? 'block'))->all();
+                $allowedBlocks = (new BlockCollection($model->allowedBlockType ?? 'block'))->all();
             }
 
             if (\in_array(Translatable::class, $traits)) {
@@ -115,7 +115,7 @@ class AppServiceProvider extends ServiceProvider
                     'name'               => $morphClass,
                     'admin_route_prefix' => 'admin.' . Str::plural($morphClass),
                     'front_route_prefix' => 'front.' . Str::plural($morphClass),
-                    'blocks'             => $blocks ?? [],
+                    'allowed_blocks'     => $allowedBlocks ?? [],
                     'translatable'       => $translatable ?? [],
                 ],
             ]);

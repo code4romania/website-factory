@@ -68,10 +68,7 @@
                             class="w-5 h-5 mr-3 text-gray-500 group-hover:text-gray-600"
                         />
 
-                        <span
-                            class="flex-1"
-                            v-text="$t(`block.${item.type}`)"
-                        />
+                        <span class="flex-1" v-text="item.label" />
                     </dropdown-item>
                 </template>
             </dropdown>
@@ -111,7 +108,7 @@
         emits: ['update:blocks'],
         setup(props) {
             const allowedBlocks = computed(
-                () => usePage().props.value.model.blocks
+                () => usePage().props.value.model.allowed_blocks
             );
 
             const addBlock = (type) => {
