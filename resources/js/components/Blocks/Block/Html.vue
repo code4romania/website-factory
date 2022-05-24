@@ -5,11 +5,11 @@
         v-model="content.title"
     />
 
-    <form-input
-        type="url"
-        :label="$t('field.url')"
+    <form-textarea
+        :label="$t('field.html')"
         required
-        v-model="content.url"
+        v-model="content.code"
+        rows="4"
     />
 
     <form-select
@@ -23,14 +23,15 @@
     import { defineBlock } from '@/helpers';
 
     export default defineBlock({
-        type: 'iframe',
+        type: 'html',
         icon: 'Development/code-s-slash-line',
         fields: {
             title: Object,
-            url: String,
+            code: String,
         },
         setup(props) {
             const aspectRatios = [
+                'none',
                 '1/1',
                 '5/4',
                 '4/3',

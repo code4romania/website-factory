@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\View\Components\Blocks;
 
-class Iframe extends BlockComponent
+class Html extends BlockComponent
 {
-    public ?string $url;
+    public ?string $code;
 
     public ?string $title = null;
 
@@ -16,7 +16,7 @@ class Iframe extends BlockComponent
     {
         $this->title = $this->block->translatedInput('title');
 
-        $this->url = $this->block->input('url');
+        $this->code = $this->block->input('code');
 
         $this->aspectRatio = match ($this->block->input('aspect_ratio')) {
             '1/1'   => 'aspect-w-1 aspect-h-1',
@@ -35,7 +35,7 @@ class Iframe extends BlockComponent
             '9/16'  => 'aspect-w-9 aspect-h-16',
             '1/2'   => 'aspect-w-1 aspect-h-2',
             '1/3'   => 'aspect-w-1 aspect-h-3',
-            default => 'aspect-w-4 aspect-h-3',
+            default => '',
         };
     }
 }

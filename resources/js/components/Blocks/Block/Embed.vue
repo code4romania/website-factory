@@ -17,7 +17,7 @@
     import { defineBlock } from '@/helpers';
 
     export default defineBlock({
-        type: 'o-embed',
+        type: 'embed',
         icon: 'Development/code-s-slash-line',
         fields: {
             title: Object,

@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\View\Components\Blocks;
 
 use App\Services\Time;
-use Embed\Embed;
+use Embed\Embed as OEmbed;
 use Embed\EmbedCode;
 use Illuminate\Support\Facades\Cache;
 
-class OEmbed extends BlockComponent
+class Embed extends BlockComponent
 {
     protected ?EmbedCode $code;
 
@@ -83,7 +83,7 @@ class OEmbed extends BlockComponent
             config('blocks.cache_ttl', Time::MONTH_IN_SECONDS),
             function () {
                 try {
-                    $request = (new Embed())->get($this->url);
+                    $request = (new OEmbed)->get($this->url);
 
                     return $request->code;
                 } catch (\Throwable $th) {
