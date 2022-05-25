@@ -40,22 +40,16 @@
                         {{ item.filename }}.{{ item.extension }}
                     </h2>
 
-                    <button
-                        v-if="isSupported"
+                    <a
                         class="inline-flex items-center p-2 ml-2 transition-colors duration-75 bg-white border border-gray-300 shadow-sm shrink-0 hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
-                        @click="copy(item.sizes?.original.url || item.url)"
+                        :href="item.sizes?.original.url || item.url"
+                        target="_blank"
                     >
                         <icon
-                            v-if="!copied"
-                            name="Document/clipboard-line"
+                            name="System/download-line"
                             class="w-4 h-4 text-gray-600"
                         />
-                        <icon
-                            v-else
-                            name="System/check-line"
-                            class="w-4 h-4 text-green-600"
-                        />
-                    </button>
+                    </a>
                 </div>
                 <dl
                     class="mt-2 text-sm font-medium border-t border-b border-gray-200 divide-y divide-gray-200"
@@ -111,7 +105,6 @@
 <script>
     import { ref, watch } from 'vue';
     import { useMedia } from '@/helpers';
-    import { useClipboard } from '@vueuse/core';
 
     export default {
         name: 'MediaDetails',
@@ -124,7 +117,6 @@
         emits: ['clear-selected'],
         setup(props) {
             const { updateMedia } = useMedia();
-            const { isSupported, copy, copied } = useClipboard();
 
             const item = ref(null);
 
@@ -139,10 +131,6 @@
             return {
                 item,
                 updateMedia,
-
-                isSupported,
-                copy,
-                copied,
             };
         },
     };
