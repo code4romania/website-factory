@@ -19,7 +19,7 @@ class ImportMediaCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'media:import';
+    protected $signature = 'wf:import-media';
 
     /**
      * The console command description.

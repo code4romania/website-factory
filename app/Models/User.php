@@ -94,7 +94,9 @@ class User extends Authenticatable implements HasLocalePreference
         });
 
         static::created(function (self $user) {
-            $user->notify(new WelcomeNotification);
+            if (! app()->runningInConsole()) {
+                $user->notify(new WelcomeNotification);
+            }
         });
     }
 
@@ -112,6 +114,7 @@ class User extends Authenticatable implements HasLocalePreference
     {
         return Gravatar::get($this->email);
     }
+
     public function hasSetPassword(): bool
     {
         return ! Str::startsWith($this->password, '_pending_');
