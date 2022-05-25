@@ -4,10 +4,10 @@
             <form-checkbox v-model="selected" :value="row.id" />
         </td>
 
-        <template v-for="(column, columnIndex) in collection.columns">
+        <template v-for="(column, index) in collection.columns">
             <td
-                v-if="columnIndex === 0"
-                :key="`title-${columnIndex}`"
+                v-if="index === 0"
+                :key="`title-${index}`"
                 class="px-6 py-4 text-sm font-medium"
             >
                 <span v-if="status" class="text-gray-900">
@@ -16,7 +16,7 @@
 
                 <inertia-link
                     v-if="!row.hasOwnProperty('trashed') || !row.trashed"
-                    class="text-blue-800"
+                    class="text-blue-800 hover:underline"
                     :href="route(collection.properties.main_action_route, row)"
                 >
                     <slot
@@ -41,7 +41,7 @@
             <td
                 v-else
                 class="hidden px-6 py-4 text-sm sm:table-cell"
-                :key="columnIndex"
+                :key="index"
             >
                 <slot
                     :name="column.field"

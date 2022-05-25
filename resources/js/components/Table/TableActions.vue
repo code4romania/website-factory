@@ -222,17 +222,12 @@
                         click: () => (confirmAction.value = 'restore'),
                         label: 'app.action.restore',
                         type: 'button',
-                        // target: adminRoute('restore'),
-                        // method: 'put',
                     });
 
                     actions.push({
                         click: () => (confirmAction.value = 'forceDelete'),
                         label: 'app.action.forceDelete',
                         type: 'button',
-                        // target: adminRoute('forceDelete'),
-                        // label: 'app.action.forceDelete',
-                        // method: 'delete',
                     });
                 }
 

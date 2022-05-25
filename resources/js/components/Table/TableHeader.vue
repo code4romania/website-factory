@@ -8,9 +8,12 @@
 
             <!-- columns -->
             <th
-                class="px-6 py-4 text-left"
-                v-for="column in columns"
+                v-for="(column, index) in columns"
                 :key="`column-${column.field}`"
+                class="px-6 py-4 text-left"
+                :class="{
+                    'hidden sm:table-cell': index > 0,
+                }"
             >
                 <inertia-link
                     v-if="column.sortable"

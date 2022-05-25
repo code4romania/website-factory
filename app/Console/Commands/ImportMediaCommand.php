@@ -67,7 +67,7 @@ class ImportMediaCommand extends Command
             $this->variants()
         );
 
-        return Command::SUCCESS;
+        return self::SUCCESS;
     }
 
     protected function variants(): array

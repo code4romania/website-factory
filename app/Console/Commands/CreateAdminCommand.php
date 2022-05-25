@@ -46,7 +46,7 @@ class CreateAdminCommand extends Command
 
         $this->info('The admin account was successfully created');
 
-        return Command::SUCCESS;
+        return self::SUCCESS;
     }
 
     protected function getUserName(): string
