@@ -4,19 +4,26 @@
     <div
         class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7"
     >
-        <button
-            type="button"
+        <div
             v-for="(item, index) in items"
             :key="`media-view-image-${index}`"
-            class="relative bg-white focus:outline-none group disabled:cursor-default disabled:bg-gray-100"
-            :disabled="isDisabled(item)"
-            @click="$emit('toggle-selected', item.id)"
+            class="relative bg-white focus:outline-none group"
         >
-            <div
-                class="block w-full overflow-hidden border border-gray-200 aspect-w-1 aspect-h-1"
+            <form-checkbox
+                :modelValue="isSelected(item)"
+                @update:modelValue="$emit('toggle-selected', item.id)"
+                class="absolute top-0 left-0 z-50"
+                checkbox-class="w-6 h-6"
+            />
+
+            <button
+                type="button"
+                class="block w-full overflow-hidden border border-gray-200 aspect-w-1 aspect-h-1 disabled:cursor-default disabled:bg-gray-100"
                 :class="{
                     'ring-4 ring-blue-500': isSelected(item),
                 }"
+                :disabled="isDisabled(item)"
+                @click="$emit('select', item.id)"
             >
                 <img
                     :src="item.sizes.thumb.url"
@@ -29,8 +36,8 @@
                     draggable="false"
                     alt=""
                 />
-            </div>
-        </button>
+            </button>
+        </div>
     </div>
 </template>
 
@@ -51,7 +58,7 @@
                 default: () => [],
             },
         },
-        emits: ['toggle-selected', 'upload'],
+        emits: ['select', 'toggle-selected', 'upload'],
         setup(props) {
             const isSelected = (item) =>
                 props.selectedItems.some((i) => i.id === item.id);

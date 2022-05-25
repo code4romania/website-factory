@@ -38,6 +38,7 @@
                     :items="items"
                     :selectedItems="selectedItems"
                     :disabledItems="disabledItems"
+                    @select="select"
                     @toggle-selected="toggleSelected"
                     @upload="upload"
                 />
@@ -102,6 +103,10 @@
                         //
                     },
                 });
+            };
+
+            const select = (id) => {
+                selectedItems.value = [items.value.find((item) => item.id === id)];
             };
 
             const toggleSelected = (id) => {
@@ -186,6 +191,7 @@
                 items,
                 selectedItems,
                 disabledItems,
+                select,
                 toggleSelected,
                 deleteSelected,
                 clearSelected,

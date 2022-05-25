@@ -5,7 +5,8 @@
                 type="checkbox"
                 :id="id"
                 :name="name"
-                class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 my-0.5"
+                class="text-blue-600 border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                :class="checkboxClass"
                 v-model="proxyChecked"
                 :value="value"
                 :checked="checked"
@@ -47,6 +48,10 @@
             },
             checked: {
                 type: Boolean,
+            },
+            checkboxClass: {
+                type: String,
+                default: null,
             },
         },
         setup(props, { emit }) {
