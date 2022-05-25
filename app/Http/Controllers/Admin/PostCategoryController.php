@@ -48,7 +48,7 @@ class PostCategoryController extends AdminController
         $postCategory = PostCategory::create($attributes);
 
         return redirect()->route('admin.post_categories.edit', $postCategory)
-            ->with('success', __('post.event.created'));
+            ->with('success', __('post_category.event.created'));
     }
 
     public function edit(PostCategory $postCategory): Response
@@ -66,7 +66,7 @@ class PostCategoryController extends AdminController
         $postCategory->update($attributes);
 
         return redirect()->route('admin.post_categories.edit', $postCategory)
-            ->with('success', __('post.event.updated'));
+            ->with('success', __('post_category.event.updated'));
     }
 
     protected function subnav(): array
