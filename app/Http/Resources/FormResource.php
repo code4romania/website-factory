@@ -17,11 +17,14 @@ class FormResource extends Resource
     protected function index(Request $request): array
     {
         return [
-            'id'         => $this->id,
-            'title'      => $this->title,
-            'slug'       => $this->uuid,
-            'created_at' => $this->created_at->toDateTimeString(),
-            'trashed'    => $this->trashed(),
+            'id'                => $this->id,
+            'title'             => $this->title,
+            'slug'              => $this->uuid,
+            'created_at'        => $this->created_at->toDateTimeString(),
+            'trashed'           => $this->trashed(),
+            'store_submissions' => $this->store_submissions,
+            'send_submissions'  => $this->send_submissions,
+            'submissions_count' => $this->submissions_count,
         ];
     }
 

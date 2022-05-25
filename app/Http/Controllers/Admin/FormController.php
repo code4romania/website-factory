@@ -20,6 +20,7 @@ class FormController extends AdminController
         return Inertia::render('Forms/Index', [
             'collection' => new FormCollection(
                 Form::query()
+                    ->withCount('submissions')
                     ->sort()
                     ->filter()
                     ->paginate()

@@ -166,6 +166,7 @@
     "field.show_images": "Arată imagini",
     "field.slug": "Slug",
     "field.store_submissions": "Salvează răspunsurile în panou",
+    "field.submissions": "Răspunsuri",
     "field.text": "Text",
     "field.title": "Titlu",
     "field.url": "URL",
@@ -184,6 +185,9 @@
     "form.empty.description": "Get started by creating a new form",
     "form.blocks.title": "Câmpuri",
     "form.blocks.action": "Adaugă câmp nou",
+
+    "form_submission.label": "Răspuns|Răspunsuri",
+    "form_submission.count": "{1} :count răspuns|[2,*] :count răspunsuri",
 
     "form_submission.empty.title": "Nu am găsit niciun răspuns pentru acest formular",
 

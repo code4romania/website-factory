@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Language;
 use App\Models\LanguageLine;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Cache;
 
 class LanguageSeeder extends Seeder
 {
@@ -46,5 +47,7 @@ class LanguageSeeder extends Seeder
                 ])
                 ->all()
         );
+
+        Cache::flush();
     }
 }
