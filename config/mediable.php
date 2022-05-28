@@ -79,7 +79,7 @@ return [
      * that should be recognized for the type
      */
     'aggregate_types' => [
-        Plank\Mediable\Media::TYPE_IMAGE => [
+        App\Models\Media::TYPE_IMAGE => [
             'mime_types' => [
                 'image/jpeg',
                 'image/png',
@@ -92,7 +92,7 @@ return [
                 'gif',
             ],
         ],
-        Plank\Mediable\Media::TYPE_IMAGE_VECTOR => [
+        App\Models\Media::TYPE_IMAGE_VECTOR => [
             'mime_types' => [
                 'image/svg+xml',
             ],
@@ -100,7 +100,7 @@ return [
                 'svg',
             ],
         ],
-        Plank\Mediable\Media::TYPE_PDF => [
+        App\Models\Media::TYPE_PDF => [
             'mime_types' => [
                 'application/pdf',
             ],
@@ -108,7 +108,7 @@ return [
                 'pdf',
             ],
         ],
-        Plank\Mediable\Media::TYPE_AUDIO => [
+        App\Models\Media::TYPE_AUDIO => [
             'mime_types' => [
                 'audio/aac',
                 'audio/ogg',
@@ -125,7 +125,7 @@ return [
                 'wav',
             ],
         ],
-        Plank\Mediable\Media::TYPE_VIDEO => [
+        App\Models\Media::TYPE_VIDEO => [
             'mime_types' => [
                 'video/mp4',
                 'video/mpeg',
@@ -140,7 +140,7 @@ return [
                 'webm',
             ],
         ],
-        Plank\Mediable\Media::TYPE_ARCHIVE => [
+        App\Models\Media::TYPE_ARCHIVE => [
             'mime_types' => [
                 'application/zip',
                 'application/x-compressed-zip',
@@ -150,7 +150,7 @@ return [
                 'zip',
             ],
         ],
-        Plank\Mediable\Media::TYPE_DOCUMENT => [
+        App\Models\Media::TYPE_DOCUMENT => [
             'mime_types' => [
                 'text/plain',
                 'application/plain',
@@ -169,7 +169,7 @@ return [
                 'json',
             ],
         ],
-        Plank\Mediable\Media::TYPE_SPREADSHEET => [
+        App\Models\Media::TYPE_SPREADSHEET => [
             'mime_types' => [
                 'application/vnd.ms-excel',
                 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -179,7 +179,7 @@ return [
                 'xlsx',
             ],
         ],
-        Plank\Mediable\Media::TYPE_PRESENTATION => [
+        App\Models\Media::TYPE_PRESENTATION => [
             'mime_types' => [
                 'application/vnd.ms-powerpoint',
                 'application/vnd.openxmlformats-officedocument.presentationml.presentation',

@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\MediaUpdateRequest;
 use App\Http\Resources\MediaResource;
 use App\Models\Media;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Plank\Mediable\Exceptions\MediaUploadException;
 use Plank\Mediable\Facades\MediaUploader;
 use Plank\Mediable\HandlesMediaUploadExceptions;
@@ -18,29 +19,25 @@ class MediaController extends Controller
 {
     use HandlesMediaUploadExceptions;
 
-    public function images(): JsonResponse
+    public function images(): JsonResource
     {
-        return response()->json(
-            MediaResource::collection(
-                Media::query()
-                    ->whereImages()
-                    ->whereIsOriginal()
-                    ->orderByDesc('created_at')
-                    ->get()
-            )
+        return MediaResource::collection(
+            Media::query()
+                ->whereImages()
+                ->whereIsOriginal()
+                ->orderByDesc('created_at')
+                ->paginate()
         );
     }
 
-    public function files(): JsonResponse
+    public function files(): JsonResource
     {
-        return response()->json(
-            MediaResource::collection(
-                Media::query()
-                    ->whereNotImages()
-                    ->whereIsOriginal()
-                    ->orderByDesc('created_at')
-                    ->get()
-            )
+        return MediaResource::collection(
+            Media::query()
+                ->whereNotImages()
+                ->whereIsOriginal()
+                ->orderByDesc('created_at')
+                ->paginate()
         );
     }
 

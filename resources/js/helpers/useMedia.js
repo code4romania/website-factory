@@ -13,11 +13,11 @@ export default function () {
         });
     };
 
-    const fetchMedia = async (type, callbacks) => {
+    const fetchMedia = async (type, page, callbacks) => {
         const { onSuccess, onError } = ensureCallbacks(callbacks);
 
         return await axios
-            .get(route(`admin.media.${type}`))
+            .get(route(`admin.media.${type}`, { page }))
             .then(onSuccess)
             .catch(onError);
     };

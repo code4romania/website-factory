@@ -24,24 +24,110 @@
         <div
             class="flex flex-col items-stretch flex-1 h-full overflow-hidden bg-white lg:flex-row"
         >
-            <div
-                class="flex flex-col flex-1 gap-8 px-4 overflow-y-auto md:px-6"
-            >
+            <div class="relative flex flex-col flex-1">
                 <media-manager-controls
+                    class="px-4 pt-8 md:px-6 md:pt-0"
                     :types="types"
                     :current-type="currentType"
                     @change-type="changeType"
                 />
 
-                <component
-                    :is="`media-view-${currentType}`"
-                    :items="items"
-                    :selectedItems="selectedItems"
-                    :disabledItems="disabledItems"
-                    @select="select"
-                    @toggle-selected="toggleSelected"
-                    @upload="upload"
-                />
+                <div
+                    class="px-4 py-8 overflow-y-auto md:px-6"
+                    ref="itemsContainer"
+                >
+                    <media-uploader
+                        class="mb-8"
+                        @upload="upload"
+                        :accept="acceptByCurrentType"
+                    />
+
+                    <div
+                        v-if="loading"
+                        class="absolute inset-0 z-50 w-full h-full bg-white/75"
+                    >
+                        <div class="absolute top-0 right-0">
+                            <icon
+                                name="System/loader-5-line"
+                                class="w-20 h-20 text-blue-600 animate-spin"
+                                alt="Loading..."
+                            />
+                        </div>
+                    </div>
+
+                    <div
+                        v-if="currentType === 'files'"
+                        class="divide-y divide-gray-200"
+                    >
+                        <div
+                            v-for="(item, index) in items"
+                            :key="`media-view-file-${index}`"
+                            class="relative flex items-center w-full py-4 text-base bg-white focus:outline-none group disabled:cursor-default disabled:bg-gray-100"
+                        >
+                            <div class="min-w-0">
+                                <form-checkbox
+                                    :modelValue="isSelected(item)"
+                                    @update:modelValue="toggleSelected(item.id)"
+                                />
+                            </div>
+
+                            <button
+                                type="button"
+                                @click="select(item.id)"
+                                class="flex flex-1 text-left"
+                            >
+                                <div class="flex-1 px-4 sm:px-6">
+                                    {{ item.filename }}.{{ item.extension }}
+                                </div>
+
+                                <div class="justify-end text-right">
+                                    {{ item.size }}
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        v-else
+                        class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7"
+                    >
+                        <div
+                            v-for="(item, index) in items"
+                            :key="`media-view-image-${index}`"
+                            class="relative bg-white focus:outline-none group"
+                        >
+                            <form-checkbox
+                                :modelValue="isSelected(item)"
+                                @update:modelValue="toggleSelected(item.id)"
+                                class="absolute top-0 left-0 z-10"
+                                checkbox-class="w-6 h-6"
+                            />
+
+                            <button
+                                type="button"
+                                class="block w-full overflow-hidden border border-gray-200 aspect-w-1 aspect-h-1 disabled:cursor-default disabled:bg-gray-100"
+                                :class="{
+                                    'ring-4 ring-blue-500': isSelected(item),
+                                }"
+                                :disabled="isDisabled(item)"
+                                @click="select(item.id)"
+                            >
+                                <img
+                                    :src="item.sizes.thumb.url"
+                                    class="object-contain object-center transition-opacity duration-150 select-none group-disabled:opacity-50"
+                                    :class="{
+                                        'group-hover:opacity-75 group-focus:opacity-75':
+                                            !isSelected(item) &&
+                                            !isDisabled(item),
+                                    }"
+                                    loading="lazy"
+                                    draggable="false"
+                                    alt=""
+                                />
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="flex flex-col border-gray-200 lg:border-l">
@@ -64,7 +150,8 @@
 </template>
 
 <script>
-    import { computed, ref, inject } from 'vue';
+    import { computed, ref, inject, onMounted, onUnmounted } from 'vue';
+    import { useInfiniteScroll } from '@vueuse/core';
     import { useMedia } from '@/helpers';
 
     export default {
@@ -73,10 +160,14 @@
             const isOpen = ref(false);
             const loading = ref(true);
 
+            const nextPage = ref(1);
+
             const attachingMediaTo = ref(null);
             const remainingItems = ref(0);
             const selectedItems = ref([]);
             const disabledItems = ref([]);
+
+            const itemsContainer = ref(null);
 
             const close = () => {
                 isOpen.value = false;
@@ -88,9 +179,45 @@
 
             const currentType = ref(types.value[0]);
 
+            const acceptByCurrentType = computed(
+                () =>
+                    ({
+                        images: 'image/*',
+                        files: null,
+                    }[currentType.value])
+            );
+
             const items = ref([]);
 
             const { fetchMedia, uploadMedia, deleteMedia } = useMedia();
+
+            const getItems = () => {
+                if (nextPage.value === null) {
+                    return;
+                }
+
+                loading.value = true;
+
+                fetchMedia(currentType.value, nextPage.value, {
+                    onSuccess: (response) => {
+                        const data = response.data.data;
+                        const meta = response.data.meta;
+
+                        items.value.push(...data);
+
+                        if (meta.current_page < meta.last_page) {
+                            nextPage.value = meta.current_page + 1;
+                        } else {
+                            nextPage.value = null;
+                        }
+
+                        loading.value = false;
+                    },
+                    onError: (error) => {
+                        loading.value = false;
+                    },
+                });
+            };
 
             const refreshItems = () => {
                 fetchMedia(currentType.value, {
@@ -159,11 +286,16 @@
                 });
             };
 
+            const isSelected = (item) =>
+                selectedItems.value.some((i) => i.id === item.id);
+
+            const isDisabled = (item) => disabledItems.value.includes(item.id);
+
             const bus = inject('bus');
             bus.on('media-library:open', (attach) => {
                 isOpen.value = true;
 
-                refreshItems();
+                getItems();
 
                 if (attach) {
                     attachingMediaTo.value = attach.id;
@@ -176,10 +308,14 @@
                 items.value = [];
                 currentType.value = type;
 
-                refreshItems();
+                nextPage.value = 1;
+
+                getItems();
             };
 
             bus.on('media-library:close', close);
+
+            useInfiniteScroll(itemsContainer, getItems, { distance: 25 });
 
             return {
                 isOpen,
@@ -187,6 +323,8 @@
                 types,
                 currentType,
                 changeType,
+                acceptByCurrentType,
+                loading,
 
                 items,
                 selectedItems,
@@ -196,11 +334,16 @@
                 deleteSelected,
                 clearSelected,
 
+                isSelected,
+                isDisabled,
+
                 upload,
 
+                itemsContainer,
                 attachingMediaTo,
                 remainingItems,
             };
         },
     };
 </script>
+

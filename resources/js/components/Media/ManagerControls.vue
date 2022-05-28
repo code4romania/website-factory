@@ -9,7 +9,7 @@
                     v-for="type in types"
                     :key="type"
                     :value="type"
-                    v-text="type"
+                    v-text="$t(`media.type.${type}`)"
                 />
             </select>
         </div>

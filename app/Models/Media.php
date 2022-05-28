@@ -17,6 +17,8 @@ class Media extends BaseMedia
     use Sortable;
     use Translatable;
 
+    protected $perPage = 50;
+
     protected $with = [
         'variants',
     ];
