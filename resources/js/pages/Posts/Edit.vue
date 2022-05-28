@@ -11,6 +11,9 @@
             'categories',
             'published_at',
         ]"
+        :field-types="{
+            categories: Array,
+        }"
         :breadcrumbs="[
             {
                 label: $t('app.dashboard'),
@@ -71,6 +74,7 @@
             />
 
             <form-select
+                name="categories"
                 :label="$t('field.categories')"
                 v-model="form.categories"
                 :options="categories"
