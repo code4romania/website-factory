@@ -7,6 +7,7 @@ namespace App\Http\Requests\Admin;
 use App\Models\Person;
 use App\Services\TranslatableFormRequestRules;
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
+use Illuminate\Validation\Rule;
 
 class PersonRequest extends BaseRequest
 {
@@ -33,9 +34,10 @@ class PersonRequest extends BaseRequest
 
         return TranslatableFormRequestRules::make(Person::class, [
             'name'                => ['required', 'string', 'max:200'],
-            'slug'                => ['required', 'string', 'max:200', "unique_translation:people,slug,{$this->person?->id}"],
+            'slug'                => ['required', 'string', 'max:200', Rule::unique('people', 'slug')->ignore($this->person?->id),
+            ],
             'title'               => ['required', 'string', 'max:200'],
-            'social'              => ['required', "array:$platforms"],
+            'social'              => ['nullable', "array:$platforms"],
             'description'         => ['nullable', 'string'],
             'media'               => ['array'],
             'media.*.id'          => ['required', 'exists:media'],
