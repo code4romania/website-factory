@@ -69,6 +69,7 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'visibility' => env('AWS_BUCKET_DEFAULT_VISIBILITY', 'public'),
             'throw' => true,
+            'root' => env('AWS_BUCKET_ROOT'),
         ],
 
     ],
