@@ -15,7 +15,6 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('forms', function (Blueprint $table) {
-            $table->dropUnique(['uuid']);
             $table->dropColumn('uuid');
 
             $table->json('slug')->nullable();

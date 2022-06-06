@@ -19,13 +19,14 @@ class FormFactory extends Factory
 
         return [
             'title'             => $this->translatedFaker('sentence'),
+            'slug'              => $this->translatedFaker('slug'),
             'store_submissions' => $this->faker->boolean(),
             'send_submissions'  => $send_submissions,
             'recipients'        => $send_submissions ? collect([
                 $this->faker->safeEmail(),
                 $this->faker->safeEmail(),
                 $this->faker->safeEmail(),
-            ])->join(PHP_EOL) : null,
+            ])->join(\PHP_EOL) : null,
         ];
     }
 
@@ -37,7 +38,7 @@ class FormFactory extends Factory
             unset($field['type']);
 
             if (\array_key_exists('options', $field) && \is_array($field['options'])) {
-                $field['options'] = \implode(\PHP_EOL, $field['options']);
+                $field['options'] = implode(\PHP_EOL, $field['options']);
             }
 
             $form->blocks()->create([
@@ -45,7 +46,7 @@ class FormFactory extends Factory
                 'blockable_type' => $form->getMorphClass(),
                 'position'       => 1,
                 'type'           => $type,
-                'content'        => \array_merge([
+                'content'        => array_merge([
                     'label' => $this->translatedFaker('word'),
                     'help'  => $this->translatedFaker('sentence'),
                 ], $field),
