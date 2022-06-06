@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Traits\ClearsResponseCache;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,6 +16,7 @@ use Kalnoy\Nestedset\NodeTrait;
 
 class MenuItem extends Model
 {
+    use ClearsResponseCache;
     use HasFactory;
     use Translatable;
     use NodeTrait;

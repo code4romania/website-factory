@@ -6,12 +6,15 @@ namespace App\Models;
 
 use App\Http\Resources\PageResource;
 use App\Services\Features;
+use App\Traits\ClearsResponseCache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 class Setting extends Model
 {
+    use ClearsResponseCache;
+
     public $timestamps = false;
 
     protected $fillable = [

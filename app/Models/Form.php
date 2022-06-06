@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Mail\FormSubmitted;
+use App\Traits\ClearsResponseCache;
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
 use App\Traits\HasSlug;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Mail;
 
 class Form extends Model
 {
+    use ClearsResponseCache;
     use Filterable;
     use HasBlocks;
     use HasFactory;

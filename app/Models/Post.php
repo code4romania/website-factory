@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Traits\ClearsResponseCache;
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
 use App\Traits\HasMedia;
@@ -18,6 +19,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    use ClearsResponseCache;
     use Filterable;
     use HasBlocks;
     use HasFactory;

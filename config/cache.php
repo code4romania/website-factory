@@ -105,6 +105,6 @@ return [
     |
     */
 
-    'prefix' => env('CACHE_PREFIX', 'wf_cache'),
+    'prefix' => env('CACHE_PREFIX', 'wf.'),
 
 ];
