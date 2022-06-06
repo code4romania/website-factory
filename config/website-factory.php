@@ -29,6 +29,11 @@ return [
             'prefix' => 'https://twitter.com/',
             'icon'   => 'ri-twitter-fill',
         ],
+        'youtube' => [
+            'label'  => 'YouTube',
+            'prefix' => 'https://youtube.com/',
+            'icon'   => 'ri-youtube-fill',
+        ],
         'github' => [
             'label'  => 'GitHub',
             'prefix' => 'https://github.com/',
