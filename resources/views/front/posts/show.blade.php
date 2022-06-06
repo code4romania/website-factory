@@ -17,6 +17,13 @@
                 <div class="mt-4 prose text-gray-500 max-w-prose sm:prose-lg md:prose-xl">
                     {!! $post->description !!}
                 </div>
+
+                @if ($post->author)
+                    <p class="mt-6 text-base text-gray-500">
+                        <strong class="font-medium">@lang('field.author'):</strong>
+                        {{ $post->author }}
+                    </p>
+                @endif
             </div>
         </div>
 

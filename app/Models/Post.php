@@ -34,6 +34,10 @@ class Post extends Model
         'title', 'slug', 'description',
     ];
 
+    protected $fillable = [
+        'author',
+    ];
+
     public array $allowedSorts = [
         'title', 'created_at', 'published_at',
     ];

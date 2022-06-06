@@ -6,6 +6,7 @@
             'title',
             'slug',
             'description',
+            'author',
             'blocks',
             'media',
             'categories',
@@ -71,6 +72,13 @@
                 :label="$t('field.image')"
                 v-model:media="form.media"
                 :limit="1"
+            />
+
+            <form-input
+                type="text"
+                name="author"
+                :label="$t('field.author')"
+                v-model="form.author"
             />
 
             <form-select

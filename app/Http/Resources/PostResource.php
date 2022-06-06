@@ -34,6 +34,7 @@ class PostResource extends Resource
             'title'        => $this->getTranslations('title'),
             'description'  => $this->getTranslations('description'),
             'slug'         => $this->getTranslations('slug'),
+            'author'       => $this->author,
             'created_at'   => $this->created_at->toDateTimeString(),
             'published_at' => $this->published_at?->toDateTimeString(),
             'categories'   => $this->categories->pluck('id'),
