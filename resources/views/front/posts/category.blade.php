@@ -18,8 +18,7 @@
                     <a href="{{ $post->url }}" class="shrink-0">
                         <x-media.image
                             :src="$post->getMediaUrl('image', 'thumb')"
-                            class="object-cover w-full h-56"
-                            :preload="$shouldPreload()" />
+                            class="object-cover w-full h-56" />
                     </a>
                     <div class="flex-1 p-6 space-y-2 bg-white">
                         <x-categories :categories="$post->categories" />

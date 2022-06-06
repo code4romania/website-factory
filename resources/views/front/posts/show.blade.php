@@ -26,8 +26,7 @@
                 <x-media.image
                     class="w-full lg:object-cover lg:h-full"
                     :src="$image->getUrl()"
-                    :alt="$image->caption"
-                    :preload="$shouldPreload()" />
+                    :alt="$image->caption" />
             @endif
         </div>
     </header>
