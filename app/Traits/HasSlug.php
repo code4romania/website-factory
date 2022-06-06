@@ -27,13 +27,6 @@ trait HasSlug
 
     public function getSlugFieldSource(): string
     {
-        if (
-            SupportsTrait::translatable($this) &&
-            \in_array($this->slugFieldSource, $this->translatable)
-        ) {
-            return $this->translate($this->slugFieldSource);
-        }
-
         return $this->{$this->slugFieldSource};
     }
 
@@ -89,8 +82,12 @@ trait HasSlug
     protected function fillSlugs()
     {
         locales()->each(function (array $config, string $locale) {
-            $this->withLocale($locale, function () {
-                if (! $this->slug || $this->slugAlreadyUsed($this->slug)) {
+            $slugs = $this->getTranslationsWithFallback('slug');
+
+            $this->withLocale($locale, function () use ($slugs) {
+                $slug = $slugs[app()->getLocale()];
+
+                if (! $slug || $this->slugAlreadyUsed($slug)) {
                     $this->slug = $this->generateSlug();
                 }
             });

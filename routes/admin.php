@@ -104,19 +104,30 @@ if (Features::hasDecisions()) {
     });
 }
 
-Route::prefix('forms')->group(function () {
-    Route::get('/', [Admin\FormController::class, 'index'])->name('forms.index');
-    Route::get('create', [Admin\FormController::class, 'create'])->name('forms.create');
-    Route::post('/', [Admin\FormController::class, 'store'])->name('forms.store');
-    Route::get('{form}', [Admin\FormController::class, 'show'])->name('forms.show');
-    Route::get('{form}/edit', [Admin\FormController::class, 'edit'])->name('forms.edit');
-    Route::post('{form}/duplicate', [Admin\FormController::class, 'duplicate'])->name('forms.duplicate');
-    Route::post('{form}/preview', [Admin\FormController::class, 'preview'])->name('forms.preview');
-    Route::put('{form}', [Admin\FormController::class, 'update'])->name('forms.update');
-    Route::delete('{form}', [Admin\FormController::class, 'destroy'])->name('forms.destroy');
+Route::group([
+    'prefix'     => 'forms',
+    'as'         => 'forms.',
+    'controller' => Admin\FormController::class,
+], function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+    Route::get('/collection', 'collection')->name('collection');
+    Route::get('/{form}', 'show')->name('show');
+    Route::get('/{form}/edit', 'edit')->name('edit');
+    Route::post('/{form}/duplicate', 'duplicate')->name('duplicate');
+    Route::post('/{form}/preview', 'preview')->name('preview');
+    Route::put('/{form}', 'update')->name('update');
+    Route::delete('/{form}', 'destroy')->name('destroy');
+});
 
-    Route::get('{form}/submission/{form_submission}', [Admin\FormSubmissionController::class, 'show'])->name('form_submissions.show');
-    Route::delete('{form}/submission/{form_submission}', [Admin\FormSubmissionController::class, 'destroy'])->name('form_submissions.destroy');
+Route::group([
+    'prefix'     => 'forms',
+    'as'         => 'form_submissions.',
+    'controller' => Admin\FormSubmissionController::class,
+], function () {
+    Route::get('{form}/submission/{form_submission}', 'show')->name('show');
+    Route::delete('{form}/submission/{form_submission}', 'destroy')->name('destroy');
 });
 
 Route::group([

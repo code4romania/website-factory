@@ -46,10 +46,8 @@ class FormController extends Controller
             })
             ->all();
 
-        $form->storeSubmission($data);
-        $form->sendSubmission($data);
+        $form->processSubmission($data);
 
-        return redirect()->route('front.forms.show', ['form' => $form, 'locale' => $locale])
-            ->with('success', __('form.event.sent'));
+        return redirect()->back()->with('success', __('form.event.sent'));
     }
 }

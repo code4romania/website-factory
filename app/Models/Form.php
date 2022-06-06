@@ -7,7 +7,7 @@ namespace App\Models;
 use App\Mail\FormSubmitted;
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
-use App\Traits\HasUuid;
+use App\Traits\HasSlug;
 use App\Traits\Sortable;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,13 +22,15 @@ class Form extends Model
     use Filterable;
     use HasBlocks;
     use HasFactory;
-    use HasUuid;
+    use HasSlug;
     use SoftDeletes;
     use Sortable;
     use Translatable;
 
+    public string $slugFieldSource = 'title';
+
     public array $translatable = [
-        'title', 'description',
+        'title', 'slug', 'description',
     ];
 
     public array $allowedSorts = [
@@ -65,12 +67,19 @@ class Form extends Model
             ->map(fn ($email) => filter_var($email, \FILTER_VALIDATE_EMAIL));
     }
 
-    public function storeSubmission(array $data): void
+    public function processSubmission(array $data): void
     {
-        if (! $this->store_submissions) {
-            return;
+        if ($this->store_submissions) {
+            $this->storeSubmission($data);
         }
 
+        if ($this->send_submissions) {
+            $this->sendSubmission($data);
+        }
+    }
+
+    public function storeSubmission(array $data): void
+    {
         $this->submissions()->create([
             'data' => $data,
         ]);
@@ -78,10 +87,6 @@ class Form extends Model
 
     public function sendSubmission(array $data): void
     {
-        if (! $this->send_submissions) {
-            return;
-        }
-
         $this->recipients_list->each(
             fn (string $recipient) => Mail::to($recipient)
                 ->send(new FormSubmitted($this, $data))

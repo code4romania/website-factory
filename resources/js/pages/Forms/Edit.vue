@@ -37,12 +37,16 @@
                     required
                 />
 
-                <form-slug
+                <localized-field
+                    field="form-slug"
                     :label="$t('field.slug')"
                     name="slug"
                     v-model="form.slug"
                     route-name="front.forms.show"
                     route-key="form"
+                    :source="form.title"
+                    translatable
+                    required
                 />
             </div>
 

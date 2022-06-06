@@ -29,7 +29,7 @@ trait HasBlocks
             'content'        => $block['content'] ?? [],
             'children'       => $block['children'] ?? [],
             'media'          => collect($block['media'] ?? [])->pluck('id')->all(),
-            'related'        => collect($block['related'] ?? [])->pluck('id')->all(),
+            'related'        => $block['related'] ?? [],
         ]);
 
         $this->blocks()->createMany($blocks)
@@ -47,7 +47,7 @@ trait HasBlocks
                         'content'        => $block['content'] ?? [],
                         'children'       => $block['children'] ?? [],
                         'media'          => collect($block['media'] ?? [])->pluck('id')->all(),
-                        'related'        => collect($block['related'] ?? [])->pluck('id')->all(),
+                        'related'        => $block['related'] ?? [],
                     ]);
 
                 $block->children()->createMany($children)

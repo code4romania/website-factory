@@ -31,6 +31,7 @@ class FormRequest extends BaseRequest
     {
         return TranslatableFormRequestRules::make(Page::class, [
             'title'             => ['required', 'string', 'max:200'],
+            'slug'              => ['nullable', 'string', 'max:200'],
             'description'       => ['nullable', 'string'],
             'published_at'      => ['nullable', 'date'],
             'store_submissions' => ['nullable', 'boolean'],

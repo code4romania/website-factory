@@ -19,7 +19,7 @@ class FormResource extends Resource
         return [
             'id'                => $this->id,
             'title'             => $this->title,
-            'slug'              => $this->uuid,
+            'slug'              => $this->slug,
             'created_at'        => $this->created_at->toDateTimeString(),
             'trashed'           => $this->trashed(),
             'store_submissions' => $this->store_submissions,
@@ -34,7 +34,7 @@ class FormResource extends Resource
             'id'                => $this->id,
             'title'             => $this->title,
             'description'       => $this->description,
-            'slug'              => $this->uuid,
+            'slug'              => $this->slug,
             'created_at'        => $this->created_at->toDateTimeString(),
             // 'published_at'      => $this->published_at?->toDateTimeString(),
             'store_submissions' => $this->store_submissions,
@@ -51,7 +51,7 @@ class FormResource extends Resource
             'id'                => $this->id,
             'title'             => $this->getTranslations('title'),
             'description'       => $this->getTranslations('description'),
-            'slug'              => $this->uuid,
+            'slug'              => $this->getTranslations('slug'),
             'created_at'        => $this->created_at->toDateTimeString(),
             // 'published_at'      => $this->published_at?->toDateTimeString(),
             'store_submissions' => $this->store_submissions,
@@ -66,8 +66,9 @@ class FormResource extends Resource
         $this->withoutPermissions();
 
         return [
-            'id'     => $this->id,
-            'title'  => $this->title,
+            'id'    => $this->id,
+            'type'  => $this->getMorphClass(),
+            'title' => $this->title,
         ];
     }
 }

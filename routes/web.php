@@ -43,8 +43,8 @@ Route::prefix('{locale?}')->group(function () {
     Route::get('/people', [Front\PersonController::class, 'index'])->name('people.index');
     Route::get('/people/{person:slug}', [Front\PersonController::class, 'show'])->name('people.show');
 
-    Route::get('/forms/{form:uuid}', [Front\FormController::class, 'show'])->name('forms.show');
-    Route::post('/forms/{form:uuid}', [Front\FormController::class, 'submit'])->name('forms.submit');
+    Route::get('/forms/{form:slug}', [Front\FormController::class, 'show'])->name('forms.show');
+    Route::post('/forms/{form:slug}', [Front\FormController::class, 'submit'])->name('forms.submit')->middleware('throttle:20,1');
 
     Route::get('/search', Front\SearchController::class)->name('search')->middleware('throttle:20,1');
 
