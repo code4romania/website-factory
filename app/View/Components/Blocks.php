@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\View\Components;
 
+use App\Models\Block;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\View\Component;
@@ -19,7 +20,9 @@ class Blocks extends Component
      */
     public function __construct(Model $model)
     {
-        $this->blocks = $model->blocks->whereNull('parent_id');
+        $this->blocks = $model->blocks
+            ->whereNull('parent_id')
+            ->filter(fn (Block $block) => view()->exists("components.blocks.{$block->type}"));
     }
 
     /**
