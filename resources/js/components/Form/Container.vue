@@ -69,8 +69,10 @@
 </template>
 
 <script>
-    import { computed } from 'vue';
+    import { computed, onUnmounted } from 'vue';
     import { useForm, route } from '@/helpers';
+    import { trans } from 'laravel-vue-i18n';
+    import { Inertia } from '@inertiajs/inertia';
 
     export default {
         name: 'FormContainer',
@@ -139,6 +141,20 @@
                         : null;
                 },
             });
+
+            /**
+             * @see https://inertiajs.com/events#removing-listeners
+             */
+            onUnmounted(
+                Inertia.on('before', (event) => {
+                    if (
+                        form.isDirty &&
+                        !confirm(trans('app.action.usavedConfirm'))
+                    ) {
+                        event.preventDefault();
+                    }
+                })
+            );
 
             return {
                 action,

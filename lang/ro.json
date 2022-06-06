@@ -29,6 +29,7 @@
     "app.action.restore": "Restaurează",
     "app.action.save": "Salvează",
     "app.action.select": "Selectează",
+    "app.action.usavedConfirm": "Ești sigur că dorești să părăsești această pagină? Orice modificări nesalvate vor fi pierdute.",
     "app.action.update": "Actualizează",
     "app.action.upload": "Încarcă",
     "app.action.view": "Vezi",
