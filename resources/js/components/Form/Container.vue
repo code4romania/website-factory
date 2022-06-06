@@ -149,6 +149,7 @@
                 Inertia.on('before', (event) => {
                     if (
                         form.isDirty &&
+                        event.detail.visit.method === 'get' &&
                         !confirm(trans('app.action.usavedConfirm'))
                     ) {
                         event.preventDefault();

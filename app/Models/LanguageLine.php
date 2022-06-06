@@ -9,6 +9,8 @@ use Spatie\TranslationLoader\LanguageLine as Model;
 
 class LanguageLine extends Model
 {
+    public $timestamps = false;
+
     public static function booted()
     {
         static::addGlobalScope('orderByKey', function (Builder $query) {

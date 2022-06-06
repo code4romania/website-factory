@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
+use Illuminate\Validation\Rule;
 
 class LanguageRequest extends BaseRequest
 {
@@ -26,7 +27,10 @@ class LanguageRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'code'    => ['required', 'size:2', 'unique:languages,code'],
+            'code'    => ['required', 'size:2',
+                Rule::unique('languages', 'code')->ignore($this->code, 'code'),
+
+            ],
             'name'    => ['required', 'string'],
             'enabled' => ['boolean'],
             'lines'   => ['array'],

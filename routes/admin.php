@@ -62,27 +62,38 @@ Route::group([
 });
 
 Route::prefix('posts')->group(function () {
-    Route::get('categories', [Admin\PostCategoryController::class, 'index'])->name('post_categories.index');
-    Route::get('categories/create', [Admin\PostCategoryController::class, 'create'])->name('post_categories.create');
-    Route::post('categories', [Admin\PostCategoryController::class, 'store'])->name('post_categories.store');
-    Route::get('categories/{post_category}/edit', [Admin\PostCategoryController::class, 'edit'])->name('post_categories.edit');
-    Route::post('categories/{post_category}/duplicate', [Admin\PostCategoryController::class, 'duplicate'])->name('post_categories.duplicate');
-    Route::post('categories/{post_category}/preview', [Admin\PostCategoryController::class, 'preview'])->name('post_categories.preview');
-    Route::put('categories/{post_category}', [Admin\PostCategoryController::class, 'update'])->name('post_categories.update');
-    Route::delete('categories/{post_category}', [Admin\PostCategoryController::class, 'destroy'])->name('post_categories.destroy');
-    Route::put('categories/{post_category}/restore', [Admin\PostCategoryController::class, 'restore'])->name('post_categories.restore')->withTrashed();
-    Route::delete('categories/{post_category}/force', [Admin\PostCategoryController::class, 'forceDelete'])->name('post_categories.forceDelete')->withTrashed();
+    Route::group([
+        'prefix'     => 'categories',
+        'as'         => 'post_categories.',
+        'controller' => Admin\PostCategoryController::class,
+    ], function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{post_category}/edit', 'edit')->name('edit');
+        Route::post('/{post_category}/duplicate', 'duplicate')->name('duplicate');
+        Route::post('/{post_category}/preview', 'preview')->name('preview');
+        Route::put('/{post_category}', 'update')->name('update');
+        Route::delete('/{post_category}', 'destroy')->name('destroy');
+        Route::put('/{post_category}/restore', 'restore')->name('restore')->withTrashed();
+        Route::delete('/{post_category}/force', 'forceDelete')->name('forceDelete')->withTrashed();
+    });
 
-    Route::get('/', [Admin\PostController::class, 'index'])->name('posts.index');
-    Route::get('create', [Admin\PostController::class, 'create'])->name('posts.create');
-    Route::post('/', [Admin\PostController::class, 'store'])->name('posts.store');
-    Route::get('{post}/edit', [Admin\PostController::class, 'edit'])->name('posts.edit');
-    Route::post('{post}/duplicate', [Admin\PostController::class, 'duplicate'])->name('posts.duplicate');
-    Route::post('{post}/preview', [Admin\PostController::class, 'preview'])->name('posts.preview');
-    Route::put('{post}', [Admin\PostController::class, 'update'])->name('posts.update');
-    Route::delete('{post}', [Admin\PostController::class, 'destroy'])->name('posts.destroy');
-    Route::put('{post}/restore', [Admin\PostController::class, 'restore'])->name('posts.restore')->withTrashed();
-    Route::delete('{post}/force', [Admin\PostController::class, 'forceDelete'])->name('posts.forceDelete')->withTrashed();
+    Route::group([
+        'as'         => 'posts.',
+        'controller' => Admin\PostController::class,
+    ], function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{post}/edit', 'edit')->name('edit');
+        Route::post('/{post}/duplicate', 'duplicate')->name('duplicate');
+        Route::post('/{post}/preview', 'preview')->name('preview');
+        Route::put('/{post}', 'update')->name('update');
+        Route::delete('/{post}', 'destroy')->name('destroy');
+        Route::put('/{post}/restore', 'restore')->name('restore')->withTrashed();
+        Route::delete('/{post}/force', 'forceDelete')->name('forceDelete')->withTrashed();
+    });
 });
 
 if (Features::hasDecisions()) {
