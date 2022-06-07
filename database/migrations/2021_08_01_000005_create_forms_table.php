@@ -16,13 +16,13 @@ return new class extends Migration {
     {
         Schema::create('forms', function (Blueprint $table) {
             $table->commonFields();
-            $table->uuid('uuid')->nullable()->unique();
 
             $table->boolean('store_submissions')->default(false);
             $table->boolean('send_submissions')->default(false);
             $table->text('recipients')->nullable();
 
             $table->json('title')->nullable();
+            $table->json('slug')->nullable();
             $table->json('description')->nullable();
         });
     }
