@@ -18,6 +18,18 @@ jobs:
     env:
       extensions: mbstring, sqlite, pdo_sqlite, intl, gd
 
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: website_factory_tests
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -86,3 +98,9 @@ jobs:
 
       - name: Run tests
         run: php artisan test
+        env:
+          DB_CONNECTION: pgsql
+          DB_PORT: 5432
+          DB_DATABASE: website_factory_tests
+          DB_USERNAME: postgres
+          DB_PASSWORD: postgres

@@ -47,7 +47,7 @@ class FormTest extends TestCase
 
         // Show
         $response = $this->get(localized_route('front.forms.show', [
-            'form' => $form->uuid,
+            'form' => $form,
         ]));
 
         $response->assertSuccessful();
@@ -55,7 +55,7 @@ class FormTest extends TestCase
 
         // submit
         $response = $this->post(
-            localized_route('front.forms.show', ['form' => $form->uuid]),
+            localized_route('front.forms.show', ['form' => $form]),
             []
         );
     }
@@ -69,7 +69,7 @@ class FormTest extends TestCase
 
         $field = $form->blocks->first();
 
-        $response = $this->post(localized_route('front.forms.submit', ['form' => $form->uuid]), [
+        $response = $this->post(localized_route('front.forms.submit', ['form' => $form]), [
             $field->name => $input['valid'],
         ]);
 
@@ -85,7 +85,7 @@ class FormTest extends TestCase
 
         $field = $form->blocks->first();
 
-        $response = $this->post(localized_route('front.forms.submit', ['form' => $form->uuid]), [
+        $response = $this->post(localized_route('front.forms.submit', ['form' => $form]), [
             $field->name => $input['invalid'],
         ]);
 
