@@ -33,6 +33,8 @@ class CreateAdminCommand extends Command
      */
     public function handle()
     {
+        $this->info('Creating an admin account...');
+
         $name = $this->getUserName();
         $email = $this->getUserEmail();
         $password = $this->getUserPassword();
@@ -44,14 +46,14 @@ class CreateAdminCommand extends Command
             'role'     => 'admin',
         ]);
 
-        $this->info('The admin account was successfully created');
+        $this->info('The admin account was successfully created!');
 
         return self::SUCCESS;
     }
 
     protected function getUserName(): string
     {
-        $name = $this->ask('Name');
+        $name = $this->ask('Full name');
 
         $validator = $this->validateName($name);
 
