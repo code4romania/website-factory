@@ -46,6 +46,7 @@ class HandleInertiaRequests extends Middleware
                 'current'   => app()->getLocale(),
             ],
             'navigation' => fn () => $this->navigation($request),
+            'mediaLibrary' => fn () => $this->mediaLibraryConfig(),
         ]);
     }
 
@@ -147,5 +148,35 @@ class HandleInertiaRequests extends Middleware
                     ->values();
             })
             ->toArray();
+    }
+
+    protected function mediaLibraryConfig(): array
+    {
+        $extractConfig = function (string $prop) {
+            return collect(config('mediable.aggregate_types'))
+                ->mapToGroups(function ($item, $key) use ($prop) {
+                    $key = \in_array($key, ['image', 'vector'])
+                    ? 'images'
+                    : 'files';
+
+                    return [$key => $item[$prop]];
+                })
+                ->map(
+                    fn ($item) => $item
+                        ->flatten()
+                        ->sort()
+                        ->values()
+                );
+        };
+
+        return [
+            'allowedExtensions' => $extractConfig('extensions'),
+            'allowedMimeTypes'  => $extractConfig('mime_types'),
+
+            'maxFileSize' => [
+                'raw'       => config('mediable.max_size'),
+                'formatted' => format_bytes(config('mediable.max_size')),
+            ],
+        ];
     }
 }

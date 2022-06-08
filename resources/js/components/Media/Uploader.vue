@@ -1,89 +1,116 @@
 <template>
-    <div
-        class="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
-        :class="{ 'bg-blue-50': isDragging }"
-        @dragover.prevent="isDragging = true"
-        @dragleave.prevent="isDragging = false"
-        @drop.prevent="upload($event.dataTransfer.files)"
-    >
-        <div class="space-y-1 text-center">
-            <icon
-                name="System/upload-2-line"
-                class="w-10 h-10 mx-auto text-gray-400"
-            />
-
-            <div class="flex text-sm text-gray-600">
-                <label
-                    class="relative font-medium text-blue-600 rounded-md cursor-pointer hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
-                >
-                    <span v-text="$t('media.upload.file')" />
-                    <input
-                        type="file"
-                        class="sr-only"
-                        multiple
-                        ref="uploader"
-                        @change="upload($event.target.files)"
-                        :accept="accept"
+    <div>
+        <div
+            class="border-2 border-gray-300 border-dashed"
+            :class="{ 'bg-blue-50': isOverDropZone }"
+            ref="dropzone"
+        >
+            <div class="flex justify-center px-6 py-8">
+                <div class="space-y-1 text-center">
+                    <icon
+                        name="System/upload-2-line"
+                        class="w-10 h-10 mx-auto text-gray-400"
                     />
-                </label>
 
-                <p class="pl-1" v-text="$t('media.upload.drag')" />
+                    <div
+                        class="flex flex-wrap justify-center gap-1 text-sm text-gray-600"
+                    >
+                        <label
+                            class="relative font-medium text-blue-600 cursor-pointer hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
+                        >
+                            <span v-text="$t('media.upload.file')" />
+                            <input
+                                type="file"
+                                class="sr-only"
+                                multiple
+                                @change="upload($event.target.files)"
+                                :accept="allowedMimeTypes"
+                            />
+                        </label>
+
+                        <p v-text="$t('media.upload.drag')" />
+                    </div>
+                </div>
             </div>
-            <p
-                class="text-xs text-gray-500"
-                v-text="
-                    $t('media.upload.limits', {
-                        types: 'PNG, JPG, GIF',
-                        size: '10MB',
-                    })
-                "
-            />
+
+            <div
+                class="flex flex-wrap justify-between gap-4 px-2 py-1 text-xs text-gray-500 bg-gray-100 border-t border-gray-200"
+            >
+                <p
+                    v-text="
+                        $t('media.upload.allowed_extensions', {
+                            extensions: allowedExtensions,
+                        })
+                    "
+                />
+                <p
+                    v-text="
+                        $t('media.upload.max_file_size', {
+                            size: maxFileSize.formatted,
+                        })
+                    "
+                />
+            </div>
         </div>
     </div>
-
-    <!-- <progress v-if="form.progress" :value="form.progress.percentage" max="100">
-        {{ form.progress.percentage }}%
-    </progress> -->
-
-    <!-- <ul class="mt-4" v-if="uploader.files.length">
-        <li class="p-1 text-sm" v-for="file in uploader.files">
-            ${ file.name }<button
-                class="ml-2"
-                type="button"
-                @click="remove(filelist.indexOf(file))"
-                title="Remove file"
-            >
-                remove
-            </button>
-        </li>
-    </ul> -->
 </template>
 
 <script>
-    import { ref } from 'vue';
+    import { ref, computed } from 'vue';
+    import { usePage } from '@inertiajs/inertia-vue3';
+    import { useDropZone } from '@vueuse/core';
 
     export default {
         name: 'MediaUploader',
         props: {
-            accept: {
+            currentType: {
                 type: String,
-                default: null,
+                required: true,
+                validator: (type) => ['images', 'files'].includes(type),
             },
         },
         emits: ['upload'],
         setup(props, { emit }) {
-            const isDragging = ref(false);
-            const uploader = ref(null);
+            const allowedExtensions = computed(() =>
+                usePage().props.value.mediaLibrary.allowedExtensions[
+                    props.currentType
+                ].join(', ')
+            );
+
+            const allowedMimeTypes = computed(
+                () =>
+                    usePage().props.value.mediaLibrary.allowedMimeTypes[
+                        props.currentType
+                    ]
+            );
+
+            const maxFileSize = computed(
+                () => usePage().props.value.mediaLibrary.maxFileSize
+            );
+
+            const dropzone = ref(null);
 
             const upload = (files) => {
-                emit('upload', files);
-                isDragging.value = false;
+                const filteredFiles = Array.from(files).filter(
+                    (file) =>
+                        allowedMimeTypes.value.includes(file.type) &&
+                        file.size <= maxFileSize.value.raw
+                );
+
+                emit('upload', filteredFiles);
             };
 
+            const { isOverDropZone } = useDropZone(dropzone, upload);
+
             return {
-                isDragging,
+                allowedExtensions,
+                allowedMimeTypes,
+
+                maxFileSize,
+
+                dropzone,
+                isOverDropZone,
                 upload,
-                uploader,
             };
         },
     };

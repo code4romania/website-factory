@@ -41,15 +41,13 @@ class MediaController extends Controller
         );
     }
 
-    public function store(MediaStoreRequest $request): JsonResponse
+    public function store(MediaStoreRequest $request): JsonResource
     {
         try {
             $media = MediaUploader::fromSource($request->file('file'))
                 ->upload();
 
-            return response()->json(
-                MediaResource::make($media)
-            );
+            return MediaResource::make($media);
         } catch (MediaUploadException $e) {
             throw $this->transformMediaUploadException($e);
         }
@@ -62,13 +60,11 @@ class MediaController extends Controller
      * @param  \App\Models\Media         $media
      * @return \Illuminate\Http\Response
      */
-    public function update(MediaUpdateRequest $request, Media $media): JsonResponse
+    public function update(MediaUpdateRequest $request, Media $media): JsonResource
     {
         $media->update($request->validated());
 
-        return response()->json(
-            MediaResource::make($media)
-        );
+        return MediaResource::make($media);
     }
 
     /**

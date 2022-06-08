@@ -98,3 +98,18 @@ if (! function_exists('color_var')) {
         return "--color-{$name}:{$rgb};";
     }
 }
+
+if (! function_exists('format_bytes')) {
+    /**
+     * @param  int    $bytes     Number of bytes (eg. 25907)
+     * @param  int    $precision [optional] Number of digits after the decimal point (eg. 1)
+     * @return string Value converted with unit (eg. 25.3KB)
+     */
+    function format_bytes(int $bytes, int $precision = 2): string
+    {
+        $unit = ['B', 'KB', 'MB', 'GB', 'TB'];
+        $exp = floor(log($bytes, 1024)) | 0;
+
+        return round($bytes / (pow(1024, $exp)), $precision) . $unit[$exp];
+    }
+}

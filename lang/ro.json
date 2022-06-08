@@ -214,6 +214,9 @@
     "media.details.none": "Niciun fișier selectat",
     "media.upload.file": "Încarcă un fișier",
     "media.upload.drag": "sau drag and drop",
+    "media.upload.allowed_extensions": "Fișiere permise: :extensions",
+    "media.upload.max_file_size": "Dimensiune maximă fișier: :size",
+
     "media.upload.limits": ":types până la :size",
 
     "menu.label": "Meniu|Meniuri",

@@ -27,6 +27,10 @@ class MediaResource extends Resource
             'updated_at'     => $this->updated_at->toDateTimeString(),
         ];
 
+        if ($this->wasRecentlyCreated) {
+            $resource['replaces'] = $request->replaces;
+        }
+
         if ($this->isImage()) {
             $resource['width'] = $this->width;
             $resource['sizes'] = $this->sizes;

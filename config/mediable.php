@@ -153,6 +153,7 @@ return [
         App\Models\Media::TYPE_DOCUMENT => [
             'mime_types' => [
                 'text/plain',
+                'text/csv',
                 'application/plain',
                 'text/xml',
                 'text/json',
@@ -161,6 +162,7 @@ return [
                 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
             ],
             'extensions' => [
+                'csv',
                 'doc',
                 'docx',
                 'txt',

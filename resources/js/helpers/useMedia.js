@@ -1,6 +1,7 @@
 import { inject } from 'vue';
 import { ensureCallbacks, route } from '@/helpers';
 import axios from 'axios';
+import { v4 as uuid } from 'uuid';
 
 export default function () {
     const bus = inject('bus');
@@ -28,9 +29,13 @@ export default function () {
 
         files.forEach((file) => {
             const payload = new FormData();
-            payload.append('file', file);
 
-            beforeStart(file);
+            const id = uuid();
+
+            payload.append('file', file);
+            payload.append('replaces', id);
+
+            beforeStart(file, id);
 
             axios
                 .post(route('admin.media.store'), payload, {
@@ -39,11 +44,11 @@ export default function () {
                             (progress.loaded / progress.total) * 100
                         );
 
-                        onUploadProgress(progress);
+                        onUploadProgress(progress, id);
                     },
                 })
-                .then(onSuccess)
-                .catch(onError);
+                .then((response) => onSuccess(response, id))
+                .catch((error) => onError(error, id));
         });
     };
 

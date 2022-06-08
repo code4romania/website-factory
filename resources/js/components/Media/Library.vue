@@ -24,7 +24,7 @@
         <div
             class="flex flex-col items-stretch flex-1 h-full overflow-hidden bg-white lg:flex-row"
         >
-            <div class="relative flex flex-col flex-1">
+            <div class="relative flex flex-col flex-1 overflow-hidden">
                 <media-manager-controls
                     class="px-4 pt-8 md:px-6 md:pt-0"
                     :types="types"
@@ -39,21 +39,10 @@
                     <media-uploader
                         class="mb-8"
                         @upload="upload"
-                        :accept="acceptByCurrentType"
+                        :current-type="currentType"
                     />
 
-                    <div
-                        v-if="loading"
-                        class="absolute inset-0 z-50 w-full h-full bg-white/75"
-                    >
-                        <div class="absolute top-0 right-0">
-                            <icon
-                                name="System/loader-5-line"
-                                class="w-20 h-20 text-blue-600 animate-spin"
-                                alt="Loading..."
-                            />
-                        </div>
-                    </div>
+                    <media-loading-indicator v-if="loading" />
 
                     <div
                         v-if="currentType === 'files'"
@@ -68,10 +57,22 @@
                                 <form-checkbox
                                     :modelValue="isSelected(item)"
                                     @update:modelValue="toggleSelected(item.id)"
+                                    :disabled="item.hasOwnProperty('loading')"
+                                />
+                            </div>
+
+                            <div
+                                v-if="item.hasOwnProperty('loading')"
+                                class="flex flex-1 pl-4 text-left sm:pl-6"
+                            >
+                                <progress-bar
+                                    class="h-2"
+                                    :value="item.progress"
                                 />
                             </div>
 
                             <button
+                                v-else
                                 type="button"
                                 @click="select(item.id)"
                                 class="flex flex-1 text-left"
@@ -96,35 +97,53 @@
                             :key="`media-view-image-${index}`"
                             class="relative bg-white focus:outline-none group"
                         >
-                            <form-checkbox
-                                :modelValue="isSelected(item)"
-                                @update:modelValue="toggleSelected(item.id)"
-                                class="absolute top-0 left-0 z-10"
-                                checkbox-class="w-6 h-6"
-                            />
-
-                            <button
-                                type="button"
-                                class="block w-full overflow-hidden border border-gray-200 aspect-w-1 aspect-h-1 disabled:cursor-default disabled:bg-gray-100"
-                                :class="{
-                                    'ring-4 ring-blue-500': isSelected(item),
-                                }"
-                                :disabled="isDisabled(item)"
-                                @click="select(item.id)"
+                            <div
+                                v-if="item.hasOwnProperty('loading')"
+                                class="w-full overflow-hidden aspect-w-1 aspect-h-1"
                             >
-                                <img
-                                    :src="item.sizes.thumb.url"
-                                    class="object-contain object-center transition-opacity duration-150 select-none group-disabled:opacity-50"
-                                    :class="{
-                                        'group-hover:opacity-75 group-focus:opacity-75':
-                                            !isSelected(item) &&
-                                            !isDisabled(item),
-                                    }"
-                                    loading="lazy"
-                                    draggable="false"
-                                    alt=""
+                                <div
+                                    class="flex items-center p-4 border border-gray-200"
+                                >
+                                    <progress-bar
+                                        class="h-2"
+                                        :value="item.progress"
+                                    />
+                                </div>
+                            </div>
+
+                            <template v-else>
+                                <form-checkbox
+                                    :modelValue="isSelected(item)"
+                                    @update:modelValue="toggleSelected(item.id)"
+                                    class="absolute top-0 left-0 z-10"
+                                    checkbox-class="w-6 h-6"
                                 />
-                            </button>
+
+                                <button
+                                    type="button"
+                                    class="block w-full overflow-hidden border border-gray-200 aspect-w-1 aspect-h-1 disabled:cursor-default disabled:bg-gray-100"
+                                    :class="{
+                                        'ring-4 ring-blue-500': isSelected(
+                                            item
+                                        ),
+                                    }"
+                                    :disabled="isDisabled(item)"
+                                    @click="select(item.id)"
+                                >
+                                    <img
+                                        :src="item.sizes.thumb.url"
+                                        class="object-contain object-center transition-opacity duration-150 select-none group-disabled:opacity-50"
+                                        :class="{
+                                            'group-hover:opacity-75 group-focus:opacity-75':
+                                                !isSelected(item) &&
+                                                !isDisabled(item),
+                                        }"
+                                        loading="lazy"
+                                        draggable="false"
+                                        alt=""
+                                    />
+                                </button>
+                            </template>
                         </div>
                     </div>
                 </div>
@@ -132,7 +151,7 @@
 
             <div class="flex flex-col border-gray-200 lg:border-l">
                 <media-details
-                    class="hidden lg:flex-1 lg:w-80 lg:block xl:w-96"
+                    class="hidden lg:flex-1 lg:w-80 lg:block 2xl:w-96"
                     :items="selectedItems"
                     @clear-selected="clearSelected"
                 />
@@ -172,6 +191,8 @@
             const close = () => {
                 isOpen.value = false;
 
+                document.body.style.overflow = null;
+
                 clearSelected();
             };
 
@@ -179,17 +200,14 @@
 
             const currentType = ref(types.value[0]);
 
-            const acceptByCurrentType = computed(
-                () =>
-                    ({
-                        images: 'image/*',
-                        files: null,
-                    }[currentType.value])
-            );
-
             const items = ref([]);
 
-            const { fetchMedia, uploadMedia, deleteMedia } = useMedia();
+            const {
+                fetchMedia,
+                uploadMedia,
+                deleteMedia,
+                getMediaConfig,
+            } = useMedia();
 
             const getItems = () => {
                 if (nextPage.value === null) {
@@ -215,19 +233,6 @@
                     },
                     onError: (error) => {
                         loading.value = false;
-                    },
-                });
-            };
-
-            const refreshItems = () => {
-                fetchMedia(currentType.value, {
-                    onSuccess: (response) => {
-                        items.value = response.data;
-
-                        loading.value = false;
-                    },
-                    onError: (error) => {
-                        //
                     },
                 });
             };
@@ -258,17 +263,30 @@
 
             const upload = (files) => {
                 uploadMedia(files, {
-                    beforeStart: (file) => {
-                        console.log(file);
+                    beforeStart: (file, replaces) => {
+                        const item = {
+                            replaces,
+                            filename: file.name,
+                            loading: true,
+                            progress: 0,
+                        };
+
+                        items.value.unshift(item);
                     },
-                    onUploadProgress: (progress) => {
-                        console.log('progress', progress);
+                    onUploadProgress: (progress, replaces) => {
+                        items.value.find(
+                            (item) => item.replaces === replaces
+                        ).progress = progress.percentage;
                     },
-                    onSuccess: (response) => {
-                        items.value = [].concat(response.data).concat(items.value);
+                    onSuccess: (response, replaces) => {
+                        const index = items.value.findIndex(
+                            (item) => item.replaces === replaces
+                        );
+
+                        items.value[index] = response.data;
                     },
                     onError: (error) => {
-                        //
+                        console.error(error);
                     },
                 });
             };
@@ -276,12 +294,19 @@
             const deleteSelected = () => {
                 deleteMedia(selectedItems.value, {
                     onSuccess: () => {
-                        selectedItems.value = [];
+                        const ids = selectedItems.value.map((item) => item.id);
 
-                        refreshItems();
+                        clearSelected();
+
+                        ids.forEach((id) => {
+                            items.value.splice(
+                                items.value.findIndex((item) => item.id === id),
+                                1
+                            );
+                        });
                     },
                     onError: (error) => {
-                        //
+                        console.error(error);
                     },
                 });
             };
@@ -294,6 +319,8 @@
             const bus = inject('bus');
             bus.on('media-library:open', (attach) => {
                 isOpen.value = true;
+
+                document.body.style.overflow = 'hidden';
 
                 getItems();
 
@@ -323,7 +350,6 @@
                 types,
                 currentType,
                 changeType,
-                acceptByCurrentType,
                 loading,
 
                 items,
