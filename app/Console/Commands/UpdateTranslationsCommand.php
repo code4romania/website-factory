@@ -6,6 +6,7 @@ namespace App\Console\Commands;
 
 use App\Models\LanguageLine;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\Finder\SplFileInfo;
 
@@ -63,6 +64,8 @@ class UpdateTranslationsCommand extends Command
                 ? $this->updateEverything()
                 : $this->updateMissing()
         );
+
+        Cache::flush();
 
         $this->info('Done!');
 
