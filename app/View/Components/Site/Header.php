@@ -20,7 +20,7 @@ class Header extends Component
 {
     use Localizable;
 
-    public string $logo;
+    public ?string $logo;
 
     public ?string $title;
 
@@ -32,7 +32,7 @@ class Header extends Component
     {
         $this->logo = settings('site.logo')
             ? Storage::cloud()->url(settings('site.logo'))
-            : ''; // TODO: fallback
+            : null;
 
         $this->title = localized_settings('site.title');
 

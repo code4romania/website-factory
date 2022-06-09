@@ -5,8 +5,12 @@
 
     <nav class="container py-4 space-y-4">
         <div class="relative flex items-center justify-between gap-3">
-            <a href="{{ route('front.pages.index') }}" class="inline-flex">
-                <img src="{{ $logo }}" class="h-16 max-w-48 sm:max-w-64" alt="{{ $title }}">
+            <a href="{{ route('front.pages.index') }}" class="inline-flex text-primary">
+                @if ($logo)
+                    <img src="{{ $logo }}" class="h-16 max-w-48 sm:max-w-64" alt="{{ $title }}">
+                @else
+                    <x-icon-logo class="h-12 md:h-16" />
+                @endif
             </a>
 
             <div class="flex items-center gap-3">
@@ -109,7 +113,7 @@
 
                             <x-ri-arrow-down-s-line
                                 class="transform w-7 h-7 p-0.5 text-gray-400"
-                                ::class="{ '-rotate-180': open === {{ $loop->index }}, 'rotate-0': !(open)  }" />
+                                ::class="{ '-rotate-180': open === {{ $loop->index }}, 'rotate-0': !(open) }" />
                         </button>
 
                         <ul class="w-full mt-4 space-y-6" x-show="open === {{ $loop->index }}" x-collapse>
