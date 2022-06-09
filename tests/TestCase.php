@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Database\Seeders\LanguageSeeder;
+use App\Console\Commands\UpdateTranslationsCommand;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -21,9 +21,7 @@ abstract class TestCase extends BaseTestCase
     public function boot(): void
     {
         $this->afterApplicationCreated(function () {
-            $this->seed([
-                LanguageSeeder::class,
-            ]);
+            $this->artisan(UpdateTranslationsCommand::class, ['--force' => true]);
         });
     }
 }
