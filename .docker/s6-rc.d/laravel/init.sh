@@ -10,5 +10,6 @@ php artisan route:cache
 php artisan view:cache
 php artisan icons:cache
 php artisan migrate --force
+php artisan wf:update-translations
 
 echo "Laravel init done"

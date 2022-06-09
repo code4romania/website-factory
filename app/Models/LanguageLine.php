@@ -9,6 +9,12 @@ use Spatie\TranslationLoader\LanguageLine as Model;
 
 class LanguageLine extends Model
 {
+    /**
+     * /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
     public $timestamps = false;
 
     public static function booted()

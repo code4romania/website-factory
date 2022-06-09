@@ -123,8 +123,6 @@
     "donation.field.phone": "Telefon",
     "donation.field.amount": "Sumă",
 
-    "error.validation": "Nu există erori în formular.|Există o eroare în formular.|Există :count erori în formular.|Există :count de erori în formular.",
-
     "field.actions": "Acțiuni",
     "field.align": "Aliniere",
     "field.aspect_ratio": "Proporție",

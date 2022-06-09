@@ -30,10 +30,6 @@ class DatabaseSeeder extends Seeder
 
         Artisan::call('media:import');
 
-        $this->call([
-            LanguageSeeder::class,
-        ]);
-
         $images = Media::query()
             ->whereImages()
             ->whereIsOriginal()
@@ -58,7 +54,11 @@ class DatabaseSeeder extends Seeder
             ->has(
                 Post::factory()
                     ->count(20)
-                    ->afterCreating(fn (Post $post) => $post->saveImages([$images->random()]))
+                    ->afterCreating(function (Post $post) use ($images) {
+                        if ($images->isNotEmpty()) {
+                            $post->saveImages([$images->random()]);
+                        }
+                    })
             )
             ->create();
 
