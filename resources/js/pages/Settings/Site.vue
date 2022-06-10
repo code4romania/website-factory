@@ -15,7 +15,6 @@
                     :label="$t('setting.site.description')"
                     name="settings.description"
                     v-model="form.settings.description"
-                    required
                 />
 
                 <form-select
