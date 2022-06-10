@@ -18,9 +18,9 @@ return new class extends Migration {
             $table->commonFields(published: false);
 
             $table->string('name');
-            $table->string('slug');
-            $table->json('title');
-            $table->json('description');
+            $table->string('slug')->nullable();
+            $table->json('title')->nullable();
+            $table->json('description')->nullable();
             $table->json('social')->nullable();
         });
     }

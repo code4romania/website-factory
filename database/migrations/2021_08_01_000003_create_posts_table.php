@@ -17,17 +17,16 @@ return new class extends Migration {
         Schema::create('posts', function (Blueprint $table) {
             $table->commonFields();
 
-            $table->json('title');
-            $table->json('slug');
-            $table->json('description');
-            $table->string('layout')->default('default');
+            $table->json('title')->nullable();
+            $table->json('slug')->nullable();
+            $table->json('description')->nullable();
         });
 
         Schema::create('post_categories', function (Blueprint $table) {
             $table->commonFields(published: false);
-            $table->json('title');
-            $table->json('slug');
-            $table->json('description');
+            $table->json('title')->nullable();
+            $table->json('slug')->nullable();
+            $table->json('description')->nullable();
         });
 
         Schema::create('category_post', function (Blueprint $table) {

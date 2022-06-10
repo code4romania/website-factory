@@ -17,7 +17,7 @@ return new class extends Migration {
         Schema::create('categories', function (Blueprint $table) {
             $table->commonFields(softDeletes: false, published: false);
 
-            $table->json('title');
+            $table->json('title')->nullable();
 
             $table->nestedSet();
         });

@@ -17,9 +17,9 @@ return new class extends Migration {
         Schema::create('pages', function (Blueprint $table) {
             $table->commonFields();
 
-            $table->json('title');
-            $table->json('slug');
-            $table->json('description');
+            $table->json('title')->nullable();
+            $table->json('slug')->nullable();
+            $table->json('description')->nullable();
         });
     }
 };

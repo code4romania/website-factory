@@ -16,7 +16,7 @@ return new class extends Migration {
     {
         Schema::create('form_submissions', function (Blueprint $table) {
             $table->commonFields();
-            $table->uuid('uuid')->nullable()->unique()->index();
+            $table->uuid('uuid')->nullable()->unique();
 
             $table->json('data');
 
