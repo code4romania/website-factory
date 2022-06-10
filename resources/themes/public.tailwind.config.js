@@ -14,6 +14,7 @@ const colorVariable = (variable) => {
     };
 };
 
+/** @type {import('tailwindcss').Config} */
 module.exports = merge(require('../../tailwind.config.js'), {
     theme: {
         extend: {
