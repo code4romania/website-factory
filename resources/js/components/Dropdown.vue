@@ -35,7 +35,7 @@
             >
                 <div
                     class="ring-1 ring-black ring-opacity-5"
-                    :class="contentClasses"
+                    :class="contentClass"
                 >
                     <slot name="content" />
                 </div>
@@ -54,7 +54,7 @@
                 type: String,
                 default: 'w-48',
             },
-            contentClasses: {
+            contentClass: {
                 default: () => ['py-1', 'bg-white'],
             },
             origin: {

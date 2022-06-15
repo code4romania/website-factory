@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b30ca0574affd5f6bcc2e034ba01d139",
+    "content-hash": "1243f86e8e7ca17b161424fcf8772bfd",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -633,69 +633,6 @@
                 }
             ],
             "time": "2022-05-24T11:56:16+00:00"
-        },
-        {
-            "name": "creativeorange/gravatar",
-            "version": "v1.0.22",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/creativeorange/gravatar.git",
-                "reference": "0eed243a16bcd01e618036f9b8021526ea26f64a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/creativeorange/gravatar/zipball/0eed243a16bcd01e618036f9b8021526ea26f64a",
-                "reference": "0eed243a16bcd01e618036f9b8021526ea26f64a",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^5|^6|^7|^8|^9",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "nunomaduro/larastan": "^0.6.2",
-                "orchestra/testbench": "^5.4",
-                "php": ">=7.2"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Creativeorange\\Gravatar\\GravatarServiceProvider"
-                    ],
-                    "aliases": {
-                        "Gravatar": "Creativeorange\\Gravatar\\Facades\\Gravatar"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Creativeorange\\Gravatar\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jaco Tijssen",
-                    "email": "jaco@creativeorange.nl",
-                    "homepage": "https://www.creativeorange.nl",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A Laravel Gravatar package for retrieving gravatar image URLs or checking the existance of an image.",
-            "keywords": [
-                "avatar",
-                "gravatar",
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/creativeorange/gravatar/issues",
-                "source": "https://github.com/creativeorange/gravatar/tree/v1.0.22"
-            },
-            "time": "2022-03-23T09:46:07+00:00"
         },
         {
             "name": "dflydev/dot-access-data",

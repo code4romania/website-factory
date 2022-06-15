@@ -8,7 +8,6 @@ use App\Notifications\WelcomeNotification;
 use App\Traits\Filterable;
 use App\Traits\HasRole;
 use App\Traits\Sortable;
-use Creativeorange\Gravatar\Facades\Gravatar;
 use Illuminate\Contracts\Translation\HasLocalePreference;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -47,15 +46,6 @@ class User extends Authenticatable implements HasLocalePreference
     protected $hidden = [
         'password',
         'remember_token',
-    ];
-
-    /**
-     * The accessors to append to the model's array form.
-     *
-     * @var array
-     */
-    protected $appends = [
-        'avatar',
     ];
 
     /**
@@ -108,11 +98,6 @@ class User extends Authenticatable implements HasLocalePreference
     public function preferredLocale(): string
     {
         return $this->locale ?? config('app.fallback_locale');
-    }
-
-    public function getAvatarAttribute(): string
-    {
-        return Gravatar::get($this->email);
     }
 
     public function hasSetPassword(): bool

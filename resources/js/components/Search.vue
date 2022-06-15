@@ -13,7 +13,7 @@
                     type="search"
                     name="search"
                     ref="input"
-                    class="block w-full py-2 pl-10 pr-3 text-white placeholder-gray-400 bg-gray-700 border-0 rounded-md focus:text-gray-900 focus:bg-white focus:outline-none focus:placeholder-gray-500 focus:ring-0 sm:text-sm"
+                    class="block w-full py-2 pl-10 pr-3 text-white placeholder-gray-400 bg-gray-700 border-0 focus:text-gray-900 focus:bg-white focus:outline-none focus:placeholder-gray-500 focus:ring-0 sm:text-sm"
                     :placeholder="$t('app.search.placeholder')"
                     autocomplete="off"
                     v-model="query"
@@ -33,7 +33,7 @@
         >
             <div
                 v-if="searching || loading || hasResults"
-                class="absolute z-50 w-full mt-4 overflow-x-hidden overflow-y-auto text-sm text-gray-500 origin-top-left bg-white rounded shadow-lg inset-x-2 md:inset-x-0 top-full max-h-96"
+                class="absolute z-50 w-full mt-4 overflow-x-hidden overflow-y-auto text-sm text-gray-500 origin-top-left bg-white shadow-lg inset-x-2 md:inset-x-0 top-full max-h-96"
                 ref="container"
             >
                 <div

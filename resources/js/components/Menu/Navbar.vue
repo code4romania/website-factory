@@ -2,7 +2,7 @@
     <div class="bg-gray-800">
         <div class="container lg:divide-gray-700 lg:divide-y">
             <div
-                class="relative flex items-center justify-between h-16 gap-x-4 md:gap-x-8"
+                class="relative flex items-center justify-between h-16 gap-x-4"
             >
                 <app-logo class="block h-10 text-gray-100 shrink-0" link />
 
@@ -14,25 +14,48 @@
                     <dropdown
                         class="relative"
                         origin="top-right"
-                        trigger-class="flex rounded-full focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                        trigger-class="flex p-1.5 text-white focus:outline-none hover:text-white hover:bg-gray-700 focus:ring-2 focus:ring-inset focus:ring-white"
+                        content-class="bg-white"
                     >
                         <template #trigger>
-                            <img
-                                class="w-8 h-8 rounded-full"
-                                :src="$page.props.auth.user.avatar"
-                                :alt="$page.props.auth.user.name"
-                            />
+                            <icon name="System/settings-line" class="w-6 h-6" />
                         </template>
 
                         <template #content>
-                            <dropdown-item
-                                v-for="(item, index) in profileMenu"
-                                :key="index"
-                                :method="item.method || 'get'"
-                                :as="item.method === 'post' ? 'button' : 'a'"
-                                :href="item.href"
-                                v-text="item.label"
-                            />
+                            <div class="divide-y divide-gray-100">
+                                <div class="px-4 py-3 text-sm font-medium">
+                                    <div v-text="$page.props.auth.name" />
+
+                                    <div
+                                        class="text-xs text-gray-400"
+                                        v-text="$page.props.auth.email"
+                                    />
+                                </div>
+
+                                <div class="py-1">
+                                    <dropdown-item
+                                        v-for="(item, index) in settingsMenu"
+                                        :key="index"
+                                        :method="item.method || 'get'"
+                                        :as="
+                                            item.method === 'post'
+                                                ? 'button'
+                                                : 'a'
+                                        "
+                                        :href="item.href"
+                                        v-text="item.label"
+                                    />
+                                </div>
+
+                                <div class="py-1">
+                                    <dropdown-item
+                                        method="post"
+                                        as="button"
+                                        :href="route('auth.logout')"
+                                        v-text="$t('auth.logout')"
+                                    />
+                                </div>
+                            </div>
                         </template>
                     </dropdown>
                 </div>
@@ -41,7 +64,7 @@
                     <!-- Mobile menu button -->
                     <button
                         type="button"
-                        class="inline-flex items-center justify-center p-2 text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        class="inline-flex items-center justify-center p-1.5 text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                         aria-controls="mobile-menu"
                         @click="open = !open"
                         aria-expanded="false"
@@ -120,35 +143,38 @@
 
                 <div class="pt-4 space-y-3">
                     <div class="flex items-center px-3">
-                        <img
-                            class="w-10 h-10 rounded-full shrink-0"
-                            :src="$page.props.auth.user.avatar"
-                            alt=""
-                        />
-
-                        <div class="ml-3 font-medium">
+                        <div class="font-medium">
                             <div
                                 class="text-white"
-                                v-text="$page.props.auth.user.name"
+                                v-text="$page.props.auth.name"
                             />
                             <div
                                 class="text-xs text-gray-300"
-                                v-text="$page.props.auth.user.email"
+                                v-text="$page.props.auth.email"
                             />
                         </div>
                     </div>
 
                     <div class="space-y-1">
                         <menu-item
-                            v-for="(item, index) in profileMenu"
+                            v-for="(item, index) in settingsMenu"
                             :key="index"
                             :as="item.method === 'post' ? 'button' : 'a'"
                             v-bind="item"
                             class="block w-full text-sm"
-                        >
-                            {{ item.label }}
-                        </menu-item>
+                            v-text="item.label"
+                        />
                     </div>
+                </div>
+
+                <div class="py-2">
+                    <menu-item
+                        method="post"
+                        as="button"
+                        :href="route('auth.logout')"
+                        class="block w-full text-sm"
+                        v-text="$t('auth.logout')"
+                    />
                 </div>
             </div>
         </div>
@@ -169,7 +195,7 @@
                 type: Array,
                 default: () => [],
             },
-            profileMenu: {
+            settingsMenu: {
                 type: Array,
                 default: () => [],
             },

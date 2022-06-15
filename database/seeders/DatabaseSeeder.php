@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
     {
         Cache::flush();
 
+        Artisan::call('wf:install');
+
         Artisan::call('media:import', ['disk' => config('mediable.default_disk')]);
 
         $images = Media::query()

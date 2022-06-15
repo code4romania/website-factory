@@ -30,9 +30,7 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
-            'auth' => fn () => [
-                'user' => $request->user(),
-            ],
+            'auth'  => fn () => $request->user(),
             'flash' => fn () => $this->flash($request),
             'route' => fn () => $request->route()->getName(),
             'app'   => fn () => [
@@ -112,7 +110,7 @@ class HandleInertiaRequests extends Middleware
             'secondary' => [
                 //
             ],
-            'profile' => [
+            'settings' => [
                 [
                     'enabled' => auth()->user()->can('create', MenuItem::class),
                     'route' => 'admin.menus.index',
@@ -132,11 +130,6 @@ class HandleInertiaRequests extends Middleware
                     'enabled' => auth()->user()->can('create', Language::class),
                     'route' => 'admin.languages.index',
                     'label' => trans_choice('language.label', 2),
-                ],
-                [
-                    'route' => 'auth.logout',
-                    'label' => __('auth.logout'),
-                    'method' => 'post',
                 ],
             ],
         ];

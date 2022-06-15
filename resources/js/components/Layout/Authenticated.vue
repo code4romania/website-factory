@@ -6,7 +6,7 @@
             <menu-navbar
                 :main-menu="mainMenu"
                 :secondary-menu="secondaryMenu"
-                :profile-menu="profileMenu"
+                :settings-menu="settingsMenu"
             />
 
             <div v-if="$slots.subnav" class="bg-gray-200">
@@ -106,14 +106,14 @@
                 buildMenu(usePage().props.value.navigation.secondary)
             );
 
-            const profileMenu = computed(() =>
-                buildMenu(usePage().props.value.navigation.profile)
+            const settingsMenu = computed(() =>
+                buildMenu(usePage().props.value.navigation.settings)
             );
 
             return {
                 mainMenu,
                 secondaryMenu,
-                profileMenu,
+                settingsMenu,
             };
         },
     };
