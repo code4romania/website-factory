@@ -37,7 +37,7 @@
                         <div class="mt-4 text-right">
                             <a href="{{ $item->search_result->url_public }}"
                                 class="text-sm font-semibold text-primary hover:underline">
-                                @lang('banner.more') <span aria-hidden="true">&rarr;</span>
+                                @lang('app.banner.more') <span aria-hidden="true">&rarr;</span>
                             </a>
                         </div>
                     </div>
