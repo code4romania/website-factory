@@ -28,7 +28,7 @@
         <ul class="items-center hidden text-sm gap-x-6 lg:flex lg:flex-wrap">
             @foreach ($menu as $item)
                 <li
-                    @if ($item->children->isNotEmpty()) x-data="{ open: false }" x-on:click.outside="open = false" :class="{ 'bg-primary bg-opacity-10': open }" @endif
+                    @if ($item->children->isNotEmpty()) x-data="{ open: false }" x-on:click.outside="open = false" :class="{ 'bg-primary/10': open }" @endif
                     @class([
                         'flex flex-wrap border-b-2 border-transparent',
                         $item->isCurrentUrl()

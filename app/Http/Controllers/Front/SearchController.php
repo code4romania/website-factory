@@ -5,30 +5,20 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Models\Page;
+use App\Http\Requests\Front\SearchRequest;
+use App\Services\Features;
 use Artesaos\SEOTools\Traits\SEOTools;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 
 class SearchController extends Controller
 {
     use SEOTools;
 
-    private array $searchable = [
-        'page' => Page::class,
-    ];
-
-    public function __invoke(Request $request)
+    public function __invoke(SearchRequest $request)
     {
-        $attributes = $request->validate([
-            'query' => ['required', 'string', 'min:3'],
-            'type'  => ['string', Rule::in(array_keys($this->searchable))],
-        ]);
-
-        $attributes['type'] ??= 'page';
+        $attributes = $request->validated();
 
         $attributes['query'] = Str::of($attributes['query'])
             ->stripTags()
@@ -42,44 +32,40 @@ class SearchController extends Controller
         return response()
             ->view('front.search.results', [
                 'query' => $attributes['query'],
+                'type'  => $attributes['type'],
+                'types' => $this->getAvailableTypes(),
                 'items' => $this->search($attributes['query'], $attributes['type']),
             ])
             ->header('x-robots-tag', 'noindex');
     }
 
-    private function filteredQuery(Request $request, string $key = 'query')
+    protected function getAvailableTypes(): Collection
     {
-        return Str::of($request->input($key))
-            ->explode(' ')
-            ->reject(fn (string $term) => Str::length($term) < 3);
+        $types = collect(config('search.models'))
+            ->mapWithKeys(fn (string $model) => [
+                app($model)->getMorphClass() => $model,
+            ]);
+
+        if (! Features::hasDecisions()) {
+            $types->forget('decision');
+        }
+
+        return $types->keys();
     }
 
-    private function search(string $query, string $model): LengthAwarePaginator
+    protected function search(string $query, string $model): LengthAwarePaginator
     {
-        return app($this->searchable[$model])
-            ->search($query)
-            ->paginate();
-    }
+        $model = collect(config('search.models'))
+            ->firstWhere(fn (string $class) => $model === app($class)->getMorphClass());
 
-    private function searchOld(?string $query): Collection
-    {
         $query = Str::of($query)
+            ->stripTags()
             ->explode(' ')
             ->reject(fn (string $term) => Str::length($term) < 3)
             ->join(' ');
 
-        $results = collect();
-
-        if ($query) {
-            foreach ($this->searchable as $key => $model) {
-                $results->push(
-                    ...$model::query()
-                        ->search($query)
-                        ->get()
-                );
-            }
-        }
-
-        return $results;
+        return $model::query()
+            ->search($query)
+            ->paginate();
     }
 }

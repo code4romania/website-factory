@@ -17,9 +17,9 @@ return new class extends Migration {
         Schema::create('decisions', function (Blueprint $table) {
             $table->commonFields();
 
-            $table->json('title')->nullable();
+            $table->json('title')->nullable()->fulltext();
             $table->json('slug')->nullable();
-            $table->json('description')->nullable();
+            $table->json('description')->nullable()->fulltext();
         });
     }
 };

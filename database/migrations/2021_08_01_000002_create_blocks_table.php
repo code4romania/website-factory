@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('type')->index();
             $table->morphs('blockable');
             $table->unsignedInteger('position');
-            $table->json('content');
+            $table->json('content')->fulltext();
 
             $table->foreignId('parent_id')
                 ->nullable()

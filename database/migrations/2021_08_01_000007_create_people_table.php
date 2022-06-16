@@ -19,8 +19,8 @@ return new class extends Migration {
 
             $table->string('name');
             $table->string('slug')->nullable();
-            $table->json('title')->nullable();
-            $table->json('description')->nullable();
+            $table->json('title')->nullable()->fulltext();
+            $table->json('description')->nullable()->fulltext();
             $table->json('social')->nullable();
         });
     }

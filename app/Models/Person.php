@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\DataTransferObjects\SearchResult;
 use App\Traits\ClearsResponseCache;
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
 use App\Traits\HasMedia;
 use App\Traits\HasSlug;
+use App\Traits\Searchable;
 use App\Traits\Sortable;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,6 +25,7 @@ class Person extends Model
     use HasFactory;
     use HasMedia;
     use HasSlug;
+    use Searchable;
     use SoftDeletes;
     use Sortable;
     use Translatable;
@@ -56,5 +59,22 @@ class Person extends Model
                 $id => data_get($this->social, $id),
             ])
             ->all();
+    }
+
+    public function getSearchableColumns(): array
+    {
+        return ['name', 'title', 'description'];
+    }
+
+    public function getSearchResultAttribute(): SearchResult
+    {
+        return new SearchResult([
+            'type'        => $this->getMorphClass(),
+            'title'       => $this->name,
+            'description' => $this->title,
+            'url_admin'   => route('admin.people.edit', $this->id),
+            'url_public'  => localized_route('front.people.show', ['person' => $this->slug]),
+            'updated_at'  => $this->updated_at->diffForHumans(),
+        ]);
     }
 }

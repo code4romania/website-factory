@@ -5,17 +5,13 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Page;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class SearchController extends Controller
 {
-    private array $searchable = [
-        Page::class,
-    ];
-
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): JsonResponse
     {
         $attributes = $request->validate([
             'query' => ['required', 'string', 'min:3'],
@@ -29,14 +25,13 @@ class SearchController extends Controller
         $results = collect();
 
         if ($query->isNotEmpty()) {
-            $query = $query
-                // ->map(fn (string $term) => "+{$term}*")
-                ->join(' ');
+            $query = $query->join(' ');
 
-            foreach ($this->searchable as $model) {
+            foreach (config('search.models') as $model) {
                 $results->push(
                     ...$model::query()
-                        ->search($query, multilingual: true)
+                        ->search($query, searchAllLanguages: true)
+                        ->take(25)
                         ->get()
                         ->pluck('search_result')
                 );

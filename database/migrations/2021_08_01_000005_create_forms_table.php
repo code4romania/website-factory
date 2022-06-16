@@ -21,9 +21,9 @@ return new class extends Migration {
             $table->boolean('send_submissions')->default(false);
             $table->text('recipients')->nullable();
 
-            $table->json('title')->nullable();
+            $table->json('title')->nullable()->fulltext();
             $table->json('slug')->nullable();
-            $table->json('description')->nullable();
+            $table->json('description')->nullable()->fulltext();
         });
     }
 };

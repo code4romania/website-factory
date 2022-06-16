@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\DataTransferObjects\SearchResult;
 use App\Traits\ClearsResponseCache;
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
 use App\Traits\HasSlug;
 use App\Traits\Publishable;
+use App\Traits\Searchable;
 use App\Traits\Sortable;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,6 +25,7 @@ class Decision extends Model
     use HasFactory;
     use HasSlug;
     use Publishable;
+    use Searchable;
     use SoftDeletes;
     use Sortable;
     use Translatable;
@@ -40,4 +43,21 @@ class Decision extends Model
     public array $allowedFilters = [
         //
     ];
+
+    public function getSearchableColumns(): array
+    {
+        return ['title', 'description'];
+    }
+
+    public function getSearchResultAttribute(): SearchResult
+    {
+        return new SearchResult([
+            'type'        => $this->getMorphClass(),
+            'title'       => $this->title,
+            'description' => $this->description,
+            'url_admin'   => route('admin.decisions.edit', $this->id),
+            'url_public'  => localized_route('front.decisions.show', ['decision' => $this->slug]),
+            'updated_at'  => $this->updated_at->diffForHumans(),
+        ]);
+    }
 }

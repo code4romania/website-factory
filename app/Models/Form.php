@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\DataTransferObjects\SearchResult;
 use App\Mail\FormSubmitted;
 use App\Traits\ClearsResponseCache;
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
 use App\Traits\HasSlug;
+use App\Traits\Searchable;
 use App\Traits\Sortable;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,6 +27,7 @@ class Form extends Model
     use HasBlocks;
     use HasFactory;
     use HasSlug;
+    use Searchable;
     use SoftDeletes;
     use Sortable;
     use Translatable;
@@ -93,5 +96,22 @@ class Form extends Model
             fn (string $recipient) => Mail::to($recipient)
                 ->send(new FormSubmitted($this, $data))
         );
+    }
+
+    public function getSearchableColumns(): array
+    {
+        return ['title', 'description'];
+    }
+
+    public function getSearchResultAttribute(): SearchResult
+    {
+        return new SearchResult([
+            'type'        => $this->getMorphClass(),
+            'title'       => $this->title,
+            'description' => $this->description,
+            'url_admin'   => route('admin.forms.edit', $this->id),
+            'url_public'  => localized_route('front.forms.show', ['form' => $this->slug]),
+            'updated_at'  => $this->updated_at->diffForHumans(),
+        ]);
     }
 }

@@ -54,31 +54,27 @@
                     >
                         <inertia-link
                             :href="item.url_admin"
-                            class="items-center block w-full px-4 py-2 text-sm hover:bg-gray-50"
+                            class="flex flex-wrap w-full gap-2 px-4 py-2 text-sm hover:bg-gray-50"
                             :class="{
                                 'bg-gray-50': index === highlightedItem,
                             }"
                         >
-                            <p
-                                class="font-semibold text-blue-600 truncate"
-                                v-text="item.title"
-                            />
-
-                            <p class="flex items-center gap-1">
-                                <span
-                                    v-text="
-                                        $t('app.time.edited', {
-                                            ago: item.updated_at,
-                                        })
-                                    "
+                            <div class="flex items-center w-full gap-1">
+                                <p
+                                    class="flex-1 font-semibold text-blue-600 truncate"
+                                    v-text="item.title"
                                 />
 
-                                <span class=""> &ndash; </span>
-
                                 <span
+                                    class="text-xs whitespace-nowrap"
                                     v-text="$tChoice(`${item.type}.label`, 1)"
                                 />
-                            </p>
+                            </div>
+
+                            <p
+                                class="text-xs line-clamp-2"
+                                v-text="item.description"
+                            />
                         </inertia-link>
                     </li>
                 </ol>
