@@ -49,7 +49,7 @@ class SettingController extends Controller
             'site' => $attributes->map(
                 fn ($value, $key) => match ($key) {
                     default => $value,
-                    'logo'  => $value?->storePubliclyAs('assets', 'logo.' . $value?->extension(), config('filesystems.cloud')),
+                    'logo'  => $value?->storePubliclyAs('assets', 'logo.' . $value?->extension()),
                 }
             ),
             'donations' => $attributes->map(
@@ -58,8 +58,8 @@ class SettingController extends Controller
                     'euplatesc_enabled'    => \boolval($value),
 
                     'mobilpay_enabled'     => \boolval($value),
-                    'mobilpay_certificate' => $value?->storeAs('private/donations', $value?->getClientOriginalName()),
-                    'mobilpay_private_key' => $value?->storeAs('private/donations', $value?->getClientOriginalName()),
+                    'mobilpay_certificate' => encrypt($value?->get()),
+                    'mobilpay_private_key' => encrypt($value?->get()),
                 }
             ),
             default => null,

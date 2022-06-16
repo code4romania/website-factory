@@ -31,7 +31,7 @@ class Header extends Component
     public function __construct()
     {
         $this->logo = settings('site.logo')
-            ? Storage::cloud()->url(settings('site.logo'))
+            ? Storage::url(settings('site.logo'))
             : null;
 
         $this->title = localized_settings('site.title');

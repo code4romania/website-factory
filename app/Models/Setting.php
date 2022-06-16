@@ -51,6 +51,10 @@ class Setting extends Model
 
         if (Features::hasDonations()) {
             $sections->put('donations', [
+                'page' => [
+                    'thanks' => null,
+                    'error'  => null,
+                ],
                 'amounts'              => [],
                 'mobilpay_enabled'     => false,
                 'mobilpay_signature'   => null,
@@ -69,9 +73,15 @@ class Setting extends Model
     {
         $sections = collect();
 
+        $pages = PageResource::collection(Page::all('id', 'title'));
+
         $sections->put('site', [
-            'pages'     => PageResource::collection(Page::all('id', 'title')),
+            'pages'     => $pages,
             'platforms' => config('website-factory.social_platforms', []),
+        ]);
+
+        $sections->put('donations', [
+            'pages' => $pages,
         ]);
 
         return Arr::wrap(

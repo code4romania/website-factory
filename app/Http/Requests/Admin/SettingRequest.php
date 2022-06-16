@@ -48,12 +48,14 @@ class SettingRequest extends BaseRequest
 
             ],
             'donations' => [
+                'settings.page.thanks'      => ['required', 'exists:pages,id'],
+                'settings.page.error'       => ['required', 'exists:pages,id'],
                 'settings.amounts'          => ['array'],
                 'settings.amounts.*.amount' => ['required', 'integer'],
 
                 'settings.mobilpay_enabled'     => ['boolean'],
                 'settings.mobilpay_signature'   => ['nullable', 'regex:/^([A-Z0-9]{4}-?){5}$/'],
-                'settings.mobilpay_public_key'  => ['nullable', 'file'],
+                'settings.mobilpay_certificate' => ['nullable', 'file'],
                 'settings.mobilpay_private_key' => ['nullable', 'file'],
 
                 'settings.euplatesc_enabled' => ['boolean'],

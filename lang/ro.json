@@ -289,6 +289,8 @@
     "setting.site.colors.primary": "Culoare principală",
     "setting.site.notice.color": "Culoare",
     "setting.site.notice.text": "Text",
+    "setting.donations.page.thanks": "Pagina de mulțumire",
+    "setting.donations.page.error": "Pagina de eroare",
     "setting.donations.amounts.default": "Valori predefinite",
     "setting.donations.euplatesc.mid": "Cod comerciant",
     "setting.donations.euplatesc.key": "Cheie",
