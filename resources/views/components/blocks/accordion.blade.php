@@ -7,8 +7,7 @@
                 <button
                     type="button"
                     class="flex items-start justify-between w-full gap-4 text-lg font-medium text-left text-gray-900 focus:outline-none focus:"
-                    @@click="isOpen = !isOpen">
-
+                    x-on:click="isOpen = !isOpen">
 
                     <span class="flex-1">
                         {{ $item->translatedInput('title') }}

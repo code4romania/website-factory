@@ -18,7 +18,7 @@
 
                 <x-site.language-switcher :urls="$alternateUrls" />
 
-                <button type="button" @@click="menuOpen = !menuOpen" class="lg:hidden">
+                <button type="button" x-on:click="menuOpen = !menuOpen" class="lg:hidden">
                     <x-ri-menu-line x-show="!menuOpen" class="w-5 h-5" />
                     <x-ri-close-line x-show="menuOpen" class="w-5 h-5" x-cloak />
                 </button>
@@ -28,7 +28,7 @@
         <ul class="items-center hidden text-sm gap-x-3 lg:flex lg:flex-wrap">
             @foreach ($menu as $item)
                 <li
-                    @if ($item->children->isNotEmpty()) x-data="{ open: false }" x-on:click.outside="open = false" :class="{ 'bg-primary/10': open }" @endif
+                    @if ($item->children->isNotEmpty()) x-data="{ open: false }" x-on:click.outside="open = false" :class="{ 'text-primary bg-primary/10': open }" @endif
                     @class([
                         'flex flex-wrap border-b-2 border-transparent px-3 py-2 font-medium items-center',
                         $item->isCurrentUrl()
@@ -42,8 +42,8 @@
 
                     @if ($item->children->isNotEmpty())
                         <button
-                            @@click="open = !open"
-                            class="flex items-center ml-2">
+                            x-on:click="open = !open"
+                            class="flex items-center ml-1.5 -mr-1">
 
                             <x-ri-arrow-down-s-line class="w-4 h-4" />
                         </button>
@@ -106,7 +106,7 @@
 
                     @if ($item->children->count())
                         <button
-                            @@click="toggle({{ $loop->index }}) "
+                            x-on:click="toggle({{ $loop->index }}) "
                             type="button">
 
                             <x-ri-arrow-down-s-line
