@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   test:
-    name: PHP ${{ matrix.php-version }} - ${{ matrix.dependency-version }}
+    name: PHP ${{ matrix.php-version }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
@@ -12,11 +12,28 @@ jobs:
       matrix:
         php-version:
           - '8.1'
-        dependency-version:
-          - prefer-stable
 
     env:
       extensions: mbstring, sqlite, pdo_sqlite, intl, gd
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_DB: website_factory_tests
+          POSTGRES_PASSWORD: postgres
+
+          DB_CONNECTION: pgsql
+          DB_DATABASE: website_factory_tests
+          DB_USERNAME: postgres
+          DB_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout
@@ -58,7 +75,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.composercache.outputs.dir }}
-          key: dependencies-composer-${{ hashFiles('composer.lock') }}-php-${{ matrix.php-version }}-${{ matrix.dependency-version }}
+          key: dependencies-composer-${{ hashFiles('composer.lock') }}-php-${{ matrix.php-version }}
           restore-keys: dependencies-composer-
 
       - name: Get npm cache directory
@@ -73,7 +90,7 @@ jobs:
           restore-keys: dependencies-npm-
 
       - name: Install composer dependencies
-        run: composer update --prefer-dist --no-interaction --no-scripts --${{ matrix.dependency-version }}
+        run: composer install --prefer-dist --no-interaction
 
       - name: Install npm dependencies
         run: npm ci --prefer-offline
@@ -82,7 +99,9 @@ jobs:
         run: npm run production
 
       - name: Setup env
-        run: composer env
+        run: |
+          cp .env.ci .env
+          php artisan key:generate --ansi
 
       - name: Run tests
         run: php artisan test

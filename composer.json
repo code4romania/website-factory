@@ -75,11 +75,7 @@
             "@php artisan ide-helper:meta",
             "@php artisan ide-helper:models --nowrite"
         ],
-        "test": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --colors=always",
-        "env": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "@php artisan key:generate --ansi"
-        ]
+        "test": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --colors=always"
     },
     "extra": {
         "laravel": {
