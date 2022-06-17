@@ -35,9 +35,9 @@
     "app.action.view": "Vezi",
 
     "app.table_status.all": "Toate",
-    "app.table_status.published": "Publicate",
-    "app.table_status.draft": "Draft",
-    "app.table_status.trashed": "Șterse",
+    "app.table_status.published": "Publicat|Publicate",
+    "app.table_status.draft": "Draft|Draft-uri",
+    "app.table_status.trashed": "Șters|Șterse",
 
     "app.time.edited": "Ultima modificare cu :ago",
 

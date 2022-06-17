@@ -1,6 +1,6 @@
 <template>
-    <div class="relative">
-        <button type="button" @click="open = !open" :class="triggerClass">
+    <div class="relative" ref="target">
+        <button type="button" @click="isOpen = !isOpen" :class="triggerClass">
             <slot name="trigger" />
 
             <icon
@@ -16,9 +16,6 @@
             />
         </button>
 
-        <!-- Full Screen Dropdown Overlay -->
-        <div v-show="open" class="fixed inset-0 z-40" @click="open = false" />
-
         <transition
             enter-active-class="transition duration-200 ease-out"
             enter-from-class="transform scale-95 opacity-0"
@@ -28,10 +25,10 @@
             leave-to-class="transform scale-95 opacity-0"
         >
             <div
-                v-show="open"
+                v-show="isOpen"
                 class="absolute z-50 mt-2 shadow-lg"
                 :class="[width, alignmentClasses]"
-                @click="open = false"
+                @click="close"
             >
                 <div
                     class="ring-1 ring-black ring-opacity-5"
@@ -45,7 +42,8 @@
 </template>
 
 <script>
-    import { onMounted, onUnmounted, ref } from 'vue';
+    import { computed, ref } from 'vue';
+    import { onClickOutside, onKeyStroke } from '@vueuse/core';
 
     export default {
         name: 'Dropdown',
@@ -74,37 +72,40 @@
                 default: false,
             },
         },
-        setup() {
-            const open = ref(false);
+        setup(props) {
+            const isOpen = ref(false);
+            const target = ref(null);
 
-            const closeOnEscape = (e) => {
-                if (open.value && e.keyCode === 27) {
-                    open.value = false;
-                }
+            const open = () => {
+                isOpen.value = true;
             };
 
-            onMounted(() => {
-                document.addEventListener('keydown', closeOnEscape);
-            });
+            const close = () => {
+                isOpen.value = false;
+            };
 
-            onUnmounted(() => {
-                document.removeEventListener('keydown', closeOnEscape);
-            });
+            const alignmentClasses = computed(
+                () =>
+                    ({
+                        'top-right': `origin-top-right right-0 mt-2`,
+                        'top-left': `origin-top-left left-0 mt-2`,
+                        'bottom-right': `origin-bottom-right bottom-full right-0 mb-2`,
+                        'bottom-left': `origin-bottom-left bottom-full left-0 mb-2`,
+                    }[props.origin])
+            );
+
+            onClickOutside(target, close);
+
+            onKeyStroke('Escape', close);
 
             return {
+                isOpen,
+                target,
                 open,
-            };
-        },
+                close,
 
-        computed: {
-            alignmentClasses() {
-                return {
-                    'top-right': 'origin-top-right right-0 mt-2',
-                    'top-left': 'origin-top-left left-0 mt-2',
-                    'bottom-right': 'origin-bottom-right bottom-full right-0 mb-2',
-                    'bottom-left': 'origin-bottom-left bottom-full left-0 mb-2',
-                }[this.origin];
-            },
+                alignmentClasses,
+            };
         },
     };
 </script>

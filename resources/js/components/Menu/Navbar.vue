@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-800">
+    <div class="bg-gray-800" ref="target">
         <div class="container lg:divide-gray-700 lg:divide-y">
             <div
                 class="relative flex items-center justify-between h-16 gap-x-4"
@@ -14,7 +14,7 @@
                     <dropdown
                         class="relative"
                         origin="top-right"
-                        trigger-class="flex p-1.5 text-white focus:outline-none hover:text-white hover:bg-gray-700 focus:ring-2 focus:ring-inset focus:ring-white"
+                        trigger-class="flex p-1.5 text-white focus:outline-none hover:text-white hover:bg-gray-700 focus:text-white focus:bg-gray-700"
                         content-class="bg-white"
                     >
                         <template #trigger>
@@ -64,16 +64,12 @@
                     <!-- Mobile menu button -->
                     <button
                         type="button"
-                        class="inline-flex items-center justify-center p-1.5 text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        class="inline-flex items-center justify-center p-1.5 text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
                         aria-controls="mobile-menu"
-                        @click="open = !open"
-                        aria-expanded="false"
-                        x-bind:aria-expanded="open.toString()"
+                        @click="isOpen = !isOpen"
                     >
-                        <span class="sr-only">Open main menu</span>
-
                         <icon
-                            v-if="!open"
+                            v-if="!isOpen"
                             name="System/menu-line"
                             class="block w-6 h-6"
                         />
@@ -112,7 +108,8 @@
             <div
                 class="p-2 space-y-3 border-t border-gray-700 divide-y divide-gray-700 lg:hidden"
                 id="mobile-menu"
-                v-show="open"
+                v-show="isOpen"
+                @click="close"
             >
                 <div class="space-y-1">
                     <menu-item
@@ -183,6 +180,7 @@
 
 <script>
     import { ref } from 'vue';
+    import { onClickOutside, onKeyStroke } from '@vueuse/core';
 
     export default {
         name: 'MenuNavbar',
@@ -201,11 +199,22 @@
             },
         },
         inject: ['bus'],
-        setup(props) {
-            const open = ref(false);
+        setup() {
+            const isOpen = ref(false);
+            const target = ref(null);
+
+            const close = () => {
+                isOpen.value = false;
+            };
+
+            onClickOutside(target, close);
+
+            onKeyStroke('Escape', close);
 
             return {
-                open,
+                isOpen,
+                target,
+                close,
             };
         },
     };

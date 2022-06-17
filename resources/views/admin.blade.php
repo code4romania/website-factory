@@ -16,7 +16,7 @@
     @routes
 </head>
 
-<body class="antialiased">
+<body class="min-h-screen antialiased bg-gray-100">
     @inertia
 </body>
 

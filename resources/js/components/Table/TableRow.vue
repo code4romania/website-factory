@@ -10,9 +10,11 @@
                 :key="`title-${index}`"
                 class="px-6 py-4 text-sm font-medium"
             >
-                <span v-if="status" class="text-gray-900">
-                    {{ $t(status) }} &mdash;
-                </span>
+                <span
+                    v-if="status"
+                    class="inline-flex px-2.5 py-0.5 rounded-full text-xs bg-gray-200 text-gray-800 mr-2"
+                    v-text="$tChoice(`app.table_status.${status}`, 1)"
+                />
 
                 <inertia-link
                     v-if="!row.hasOwnProperty('trashed') || !row.trashed"

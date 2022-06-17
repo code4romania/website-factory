@@ -169,7 +169,7 @@
 </template>
 
 <script>
-    import { computed, ref, inject, onMounted, onUnmounted } from 'vue';
+    import { computed, ref, inject } from 'vue';
     import { useInfiniteScroll } from '@vueuse/core';
     import { useMedia } from '@/helpers';
 

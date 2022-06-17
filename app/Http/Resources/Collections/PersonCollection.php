@@ -12,6 +12,6 @@ class PersonCollection extends ResourceCollection
      * @var array
      */
     protected array $columns = [
-        'name', 'title', 'created_at',
+        'name', 'created_at',
     ];
 }

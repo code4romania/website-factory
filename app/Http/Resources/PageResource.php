@@ -16,12 +16,13 @@ class PageResource extends Resource
     protected function index(Request $request): array
     {
         return [
-            'id'         => $this->id,
-            'title'      => $this->title,
-            'slug'       => $this->slug,
-            'created_at' => $this->created_at->toDateTimeString(),
-            'trashed'    => $this->trashed(),
-            'status'     => $this->status(),
+            'id'           => $this->id,
+            'title'        => $this->title,
+            'slug'         => $this->slug,
+            'created_at'   => $this->created_at->toDateTimeString(),
+            'published_at' => $this->published_at?->toDateTimeString(),
+            'trashed'      => $this->trashed(),
+            'status'       => $this->status(),
         ];
     }
 

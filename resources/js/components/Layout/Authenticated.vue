@@ -1,7 +1,10 @@
 <template>
     <inertia-head :title="title" />
 
-    <div class="flex flex-col min-h-screen bg-gray-100">
+    <div
+        class="flex flex-col min-h-screen transition-opacity duration-200 bg-gray-100"
+        :class="{ 'opacity-0': !isLoaded() }"
+    >
         <header>
             <menu-navbar
                 :main-menu="mainMenu"
@@ -70,6 +73,7 @@
     import { computed } from 'vue';
     import { usePage } from '@inertiajs/inertia-vue3';
     import { route } from '@/helpers';
+    import { isLoaded } from 'laravel-vue-i18n';
 
     export default {
         name: 'Layout',
@@ -87,7 +91,6 @@
                 default: null,
             },
         },
-        inject: ['bus'],
         setup() {
             const buildMenu = (items) =>
                 items.map((item) => {
@@ -114,6 +117,8 @@
                 mainMenu,
                 secondaryMenu,
                 settingsMenu,
+
+                isLoaded,
             };
         },
     };
