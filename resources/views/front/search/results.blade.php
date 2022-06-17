@@ -5,7 +5,7 @@
         </h1>
 
 
-        <nav class="flex flex-wrap gap-4 pb-4 mt-8 border-b border-gray-200">
+        <nav class="flex flex-wrap gap-3 pb-4 mt-8 border-b border-gray-200">
             @foreach ($types as $tab)
                 <a href="{{ request()->fullUrlWithQuery(['type' => $tab, 'page' => null]) }}"
                     @class([

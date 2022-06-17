@@ -25,12 +25,12 @@
             </div>
         </div>
 
-        <ul class="items-center hidden text-sm gap-x-6 lg:flex lg:flex-wrap">
+        <ul class="items-center hidden text-sm gap-x-3 lg:flex lg:flex-wrap">
             @foreach ($menu as $item)
                 <li
                     @if ($item->children->isNotEmpty()) x-data="{ open: false }" x-on:click.outside="open = false" :class="{ 'bg-primary/10': open }" @endif
                     @class([
-                        'flex flex-wrap border-b-2 border-transparent',
+                        'flex flex-wrap border-b-2 border-transparent px-3 py-2 font-medium items-center',
                         $item->isCurrentUrl()
                             ? 'border-primary text-primary'
                             : 'text-gray-700 hover:text-primary',
@@ -38,13 +38,12 @@
 
                     <x-dynamic-component
                         :component="$item->component"
-                        :item="$item"
-                        class="py-2 font-semibold" />
+                        :item="$item" />
 
                     @if ($item->children->isNotEmpty())
                         <button
                             @@click="open = !open"
-                            class="flex items-center py-2 ml-2 font-semibold">
+                            class="flex items-center ml-2">
 
                             <x-ri-arrow-down-s-line class="w-4 h-4" />
                         </button>
@@ -71,9 +70,8 @@
                                                         <x-dynamic-component
                                                             :component="$item->component"
                                                             :item="$item"
-                                                            class="hover:text-gray-800"
                                                             inactive-class="text-gray-700 hover:text-primary"
-                                                            active-class="border-primary text-primary" />
+                                                            active-class="border-primary text-primary hover:text-gray-800" />
                                                     </li>
                                                 @endforeach
                                             </ul>

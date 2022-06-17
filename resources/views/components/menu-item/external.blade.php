@@ -1,5 +1,11 @@
-@props(['item'])
+@props(['item', 'inactiveClass' => '', 'activeClass' => ''])
 
-<a href="{{ $item->url }}" target="_blank" rel="noopener" {{ $attributes }}>
+<a
+    {{ $attributes->merge([
+        'href' => $item->url,
+        'target' => '_blank',
+        'rel' => 'noopener',
+        'class' => $inactiveClass,
+    ]) }}>
     {{ $item->label }}
 </a>
