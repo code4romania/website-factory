@@ -23,7 +23,7 @@
         "league/flysystem-aws-s3-v3": "^3.0",
         "league/omnipay": "^3.2",
         "matthewbdaly/laravel-azure-storage": "^2.0",
-        "plank/laravel-mediable": "^5.5",
+        "plank/laravel-mediable": "^5.6",
         "sentry/sentry-laravel": "^2.12",
         "spatie/data-transfer-object": "^3.8",
         "spatie/laravel-responsecache": "^7.3",
