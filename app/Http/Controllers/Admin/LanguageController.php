@@ -10,7 +10,6 @@ use App\Http\Resources\Collections\LanguageCollection;
 use App\Http\Resources\LanguageResource;
 use App\Models\Language;
 use App\Models\LanguageLine;
-use App\Models\Setting;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
@@ -35,8 +34,6 @@ class LanguageController extends Controller
                     ->paginate()
             ),
         ]);
-
-        return redirect()->route('admin.settings.edit', Setting::sections()->first());
     }
 
     public function create(): Response

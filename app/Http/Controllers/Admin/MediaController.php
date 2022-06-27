@@ -53,13 +53,6 @@ class MediaController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Media         $media
-     * @return \Illuminate\Http\Response
-     */
     public function update(MediaUpdateRequest $request, Media $media): JsonResource
     {
         $media->update($request->validated());
@@ -67,12 +60,6 @@ class MediaController extends Controller
         return MediaResource::make($media);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Media         $media
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Media $media): JsonResponse
     {
         $media->getAllVariants()->map->delete();

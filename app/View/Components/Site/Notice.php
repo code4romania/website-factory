@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\View\Components\Site;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 use Illuminate\View\Component;
 
 class Notice extends Component
@@ -14,7 +13,7 @@ class Notice extends Component
 
     public ?string $text = null;
 
-    public function __construct(Request $request)
+    public function __construct()
     {
         $this->color = color_var(settings('site.notice.color'), 'primary');
 

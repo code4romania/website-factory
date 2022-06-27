@@ -9,6 +9,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\Finder\SplFileInfo;
+use Throwable;
 
 class UpdateTranslationsCommand extends Command
 {
@@ -31,7 +32,7 @@ class UpdateTranslationsCommand extends Command
      *
      * @var array
      */
-    protected array $lines;
+    protected array $lines = [];
 
     /**
      * Execute the console command.
@@ -45,8 +46,8 @@ class UpdateTranslationsCommand extends Command
                 $language = $file->getFilenameWithoutExtension();
 
                 try {
-                    $lines = json_decode(File::get($file), true);
-                } catch (\Throwable $th) {
+                    $lines = json_decode(File::get($file->getPath()), true);
+                } catch (Throwable $th) {
                     $this->warn("Could not fetch the contents of {$file->getFilename()}. Skipping...");
                     $lines = [];
                 }

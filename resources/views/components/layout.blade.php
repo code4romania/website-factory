@@ -12,7 +12,6 @@
         [x-cloak] {
             display: none !important;
         }
-
     </style>
 
     @stack('preload')
@@ -21,7 +20,7 @@
     <script src="{{ asset(mix('public.js', 'assets')) }}" defer></script>
     @stack('scripts')
 
-    {!! SEO::generate() !!}
+    {!! SEO::generate(minify: true) !!}
 </head>
 
 <body class="flex flex-col min-h-screen antialiased">
