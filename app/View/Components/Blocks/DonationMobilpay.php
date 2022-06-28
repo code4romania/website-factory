@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\View\Components\Blocks;
 
-use App\Services\PaymentGateway;
+use App\Payments\PaymentGateway;
 
 class DonationMobilpay extends BlockComponent
 {

@@ -10,7 +10,7 @@ use Illuminate\View\Component;
 
 abstract class BlockComponent extends Component
 {
-    protected Block $block;
+    public Block $block;
 
     public int $id;
 

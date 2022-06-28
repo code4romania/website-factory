@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Services;
+namespace App\Payments;
 
+use App\Services\Features;
 use Omnipay\Common\Message\ResponseInterface;
 use Omnipay\Omnipay;
 

@@ -18,12 +18,14 @@ class DonationRequest extends FormRequest
     {
         return [
             'gateway'    => ['required', Rule::in(array_keys(settings('payments.gateways') ?? []))],
-            'amount'     => ['required', 'integer'],
+            'amount'     => ['exclude_if:amount,other', 'integer'],
+            'other'      => ['required_if:amount,other', 'integer'],
             'currency'   => ['required', 'in:RON,EUR'],
             'first_name' => ['required', 'string', 'max:100'],
             'last_name'  => ['required', 'string', 'max:100'],
             'email'      => ['required', 'email'],
             'phone'      => ['nullable', 'string'],
+            'recurring'  => ['boolean'],
         ];
     }
 }

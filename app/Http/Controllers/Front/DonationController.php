@@ -6,7 +6,8 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\DonationRequest;
-use App\Services\PaymentGateway;
+use App\Models\Page;
+use App\Payments\PaymentGateway;
 use Illuminate\Http\Request;
 
 class DonationController extends Controller
@@ -18,19 +19,18 @@ class DonationController extends Controller
         abort_unless(PaymentGateway::isActive($attributes['gateway']), 403);
 
         $response = PaymentGateway::purchase($attributes['gateway'], [
-            'amount'    => $attributes['amount'],
-            'currency'  => $attributes['currency'],
-            'orderId'   => time(),
-            'orderName' => 'donation',
-            'returnUrl' => localized_route('front.donations.return'),
-            'notifyUrl' => localized_route('front.donations.webhook'),
-            'card'      => [
+            'amount'               => $attributes['amount'] ?? $attributes['other'],
+            'currency'             => $attributes['currency'],
+            'transactionId'        => (string) time(),
+            'transactionReference' => __('donation'),
+            'returnUrl'            => localized_route('front.donations.return'),
+            'card'                 => [
                 'first_name' => $attributes['first_name'],
                 'last_name'  => $attributes['last_name'],
                 'email'      => $attributes['email'],
                 'phone'      => $attributes['phone'],
             ],
-            'recurrence' => ['times' => 10, 'interval' => '28'],
+            'recurring'  => (bool) $attributes['recurring'],
         ]);
 
         if ($response->isSuccessful()) {
@@ -44,11 +44,8 @@ class DonationController extends Controller
 
     public function return(string $locale, Request $request)
     {
-        dd($locale, $request);
-    }
+        $page = Page::findOrFail(settings('donations.page.thanks'));
 
-    public function webhook(string $locale, Request $request)
-    {
-        dd($locale, $request);
+        return redirect()->to(localized_route('front.pages.show', ['page' => $page]));
     }
 }

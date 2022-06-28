@@ -3,8 +3,8 @@
 
 <{{ $tag }} {{ $attributes->class('block') }}>
     <div @class([
-        'mb-1',
         'text-red-700' => $errors->has($block->name),
+        'mb-1',
     ])>
         <div class="flex">
             <span class="font-semibold">
@@ -36,9 +36,5 @@
         {{ $slot }}
     </div>
 
-    @error($block->name)
-        <p class="mt-2 text-sm text-red-600">
-            {{ $message }}
-        </p>
-    @enderror
+    <x-blocks.form._error :name="$block->name" />
     </{{ $tag }}>

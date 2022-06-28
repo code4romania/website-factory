@@ -30,9 +30,10 @@ Route::prefix('{locale?}')->group(function () {
 
     if (Features::hasDonations()) {
         Route::post('/donate', [Front\DonationController::class, 'submit'])->name('donations.submit');
-        Route::get('/donate/return', [Front\DonationController::class, 'return'])->name('donations.return');
-        // Route::post('/donate/webhook', [Front\DonationController::class, 'webhook'])->name('donations.webhook')
-        //     ->withoutMiddleware(VerifyCsrfToken::class);
+
+        Route::post('/donate/return', [Front\DonationController::class, 'return'])
+            ->name('donations.return')
+            ->withoutMiddleware(VerifyCsrfToken::class);
     }
 
     Route::get('/blog', [Front\PostController::class, 'index'])->name('posts.index');

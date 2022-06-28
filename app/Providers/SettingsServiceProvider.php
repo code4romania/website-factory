@@ -52,9 +52,9 @@ class SettingsServiceProvider extends ServiceProvider
         }
 
         data_set($this->settings, 'payments.gateways.euplatesc', [
-            'driver'=> '\Paytic\Omnipay\Euplatesc\Gateway',
-            'recurring'=> true,
-            'config'=> [
+            'driver'    => '\App\Payments\Euplatesc\Gateway',
+            'recurring' => true,
+            'config'    => [
                 'mid' => $mid,
                 'key' => $key,
             ],

@@ -116,6 +116,7 @@
     "decision.event.updated": "Hotărârea a fost actualizată.",
     "decision.event.deleted": "Hotărârea a fost ștersă.",
 
+    "donation": "Donație",
     "donation.action": "Donează",
     "donation.action.paypal": "Donează prin PayPal",
     "donation.field.first_name": "Prenume",
@@ -123,6 +124,12 @@
     "donation.field.email": "Email",
     "donation.field.phone": "Telefon",
     "donation.field.amount": "Sumă",
+    "donation.field.recurrence": "Tip donație",
+
+    "donation.recurrence.once": "Singulară",
+    "donation.recurrence.monthly": "Lunară",
+
+    "donation.amount.other": "Altă sumă",
 
     "field.actions": "Acțiuni",
     "field.align": "Aliniere",
