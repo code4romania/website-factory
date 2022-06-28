@@ -45,6 +45,11 @@ class BlockCollection extends Collection
                     return ! Str::startsWith($name, 'donation-');
                 }
 
+                // TODO: remove after mobilpay implementation
+                if ($name === 'donation-mobilpay') {
+                    return false;
+                }
+
                 return true;
             })
             ->map(function (SplFileInfo $file) {

@@ -51,7 +51,7 @@
                 />
             </panel>
 
-            <panel title="Mobilpay">
+            <panel hidden title="Netopia">
                 <form-checkbox
                     :label="$t('field.enabled')"
                     v-model="form.settings.mobilpay_enabled"

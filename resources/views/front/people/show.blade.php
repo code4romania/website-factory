@@ -31,5 +31,5 @@
         </div>
     </header>
 
-    <x-blocks :model="$person" class="test" />
+    <x-blocks :model="$person" />
 </x-layout>

@@ -38,5 +38,5 @@
         </div>
     </header>
 
-    <x-blocks :model="$post" class="test" />
+    <x-blocks :model="$post" />
 </x-layout>

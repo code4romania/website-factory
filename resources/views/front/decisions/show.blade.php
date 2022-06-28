@@ -11,5 +11,5 @@
         <div class="mt-16 border-b border-gray-300"></div>
     </header>
 
-    <x-blocks :model="$decision" class="test" />
+    <x-blocks :model="$decision" />
 </x-layout>
