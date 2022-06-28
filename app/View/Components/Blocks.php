@@ -18,11 +18,13 @@ class Blocks extends Component
      *
      * @return void
      */
-    public function __construct(Model $model)
+    public function __construct(Model $model, ?string $prefix = null)
     {
+        $prefix = rtrim("components.blocks.{$prefix}", '.');
+
         $this->blocks = $model->blocks
             ->whereNull('parent_id')
-            ->filter(fn (Block $block) => view()->exists("components.blocks.{$block->type}"));
+            ->filter(fn (Block $block) => view()->exists("{$prefix}.{$block->type}"));
     }
 
     /**

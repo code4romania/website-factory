@@ -14,9 +14,9 @@
         </div>
     @else
         <form action="{{ localized_route('front.forms.submit', ['form' => $form]) }}" method="post">
-            <x-blocks :model="$form" />
+            <x-blocks :model="$form" prefix="form" :container="false" />
 
-            <div class="container flex mt-8 lg:mt-12">
+            <div class="flex mt-8 lg:mt-12">
                 @csrf
 
                 <x-button
