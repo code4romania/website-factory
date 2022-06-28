@@ -11,5 +11,5 @@
         <div class="mt-16 border-b border-gray-300"></div>
     </header>
 
-    <x-form :form="$form" class="max-w-6xl mx-auto mt-16 sm:mt-24 lg:mt-32" />
+    <x-form :form="$form" class="container mt-16 sm:mt-24 lg:mt-32" />
 </x-layout>
