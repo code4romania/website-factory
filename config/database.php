@@ -78,6 +78,9 @@ return [
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
+            'options' => extension_loaded('pdo_pgsql') ? [
+                PDO::ATTR_PERSISTENT => true,
+            ] : [],
         ],
 
         'sqlsrv' => [

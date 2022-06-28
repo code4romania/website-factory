@@ -39,20 +39,21 @@ RUN apk update && \
     zip && \
 
     # production dependencies
-    apk add --update --no-cache \
+    apk add --no-cache \
     icu-libs \
     libjpeg-turbo \
     libpng \
     libwebp \
     libzip \
-    libzip-dev \
-    mysql-client \
     nginx \
-    php-pgsql \
-    && \
+    php-pgsql && \
 
     # configure extensions
     docker-php-ext-configure gd --enable-gd --with-jpeg --with-webp && \
+
+    # install redis
+    pecl install redis && \
+    docker-php-ext-enable redis && \
 
     # install extensions
     docker-php-ext-install \
@@ -64,7 +65,6 @@ RUN apk update && \
     intl \
     opcache \
     pdo_pgsql \
-    pdo_mysql \
     simplexml \
     zip && \
 
