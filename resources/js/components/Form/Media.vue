@@ -112,6 +112,11 @@
                 type: Array,
                 required: true,
             },
+            accepts: {
+                type: String,
+                required: true,
+                validator: (accepts) => ['images', 'files'].includes(accepts),
+            },
         },
         emits: ['update:media'],
         setup(props) {
@@ -126,7 +131,12 @@
                     return;
                 }
 
-                openMediaLibrary(props.id, remainingImages.value, props.media);
+                openMediaLibrary(
+                    props.id,
+                    remainingImages.value,
+                    props.media,
+                    props.accepts
+                );
             };
 
             const bus = inject('bus');

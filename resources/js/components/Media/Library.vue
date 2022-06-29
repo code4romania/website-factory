@@ -26,6 +26,7 @@
         >
             <div class="relative flex flex-col flex-1 overflow-hidden">
                 <media-manager-controls
+                    v-if="types.length > 1"
                     class="px-4 pt-8 md:px-6 md:pt-0"
                     :types="types"
                     :current-type="currentType"
@@ -169,7 +170,7 @@
 </template>
 
 <script>
-    import { computed, ref, inject } from 'vue';
+    import { ref, inject } from 'vue';
     import { useInfiniteScroll } from '@vueuse/core';
     import { useMedia } from '@/helpers';
 
@@ -196,18 +197,13 @@
                 clearSelected();
             };
 
-            const types = computed(() => ['images', 'files']);
-
+            const availableMediaTypes = ['images', 'files'];
+            const types = ref(availableMediaTypes);
             const currentType = ref(types.value[0]);
 
             const items = ref([]);
 
-            const {
-                fetchMedia,
-                uploadMedia,
-                deleteMedia,
-                getMediaConfig,
-            } = useMedia();
+            const { fetchMedia, uploadMedia, deleteMedia } = useMedia();
 
             const getItems = () => {
                 if (nextPage.value === null) {
@@ -322,13 +318,21 @@
 
                 document.body.style.overflow = 'hidden';
 
-                getItems();
-
                 if (attach) {
                     attachingMediaTo.value = attach.id;
                     remainingItems.value = attach.remaining;
                     disabledItems.value = attach.selected.map((item) => item.id);
+
+                    types.value = attach.allowed
+                        ? types.value.filter((type) => type === attach.allowed)
+                        : availableMediaTypes;
+                } else {
+                    types.value = availableMediaTypes;
                 }
+
+                currentType.value = types.value[0];
+
+                getItems();
             });
 
             const changeType = (type) => {

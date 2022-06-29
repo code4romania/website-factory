@@ -63,6 +63,7 @@
             <form-media
                 :label="$t('field.image')"
                 v-model:media="form.media"
+                accepts="images"
                 :limit="1"
             />
         </template>

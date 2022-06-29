@@ -6,11 +6,12 @@ import { v4 as uuid } from 'uuid';
 export default function () {
     const bus = inject('bus');
 
-    const openMediaLibrary = (id, remaining, selected) => {
+    const openMediaLibrary = (id, remaining, selected, allowed) => {
         bus.emit('media-library:open', {
             id, // field id
             remaining, // number of items that can still be selected
             selected, // array of selected item ids
+            allowed, // string, allowed item type
         });
     };
 

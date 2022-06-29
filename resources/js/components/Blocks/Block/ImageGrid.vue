@@ -13,7 +13,12 @@
         :max="5"
     />
 
-    <form-media :label="$t('field.images')" v-model:media="media" :limit="20" />
+    <form-media
+        :label="$t('field.images')"
+        v-model:media="media"
+        accepts="images"
+        :limit="20"
+    />
 </template>
 
 <script>

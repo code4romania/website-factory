@@ -1,5 +1,10 @@
 <template>
-    <form-media :label="$t('field.image')" v-model:media="media" :limit="1" />
+    <form-media
+        :label="$t('field.image')"
+        v-model:media="media"
+        accepts="images"
+        :limit="1"
+    />
 
     <localized-field
         field="form-editor"
