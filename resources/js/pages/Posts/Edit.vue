@@ -81,14 +81,13 @@
                 v-model="form.author"
             />
 
-            <form-select
+            <form-select-multiple
                 name="categories"
                 :label="$t('field.categories')"
                 v-model="form.categories"
                 :options="categories"
                 option-value-key="id"
                 option-label-key="title"
-                multiple
             />
         </template>
 
