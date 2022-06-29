@@ -27,7 +27,9 @@
                         v-text="itemLabel"
                     />
 
-                    <span class="ml-1">&mdash; {{ item.type }}</span>
+                    <span class="ml-1">
+                        &mdash; {{ $t(`menu.item.${item.type}`) }}
+                    </span>
 
                     <button
                         v-if="item.children.length"
@@ -76,6 +78,7 @@
                     :label="$t('field.type')"
                     v-model="item.type"
                     :options="types"
+                    required
                 />
 
                 <template v-if="item.type === 'external'">
@@ -121,6 +124,7 @@
     import { computed, ref, watch } from 'vue';
     import { usePage } from '@inertiajs/inertia-vue3';
     import { useLocale } from '@/helpers';
+    import { trans } from 'laravel-vue-i18n';
     import get from 'lodash/get';
 
     export default {
@@ -155,7 +159,12 @@
         setup(props) {
             const { currentLocale } = useLocale();
 
-            const types = usePage().props.value.types || [];
+            const types = computed(() =>
+                (usePage().props.value.types || []).map((type) => ({
+                    value: type,
+                    label: trans(`menu.item.${type}`),
+                }))
+            );
 
             const models = computed(
                 () => usePage().props.value.models[props.item.type] || []

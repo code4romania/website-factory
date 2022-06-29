@@ -179,7 +179,9 @@
     "field.submissions": "Răspunsuri",
     "field.text": "Text",
     "field.title": "Titlu",
+    "field.type": "Tip",
     "field.url": "URL",
+    "field.uuid": "UUID",
 
     "form.label": "Formular|Formulare",
     "form.action.create": "Adaugă formular",
@@ -233,6 +235,12 @@
     "menu.event.updated": "Meniul a fost actualizat.",
     "menu.location.header": "Header",
     "menu.location.footer": "Footer",
+
+    "menu.item.text": "Text",
+    "menu.item.external": "Link extern",
+    "menu.item.page": "Pagină",
+    "menu.item.post": "Post",
+    "menu.item.post_category": "Categorie postări",
 
     "page.label": "Pagină|Pagini",
     "page.action.create": "Adaugă pagină",
