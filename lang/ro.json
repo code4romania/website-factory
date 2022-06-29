@@ -34,6 +34,8 @@
     "app.action.upload": "Încarcă",
     "app.action.view": "Vezi",
 
+    "app.item.limit": "Adaugă pănă la un item.|Adaugă până la :count itemi.|Adaugă până la :count de itemi.",
+
     "app.table_status.all": "Toate",
     "app.table_status.published": "Publicat|Publicate",
     "app.table_status.draft": "Draft|Draft-uri",
@@ -163,6 +165,7 @@
     "field.options": "Opțiuni",
     "field.password": "Parolă",
     "field.password_confirmation": "Confirmarea parolei",
+    "field.people": "Persoane",
     "field.position": "Poziție imagine",
     "field.posts_count": "Număr de postări",
     "field.progress": "Progres",

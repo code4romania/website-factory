@@ -65,23 +65,25 @@
                         class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-100 disabled:opacity-50"
                     >
                         <icon
-                            name="System/add-line"
+                            name="Editor/attachment-2"
                             class="w-5 h-5 mr-2 -ml-1"
                         />
 
-                        <span v-text="$t('app.action.add')" />
+                        <span v-text="$t('app.action.attach')" />
                     </button>
 
-                    <div v-if="limit > 1" class="text-sm text-gray-500">
-                        Add up to {{ limit }} items
-                    </div>
+                    <div
+                        v-if="limit > 1"
+                        class="text-sm text-gray-500"
+                        v-text="$tChoice('app.item.limit', limit)"
+                    />
                 </div>
             </template>
         </draggable>
     </form-field>
 
     <action-modal max-width="lg" v-if="open" @close="open = false">
-        <template #title>Attach related</template>
+        <template #title>{{ $t('app.action.attach') }}</template>
 
         <template #content>
             <ul class="w-full text-sm font-medium divide-y divide-gray-200">
@@ -103,7 +105,9 @@
                 :disabled="selectedItems.length > limit"
                 @click="addSelectedItems"
             >
-                Attach
+                <icon name="System/add-line" class="w-5 h-5 mr-2 -ml-1" />
+
+                <span v-text="$t('app.action.attach')" />
             </button>
 
             <div class="text-sm text-gray-500">

@@ -77,12 +77,19 @@
                         :disabled="!remainingImages"
                         @click="addImage"
                     >
-                        Add Image
+                        <icon
+                            name="Editor/attachment-2"
+                            class="w-5 h-5 mr-2 -ml-1"
+                        />
+
+                        <span v-text="$t('app.action.attach')" />
                     </button>
 
-                    <div v-if="limit > 1" class="text-sm text-gray-500">
-                        Add up to {{ limit }} images
-                    </div>
+                    <div
+                        v-if="limit > 1"
+                        class="text-sm text-gray-500"
+                        v-text="$tChoice('app.item.limit', limit)"
+                    />
                 </div>
             </template>
         </draggable>
