@@ -35,7 +35,7 @@
             <div>
                 <div class="flex items-center">
                     <h2
-                        class="flex-1 font-semibold leading-tight text-gray-900"
+                        class="flex-1 font-semibold leading-tight text-gray-900 truncate"
                     >
                         {{ item.filename }}.{{ item.extension }}
                     </h2>

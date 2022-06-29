@@ -100,7 +100,7 @@ class InstallCommand extends Command
             [
                 'section' => 'site',
                 'key'     => 'title',
-                'value'   => $this->localized(config('app.name'), encoded:true),
+                'value'   => $this->localized(config('app.name'), encoded: true),
             ],
             [
                 'section' => 'site',
