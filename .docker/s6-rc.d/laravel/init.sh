@@ -11,5 +11,6 @@ php artisan view:cache
 php artisan icons:cache
 php artisan migrate --force
 php artisan wf:update-translations
+php artisan wf:sequences
 
 echo "Laravel init done"
