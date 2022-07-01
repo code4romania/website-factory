@@ -6,6 +6,7 @@ namespace App\Http\Requests\Admin;
 
 use App\Models\Setting;
 use App\Rules\ValidHex;
+use App\Services\Features;
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
 
 class SettingRequest extends BaseRequest
@@ -31,23 +32,30 @@ class SettingRequest extends BaseRequest
             ->keys()
             ->implode(',');
 
-        return match ($this->section) {
-            'default' => [],
-            'site' => [
+        if ($this->section === 'site') {
+            $rules = [
                 'settings.title'          => ['array'],
                 'settings.description'    => ['array'],
                 'settings.logo'           => ['nullable', 'image'],
                 'settings.front_page'     => ['required', 'exists:pages,id'],
-                'settings.colors'         => ['array'],
-                'settings.colors.primary' => ['required', new ValidHex],
                 'settings.social'         => ['required', "array:$platforms"],
                 'settings.notice'         => ['array'],
                 'settings.notice.enabled' => ['required', 'boolean'],
                 'settings.notice.color'   => ['required', new ValidHex],
                 'settings.notice.text'    => ['array'],
+            ];
 
-            ],
-            'donations' => [
+            if (Features::hasTheme()) {
+                $rules['settings.colors'] = ['array'];
+                $rules['settings.colors.primary'] = ['required', new ValidHex];
+            }
+
+
+            return $rules;
+        }
+
+        if ($this->section === 'donations') {
+            return [
                 'settings.page.thanks'      => ['required', 'exists:pages,id'],
                 'settings.page.error'       => ['required', 'exists:pages,id'],
                 'settings.amounts'          => ['array'],
@@ -61,7 +69,9 @@ class SettingRequest extends BaseRequest
                 'settings.euplatesc_enabled' => ['boolean'],
                 'settings.euplatesc_mid'     => ['nullable', 'string'],
                 'settings.euplatesc_key'     => ['nullable', 'string'],
-            ],
-        };
+            ];
+        }
+
+        return [];
     }
 }

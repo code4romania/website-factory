@@ -30,27 +30,30 @@ class Setting extends Model
         $translatable = locales()
             ->mapWithKeys(fn (array $config, string $locale) => [$locale => null]);
 
-        $sections = collect();
+        $sections = [
+            'site' => [
+                'title'       => $translatable,
+                'description' => $translatable,
+                'front_page'  => null,
+                'logo'        => null,
+                'notice' => [
+                    'enabled' => false,
+                    'color'   => null,
+                    'text'    => $translatable,
+                ],
+                'social'      => collect(config('website-factory.social_platforms'))
+                    ->mapWithKeys(fn (array $config, string $id) => [$id => null]),
+            ],
+        ];
 
-        $sections->put('site', [
-            'title'       => $translatable,
-            'description' => $translatable,
-            'front_page'  => null,
-            'logo'        => null,
-            'colors'      => [
+        if (Features::hasTheme()) {
+            $sections['site']['colors'] = [
                 'primary' => null,
-            ],
-            'notice' => [
-                'enabled' => false,
-                'color'   => null,
-                'text'    => $translatable,
-            ],
-            'social'      => collect(config('website-factory.social_platforms'))
-                ->mapWithKeys(fn (array $config, string $id) => [$id => null]),
-        ]);
+            ];
+        }
 
         if (Features::hasDonations()) {
-            $sections->put('donations', [
+            $sections['donations'] = [
                 'page' => [
                     'thanks' => null,
                     'error'  => null,
@@ -63,10 +66,10 @@ class Setting extends Model
                 'euplatesc_enabled'    => false,
                 'euplatesc_mid'        => null,
                 'euplatesc_key'        => null,
-            ]);
+            ];
         }
 
-        return $sections;
+        return collect($sections);
     }
 
     protected static function sectionData(string $section): array

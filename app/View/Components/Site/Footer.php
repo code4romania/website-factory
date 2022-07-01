@@ -44,6 +44,10 @@ class Footer extends Component
      */
     public function render()
     {
+        if (config('website-factory.edition') === 'minister') {
+            return view('components.site.footer-minister');
+        }
+
         return view('components.site.footer');
     }
 }

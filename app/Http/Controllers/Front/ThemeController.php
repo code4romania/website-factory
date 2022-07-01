@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Services\Features;
 
 class ThemeController extends Controller
 {
@@ -16,7 +17,11 @@ class ThemeController extends Controller
 
     protected static function theme(): string
     {
-        $colors = collect(settings('site.colors'))
+        $colors = Features::hasTheme()
+            ? settings('site.colors')
+            : ['primary' => '#004890'];
+
+        $colors = collect($colors)
             ->map('color_var')
             ->implode('');
 

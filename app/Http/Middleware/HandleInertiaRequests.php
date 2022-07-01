@@ -34,9 +34,10 @@ class HandleInertiaRequests extends Middleware
             'flash' => fn () => $this->flash($request),
             'route' => fn () => $request->route()->getName(),
             'app'   => fn () => [
-                'debug'   => config('app.debug'),
-                'edition' => config('website-factory.edition'),
-                'version' => config('app.version'),
+                'debug'    => config('app.debug'),
+                'version'  => config('app.version'),
+                'edition'  => config('website-factory.edition'),
+                'features' => Features::all(),
             ],
             'locales' => fn () => [
                 'available' => locales()->keys(),

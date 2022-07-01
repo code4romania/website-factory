@@ -12,6 +12,8 @@ class Features
 
     private const DONATIONS = 'donations';
 
+    private const THEME = 'theme';
+
     private static string $featureKey = '_website-factory-features';
 
     /**
@@ -24,18 +26,34 @@ class Features
         config()->set(static::$featureKey, match ($edition) {
             'ong' => [
                 static::DONATIONS,
+                static::THEME,
             ],
             'primarie' => [
                 static::DECISIONS,
+                static::THEME,
             ],
             'minister' => [
                 static::DECISIONS,
             ],
-            'develop' => null,
+            'develop' => [
+                static::DECISIONS,
+                static::DONATIONS,
+                static::THEME,
+            ],
             default => throw new InvalidWebsiteFactoryEdition($edition, ['ong', 'primarie', 'minister']),
         });
 
         return $edition;
+    }
+
+    /**
+     * List all the enabled features.
+     *
+     * @return array
+     */
+    public static function all(): array
+    {
+        return config(static::$featureKey, []);
     }
 
     /**
@@ -46,11 +64,7 @@ class Features
      */
     public static function enabled(string $feature): bool
     {
-        if (config('website-factory.edition') === 'develop') {
-            return true;
-        }
-
-        return \in_array($feature, config(static::$featureKey, []));
+        return \in_array($feature, self::all());
     }
 
     /**
@@ -71,5 +85,15 @@ class Features
     public static function hasDonations(): bool
     {
         return static::enabled(static::DONATIONS);
+    }
+
+    /**
+     * Determine if the application is using the theme feature.
+     *
+     * @return bool
+     */
+    public static function hasTheme(): bool
+    {
+        return static::enabled(static::THEME);
     }
 }

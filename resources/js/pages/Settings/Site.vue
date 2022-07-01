@@ -30,6 +30,7 @@
 
             <panel title="Branding">
                 <form-color-picker
+                    v-if="hasFeature('theme')"
                     :label="$t('setting.site.colors.primary')"
                     name="settings.colors.primary"
                     v-model="form.settings.colors.primary"
@@ -78,12 +79,19 @@
 </template>
 
 <script>
+    import { useFeature } from '@/helpers';
+
     export default {
         props: {
             data: {
                 type: Object,
                 default: () => ({}),
             },
+        },
+        setup(props) {
+            const { hasFeature } = useFeature();
+
+            return { hasFeature };
         },
     };
 </script>
