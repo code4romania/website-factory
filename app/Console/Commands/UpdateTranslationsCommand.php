@@ -18,7 +18,7 @@ class UpdateTranslationsCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'wf:update-translations {--force : Overwrite existing translations}';
+    protected $signature = 'wf:translations {--force : Overwrite existing translations}';
 
     /**
      * The console command description.

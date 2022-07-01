@@ -17,7 +17,7 @@ class CreateAdminCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'wf:create-admin';
+    protected $signature = 'wf:admin';
 
     /**
      * The console command description.

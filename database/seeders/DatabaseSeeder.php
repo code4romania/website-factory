@@ -30,8 +30,6 @@ class DatabaseSeeder extends Seeder
 
         Artisan::call('wf:install');
 
-        Artisan::call('media:import', ['disk' => config('mediable.default_disk')]);
-
         $images = Media::query()
             ->whereImages()
             ->whereIsOriginal()
