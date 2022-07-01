@@ -25,10 +25,8 @@ class TranslatableFormRequestRules
                 continue;
             }
 
-            $isSlugSource = $modelHasSlug && ($key === $model->slugFieldSource);
-
-            locales()->each(function (array $config, string $locale) use ($rules, $key, $rule, $isSlugSource) {
-                if (! $isSlugSource && $locale !== config('app.fallback_locale')) {
+            locales()->each(function (array $config, string $locale) use ($rules, $key, $rule) {
+                if (! $locale !== config('app.fallback_locale')) {
                     $rule = collect($rule)
                         ->map(fn (string $rule) => Str::startsWith($rule, 'required') ? 'nullable' : $rule)
                         ->all();
