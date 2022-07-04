@@ -54,7 +54,7 @@
                             :key="`media-view-file-${index}`"
                             class="relative flex items-center w-full py-4 text-base bg-white focus:outline-none group disabled:cursor-default disabled:bg-gray-100"
                         >
-                            <div class="min-w-0">
+                            <div class="min-w-0 shrink-0">
                                 <form-checkbox
                                     :modelValue="isSelected(item)"
                                     @update:modelValue="toggleSelected(item.id)"
@@ -76,13 +76,20 @@
                                 v-else
                                 type="button"
                                 @click="select(item.id)"
-                                class="flex flex-1 text-left"
+                                class="flex flex-1 w-full gap-2 pl-4 text-left truncate sm:pl-6 sm:gap-3"
                             >
-                                <div class="flex-1 px-4 sm:px-6">
+                                <file-type-icon
+                                    :type="item.aggregate_type"
+                                    class="w-6 h-6"
+                                />
+
+                                <div class="flex-1 truncate">
                                     {{ item.filename }}.{{ item.extension }}
                                 </div>
 
-                                <div class="justify-end text-right">
+                                <div
+                                    class="justify-end text-right text-gray-400 shrink-0"
+                                >
                                     {{ item.size }}
                                 </div>
                             </button>
@@ -170,7 +177,7 @@
 </template>
 
 <script>
-    import { ref, inject } from 'vue';
+    import { computed, ref, inject } from 'vue';
     import { useInfiniteScroll } from '@vueuse/core';
     import { useMedia } from '@/helpers';
 
@@ -197,8 +204,8 @@
                 clearSelected();
             };
 
-            const availableMediaTypes = ['images', 'files'];
-            const types = ref(availableMediaTypes);
+            const availableMediaTypes = computed(() => ['images', 'files']);
+            const types = ref([...availableMediaTypes.value]);
             const currentType = ref(types.value[0]);
 
             const items = ref([]);
@@ -324,15 +331,15 @@
                     disabledItems.value = attach.selected.map((item) => item.id);
 
                     types.value = attach.allowed
-                        ? types.value.filter((type) => type === attach.allowed)
-                        : availableMediaTypes;
+                        ? availableMediaTypes.value.filter(
+                              (type) => type === attach.allowed
+                          )
+                        : availableMediaTypes.value;
                 } else {
-                    types.value = availableMediaTypes;
+                    types.value = availableMediaTypes.value;
                 }
 
-                currentType.value = types.value[0];
-
-                getItems();
+                changeType(types.value[0]);
             });
 
             const changeType = (type) => {

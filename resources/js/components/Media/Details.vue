@@ -78,7 +78,21 @@
                         <dd class="text-gray-900" v-text="item.size" />
                     </div>
 
-                    <div v-if="item.sizes" class="flex justify-between py-3">
+                    <div class="flex justify-between py-3">
+                        <dt
+                            class="text-gray-500"
+                            v-text="$t('media.details.file_type')"
+                        />
+                        <dd class="text-gray-900" v-text="item.extension" />
+                    </div>
+
+                    <div
+                        v-if="
+                            item.sizes.original.width ||
+                            item.sizes.original.height
+                        "
+                        class="flex justify-between py-3"
+                    >
                         <dt
                             class="text-gray-500"
                             v-text="$t('media.details.dimensions')"
