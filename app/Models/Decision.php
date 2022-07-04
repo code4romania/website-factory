@@ -8,6 +8,7 @@ use App\DataTransferObjects\SearchResult;
 use App\Traits\ClearsResponseCache;
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
+use App\Traits\HasMedia;
 use App\Traits\HasSlug;
 use App\Traits\Publishable;
 use App\Traits\Searchable;
@@ -23,6 +24,7 @@ class Decision extends Model
     use Filterable;
     use HasBlocks;
     use HasFactory;
+    use HasMedia;
     use HasSlug;
     use Publishable;
     use Searchable;

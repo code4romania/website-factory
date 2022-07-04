@@ -39,7 +39,8 @@ class DecisionController extends AdminController
 
         $decision = Decision::create($attributes);
 
-        $decision->saveBlocks($attributes['blocks']);
+        $decision->saveBlocks($attributes['blocks'])
+            ->saveMedia($attributes['media']);
 
         return redirect()->route('admin.decisions.edit', $decision)
             ->with('success', __('decision.event.created'));
@@ -58,7 +59,8 @@ class DecisionController extends AdminController
 
         $decision->update($attributes);
 
-        $decision->saveBlocks($attributes['blocks']);
+        $decision->saveBlocks($attributes['blocks'])
+            ->saveMedia($attributes['media']);
 
         return redirect()->route('admin.decisions.edit', $decision)
             ->with('success', __('decision.event.updated'));

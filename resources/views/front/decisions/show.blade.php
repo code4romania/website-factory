@@ -4,9 +4,11 @@
             {{ $decision->title }}
         </h1>
 
-        <div class="prose text-gray-500 max-w-prose sm:prose-lg lg:prose-xl">
+        <div class="mt-4 prose text-gray-500 max-w-prose md:prose-lg">
             {!! $decision->description !!}
         </div>
+
+        <x-media.attachments :items="$decision->getMedia('document')" />
 
         <div class="mt-16 border-b border-gray-300"></div>
     </header>

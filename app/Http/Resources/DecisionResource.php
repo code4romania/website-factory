@@ -35,6 +35,9 @@ class DecisionResource extends Resource
             'created_at'   => $this->created_at->toDateTimeString(),
             'published_at' => $this->published_at?->toDateTimeString(),
             'blocks'       => BlockResource::collection($this->blocks),
+            'media'        => MediaResource::collection(
+                $this->media()->whereIsOriginal()->get()
+            ),
         ];
     }
 
