@@ -21,7 +21,7 @@
     </header>
 
     <div class="container">
-        <div class="grid gap-8 lg:gap-12">
+        <div class="grid gap-8 sm:grid-cols-2 lg:gap-y-12">
             @forelse ($items as $item)
                 <article>
                     <a href="{{ $item->search_result->url_public }}"
@@ -29,17 +29,16 @@
                         <h1>{{ $item->search_result->title }}</h1>
                     </a>
 
-                    <div class="max-w-prose">
-                        <div class="prose prose-primary">
-                            {!! $item->search_result->description !!}
-                        </div>
 
-                        <div class="mt-4 text-right">
-                            <a href="{{ $item->search_result->url_public }}"
-                                class="text-sm font-semibold text-primary hover:underline">
-                                @lang('app.banner.more') <span aria-hidden="true">&rarr;</span>
-                            </a>
-                        </div>
+                    <div class="prose prose-primary">
+                        {!! $item->search_result->description !!}
+                    </div>
+
+                    <div class="mt-4 text-right">
+                        <a href="{{ $item->search_result->url_public }}"
+                            class="text-sm font-semibold text-primary hover:underline">
+                            @lang('app.banner.more') <span aria-hidden="true">&rarr;</span>
+                        </a>
                     </div>
                 </article>
             @empty

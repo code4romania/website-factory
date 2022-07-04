@@ -66,6 +66,8 @@ class SearchController extends Controller
 
         return $model::query()
             ->search($query)
-            ->paginate();
+            ->paginate(
+                perPage: 20
+            );
     }
 }
