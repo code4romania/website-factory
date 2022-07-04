@@ -49,7 +49,7 @@ class PostController extends AdminController
         $post->categories()->sync($attributes['categories']);
 
         $post->saveBlocks($attributes['blocks'])
-            ->saveImages($attributes['media']);
+            ->saveMedia($attributes['media']);
 
         return redirect()->route('admin.posts.edit', $post)
             ->with('success', __('post.event.created'));
@@ -73,7 +73,7 @@ class PostController extends AdminController
         $post->categories()->sync($attributes['categories']);
 
         $post->saveBlocks($attributes['blocks'])
-            ->saveImages($attributes['media']);
+            ->saveMedia($attributes['media']);
 
         return redirect()->route('admin.posts.edit', $post)
             ->with('success', __('post.event.updated'));

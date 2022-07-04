@@ -51,6 +51,13 @@
                 :label="$t('field.description')"
                 v-model="form.description"
             />
+
+            <form-media
+                :label="$t('field.documents')"
+                v-model:media="form.media"
+                accepts="files"
+                :limit="10"
+            />
         </template>
 
         <template #content="{ form }">

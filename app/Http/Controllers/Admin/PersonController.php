@@ -40,7 +40,7 @@ class PersonController extends AdminController
         $person = Person::create($attributes);
 
         $person->saveBlocks($attributes['blocks'])
-            ->saveImages($attributes['media']);
+            ->saveMedia($attributes['media']);
 
         return redirect()->route('admin.people.edit', $person)
             ->with('success', __('person.event.created'));
@@ -60,7 +60,7 @@ class PersonController extends AdminController
         $person->update($attributes);
 
         $person->saveBlocks($attributes['blocks'])
-            ->saveImages($attributes['media']);
+            ->saveMedia($attributes['media']);
 
         return redirect()->route('admin.people.edit', $person)
             ->with('success', __('person.event.updated'));

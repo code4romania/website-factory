@@ -74,7 +74,7 @@ class AdminController extends Controller
         }
 
         if (SupportsTrait::media($this->model)) {
-            $duplicate->saveImages($source->media->toArray());
+            $duplicate->saveMedia($source->media->toArray());
         }
 
         return $this->success('edit', 'duplicated', $duplicate);

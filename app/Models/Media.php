@@ -31,10 +31,8 @@ class Media extends BaseMedia
         //
     ];
 
-    public static function boot()
+    public static function booted()
     {
-        parent::boot();
-
         static::saving(function (self $media) {
             if ($media->aggregate_type === self::TYPE_IMAGE) {
                 $image = Image::make($media->contents());

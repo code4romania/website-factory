@@ -4,19 +4,27 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Models\Media;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Plank\Mediable\Mediable;
 
 trait HasMedia
 {
     use Mediable;
 
-    public function saveImages(iterable $media): Model
+    public function saveMedia(array $media): Model
     {
-        $this->syncMedia(
-            collect($media)->pluck('id')->all(),
-            ['image']
-        );
+        $media = Media::findMany(collect($media)->pluck('id'))
+            ->groupBy(fn (Media $item) => match ($item->aggregate_type) {
+                'image', 'vector' => 'image',
+                default => 'document',
+            })->each(function (Collection $items, string $group) {
+                $this->syncMedia(
+                    $items->pluck('id')->all(),
+                    $group
+                );
+            });
 
         return $this;
     }

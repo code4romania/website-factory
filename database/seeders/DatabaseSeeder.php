@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
                     ->count(20)
                     ->afterCreating(function (Post $post) use ($images) {
                         if ($images->isNotEmpty()) {
-                            $post->saveImages([$images->random()]);
+                            $post->saveMedia([$images->random()]);
                         }
                     })
             )

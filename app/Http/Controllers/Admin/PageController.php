@@ -44,7 +44,7 @@ class PageController extends AdminController
         $page = Page::create($attributes);
 
         $page->saveBlocks($attributes['blocks'])
-            ->saveImages($attributes['media']);
+            ->saveMedia($attributes['media']);
 
         return redirect()->route('admin.pages.edit', $page)
             ->with('success', __('page.event.created'));
@@ -64,7 +64,7 @@ class PageController extends AdminController
         $page->update($attributes);
 
         $page->saveBlocks($attributes['blocks'])
-            ->saveImages($attributes['media']);
+            ->saveMedia($attributes['media']);
 
         return redirect()->route('admin.pages.edit', $page)
             ->with('success', __('page.event.updated'));
