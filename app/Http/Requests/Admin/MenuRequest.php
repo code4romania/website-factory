@@ -41,7 +41,8 @@ class MenuRequest extends BaseRequest
             '%prefix%.*.label' => ['required', 'string'],
             '%prefix%.*.type'  => ['required', 'string'],
             '%prefix%.*.url'   => ['required_if:%prefix%.*.type,external', 'nullable', 'url'],
-            '%prefix%.*.model' => ['required_unless:%prefix%.*.type,external,text'],
+            '%prefix%.*.model' => ['required_if:%prefix%.*.type,' . MenuItem::allowedModels()->join(',')],
+            '%prefix%.*.route' => ['required_if:%prefix%.*.type,route'],
         ];
 
         $rules = collect();

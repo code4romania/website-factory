@@ -96,7 +96,16 @@
                     <!-- blank -->
                 </template>
 
-                <template v-else>
+                <template v-else-if="item.type === 'route'">
+                    <form-select
+                        :label="$t(`field.${item.type}`)"
+                        :name="`${prefix}.route`"
+                        v-model="item.route"
+                        :options="routes"
+                    />
+                </template>
+
+                <template v-else-if="models.length">
                     <form-select
                         :label="$t(`field.${item.type}`)"
                         :name="`${prefix}.model`"
@@ -166,6 +175,13 @@
                 }))
             );
 
+            const routes = computed(() =>
+                (usePage().props.value.routes || []).map((route) => ({
+                    value: route,
+                    label: trans(`menu.item.${route}`),
+                }))
+            );
+
             const models = computed(
                 () => usePage().props.value.models[props.item.type] || []
             );
@@ -216,6 +232,7 @@
 
             return {
                 types,
+                routes,
                 models,
                 itemLabel,
                 collapsed,

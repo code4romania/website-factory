@@ -33,13 +33,8 @@ class MenuController extends Controller
                     ->get()
                     ->toTree()
             ),
-            'types' => [
-                'text',
-                'external',
-                'page',
-                'post',
-                'post_category',
-            ],
+            'types' => MenuItem::allowedTypes(),
+            'routes' => MenuItem::allowedRoutes(),
             'models' => [
                 'page'          => Page::all(['id', 'title', 'slug']),
                 'post'          => Post::all(['id', 'title', 'slug']),
@@ -78,10 +73,14 @@ class MenuController extends Controller
                     'label'        => $item['label'],
                     'type'         => $item['type'],
                     'url'          => $item['type'] === 'external' ? $item['url'] : null,
-                    'model_type'   => ! \in_array($item['type'], ['external', 'text']) ? $item['type'] : null,
-                    'model_id'     => ! \in_array($item['type'], ['external', 'text']) ? $item['model'] : null,
+                    'route'        => $item['type'] === 'route' ? $item['route'] : null,
                     'children'     => $this->prepareItems($item['children'] ?? [], $location, ++$depth),
                 ];
+
+                if (MenuItem::allowedModels()->contains($item['type'])) {
+                    $prepared['model_type'] = $item['type'];
+                    $prepared['model_id'] = $item['model'];
+                }
 
                 if (\array_key_exists('id', $item) && ! \is_null($item['id'])) {
                     $prepared['id'] = $item['id'];

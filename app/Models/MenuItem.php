@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Services\Features;
 use App\Traits\ClearsResponseCache;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Kalnoy\Nestedset\NodeTrait;
@@ -32,22 +34,70 @@ class MenuItem extends Model
     ];
 
     protected $fillable = [
-        'id', 'type', 'location', 'position', 'model_type', 'model_id',
+        'id', 'type', 'location', 'position', 'model_type', 'model_id', 'route',
     ];
 
     /**
      * Models that can be added as menu items.
      *
-     * @var array
+     * @return \Illuminate\Support\Collection
      */
-    public array $allowedModels = [
-        'page', 'post', 'post_category',
-    ];
+    public static function allowedModels(): Collection
+    {
+        return collect([
+            'page', 'post', 'post_category',
+        ]);
+    }
+
+    /**
+     * Allowed menu item types.
+     *
+     * @return array
+     */
+    public static function allowedTypes(): array
+    {
+        return [
+            'text',
+            'external',
+            'page',
+            'post',
+            'post_category',
+            'route',
+        ];
+    }
+
+    /**
+     * Routes that can be added as menu items.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public static function allowedRoutes(): Collection
+    {
+        $routes = [
+            'posts.index',
+        ];
+
+        if (Features::hasDecisions()) {
+            $routes[] = 'decisions.index';
+        }
+
+        return collect($routes);
+    }
 
     protected static function booted()
     {
         static::addGlobalScope('position', function (Builder $query) {
             $query->orderBy('position');
+        });
+
+        // Dissociate model if changing to other menu item type
+        static::saving(function (self $item) {
+            if (
+                ! \is_null($item->model_type) &&
+                $item->type !== 'model'
+            ) {
+                $item->model()->dissociate();
+            }
         });
     }
 
@@ -69,6 +119,10 @@ class MenuItem extends Model
 
     public function isCurrentUrl(): bool
     {
+        if ($this->type === 'route' && Route::is("front.$this->route")) {
+            return true;
+        }
+
         if (! $this->model) {
             return false;
         }
@@ -82,7 +136,7 @@ class MenuItem extends Model
 
     public function setTypeAttribute(string $type): void
     {
-        $this->attributes['type'] = \in_array($type, $this->allowedModels) ? 'model' : $type;
+        $this->attributes['type'] = self::allowedModels()->contains($type) ? 'model' : $type;
     }
 
     public function getNormalizedTypeAttribute(): string

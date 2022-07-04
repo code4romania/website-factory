@@ -19,6 +19,7 @@ class MenuItemResource extends Resource
             'url'          => $this->getTranslationsWithFallback('url'),
             'model_type'   => $this->model_type,
             'model'        => $this->model_id,
+            'route'        => $this->route,
             'children'     => self::collection($this->children),
         ];
     }
