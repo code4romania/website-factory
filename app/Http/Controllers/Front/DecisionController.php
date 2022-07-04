@@ -15,6 +15,9 @@ class DecisionController extends Controller
 
     public function index(): View
     {
+        $this->seo()
+            ->setTitle(trans_choice('decision.label', 2));
+
         return view('front.decisions.index', [
             'decisions' => Decision::query()
                 ->paginate(),

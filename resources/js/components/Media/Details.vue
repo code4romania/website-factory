@@ -87,10 +87,7 @@
                     </div>
 
                     <div
-                        v-if="
-                            item.sizes.original.width ||
-                            item.sizes.original.height
-                        "
+                        v-if="hasDimensions(item)"
                         class="flex justify-between py-3"
                     >
                         <dt
@@ -134,6 +131,14 @@
 
             const item = ref(null);
 
+            const hasDimensions = (item) => {
+                if (!item.hasOwnProperty('sizes')) {
+                    return false;
+                }
+
+                return item.sizes.original.width || item.sizes.original.height;
+            };
+
             watch(
                 () => props.items,
                 (items) => {
@@ -145,6 +150,7 @@
             return {
                 item,
                 updateMedia,
+                hasDimensions,
             };
         },
     };

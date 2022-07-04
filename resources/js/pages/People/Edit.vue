@@ -2,7 +2,6 @@
     <form-container
         :resource="resource"
         :model="model"
-        :action="action"
         :fields="[
             'name',
             'slug',
@@ -90,7 +89,7 @@
 <script>
     export default {
         props: {
-            platforms: Array,
+            platforms: Object,
             resource: Object,
             model: Object,
         },

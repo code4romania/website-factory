@@ -2,7 +2,6 @@
     <form-container
         :resource="resource"
         :model="model"
-        :action="action"
         :fields="[
             'title',
             'slug',

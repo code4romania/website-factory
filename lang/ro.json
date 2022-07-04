@@ -34,8 +34,6 @@
     "app.action.upload": "Încarcă",
     "app.action.view": "Vezi",
 
-    "app.item.limit": "Adaugă pănă la un item.|Adaugă până la :count itemi.|Adaugă până la :count de itemi.",
-
     "app.table_status.all": "Toate",
     "app.table_status.published": "Publicat|Publicate",
     "app.table_status.draft": "Draft|Draft-uri",
@@ -145,6 +143,7 @@
     "field.content": "Conținut",
     "field.created_at": "Creat la",
     "field.description": "Descriere",
+    "field.documents": "Documente",
     "field.email": "Email",
     "field.enabled": "Activat",
     "field.form": "Formular",

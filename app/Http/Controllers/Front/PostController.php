@@ -15,6 +15,9 @@ class PostController extends Controller
 
     public function index(): View
     {
+        $this->seo()
+            ->setTitle(trans_choice('post.label', 2));
+
         return view('front.posts.index', [
             'posts' => Post::query()
                 ->withMedia()

@@ -72,11 +72,9 @@
                         <span v-text="$t('app.action.attach')" />
                     </button>
 
-                    <div
-                        v-if="limit > 1"
-                        class="text-sm text-gray-500"
-                        v-text="$tChoice('app.item.limit', limit)"
-                    />
+                    <div v-if="limit > 1" class="text-sm text-gray-500">
+                        {{ selectedItems.length }} / {{ limit }}
+                    </div>
                 </div>
             </template>
         </draggable>
@@ -111,7 +109,7 @@
             </button>
 
             <div class="text-sm text-gray-500">
-                {{ selectedItems.length }}/{{ limit }}
+                {{ selectedItems.length }} / {{ limit }}
             </div>
         </template>
     </action-modal>

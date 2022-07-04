@@ -2,7 +2,6 @@
     <form-container
         :resource="resource"
         :model="model"
-        :action="action"
         :fields="['code', 'name', 'enabled', 'lines']"
         :field-types="{
             enabled: Boolean,
