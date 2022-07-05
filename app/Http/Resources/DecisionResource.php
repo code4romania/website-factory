@@ -16,12 +16,14 @@ class DecisionResource extends Resource
     protected function index(Request $request): array
     {
         return [
-            'id'         => $this->id,
-            'title'      => $this->title,
-            'slug'       => $this->slug,
-            'created_at' => $this->created_at->toDateTimeString(),
-            'trashed'    => $this->trashed(),
-            'status'     => $this->status(),
+            'id'           => $this->id,
+            'title'        => $this->title,
+            'slug'         => $this->slug,
+            'created_at'   => $this->created_at->toDateTimeString(),
+            'published_at' => $this->published_at?->toDateTimeString(),
+            'categories'   => $this->categories,
+            'trashed'      => $this->trashed(),
+            'status'       => $this->status(),
         ];
     }
 
@@ -34,6 +36,7 @@ class DecisionResource extends Resource
             'slug'         => $this->getTranslations('slug'),
             'created_at'   => $this->created_at->toDateTimeString(),
             'published_at' => $this->published_at?->toDateTimeString(),
+            'categories'   => $this->categories->pluck('id'),
             'blocks'       => BlockResource::collection($this->blocks),
             'media'        => MediaResource::collection(
                 $this->media()->whereIsOriginal()->get()

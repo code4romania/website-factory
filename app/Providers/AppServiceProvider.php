@@ -38,18 +38,19 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Relation::morphMap([
-            'block'           => \App\Models\Block::class,
-            'decision'        => \App\Models\Decision::class,
-            'form_submission' => \App\Models\FormSubmission::class,
-            'form'            => \App\Models\Form::class,
-            'language'        => \App\Models\Language::class,
-            'media'           => \App\Models\Media::class,
-            'page'            => \App\Models\Page::class,
-            'person'          => \App\Models\Person::class,
-            'post_category'   => \App\Models\PostCategory::class,
-            'post'            => \App\Models\Post::class,
-            'setting'         => \App\Models\Setting::class,
-            'user'            => \App\Models\User::class,
+            'block'             => \App\Models\Block::class,
+            'decision_category' => \App\Models\DecisionCategory::class,
+            'decision'          => \App\Models\Decision::class,
+            'form_submission'   => \App\Models\FormSubmission::class,
+            'form'              => \App\Models\Form::class,
+            'language'          => \App\Models\Language::class,
+            'media'             => \App\Models\Media::class,
+            'page'              => \App\Models\Page::class,
+            'person'            => \App\Models\Person::class,
+            'post_category'     => \App\Models\PostCategory::class,
+            'post'              => \App\Models\Post::class,
+            'setting'           => \App\Models\Setting::class,
+            'user'              => \App\Models\User::class,
         ]);
 
         Validator::excludeUnvalidatedArrayKeys();

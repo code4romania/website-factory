@@ -16,6 +16,7 @@ use App\Traits\Sortable;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Decision extends Model
@@ -45,6 +46,15 @@ class Decision extends Model
     public array $allowedFilters = [
         //
     ];
+
+    public $with = [
+        'categories',
+    ];
+
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(DecisionCategory::class, 'category_decision');
+    }
 
     public function getSearchableColumns(): array
     {

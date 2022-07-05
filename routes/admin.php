@@ -97,21 +97,39 @@ Route::prefix('posts')->group(function () {
 });
 
 if (Features::hasDecisions()) {
-    Route::group([
-        'prefix'     => 'decisions',
-        'as'         => 'decisions.',
-        'controller' => Admin\DecisionController::class,
-    ], function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('create', 'create')->name('create');
-        Route::post('/', 'store')->name('store');
-        Route::get('{decision}/edit', 'edit')->name('edit');
-        Route::post('{decision}/duplicate', 'duplicate')->name('duplicate');
-        Route::post('{decision}/preview', 'preview')->name('preview');
-        Route::put('{decision}', 'update')->name('update');
-        Route::delete('{decision}', 'destroy')->name('destroy');
-        Route::put('{decision}/restore', 'restore')->name('restore')->withTrashed();
-        Route::delete('{decision}/force', 'forceDelete')->name('forceDelete')->withTrashed();
+    Route::prefix('decisions')->group(function () {
+        Route::group([
+            'prefix'     => 'categories',
+            'as'         => 'decision_categories.',
+            'controller' => Admin\DecisionCategoryController::class,
+        ], function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/', 'store')->name('store');
+            Route::get('/{decision_category}/edit', 'edit')->name('edit');
+            Route::post('/{decision_category}/duplicate', 'duplicate')->name('duplicate');
+            Route::post('/{decision_category}/preview', 'preview')->name('preview');
+            Route::put('/{decision_category}', 'update')->name('update');
+            Route::delete('/{decision_category}', 'destroy')->name('destroy');
+            Route::put('/{decision_category}/restore', 'restore')->name('restore')->withTrashed();
+            Route::delete('/{decision_category}/force', 'forceDelete')->name('forceDelete')->withTrashed();
+        });
+
+        Route::group([
+            'as'         => 'decisions.',
+            'controller' => Admin\DecisionController::class,
+        ], function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('/', 'store')->name('store');
+            Route::get('{decision}/edit', 'edit')->name('edit');
+            Route::post('{decision}/duplicate', 'duplicate')->name('duplicate');
+            Route::post('{decision}/preview', 'preview')->name('preview');
+            Route::put('{decision}', 'update')->name('update');
+            Route::delete('{decision}', 'destroy')->name('destroy');
+            Route::put('{decision}/restore', 'restore')->name('restore')->withTrashed();
+            Route::delete('{decision}/force', 'forceDelete')->name('forceDelete')->withTrashed();
+        });
     });
 }
 

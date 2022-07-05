@@ -115,6 +115,18 @@
     "decision.event.created": "Hotărârea a fost creată.",
     "decision.event.updated": "Hotărârea a fost actualizată.",
     "decision.event.deleted": "Hotărârea a fost ștersă.",
+    "decision.subnav.decisions": "Hotărâri",
+    "decision.subnav.categories": "Categorii",
+
+    "decision_category.label": "Categorie|Categorii",
+    "decision_category.action.create": "Adaugă categorie",
+    "decision_category.action.edit": "Editează categoria",
+    "decision_category.action.update": "Actualizează categoria",
+    "decision_category.action.delete": "Șterge categoria",
+    "decision_category.empty.title": "Nu am găsit nicio categorie",
+    "decision_category.event.created": "Categoria a fost creată.",
+    "decision_category.event.updated": "Categoria a fost actualizată.",
+    "decision_category.event.deleted": "Categoria a fost ștersă.",
 
     "donation": "Donație",
     "donation.action": "Donează",

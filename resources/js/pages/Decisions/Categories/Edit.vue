@@ -2,27 +2,19 @@
     <form-container
         :resource="resource"
         :model="model"
-        :fields="[
-            'title',
-            'slug',
-            'description',
-            'layout',
-            'blocks',
-            'media',
-            'categories',
-            'published_at',
-        ]"
-        :field-types="{
-            categories: Array,
-        }"
+        :fields="['title', 'slug', 'description']"
         :breadcrumbs="[
             {
                 label: $t('app.dashboard'),
                 url: route('admin.dashboard'),
             },
             {
-                label: $tChoice('decision.label', 2),
+                label: $t('decision.subnav.decisions'),
                 url: route('admin.decisions.index'),
+            },
+            {
+                label: $t('decision.subnav.categories'),
+                url: route('admin.decision_categories.index'),
             },
         ]"
     >
@@ -54,8 +46,8 @@
                     :label="$t('field.slug')"
                     name="slug"
                     v-model="form.slug"
-                    route-name="front.decisions.show"
-                    route-key="decision"
+                    route-name="front.decision_categories.show"
+                    route-key="decision_category"
                     :source="form.title"
                     translatable
                     required
@@ -67,26 +59,6 @@
                 :label="$t('field.description')"
                 v-model="form.description"
             />
-
-            <form-media
-                :label="$t('field.documents')"
-                v-model:media="form.media"
-                accepts="files"
-                :limit="10"
-            />
-
-            <form-select-multiple
-                name="categories"
-                :label="$t('field.categories')"
-                v-model="form.categories"
-                :options="categories"
-                option-value-key="id"
-                option-label-key="title"
-            />
-        </template>
-
-        <template #content="{ form }">
-            <block-list v-model:blocks="form.blocks" />
         </template>
     </form-container>
 </template>
@@ -97,7 +69,6 @@
             resource: Object,
             model: Object,
             subnav: Array,
-            categories: Array,
         },
     };
 </script>

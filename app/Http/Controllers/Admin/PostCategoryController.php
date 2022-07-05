@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Admin\PostCategoryRequest;
-use App\Http\Requests\Admin\PostRequest;
 use App\Http\Resources\Collections\PostCategoryCollection;
 use App\Http\Resources\PostCategoryResource;
 use App\Models\PostCategory;
@@ -59,7 +58,7 @@ class PostCategoryController extends AdminController
         ])->model(PostCategory::class);
     }
 
-    public function update(PostRequest $request, PostCategory $postCategory): RedirectResponse
+    public function update(PostCategoryRequest $request, PostCategory $postCategory): RedirectResponse
     {
         $attributes = $request->validated();
 

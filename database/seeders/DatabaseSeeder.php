@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 use App\Models\Decision;
+use App\Models\DecisionCategory;
 use App\Models\Form;
 use App\Models\Media;
 use App\Models\MenuItem;
@@ -13,6 +14,7 @@ use App\Models\Person;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\User;
+use App\Services\Features;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
@@ -66,9 +68,15 @@ class DatabaseSeeder extends Seeder
             ->count(50)
             ->create();
 
-        Decision::factory()
-            ->count(250)
-            ->create();
+        if (Features::hasDecisions()) {
+            DecisionCategory::factory()
+                ->count(5)
+                ->has(
+                    Decision::factory()
+                        ->count(250)
+                )
+                ->create();
+        }
 
         Form::factory()
             ->count(10)

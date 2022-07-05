@@ -25,6 +25,8 @@ Route::get('/theme/style.css', Front\ThemeController::class)->name('theme')
 Route::prefix('{locale?}')->middleware('locale')->group(function () {
     if (Features::hasDecisions()) {
         Route::get('/decisions', [Front\DecisionController::class, 'index'])->name('decisions.index');
+        Route::get('/decisions/category', [Front\DecisionCategoryController::class, 'index'])->name('decision_categories.index');
+        Route::get('/decisions/category/{decision_category:slug}', [Front\DecisionCategoryController::class, 'show'])->name('decision_categories.show');
         Route::get('/decisions/{decision:slug}', [Front\DecisionController::class, 'show'])->name('decisions.show');
     }
 

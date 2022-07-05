@@ -1,10 +1,14 @@
 <template>
     <layout
-        :title="$tChoice('decision.label', 2)"
+        :title="$tChoice('category.label', 2)"
         :breadcrumbs="[
             {
                 label: $t('app.dashboard'),
                 url: route('admin.dashboard'),
+            },
+            {
+                label: $tChoice('decision.label', 2),
+                url: route('admin.decisions.index'),
             },
         ]"
     >
