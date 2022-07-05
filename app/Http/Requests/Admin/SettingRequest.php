@@ -50,14 +50,12 @@ class SettingRequest extends BaseRequest
                 $rules['settings.colors.primary'] = ['required', new ValidHex];
             }
 
-
             return $rules;
         }
 
         if ($this->section === 'donations') {
             return [
                 'settings.page.thanks'      => ['required', 'exists:pages,id'],
-                'settings.page.error'       => ['required', 'exists:pages,id'],
                 'settings.amounts'          => ['array'],
                 'settings.amounts.*.amount' => ['required', 'integer'],
 

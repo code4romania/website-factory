@@ -56,7 +56,6 @@ class Setting extends Model
             $sections['donations'] = [
                 'page' => [
                     'thanks' => null,
-                    'error'  => null,
                 ],
                 'amounts'              => [],
                 'mobilpay_enabled'     => false,

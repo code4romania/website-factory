@@ -12,16 +12,6 @@
                     required
                 />
 
-                <form-select
-                    :label="$t('setting.donations.page.error')"
-                    name="settings.page.error"
-                    v-model="form.settings.page.error"
-                    :options="data.pages.data"
-                    option-value-key="id"
-                    option-label-key="title"
-                    required
-                />
-
                 <form-draggable
                     :label="$t('setting.donations.amounts.default')"
                     name="settings.amounts"
