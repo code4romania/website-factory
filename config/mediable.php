@@ -28,6 +28,7 @@ return [
     'allowed_disks' => [
         'public',
         's3',
+        'azure',
     ],
 
     /*

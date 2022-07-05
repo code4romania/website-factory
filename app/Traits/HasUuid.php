@@ -36,14 +36,4 @@ trait HasUuid
     {
         return $query->where('uuid', $uuid);
     }
-
-    public function getUrlAttribute(): string
-    {
-        $key = $this->getMorphClass();
-
-        return route('front.' . Str::plural($key) . '.show', [
-            'locale' => app()->getLocale(),
-            $key     => $this->uuid,
-        ]);
-    }
 }
