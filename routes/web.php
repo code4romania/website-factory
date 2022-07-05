@@ -22,7 +22,7 @@ Route::get('/theme/style.css', Front\ThemeController::class)->name('theme')
     ->withoutMiddleware('web')
     ->middleware('cache.headers:public;etag');
 
-Route::prefix('{locale?}')->group(function () {
+Route::prefix('{locale?}')->middleware('locale')->group(function () {
     if (Features::hasDecisions()) {
         Route::get('/decisions', [Front\DecisionController::class, 'index'])->name('decisions.index');
         Route::get('/decisions/{decision:slug}', [Front\DecisionController::class, 'show'])->name('decisions.show');
