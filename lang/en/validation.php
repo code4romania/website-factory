@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 return [
 
-    'error' => 'There is an error in the form.|There are :count errors in the form.',
-
     /*
     |--------------------------------------------------------------------------
     | Validation Language Lines
