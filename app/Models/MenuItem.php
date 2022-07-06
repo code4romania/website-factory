@@ -44,9 +44,20 @@ class MenuItem extends Model
      */
     public static function allowedModels(): Collection
     {
-        return collect([
-            'page', 'post', 'post_category',
-        ]);
+        $models = [
+            Page::class             => true,
+            Post::class             => true,
+            PostCategory::class     => true,
+            Decision::class         => Features::hasDecisions(),
+            DecisionCategory::class => Features::hasDecisions(),
+        ];
+
+        return collect($models)
+            ->filter()
+            ->keys()
+            ->mapWithKeys(fn (string $model) => [
+                app($model)->getMorphClass() => $model,
+            ]);
     }
 
     /**
@@ -136,7 +147,7 @@ class MenuItem extends Model
 
     public function setTypeAttribute(string $type): void
     {
-        $this->attributes['type'] = self::allowedModels()->contains($type) ? 'model' : $type;
+        $this->attributes['type'] = self::allowedModels()->has($type) ? 'model' : $type;
     }
 
     public function getNormalizedTypeAttribute(): string

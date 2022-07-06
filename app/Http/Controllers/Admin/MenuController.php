@@ -8,9 +8,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\MenuRequest;
 use App\Http\Resources\Collections\MenuItemCollection;
 use App\Models\MenuItem;
-use App\Models\Page;
-use App\Models\Post;
-use App\Models\PostCategory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Cache;
 use Inertia\Inertia;
@@ -35,11 +32,8 @@ class MenuController extends Controller
             ),
             'types' => MenuItem::allowedTypes(),
             'routes' => MenuItem::allowedRoutes(),
-            'models' => [
-                'page'          => Page::all(['id', 'title', 'slug']),
-                'post'          => Post::all(['id', 'title', 'slug']),
-                'post_category' => PostCategory::all(['id', 'title', 'slug']),
-            ],
+            'models' => MenuItem::allowedModels()
+                ->map(fn (string $model) => $model::all(['id', 'title', 'slug'])),
         ])->model(MenuItem::class);
     }
 
@@ -77,7 +71,7 @@ class MenuController extends Controller
                     'children'     => $this->prepareItems($item['children'] ?? [], $location, ++$depth),
                 ];
 
-                if (MenuItem::allowedModels()->contains($item['type'])) {
+                if (MenuItem::allowedModels()->has($item['type'])) {
                     $prepared['model_type'] = $item['type'];
                     $prepared['model_id'] = $item['model'];
                 }

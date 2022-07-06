@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Relation::morphMap([
+        Relation::enforceMorphMap([
             'block'             => \App\Models\Block::class,
             'decision_category' => \App\Models\DecisionCategory::class,
             'decision'          => \App\Models\Decision::class,
@@ -45,6 +45,7 @@ class AppServiceProvider extends ServiceProvider
             'form'              => \App\Models\Form::class,
             'language'          => \App\Models\Language::class,
             'media'             => \App\Models\Media::class,
+            'menu_item'         => \App\Models\MenuItem::class,
             'page'              => \App\Models\Page::class,
             'person'            => \App\Models\Person::class,
             'post_category'     => \App\Models\PostCategory::class,
