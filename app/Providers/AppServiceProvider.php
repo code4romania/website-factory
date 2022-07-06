@@ -41,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
             'block'             => \App\Models\Block::class,
             'decision_category' => \App\Models\DecisionCategory::class,
             'decision'          => \App\Models\Decision::class,
+            'form_field'        => \App\Models\FormField::class,
             'form_submission'   => \App\Models\FormSubmission::class,
             'form'              => \App\Models\Form::class,
             'language'          => \App\Models\Language::class,
