@@ -1,3 +1,4 @@
+<x-site.language-switcher />
 <x-site.code4 />
 
 <header x-data="{ menuOpen: false }" x-on:click.outside="menuOpen = false" class="relative shadow">
@@ -15,8 +16,6 @@
 
             <div class="flex items-center gap-3">
                 <x-site.search-form class="hidden md:block" />
-
-                <x-site.language-switcher :urls="$alternateUrls" />
 
                 <button type="button" x-on:click="menuOpen = !menuOpen" class="lg:hidden">
                     <x-ri-menu-line x-show="!menuOpen" class="w-5 h-5" />
