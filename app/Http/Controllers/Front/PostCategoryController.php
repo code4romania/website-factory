@@ -29,7 +29,7 @@ class PostCategoryController extends Controller
             'category' => $postCategory,
             'posts'    => $postCategory
                 ->posts()
-                ->with('media')
+                ->with(['categories', 'media'])
                 ->paginate(12),
         ]);
     }

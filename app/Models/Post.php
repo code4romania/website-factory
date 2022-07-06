@@ -51,10 +51,6 @@ class Post extends Model
         //
     ];
 
-    public $with = [
-        'categories',
-    ];
-
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(PostCategory::class, 'category_post');

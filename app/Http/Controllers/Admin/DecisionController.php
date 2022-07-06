@@ -20,6 +20,7 @@ class DecisionController extends AdminController
         return Inertia::render('Decisions/Index', [
             'collection' => new DecisionCollection(
                 Decision::query()
+                    ->with('categories')
                     ->sort()
                     ->filter()
                     ->paginate()

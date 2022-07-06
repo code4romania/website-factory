@@ -20,6 +20,7 @@ class DecisionController extends Controller
 
         return view('front.decisions.index', [
             'decisions' => Decision::query()
+                ->with('categories')
                 ->paginate(),
         ]);
     }

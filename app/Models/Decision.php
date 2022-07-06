@@ -47,10 +47,6 @@ class Decision extends Model
         //
     ];
 
-    public $with = [
-        'categories',
-    ];
-
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(DecisionCategory::class, 'category_decision');

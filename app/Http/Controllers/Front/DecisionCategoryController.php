@@ -29,7 +29,7 @@ class DecisionCategoryController extends Controller
             'category' => $decisionCategory,
             'decisions'    => $decisionCategory
                 ->decisions()
-                // ->with('media')
+                ->with('categories')
                 ->paginate(12),
         ]);
     }

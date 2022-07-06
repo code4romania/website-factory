@@ -20,6 +20,7 @@ class PostController extends AdminController
         return Inertia::render('Posts/Index', [
             'collection' => new PostCollection(
                 Post::query()
+                    ->with('categories')
                     ->withDrafted()
                     ->sort(
                         defaultColumn: 'created_at',
