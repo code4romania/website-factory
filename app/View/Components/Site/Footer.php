@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\View\Components\Site;
 
 use App\Models\MenuItem;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Component;
@@ -37,12 +38,7 @@ class Footer extends Component
         $this->social = settings('site.social');
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
-    public function render()
+    public function render(): View
     {
         if (config('website-factory.edition') === 'minister') {
             return view('components.site.footer-minister');

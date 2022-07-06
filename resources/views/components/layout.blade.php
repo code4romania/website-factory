@@ -28,9 +28,11 @@
 
     <x-site.notice />
 
-    <main class="flex-1">
+    <main class="flex-1 mb-16 sm:mb-24 lg:mb-32">
         {{ $slot }}
     </main>
+
+    <x-site.code4 />
 
     <x-site.footer />
 </body>

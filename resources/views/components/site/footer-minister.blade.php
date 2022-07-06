@@ -1,4 +1,4 @@
-<footer class="relative mt-16 bg-gray-50 sm:mt-24 lg:mt-32 bg-primary">
+<footer class="relative bg-primary">
     <div class="container py-12 lg:py-16">
         <div class="grid gap-8 xl:grid-cols-3">
             <div>

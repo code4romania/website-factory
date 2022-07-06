@@ -1,4 +1,4 @@
-<div class="bg-gray-100">
+<aside class="bg-gray-100">
     <div class="container flex items-center py-3">
         <x-icon-code4 class="h-6" />
 
@@ -13,4 +13,4 @@
             </a>
         </div>
     </div>
-</div>
+</aside>

@@ -1,5 +1,4 @@
 <x-site.language-switcher />
-<x-site.code4 />
 
 <header x-data="{ menuOpen: false }" x-on:click.outside="menuOpen = false" class="relative shadow">
     <x-site.search-form class="container py-4 md:hidden" />
