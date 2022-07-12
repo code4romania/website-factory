@@ -7,7 +7,7 @@
                 class="text-sm font-medium"
                 :class="[hasErrors ? 'text-red-600' : 'text-gray-700']"
             >
-                <span class="inline-block" v-html="label" />
+                <span class="inline-block" v-text="label" />
 
                 <span
                     role="presentation"
