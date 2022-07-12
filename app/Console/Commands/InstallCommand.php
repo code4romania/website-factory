@@ -115,13 +115,19 @@ class InstallCommand extends Command
                 'value'   => Page::first()?->id,
             ],
             [
-                'section' => 'site',
-                'key'     => 'notice',
-                'value'   => json_encode([
-                    'enabled' => false,
-                    'color'   => '#FCB900',
-                    'text'    => $this->localized(''),
-                ]),
+                'section' => 'site-notice',
+                'key'     => 'enabled',
+                'value'   => false,
+            ],
+            [
+                'section' => 'site-notice',
+                'key'     => 'color',
+                'value'   => json_encode('#FCB900'),
+            ],
+            [
+                'section' => 'site-notice',
+                'key'     => 'text',
+                'value'   => $this->localized('', encoded: true),
             ],
         ]);
     }

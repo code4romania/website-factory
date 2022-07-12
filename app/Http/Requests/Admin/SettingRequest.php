@@ -34,10 +34,6 @@ class SettingRequest extends BaseRequest
                 'settings.description'    => ['array'],
                 'settings.logo'           => ['nullable', 'image'],
                 'settings.front_page'     => ['required', 'exists:pages,id'],
-                'settings.notice'         => ['array'],
-                'settings.notice.enabled' => ['required', 'boolean'],
-                'settings.notice.color'   => ['required', new ValidHex],
-                'settings.notice.text'    => ['array'],
             ];
 
             if (Features::hasTheme()) {
@@ -46,6 +42,14 @@ class SettingRequest extends BaseRequest
             }
 
             return $rules;
+        }
+
+        if ($this->section === 'site-notice') {
+            return [
+                'settings.enabled' => ['required', 'boolean'],
+                'settings.color'   => ['required', new ValidHex],
+                'settings.text'    => ['array'],
+            ];
         }
 
         if ($this->section === 'social') {

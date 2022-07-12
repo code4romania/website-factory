@@ -321,6 +321,7 @@
     "setting.action.update": "Salvează setări",
     "setting.event.updated": "Setările au fost actualizate.",
     "setting.section.site": "Site",
+    "setting.section.site-notice": "Anunț site",
     "setting.section.social": "Social media",
     "setting.section.donations": "Donații",
     "setting.site.title": "Titlu site",

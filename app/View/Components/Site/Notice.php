@@ -15,9 +15,9 @@ class Notice extends Component
 
     public function __construct()
     {
-        $this->color = color_var(settings('site.notice.color'), 'primary');
+        $this->color = color_var(settings('site-notice.color'), 'primary');
 
-        $this->text = localized_settings('site.notice.text');
+        $this->text = localized_settings('site-notice.text');
     }
 
     public function render(): View
@@ -32,6 +32,6 @@ class Notice extends Component
      */
     public function shouldRender(): bool
     {
-        return (bool) settings('site.notice.enabled');
+        return (bool) settings('site-notice.enabled');
     }
 }

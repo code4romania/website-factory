@@ -321,6 +321,7 @@
     "setting.action.update": "Save settings",
     "setting.event.updated": "Settings successfully updated.",
     "setting.section.site": "Site",
+    "setting.section.site-notice": "Site notice",
     "setting.section.social": "Social media",
     "setting.section.donations": "Donations",
     "setting.site.title": "Site title",

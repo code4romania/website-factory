@@ -35,11 +35,11 @@ class Setting extends Model
                 'description' => $translatable,
                 'front_page'  => null,
                 'logo'        => null,
-                'notice' => [
-                    'enabled' => false,
-                    'color'   => null,
-                    'text'    => $translatable,
-                ],
+            ],
+            'site-notice' => [
+                'enabled' => false,
+                'color'   => null,
+                'text'    => $translatable,
             ],
             'social' => [
                 'profiles'    => collect(config('website-factory.social_platforms'))
