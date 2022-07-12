@@ -62,7 +62,7 @@ class SettingController extends Controller
                     'mobilpay_private_key' => encrypt($value?->get()),
                 }
             ),
-            default => null,
+            default => $attributes,
         };
 
         $settings = collect($settings)
