@@ -22,5 +22,6 @@
             title: Object,
             text: Object,
         },
+        feature: 'donations',
     });
 </script>

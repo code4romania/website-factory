@@ -30,5 +30,6 @@
             text: Object,
             button_id: String,
         },
+        feature: 'donations',
     });
 </script>

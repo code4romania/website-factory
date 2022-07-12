@@ -38,34 +38,21 @@ class BlockCollection extends Collection
         }
 
         return collect($this->filesystem->files($source))
-            ->filter(function (SplFileInfo $file) {
-                $name = Str::kebab(preg_replace('/(.vue|.js)$/u', '', $file->getFilename()));
-
-                if (! Features::hasDonations()) {
-                    return ! Str::startsWith($name, 'donation-');
-                }
-
-                // TODO: remove after mobilpay implementation
-                if ($name === 'donation-mobilpay') {
-                    return false;
-                }
-
-                return true;
-            })
             ->map(function (SplFileInfo $file) {
                 $component = (string) Str::of($this->filesystem->get($file))
                     ->after('<script>')
                     ->before('</script>');
 
-                $icon = $this->getProperty('icon', $component) ?? 'Design/layout-top-2-line';
                 $type = $this->getProperty('type', $component) ?? Str::kebab(preg_replace('/(.vue|.js)$/u', '', $file->getFilename()));
 
                 return [
-                    'icon' => $icon,
-                    'type' => $type,
-                    'label' => __("block.$type"),
+                    'type'    => $type,
+                    'icon'    => $this->getProperty('icon', $component) ?? 'Design/layout-top-2-line',
+                    'feature' => $this->getProperty('feature', $component),
+                    'label'   => __("block.$type"),
                 ];
             })
+            ->filter(fn (array $block) => \is_null($block['feature']) || Features::enabled($block['feature']))
             ->sortBy('label', \SORT_NATURAL | \SORT_FLAG_CASE)
             ->values();
     }
