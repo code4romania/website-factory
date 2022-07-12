@@ -90,7 +90,8 @@
                     return props.href === currentUrl.replace(/\/$/, '');
                 }
 
-                return currentUrl.startsWith(props.href);
+                // The trailing slash serves to prevent false matches on child resources
+                return (currentUrl + '/').startsWith(props.href + '/');
             });
 
             return {
