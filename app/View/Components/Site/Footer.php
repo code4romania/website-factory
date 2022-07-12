@@ -35,7 +35,7 @@ class Footer extends Component
                 ->toTree()
         );
 
-        $this->social = settings('site.social');
+        $this->social = settings('social.profiles');
     }
 
     public function render(): View

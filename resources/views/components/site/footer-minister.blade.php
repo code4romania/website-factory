@@ -37,7 +37,7 @@
         </div>
 
         <div class="pt-8 mt-8 border-t border-gray-200 md:flex md:items-center md:justify-between">
-            <x-social-media-links :links="$social" class="md:order-2" />
+            <x-social-media-links :links="$social" class="text-white md:order-2" />
 
             <p class="mt-8 text-white/60 md:mt-0 md:order-1">
                 &copy; {{ date('Y') }} {{ $title }}

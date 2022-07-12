@@ -4,7 +4,7 @@
             href="{{ $link['prefix'] }}{{ $link['value'] }}"
             target="_blank"
             rel="noopener noreferer"
-            class="text-gray-400 hover:text-gray-500">
+            class="hover:opacity-60">
             <span class="sr-only">{{ $link['label'] }}</span>
             <x-dynamic-component :component="$link['icon']" class="w-5 h-5" aria-hidden="true" />
         </a>

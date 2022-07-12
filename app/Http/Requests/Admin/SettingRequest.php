@@ -28,17 +28,12 @@ class SettingRequest extends BaseRequest
      */
     public function rules(): array
     {
-        $platforms = collect(config('website-factory.social_platforms'))
-            ->keys()
-            ->implode(',');
-
         if ($this->section === 'site') {
             $rules = [
                 'settings.title'          => ['array'],
                 'settings.description'    => ['array'],
                 'settings.logo'           => ['nullable', 'image'],
                 'settings.front_page'     => ['required', 'exists:pages,id'],
-                'settings.social'         => ['required', "array:$platforms"],
                 'settings.notice'         => ['array'],
                 'settings.notice.enabled' => ['required', 'boolean'],
                 'settings.notice.color'   => ['required', new ValidHex],
@@ -51,6 +46,16 @@ class SettingRequest extends BaseRequest
             }
 
             return $rules;
+        }
+
+        if ($this->section === 'social') {
+            $platforms = collect(config('website-factory.social_platforms'))
+                ->keys()
+                ->implode(',');
+
+            return [
+                'settings.profiles' => ['required', "array:$platforms"],
+            ];
         }
 
         if ($this->section === 'donations') {

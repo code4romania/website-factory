@@ -63,17 +63,6 @@
                     v-model="form.settings.notice.text"
                 />
             </panel>
-
-            <panel title="Social Media">
-                <form-input
-                    v-for="(platform, id) in data.platforms"
-                    :key="id"
-                    :label="platform.label"
-                    name="settings.social"
-                    v-model="form.settings.social[id]"
-                    :prefix="platform.prefix"
-                />
-            </panel>
         </template>
     </settings-section>
 </template>

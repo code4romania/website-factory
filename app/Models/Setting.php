@@ -8,7 +8,6 @@ use App\Http\Resources\PageResource;
 use App\Services\Features;
 use App\Traits\ClearsResponseCache;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 class Setting extends Model
@@ -41,7 +40,9 @@ class Setting extends Model
                     'color'   => null,
                     'text'    => $translatable,
                 ],
-                'social'      => collect(config('website-factory.social_platforms'))
+            ],
+            'social' => [
+                'profiles'    => collect(config('website-factory.social_platforms'))
                     ->mapWithKeys(fn (array $config, string $id) => [$id => null]),
             ],
         ];
@@ -73,22 +74,20 @@ class Setting extends Model
 
     protected static function sectionData(string $section): array
     {
-        $sections = collect();
-
         $pages = PageResource::collection(Page::all('id', 'title'));
 
-        $sections->put('site', [
-            'pages'     => $pages,
-            'platforms' => config('website-factory.social_platforms', []),
-        ]);
-
-        $sections->put('donations', [
-            'pages' => $pages,
-        ]);
-
-        return Arr::wrap(
-            $sections->get($section)
-        );
+        return match ($section) {
+            'site' => [
+                'pages' => $pages,
+            ],
+            'social' => [
+                'platforms' => config('website-factory.social_platforms', []),
+            ],
+            'donations' => [
+                'pages' => $pages,
+            ],
+            default => []
+        };
     }
 
     public static function sections(): Collection
