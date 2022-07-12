@@ -8,6 +8,10 @@ use Illuminate\View\Component;
 
 class Layout extends Component
 {
+    public ?string $headerHtml;
+
+    public ?string $footerHtml;
+
     /**
      * Create a new component instance.
      *
@@ -15,7 +19,9 @@ class Layout extends Component
      */
     public function __construct()
     {
-        //
+        $this->headerHtml = settings('site.html.header');
+
+        $this->footerHtml = settings('site.html.footer');
     }
 
     /**

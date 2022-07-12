@@ -8,14 +8,14 @@
                 />
 
                 <form-color-picker
-                    :label="$t('setting.site.notice.color')"
+                    :label="$t('setting.site-notice.color')"
                     name="settings.color"
                     v-model="form.settings.color"
                 />
 
                 <localized-field
                     field="form-editor"
-                    :label="$t('setting.site.notice.text')"
+                    :label="$t('setting.site-notice.text')"
                     name="settings.text"
                     v-model="form.settings.text"
                 />

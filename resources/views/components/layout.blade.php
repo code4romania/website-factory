@@ -21,6 +21,8 @@
     @stack('scripts')
 
     {!! SEO::generate(minify: true) !!}
+
+    {!! $headerHtml !!}
 </head>
 
 <body class="flex flex-col min-h-screen antialiased">
@@ -35,6 +37,8 @@
     <x-site.code4 />
 
     <x-site.footer />
+
+    {!! $footerHtml !!}
 </body>
 
 </html>

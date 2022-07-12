@@ -35,6 +35,10 @@ class Setting extends Model
                 'description' => $translatable,
                 'front_page'  => null,
                 'logo'        => null,
+                'html' => [
+                    'header' => null,
+                    'footer' => null,
+                ],
             ],
             'site-notice' => [
                 'enabled' => false,

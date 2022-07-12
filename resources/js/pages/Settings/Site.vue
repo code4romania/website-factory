@@ -43,6 +43,22 @@
                     :accept="['.png', '.gif', '.jpg', '.jpeg', '.svg']"
                 />
             </panel>
+
+            <panel title="Custom HTML">
+                <form-textarea
+                    :label="$t('setting.site.html.header')"
+                    name="settings.html.header"
+                    v-model="form.settings.html.header"
+                    rows="5"
+                />
+
+                <form-textarea
+                    :label="$t('setting.site.html.footer')"
+                    name="settings.html.footer"
+                    v-model="form.settings.html.footer"
+                    rows="5"
+                />
+            </panel>
         </template>
     </settings-section>
 </template>
