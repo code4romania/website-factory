@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Exceptions\PropertyNotDefinedException;
 use App\Services\SupportsTrait;
-use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +19,7 @@ trait HasSlug
     public function initializeHasSlug(): void
     {
         if (! property_exists($this, 'slugFieldSource')) {
-            throw new Exception('Property slugFieldSource not defined on ' . \get_class($this));
+            throw new PropertyNotDefinedException('slugFieldSource', $this);
         }
 
         $this->fillable[] = 'slug';

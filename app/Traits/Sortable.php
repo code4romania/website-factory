@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Exceptions\PropertyNotDefinedException;
 use App\Services\SupportsTrait;
-use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Request;
@@ -16,7 +16,7 @@ trait Sortable
     public function initializeSortable(): void
     {
         if (! property_exists($this, 'allowedSorts') || ! \is_array($this->allowedSorts)) {
-            throw new Exception('Property allowedSorts not defined on ' . \get_class($this));
+            throw new PropertyNotDefinedException('allowedSorts', $this);
         }
 
         $this->allowedSorts[] = 'created_at';

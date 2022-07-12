@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Exceptions\MethodNotDefinedException;
+use App\Exceptions\PropertyNotDefinedException;
 use App\Services\SupportsTrait;
-use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Request;
@@ -16,7 +17,7 @@ trait Filterable
     public function initializeFilterable(): void
     {
         if (! property_exists($this, 'allowedFilters') || ! \is_array($this->allowedFilters)) {
-            throw new Exception('Property allowedFilters not defined on ' . \get_class($this));
+            throw new PropertyNotDefinedException('allowedFilters', $this);
         }
 
         $this->allowedFilters[] = 'status';
@@ -36,7 +37,7 @@ trait Filterable
                 $filter = Str::camel("filter_by_{$key}");
 
                 if (! method_exists($this, $filter)) {
-                    throw new Exception("Method $filter not defined on " . \get_class($this), 1);
+                    throw new MethodNotDefinedException($filter, $this);
                 }
 
                 $this->$filter($query, $this->sanitizeFilter($value));

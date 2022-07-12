@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use Exception;
+use App\Exceptions\InvalidBlockTypeException;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
@@ -19,7 +19,7 @@ class BlockCollection extends Collection
     public function __construct(string $type = 'block')
     {
         if (! \in_array($type, ['block', 'repeater', 'form'])) {
-            throw new Exception('Invalid block type');
+            throw new InvalidBlockTypeException($type);
         }
 
         $this->filesystem = app(Filesystem::class);

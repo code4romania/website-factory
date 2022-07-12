@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Exceptions\InvalidWebsiteFactoryEdition;
+use App\Exceptions\InvalidWebsiteFactoryEditionException;
 
 class Features
 {
@@ -40,7 +40,7 @@ class Features
                 static::DONATIONS,
                 static::THEME,
             ],
-            default => throw new InvalidWebsiteFactoryEdition($edition, ['ong', 'primarie', 'minister']),
+            default => throw new InvalidWebsiteFactoryEditionException($edition, ['ong', 'primarie', 'minister']),
         });
 
         return $edition;

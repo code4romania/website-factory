@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Front;
 
-use App\Exceptions\InvalidFormFieldType;
+use App\Exceptions\InvalidFormFieldTypeException;
 use App\Models\Block;
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
 use Illuminate\Validation\Rule;
@@ -36,7 +36,7 @@ class FormSubmissionRequest extends BaseRequest
                         'text'     => $this->rulesText($field, $rules),
                         'textarea' => $this->rulesText($field, $rules),
                         'url'      => $this->rulesUrl($field, $rules),
-                        default    => throw new InvalidFormFieldType($field->type),
+                        default    => throw new InvalidFormFieldTypeException($field->type),
                     },
                 ];
             })

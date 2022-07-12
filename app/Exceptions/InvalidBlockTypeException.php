@@ -6,10 +6,10 @@ namespace App\Exceptions;
 
 use Exception;
 
-class InvalidFormFieldType extends Exception
+class InvalidBlockTypeException extends Exception
 {
     public function __construct(string $type)
     {
-        parent::__construct("Invalid form field type `$type`.");
+        parent::__construct("Invalid block type `$type`.");
     }
 }

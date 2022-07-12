@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Resources\Collections;
 
+use App\Exceptions\PropertyNotDefinedException;
 use App\Services\SupportsTrait;
-use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -127,7 +127,7 @@ abstract class ResourceCollection extends BaseCollection
             ! property_exists($this, $property) ||
             ! \is_array($this->$property)
         ) {
-            throw new Exception("Property `$property` not defined on " . \get_class($this));
+            throw new PropertyNotDefinedException($property, $this);
         }
 
         return collect($this->$property);
