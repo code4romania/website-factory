@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\DonationRequest;
 use App\Models\Page;
 use App\Payments\PaymentGateway;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class DonationController extends Controller
@@ -42,7 +43,7 @@ class DonationController extends Controller
         }
     }
 
-    public function return(string $locale, Request $request)
+    public function return(string $locale, Request $request): RedirectResponse
     {
         $page = Page::findOrFail(settings('donations.page.thanks'));
 

@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Payments\Euplatesc;
 
-/**
- * Trait HasIntegrationParametersTrait.
- */
 trait GatewayParametersTrait
 {
+    public function getEndpointUrl(): string
+    {
+        return 'https://secure.euplatesc.ro/tdsprocess/tranzactd.php';
+    }
+
     public function setMid($value): self
     {
         return $this->setParameter('mid', $value);
@@ -37,15 +39,5 @@ trait GatewayParametersTrait
     public function getRecurring(): bool
     {
         return (bool) $this->getParameter('recurring');
-    }
-
-    public function setExtraData($value): self
-    {
-        return $this->setParameter('ExtraData', $value);
-    }
-
-    public function getExtraData(): mixed
-    {
-        return $this->getParameter('ExtraData');
     }
 }

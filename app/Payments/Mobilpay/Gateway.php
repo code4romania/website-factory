@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Payments\Euplatesc;
+namespace App\Payments\Mobilpay;
 
-use App\Payments\Euplatesc\Message\PurchaseRequest;
+use App\Payments\Mobilpay\Message\PurchaseRequest;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Message\RequestInterface;
 
@@ -14,7 +14,7 @@ class Gateway extends AbstractGateway
 
     public function getName(): string
     {
-        return 'Euplatesc';
+        return 'Mobilpay';
     }
 
     public function purchase(array $parameters = []): RequestInterface

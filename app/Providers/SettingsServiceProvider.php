@@ -75,18 +75,23 @@ class SettingsServiceProvider extends ServiceProvider
             return;
         }
 
-        if (! Storage::exists($certificate) || ! Storage::exists($privateKey)) {
-            return;
-        }
-
         data_set($this->settings, 'payments.gateways.mobilpay', [
-            'driver' => '\Paytic\Omnipay\Mobilpay\Gateway',
+            'driver'    => '\App\Payments\Mobilpay\Gateway',
             'recurring' => false,
-            'config' => [
+            'config'    => [
                 'signature'   => $signature,
-                'certificate' => Storage::path($certificate),
-                'privateKey'  => Storage::path($privateKey),
+                'certificate' => $this->ensureFileExists('private/mobilpay.cer', decrypt($certificate)),
+                'privateKey'  => $this->ensureFileExists('private/mobilpay.key', decrypt($privateKey)),
             ],
         ]);
+    }
+
+    private function ensureFileExists(string $path, ?string $content): string
+    {
+        if (! Storage::disk('local')->exists($path)) {
+            Storage::disk('local')->put($path, $content);
+        }
+
+        return Storage::disk('local')->path($path);
     }
 }

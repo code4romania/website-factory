@@ -33,7 +33,7 @@ Route::prefix('{locale?}')->group(function () {
     if (Features::hasDonations()) {
         Route::post('/donate', [Front\DonationController::class, 'submit'])->name('donations.submit');
 
-        Route::post('/donate/return', [Front\DonationController::class, 'return'])
+        Route::match(['get', 'post'], '/donate/return', [Front\DonationController::class, 'return'])
             ->name('donations.return')
             ->withoutMiddleware(VerifyCsrfToken::class);
     }

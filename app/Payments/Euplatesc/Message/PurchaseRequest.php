@@ -49,6 +49,8 @@ class PurchaseRequest extends AbstractRequest
         }
 
         $data['ExtraData[successurl]'] = $this->getReturnUrl();
+        $data['ExtraData[backtosite]'] = localized_route('front.pages.index');
+        $data['ExtraData[backtosite_method]'] = 'get';
 
         return $data;
     }

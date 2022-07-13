@@ -24,14 +24,7 @@ class PaymentGateway
             return false;
         }
 
-        if (
-            null === static::getDriver($alias) ||
-            null === static::getConfig($alias)
-        ) {
-            return false;
-        }
-
-        return true;
+        return ! \is_null(static::getDriver($alias));
     }
 
     public static function getDriver(string $gateway): ?string
@@ -41,7 +34,7 @@ class PaymentGateway
         return ! \is_null($class) && class_exists($class) ? $class : null;
     }
 
-    public static function getConfig(string $name): ?array
+    public static function getConfig(string $name): array
     {
         return array_merge(
             settings('payments.defaults') ?? [],

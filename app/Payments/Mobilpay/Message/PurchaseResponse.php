@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Payments\Euplatesc\Message;
+namespace App\Payments\Mobilpay\Message;
 
-use App\Payments\Euplatesc\GatewayParametersTrait;
+use App\Payments\Mobilpay\GatewayParametersTrait;
 use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RedirectResponseInterface;
 
