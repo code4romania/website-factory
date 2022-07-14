@@ -10,6 +10,7 @@ php artisan route:cache
 php artisan view:cache
 php artisan icons:cache
 php artisan migrate --force
+php artisan wf:install
 php artisan wf:translations
 php artisan wf:sequences
 

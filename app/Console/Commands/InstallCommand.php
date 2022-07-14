@@ -45,13 +45,13 @@ class InstallCommand extends Command
 
     protected function createDefaultLanguages(): void
     {
-        $this->info('Creating default languages...');
-
         if (Language::count()) {
-            $this->warn('The languages table is not empty. Skipping...');
+            $this->warn('The languages table is not empty. Skipping language creation...');
 
             return;
         }
+
+        $this->info('Creating default languages...');
 
         Language::insert([
             [
@@ -71,13 +71,13 @@ class InstallCommand extends Command
 
     protected function createDefaultPages(): void
     {
-        $this->info('Creating default pages...');
-
         if (Page::count()) {
-            $this->warn('The pages table is not empty. Skipping...');
+            $this->warn('The pages table is not empty. Skipping pages creation...');
 
             return;
         }
+
+        $this->info('Creating default pages...');
 
         Page::create([
             'title'        => $this->localized('Home'),
@@ -88,13 +88,13 @@ class InstallCommand extends Command
 
     protected function createDefaultSettings(): void
     {
-        $this->info('Creating default settings...');
-
         if (Setting::count()) {
-            $this->warn('The settings table is not empty. Skipping...');
+            $this->warn('The settings table is not empty. Skipping settings creation...');
 
             return;
         }
+
+        $this->info('Creating default settings...');
 
         Setting::insert([
             [
