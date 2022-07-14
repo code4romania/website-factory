@@ -58,12 +58,6 @@ class SearchController extends Controller
         $model = collect(config('search.models'))
             ->firstWhere(fn (string $class) => $model === app($class)->getMorphClass());
 
-        $query = Str::of($query)
-            ->stripTags()
-            ->explode(' ')
-            ->reject(fn (string $term) => Str::length($term) < 3)
-            ->join(' ');
-
         return $model::query()
             ->search($query)
             ->paginate(
