@@ -238,6 +238,7 @@
     "media.details.created": "Created at",
     "media.details.last_modified": "Last modified",
     "media.details.file_size": "File size",
+    "media.details.file_type": "File type",
     "media.details.dimensions": "Dimensions",
     "media.details.none": "No file selected",
     "media.upload.file": "Upload a file",
