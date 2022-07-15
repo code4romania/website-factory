@@ -70,6 +70,10 @@ return [
             'visibility' => env('AWS_BUCKET_DEFAULT_VISIBILITY', 'public'),
             'throw' => true,
             'root' => env('AWS_BUCKET_ROOT'),
+            'options' => [
+                'CacheControl' => 'max-age=2628000, no-transform, public',
+                'ContentEncoding' => 'gzip',
+            ],
         ],
 
         'azure' => [
@@ -79,6 +83,10 @@ return [
             'container' => env('AZURE_STORAGE_CONTAINER'),
             'url' => env('AZURE_STORAGE_URL'),
             'prefix' => null,
+
+            'CacheControl' => 'max-age=2628000, no-transform, public',
+            // content encoding seems to not work properly
+            // 'ContentEncoding' => 'gzip',
         ],
     ],
 
