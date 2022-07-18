@@ -1,2 +1,4 @@
 # Ignore email templates
-resources/views/emails/**
+resources/views/emails
+resources/views/vendor/mail
+resources/views/vendor/notifications
