@@ -19,7 +19,7 @@
         "htmlmin/htmlmin": "^9.0",
         "inertiajs/inertia-laravel": "^0.6",
         "kalnoy/nestedset": "^6.0",
-        "laravel/framework": "^9.20",
+        "laravel/framework": "^9.21",
         "laravel/tinker": "^2.7",
         "league/flysystem-aws-s3-v3": "^3.1",
         "league/omnipay": "^3.2",
@@ -36,7 +36,7 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
         "barryvdh/laravel-ide-helper": "^2.12",
-        "fakerphp/faker": "^1.19",
+        "fakerphp/faker": "^1.20",
         "friendsofphp/php-cs-fixer": "^3.9",
         "itsgoingd/clockwork": "^5.1",
         "laravel/sail": "^1.15",
