@@ -28,6 +28,15 @@ $rules = [
     'concat_space' => [
         'spacing' => 'one',
     ],
+    'curly_braces_position' => [
+        'control_structures_opening_brace' => 'same_line',
+        'functions_opening_brace' => 'next_line_unless_newline_at_signature_end',
+        'anonymous_functions_opening_brace' => 'same_line',
+        'classes_opening_brace' => 'next_line_unless_newline_at_signature_end',
+        'anonymous_classes_opening_brace' => 'next_line_unless_newline_at_signature_end',
+        'allow_single_line_empty_anonymous_classes' => false,
+        'allow_single_line_anonymous_functions' => false,
+    ],
     'declare_equal_normalize' => true,
     'declare_strict_types' => true,
     'elseif' => true,
