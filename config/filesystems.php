@@ -72,7 +72,6 @@ return [
             'root' => env('AWS_BUCKET_ROOT'),
             'options' => [
                 'CacheControl' => 'max-age=2628000, no-transform, public',
-                'ContentEncoding' => 'gzip',
             ],
         ],
 
@@ -85,8 +84,6 @@ return [
             'prefix' => null,
 
             'CacheControl' => 'max-age=2628000, no-transform, public',
-            // content encoding seems to not work properly
-            // 'ContentEncoding' => 'gzip',
         ],
     ],
 
