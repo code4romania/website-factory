@@ -2,10 +2,11 @@
 
 
 <{{ $tag }} {{ $attributes->class('block') }}>
-    <div @class([
-        'text-red-700' => $errors->has($block->name),
-        'mb-1',
-    ])>
+    <div
+        class="mb-1"
+        :class="{
+            'text-red-700': errors[@js($block->name)] !== null,
+        }">
         <div class="flex">
             <span class="font-semibold">
                 {{ $block->translatedInput('label') }}
@@ -26,13 +27,11 @@
         @endif
     </div>
 
-    <div @class([
-        'relative block w-full',
-        'shadow-sm' => !$noShadow,
-        'border-red-300 text-red-700 placeholder-red-300' => $errors->has(
-            $block->name
-        ),
-    ])>
+    <div
+        @class(['relative block w-full', 'shadow-sm' => !$noShadow])
+        :class="{
+            'border-red-300 text-red-700 placeholder-red-300': errors[@js($block->name)] !== null,
+        }">
         {{ $slot }}
     </div>
 

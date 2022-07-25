@@ -1,8 +1,10 @@
 import Alpine from 'alpinejs';
 import collapse from '@alpinejs/collapse';
+import form from '@/public/form';
 
 Alpine.plugin(collapse);
 
-window.Alpine = Alpine;
+Alpine.data('form', form);
 
-Alpine.start();
+window.Alpine = Alpine;
+window.Alpine.start();

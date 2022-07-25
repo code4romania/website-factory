@@ -9,5 +9,7 @@
             'required' => $block->checkbox('required'),
             'min' => $block->input('min_date'),
             'max' => $block->input('max_date'),
+            'x-model' => $block->x_model,
+            'x-init' => 'initializeField',
         ]) }}>
 </x-blocks.form._field>

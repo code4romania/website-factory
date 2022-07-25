@@ -14,6 +14,8 @@
             'maxlength' => $block->input('max_length') ?: null,
             'x-on:keyup' => 'length = $refs.textarea.value.length',
             'x-ref' => 'textarea',
+            'x-model' => $block->x_model,
+            'x-init' => 'initializeField',
         ]) }}>{{ old($block->name) }}</textarea>
 
     <div

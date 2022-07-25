@@ -7,5 +7,7 @@
             'name' => $block->name,
             'value' => old($block->name),
             'required' => $block->checkbox('required'),
+            'x-model' => $block->x_model,
+            'x-init' => 'initializeField',
         ]) }}>
 </x-blocks.form._field>

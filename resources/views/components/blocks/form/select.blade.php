@@ -5,6 +5,8 @@
         {{ $attributes->class(['block w-full border-inherit rounded'])->merge([
             'name' => $block->name,
             'required' => $block->checkbox('required'),
+            'x-model' => $block->x_model,
+            'x-init' => 'initializeField',
         ]) }}>
 
         <option {{ !old($block->name) ? 'selected' : '' }} value="" disabled>

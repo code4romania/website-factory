@@ -32,7 +32,7 @@ class FormSubmissionRequest extends BaseRequest
                         'file'     => $this->rulesFile($field, $rules),
                         'number'   => $this->rulesNumber($field, $rules),
                         'radio'    => $this->rulesOption($field, $rules),
-                        'select'   => $this->rulesOptions($field, $rules),
+                        'select'   => $this->rulesOption($field, $rules),
                         'text'     => $this->rulesText($field, $rules),
                         'textarea' => $this->rulesText($field, $rules),
                         'url'      => $this->rulesUrl($field, $rules),
@@ -40,7 +40,6 @@ class FormSubmissionRequest extends BaseRequest
                     },
                 ];
             })
-            // ->dd()
             ->all();
     }
 

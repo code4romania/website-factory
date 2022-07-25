@@ -353,5 +353,6 @@
     "user.role.editor": "Editor",
     "user.role.user": "Utilizator",
 
-    "validation.error": "Există o eroare în formular.|Există :count erori în formular.|Există :count de erori în formular."
+    "validation.error": "Există o eroare în formular.|Există :count erori în formular.|Există :count de erori în formular.",
+    "validation.error.generic": "Formularul nu a putut fi trimis."
 }

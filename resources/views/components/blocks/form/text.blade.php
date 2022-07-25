@@ -15,6 +15,8 @@
             'maxlength' => $block->input('max_length') ?: null,
             'x-on:keyup' => 'length = $refs.input.value.length',
             'x-ref' => 'input',
+            'x-model' => $block->x_model,
+            'x-init' => 'initializeField',
         ]) }}>
 
     <div

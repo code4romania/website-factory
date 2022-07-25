@@ -12,6 +12,8 @@
                             'required' => $block->checkbox('required'),
                             'checked' => old($block->name) === $option,
                             'value' => $option,
+                            'x-model' => $block->x_model,
+                            'x-init' => 'initializeField',
                         ]) }}>
 
                     <span class="text-sm text-gray-700">

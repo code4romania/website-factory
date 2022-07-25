@@ -20,6 +20,11 @@ class FormField extends Block
         return "field-{$this->id}";
     }
 
+    public function getXModelAttribute(): string
+    {
+        return "form['{$this->name}']";
+    }
+
     public function options(string $field = 'options'): Collection
     {
         $rawOptions = $this->translatedInput($field) ?? $this->input($field);

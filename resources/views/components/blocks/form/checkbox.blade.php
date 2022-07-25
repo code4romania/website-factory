@@ -1,7 +1,7 @@
 @props(['block'])
 
 <x-blocks.form._field :block="$block" tag="div" no-shadow>
-    <fieldset class="mt-3 space-y-3">
+    <fieldset class="mt-3 space-y-3" x-init="initializeField([])" name="{{ $block->name }}">
         @foreach ($block->options() as $option)
             <div>
                 <label class="inline-flex items-center space-x-2">
@@ -12,6 +12,7 @@
                             // 'required' => $block->checkbox('required'),
                             'checked' => in_array($option, Arr::wrap(old("$block->name"))),
                             'value' => $option,
+                            'x-model' => $block->x_model,
                         ]) }}>
 
                     <span class="text-sm text-gray-700">

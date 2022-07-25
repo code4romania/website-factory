@@ -10,7 +10,7 @@ use App\Models\Form;
 use App\Models\FormField;
 use Artesaos\SEOTools\Traits\SEOTools;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\JsonResponse;
 
 class FormController extends Controller
 {
@@ -27,7 +27,7 @@ class FormController extends Controller
         ]);
     }
 
-    public function submit(string $locale, FormSubmissionRequest $request, Form $form): RedirectResponse
+    public function submit(string $locale, FormSubmissionRequest $request, Form $form): JsonResponse
     {
         $attributes = $request->validated();
 
@@ -48,6 +48,8 @@ class FormController extends Controller
 
         $form->processSubmission($data);
 
-        return redirect()->back()->with('success', __('form.event.sent'));
+        return response()->json([
+            'message' => __('form.event.sent'),
+        ]);
     }
 }

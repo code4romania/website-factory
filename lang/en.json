@@ -353,5 +353,6 @@
     "user.role.editor": "Editor",
     "user.role.user": "User",
 
-    "validation.error": "There is an error in the form.|There are :count errors in the form."
+    "validation.error": "There is an error in the form.|There are :count errors in the form.",
+    "validation.error.generic": "The form couldn't be sent."
 }
