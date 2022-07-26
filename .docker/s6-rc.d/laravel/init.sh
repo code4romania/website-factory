@@ -15,3 +15,4 @@ php artisan wf:translations
 php artisan wf:sequences
 
 echo "Laravel init done"
+php artisan about
