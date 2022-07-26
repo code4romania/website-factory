@@ -92,16 +92,30 @@ class UpdateTranslationsCommand extends Command
     {
         $this->info('Adding missing database translations...');
 
+        $existingLines = LanguageLine::query()
+            ->where('group', '*')
+            ->pluck('key');
+
+        $newLines = collect();
+
         foreach ($this->lines as $key => $text) {
-            LanguageLine::firstOrCreate(
-                [
-                    'group' => '*',
-                    'key'   => $key,
-                ],
-                [
-                    'text' => $text,
-                ]
-            );
+            if ($existingLines->contains($key)) {
+                continue;
+            }
+
+            $newLines->push([
+                'group' => '*',
+                'key'   => $key,
+                'text'  => json_encode($text),
+            ]);
+        }
+
+        if ($newLines->isNotEmpty()) {
+            LanguageLine::insert($newLines->all());
+
+            $this->info("Added {$newLines->count()} database translations.");
+        } else {
+            $this->info('Translations already up to date.');
         }
     }
 }
