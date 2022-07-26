@@ -78,7 +78,7 @@
             class="text-sm border-t sm:col-span-2"
             x-data="{
                 isChecked(value) {
-                    return this.recurring === value;
+                    return this.form.recurring === value;
                 },
             }"
             x-init="initializeField({{ (int) old('recurring', 1) }})" name="recurring">
@@ -112,8 +112,8 @@
         <input
             type="hidden"
             name="recurring"
-            x-model="recurring"
-            x-init="initializeField"
+            x-model="form.recurring"
+            x-init="initializeField(0)"
             value="0">
     @endif
 
