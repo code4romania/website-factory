@@ -37,7 +37,13 @@ class DonationController extends Controller
         if ($response->isSuccessful()) {
             return $response;
         } elseif ($response->isRedirect()) {
-            return $response->redirect();
+            return response()->json([
+                'redirect' => [
+                    'method' => $response->getRedirectMethod(),
+                    'url' => $response->getRedirectUrl(),
+                    'data' => $response->getRedirectData(),
+                ],
+            ]);
         } else {
             return $response->getMessage();
         }

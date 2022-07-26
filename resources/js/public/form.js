@@ -67,7 +67,6 @@ export default function () {
             return Object.values(this.errors).filter(Boolean);
         },
 
-        //
         submit() {
             this.resetState();
 
@@ -80,6 +79,10 @@ export default function () {
                     },
                 })
                 .then((response) => {
+                    if (response.data.hasOwnProperty('redirect')) {
+                        return this.redirect(response.data.redirect);
+                    }
+
                     this.success = true;
                     this.message = response.data.message;
 
@@ -99,8 +102,31 @@ export default function () {
                     }
                 })
                 .finally(() => {
-                    this.processing = false;
+                    setTimeout(() => {
+                        this.processing = false;
+                    }, 500);
                 });
+        },
+
+        redirect(target) {
+            const form = document.createElement('form');
+
+            form.action = target.url;
+            form.method = target.method;
+
+            Object.entries(target.data).forEach(([name, value]) => {
+                const input = document.createElement('input');
+
+                input.type = 'hidden';
+                input.name = name;
+                input.value = value;
+
+                form.appendChild(input);
+            });
+
+            document.body.appendChild(form);
+
+            form.submit();
         },
     };
 }

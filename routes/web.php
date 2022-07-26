@@ -31,7 +31,7 @@ Route::prefix('{locale?}')->group(function () {
     }
 
     if (Features::hasDonations()) {
-        Route::post('/donate', [Front\DonationController::class, 'submit'])->name('donations.submit');
+        Route::post('/donate', [Front\DonationController::class, 'submit'])->name('donations.submit')->middleware('throttle:donations');
 
         Route::match(['get', 'post'], '/donate/return', [Front\DonationController::class, 'return'])
             ->name('donations.return')
@@ -47,9 +47,9 @@ Route::prefix('{locale?}')->group(function () {
     Route::get('/people/{person:slug}', [Front\PersonController::class, 'show'])->name('people.show');
 
     Route::get('/forms/{form:slug}', [Front\FormController::class, 'show'])->name('forms.show');
-    Route::post('/forms/{form:slug}', [Front\FormController::class, 'submit'])->name('forms.submit')->middleware('throttle:20,1');
+    Route::post('/forms/{form:slug}', [Front\FormController::class, 'submit'])->name('forms.submit')->middleware('throttle:forms');
 
-    Route::get('/search', Front\SearchController::class)->name('search')->middleware('throttle:20,1');
+    Route::get('/search', Front\SearchController::class)->name('search')->middleware('throttle:search');
 
     Route::get('/', [Front\PageController::class, 'index'])->name('pages.index');
     Route::get('/{page:slug}', [Front\PageController::class, 'show'])->name('pages.show');
