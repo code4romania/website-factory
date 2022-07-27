@@ -6,6 +6,8 @@ namespace App\Providers;
 
 use App\Models\Setting;
 use App\Services\Features;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 
@@ -68,8 +70,8 @@ class SettingsServiceProvider extends ServiceProvider
         }
 
         $signature = data_get($this->settings, 'donations.mobilpay_signature');
-        $certificate = data_get($this->settings, 'donations.mobilpay_certificate');
-        $privateKey = data_get($this->settings, 'donations.mobilpay_private_key');
+        $certificate = $this->getCertificatePath('donations.mobilpay_certificate');
+        $privateKey = $this->getCertificatePath('donations.mobilpay_private_key');
 
         if (\is_null($signature) || \is_null($certificate) || \is_null($privateKey)) {
             return;
@@ -80,18 +82,32 @@ class SettingsServiceProvider extends ServiceProvider
             'recurring' => false,
             'config'    => [
                 'signature'   => $signature,
-                'certificate' => $this->ensureFileExists('private/mobilpay.cer', decrypt($certificate)),
-                'privateKey'  => $this->ensureFileExists('private/mobilpay.key', decrypt($privateKey)),
+                'certificate' => $certificate,
+                'privateKey'  => $privateKey,
             ],
         ]);
     }
 
-    private function ensureFileExists(string $path, ?string $content): string
+    private function getCertificatePath(string $key): ?string
     {
-        if (! Storage::disk('local')->exists($path)) {
-            Storage::disk('local')->put($path, $content);
+        $cachedPath = "private/$key";
+
+        $content = Arr::pull($this->settings, $key);
+
+        if (Storage::disk('local')->exists($cachedPath)) {
+            return Storage::disk('local')->path($cachedPath);
         }
 
-        return Storage::disk('local')->path($path);
+        if (\is_null($content)) {
+            return null;
+        }
+
+        try {
+            Storage::disk('local')->put($cachedPath, decrypt($content));
+
+            return Storage::disk('local')->path($cachedPath);
+        } catch (DecryptException $e) {
+            return null;
+        }
     }
 }
