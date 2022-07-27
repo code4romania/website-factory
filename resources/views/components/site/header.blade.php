@@ -5,7 +5,7 @@
 
     <nav class="container py-4 space-y-4">
         <div class="relative flex items-center justify-between gap-3">
-            <a href="{{ route('front.pages.index') }}" class="inline-flex text-primary">
+            <a href="{{ localized_route('front.pages.index') }}" class="inline-flex text-primary">
                 @if ($logo)
                     <img src="{{ $logo }}" class="h-16 max-w-48 sm:max-w-64" alt="{{ $title }}">
                 @else
