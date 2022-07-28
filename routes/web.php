@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Front;
+use App\Http\Middleware\Front\SetLocale;
+use App\Http\Middleware\Front\SetSeoDefaults;
 use App\Http\Middleware\VerifyCsrfToken;
 use App\Services\Features;
 use Illuminate\Support\Facades\Route;
@@ -19,8 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/theme/style.css', Front\ThemeController::class)->name('theme')
-    ->withoutMiddleware('web')
-    ->middleware('cache.headers:public;etag');
+    ->withoutMiddleware([SetLocale::class, SetSeoDefaults::class]);
 
 Route::prefix('{locale?}')->group(function () {
     if (Features::hasDecisions()) {
