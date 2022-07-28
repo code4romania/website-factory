@@ -95,10 +95,13 @@ export default function () {
                     this.success = false;
                     this.message = response.data.message;
 
-                    if (response.status == 422) {
+                    if (response.status === 422) {
                         for (const key in response.data.errors) {
                             this.errors[key] = response.data.errors[key][0];
                         }
+                    } else if (response.status === 429) {
+                        // TODO: display proper response
+                        console.log('throttled');
                     }
                 })
                 .finally(() => {

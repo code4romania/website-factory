@@ -81,7 +81,7 @@
                     return this.form.recurring === value;
                 },
             }"
-            x-init="initializeField({{ (int) old('recurring', 1) }})" name="recurring">
+            x-init="initializeField(1)" name="recurring">
             <legend class="flex pr-1 mb-2 text-sm font-semibold">@lang('donation.field.recurrence')</legend>
 
             <div class="grid gap-6 sm:grid-cols-2">
@@ -112,7 +112,6 @@
         <input
             type="hidden"
             name="recurring"
-            x-model="form.recurring"
             x-init="initializeField(0)"
             value="0">
     @endif
@@ -121,18 +120,14 @@
         class="text-sm border-t sm:col-span-2"
         x-data="{
             isChecked(value) {
-                    return this.form.amount == value;
-                },
-                init() {
-                    initializeField(@js(old('amount')));
-        
-                    $watch('form.amount', (value) => {
-                        if (value === 'other') {
-                            $nextTick(() => $refs[`donation-other-{{ $block->id }}`].focus());
-                        }
-                    });
-                }
+                return this.form.amount == value;
+            }
         }"
+        x-init="$watch('form.amount', (value) => {
+            if (value === 'other') {
+                $nextTick(() => $refs[`donation-other-{{ $block->id }}`].focus());
+            }
+        })"
         name="amount">
         <legend class="flex pr-1 mb-2 text-sm font-semibold">@lang('donation.field.amount')</legend>
 
@@ -149,6 +144,7 @@
                         name="amount"
                         value="{{ $amount }}"
                         x-model.number="form.amount"
+                        @if ($loop->first) x-init="initializeField(@js($amount))" @endif
                         class="h-4 w-4 mt-0.5 cursor-pointer shrink-0 text-primary border-gray-300 focus:ring-primary mr-3">
 
                     <span class="block text-sm font-medium">
