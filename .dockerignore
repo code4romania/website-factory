@@ -12,6 +12,8 @@
 /public/vendor
 /storage/*.key
 /storage/app/*
+/storage/clockwork
+/storage/debugbar
 /storage/framework/cache/data/*
 /storage/framework/sessions/*
 /storage/framework/testing/*
