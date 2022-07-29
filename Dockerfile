@@ -80,6 +80,7 @@ WORKDIR /var/www
 COPY --chown=www-data:www-data . /var/www
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 COPY --from=assets --chown=www-data:www-data /app/public/assets /var/www/public/assets
+COPY --from=assets --chown=www-data:www-data /app/public/mix-manifest.json /var/www/public
 
 ARG VERSION
 ARG REVISION
