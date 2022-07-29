@@ -23,6 +23,7 @@ mix.valet()
     .alias({
         '@': path.resolve('resources/js'),
         '~': path.resolve('resources'),
+        '%': path.resolve('lang'),
     })
     .js('resources/js/public.js', 'public/assets')
     .js('resources/js/admin.js', 'public/assets')
