@@ -40,7 +40,7 @@ class HandleInertiaRequests extends Middleware
                 'features' => Features::all(),
             ],
             'locales' => fn () => [
-                'available' => locales()->keys(),
+                'available' => locales(),
                 'active'    => active_locales()->keys(),
                 'current'   => app()->getLocale(),
             ],

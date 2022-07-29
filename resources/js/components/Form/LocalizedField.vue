@@ -1,6 +1,6 @@
 <template>
-    <div v-if="locales.length">
-        <template v-for="locale in locales">
+    <div v-if="localeIds.length">
+        <template v-for="locale in localeIds">
             <component
                 :key="locale"
                 :is="field"
@@ -39,11 +39,11 @@
         },
         emits: ['update:modelValue'],
         setup(props) {
-            const { locales, currentLocale } = useLocale(props);
+            const { localeIds, currentLocale } = useLocale(props);
 
             return {
                 currentLocale,
-                locales,
+                localeIds,
             };
         },
     };

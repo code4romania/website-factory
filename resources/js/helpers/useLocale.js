@@ -3,7 +3,7 @@ import { computed } from 'vue';
 
 export default function (props) {
     const locales = computed(
-        () => usePage().props.value.locales.available || []
+        () => usePage().props.value.locales.available || {}
     );
     const activeLocales = computed(
         () => usePage().props.value.locales.active || []
@@ -15,11 +15,12 @@ export default function (props) {
         get: () => usePage().props.value.locales.current,
         set: (locale) => (usePage().props.value.locales.current = locale),
     });
+    const localeIds = computed(() => Object.keys(locales.value));
 
     const hasLocale = computed(() => props.locale !== null);
-    const hasMultipleLocales = computed(() => locales.value.length > 1);
+    const hasMultipleLocales = computed(() => localeIds.value.length > 1);
 
-    const isValidLocale = (locale) => locales.value.includes(locale);
+    const isValidLocale = (locale) => localeIds.value.includes(locale);
     const isActiveLocale = (locale) => activeLocales.value.includes(locale);
     const isCurrentLocale = (locale) => currentLocale.value === locale;
 
@@ -34,8 +35,8 @@ export default function (props) {
 
     const nextLocale = () => {
         changeLocale(
-            locales.value[locales.value.indexOf(props.locale) + 1] ||
-                locales.value[0]
+            localeIds.value[localeIds.value.indexOf(props.locale) + 1] ||
+                localeIds.value[0]
         );
     };
 
@@ -44,6 +45,7 @@ export default function (props) {
         activeLocales,
         translatableFields,
         currentLocale,
+        localeIds,
         hasLocale,
         isCurrentLocale,
         hasMultipleLocales,

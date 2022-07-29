@@ -3,7 +3,7 @@ import { useForm } from '@inertiajs/inertia-vue3';
 import { defaultValue, useLocale } from '@/helpers';
 
 export default function (rememberKey, model, fields, fieldTypes = {}) {
-    const { isTranslatable, locales } = useLocale();
+    const { isTranslatable, localeIds } = useLocale();
 
     fieldTypes = {
         blocks: Array,
@@ -15,7 +15,7 @@ export default function (rememberKey, model, fields, fieldTypes = {}) {
         isPlainObject(model) ? rememberKey + '.' + model.id : rememberKey,
         fields.reduce((fields, field) => {
             if (isTranslatable(field)) {
-                fields[field] = locales.value.reduce(
+                fields[field] = localeIds.value.reduce(
                     (locales, locale) => ({
                         ...locales,
                         [locale]: isPlainObject(model)

@@ -5,7 +5,7 @@
     >
         <button
             type="button"
-            v-for="locale in locales"
+            v-for="({ name }, locale) in locales"
             :key="locale"
             @click="changeLocale(locale)"
             class="relative flex items-center px-4 py-3 text-xs font-medium leading-none uppercase transition-colors duration-75 focus:z-10 focus:outline-none"
@@ -14,6 +14,7 @@
                     ? 'bg-gray-100'
                     : 'bg-white hover:bg-gray-50 focus:bg-gray-200',
             ]"
+            :title="name"
         >
             <svg
                 viewBox="0 0 8 8"
