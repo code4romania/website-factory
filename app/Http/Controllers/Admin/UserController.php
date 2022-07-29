@@ -29,7 +29,7 @@ class UserController extends AdminController
     public function create(): Response
     {
         return Inertia::render('Users/Edit', [
-            //
+            'userLocales' => locales(),
         ])->model(User::class);
     }
 
@@ -47,6 +47,7 @@ class UserController extends AdminController
     {
         return Inertia::render('Users/Edit', [
             'resource' => UserResource::make($user),
+            'userLocales' => locales(),
         ])->model(User::class);
     }
 
@@ -54,11 +55,7 @@ class UserController extends AdminController
     {
         $attributes = $request->validated();
 
-        // dd($attributes);
-
-        $user->fill($attributes);
-
-        $user->save();
+        $user->update($attributes);
 
         return redirect()->route('admin.users.edit', $user)
             ->with('success', __('user.event.updated'));

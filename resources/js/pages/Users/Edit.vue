@@ -13,6 +13,7 @@
                 url: route('admin.users.index'),
             },
         ]"
+        hide-language-switcher
     >
         <template #panel="{ form }">
             <form-input
@@ -47,7 +48,7 @@
             <form-select
                 :label="$t('field.locale')"
                 name="locale"
-                :options="['ro', 'en']"
+                :options="localeOptions"
                 v-model="form.locale"
                 required
             />
@@ -56,10 +57,28 @@
 </template>
 
 <script>
+    import { computed } from 'vue';
+    import { useLocale } from '@/helpers';
+
     export default {
         props: {
             resource: Object,
             model: Object,
+        },
+
+        setup(props) {
+            const { locales } = useLocale();
+
+            const localeOptions = computed(() =>
+                Object.entries(locales.value).map(([locale, config]) => ({
+                    value: locale,
+                    label: config.name,
+                }))
+            );
+
+            return {
+                localeOptions,
+            };
         },
     };
 </script>
