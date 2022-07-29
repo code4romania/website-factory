@@ -1,8 +1,18 @@
 FROM node:16-alpine as assets
 
-WORKDIR /app
+WORKDIR /build
 
-COPY . .
+COPY app/View app/View
+COPY lang lang
+COPY resources resources
+COPY \
+    .babelrc \
+    artisan \
+    package.json \
+    package-lock.json \
+    tailwind.config.js \
+    webpack.mix.js \
+    ./
 
 RUN npm ci --no-audit --ignore-scripts
 RUN npm run production
@@ -37,7 +47,7 @@ RUN apk update && \
     postgresql-dev \
     zlib-dev \
     zip && \
-
+    #
     # production dependencies
     apk add --no-cache \
     icu-libs \
@@ -47,14 +57,14 @@ RUN apk update && \
     libzip \
     nginx \
     php-pgsql && \
-
+    #
     # configure extensions
     docker-php-ext-configure gd --enable-gd --with-jpeg --with-webp && \
-
+    #
     # install redis
     pecl install redis && \
     docker-php-ext-enable redis && \
-
+    #
     # install extensions
     docker-php-ext-install \
     bcmath \
@@ -67,7 +77,7 @@ RUN apk update && \
     pdo_pgsql \
     simplexml \
     zip && \
-
+    #
     # cleanup
     apk del -f .build-deps
 
@@ -79,8 +89,8 @@ WORKDIR /var/www
 
 COPY --chown=www-data:www-data . /var/www
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-COPY --from=assets --chown=www-data:www-data /app/public/assets /var/www/public/assets
-COPY --from=assets --chown=www-data:www-data /app/public/mix-manifest.json /var/www/public
+COPY --from=assets --chown=www-data:www-data /build/public/assets /var/www/public/assets
+COPY --from=assets --chown=www-data:www-data /build/public/mix-manifest.json /var/www/public
 
 ARG VERSION
 ARG REVISION
