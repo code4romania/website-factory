@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="{{ asset(mix('admin.css', 'assets')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('assets/admin.css')) }}">
 
     {{-- Scripts --}}
-    <script src="{{ asset(mix('admin.js', 'assets')) }}" defer></script>
+    <script src="{{ asset(mix('assets/admin.js')) }}" defer></script>
 
-    <link rel="icon" type="image/svg+xml" href="{{ asset(mix('images/favicon.svg', 'assets')) }}">
-    <link rel="icon" type="image/png" href="{{ asset(mix('images/favicon.png', 'assets')) }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset(mix('assets/images/favicon.svg')) }}">
+    <link rel="icon" type="image/png" href="{{ asset(mix('assets/images/favicon.png')) }}">
 
     @routes
 </head>

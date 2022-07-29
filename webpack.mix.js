@@ -28,19 +28,18 @@ mix.valet()
     .js('resources/js/admin.js', 'public/assets')
     .vue({ version: 3 })
 
-    .postCss('resources/css/admin.css', 'admin.css', [
+    .postCss('resources/css/admin.css', 'public/assets/admin.css', [
         tailwindcss('resources/themes/admin.tailwind.config.js'),
         require('postcss-100vh-fix'),
     ])
 
-    .postCss('resources/css/public.css', 'public.css', [
+    .postCss('resources/css/public.css', 'public/assets/public.css', [
         tailwindcss('resources/themes/public.tailwind.config.js'),
         require('postcss-100vh-fix'),
     ])
 
     .copyDirectory('resources/images', 'public/assets/images')
 
-    .setPublicPath('public/assets')
     .sourceMaps(false)
 
     .override((config) => {
