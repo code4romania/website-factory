@@ -17,8 +17,6 @@
             v-bind="$attrs"
             v-model="proxySelected"
         >
-            <option :value="null" disabled>&mdash;</option>
-
             <option
                 v-for="{ value, label } in options"
                 :key="value"
