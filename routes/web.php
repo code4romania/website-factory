@@ -20,8 +20,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/theme/style.css', Front\ThemeController::class)->name('theme')
-    ->withoutMiddleware([SetLocale::class, SetSeoDefaults::class]);
+Route::withoutMiddleware([SetLocale::class, SetSeoDefaults::class])->group(function () {
+    Route::get('/theme/style.css', Front\ThemeController::class)->name('theme');
+    Route::get('/health', Front\HealthCheckController::class)->name('health');
+});
 
 Route::prefix('{locale?}')->group(function () {
     if (Features::hasDecisions()) {
