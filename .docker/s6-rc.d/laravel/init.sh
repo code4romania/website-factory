@@ -1,8 +1,9 @@
 #!/command/with-contenv sh
 
-echo "Laravel init started"
-
 cd /var/www
+
+echo "Laravel init started"
+php artisan down --render="errors::503"
 
 php artisan storage:link
 php artisan config:cache
@@ -17,3 +18,4 @@ php artisan wf:sequences
 
 echo "Laravel init done"
 php artisan about
+php artisan up

@@ -113,3 +113,6 @@ ENV WEBSITE_FACTORY_EDITION ong
 ENV S6_CMD_WAIT_FOR_SERVICES_MAXTIME 0
 
 EXPOSE 80
+
+HEALTHCHECK --interval=10s --timeout=3s --start-period=30s --retries=3 \
+    CMD php artisan wf:health-check
