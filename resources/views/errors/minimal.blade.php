@@ -7,7 +7,6 @@
     <meta name="robots" content="noindex">
 
     <link rel="stylesheet" href="{{ asset(mix('assets/public.css')) }}">
-    <link rel="stylesheet" href="{{ route('front.theme') }}">
 
     <style>
         [x-cloak] {
@@ -28,7 +27,7 @@
     <div class="min-h-full px-4 py-16 bg-white sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
         <div class="mx-auto max-w-max">
             <main class="sm:flex">
-                <p class="text-4xl font-extrabold text-primary/30 sm:text-5xl">@yield('code')</p>
+                <p class="text-4xl font-extrabold text-red-600/30 sm:text-5xl">@yield('code')</p>
                 <div class="sm:ml-6">
                     <div class="sm:border-l sm:border-gray-200 sm:pl-6">
                         <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl">
@@ -42,7 +41,7 @@
                     <div class="flex mt-10 space-x-3 sm:border-l sm:border-transparent sm:pl-6">
                         <a
                             href="{{ localized_route('front.pages.index') }}"
-                            class="flex items-center justify-center w-full px-4 py-2 text-sm font-semibold text-white border border-transparent sm:w-auto sm:inline-block bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            class="flex items-center justify-center w-full px-4 py-2 text-sm font-semibold text-white bg-red-600 border border-transparent sm:w-auto sm:inline-block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600">
                             @lang('app.action.backHome')
                         </a>
                     </div>
