@@ -114,5 +114,3 @@ ENV S6_CMD_WAIT_FOR_SERVICES_MAXTIME 0
 
 EXPOSE 80
 
-# HEALTHCHECK --interval=60s --timeout=5s --start-period=60s --retries=3 \
-#     CMD php artisan wf:health-check
