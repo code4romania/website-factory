@@ -19,7 +19,7 @@
         "htmlmin/htmlmin": "^9.0",
         "inertiajs/inertia-laravel": "^0.6",
         "kalnoy/nestedset": "^6.0",
-        "laravel/framework": "^9.22",
+        "laravel/framework": "^9.23",
         "laravel/tinker": "^2.7",
         "league/flysystem-aws-s3-v3": "^3.2",
         "league/omnipay": "^3.2",
@@ -28,7 +28,7 @@
         "plank/laravel-mediable": "^5.6",
         "sentry/sentry-laravel": "^2.13",
         "spatie/data-transfer-object": "^3.8",
-        "spatie/laravel-responsecache": "^7.3",
+        "spatie/laravel-responsecache": "^7.4",
         "spatie/laravel-translatable": "^6.0",
         "spatie/laravel-translation-loader": "^2.7",
         "tightenco/ziggy": "^1.4"
