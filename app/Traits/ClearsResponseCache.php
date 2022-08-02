@@ -10,8 +10,18 @@ trait ClearsResponseCache
 {
     public static function bootClearsResponseCache()
     {
-        self::created(fn () => ResponseCache::clear());
-        self::updated(fn () => ResponseCache::clear());
-        self::deleted(fn () => ResponseCache::clear());
+        self::created(fn () => self::clearCache());
+        self::updated(fn () => self::clearCache());
+        self::deleted(fn () => self::clearCache());
+    }
+
+    private static function clearCache(): void
+    {
+        ResponseCache::clear();
+
+        $cacheDir = '/tmp/fastcgi/cache';
+        if (file_exists($cacheDir)) {
+            exec("rm -rf $cacheDir/*");
+        }
     }
 }
