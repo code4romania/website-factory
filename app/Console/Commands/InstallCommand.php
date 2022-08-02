@@ -7,7 +7,9 @@ namespace App\Console\Commands;
 use App\Models\Language;
 use App\Models\Page;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Hash;
 
 class InstallCommand extends Command
 {
@@ -37,6 +39,8 @@ class InstallCommand extends Command
         $this->createDefaultPages();
 
         $this->createDefaultSettings();
+
+        $this->createFirstUser();
 
         $this->info('Install complete!');
 
@@ -130,6 +134,36 @@ class InstallCommand extends Command
                 'value'   => $this->localized('', encoded: true),
             ],
         ]);
+    }
+
+    protected function createFirstUser(): void
+    {
+        if (User::count()) {
+            $this->warn('The users table is not empty. Skipping user creation...');
+
+            return;
+        }
+
+        if (null === ($email = env('ADMIN_EMAIL'))) {
+            $this->error('ADMIN_EMAIL is null. Cannot create user.');
+
+            return;
+        }
+
+        if (null === ($password = env('ADMIN_PASSWORD'))) {
+            $this->error('ADMIN_PASSWORD is null. Cannot create user.');
+
+            return;
+        }
+
+        User::create([
+            'email'    => $email,
+            'name'     => 'Administrator',
+            'password' => Hash::make($password),
+            'role'     => 'admin',
+        ]);
+
+        $this->info('Successfully created user for ' . $email);
     }
 
     private function localized(mixed $value, bool $encoded = false): mixed
