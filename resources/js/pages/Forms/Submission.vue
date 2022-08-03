@@ -1,6 +1,6 @@
 <template>
     <layout
-        :title="$t('form.label', 2)"
+        :title="$t('form_submission.id', resource)"
         :breadcrumbs="[
             {
                 label: $t('app.dashboard'),
@@ -16,20 +16,35 @@
             },
         ]"
     >
-        <dl class="space-y-8">
-            <div v-for="(row, index) in data" :key="index">
-                <dt
-                    class="text-lg font-semibold text-gray-900"
-                    v-text="row.label"
-                />
-                <dd class="text-gray-500" v-text="row.value" />
+        <div class="bg-white shadow shrink-0">
+            <div class="relative sm:p-0">
+                <dl class="sm:divide-y sm:divide-gray-100">
+                    <div
+                        v-for="(row, index) in data"
+                        :key="index"
+                        class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4"
+                        :class="{
+                            'bg-gray-50': index % 2 !== 0,
+                        }"
+                    >
+                        <dt
+                            class="text-sm font-medium text-gray-500"
+                            v-text="row.label"
+                        />
+                        <dd
+                            class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                            v-text="row.value"
+                        />
+                    </div>
+                </dl>
             </div>
-        </dl>
+        </div>
     </layout>
 </template>
 
 <script>
     import { computed } from 'vue';
+    import { trans } from 'laravel-vue-i18n';
 
     export default {
         props: {
@@ -38,11 +53,11 @@
         setup(props) {
             const data = computed(() => [
                 {
-                    label: 'field.uuid',
+                    label: trans('field.uuid'),
                     value: props.resource.uuid,
                 },
                 {
-                    label: 'field.created_at',
+                    label: trans('field.created_at'),
                     value: props.resource.created_at,
                 },
                 ...props.resource.data,

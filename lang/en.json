@@ -164,6 +164,7 @@
     "field.help": "Help text",
     "field.html": "HTML code",
     "field.icon": "Icon",
+    "field.id": "ID",
     "field.image_width": "Image width",
     "field.image": "Image",
     "field.images": "Images",
@@ -219,6 +220,7 @@
 
     "form_submission.label": "Submission|Submissions",
     "form_submission.count": "{1} :count submission|[2,*] :count submissions",
+    "form_submission.id": "Submission #:id",
 
     "form_submission.empty.title": "No form submsisions found",
 

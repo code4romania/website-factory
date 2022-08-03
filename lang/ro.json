@@ -164,6 +164,7 @@
     "field.help": "Text ajutător",
     "field.html": "Cod HTML",
     "field.icon": "Icon",
+    "field.id": "ID",
     "field.image_width": "Dimensiune imagine",
     "field.image": "Imagine",
     "field.images": "Imagini",
@@ -219,6 +220,7 @@
 
     "form_submission.label": "Răspuns|Răspunsuri",
     "form_submission.count": "{1} :count răspuns|[2,*] :count răspunsuri",
+    "form_submission.id": "Răspuns #:id",
 
     "form_submission.empty.title": "Nu am găsit niciun răspuns pentru acest formular",
 

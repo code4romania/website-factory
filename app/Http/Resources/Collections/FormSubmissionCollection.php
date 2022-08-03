@@ -12,7 +12,7 @@ class FormSubmissionCollection extends ResourceCollection
      * @var array
      */
     protected array $columns = [
-        'uuid', 'created_at',
+        'id', 'created_at',
     ];
 
     protected string $mainActionRoute = 'admin.form_submissions.show';

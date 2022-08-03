@@ -19,7 +19,7 @@ class FormSubmission extends Model
     use HasUuid;
 
     public array $allowedSorts = [
-        //
+        'id',
     ];
 
     public array $allowedFilters = [

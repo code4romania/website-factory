@@ -151,12 +151,11 @@ Route::group([
 });
 
 Route::group([
-    'prefix'     => 'forms',
     'as'         => 'form_submissions.',
     'controller' => Admin\FormSubmissionController::class,
 ], function () {
-    Route::get('{form}/submission/{form_submission}', 'show')->name('show');
-    Route::delete('{form}/submission/{form_submission}', 'destroy')->name('destroy');
+    Route::get('form_submission/{form_submission}', 'show')->name('show');
+    Route::delete('form_submission/{form_submission}', 'destroy')->name('destroy');
 });
 
 Route::group([

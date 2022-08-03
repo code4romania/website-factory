@@ -21,17 +21,15 @@
             />
         </template>
 
-        <inertia-table
-            :collection="collection"
-            disable-create
-            disable-filters
-        />
+        <inertia-table :collection="collection" disable-create disable-filters>
+            <template #id="{ row }">
+                {{ $t('form_submission.id', { id: row.id }) }}
+            </template>
+        </inertia-table>
     </layout>
 </template>
 
 <script>
-    import { computed } from 'vue';
-
     export default {
         props: {
             collection: Object,
@@ -39,13 +37,7 @@
             model: Object,
         },
         setup(props) {
-            const action = computed(() =>
-                props.resource === undefined ? 'create' : 'edit'
-            );
-
-            return {
-                action,
-            };
+            //
         },
     };
 </script>

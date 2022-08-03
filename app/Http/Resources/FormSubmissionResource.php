@@ -15,7 +15,7 @@ class FormSubmissionResource extends Resource
     protected function show(Request $request): array
     {
         return [
-            'form_submission' => $this->id,
+            'id'              => $this->id,
             'form'            => FormResource::make($this->form),
             'created_at'      => $this->created_at->toDateTimeString(),
             'uuid'            => $this->uuid,
@@ -26,10 +26,9 @@ class FormSubmissionResource extends Resource
     protected function default(Request $request): array
     {
         return [
-            'form_submission' => $this->id,
+            'id'              => $this->id,
             'form'            => $this->form_id,
             'created_at'      => $this->created_at->toDateTimeString(),
-            'uuid'            => $this->uuid,
         ];
     }
 }
