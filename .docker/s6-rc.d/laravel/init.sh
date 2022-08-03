@@ -3,7 +3,7 @@
 cd /var/www
 
 echo "Laravel init started"
-php artisan down --render="errors::503"
+php artisan down
 
 php artisan migrate --force
 php artisan wf:install
