@@ -74,27 +74,33 @@ class Form extends Model
 
     public function processSubmission(array $data): void
     {
+        $storedSubmission = null;
+
         if ($this->store_submissions) {
-            $this->storeSubmission($data);
+            $storedSubmission = $this->storeSubmission($data);
         }
 
         if ($this->send_submissions) {
-            $this->sendSubmission($data);
+            $this->sendSubmission($data, $storedSubmission);
         }
     }
 
-    public function storeSubmission(array $data): void
+    public function storeSubmission(array $data): FormSubmission
     {
-        $this->submissions()->create([
+        return $this->submissions()->create([
             'data' => $data,
         ]);
     }
 
-    public function sendSubmission(array $data): void
+    public function sendSubmission(array $data, ?FormSubmission $stored): void
     {
         $this->recipients_list->each(
             fn (string $recipient) => Mail::to($recipient)
-                ->send(new FormSubmitted($this, $data))
+                ->send(new FormSubmitted(
+                    form: $this,
+                    stored: $stored,
+                    data: $data,
+                ))
         );
     }
 

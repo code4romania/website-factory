@@ -288,3 +288,24 @@ img {
 .break-all {
     word-break: break-all;
 }
+
+dl {
+    border-top: 1px solid #edeff2;
+    padding-top: 1em;
+}
+
+dt {
+    color: #3d4852;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    margin: 0;
+}
+
+dd {
+    color: #74787e;
+    font-size: 15px;
+    line-height: 18px;
+    margin: 0;
+    padding: 0 0 1em;
+}

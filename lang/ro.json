@@ -224,6 +224,10 @@
 
     "form_submission.empty.title": "Nu am găsit niciun răspuns pentru acest formular",
 
+    "form_submission.mail.intro": "Formularul \":title\" a primit un nou răspuns.",
+    "form_submission.mail.stored": "Răspunsul a fost stocat și în baza de date cu următorul id:",
+    "form_submission.mail.not_stored": "Răspunsul nu a fost stocat în baza de date.",
+
     "language.label": "Limbă|Limbi",
     "language.action.create": "Adaugă limbă",
     "language.action.edit": "Editează limba",

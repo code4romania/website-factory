@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Mail;
 
 use App\Models\Form;
+use App\Models\FormSubmission;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -19,15 +20,18 @@ class FormSubmitted extends Mailable implements ShouldQueue
 
     public array $data;
 
+    public ?FormSubmission $stored;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Form $form, array $data)
+    public function __construct(Form $form, array $data, ?FormSubmission $stored)
     {
         $this->form = $form;
         $this->data = $data;
+        $this->stored = $stored;
     }
 
     /**
@@ -38,10 +42,11 @@ class FormSubmitted extends Mailable implements ShouldQueue
     public function build()
     {
         return $this
-            ->subject(__('form.event.submitted'))
+            ->subject($this->form->title)
             ->markdown('emails.forms.submitted', [
-                'form' => $this->form,
-                'data' => $this->data,
+                'form'   => $this->form,
+                'data'   => $this->data,
+                'stored' => $this->stored,
             ]);
     }
 }

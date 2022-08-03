@@ -224,6 +224,10 @@
 
     "form_submission.empty.title": "No form submsisions found",
 
+    "form_submission.mail.intro": "The form \":title\" received a new submission.",
+    "form_submission.mail.stored": "The submission was also stored in the database with the following id:",
+    "form_submission.mail.not_stored": "The submission was not stored in the database.",
+
     "language.label": "Language|Languages",
     "language.action.create": "Add language",
     "language.action.edit": "Edit language",
