@@ -17,8 +17,6 @@ class Embed extends BlockComponent
 
     public ?string $title = null;
 
-    public ?string $aspectRatio = null;
-
     public ?string $html = null;
 
     public function setup(): void
@@ -34,11 +32,9 @@ class Embed extends BlockComponent
         $this->code = $this->getEmbedCode();
 
         $this->html = $this->code?->html;
-
-        $this->aspectRatio = $this->getAspectRatio();
     }
 
-    private function getAspectRatio(): ?string
+    public function aspectRatio(): ?string
     {
         if (! $this->code || ! $this->code->width || ! $this->code->height) {
             return null;
