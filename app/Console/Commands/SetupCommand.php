@@ -11,21 +11,21 @@ use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 
-class InstallCommand extends Command
+class SetupCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'wf:install';
+    protected $signature = 'wf:setup';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Perform the initial Website Factory setup';
+    protected $description = 'Perform the Website Factory setup';
 
     /**
      * Execute the console command.
@@ -51,6 +51,8 @@ class InstallCommand extends Command
     {
         if (Language::count()) {
             $this->warn('The languages table is not empty. Skipping language creation...');
+
+            $this->call(UpdateTranslationsCommand::class, ['--force' => false]);
 
             return;
         }

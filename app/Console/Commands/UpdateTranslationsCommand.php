@@ -75,8 +75,6 @@ class UpdateTranslationsCommand extends Command
 
     protected function updateEverything(): void
     {
-        $this->info('Replacing existing database translations...');
-
         $values = collect($this->lines)
             ->map(fn (array $text, string $key) => [
                 'group' => '*',
@@ -86,12 +84,12 @@ class UpdateTranslationsCommand extends Command
             ->all();
 
         LanguageLine::upsert($values, ['group', 'key'], ['text']);
+
+        $this->info('Replaced all database translations.');
     }
 
     protected function updateMissing(): void
     {
-        $this->info('Adding missing database translations...');
-
         $existingLines = LanguageLine::query()
             ->where('group', '*')
             ->pluck('key');
@@ -113,7 +111,7 @@ class UpdateTranslationsCommand extends Command
         if ($newLines->isNotEmpty()) {
             LanguageLine::insert($newLines->all());
 
-            $this->info("Added {$newLines->count()} database translations.");
+            $this->info("Added {$newLines->count()} missing database translations.");
         } else {
             $this->info('Translations already up to date.');
         }

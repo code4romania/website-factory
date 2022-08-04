@@ -6,8 +6,7 @@ echo "Laravel init started"
 php artisan down
 
 php artisan migrate --force
-php artisan wf:install
-php artisan wf:translations
+php artisan wf:setup
 php artisan wf:sequences
 php artisan config:cache
 php artisan event:cache
