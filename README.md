@@ -11,16 +11,16 @@ Code4ro presentation website
 This project is built by amazing volunteers and you can be one of them! Here's a list of ways in [which you can contribute to this project](https://github.com/code4romania/.github/blob/main/CONTRIBUTING.md).
 
 ## Built with
--   Laravel 8
+-   Laravel
 -   Tailwind CSS
 -   Inertia.js
 -   Vue.js
 -   Alpine.js
 
 ### Requirements
--   PHP 8.0+
--   Apache or Nginx
--   MySQL or PostgreSQL
+-   PHP 8.1+
+-   Nginx
+-   PostgreSQL 14+
 
 ## Development
 This project uses Laravel Sail, Laravel's default Docker development environment.
@@ -61,7 +61,7 @@ cp .env.example .env
 ./vendor/bin/sail artisan migrate:fresh --seed
 ```
 
-For more information on Laravel Sail, check out the [official documentation](https://laravel.com/docs/8.x/sail).
+For more information on Laravel Sail, check out the [official documentation](https://laravel.com/docs/9.x/sail).
 
 ## Deployment
 
