@@ -81,23 +81,27 @@ trait HasSlug
 
     protected function fillSlugs()
     {
-        locales()->each(function (array $config, string $locale) {
-            if ($this->slugIsTranslatable()) {
-                $slugs = $this->getTranslationsWithFallback('slug');
+        if ($this->slugIsTranslatable()) {
+            $slugs = $this->getTranslationsWithFallback('slug');
 
-                $this->withLocale($locale, function () use ($slugs) {
-                    $slug = $slugs[app()->getLocale()];
+            locales()->each(
+                fn (array $config, string $locale) => $this->withLocale($locale, function () use ($slugs) {
+                    $slug = Str::slug($slugs[app()->getLocale()]);
 
                     if (! $slug || $this->slugAlreadyUsed($slug)) {
                         $this->slug = $this->generateSlug();
                     }
-                });
-            } else {
+                })
+            );
+        } else {
+            locales()->each(function () {
+                $this->slug = Str::slug($this->slug);
+
                 if (! $this->slug || ! $this->slugAlreadyUsed($this->slug)) {
                     $this->slug = $this->generateSlug();
                 }
-            }
-        });
+            });
+        }
     }
 
     public function generateSlug(): string
