@@ -23,6 +23,7 @@
     "app.action.enable": "Activează",
     "app.action.filter": "Filtrează",
     "app.action.forceDelete": "Șterge permanent",
+    "app.action.forceDeleteConfirm": "Ești sigur că dorești să ștergi permanent aceast item?",
     "app.action.leave": "Părăsește",
     "app.action.publish": "Publică",
     "app.action.remove": "Elimină",

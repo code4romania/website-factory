@@ -42,7 +42,12 @@ class AdminController extends Controller
 
     public function restore(int $id): RedirectResponse
     {
-        $model = $this->model::onlyTrashed()
+        $model = $this->model::query()
+            ->onlyTrashed()
+            ->when(
+                SupportsTrait::publishable($this->model),
+                fn (Builder $query) => $query->withDrafted()
+            )
             ->find($id);
 
         $model->restore();
@@ -52,7 +57,12 @@ class AdminController extends Controller
 
     public function forceDelete(int $id): RedirectResponse
     {
-        $this->model::onlyTrashed()
+        $this->model::query()
+            ->onlyTrashed()
+            ->when(
+                SupportsTrait::publishable($this->model),
+                fn (Builder $query) => $query->withDrafted()
+            )
             ->find($id)
             ->forceDelete();
 
@@ -62,7 +72,12 @@ class AdminController extends Controller
     public function duplicate(int $id): RedirectResponse
     {
         /** @var Model */
-        $source = $this->model::find($id);
+        $source = $this->model::query()
+            ->when(
+                SupportsTrait::publishable($this->model),
+                fn (Builder $query) => $query->withDrafted()
+            )
+            ->find($id);
 
         /** @var Model */
         $duplicate = $source->replicate();

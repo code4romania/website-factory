@@ -23,6 +23,7 @@
     "app.action.enable": "Activate",
     "app.action.filter": "Filter",
     "app.action.forceDelete": "Permanently delete",
+    "app.action.forceDeleteConfirm": "Are you sure you want to permanently delete this item?",
     "app.action.leave": "Leave",
     "app.action.publish": "Publish",
     "app.action.remove": "Remove",
