@@ -7,7 +7,10 @@
         <div class="relative flex items-center justify-between gap-3">
             <a href="{{ localized_route('front.pages.index') }}" class="inline-flex text-primary">
                 @if ($logo)
-                    <img src="{{ $logo }}" class="h-16 max-w-48 sm:max-w-64" alt="{{ $title }}">
+                    <img
+                        class="object-contain h-16 max-w-48 sm:max-w-64"
+                        src="{{ $logo }}"
+                        alt="{{ $title }}">
                 @else
                     <x-icon-logo class="h-12 md:h-16" />
                 @endif
