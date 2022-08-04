@@ -56,7 +56,6 @@
                     v-model="form.slug"
                     route-name="front.posts.show"
                     route-key="post"
-                    :source="form.title"
                     translatable
                     required
                 />

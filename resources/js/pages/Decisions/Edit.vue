@@ -56,7 +56,6 @@
                     v-model="form.slug"
                     route-name="front.decisions.show"
                     route-key="decision"
-                    :source="form.title"
                     translatable
                     required
                 />
