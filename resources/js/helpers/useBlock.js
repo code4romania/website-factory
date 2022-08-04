@@ -1,11 +1,14 @@
-import { defaultValue } from '@/helpers';
+import { defaultValue, typeOf } from '@/helpers';
 
 export default function () {
     const initializeFields = (block, props) => {
         if (block.hasOwnProperty('fields')) {
             for (const [field, type] of Object.entries(block.fields)) {
-                // Skip if already has value
-                if (props.content.hasOwnProperty(field)) {
+                // Skip if already has value and value type matches prop definition
+                if (
+                    props.content.hasOwnProperty(field) &&
+                    typeOf(props.content[field]) === type
+                ) {
                     continue;
                 }
 

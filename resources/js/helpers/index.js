@@ -4,6 +4,7 @@ export { default as defineFormBlock } from './defineFormBlock';
 export { default as defineInput } from './defineInput';
 export { default as defineRepeater } from './defineRepeater';
 export { default as ensureCallbacks } from './ensureCallbacks';
+export { default as typeOf } from './typeOf';
 export { default as route } from './useRoute';
 export { default as useBlock } from './useBlock';
 export { default as useFeature } from './useFeature';
