@@ -18,8 +18,8 @@ class SetSeoDefaults
      */
     public function handle(Request $request, Closure $next)
     {
-        $title = localized_settings('site.title');
-        $description = localized_settings('site.description');
+        $title = (string) localized_settings('site.title');
+        $description = (string) localized_settings('site.description');
 
         app('seotools')
             ->setTitle($title)
