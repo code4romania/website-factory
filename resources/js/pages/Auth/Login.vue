@@ -1,5 +1,5 @@
 <template>
-    <layout-guest>
+    <layout-guest :title="$t('auth.login')">
         <validation-errors class="mb-4" />
 
         <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
@@ -8,10 +8,8 @@
 
         <form @submit.prevent="submit" class="space-y-4">
             <form-input
-                label="Email"
-                id="email"
+                :label="$t('field.email')"
                 type="email"
-                class="block w-full mt-1"
                 v-model="form.email"
                 required
                 autofocus
@@ -19,10 +17,8 @@
             />
 
             <form-input
-                label="Password"
-                id="password"
+                :label="$t('field.password')"
                 type="password"
-                class="block w-full mt-1"
                 v-model="form.password"
                 required
                 autocomplete="current-password"
@@ -54,28 +50,31 @@
 </template>
 
 <script>
+    import { useForm } from '@inertiajs/inertia-vue3';
+    import { route } from '@/helpers';
+
     export default {
         props: {
             canResetPassword: Boolean,
             status: String,
         },
+        setup(props) {
+            const form = useForm({
+                email: '',
+                password: '',
+                remember: false,
+            });
 
-        data() {
-            return {
-                form: this.$inertia.form({
-                    email: '',
-                    password: '',
-                    remember: false,
-                }),
-            };
-        },
-
-        methods: {
-            submit() {
-                this.form.post(this.route('auth.login'), {
-                    onFinish: () => this.form.reset('password'),
+            const submit = () => {
+                form.post(route('auth.login'), {
+                    onFinish: () => form.reset('password'),
                 });
-            },
+            };
+
+            return {
+                form,
+                submit,
+            };
         },
     };
 </script>
