@@ -1,10 +1,9 @@
 <template>
-    <layout-guest>
-        <div class="mb-4 text-sm text-gray-600">
-            Forgot your password? No problem. Just let us know your email
-            address and we will email you a password reset link that will allow
-            you to choose a new one.
-        </div>
+    <layout-guest :title="$t('auth.reset')">
+        <div
+            class="mb-4 text-sm text-gray-600"
+            v-text="$t('auth.forgot_text')"
+        />
 
         <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
             {{ status }}
@@ -13,26 +12,21 @@
         <validation-errors class="mb-4" />
 
         <form @submit.prevent="submit">
-            <div>
-                <form-label for="email" value="Email" />
-                <form-input
-                    id="email"
-                    type="email"
-                    class="block w-full mt-1"
-                    v-model="form.email"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
-            </div>
+            <form-input
+                :label="$t('field.email')"
+                type="email"
+                v-model="form.email"
+                required
+                autofocus
+                autocomplete="username"
+            />
 
             <div class="flex items-center justify-end mt-4">
                 <form-button
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
-                >
-                    Email Password Reset Link
-                </form-button>
+                    :label="$t('auth.reset')"
+                />
             </div>
         </form>
     </layout-guest>
