@@ -51,7 +51,7 @@
     "app.banner.more": "Află mai multe",
 
     "auth.failed": "Datele de identificare nu pot fi confirmate.",
-    "auth.password": "The provided password is incorrect.",
+    "auth.password": "Parola introdusă este incorrectă.",
     "auth.throttle": "Prea multe încercări de intrare în cont. Poți încerca din nou peste :seconds secunde.",
     "auth.login": "Log in",
     "auth.logout": "Log out",
@@ -59,6 +59,7 @@
     "auth.reset": "Resetează parola",
     "auth.change_password": "Schimbă parola",
     "auth.forgot": "Ți-ai uitat parola?",
+    "auth.forgot_text": "Ți-ai uitat parola? Nicio problemă. Spune-ne adresa ta de e-mail și îți vom trimite un link de resetare a parolei.",
     "auth.welcome.submit": "Setează parola",
     "auth.welcome.invalid_signature": "Acest link nu are o semnătură validă.",
     "auth.welcome.no_user": "Acest utilizator nu este valid.",
@@ -286,11 +287,11 @@
     "pagination.next": "Înainte",
     "pagination.goto": "Mergi la pagina :page",
 
-    "password.reset": "Your password has been reset!",
-    "password.sent": "We have emailed your password reset link!",
-    "password.throttled": "Please wait before retrying.",
-    "password.token": "This password reset token is invalid.",
-    "password.user": "We can't find a user with that email address.",
+    "passwords.reset": "Parola ta a fost resetată!",
+    "passwords.sent": "Ți-am trimis un email cu link-ul de resetare a parolei!",
+    "passwords.throttled": "Te rugăm să așteptați înainte de a încerca din nou.",
+    "passwords.token": "Acest token de resetare a parolei este invalid.",
+    "passwords.user": "Nu am găsit un utilizator cu această adresă de e-mail.",
 
     "person.label": "Persoană|Persoane",
     "person.action.create": "Adaugă persoană",
