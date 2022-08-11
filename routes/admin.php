@@ -220,3 +220,12 @@ Route::group([
     Route::put('/{language}', 'update')->name('update');
     Route::delete('/{language}', 'destroy')->name('destroy');
 });
+
+Route::group([
+    'prefix' => 'help',
+    'as' => 'help.',
+    'controller' => Admin\HelpController::class,
+], function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/{section}', 'section')->name('section');
+});
