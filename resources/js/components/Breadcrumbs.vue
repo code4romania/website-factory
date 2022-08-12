@@ -3,7 +3,7 @@
         <nav class="sm:hidden" aria-label="Back">
             <inertia-link
                 v-if="items.length"
-                :href="back.href"
+                :href="back.url"
                 class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700"
             >
                 <icon

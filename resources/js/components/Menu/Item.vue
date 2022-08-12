@@ -66,7 +66,7 @@
             },
             classBase: {
                 type: String,
-                default: 'flex px-3 py-2 font-medium',
+                default: 'flex px-3 py-2 font-medium whitespace-nowrap',
             },
             classActive: {
                 type: String,

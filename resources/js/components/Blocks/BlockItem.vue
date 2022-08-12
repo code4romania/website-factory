@@ -32,13 +32,13 @@
                 >
                     <icon
                         v-if="content.fullwidth"
-                        name="Media/fullscreen-exit-line"
+                        name="Design/layout-column-line"
                         class="block w-4 h-4"
                     />
 
                     <icon
                         v-else
-                        name="Media/fullscreen-line"
+                        name="Design/layout-column-fill"
                         class="block w-4 h-4"
                     />
                 </button>

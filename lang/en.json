@@ -1,4 +1,8 @@
 {
+    "align.left": "Left",
+    "align.center": "Center",
+    "align.right": "Right",
+
     "app.dashboard": "Dashboard",
     "app.settings": "Settings",
     "app.profile": "Profile",

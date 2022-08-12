@@ -5,7 +5,7 @@
         'grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12 my-8 lg:my-12',
         'container' => $container,
     ])>
-    @forelse ($blocks as $block)
+    @foreach ($blocks as $block)
         <div
             @class([
                 'md:col-span-2' => $block->checkbox('fullwidth'),
@@ -22,7 +22,5 @@
                 </details>
             @endif
         </div>
-    @empty
-        No blocks found
-    @endforelse
+    @endforeach
 </div>
