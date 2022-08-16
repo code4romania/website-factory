@@ -18,7 +18,7 @@ class SettingRequest extends BaseRequest
      */
     public function authorize(): bool
     {
-        return auth()->user()->isAdmin() && Setting::sections()->contains($this->section);
+        return Setting::sections()->contains($this->section);
     }
 
     /**

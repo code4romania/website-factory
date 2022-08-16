@@ -217,18 +217,22 @@
                     });
                 }
 
-                if (props.row.can.delete && props.row.trashed) {
-                    actions.push({
-                        click: () => (confirmAction.value = 'restore'),
-                        label: 'app.action.restore',
-                        type: 'button',
-                    });
+                if (props.row.trashed) {
+                    if (props.row.can.restore) {
+                        actions.push({
+                            click: () => (confirmAction.value = 'restore'),
+                            label: 'app.action.restore',
+                            type: 'button',
+                        });
+                    }
 
-                    actions.push({
-                        click: () => (confirmAction.value = 'forceDelete'),
-                        label: 'app.action.forceDelete',
-                        type: 'button',
-                    });
+                    if (props.row.can.forceDelete) {
+                        actions.push({
+                            click: () => (confirmAction.value = 'forceDelete'),
+                            label: 'app.action.forceDelete',
+                            type: 'button',
+                        });
+                    }
                 }
 
                 return actions;

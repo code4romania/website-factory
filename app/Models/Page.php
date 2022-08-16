@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\DataTransferObjects\SearchResult;
 use App\Traits\ClearsResponseCache;
+use App\Traits\Duplicatable;
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
 use App\Traits\HasMedia;
@@ -21,6 +22,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Page extends Model
 {
     use ClearsResponseCache;
+    use Duplicatable;
     use Filterable;
     use HasBlocks;
     use HasFactory;

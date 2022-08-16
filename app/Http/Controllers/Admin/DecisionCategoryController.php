@@ -68,6 +68,38 @@ class DecisionCategoryController extends AdminController
             ->with('success', __('decision_category.event.updated'));
     }
 
+    public function duplicate(DecisionCategory $decisionCategory): RedirectResponse
+    {
+        $duplicate = $decisionCategory->duplicate();
+
+        return redirect()->route('admin.decision_categories.edit', $duplicate)
+            ->with('success', __('decision_category.event.duplicated'));
+    }
+
+    public function destroy(DecisionCategory $decisionCategory): RedirectResponse
+    {
+        $decisionCategory->delete();
+
+        return redirect()->route('admin.decision_categories.index')
+            ->with('success', __('decision_category.event.deleted'));
+    }
+
+    public function restore(DecisionCategory $decisionCategory): RedirectResponse
+    {
+        $decisionCategory->restore();
+
+        return redirect()->route('admin.decision_categories.edit', $decisionCategory)
+            ->with('success', __('decision_category.event.restored'));
+    }
+
+    public function forceDelete(DecisionCategory $decisionCategory): RedirectResponse
+    {
+        $decisionCategory->forceDelete();
+
+        return redirect()->route('admin.decision_categories.index')
+            ->with('success', __('decision_category.event.forceDeleted'));
+    }
+
     protected function subnav(): array
     {
         return [

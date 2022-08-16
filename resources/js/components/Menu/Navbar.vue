@@ -32,7 +32,7 @@
                                     />
                                 </div>
 
-                                <div class="py-1">
+                                <div v-if="settingsMenu.length" class="py-1">
                                     <dropdown-item
                                         v-for="(item, index) in settingsMenu"
                                         :key="index"

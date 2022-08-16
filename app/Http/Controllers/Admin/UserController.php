@@ -60,4 +60,12 @@ class UserController extends AdminController
         return redirect()->route('admin.users.edit', $user)
             ->with('success', __('user.event.updated'));
     }
+
+    public function destroy(User $user): RedirectResponse
+    {
+        $user->delete();
+
+        return redirect()->route('admin.users.index')
+            ->with('success', __('user.event.deleted'));
+    }
 }

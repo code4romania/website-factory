@@ -67,7 +67,9 @@ class MediaPolicy
      */
     public function delete(User $user, Media $media)
     {
-        return true;
+        return false;
+
+        return $user->isAdmin();
     }
 
     /**
@@ -79,7 +81,7 @@ class MediaPolicy
      */
     public function restore(User $user, Media $media)
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**

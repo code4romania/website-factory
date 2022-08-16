@@ -162,6 +162,7 @@ Route::group([
     'prefix'     => 'users',
     'as'         => 'users.',
     'controller' => Admin\UserController::class,
+    'middleware' => 'role:admin',
 ], function () {
     Route::get('/', 'index')->name('index');
     Route::get('/create', 'create')->name('create');
@@ -187,6 +188,7 @@ Route::group([
     'prefix'     => 'menus',
     'as'         => 'menus.',
     'controller' => Admin\MenuController::class,
+    'middleware' => 'role:admin',
     'where'      => ['location' => '(header|footer)'],
 ], function () {
     Route::get('/', 'index')->name('index');
@@ -198,6 +200,7 @@ Route::group([
     'prefix'     => 'settings',
     'as'         => 'settings.',
     'controller' => Admin\SettingController::class,
+    'middleware' => 'role:admin',
 ], function () {
     Route::get('/', 'index')->name('index');
     Route::get('/{section}', 'edit')->name('edit');
@@ -208,6 +211,7 @@ Route::group([
     'prefix'     => 'languages',
     'as'         => 'languages.',
     'controller' => Admin\LanguageController::class,
+    'middleware' => 'role:admin',
 ], function () {
     Route::get('/', 'index')->name('index');
     Route::get('/create', 'create')->name('create');

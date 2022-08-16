@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Traits\ClearsResponseCache;
+use App\Traits\Duplicatable;
 use App\Traits\Filterable;
 use App\Traits\HasSlug;
 use App\Traits\Sortable;
@@ -17,6 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class DecisionCategory extends Model
 {
     use ClearsResponseCache;
+    use Duplicatable;
     use Filterable;
     use HasFactory;
     use HasSlug;

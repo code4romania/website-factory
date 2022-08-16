@@ -80,6 +80,38 @@ class PostController extends AdminController
             ->with('success', __('post.event.updated'));
     }
 
+    public function duplicate(Post $post): RedirectResponse
+    {
+        $duplicate = $post->duplicate();
+
+        return redirect()->route('admin.posts.edit', $duplicate)
+            ->with('success', __('post.event.duplicated'));
+    }
+
+    public function destroy(Post $post): RedirectResponse
+    {
+        $post->delete();
+
+        return redirect()->route('admin.posts.index')
+            ->with('success', __('post.event.deleted'));
+    }
+
+    public function restore(Post $post): RedirectResponse
+    {
+        $post->restore();
+
+        return redirect()->route('admin.posts.edit', $post)
+            ->with('success', __('post.event.restored'));
+    }
+
+    public function forceDelete(Post $post): RedirectResponse
+    {
+        $post->forceDelete();
+
+        return redirect()->route('admin.posts.index')
+            ->with('success', __('post.event.forceDeleted'));
+    }
+
     protected function subnav(): array
     {
         return [

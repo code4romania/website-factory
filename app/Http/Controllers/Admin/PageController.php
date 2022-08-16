@@ -69,4 +69,36 @@ class PageController extends AdminController
         return redirect()->route('admin.pages.edit', $page)
             ->with('success', __('page.event.updated'));
     }
+
+    public function duplicate(Page $page): RedirectResponse
+    {
+        $duplicate = $page->duplicate();
+
+        return redirect()->route('admin.pages.edit', $duplicate)
+            ->with('success', __('page.event.duplicated'));
+    }
+
+    public function destroy(Page $page): RedirectResponse
+    {
+        $page->delete();
+
+        return redirect()->route('admin.pages.index')
+            ->with('success', __('page.event.deleted'));
+    }
+
+    public function restore(Page $page): RedirectResponse
+    {
+        $page->restore();
+
+        return redirect()->route('admin.pages.edit', $page)
+            ->with('success', __('page.event.restored'));
+    }
+
+    public function forceDelete(Page $page): RedirectResponse
+    {
+        $page->forceDelete();
+
+        return redirect()->route('admin.pages.index')
+            ->with('success', __('page.event.forceDeleted'));
+    }
 }

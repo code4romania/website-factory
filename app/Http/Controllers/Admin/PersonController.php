@@ -65,4 +65,36 @@ class PersonController extends AdminController
         return redirect()->route('admin.people.edit', $person)
             ->with('success', __('person.event.updated'));
     }
+
+    public function duplicate(Person $person): RedirectResponse
+    {
+        $duplicate = $person->duplicate();
+
+        return redirect()->route('admin.people.edit', $duplicate)
+            ->with('success', __('person.event.duplicated'));
+    }
+
+    public function destroy(Person $person): RedirectResponse
+    {
+        $person->delete();
+
+        return redirect()->route('admin.people.index')
+            ->with('success', __('person.event.deleted'));
+    }
+
+    public function restore(Person $person): RedirectResponse
+    {
+        $person->restore();
+
+        return redirect()->route('admin.people.edit', $person)
+            ->with('success', __('person.event.restored'));
+    }
+
+    public function forceDelete(Person $person): RedirectResponse
+    {
+        $person->forceDelete();
+
+        return redirect()->route('admin.people.index')
+            ->with('success', __('person.event.forceDeleted'));
+    }
 }

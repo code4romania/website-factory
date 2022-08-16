@@ -68,6 +68,38 @@ class PostCategoryController extends AdminController
             ->with('success', __('post_category.event.updated'));
     }
 
+    public function duplicate(PostCategory $postCategory): RedirectResponse
+    {
+        $duplicate = $postCategory->duplicate();
+
+        return redirect()->route('admin.post_categories.edit', $duplicate)
+            ->with('success', __('post_category.event.duplicated'));
+    }
+
+    public function destroy(PostCategory $postCategory): RedirectResponse
+    {
+        $postCategory->delete();
+
+        return redirect()->route('admin.post_categories.index')
+            ->with('success', __('post_category.event.deleted'));
+    }
+
+    public function restore(PostCategory $postCategory): RedirectResponse
+    {
+        $postCategory->restore();
+
+        return redirect()->route('admin.post_categories.edit', $postCategory)
+            ->with('success', __('post_category.event.restored'));
+    }
+
+    public function forceDelete(PostCategory $postCategory): RedirectResponse
+    {
+        $postCategory->forceDelete();
+
+        return redirect()->route('admin.post_categories.index')
+            ->with('success', __('post_category.event.forceDeleted'));
+    }
+
     protected function subnav(): array
     {
         return [
