@@ -19,7 +19,7 @@ class DecisionCategoryRequest extends BaseRequest
     {
         return TranslatableFormRequestRules::make(Decision::class, [
             'title'               => ['required', 'string', 'max:200'],
-            'slug'                => ['required', 'string', 'max:200'],
+            'slug'                => ['nullable', 'string', 'max:200'],
             'description'         => ['nullable', 'string'],
         ]);
     }

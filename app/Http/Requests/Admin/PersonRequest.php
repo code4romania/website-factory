@@ -24,7 +24,7 @@ class PersonRequest extends BaseRequest
 
         return TranslatableFormRequestRules::make(Person::class, [
             'name'                => ['required', 'string', 'max:200'],
-            'slug'                => ['required', 'string', 'max:200', Rule::unique('people', 'slug')->ignore($this->person?->id),
+            'slug'                => ['nullable', 'string', 'max:200', Rule::unique('people', 'slug')->ignore($this->person?->id),
             ],
             'title'               => ['required', 'string', 'max:200'],
             'social'              => ['nullable', "array:$platforms"],

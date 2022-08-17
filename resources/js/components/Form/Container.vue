@@ -69,7 +69,7 @@
 </template>
 
 <script>
-    import { computed, onUnmounted } from 'vue';
+    import { computed, onUnmounted, watch } from 'vue';
     import { useForm, route } from '@/helpers';
     import { trans } from 'laravel-vue-i18n';
     import { Inertia } from '@inertiajs/inertia';
@@ -141,6 +141,11 @@
                         : null;
                 },
             });
+
+            watch(
+                () => props.resource?.slug,
+                (slug) => (form.slug = slug)
+            );
 
             /**
              * @see https://inertiajs.com/events#removing-listeners
