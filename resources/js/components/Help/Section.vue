@@ -2,15 +2,18 @@
     <article
         class="flex flex-col justify-between flex-1 overflow-hidden bg-white shadow-lg"
     >
-        <div class="flex-1 p-6 prose">
-            <h4 class="mb-0">
+        <div class="flex-1 p-6">
+            <h3 class="mb-3 font-semibold">
                 <inertia-link
                     :href="url"
                     class="no-underline hover:underline hover:text-blue-600 focus:text-blue-600"
                     v-text="section.title"
                 />
-            </h4>
-            <div class="line-clamp-3" v-html="section.intro" />
+            </h3>
+            <div
+                class="prose-sm prose text-gray-600 line-clamp-3"
+                v-html="section.intro"
+            />
         </div>
 
         <div class="flex justify-end p-6 pt-0">

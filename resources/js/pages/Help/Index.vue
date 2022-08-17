@@ -8,6 +8,10 @@
             },
         ]"
     >
+        <template #subnav>
+            <ask-for-help />
+        </template>
+
         <div class="divide-y divide-gray-200">
             <help-chapter
                 v-for="(chapter, key) in help"

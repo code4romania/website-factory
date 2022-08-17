@@ -243,6 +243,8 @@
     "form_submission.mail.not_stored": "Răspunsul nu a fost stocat în baza de date.",
 
     "help.label": "Ajutor",
+    "help.ask.info": "Dacă nu găsești informațiile de care ai nevoie în această secțiune, poți să ceri ajutor prin programul Civic Tech 911.",
+    "help.ask.action": "Programează-te",
 
     "language.label": "Limbă|Limbi",
     "language.action.create": "Adaugă limbă",

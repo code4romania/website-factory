@@ -16,9 +16,13 @@
             },
         ]"
     >
+        <template #subnav>
+            <ask-for-help />
+        </template>
+
         <div class="grid items-start gap-8 lg:grid-cols-2">
             <div
-                class="prose prose-lg text-gray-500 prose-blue max-w-prose"
+                class="prose text-gray-700 prose-blue max-w-prose"
                 v-html="help.section.content"
             />
 
