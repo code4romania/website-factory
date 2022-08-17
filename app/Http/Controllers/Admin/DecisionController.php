@@ -76,6 +76,38 @@ class DecisionController extends AdminController
             ->with('success', __('decision.event.updated'));
     }
 
+    public function duplicate(Decision $decision): RedirectResponse
+    {
+        $duplicate = $decision->duplicate();
+
+        return redirect()->route('admin.decisions.edit', $duplicate)
+            ->with('success', __('decision.event.duplicated'));
+    }
+
+    public function destroy(Decision $decision): RedirectResponse
+    {
+        $decision->delete();
+
+        return redirect()->route('admin.decisions.index')
+            ->with('success', __('decision.event.deleted'));
+    }
+
+    public function restore(Decision $decision): RedirectResponse
+    {
+        $decision->restore();
+
+        return redirect()->route('admin.decisions.edit', $decision)
+            ->with('success', __('decision.event.restored'));
+    }
+
+    public function forceDelete(Decision $decision): RedirectResponse
+    {
+        $decision->forceDelete();
+
+        return redirect()->route('admin.decisions.index')
+            ->with('success', __('decision.event.forceDeleted'));
+    }
+
     protected function subnav(): array
     {
         return [

@@ -19,7 +19,7 @@
         "htmlmin/htmlmin": "^9.0",
         "inertiajs/inertia-laravel": "^0.6",
         "kalnoy/nestedset": "^6.0",
-        "laravel/framework": "^9.23",
+        "laravel/framework": "^9.25",
         "laravel/tinker": "^2.7",
         "league/flysystem-aws-s3-v3": "^3.2",
         "league/omnipay": "^3.2",

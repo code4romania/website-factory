@@ -67,7 +67,7 @@ class PostCategoryPolicy
      */
     public function delete(User $user, PostCategory $postCategory)
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**
@@ -79,7 +79,7 @@ class PostCategoryPolicy
      */
     public function restore(User $user, PostCategory $postCategory)
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**

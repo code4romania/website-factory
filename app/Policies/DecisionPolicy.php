@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Policies;
 
-use App\Models\Page;
+use App\Models\Decision;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PagePolicy
+class DecisionPolicy
 {
     use HandlesAuthorization;
 
@@ -27,10 +27,10 @@ class PagePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User                      $user
-     * @param  \App\Models\Page                      $page
+     * @param  \App\Models\Decision                  $decision
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Page $page)
+    public function view(User $user, Decision $decision)
     {
         return true;
     }
@@ -50,10 +50,10 @@ class PagePolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User                      $user
-     * @param  \App\Models\Page                      $page
+     * @param  \App\Models\Decision                  $decision
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Page $page)
+    public function update(User $user, Decision $decision)
     {
         return true;
     }
@@ -62,10 +62,10 @@ class PagePolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User                      $user
-     * @param  \App\Models\Page                      $page
+     * @param  \App\Models\Decision                  $decision
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Page $page)
+    public function delete(User $user, Decision $decision)
     {
         return $user->isAdmin();
     }
@@ -74,13 +74,11 @@ class PagePolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User                      $user
-     * @param  \App\Models\Page                      $page
+     * @param  \App\Models\Decision                  $decision
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Page $page)
+    public function restore(User $user, Decision $decision)
     {
-        return true;
-
         return $user->isAdmin();
     }
 
@@ -88,10 +86,10 @@ class PagePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User                      $user
-     * @param  \App\Models\Page                      $page
+     * @param  \App\Models\Decision                  $decision
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Page $page)
+    public function forceDelete(User $user, Decision $decision)
     {
         return $user->isAdmin();
     }

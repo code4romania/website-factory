@@ -27,9 +27,9 @@ trait HasRelated
     {
         $this->related()->createMany(
             collect($items)->map(fn (array $item, int $index) => [
-                'related_id'   => $item['id'],
-                'related_type' => $item['type'],
-                'position'     => $index + 1,
+                'related_id'   => $item['related_id'] ?? $item['id'],
+                'related_type' => $item['related_type'] ?? $item['type'],
+                'position'     => $item['position'] ?? $index + 1,
             ])
         );
     }

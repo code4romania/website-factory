@@ -67,7 +67,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**
@@ -79,7 +79,7 @@ class PostPolicy
      */
     public function restore(User $user, Post $post)
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**

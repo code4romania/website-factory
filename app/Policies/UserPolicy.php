@@ -54,7 +54,7 @@ class UserPolicy
      */
     public function update(User $loggedInUser, User $user)
     {
-        return $loggedInUser->isAdmin();
+        return $loggedInUser->isAdmin() || $loggedInUser->is($user);
     }
 
     /**

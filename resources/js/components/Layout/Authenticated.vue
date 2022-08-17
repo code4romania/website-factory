@@ -14,7 +14,7 @@
 
             <div v-if="$slots.subnav" class="bg-gray-200">
                 <div
-                    class="container flex items-center py-3 space-x-3 overflow-x-auto"
+                    class="container flex items-center py-3 overflow-x-auto sm:space-x-2"
                 >
                     <slot name="subnav" />
                 </div>
@@ -39,7 +39,7 @@
 
                 <div
                     v-if="description"
-                    class="max-w-4xl mt-2 text-sm prose text-gray-500"
+                    class="mt-2 prose text-gray-500 max-w-prose"
                     v-html="description"
                 />
             </div>

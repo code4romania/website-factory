@@ -19,7 +19,7 @@
             />
 
             <input
-                class="flex-1 block w-full min-w-0 border-none focus:outline-none focus:ring-0"
+                class="flex-1 block w-full min-w-0 border-none focus:outline-none focus:ring-0 disabled:bg-gray-50 disabled:text-gray-600"
                 :class="{
                     'pl-0': prefix,
                 }"
@@ -28,6 +28,7 @@
                 :id="id"
                 :required="required"
                 :disabled="disabled"
+                :readonly="readonly"
                 :autofocus="autofocus"
                 :placeholder="placeholder"
                 v-bind="$attrs"

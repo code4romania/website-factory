@@ -102,6 +102,7 @@
                         :name="`${prefix}.route`"
                         v-model="item.route"
                         :options="routes"
+                        required
                     />
                 </template>
 
@@ -113,6 +114,7 @@
                         :options="models"
                         option-value-key="id"
                         option-label-key="title"
+                        required
                     />
                 </template>
             </div>

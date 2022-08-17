@@ -7,6 +7,7 @@ namespace App\Models;
 use App\DataTransferObjects\SearchResult;
 use App\Mail\FormSubmitted;
 use App\Traits\ClearsResponseCache;
+use App\Traits\Duplicatable;
 use App\Traits\Filterable;
 use App\Traits\HasBlocks;
 use App\Traits\HasSlug;
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Mail;
 class Form extends Model
 {
     use ClearsResponseCache;
+    use Duplicatable;
     use Filterable;
     use HasBlocks;
     use HasFactory;

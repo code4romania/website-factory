@@ -67,7 +67,7 @@ class FormSubmissionPolicy
      */
     public function delete(User $user, FormSubmission $formSubmission)
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**
@@ -79,7 +79,7 @@ class FormSubmissionPolicy
      */
     public function restore(User $user, FormSubmission $formSubmission)
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**

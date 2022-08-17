@@ -67,7 +67,7 @@ class DecisionCategoryPolicy
      */
     public function delete(User $user, DecisionCategory $decisionCategory)
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**
@@ -79,7 +79,7 @@ class DecisionCategoryPolicy
      */
     public function restore(User $user, DecisionCategory $decisionCategory)
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**

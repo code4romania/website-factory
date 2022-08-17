@@ -6,7 +6,7 @@
             <form-input
                 :label="$t('field.email')"
                 type="email"
-                class="block w-full disabled:bg-gray-50 disabled:text-gray-600"
+                class="block w-full"
                 :modelValue="email"
                 disabled
                 readonly

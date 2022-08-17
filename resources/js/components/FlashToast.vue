@@ -46,9 +46,8 @@
                             <button
                                 @click="visible = false"
                                 class="inline-flex text-gray-400 bg-white hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 p-0.5"
+                                :title="$t('app.action.close')"
                             >
-                                <span class="sr-only">Close</span>
-
                                 <icon
                                     name="System/close-line"
                                     class="w-5 h-5"

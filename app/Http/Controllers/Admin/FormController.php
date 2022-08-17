@@ -71,13 +71,43 @@ class FormController extends AdminController
     {
         $attributes = $request->validated();
 
-        // dd($attributes);
-
         $form->update($attributes);
 
         $form->saveBlocks($attributes['blocks']);
 
         return redirect()->route('admin.forms.edit', $form)
             ->with('success', __('form.event.updated'));
+    }
+
+    public function duplicate(Form $form): RedirectResponse
+    {
+        $duplicate = $form->duplicate();
+
+        return redirect()->route('admin.forms.edit', $duplicate)
+            ->with('success', __('form.event.duplicated'));
+    }
+
+    public function destroy(Form $form): RedirectResponse
+    {
+        $form->delete();
+
+        return redirect()->route('admin.forms.index')
+            ->with('success', __('form.event.deleted'));
+    }
+
+    public function restore(Form $form): RedirectResponse
+    {
+        $form->restore();
+
+        return redirect()->route('admin.forms.edit', $form)
+            ->with('success', __('form.event.restored'));
+    }
+
+    public function forceDelete(Form $form): RedirectResponse
+    {
+        $form->forceDelete();
+
+        return redirect()->route('admin.forms.index')
+            ->with('success', __('form.event.forceDeleted'));
     }
 }

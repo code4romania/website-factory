@@ -67,7 +67,7 @@ class PersonPolicy
      */
     public function delete(User $user, Person $person)
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**
@@ -79,7 +79,7 @@ class PersonPolicy
      */
     public function restore(User $user, Person $person)
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**
