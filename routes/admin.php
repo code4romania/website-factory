@@ -227,5 +227,5 @@ Route::group([
     'controller' => Admin\HelpController::class,
 ], function () {
     Route::get('/', 'index')->name('index');
-    Route::get('/{section}', 'section')->name('section')->where('section', '.*');
+    Route::get('/{section}', 'show')->name('show')->where('section', '.*');
 });

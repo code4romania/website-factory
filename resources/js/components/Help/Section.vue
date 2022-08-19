@@ -54,7 +54,7 @@
         },
         setup(props) {
             const url = computed(() =>
-                route('admin.help.section', {
+                route('admin.help.show', {
                     section: `${props.chapterKey}/${props.sectionKey}`,
                 })
             );

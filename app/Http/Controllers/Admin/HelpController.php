@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class HelpController extends AdminController
+class HelpController extends Controller
 {
     public function index(): Response
     {
@@ -22,7 +23,7 @@ class HelpController extends AdminController
         ]);
     }
 
-    public function section(string $section): Response|RedirectResponse
+    public function show(string $section): Response|RedirectResponse
     {
         $parts = explode('/', $section);
 
@@ -41,7 +42,7 @@ class HelpController extends AdminController
 
         $chapter = __("help.${parts[0]}");
 
-        return Inertia::render('Help/Section', [
+        return Inertia::render('Help/Show', [
             'help' => [
                 'asset_url' => asset('assets/images/help'),
                 'chapter' => [
