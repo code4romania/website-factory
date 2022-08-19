@@ -113,6 +113,12 @@
     "category.event.updated": "Categoria a fost actualizată.",
     "category.event.deleted": "Categoria a fost ștersă.",
 
+    "cookie_notice.title": "Acest site folosește cookie-uri",
+    "cookie_notice.text": "Pentru a-ți oferi o experiență bună de navigare, utilizăm fișiere de tip cookie. Dacă nu ești de acord cu utilizarea cookie-urilor, poți să îți retragi consimțământul pentru utilizarea cookie-urilor prin modificarea setărilor din browser-ul tău.",
+    "cookie_notice.agree": "Sunt de acord",
+    "cookie_notice.info": "Mai multe informații",
+    "cookie_notice.close": "Închide",
+
     "decision.label": "Hotărâre|Hotărâri",
     "decision.action.create": "Adaugă hotărâre",
     "decision.action.edit": "Editează hotărâre",
