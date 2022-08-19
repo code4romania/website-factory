@@ -7,8 +7,8 @@
             'name' => $block->name,
             'value' => old($block->name),
             'required' => $block->checkbox('required'),
-            'min' => $block->input('min_value') ?? null,
-            'max' => $block->input('max_value') ?? null,
+            'min' => $block->input('min_value') ?: null,
+            'max' => $block->input('max_value') ?: null,
             'x-model' => $block->x_model,
             'x-init' => 'initializeField',
         ]) }}>

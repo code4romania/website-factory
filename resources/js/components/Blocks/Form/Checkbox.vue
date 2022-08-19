@@ -17,6 +17,7 @@
     <localized-field
         field="form-textarea"
         :label="$t('field.options')"
+        :help="$t('field_help.one_per_line')"
         v-model="content.options"
     />
 </template>

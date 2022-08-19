@@ -16,11 +16,13 @@
 
     <form-date-picker
         :label="$t('field.min_date')"
+        :help="$t('field_help.empty_to_disable')"
         v-model="content.min_date"
     />
 
     <form-date-picker
         :label="$t('field.max_date')"
+        :help="$t('field_help.empty_to_disable')"
         v-model="content.max_date"
     />
 </template>

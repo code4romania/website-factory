@@ -17,12 +17,14 @@
     <form-input
         type="number"
         :label="$t('field.min_value')"
+        :help="$t('field_help.zero_to_disable')"
         v-model.number="content.min_value"
     />
 
     <form-input
         type="number"
         :label="$t('field.max_value')"
+        :help="$t('field_help.zero_to_disable')"
         v-model.number="content.max_value"
     />
 </template>

@@ -8,6 +8,7 @@
     <form-input
         type="url"
         :label="$t('field.url')"
+        :help="$t('field_help.embed_url')"
         required
         v-model="content.url"
     />
