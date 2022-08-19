@@ -26,6 +26,26 @@
                     option-label-key="title"
                     required
                 />
+
+                <form-select
+                    :label="$t('field.privacy_page')"
+                    name="settings.privacy_page"
+                    v-model="form.settings.privacy_page"
+                    :options="data.pages.data"
+                    option-value-key="id"
+                    option-label-key="title"
+                    required
+                />
+
+                <form-select
+                    :label="$t('field.terms_page')"
+                    name="settings.terms_page"
+                    v-model="form.settings.terms_page"
+                    :options="data.pages.data"
+                    option-value-key="id"
+                    option-label-key="title"
+                    required
+                />
             </panel>
 
             <panel title="Branding">

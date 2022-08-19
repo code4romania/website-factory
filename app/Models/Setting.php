@@ -31,10 +31,12 @@ class Setting extends Model
 
         $sections = [
             'site' => [
-                'title'       => $translatable,
-                'description' => $translatable,
-                'front_page'  => null,
-                'logo'        => null,
+                'title'        => $translatable,
+                'description'  => $translatable,
+                'front_page'   => null,
+                'privacy_page' => null,
+                'terms_page'   => null,
+                'logo'         => null,
                 'html' => [
                     'header' => null,
                     'footer' => null,

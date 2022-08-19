@@ -34,6 +34,8 @@ class SettingRequest extends BaseRequest
                 'settings.description'    => ['array'],
                 'settings.logo'           => ['nullable', 'image'],
                 'settings.front_page'     => ['required', 'exists:pages,id'],
+                'settings.privacy_page'   => ['required', 'exists:pages,id'],
+                'settings.terms_page'     => ['required', 'exists:pages,id'],
                 'settings.html'           => ['array'],
                 'settings.html.header'    => ['nullable', 'string'],
                 'settings.html.footer'    => ['nullable', 'string'],
