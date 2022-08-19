@@ -113,6 +113,12 @@
     "category.event.updated": "Categoria a fost actualizată.",
     "category.event.deleted": "Categoria a fost ștersă.",
 
+    "cookie_notice.title": "Acest site folosește cookie-uri",
+    "cookie_notice.text": "Pentru a-ți oferi o experiență bună de navigare, utilizăm fișiere de tip cookie. Dacă nu ești de acord cu utilizarea cookie-urilor, poți să îți retragi consimțământul pentru utilizarea cookie-urilor prin modificarea setărilor din browser-ul tău.",
+    "cookie_notice.agree": "Sunt de acord",
+    "cookie_notice.info": "Mai multe informații",
+    "cookie_notice.close": "Închide",
+
     "decision.label": "Hotărâre|Hotărâri",
     "decision.action.create": "Adaugă hotărâre",
     "decision.action.edit": "Editează hotărâre",
@@ -190,6 +196,7 @@
     "field.post_category": "Categorie postări",
     "field.post": "Postare",
     "field.posts_count": "Număr de postări",
+    "field.privacy_page": "Pagina de politică de confidențialitate",
     "field.progress": "Progres",
     "field.publish": "Publică",
     "field.published_at": "Publicat la",
@@ -203,6 +210,7 @@
     "field.slug": "Slug",
     "field.store_submissions": "Salvează răspunsurile în panou",
     "field.submissions": "Răspunsuri",
+    "field.terms_page": "Pagina de termeni și condiții",
     "field.text": "Text",
     "field.title": "Titlu",
     "field.type": "Tip",

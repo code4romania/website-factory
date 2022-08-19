@@ -113,6 +113,12 @@
     "category.event.updated": "Category successfully updated.",
     "category.event.deleted": "Category successfully deleted.",
 
+    "cookie_notice.title": "This site uses cookies",
+    "cookie_notice.text": "In order to provide you with the best browsing experience we use cookies. If you disagree with this, you may withdraw your consent by changing the settings on your browser.",
+    "cookie_notice.agree": "I agree",
+    "cookie_notice.info": "More info",
+    "cookie_notice.close": "CLose",
+
     "decision.label": "Decision|Decisions",
     "decision.action.create": "Add decision",
     "decision.action.edit": "Edit decision",
@@ -190,6 +196,7 @@
     "field.post_category": "Post category",
     "field.post": "Post",
     "field.posts_count": "Posts count",
+    "field.privacy_page": "Privacy policy page",
     "field.progress": "Progress",
     "field.publish": "Publish",
     "field.published_at": "Published at",
@@ -203,6 +210,7 @@
     "field.slug": "Slug",
     "field.store_submissions": "Store submissions",
     "field.submissions": "Submissions",
+    "field.terms_page": "Terms & conditions page",
     "field.text": "Text",
     "field.title": "Title",
     "field.type": "Type",

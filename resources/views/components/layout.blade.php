@@ -38,6 +38,8 @@
 
     <x-site.footer />
 
+    <x-site.cookie-notice />
+
     {!! $footerHtml !!}
 </body>
 
