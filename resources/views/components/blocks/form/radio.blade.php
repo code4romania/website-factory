@@ -12,6 +12,7 @@
                             'required' => $block->checkbox('required'),
                             'checked' => old($block->name) === $option,
                             'value' => $option,
+                            'x-model' => $block->x_model,
                         ]) }}>
 
                     <span class="text-sm text-gray-700">
