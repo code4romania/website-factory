@@ -102,8 +102,9 @@ return [
 
                     Îți recomandăm ca titlul și descrierea website-ului să fie cât mai clare pentru că acestea vor fi indexate în motoarele de căutare, iar vizitele pe website-ul tău sunt determinate și de calitatea termenilor folosiți în titlul și descrierea acestuia. De asemenea, prima pagină este primul contact pe care vizitatorul îl are cu website-ul tău, de aceea îți sugerăm să acorzi atenție în construcția acestei pagini.
                     markdown,
-                'video' => [
-                    'id' => 'dQw4w9WgXcQ',
+                'media' => [
+                    'type' => 'image',
+                    'image' => 'sample-file.png',
                     'caption' => 'Great as a TV Screensaver for the office,  lounge, waiting room, Spa, Restaurant, etc. Play it in your Roky, Apple tv, Chromecast, Xbox, Playstation, Wii, etc.',
                 ],
             ],
@@ -139,8 +140,9 @@ return [
 
                     Logo-ul va fi încărcat în website și se va afișa deasupra meniului din header, pe toate paginile website-ului.
                     markdown,
-                'video' => [
-                    'id' => 'dQw4w9WgXcQ',
+                'media' => [
+                    'type' => 'video',
+                    'video' => 'dQw4w9WgXcQ',
                     'caption' => 'Great as a TV Screensaver for the office,  lounge, waiting room, Spa, Restaurant, etc. Play it in your Roky, Apple tv, Chromecast, Xbox, Playstation, Wii, etc.',
                 ],
             ],
@@ -158,7 +160,6 @@ return [
                     5. Mergi până la ultima secțiune din pagină **Custom HTML**
                     6. Lipește codul HTML copiat din platforma serviciului în unul dintre cele 2 câmpuri Cod HTML introdus înainte de `</head>` / Cod HTML introdus înainte de `</body>`, conform instrucțiunilor serviciului folosit.
                     7. Apasă **Salvează**
-
                     markdown,
             ],
         ],

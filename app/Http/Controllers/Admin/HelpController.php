@@ -43,6 +43,7 @@ class HelpController extends AdminController
 
         return Inertia::render('Help/Section', [
             'help' => [
+                'asset_url' => asset('assets/images/help'),
                 'chapter' => [
                     'key'   => $parts[0],
                     'title' => data_get($chapter, 'title'),
@@ -81,7 +82,7 @@ class HelpController extends AdminController
 
         if ($withContent) {
             $result['content'] = Str::markdown(data_get($section, 'content', ''));
-            $result['video'] = data_get($section, 'video');
+            $result['media'] = data_get($section, 'media');
         }
 
         return $result;

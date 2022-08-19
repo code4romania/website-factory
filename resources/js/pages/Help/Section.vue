@@ -26,19 +26,29 @@
                 v-html="help.section.content"
             />
 
-            <figure v-if="help.section.video">
-                <div class="aspect-w-16 aspect-h-9">
+            <figure v-if="help.section.media !== null" class="pt-8 lg:pt-0">
+                <div
+                    v-if="help.section.media.type === 'video'"
+                    class="aspect-w-16 aspect-h-9"
+                >
                     <iframe
-                        :src="`https://www.youtube.com/embed/${help.section.video.id}?modestbranding=1&rel=0`"
+                        :src="`https://www.youtube.com/embed/${help.section.media.video}?modestbranding=1&rel=0`"
                         frameborder="0"
                         allow="encrypted-media; picture-in-picture"
                         allowfullscreen
                     />
                 </div>
 
+                <img
+                    v-else-if="help.section.media.type === 'image'"
+                    :src="`${help.asset_url}/${help.section.media.image}`"
+                    class="w-full"
+                    alt=""
+                />
+
                 <figcaption
-                    v-if="help.section.video.caption"
-                    v-text="help.section.video.caption"
+                    v-if="help.section.media.caption"
+                    v-text="help.section.media.caption"
                     class="mt-3 text-sm italic text-gray-500"
                 />
             </figure>
