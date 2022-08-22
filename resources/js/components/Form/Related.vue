@@ -11,7 +11,7 @@
         <draggable
             :list="related"
             item-key="id"
-            :group="`related-${type}`"
+            :group="`related-${typePlural}`"
             class="w-full border divide-y divide-gray-200 border-inherit list-group"
             ghost-class="opacity-50"
             handle=".handle"
@@ -80,45 +80,124 @@
         </draggable>
     </form-field>
 
-    <action-modal max-width="lg" v-if="open" @close="open = false">
-        <template #title>{{ $t('app.action.attach') }}</template>
+    <base-modal
+        container-class="flex flex-col overflow-hidden min-h-64"
+        max-width="lg"
+        v-if="open"
+        @close="open = false"
+        is-form
+    >
+        <div
+            v-if="!items.length"
+            class="flex flex-col items-center justify-center flex-1 gap-4 px-4 text-sm text-center py-14 sm:px-14"
+        >
+            <icon
+                name="System/error-warning-line"
+                class="w-6 h-6 mx-auto text-gray-400"
+            />
 
-        <template #content>
-            <ul class="w-full text-sm font-medium divide-y divide-gray-200">
-                <li v-for="(item, index) in items" :key="index">
-                    <form-checkbox
-                        class="px-3 py-4"
-                        v-model="selectedItems"
-                        :value="item.id"
-                        :label="item.title"
-                    />
-                </li>
-            </ul>
-        </template>
+            <p
+                class="text-gray-900"
+                v-text="$t(`${typeSingular}.empty.title`)"
+            />
 
-        <template #footer>
-            <button
-                type="button"
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-100 disabled:opacity-50"
-                :disabled="selectedItems.length > limit"
-                @click="addSelectedItems"
+            <inertia-link
+                :href="route(`admin.${typePlural}.create`)"
+                class="font-medium text-blue-600 hover:text-blue-500"
             >
-                <icon name="System/add-line" class="w-5 h-5 mr-2 -ml-1" />
+                <span v-text="$t(`${typeSingular}.action.create`)" />
+                <span aria-hidden="true"> &rarr;</span>
+            </inertia-link>
+        </div>
 
-                <span v-text="$t('app.action.attach')" />
-            </button>
+        <template v-else>
+            <div class="relative block border-b border-gray-200">
+                <icon
+                    name="System/search-line"
+                    class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
+                />
+                <input
+                    type="search"
+                    class="w-full h-12 pl-12 pr-4 text-gray-800 placeholder-gray-400 bg-transparent border-0 focus:ring-0 sm:text-sm"
+                    autocomplete="off"
+                    :placeholder="$t('app.search.placeholder')"
+                    @keydown.stop
+                    @keydown.enter.prevent
+                    v-model="query"
+                    ref="search"
+                />
+            </div>
 
-            <div class="text-sm text-gray-500">
-                {{ selectedItems.length }} / {{ limit }}
+            <div class="relative flex-1 overflow-scroll">
+                <div
+                    v-if="query && !filteredItems.length"
+                    class="flex flex-col items-center justify-center flex-1 gap-4 px-4 text-sm text-center py-14 sm:px-14"
+                >
+                    <icon
+                        name="System/error-warning-line"
+                        class="w-6 h-6 mx-auto text-gray-400"
+                    />
+
+                    <p
+                        class="text-gray-900"
+                        v-text="$t(`${typeSingular}.empty.title`)"
+                    />
+                </div>
+
+                <ul
+                    v-else
+                    class="w-full text-sm font-medium divide-y divide-gray-200"
+                >
+                    <li v-for="(item, index) in filteredItems" :key="index">
+                        <form-checkbox
+                            class="px-6 py-4 sm:px-8"
+                            v-model="selectedItems"
+                            :value="item.id"
+                            :label="item.title"
+                        />
+                    </li>
+                </ul>
+            </div>
+
+            <div
+                class="flex items-center justify-between gap-3 px-4 py-3 bg-gray-100 sm:px-6"
+            >
+                <div class="flex gap-2">
+                    <form-button
+                        type="button"
+                        :disabled="selectedItems.length > limit"
+                        @click.prevent="addSelectedItems"
+                        color="blue"
+                    >
+                        <icon
+                            name="System/add-line"
+                            class="w-5 h-5 mr-2 -ml-1"
+                        />
+
+                        <span v-text="$t('app.action.attach')" />
+                    </form-button>
+
+                    <form-button
+                        type="button"
+                        @click.prevent="open = false"
+                        color="white"
+                    >
+                        <span v-text="$t('app.action.close')" />
+                    </form-button>
+                </div>
+
+                <div class="text-sm text-gray-500">
+                    {{ selectedItems.length }} / {{ limit }}
+                </div>
             </div>
         </template>
-    </action-modal>
+    </base-modal>
 </template>
 
 <script>
     import Draggable from 'vuedraggable';
-    import { defineInput, useRelated } from '@/helpers';
-    import { computed, ref } from 'vue';
+    import { defineInput, useFilter, useRelated, route } from '@/helpers';
+    import { computed, ref, watch, nextTick } from 'vue';
 
     export default defineInput({
         name: 'FormRelated',
@@ -126,7 +205,11 @@
             Draggable,
         },
         props: {
-            type: {
+            typeSingular: {
+                type: String,
+                required: true,
+            },
+            typePlural: {
                 type: String,
                 required: true,
             },
@@ -142,6 +225,10 @@
         },
         emits: ['update:related'],
         setup(props, { emit }) {
+            const { filterPredicate } = useFilter();
+
+            const search = ref(null);
+            const query = ref('');
             const selectedItems = ref([]);
 
             const getSelectedItems = () => {
@@ -158,6 +245,14 @@
                 Math.max(0, props.limit - props.related.length)
             );
 
+            const filteredItems = computed(() =>
+                !query.value
+                    ? items.value
+                    : items.value.filter((item) =>
+                          filterPredicate(item.title, query.value)
+                      )
+            );
+
             const proxySelected = computed({
                 get: () => props.related,
                 set: (value) => emit('update:related', value),
@@ -166,7 +261,7 @@
             const { fetchData } = useRelated();
 
             const openList = () => {
-                fetchData(props.type, {
+                fetchData(props.typePlural, {
                     onSuccess: (response) => {
                         items.value = response.data.data;
 
@@ -200,6 +295,12 @@
                 getSelectedItems();
             };
 
+            watch(open, (value) => {
+                if (value) {
+                    nextTick(() => search.value.focus());
+                }
+            });
+
             return {
                 open,
                 openList,
@@ -207,8 +308,12 @@
                 selectedItems,
                 proxySelected,
                 items,
+                filteredItems,
                 addSelectedItems,
                 deleteItem,
+                search,
+                query,
+                route,
             };
         },
     });

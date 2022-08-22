@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Str;
 
@@ -48,8 +49,12 @@ class AdminController extends Controller
 
     public function collection(): JsonResource
     {
+        $orderByColumn = app($this->model)?->slugFieldSource;
+
         return $this->resource::collection(
-            $this->model::all()
+            $this->model::query()
+                ->when($orderByColumn, fn (Builder $query) => $query->orderBy($orderByColumn))
+                ->get()
         );
     }
 }

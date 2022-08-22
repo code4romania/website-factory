@@ -8,7 +8,8 @@
     <form-related
         :label="$t('field.form')"
         v-model:related="related"
-        type="forms"
+        type-singular="form"
+        type-plural="forms"
         :limit="1"
     />
 </template>
