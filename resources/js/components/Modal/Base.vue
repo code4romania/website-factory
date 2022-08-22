@@ -73,13 +73,11 @@
             };
 
             onMounted(() => {
-                console.log('mounted');
                 document.addEventListener('keydown', closeOnKeyPress);
                 document.body.classList.add('overflow-hidden');
             });
 
             onUnmounted(() => {
-                console.log('unmounted');
                 document.removeEventListener('keydown', closeOnKeyPress);
                 document.body.classList.remove('overflow-hidden');
             });
