@@ -56,20 +56,28 @@
                 </template>
 
                 <template #content>
-                    <dropdown-item
-                        v-for="(item, index) in allowedBlocks"
-                        :key="index"
-                        type="button"
-                        @click="addBlock(item.type)"
-                        class="flex items-center"
-                    >
-                        <icon
-                            :name="item.icon"
-                            class="w-5 h-5 mr-3 text-gray-500 group-hover:text-gray-600"
-                        />
+                    <div class="divide-y divide-gray-100">
+                        <div
+                            v-for="(group, groupIndex) in allowedBlocks"
+                            :key="groupIndex"
+                            class="py-1"
+                        >
+                            <dropdown-item
+                                v-for="(item, index) in group"
+                                :key="index"
+                                type="button"
+                                @click="addBlock(item.type)"
+                                class="flex items-center"
+                            >
+                                <icon
+                                    :name="item.icon"
+                                    class="w-5 h-5 mr-3 text-gray-500 group-hover:text-gray-600"
+                                />
 
-                        <span class="flex-1" v-text="item.label" />
-                    </dropdown-item>
+                                <span class="flex-1" v-text="item.label" />
+                            </dropdown-item>
+                        </div>
+                    </div>
                 </template>
             </dropdown>
         </template>
