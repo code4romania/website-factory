@@ -99,6 +99,6 @@ class PageController extends AdminController
         $page->forceDelete();
 
         return redirect()->route('admin.pages.index')
-            ->with('success', __('page.event.forceDeleted'));
+            ->with('success', __('page.event.deleted'));
     }
 }

@@ -33,6 +33,7 @@
     "app.action.remove": "Remove",
     "app.action.reset": "Reset",
     "app.action.restore": "Restore",
+    "app.action.restoreConfirm": "Are you sure you want to restore this item?",
     "app.action.save": "Save",
     "app.action.select": "Select",
     "app.action.usavedConfirm": "Are you sure you want to leave this page? Any unsaved changes will be lost.",

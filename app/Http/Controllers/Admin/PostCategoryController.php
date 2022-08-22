@@ -97,7 +97,7 @@ class PostCategoryController extends AdminController
         $postCategory->forceDelete();
 
         return redirect()->route('admin.post_categories.index')
-            ->with('success', __('post_category.event.forceDeleted'));
+            ->with('success', __('post_category.event.deleted'));
     }
 
     protected function subnav(): array

@@ -33,6 +33,7 @@
     "app.action.remove": "Elimină",
     "app.action.reset": "Resetează",
     "app.action.restore": "Restaurează",
+    "app.action.restoreConfirm": "Ești sigur că dorești să restaurezi aceast item?",
     "app.action.save": "Salvează",
     "app.action.select": "Selectează",
     "app.action.usavedConfirm": "Ești sigur că dorești să părăsești această pagină? Orice modificări nesalvate vor fi pierdute.",

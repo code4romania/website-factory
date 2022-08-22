@@ -108,6 +108,6 @@ class FormController extends AdminController
         $form->forceDelete();
 
         return redirect()->route('admin.forms.index')
-            ->with('success', __('form.event.forceDeleted'));
+            ->with('success', __('form.event.deleted'));
     }
 }
