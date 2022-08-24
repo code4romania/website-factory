@@ -4,18 +4,29 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Builder;
 
 trait HasRole
 {
+    public function initializeHasRole()
+    {
+        $this->casts['role'] = UserRole::class;
+    }
+
     public function hasRole(string $role): bool
     {
-        return $this->role === $role;
+        return $this->role === UserRole::tryFrom($role);
     }
 
     public function isAdmin(): bool
     {
-        return $this->hasRole('admin');
+        return $this->role === UserRole::admin;
+    }
+
+    public function isEditor(): bool
+    {
+        return $this->role === UserRole::editor;
     }
 
     /**

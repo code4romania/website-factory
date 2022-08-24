@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Enums\UserRole;
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
@@ -27,7 +28,7 @@ class UserFactory extends Factory
     }
 
     /**
-     * Indicate that the model's email address should be unverified.
+     * Indicate that the users's email address should be unverified.
      *
      * @return \Database\Factories\Factory
      */
@@ -39,14 +40,26 @@ class UserFactory extends Factory
     }
 
     /**
-     * Indicate that the model's email address should be unverified.
+     * Indicate that the user is an administrator.
      *
      * @return \Database\Factories\Factory
      */
     public function admin(): Factory
     {
         return $this->state(fn (array $attributes) => [
-            'role' => 'admin',
+            'role' => UserRole::admin->value,
+        ]);
+    }
+
+    /**
+     * Indicate that the user is an editor.
+     *
+     * @return \Database\Factories\Factory
+     */
+    public function editor(): Factory
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => UserRole::editor->value,
         ]);
     }
 }

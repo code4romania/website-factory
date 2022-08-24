@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\UserRole;
 use App\Http\Requests\Admin\UserRequest;
 use App\Http\Resources\Collections\UserCollection;
 use App\Http\Resources\UserResource;
@@ -30,6 +31,7 @@ class UserController extends AdminController
     {
         return Inertia::render('Users/Edit', [
             'userLocales' => locales(),
+            'userRoles' => UserRole::cases(),
         ])->model(User::class);
     }
 
@@ -48,6 +50,7 @@ class UserController extends AdminController
         return Inertia::render('Users/Edit', [
             'resource' => UserResource::make($user),
             'userLocales' => locales(),
+            'userRoles' => UserRole::cases(),
         ])->model(User::class);
     }
 

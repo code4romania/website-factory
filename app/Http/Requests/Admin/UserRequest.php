@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Admin;
 
+use App\Enums\UserRole;
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Enum;
 
 class UserRequest extends BaseRequest
 {
@@ -19,7 +21,7 @@ class UserRequest extends BaseRequest
         return [
             'name'   => ['required', 'string', 'max:200'],
             'email'  => ['required', 'email', Rule::unique('users')->ignore($this->user)],
-            'role'   => ['required', 'string'],
+            'role'   => ['required', 'string', new Enum(UserRole::class)],
             'locale' => ['required', 'string', Rule::in(locales()->keys())],
         ];
     }
