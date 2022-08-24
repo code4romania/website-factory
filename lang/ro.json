@@ -41,9 +41,13 @@
     "app.action.upload": "Încarcă",
     "app.action.view": "Vezi",
 
+    "app.table_bulk.action": "Acțiuni în masă",
+    "app.table_bulk.selected": "{1} :count item selectat|[2,19] :count itemi selectați|[20,*] :count de itemi selectați",
+
     "app.table_status.all": "Toate",
     "app.table_status.published": "Publicat|Publicate",
     "app.table_status.draft": "Draft|Draft-uri",
+    "app.table_status.scheduled": "Programat|Programate",
     "app.table_status.trashed": "Șters|Șterse",
 
     "app.time.edited": "Ultima modificare cu :ago",

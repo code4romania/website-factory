@@ -1,5 +1,12 @@
 <template>
-    <div class="flex items-center justify-between space-x-2">
+    <table-bulk-actions
+        v-if="selected.length"
+        :items="collection.data"
+        :selected="selected"
+        @clear="clearSelected"
+    />
+
+    <div v-else class="flex items-center justify-between gap-x-2">
         <table-filters v-if="!disableFilters" :collection="collection" />
 
         <inertia-link
@@ -137,6 +144,10 @@
                 },
             });
 
+            const clearSelected = () => {
+                selected.value = [];
+            };
+
             return {
                 selected,
                 canInteractWithRows,
@@ -144,6 +155,7 @@
                 toggleSelect,
                 toggleRow,
                 selectAll,
+                clearSelected,
             };
         },
     };

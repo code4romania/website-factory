@@ -41,9 +41,13 @@
     "app.action.upload": "Upload",
     "app.action.view": "View",
 
+    "app.table_bulk.action": "Bulk actions",
+    "app.table_bulk.selected": "{1} :count item selected|[2,*] :count items selected",
+
     "app.table_status.all": "All",
     "app.table_status.published": "Published|Published",
     "app.table_status.draft": "Draft|Draft",
+    "app.table_status.scheduled": "Scheduled|Scheduled",
     "app.table_status.trashed": "Trashed|Trashed",
 
     "app.time.edited": "Last change :ago ago",

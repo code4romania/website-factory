@@ -1,17 +1,19 @@
 <template>
     <div>
         <dropdown
-            trigger-class="flex justify-between w-full px-1 py-4 -mb-px text-sm font-medium text-gray-500 border-b-2 border-transparent border-gray-200 whitespace-nowrap hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300"
+            trigger-class="flex items-center justify-between w-full px-1 py-4 -mb-px text-sm font-medium text-gray-500 border-b-2 border-transparent border-gray-200 whitespace-nowrap hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300"
             class="sm:hidden"
             with-arrow
         >
             <template #trigger>
                 <div class="flex justify-start flex-1">
-                    <span v-text="$t(`app.table_status.${current.name}`)" />
+                    <span
+                        v-text="$tChoice(`app.table_status.${current.name}`, 2)"
+                    />
 
                     <span
                         v-text="current.count"
-                        class="ml-3 py-0.5 px-2.5 rounded-full text-xs font-semibold bg-gray-200 text-gray-900"
+                        class="ml-3 mr-1 py-0.5 px-2.5 rounded-full text-xs font-semibold bg-gray-200 text-gray-900"
                     />
                 </div>
             </template>
@@ -40,7 +42,7 @@
                 v-for="status in collection.statuses"
                 :key="status.name"
                 :href="filterUrl(status)"
-                class="flex px-1 py-4 text-sm font-medium border-b-2 whitespace-nowrap"
+                class="flex px-1 py-4 text-sm font-medium border-b-2 whitespace-nowrap -mb-0.5"
                 :class="
                     isCurrent(status)
                         ? 'border-blue-500 text-blue-600'
