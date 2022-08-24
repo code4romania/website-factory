@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
     {
         Cache::flush();
 
-        Artisan::call('wf:install');
+        Artisan::call('wf:setup');
 
         $images = Media::query()
             ->whereImages()
