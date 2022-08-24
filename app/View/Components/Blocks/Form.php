@@ -10,7 +10,7 @@ class Form extends BlockComponent
 {
     public ?string $title;
 
-    public FormModel $form;
+    public ?FormModel $form;
 
     public function setup(): void
     {
@@ -18,5 +18,15 @@ class Form extends BlockComponent
         $this->form = $this->block->related
             ->pluck('related')
             ->first();
+    }
+
+    /**
+     * Determine if the component should be rendered.
+     *
+     * @return bool
+     */
+    public function shouldRender(): bool
+    {
+        return $this->form instanceof FormModel;
     }
 }
