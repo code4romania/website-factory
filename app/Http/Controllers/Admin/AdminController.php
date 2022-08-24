@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\Builder;
+use App\Services\SupportsTrait;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Str;
 
@@ -49,11 +49,20 @@ class AdminController extends Controller
 
     public function collection(): JsonResource
     {
-        $orderByColumn = app($this->model)?->slugFieldSource;
+        $model = app($this->model);
+
+        $orderByColumn = $model->slugFieldSource ?? 'title';
+
+        if (
+            SupportsTrait::translatable($model) &&
+            $model->isTranslatableAttribute($orderByColumn)
+        ) {
+            $orderByColumn .= '->' . app()->getLocale();
+        }
 
         return $this->resource::collection(
             $this->model::query()
-                ->when($orderByColumn, fn (Builder $query) => $query->orderBy($orderByColumn))
+                ->orderBy($orderByColumn)
                 ->get()
         );
     }
