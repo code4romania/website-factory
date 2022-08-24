@@ -183,38 +183,54 @@ abstract class ResourceCollection extends BaseCollection
 
     protected function statuses(): array
     {
-        $statuses = collect();
+        $statuses = collect([
+            [
+                'name'  => 'all',
+                'count' => $this->model
+                    ->newQuery()
+                    ->when(
+                        SupportsTrait::publishable($this->model),
+                        fn (Builder $query) => $query->withDrafted()
+                    )
+                    ->count(),
+            ],
+        ]);
 
         if (SupportsTrait::publishable($this->model)) {
-            $statuses->push([
-                'name'  => 'all',
-                'count' => $this->model
-                    ->newQuery()
-                    ->withDrafted()
-                    ->count(),
-            ]);
+            $publishedCount = $this->model
+                ->newQuery()
+                ->count();
 
-            $statuses->push([
-                'name'  => 'published',
-                'count' => $this->model
-                    ->newQuery()
-                    ->count(),
-            ]);
+            if ($publishedCount) {
+                $statuses->push([
+                    'name'  => 'published',
+                    'count' => $publishedCount,
+                ]);
+            }
 
-            $statuses->push([
-                'name'  => 'draft',
-                'count' => $this->model
-                    ->newQuery()
-                    ->onlyDrafted()
-                    ->count(),
-            ]);
-        } else {
-            $statuses->push([
-                'name'  => 'all',
-                'count' => $this->model
-                    ->newQuery()
-                    ->count(),
-            ]);
+            $scheduledCount = $this->model
+                ->newQuery()
+                ->onlyScheduled()
+                ->count();
+
+            if ($scheduledCount) {
+                $statuses->push([
+                    'name'  => 'scheduled',
+                    'count' => $scheduledCount,
+                ]);
+            }
+
+            $draftCount = $this->model
+                ->newQuery()
+                ->onlyDrafted()
+                ->count();
+
+            if ($draftCount) {
+                $statuses->push([
+                    'name'  => 'draft',
+                    'count' => $draftCount,
+                ]);
+            }
         }
 
         if (SupportsTrait::softDeletes($this->model)) {

@@ -1,13 +1,13 @@
 <template>
     <dropdown
-        v-if="actions.length"
+        v-if="itemActions.length"
         origin="top-right"
         trigger-class="px-1 py-1 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-full hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         with-arrow
     >
         <template #content>
             <dropdown-item
-                v-for="(action, index) in actions"
+                v-for="(action, index) in itemActions"
                 :key="index"
                 @click="action.click"
                 v-bind="action"
@@ -143,10 +143,8 @@
 </template>
 
 <script>
-    import { ref, computed } from 'vue';
-    import { useLocale } from '@/helpers';
+    import { useTableActions } from '@/helpers';
     import { useForm } from '@inertiajs/inertia-vue3';
-    import { route } from '@/helpers';
 
     export default {
         name: 'TableActions',
@@ -163,107 +161,19 @@
         setup(props) {
             const form = useForm();
 
-            const { currentLocale } = useLocale();
+            const {
+                confirmAction,
+                itemActions,
 
-            const confirmAction = ref(null);
-
-            const adminRoute = (suffix, args) =>
-                route(props.properties.admin_route_prefix + '.' + suffix, {
-                    id: props.row.id,
-                    ...args,
-                });
-
-            const actions = computed(() => {
-                const actions = [];
-
-                if (props.row.hasOwnProperty('slug') && !props.row.trashed) {
-                    actions.push({
-                        href: route(props.properties.front_route_prefix + '.show', {
-                            locale: currentLocale.value,
-                            [props.properties.model]:
-                                props.row.slug || props.row.id,
-                        }),
-                        label: 'app.action.view',
-                        target: '_blank',
-                        type: 'link',
-                    });
-                }
-
-                if (props.row.can.update && !props.row.trashed) {
-                    actions.push({
-                        href: adminRoute('edit'),
-                        label: 'app.action.edit',
-                        type: 'link',
-                    });
-
-                    if (
-                        route().has(
-                            props.properties.admin_route_prefix + '.duplicate'
-                        )
-                    ) {
-                        actions.push({
-                            click: () => (confirmAction.value = 'duplicate'),
-                            label: 'app.action.duplicate',
-                            type: 'button',
-                        });
-                    }
-                }
-
-                if (props.row.can.delete && !props.row.trashed) {
-                    actions.push({
-                        click: () => (confirmAction.value = 'delete'),
-                        label: 'app.action.delete',
-                        type: 'button',
-                    });
-                }
-
-                if (props.row.trashed) {
-                    if (props.row.can.restore) {
-                        actions.push({
-                            click: () => (confirmAction.value = 'restore'),
-                            label: 'app.action.restore',
-                            type: 'button',
-                        });
-                    }
-
-                    if (props.row.can.forceDelete) {
-                        actions.push({
-                            click: () => (confirmAction.value = 'forceDelete'),
-                            label: 'app.action.forceDelete',
-                            type: 'button',
-                        });
-                    }
-                }
-
-                return actions;
-            });
-
-            const actionDuplicate = () => {
-                return form.post(adminRoute('duplicate'), {
-                    onSuccess: () => (confirmAction.value = null),
-                });
-            };
-
-            const actionDelete = () => {
-                return form.delete(adminRoute('destroy'), {
-                    onSuccess: () => (confirmAction.value = null),
-                });
-            };
-            const actionForceDelete = () => {
-                return form.delete(adminRoute('forceDelete'), {
-                    onSuccess: () => (confirmAction.value = null),
-                });
-            };
-
-            const actionRestore = () => {
-                return form.put(adminRoute('restore'), {
-                    onSuccess: () => (confirmAction.value = null),
-                });
-            };
+                actionDuplicate,
+                actionDelete,
+                actionForceDelete,
+                actionRestore,
+            } = useTableActions(props, form);
 
             return {
                 confirmAction,
-                actions,
+                itemActions,
 
                 //
                 form,

@@ -13,3 +13,4 @@ export { default as useForm } from './useForm';
 export { default as useLocale } from './useLocale';
 export { default as useMedia } from './useMedia';
 export { default as useRelated } from './useRelated';
+export { default as useTableActions } from './useTableActions';
