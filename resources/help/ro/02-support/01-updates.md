@@ -1,0 +1,18 @@
+---
+title: Actualizările tehnice ale soluției
+---
+
+Din când în când pentru a ne asigura că soluția merge bine și că ai
+cea mai recentă versiune disponibilă noi vom face o serie de lucrări
+de mentenanță, pro-bono. Aceste lucrări de mentenanță constau în:
+
+1)
+
+### Notificările pe care ne vei primi de la noi
+
+Dacă utilizezi Website Factory: ONG de fiecare dată când este necesar
+să operăm o lucrare de mentenanță, te vom anunța printr-un email la
+adresa pe care o avem din partea ta ca adresă de contact. Te vom ține
+la curent și cu planurile de viitor, dacă planificăm să adăugăm noi
+funcționalități, dar și cu instrumente utile pentru tine în
+administrarea eficientă a prezenței tale online.

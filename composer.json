@@ -31,6 +31,7 @@
         "spatie/laravel-responsecache": "^7.4",
         "spatie/laravel-translatable": "^6.0",
         "spatie/laravel-translation-loader": "^2.7",
+        "symfony/yaml": "^6.1",
         "tightenco/ziggy": "^1.4"
     },
     "require-dev": {

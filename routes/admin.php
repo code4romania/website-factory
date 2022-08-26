@@ -221,11 +221,4 @@ Route::group([
     Route::delete('/{language}', 'destroy')->name('destroy');
 });
 
-Route::group([
-    'prefix' => 'help',
-    'as' => 'help.',
-    'controller' => Admin\HelpController::class,
-], function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/{section}', 'show')->name('show')->where('section', '.*');
-});
+Route::get('/help', Admin\HelpController::class)->name('help');
