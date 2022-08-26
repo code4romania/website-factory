@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
     {
         Cache::flush();
 
-        Artisan::call('wf:install');
+        Artisan::call('wf:setup');
 
         $images = Media::query()
             ->whereImages()
@@ -42,9 +42,14 @@ class DatabaseSeeder extends Seeder
             ->admin()
             ->create();
 
+        // Create an editor
+        User::factory(['email' => 'editor@example.com'])
+            ->editor()
+            ->create();
+
         // Create users with no role
         User::factory()
-            ->count(25)
+            ->count(3)
             ->create();
 
         Page::factory()

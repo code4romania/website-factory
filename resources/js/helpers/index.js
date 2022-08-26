@@ -8,6 +8,7 @@ export { default as typeOf } from './typeOf';
 export { default as route } from './useRoute';
 export { default as useBlock } from './useBlock';
 export { default as useFeature } from './useFeature';
+export { default as useFilter } from './useFilter';
 export { default as useForm } from './useForm';
 export { default as useLocale } from './useLocale';
 export { default as useMedia } from './useMedia';

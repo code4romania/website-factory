@@ -35,12 +35,7 @@
             <form-select
                 :label="$t('field.role')"
                 name="role"
-                :options="
-                    ['admin', 'editor', 'user'].map((role) => ({
-                        label: $t(`user.role.${role}`),
-                        value: role,
-                    }))
-                "
+                :options="roles"
                 v-model="form.role"
                 required
             />
@@ -59,11 +54,13 @@
 <script>
     import { computed } from 'vue';
     import { useLocale } from '@/helpers';
+    import { trans } from 'laravel-vue-i18n';
 
     export default {
         props: {
             resource: Object,
             model: Object,
+            userRoles: Array,
         },
 
         setup(props) {
@@ -76,8 +73,16 @@
                 }))
             );
 
+            const roles = computed(() =>
+                props.userRoles.map((role) => ({
+                    label: trans(`user.role.${role}`),
+                    value: role,
+                }))
+            );
+
             return {
                 localeOptions,
+                roles,
             };
         },
     };

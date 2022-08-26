@@ -23,10 +23,6 @@
     export default {
         name: 'BaseModal',
         props: {
-            show: {
-                type: Boolean,
-                default: false,
-            },
             isForm: {
                 type: Boolean,
                 default: false,
@@ -61,10 +57,6 @@
 
             const close = () => emit('close');
             const closeOnKeyPress = (event) => {
-                if (!props.show) {
-                    return;
-                }
-
                 if (!['Esc', 'Escape'].includes(event.key)) {
                     return;
                 }
@@ -82,20 +74,13 @@
 
             onMounted(() => {
                 document.addEventListener('keydown', closeOnKeyPress);
+                document.body.classList.add('overflow-hidden');
             });
 
             onUnmounted(() => {
                 document.removeEventListener('keydown', closeOnKeyPress);
                 document.body.classList.remove('overflow-hidden');
             });
-
-            watch(
-                () => props.show,
-                (show) => {
-                    document.body.classList.toggle('overflow-hidden', show);
-                },
-                { immediate: true }
-            );
 
             return {
                 maxWidth,

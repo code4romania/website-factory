@@ -109,7 +109,7 @@ class PostController extends AdminController
         $post->forceDelete();
 
         return redirect()->route('admin.posts.index')
-            ->with('success', __('post.event.forceDeleted'));
+            ->with('success', __('post.event.deleted'));
     }
 
     protected function subnav(): array

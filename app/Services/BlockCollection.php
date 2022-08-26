@@ -54,6 +54,7 @@ class BlockCollection extends Collection
             })
             ->filter(fn (array $block) => \is_null($block['feature']) || Features::enabled($block['feature']))
             ->sortBy('label', \SORT_NATURAL | \SORT_FLAG_CASE)
+            ->groupBy('feature')
             ->values();
     }
 

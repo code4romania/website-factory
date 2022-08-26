@@ -95,6 +95,6 @@ class PersonController extends AdminController
         $person->forceDelete();
 
         return redirect()->route('admin.people.index')
-            ->with('success', __('person.event.forceDeleted'));
+            ->with('success', __('person.event.deleted'));
     }
 }

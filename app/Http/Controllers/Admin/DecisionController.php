@@ -105,7 +105,7 @@ class DecisionController extends AdminController
         $decision->forceDelete();
 
         return redirect()->route('admin.decisions.index')
-            ->with('success', __('decision.event.forceDeleted'));
+            ->with('success', __('decision.event.deleted'));
     }
 
     protected function subnav(): array

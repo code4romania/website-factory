@@ -19,7 +19,8 @@
     <form-related
         :label="$t('field.people')"
         v-model:related="related"
-        type="people"
+        type-singular="person"
+        type-plural="people"
         :limit="100"
     />
 </template>

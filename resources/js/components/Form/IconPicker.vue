@@ -52,7 +52,7 @@
                             :key="`${group}/${icon}`"
                             :title="`${group}/${icon}`"
                             @click.prevent="select(group, icon)"
-                            class="p-2 hover:text-blue-500"
+                            class="p-2 hover:bg-blue-600 hover:text-white"
                         >
                             <icon
                                 :name="`${group}/${icon}`"

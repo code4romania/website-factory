@@ -50,11 +50,9 @@ trait HasSlug
     /**
      * Retrieve the model for a bound value.
      *
-     * @param  mixed                                    $value
-     * @param  string|null                              $field
-     * @return \Illuminate\Database\Eloquent\Model|null
+     * @inheritdoc
      */
-    public function resolveRouteBinding($value, $field = null)
+    public function resolveRouteBindingQuery($query, $value, $field = null)
     {
         if ($field === 'slug') {
             $field = $this->getSlugColumn();
@@ -62,10 +60,11 @@ trait HasSlug
 
         $isAdminRoute = Str::startsWith(Route::currentRouteName(), 'admin.');
 
-        return $this
-            ->when($isAdminRoute && SupportsTrait::publishable($this), fn (Builder $query) => $query->withDrafted())
-            ->where($field ?? $this->getRouteKeyName(), $value)
-            ->first();
+        return parent::resolveRouteBindingQuery($query, $value, $field)
+            ->when(
+                $isAdminRoute && SupportsTrait::publishable($this),
+                fn (Builder $query) => $query->withDrafted()
+            );
     }
 
     protected function getSlugColumn(?string $locale = null): string

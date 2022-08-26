@@ -14,7 +14,7 @@
     <form-select
         :label="$t('field.position')"
         v-model="content.position"
-        :options="['left', 'right']"
+        :options="position"
     />
 
     <form-select
@@ -26,7 +26,7 @@
     <form-select
         :label="$t('field.align')"
         v-model="content.align"
-        :options="['top', 'center', 'bottom']"
+        :options="align"
     />
 
     <form-media
@@ -38,6 +38,8 @@
 </template>
 
 <script>
+    import { computed } from 'vue';
+    import { trans } from 'laravel-vue-i18n';
     import { defineBlock } from '@/helpers';
 
     export default defineBlock({
@@ -49,6 +51,26 @@
             position: String,
             align: String,
             width: String,
+        },
+        setup(props) {
+            const position = computed(() =>
+                ['left', 'right'].map((position) => ({
+                    value: position,
+                    label: trans(`align.${position}`),
+                }))
+            );
+
+            const align = computed(() =>
+                ['top', 'center', 'bottom'].map((align) => ({
+                    value: align,
+                    label: trans(`align.${align}`),
+                }))
+            );
+
+            return {
+                position,
+                align,
+            };
         },
     });
 </script>

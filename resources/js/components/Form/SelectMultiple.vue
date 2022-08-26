@@ -106,8 +106,7 @@
 
 <script>
     import { computed, ref, nextTick, watch } from 'vue';
-    import { defineInput, useLocale } from '@/helpers';
-    import latinize from 'latinize';
+    import { defineInput, useFilter, useLocale } from '@/helpers';
     import isEqual from 'lodash/isEqual';
 
     export default defineInput({
@@ -128,6 +127,7 @@
         },
         setup(props, { emit }) {
             const { currentLocale } = useLocale();
+            const { filterPredicate } = useFilter();
 
             const selected = ref([]);
             const open = ref(false);
@@ -260,14 +260,6 @@
                     (o) => o.value !== option.value
                 );
             };
-
-            const filterPredicate = (option, search) =>
-                latinize(option).match(
-                    new RegExp(
-                        latinize(search).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
-                        'i'
-                    )
-                );
 
             const selectedValues = computed(() =>
                 selected.value.map((option) => option.value)

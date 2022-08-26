@@ -10,7 +10,7 @@
     >
         <inertia-table :collection="collection">
             <template #submissions="{ row }">
-                <div class="flex items-center">
+                <div class="flex">
                     <icon
                         v-if="row.store_submissions"
                         name="System/check-line"
@@ -31,18 +31,16 @@
                                 row.submissions_count > 0
                             "
                         >
-                            &mdash;
-
-                            <inertia-link
+                            (<inertia-link
                                 :href="route('admin.forms.show', row.id)"
-                                class="text-blue-800 hover:underline"
+                                class="text-blue-800 hover:underline whitespace-nowrap"
                                 v-text="
                                     $tChoice(
                                         '{0} 0 răspunsuri|{1} :count răspuns|[2,*] :count răspunsuri',
                                         row.submissions_count
                                     )
                                 "
-                            />
+                            />)
                         </template>
                     </div>
                 </div>

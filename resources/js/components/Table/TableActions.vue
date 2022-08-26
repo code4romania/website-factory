@@ -176,7 +176,7 @@
             const actions = computed(() => {
                 const actions = [];
 
-                if (props.row.hasOwnProperty('slug')) {
+                if (props.row.hasOwnProperty('slug') && !props.row.trashed) {
                     actions.push({
                         href: route(props.properties.front_route_prefix + '.show', {
                             locale: currentLocale.value,

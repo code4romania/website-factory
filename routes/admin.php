@@ -148,6 +148,8 @@ Route::group([
     Route::post('/{form}/preview', 'preview')->name('preview');
     Route::put('/{form}', 'update')->name('update');
     Route::delete('/{form}', 'destroy')->name('destroy');
+    Route::put('{form}/restore', 'restore')->name('restore')->withTrashed();
+    Route::delete('{form}/force', 'forceDelete')->name('forceDelete')->withTrashed();
 });
 
 Route::group([
