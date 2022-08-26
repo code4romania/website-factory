@@ -2,6 +2,8 @@
     "align.left": "Left",
     "align.center": "Center",
     "align.right": "Right",
+    "align.top": "Top",
+    "align.bottom": "Bottom",
 
     "app.dashboard": "Dashboard",
     "app.settings": "Settings",

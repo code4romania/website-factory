@@ -8,12 +8,7 @@
     <form-select
         :label="$t('field.align')"
         v-model="content.align"
-        :options="
-            alignmentOptions.map((align) => ({
-                value: align,
-                label: $t(`align.${align}`),
-            }))
-        "
+        :options="align"
     />
 
     <localized-field
@@ -24,6 +19,8 @@
 </template>
 
 <script>
+    import { computed } from 'vue';
+    import { trans } from 'laravel-vue-i18n';
     import { defineBlock } from '@/helpers';
 
     export default defineBlock({
@@ -35,14 +32,19 @@
             align: String,
         },
         setup(props) {
-            const alignmentOptions = ['left', 'center'];
+            const align = computed(() =>
+                ['left', 'center'].map((align) => ({
+                    value: align,
+                    label: trans(`align.${align}`),
+                }))
+            );
 
             if (!props.content.align) {
-                props.content.align = alignmentOptions[0];
+                props.content.align = align[0];
             }
 
             return {
-                alignmentOptions,
+                align,
             };
         },
     });

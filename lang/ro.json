@@ -2,6 +2,8 @@
     "align.left": "Stânga",
     "align.center": "Centru",
     "align.right": "Dreapta",
+    "align.top": "Sus",
+    "align.bottom": "Jos",
 
     "app.dashboard": "Panou de control",
     "app.settings": "Setări",
