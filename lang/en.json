@@ -53,9 +53,7 @@
     "app.search.placeholder": "Search",
     "app.search.results": "Search results for “:query”",
     "app.search.empty": "No results found.",
-
-    "app.banner.code4": "A Code for Romania solution.",
-    "app.banner.more": "Find out more",
+    "app.search.more": "Find out more",
 
     "auth.failed": "These credentials do not match our records.",
     "auth.password": "The provided password is incorrect.",

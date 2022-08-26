@@ -53,9 +53,7 @@
     "app.search.placeholder": "Caută",
     "app.search.results": "Rezultatele căutării pentru “:query”",
     "app.search.empty": "Nu am găsit niciun rezultat.",
-
-    "app.banner.code4": "O soluție Code for Romania.",
-    "app.banner.more": "Află mai multe",
+    "app.search.more": "Află mai multe",
 
     "auth.failed": "Datele de identificare nu pot fi confirmate.",
     "auth.password": "Parola introdusă este incorrectă.",
