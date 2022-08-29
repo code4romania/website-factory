@@ -1,3 +1,7 @@
+@if ($showBanner)
+    <x-site.code4banner />
+@endif
+
 <x-site.language-switcher />
 
 <header x-data="{ menuOpen: false }" x-on:click.outside="menuOpen = false" class="relative shadow">

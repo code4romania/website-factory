@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\View\Components\Site;
 
 use App\Models\MenuItem;
+use App\Services\Features;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
@@ -17,6 +18,8 @@ class Footer extends Component
     public Collection $menu;
 
     public ?array $social;
+
+    public bool $showBanner;
 
     /**
      * Create a new component instance.
@@ -36,6 +39,8 @@ class Footer extends Component
         );
 
         $this->social = settings('social.profiles');
+
+        $this->showBanner = ! Features::isCode4RomaniaSite();
     }
 
     public function render(): View

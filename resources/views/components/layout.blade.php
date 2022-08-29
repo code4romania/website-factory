@@ -36,8 +36,6 @@
         {{ $slot }}
     </main>
 
-    <x-site.code4 />
-
     <x-site.footer />
 
     <x-site.cookie-notice />

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\View\Components\Site;
 
 use App\Models\MenuItem;
+use App\Services\Features;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
@@ -18,6 +19,8 @@ class Header extends Component
     public ?string $title;
 
     public Collection $menu;
+
+    public bool $showBanner;
 
     public function __construct()
     {
@@ -34,6 +37,8 @@ class Header extends Component
                 ->get()
                 ->toTree()
         );
+
+        $this->showBanner = Features::isCode4RomaniaSite();
     }
 
     public function render(): View
