@@ -12,6 +12,7 @@
     "app.action.add": "Add",
     "app.action.apply": "Apply",
     "app.action.attach": "Attach",
+    "app.action.back": "Back",
     "app.action.backHome": "Back home",
     "app.action.cancel": "Cancel",
     "app.action.clear": "Clear",

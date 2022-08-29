@@ -41,51 +41,29 @@
         >
             <aside
                 v-if="open"
-                class="relative z-50 flex flex-col w-screen h-full max-w-md bg-white shadow-xl pointer-events-auto"
+                class="relative z-50 flex flex-col justify-end w-screen h-full max-w-md bg-white shadow-xl pointer-events-auto"
                 ref="panel"
             >
-                <div class="p-4 border-b border-gray-200 sm:px-6">
-                    <div class="flex items-center justify-between gap-4">
-                        <h1 class="text-lg font-medium text-gray-900">
-                            {{ $t('help.label') }}
-                        </h1>
+                <button
+                    type="button"
+                    class="text-gray-300 absolute top-3.5 -left-8 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                    @click="open = false"
+                    :title="$t('app.action.close')"
+                >
+                    <icon name="System/close-line" class="w-5 h-5" />
+                </button>
 
-                        <button
-                            type="button"
-                            class="text-gray-400 bg-white hover:text-gray-500 focus:ring-2 focus:ring-blue-500"
-                            @click="open = false"
-                            :title="$t('app.action.close')"
-                        >
-                            <icon name="System/close-line" class="w-6 h-6" />
-                        </button>
-                    </div>
-                </div>
-                <div class="flex-1 p-4 overflow-y-auto sm:px-6">
-                    <div class="space-y-8 sm:space-y-16">
-                        <div v-for="section in sections" :key="section.section">
-                            <h2 class="font-medium text-gray-900">
-                                {{ section.section }}
-                            </h2>
+                <help-list
+                    v-if="topic === null && sections.length"
+                    :sections="sections"
+                    @topic:open="topic = $event"
+                />
 
-                            <ul class="divide-y divide-gray-200">
-                                <li
-                                    v-for="topic in section.topics"
-                                    :key="topic.topic"
-                                    class="py-5"
-                                >
-                                    <h3
-                                        class="text-sm font-semibold text-gray-800"
-                                        v-text="topic.title"
-                                    />
-                                    <p
-                                        class="mt-1 text-sm text-gray-600 line-clamp-2"
-                                        v-text="topic.excerpt"
-                                    />
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <help-topic
+                    v-else-if="topic !== null"
+                    :topic="topic"
+                    @topic:close="topic = null"
+                />
             </aside>
         </transition>
     </div>
@@ -103,6 +81,7 @@
             const panel = ref(null);
             const open = ref(false);
             const sections = ref([]);
+            const topic = ref(null);
 
             const fetchHelp = () => {
                 axios.get(route('admin.help')).then((response) => {
@@ -124,8 +103,8 @@
             return {
                 open,
                 panel,
-
                 sections,
+                topic,
             };
         },
     };
