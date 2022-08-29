@@ -41,7 +41,7 @@
         >
             <aside
                 v-if="open"
-                class="relative z-50 flex flex-col justify-end w-screen h-full max-w-md bg-white shadow-xl pointer-events-auto"
+                class="relative z-50 flex flex-col justify-end w-screen h-full max-w-lg bg-white shadow-xl pointer-events-auto"
                 ref="panel"
             >
                 <button
@@ -53,8 +53,19 @@
                     <icon name="System/close-line" class="w-5 h-5" />
                 </button>
 
+                <div
+                    v-if="loading"
+                    class="flex items-center justify-center flex-1"
+                >
+                    <icon
+                        name="System/loader-5-line"
+                        class="w-20 h-20 text-blue-600 animate-spin"
+                        alt="Loading..."
+                    />
+                </div>
+
                 <help-list
-                    v-if="topic === null && sections.length"
+                    v-else-if="topic === null && sections.length"
                     :sections="sections"
                     @topic:open="topic = $event"
                 />
@@ -80,12 +91,15 @@
         setup() {
             const panel = ref(null);
             const open = ref(false);
+            const loading = ref(true);
             const sections = ref([]);
             const topic = ref(null);
 
             const fetchHelp = () => {
                 axios.get(route('admin.help')).then((response) => {
                     sections.value = response.data;
+
+                    loading.value = false;
                 });
             };
 
@@ -101,6 +115,7 @@
             });
 
             return {
+                loading,
                 open,
                 panel,
                 sections,
