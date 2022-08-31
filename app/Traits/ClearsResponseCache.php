@@ -10,12 +10,12 @@ trait ClearsResponseCache
 {
     public static function bootClearsResponseCache()
     {
-        self::created(fn () => self::clearCache());
-        self::updated(fn () => self::clearCache());
-        self::deleted(fn () => self::clearCache());
+        self::created(fn () => self::clearResponseCache());
+        self::updated(fn () => self::clearResponseCache());
+        self::deleted(fn () => self::clearResponseCache());
     }
 
-    private static function clearCache(): void
+    private static function clearResponseCache(): void
     {
         ResponseCache::clear();
 
