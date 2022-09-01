@@ -10,11 +10,6 @@ use Illuminate\Contracts\View\View;
 
 class PersonController extends Controller
 {
-    public function index()
-    {
-        return Person::all();
-    }
-
     public function show(string $locale, Person $person): View
     {
         $image = $person->firstMedia('image');

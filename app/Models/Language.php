@@ -58,5 +58,6 @@ class Language extends Model
         LanguageLine::upsert($lines, ['group', 'key'], ['text']);
 
         Cache::flush();
+        static::clearResponseCache();
     }
 }
