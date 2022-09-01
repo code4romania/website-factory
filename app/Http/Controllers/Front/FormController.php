@@ -8,19 +8,16 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\FormSubmissionRequest;
 use App\Models\Form;
 use App\Models\FormField;
-use Artesaos\SEOTools\Traits\SEOTools;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 
 class FormController extends Controller
 {
-    use SEOTools;
-
     public function show(string $locale, Form $form): View
     {
-        $this->seo()
-            ->setTitle($form->title)
-            ->setDescription($form->description);
+        seo()
+            ->title($form->title)
+            ->description($form->description);
 
         return view('front.forms.show', [
             'form' => $form,

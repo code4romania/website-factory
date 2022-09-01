@@ -20,7 +20,7 @@
     <script src="{{ asset(mix('assets/public.js')) }}" defer></script>
     @stack('scripts')
 
-    {!! SEO::generate(minify: true) !!}
+    <x-site.meta />
 
     {!! $headerHtml !!}
 </head>
