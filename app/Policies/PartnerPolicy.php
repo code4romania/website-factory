@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Policies;
 
-use App\Models\Page;
+use App\Models\Partner;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PagePolicy
+class PartnerPolicy
 {
     use HandlesAuthorization;
 
@@ -27,10 +27,10 @@ class PagePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User                      $user
-     * @param  \App\Models\Page                      $page
+     * @param  \App\Models\Partner                   $partner
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Page $page)
+    public function view(User $user, Partner $partner)
     {
         return true;
     }
@@ -43,29 +43,29 @@ class PagePolicy
      */
     public function create(User $user)
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User                      $user
-     * @param  \App\Models\Page                      $page
+     * @param  \App\Models\Partner                   $partner
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Page $page)
+    public function update(User $user, Partner $partner)
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User                      $user
-     * @param  \App\Models\Page                      $page
+     * @param  \App\Models\Partner                   $partner
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Page $page)
+    public function delete(User $user, Partner $partner)
     {
         return $user->isAdmin();
     }
@@ -74,10 +74,10 @@ class PagePolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User                      $user
-     * @param  \App\Models\Page                      $page
+     * @param  \App\Models\Partner                   $partner
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Page $page)
+    public function restore(User $user, Partner $partner)
     {
         return $user->isAdmin();
     }
@@ -86,10 +86,10 @@ class PagePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User                      $user
-     * @param  \App\Models\Page                      $page
+     * @param  \App\Models\Partner                   $partner
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Page $page)
+    public function forceDelete(User $user, Partner $partner)
     {
         return $user->isAdmin();
     }

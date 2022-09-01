@@ -187,6 +187,24 @@ Route::group([
 });
 
 Route::group([
+    'prefix'     => 'partners',
+    'as'         => 'partners.',
+    'controller' => Admin\PartnerController::class,
+    'middleware' => 'role:admin',
+], function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+    Route::get('/{partner}/edit', 'edit')->name('edit');
+    Route::post('/{partner}/duplicate', 'duplicate')->name('duplicate');
+    Route::post('/{partner}/preview', 'preview')->name('preview');
+    Route::put('/{partner}', 'update')->name('update');
+    Route::delete('/{partner}', 'destroy')->name('destroy');
+    Route::put('/{partner}/restore', 'restore')->name('restore')->withTrashed();
+    Route::delete('/{partner}/force', 'forceDelete')->name('forceDelete')->withTrashed();
+});
+
+Route::group([
     'prefix'     => 'menus',
     'as'         => 'menus.',
     'controller' => Admin\MenuController::class,

@@ -12,7 +12,7 @@
         />
     </div>
 
-    <div class="my-4 overflow-x-scroll md:overflow-visible">
+    <div class="my-4">
         <table class="w-full text-gray-900 border-collapse table-fixed">
             <table-header
                 :columns="collection.columns"
