@@ -21,12 +21,14 @@ class SetSeoDefaults
         $title = (string) localized_settings('site.title');
         $description = (string) localized_settings('site.description');
 
-        app('seotools')
-            ->setTitle($title)
-            ->setDescription($description);
-
-        app('seotools.metatags')
-            ->setTitleDefault($title);
+        seo()
+            ->withUrl()
+            ->title(
+                default: $title,
+                modifier: fn (string $title) => $title . ' — ' . localized_settings('site.title')
+            )
+            ->description(default: $description)
+            ->favicon();
 
         return $next($request);
     }

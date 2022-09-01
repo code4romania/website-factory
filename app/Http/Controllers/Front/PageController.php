@@ -6,14 +6,11 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Page;
-use Artesaos\SEOTools\Traits\SEOTools;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
 class PageController extends Controller
 {
-    use SEOTools;
-
     public function index(): View
     {
         $frontPage = settings('site.front_page');
@@ -26,10 +23,10 @@ class PageController extends Controller
 
         $image = $page->firstMedia('image');
 
-        $this->seo()
-            ->setTitle($page->title)
-            ->setDescription(strip_tags($page->description))
-            ->addImages($image?->getUrl());
+        seo()
+            ->title($page->title)
+            ->description($page->description)
+            ->image($image?->getUrl());
 
         return view('front.pages.show', [
             'page'  => $page,
@@ -46,10 +43,10 @@ class PageController extends Controller
 
         $image = $page->firstMedia('image');
 
-        $this->seo()
-            ->setTitle($page->title)
-            ->setDescription(strip_tags($page->description))
-            ->addImages($image?->getUrl());
+        seo()
+            ->title($page->title)
+            ->description($page->description)
+            ->image($image?->getUrl());
 
         $page->loadMissing('blocks.media');
 
