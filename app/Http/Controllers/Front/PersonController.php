@@ -13,11 +13,6 @@ class PersonController extends Controller
 {
     use SEOTools;
 
-    public function index()
-    {
-        return Person::all();
-    }
-
     public function show(string $locale, Person $person): View
     {
         $image = $person->firstMedia('image');

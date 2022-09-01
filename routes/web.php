@@ -46,7 +46,6 @@ Route::prefix('{locale?}')->group(function () {
     Route::get('/blog/category/{post_category:slug}', [Front\PostCategoryController::class, 'show'])->name('post_categories.show');
     Route::get('/blog/{post:slug}', [Front\PostController::class, 'show'])->name('posts.show');
 
-    Route::get('/people', [Front\PersonController::class, 'index'])->name('people.index');
     Route::get('/people/{person:slug}', [Front\PersonController::class, 'show'])->name('people.show');
 
     Route::get('/forms/{form:slug}', [Front\FormController::class, 'show'])->name('forms.show');
