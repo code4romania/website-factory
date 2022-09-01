@@ -6,6 +6,7 @@ namespace App\Http\Middleware;
 
 use App\Models\Language;
 use App\Models\MenuItem;
+use App\Models\Partner;
 use App\Models\Setting;
 use App\Models\User;
 use App\Services\Features;
@@ -112,6 +113,11 @@ class HandleInertiaRequests extends Middleware
                 //
             ],
             'settings' => [
+                [
+                    'enabled' => auth()->user()->can('create', Partner::class),
+                    'route' => 'admin.partners.index',
+                    'label' => trans_choice('partner.label', 2),
+                ],
                 [
                     'enabled' => auth()->user()->can('create', MenuItem::class),
                     'route' => 'admin.menus.index',

@@ -30,6 +30,8 @@
 
     <x-site.header />
 
+    <x-site.partners />
+
     <x-site.notice />
 
     <main id="content" class="flex-1 mb-16 sm:mb-24 lg:mb-32">
