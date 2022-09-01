@@ -1,5 +1,5 @@
 @if ($showBanner)
-    <x-site.code4banner />
+    <x-site.banner />
 @endif
 
 <x-site.language-switcher />

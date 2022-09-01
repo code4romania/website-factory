@@ -8,7 +8,7 @@ return [
 
     'edition' => Features::edition(env('WEBSITE_FACTORY_EDITION', 'ong')),
 
-    'hide_code4banner' => (bool) env('WEBSITE_FACTORY_HIDE_CODE4BANNER', false),
+    'hide_banner' => (bool) env('WEBSITE_FACTORY_HIDE_BANNER', false),
 
     'social_platforms' => [
         'facebook' => [
