@@ -19,8 +19,6 @@ class Footer extends Component
 
     public ?array $social;
 
-    public bool $showBanner;
-
     /**
      * Create a new component instance.
      *
@@ -39,8 +37,6 @@ class Footer extends Component
         );
 
         $this->social = settings('social.profiles');
-
-        $this->showBanner = ! Features::isCode4RomaniaSite();
     }
 
     public function render(): View
@@ -50,5 +46,16 @@ class Footer extends Component
         }
 
         return view('components.site.footer');
+    }
+
+    public function banner(): ?string
+    {
+        if (Features::isCode4RomaniaSite()) {
+            return null;
+        }
+
+        return __('banner.external', [
+            'edition' => __('banner.edition.' . config('website-factory.edition')),
+        ]);
     }
 }

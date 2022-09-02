@@ -20,8 +20,6 @@ class Header extends Component
 
     public Collection $menu;
 
-    public bool $showBanner;
-
     public function __construct()
     {
         $this->logo = settings('site.logo')
@@ -37,12 +35,19 @@ class Header extends Component
                 ->get()
                 ->toTree()
         );
-
-        $this->showBanner = Features::isCode4RomaniaSite();
     }
 
     public function render(): View
     {
         return view('components.site.header');
+    }
+
+    public function banner(): ?string
+    {
+        if (! Features::isCode4RomaniaSite()) {
+            return null;
+        }
+
+        return __('banner.internal');
     }
 }

@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 return [
 
-    'byline' => 'Веб-сайт, створений за допомогою Website Factory: :edition, рішення, розроблене Code for Romania.',
+    'internal' => 'Продукт Code for Romania.',
+    'external' => 'Веб-сайт, створений за допомогою Website Factory: :edition, рішення, розроблене Code for Romania.',
 
     'edition' => [
         'primarie' => 'Primărie',

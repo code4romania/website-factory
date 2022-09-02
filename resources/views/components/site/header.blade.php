@@ -1,6 +1,4 @@
-@if ($showBanner)
-    <x-site.banner />
-@endif
+<x-site.banner :text="$banner()" />
 
 <x-site.language-switcher />
 

@@ -9,6 +9,13 @@ use Illuminate\View\Component;
 
 class Banner extends Component
 {
+    public ?string $text;
+
+    public function __construct(?string $text = null)
+    {
+        $this->text = $text;
+    }
+
     public function render(): View
     {
         return view('components.site.banner');
@@ -16,6 +23,6 @@ class Banner extends Component
 
     public function shouldRender(): bool
     {
-        return ! config('website-factory.hide_banner');
+        return ! config('website-factory.hide_banner') && ! \is_null($this->text);
     }
 }
