@@ -40,13 +40,6 @@ class SettingsServiceProvider extends ServiceProvider
         });
     }
 
-    public function boot(): void
-    {
-        config([
-            'mail.from.name' => localized_settings('site.title') ?? config('app.name'),
-        ]);
-    }
-
     protected function configureGatewayEuplatesc(): void
     {
         if (! data_get($this->settings, 'donations.euplatesc_enabled')) {
