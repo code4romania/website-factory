@@ -15,11 +15,11 @@
         "codezero/laravel-unique-translation": "^3.5",
         "embed/embed": "^4.4",
         "fruitcake/laravel-cors": "^3.0",
-        "guzzlehttp/guzzle": "^7.4",
+        "guzzlehttp/guzzle": "^7.5",
         "htmlmin/htmlmin": "^9.0",
         "inertiajs/inertia-laravel": "^0.6",
         "kalnoy/nestedset": "^6.0",
-        "laravel/framework": "^9.26",
+        "laravel/framework": "^9.27",
         "laravel/tinker": "^2.7",
         "league/flysystem-aws-s3-v3": "^3.2",
         "league/omnipay": "^3.2",
@@ -37,13 +37,13 @@
         "barryvdh/laravel-debugbar": "^3.7",
         "barryvdh/laravel-ide-helper": "^2.12",
         "fakerphp/faker": "^1.20",
-        "friendsofphp/php-cs-fixer": "^3.10",
+        "friendsofphp/php-cs-fixer": "^3.11",
         "itsgoingd/clockwork": "^5.1",
         "laravel/sail": "^1.15",
         "mockery/mockery": "^1.5",
-        "nunomaduro/collision": "^6.2",
+        "nunomaduro/collision": "^6.3",
         "phpunit/phpunit": "^9.5",
-        "spatie/laravel-ignition": "^1.3"
+        "spatie/laravel-ignition": "^1.4"
     },
     "autoload": {
         "files": [
