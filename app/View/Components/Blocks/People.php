@@ -22,7 +22,7 @@ class People extends BlockComponent
 
         $this->html = $this->block->translatedInput('text');
 
-        $this->people = $this->block->related
+        $this->people = $this->block->related_items
             ->loadMissing('related.media')
             ->pluck('related');
 

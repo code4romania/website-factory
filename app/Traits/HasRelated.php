@@ -33,4 +33,10 @@ trait HasRelated
             ])
         );
     }
+
+    public function getRelatedItemsAttribute()
+    {
+        return $this->related
+            ->reject(fn (Related $model) => \is_null($model->related));
+    }
 }
