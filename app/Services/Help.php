@@ -56,7 +56,7 @@ class Help
         ];
 
         foreach ($locales as $locale) {
-            $path = resource_path("help/{$locale}");
+            $path = base_path("help/{$locale}");
 
             if ($filesystem->exists($path) && $filesystem->isDirectory($path)) {
                 return collect($filesystem->allFiles($path))
