@@ -40,6 +40,7 @@ mix.valet()
     ])
 
     .copyDirectory('resources/images', 'public/assets/images')
+    .copyDirectory('help/images', 'public/assets/help')
 
     .sourceMaps(false)
 

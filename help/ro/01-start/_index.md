@@ -1,3 +1,0 @@
----
-title: Primii pași
----

@@ -1,3 +1,0 @@
----
-title: Ghid de conținut
----
