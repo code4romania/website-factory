@@ -16,7 +16,7 @@
         />
     </div>
 
-    <div class="flex-1 p-4 space-y-8 overflow-y-auto sm:px-6 sm:space-y-16">
+    <div class="flex-1 p-4 overflow-y-auto divide-y divide-gray-200 sm:px-6">
         <div
             v-if="!results.length"
             class="flex flex-col items-center justify-center flex-1 gap-4 px-4 text-sm text-center py-14 sm:px-14"
@@ -29,37 +29,31 @@
             <p class="text-gray-900" v-text="$t('app.search.empty')" />
         </div>
 
-        <div v-else v-for="(topics, section) in groupedResults" :key="section">
-            <h2 class="font-medium text-gray-900">
-                {{ section }}
-            </h2>
-
-            <div class="divide-y divide-gray-200">
-                <div
-                    v-for="{ item } in topics"
-                    :key="`${section}/${item.topic}`"
-                    class="py-5"
+        <template v-else v-for="(topics, section) in groupedResults">
+            <div
+                v-for="{ item } in topics"
+                :key="`${section}/${item.topic}`"
+                class="py-5"
+            >
+                <button
+                    type="button"
+                    class="text-left group"
+                    @click="$emit('topic:open', item)"
                 >
-                    <button
-                        type="button"
-                        class="text-left group"
-                        @click="$emit('topic:open', item)"
-                    >
-                        <h3
-                            class="text-sm font-semibold text-gray-800 group-hover:underline"
-                            v-text="item.title"
-                        />
+                    <h3
+                        class="text-sm font-semibold text-gray-800 group-hover:underline"
+                        v-text="item.title"
+                    />
 
-                        <p
-                            class="mt-1 text-sm text-gray-600 line-clamp-2"
-                            v-text="item.excerpt"
-                        />
-                    </button>
-                </div>
+                    <p
+                        class="mt-1 text-sm text-gray-600 line-clamp-2"
+                        v-text="item.excerpt"
+                    />
+                </button>
             </div>
-        </div>
+        </template>
 
-        <help-ask />
+        <help-ask class="mt-8 !border-0 sm:mt-16" />
     </div>
 </template>
 
