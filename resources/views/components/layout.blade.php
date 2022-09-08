@@ -20,21 +20,23 @@
     <script src="{{ asset(mix('assets/public.js')) }}" defer></script>
     @stack('scripts')
 
-    {!! SEO::generate(minify: true) !!}
+    <x-site.meta />
 
     {!! $headerHtml !!}
 </head>
 
 <body class="flex flex-col min-h-screen antialiased">
+    <x-site.skip-to-content />
+
     <x-site.header />
+
+    <x-site.partners />
 
     <x-site.notice />
 
-    <main class="flex-1 mb-16 sm:mb-24 lg:mb-32">
+    <main id="content" class="flex-1 mb-16 sm:mb-24 lg:mb-32">
         {{ $slot }}
     </main>
-
-    <x-site.code4 />
 
     <x-site.footer />
 

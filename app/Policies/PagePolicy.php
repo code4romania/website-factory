@@ -79,8 +79,6 @@ class PagePolicy
      */
     public function restore(User $user, Page $page)
     {
-        return true;
-
         return $user->isAdmin();
     }
 

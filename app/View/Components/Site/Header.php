@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\View\Components\Site;
 
 use App\Models\MenuItem;
+use App\Services\Features;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
@@ -39,5 +40,14 @@ class Header extends Component
     public function render(): View
     {
         return view('components.site.header');
+    }
+
+    public function banner(): ?string
+    {
+        if (! Features::isCode4RomaniaSite()) {
+            return null;
+        }
+
+        return __('banner.internal');
     }
 }

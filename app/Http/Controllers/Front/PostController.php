@@ -6,17 +6,14 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
-use Artesaos\SEOTools\Traits\SEOTools;
 use Illuminate\Contracts\View\View;
 
 class PostController extends Controller
 {
-    use SEOTools;
-
     public function index(): View
     {
-        $this->seo()
-            ->setTitle(trans_choice('post.label', 2));
+        seo()
+            ->title(trans_choice('post.label', 2));
 
         return view('front.posts.index', [
             'posts' => Post::query()
@@ -31,11 +28,10 @@ class PostController extends Controller
     {
         $image = $post->firstMedia('image');
 
-        $this->seo()
-            ->setTitle($post->title)
-            ->setDescription($post->description)->addImages(
-                optional($image)->getUrl()
-            );
+        seo()
+            ->title($post->title)
+            ->description($post->description)
+            ->image($image?->getUrl());
 
         return view('front.posts.show', [
             'post'  => $post,

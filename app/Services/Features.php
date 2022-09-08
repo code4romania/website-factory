@@ -24,7 +24,7 @@ class Features
     public static function edition(string $edition): string
     {
         config()->set(static::$featureKey, match ($edition) {
-            'ong' => [
+            'internal', 'ong' => [
                 static::DONATIONS,
                 static::THEME,
             ],
@@ -95,5 +95,15 @@ class Features
     public static function hasTheme(): bool
     {
         return static::enabled(static::THEME);
+    }
+
+    /**
+     * Determine if the application is running a Code for Romania site.
+     *
+     * @return bool
+     */
+    public static function isCode4RomaniaSite(): bool
+    {
+        return config('website-factory.edition') === 'internal';
     }
 }

@@ -15,7 +15,7 @@ class Form extends BlockComponent
     public function setup(): void
     {
         $this->title = $this->block->translatedInput('title');
-        $this->form = $this->block->related
+        $this->form = $this->block->related_items
             ->pluck('related')
             ->first();
     }

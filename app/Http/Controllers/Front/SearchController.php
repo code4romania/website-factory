@@ -7,15 +7,12 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\SearchRequest;
 use App\Services\Features;
-use Artesaos\SEOTools\Traits\SEOTools;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 class SearchController extends Controller
 {
-    use SEOTools;
-
     public function __invoke(SearchRequest $request)
     {
         $attributes = $request->validated();
@@ -26,8 +23,8 @@ class SearchController extends Controller
             ->reject(fn (string $term) => Str::length($term) < 3)
             ->join(' ');
 
-        $this->seo()
-            ->setTitle(__('app.search.results', ['query' => $attributes['query']]));
+        seo()
+            ->title(__('app.search.results', ['query' => $attributes['query']]));
 
         return response()
             ->view('front.search.results', [

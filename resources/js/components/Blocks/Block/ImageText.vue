@@ -12,7 +12,7 @@
     />
 
     <form-select
-        :label="$t('field.position')"
+        :label="$t('field.image_position')"
         v-model="content.position"
         :options="position"
     />

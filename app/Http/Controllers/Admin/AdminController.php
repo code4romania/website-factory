@@ -38,7 +38,7 @@ class AdminController extends Controller
             'show'        => 'view',
             'create'      => 'create',
             'store'       => 'create',
-            'duplicate'   => 'create',
+            'duplicate'   => 'update',
             'edit'        => 'update',
             'update'      => 'update',
             'destroy'     => 'delete',
