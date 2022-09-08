@@ -84,6 +84,8 @@
             const { results } = useFuse(query, props.sections, {
                 fuseOptions: {
                     keys: ['title', 'section', 'content'],
+                    ignoreLocation: true,
+                    threshold: 0.33,
                 },
                 matchAllWhenSearchEmpty: true,
             });
