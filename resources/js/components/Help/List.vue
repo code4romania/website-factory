@@ -37,16 +37,23 @@
             >
                 <button
                     type="button"
-                    class="text-left group"
+                    class="w-full text-left group"
                     @click="$emit('topic:open', item)"
                 >
-                    <h3
-                        class="text-sm font-semibold text-gray-800 group-hover:underline"
-                        v-text="item.title"
-                    />
+                    <div class="flex items-start justify-between gap-2">
+                        <h3
+                            class="text-sm font-semibold text-gray-800 group-hover:underline"
+                            v-text="item.title"
+                        />
+
+                        <help-section-badge
+                            :section="item.section"
+                            :index="item.sectionId"
+                        />
+                    </div>
 
                     <p
-                        class="mt-1 text-sm text-gray-600 line-clamp-2"
+                        class="mt-2 text-sm text-gray-600 line-clamp-2"
                         v-text="item.excerpt"
                     />
                 </button>
@@ -76,7 +83,7 @@
 
             const { results } = useFuse(query, props.sections, {
                 fuseOptions: {
-                    keys: ['title', 'excerpt', 'content'],
+                    keys: ['title', 'section', 'content'],
                 },
                 matchAllWhenSearchEmpty: true,
             });

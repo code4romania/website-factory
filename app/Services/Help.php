@@ -33,14 +33,15 @@ class Help
                 $content = $markdown->getContent();
 
                 return [
-                    'section' => $section,
-                    'topic'   => $topic,
-                    'title'   => data_get($frontMatter, 'title'),
-                    'excerpt' => Str::of((string) $content)
+                    'sectionId' => (int) $sectionId,
+                    'section'   => $section,
+                    'topic'     => $topic,
+                    'title'     => data_get($frontMatter, 'title'),
+                    'content'   => $content,
+                    'excerpt'   => Str::of((string) $content)
                         ->stripTags()
                         ->limit(160)
                         ->toString(),
-                    'content' => $content,
                 ];
             })
             ->values();
