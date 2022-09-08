@@ -21,7 +21,7 @@
     </div>
 
     <div
-        class="flex-1 p-4 overflow-y-auto prose-sm prose sm:px-6"
+        class="flex-1 p-4 overflow-y-auto prose-sm prose sm:px-6 prose-blue"
         v-html="topic.content"
     />
 </template>

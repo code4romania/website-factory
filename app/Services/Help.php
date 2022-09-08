@@ -14,7 +14,9 @@ use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
 use League\CommonMark\Extension\FrontMatter\FrontMatterExtension;
 use League\CommonMark\Extension\FrontMatter\Output\RenderedContentWithFrontMatter;
+use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
 use League\CommonMark\Extension\Table\TableExtension;
+use League\CommonMark\Extension\TableOfContents\TableOfContentsExtension;
 use League\CommonMark\MarkdownConverter;
 use Symfony\Component\Finder\SplFileInfo;
 
@@ -70,7 +72,19 @@ class Help
 
     private static function markdown(string $content): RenderedContentWithFrontMatter
     {
-        $environment = new Environment();
+        $environment = new Environment([
+            'heading_permalink' => [
+                'html_class' => 'mr-2 no-underline inline-flex w-6 h-6 items-center justify-center focus:bg-blue-600 focus:text-blue-50',
+                'min_heading_level' => 2,
+                'max_heading_level' => 4,
+            ],
+            'table_of_contents' => [
+                'html_class' => 'text-xs border-b pb-6 mb-6',
+                'min_heading_level' => 2,
+                'max_heading_level' => 4,
+                'style' => 'ordered',
+            ],
+        ]);
 
         $environment
             ->addExtension(new CommonMarkCoreExtension())
@@ -78,7 +92,9 @@ class Help
             ->addExtension(new AttributesExtension())
             ->addExtension(new FrontMatterExtension())
             ->addExtension(new TableExtension())
-            ->addExtension(new ExternalLinkExtension());
+            ->addExtension(new ExternalLinkExtension())
+            ->addExtension(new HeadingPermalinkExtension())
+            ->addExtension(new TableOfContentsExtension());
 
         return (new MarkdownConverter($environment))->convert($content);
     }
