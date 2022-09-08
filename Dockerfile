@@ -2,7 +2,8 @@ FROM node:16-alpine as assets
 
 WORKDIR /build
 
-COPY app/View app/View
+COPY app app
+COPY help help
 COPY lang lang
 COPY resources resources
 COPY \
