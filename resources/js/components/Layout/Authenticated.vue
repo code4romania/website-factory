@@ -20,6 +20,8 @@
                 </div>
             </div>
 
+            <help />
+
             <div class="container items-center justify-between mt-12 space-y-2">
                 <breadcrumbs :items="breadcrumbs" />
 

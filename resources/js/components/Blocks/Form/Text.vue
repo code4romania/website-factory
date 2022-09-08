@@ -17,7 +17,7 @@
     <form-input
         type="number"
         :label="$t('field.min_length')"
-        help="0 = disabled"
+        :help="$t('field_help.zero_to_disable')"
         v-model.number="content.min_length"
         :min="0"
     />
@@ -25,7 +25,7 @@
     <form-input
         type="number"
         :label="$t('field.max_length')"
-        help="0 = disabled"
+        :help="$t('field_help.zero_to_disable')"
         v-model.number="content.max_length"
         :min="0"
     />

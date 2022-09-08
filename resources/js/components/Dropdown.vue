@@ -1,18 +1,20 @@
 <template>
-    <div class="relative" ref="target">
+    <div :class="absolute ? 'absolute' : 'relative'" ref="target">
         <button type="button" @click="isOpen = !isOpen" :class="triggerClass">
             <slot name="trigger" />
 
             <icon
                 v-if="withArrow"
                 name="System/arrow-down-s-line"
-                class="w-4 h-4"
+                class="w-4 h-4 shrink-0"
+                :class="iconClass"
             />
 
             <icon
                 v-else-if="withMore"
                 name="System/more-fill"
-                class="w-4 h-4"
+                class="w-4 h-4 shrink-0"
+                :class="iconClass"
             />
         </button>
 
@@ -63,11 +65,19 @@
                 type: String,
                 default: null,
             },
+            iconClass: {
+                type: String,
+                default: null,
+            },
             withArrow: {
                 type: Boolean,
                 default: false,
             },
             withMore: {
+                type: Boolean,
+                default: false,
+            },
+            absolute: {
                 type: Boolean,
                 default: false,
             },

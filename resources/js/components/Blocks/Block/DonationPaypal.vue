@@ -11,12 +11,25 @@
         v-model="content.text"
     />
 
-    <form-input
-        type="text"
-        :label="$t('field.button_id')"
-        v-model="content.button_id"
-        required
-    />
+    <div class="space-y-1">
+        <form-input
+            type="text"
+            :label="$t('field.paypal_button_id')"
+            v-model="content.button_id"
+            required
+        />
+
+        <a
+            href="https://www.paypal.com/donate/buttons/manage"
+            target="_blank"
+            rel="noopener noreferer"
+            class="flex items-center gap-1 text-sm text-gray-500 underline"
+        >
+            {{ $t('field_help.paypal_button_id') }}
+
+            <icon name="System/external-link-line" class="w-4 h-4" />
+        </a>
+    </div>
 </template>
 
 <script>

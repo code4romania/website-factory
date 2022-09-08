@@ -70,6 +70,7 @@
             <form-textarea
                 v-if="form.send_submissions"
                 :label="$t('field.recipients')"
+                :help="$t('field_help.one_per_line')"
                 name="recipients"
                 v-model="form.recipients"
                 required

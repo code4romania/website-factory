@@ -34,7 +34,7 @@
             <slot />
         </div>
 
-        <p v-if="help" class="text-sm text-gray-500" v-text="help" />
+        <p v-if="help" class="text-xs text-gray-500" v-text="help" />
 
         <div
             v-if="hasErrors"

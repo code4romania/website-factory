@@ -240,3 +240,5 @@ Route::group([
     Route::put('/{language}', 'update')->name('update');
     Route::delete('/{language}', 'destroy')->name('destroy');
 });
+
+Route::get('/help', Admin\HelpController::class)->name('help');

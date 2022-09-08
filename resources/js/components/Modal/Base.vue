@@ -5,7 +5,7 @@
             class="fixed inset-0 z-50 flex items-start justify-center min-h-screen sm:p-4 md:p-8 lg:p-16 xl:p-32"
             @submit.prevent="submit"
         >
-            <div class="fixed inset-0 bg-gray-500 opacity-75" @click="close" />
+            <div class="fixed inset-0 bg-gray-500/75" @click="close" />
 
             <div
                 class="w-full max-h-full transition-all transform bg-white shadow-xl"
