@@ -29,10 +29,10 @@ RUN tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz
 
 ENTRYPOINT ["/init"]
 
-COPY .docker/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY .docker/php/php.ini /usr/local/etc/php/php.ini
-COPY .docker/php/www.conf /usr/local/etc/php-fpm.d/zz-docker.conf
-COPY .docker/s6-rc.d /etc/s6-overlay/s6-rc.d
+COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY docker/php/php.ini /usr/local/etc/php/php.ini
+COPY docker/php/www.conf /usr/local/etc/php-fpm.d/zz-docker.conf
+COPY docker/s6-rc.d /etc/s6-overlay/s6-rc.d
 
 RUN apk update && \
     # build dependencies
