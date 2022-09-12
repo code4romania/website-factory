@@ -40,7 +40,7 @@
 <script>
     import slug from 'slug';
     import { computed, ref } from 'vue';
-    import { defineInput, route } from '@/helpers';
+    import { defineInput, route, useLocale } from '@/helpers';
 
     export default defineInput({
         name: 'FormSlug',
@@ -59,6 +59,8 @@
             },
         },
         setup(props, { emit }) {
+            const { currentLocale } = useLocale();
+
             const isEditing = ref(false);
 
             const fullUrl = computed(() => {
@@ -67,7 +69,7 @@
                 }
 
                 return route(props.routeName, {
-                    locale: props.locale,
+                    locale: props.locale || currentLocale.value,
                     [props.routeKey]: props.modelValue,
                 });
             });
@@ -75,7 +77,7 @@
             const origin = computed(
                 () =>
                     route(props.routeName, {
-                        locale: props.locale,
+                        locale: props.locale || currentLocale.value,
                         [props.routeKey]: '',
                     }) + '/'
             );
