@@ -6,7 +6,6 @@ namespace App\Providers;
 
 use App\Services\BlockCollection;
 use App\Services\SupportsTrait;
-use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Schema\Blueprint;
@@ -102,13 +101,12 @@ class AppServiceProvider extends ServiceProvider
         Response::macro('model', function (string $model) {
             /** @var Model */
             $model = resolve($model);
-            $traits = class_uses_recursive($model);
 
             if (SupportsTrait::blocks($model)) {
                 $allowedBlocks = (new BlockCollection($model->allowedBlockType ?? 'block'))->all();
             }
 
-            if (\in_array(Translatable::class, $traits)) {
+            if (SupportsTrait::translatable($model)) {
                 $translatable = $model->translatable;
             }
 

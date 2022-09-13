@@ -6,6 +6,7 @@ namespace App\Traits;
 
 use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Collection;
 
 trait HasRole
 {
@@ -29,12 +30,7 @@ trait HasRole
         return $this->role === UserRole::editor;
     }
 
-    /**
-     * @param  \Illuminate\Database\Eloquent\Builder                           $query
-     * @param  array|string|\Illuminate\Support\Collection|\App\Enums\UserRole $roles
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeRole(Builder $query, $roles): Builder
+    public function scopeRole(Builder $query, array|string|Collection|UserRole $roles): Builder
     {
         return $query->whereIn('role', collect($roles));
     }

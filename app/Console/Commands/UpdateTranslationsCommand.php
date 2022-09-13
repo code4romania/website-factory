@@ -68,8 +68,6 @@ class UpdateTranslationsCommand extends Command
 
         Cache::flush();
 
-        $this->info('Done!');
-
         return self::SUCCESS;
     }
 
