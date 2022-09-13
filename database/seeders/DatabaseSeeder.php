@@ -16,7 +16,6 @@ use App\Models\PostCategory;
 use App\Models\User;
 use App\Services\Features;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
 
 class DatabaseSeeder extends Seeder
@@ -29,8 +28,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Cache::flush();
-
-        Artisan::call('wf:setup');
 
         $images = Media::query()
             ->whereImages()

@@ -8,8 +8,14 @@ use App\Models\Language;
 use App\Models\Page;
 use App\Models\Setting;
 use App\Models\User;
+use App\Services\SupportsTrait;
+use App\Traits\ClearsResponseCache;
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Throwable;
 
 class SetupCommand extends Command
 {
@@ -34,115 +40,79 @@ class SetupCommand extends Command
      */
     public function handle()
     {
-        $this->createDefaultLanguages();
+        $this->seedLanguages();
+        $this->seedSettings();
+        $this->seedPages();
+        $this->seedAdministrator();
 
-        $this->createDefaultPages();
-
-        $this->createDefaultSettings();
-
-        $this->createFirstUser();
-
-        $this->info('Install complete!');
+        $this->info('Setup complete!');
 
         return self::SUCCESS;
     }
 
-    protected function createDefaultLanguages(): void
+    protected function seedLanguages(): void
     {
-        if (Language::count()) {
-            $this->warn('The languages table is not empty. Skipping language creation...');
+        $shouldCreateLanguages = Language::count() === 0;
 
-            $this->call(UpdateTranslationsCommand::class, ['--force' => false]);
+        if ($shouldCreateLanguages) {
+            $this->info('Creating default languages...');
 
+            Language::insert([
+                [
+                    'code'    => 'ro',
+                    'name'    => 'Română',
+                    'enabled' => true,
+                ],
+                [
+                    'code'    => 'en',
+                    'name'    => 'English',
+                    'enabled' => false,
+                ],
+            ]);
+        }
+
+        $this->call(UpdateTranslationsCommand::class, [
+            '--force' => $shouldCreateLanguages,
+        ]);
+    }
+
+    protected function seedSettings(): void
+    {
+        if (Setting::count()) {
             return;
         }
 
-        $this->info('Creating default languages...');
-
-        Language::insert([
-            [
-                'code'    => 'ro',
-                'name'    => 'Română',
-                'enabled' => true,
-            ],
-            [
-                'code'    => 'en',
-                'name'    => 'English',
-                'enabled' => false,
-            ],
-        ]);
-
-        $this->call(UpdateTranslationsCommand::class, ['--force' => true]);
+        $this->loadData('settings')->each(function (array $attributes) {
+            Setting::create($attributes);
+        });
     }
 
-    protected function createDefaultPages(): void
+    protected function seedPages(): void
     {
         if (Page::count()) {
-            $this->warn('The pages table is not empty. Skipping pages creation...');
-
             return;
         }
 
         $this->info('Creating default pages...');
 
-        Page::create([
-            'title'        => $this->localized('Home'),
-            'description'  => $this->localized(''),
-            'published_at' => now(),
-        ]);
+        $this->loadData('pages')->each(function (array $attributes) {
+            $page = $this->saveModel(Page::class, $attributes);
+
+            $setting = $attributes['_map_to_setting'] ?? [];
+
+            if (\count($setting) === 2) {
+                Setting::create([
+                    'section' => $setting[0],
+                    'key'     => $setting[1],
+                    'value'   => $page->id,
+                ]);
+            }
+        });
     }
 
-    protected function createDefaultSettings(): void
-    {
-        if (Setting::count()) {
-            $this->warn('The settings table is not empty. Skipping settings creation...');
-
-            return;
-        }
-
-        $this->info('Creating default settings...');
-
-        Setting::insert([
-            [
-                'section' => 'site',
-                'key'     => 'title',
-                'value'   => $this->localized(config('app.name'), encoded: true),
-            ],
-            [
-                'section' => 'site',
-                'key'     => 'colors',
-                'value'   => json_encode([
-                    'primary' => '#FFCC00',
-                ]),
-            ],
-            [
-                'section' => 'site',
-                'key'     => 'front_page',
-                'value'   => Page::first()?->id,
-            ],
-            [
-                'section' => 'site-notice',
-                'key'     => 'enabled',
-                'value'   => false,
-            ],
-            [
-                'section' => 'site-notice',
-                'key'     => 'color',
-                'value'   => json_encode('#FCB900'),
-            ],
-            [
-                'section' => 'site-notice',
-                'key'     => 'text',
-                'value'   => $this->localized('', encoded: true),
-            ],
-        ]);
-    }
-
-    protected function createFirstUser(): void
+    protected function seedAdministrator(): void
     {
         if (User::count()) {
-            $this->warn('The users table is not empty. Skipping user creation...');
-
             return;
         }
 
@@ -165,19 +135,44 @@ class SetupCommand extends Command
             'role'     => 'admin',
         ]);
 
-        $this->info('Successfully created user for ' . $email);
+        $this->info('Successfully created administrator for ' . $email);
     }
 
-    private function localized(mixed $value, bool $encoded = false): mixed
+    private function loadData(string $file): Collection
     {
-        return locales()
-            ->mapWithKeys(fn (array $config, string $locale) => [
-                $locale => $value,
-            ])
-            ->when(
-                $encoded,
-                fn ($collection) => $collection->toJson(),
-                fn ($collection) => $collection->toArray()
+        $edition = config('website-factory.edition');
+
+        try {
+            $content = json_decode(
+                File::get(database_path("seeders/data/${edition}/${file}.json")),
+                true
             );
+        } catch (Throwable $th) {
+            $content = null;
+        }
+
+        return collect($content);
+    }
+
+    private function saveModel(string $model, array $attributes): Model
+    {
+        if (
+            \array_key_exists('published_at', $attributes) &&
+            $attributes['published_at'] === 'now'
+        ) {
+            $attributes['published_at'] = now();
+        }
+
+        $item = $model::create($attributes);
+
+        if (SupportsTrait::blocks($model)) {
+            $item->saveBlocks($attributes['blocks'] ?? []);
+        }
+
+        if (SupportsTrait::media($model)) {
+            $item->saveMedia($attributes['media'] ?? []);
+        }
+
+        return $item;
     }
 }

@@ -1,0 +1,663 @@
+[
+    {
+        "_map_to_setting": ["site", "front_page"],
+        "title": {
+            "ro": "Acasă"
+        },
+        "published_at": "now"
+    },
+    {
+        "_map_to_setting": ["site", "terms_page"],
+        "title": {
+            "ro": "Termeni și condiții"
+        },
+        "published_at": "now",
+        "blocks": [
+            {
+                "type": "header",
+                "content": {
+                    "fullwidth": true,
+                    "title": {
+                        "ro": "Termeni și condiții"
+                    },
+                    "text": {
+                        "ro": "<p>Termenii și Condițiile generale de utilizare stabilesc termenii și condițiile generale de utilizare a site-ului [„siteulmeu.ro”] de către potențialii vizitatori sau beneficiari.</p>"
+                    },
+                    "align": "left"
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Obiectivul [siteulmeu.ro] este de a prezenta activitatea asociației [Nume Asociatie].</p><ul><li><p>Site-ul permite abonarea publicului la un serviciu de newsletter, gestionat prin intermediul platformei de e-mailing Mailchimp. Datele din acest formular sunt folosite exclusiv în scopul de a facilita transferul de informații către utilizatorii care doresc acest lucru.</p></li><li><p>Site-ul permite setarea de donații recurente sau individuale prin intermediul serviciului [PayPal/EuPlatesc/Netopia MobilPay, Stripe]</p></li><li><p>Site-ul permite înregistrarea ca participant la evenimentele recurente ale [Nume Asociatie] printr-un formular </p></li></ul>"
+                    },
+                    "title": {
+                        "ro": "1. Obiectivul Platformei"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Completând formularele puse la dispoziție în paginile acestui site, putem colecta următoarele date personale:</p><ul><li><p>Numele și Prenumele</p></li><li><p>Email</p></li><li><p>Numărul de telefon (opțional)</p></li></ul>"
+                    },
+                    "title": {
+                        "ro": "2. Datele personale prelucrate"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>[Nume Asociatie] prelucrează date cu caracter personal doar în interesul utilizatorilor site-ului care doresc să se aboneze la newsletterul recurent al organizației, care doresc să efectueze o donație sau care doresc să participe la unul dintre evenimentele [Nume Asociatie].&nbsp;</p><p>În cazul în care utilizatorul nu dorește ca datele sale personale să fie prelucrate:</p><ul><li><p>poate dona către organizatie folosind informațiile bancare puse la dispoziție în pagina [siteulmeu.ro/donează]</p></li></ul>"
+                    },
+                    "title": {
+                        "ro": "3. Scop și temei"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Datele personale furnizate sunt stocate temporar pe durata funcționării platformei [siteulmeu.ro].</p>"
+                    },
+                    "title": {
+                        "ro": "4. Durata stocării"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>[Nume Asociatie] nu va furniza datele personale către terți. Datele pot fi furnizate către instituții sau autorități publice, precum și altor organe abilitate ale statului, în baza și în limitele prevederilor legale, ca urmare a unor cereri expres formulate de acestea.</p>"
+                    },
+                    "title": {
+                        "ro": "5. Transmiterea Datelor personale către terți"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>În calitate de utilizator al platformei [siteulmeu.ro], potrivit Legii nr. 679/2016, precum și, începând cu 25 mai 2018, potrivit Regulamentului General privind protecția datelor, ai următoarele drepturi:</p><ul><li><p>Dreptul la informare cu privire la prelucrarea datelor personale de către [Nume Asociatie];</p></li><li><p>Dreptul de acces la datele personale, la cerere și în mod gratuit pentru o solicitare pe an;</p></li><li><p>Dreptul de intervenție, rectificarea, ștergerea sau portabilitatea datelor personale, la cerere și în mod gratuit;</p></li><li><p>Dreptul de a te adresa Autorității Naționale de Supraveghere privind Prelucrarea Datelor cu Caracter Personal (cu sediul în Bucureşti, sector 1, B-dul G-ral. Gheorghe Magheru, www.dataprotection.ro) sau justiției, pentru apărarea oricăror drepturi garantate de lege;</p></li><li><p>Dreptul la opoziţie şi procesul decizional individual automatizat;</p></li><li><p>începând cu 25 mai 2018, potrivit Regulamentului general privind protecția datelor, dreptul la restricționarea prelucrării.</p></li></ul>"
+                    },
+                    "title": {
+                        "ro": "6. Drepturile tale"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Protecția informațiilor în cursul prelucrării datelor tale personale este o preocupare majoră a [Nume Asociatie], de aceea toate datele personale colectate în cursul vizitelor pe acest site sunt prelucrate conform prevederilor legale în vigoare în România. [Nume Asociatie] folosește tehnologii de ultimă generație și ia toate măsurile tehnice rezonabile pentru transmiterea și păstrarea datelor personale în condiții de deplină securitate și confidențialitate.</p><p>Toate datele personale de pe site sunt stocate și procesate pe servere situate în Uniunea Europeană, ce cad sub incidența legislației europene de protecție a datelor personale. Nicio informație oferită pe acest site nu părăsește teritoriul Uniunii Europene.</p><p>[Nume Asociatie] se angajează să nu dezvăluie datele personale cu privire la vizitele tale pe [siteulmeu.ro], exceptând situațiile legale sau situațiile prezentate în acest document de Termeni și Condiții.</p><p>Dacă descoperim un incident cu privire la securitatea datelor personale care prezintă un risc pentru drepturile și libertățile utilizatorilor noștri, vom notifica Autoritatea Națională de Supraveghere privind Prelucrarea Datelor cu Caracter Personale în termen de 72 de ore. Dacă incidentul de securitate este de natură să prezinte un risc ridicat pentru drepturile și libertățile tale, vei fi, de asemenea, notificat.</p>"
+                    },
+                    "title": {
+                        "ro": "7. Securitate și confidențialitate"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Dreptul de autor pentru toate informațiile existente pe acest site este deținut de [Nume Asociatie]. Nici un material de pe acest site nu poate fi reprodus parțial, integral sau modificat fără acordul expres exprimat de catre [Nume Asociatie], titularul acestui drept.</p><ul><li><p>Toate drepturile sunt rezervate.</p></li><li><p>Este strict interzisă folosirea acestui Site în scopul distrugerii sau alterării lui, a conținutului său a securității acestuia ori pentru discreditarea sau hărțuirea [siteulmeu.ro] sau a organizației [Nume Asociatie] și a membrilor acesteia.</p></li><li><p>[Nume Asociatie] va aplica toate măsurile de securitate tehnică și organizatorică pentru protejarea datelor asupra cărora deține controlul împotriva oricărei situații de manipulare accidentală sau intenționată, pierdere, distrugere sau împotriva accesului unei persoane neautorizate.</p></li></ul>"
+                    },
+                    "title": {
+                        "ro": "8. Marca și dreptul de autor"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>\"Termenii și Condițiile generale de utilizare\" constituie, în întregime, un acord încheiat între dumneavoastră și [Nume Asociatie] în privința utilizării acestui site.</p><p>[Nume Asociatie] își rezervă dreptul de a revizui și aduce la zi \"Termenii și Condițiile generale de utilizare\" în orice moment, fără o anunțare sau o acceptare prealabilă a utilizatorilor.</p><p>Dacă aveți întrebări cu privire la informațiile cuprinse în această pagină vă rugăm să ne scrieți la adresa [mail@ong.ro].</p>"
+                    },
+                    "title": {
+                        "ro": "9. Modificari Termeni și Condiții generale de utilizare Site"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>[Nume Asociatie] este o organizație neguvernamentală [Descriere organizatie - 1 paragraf]</p>"
+                    },
+                    "title": {
+                        "ro": "10. Despre [Nume Asociatie]"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Pentru orice întrebări sau preocupări, precum și pentru exercitarea drepturilor tale legate de prelucrarea datelor personale de către [Nume Asociatie], ne poti contacta la:</p><p>Adresa: [Adresa fizica a organizatiei]</p><p>E-mail: [mail@ong.ro]</p>"
+                    },
+                    "title": {
+                        "ro": "11. Contactează [Nume Asociatie]"
+                    },
+                    "fullwidth": true
+                }
+            }
+        ]
+    },
+    {
+        "_map_to_setting": ["site", "privacy_page"],
+        "title": {
+            "ro": "Politica de confidențialitate"
+        },
+        "published_at": "now",
+        "blocks": [
+            {
+                "type": "header",
+                "content": {
+                    "fullwidth": true,
+                    "title": {
+                        "ro": "Politica de confidențialitate"
+                    },
+                    "text": {
+                        "ro": "<p>Acest website folosește cookie-uri pentru a furniza vizitatorilor o experiență mult mai bună de navigare și servicii adaptate nevoilor și interesului fiecăruia.</p>"
+                    },
+                    "align": "left"
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>“Cookie“-urile au rolul de a facilita accesul și livrarea serviciilor folosite de utilizator de internet, cum ar fi personalizarea anumitor setări (limba, țara, prețuri afișate în moneda națională. “Cookie“-urile, pe baza informațiilor pe care le adună despre utilizatori, îi ajută pe deținătorii de site-uri să își eficientizeze produsul astfel încât acesta să fie cât mai ușor accesat de către utilizatori, de asemenea cresc gradul de eficiență a publicității online și nu în ultimul rând pot permite aplicațiilor multimedia sau de alt tip de pe alte site-uri să fie incluse într-un anumit site pentru a face navigarea mai utilă.</p><p>Cookie (“browser cookie“ sau “HTTP cookie“) este un fișier de mici dimensiuni, format din litere și numere, care este stocat pe orice terminal cu acces la internet (computer, telefon mobil, tabletă etc.) și este instalat prin solicitare emisă de către un web-server unui browser (ex: Internet Explorer, Chrome). De reținut: “Cookie“-urile nu conțin programe software, viruși sau spyware și nu pot accesa informațiile de pe hard drive-ul utilizatorului.</p><p>Un cookie este format din nume și conținut, durata de existență a acestuia fiind determinată, putând fi accesat din nou de webserver în momentul în care un utilizator se întoarce pe website-ul asociat webserverului respectiv.</p><p>Cookie-urile nu solicită informații cu caracter personal și nu identifică personal utilizatorii de internet.</p><p>Cookieuri de sesiune - acestea sunt stocate temporar în istoricul browser-ului care le memorează până când utilizatorul iese de pe web-siteul respectiv sau închide fereastra browserului.</p><p>Cookieuri Persistente - Acestea sunt stocate, în funcție de durata prestabilită, pe hard-drive-ul unui computer sau echipament. Cookie-urile persistente le includ și pe cele plasate de un alt website decât cel pe care îl vizitează utilizatorul la momentul respectiv - cunoscute sub numele de “third party cookies“ - care pot fi folosite în mod anonim pentru a memora interesele unui utilizator, astfel încât să fie livrată publicitate cât mai relevantă pentru utilizatori.</p>"
+                    },
+                    "title": {
+                        "ro": "Ce este un “cookie“?"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Un cookie conține informații care fac legătura între utilizatori și un anume website. Dacă un browser accesează acel web-server din nou, acesta poate citi informația deja stocată și reacționa în consecință.</p>"
+                    },
+                    "title": {
+                        "ro": "Care sunt avantajele cookie-urilor?"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Exista cookie-uri folosite exclusiv pentru o singură sesiune - acestea nu mai sunt reținute după ce utilizatorul iese de pe website. Cookie-uri permanente - sunt reținute și refolosite de fiecare dată când utilizatorul revine pe acel website, însă pot fi șterse oricând de utilizator.</p>"
+                    },
+                    "title": {
+                        "ro": "Care este durata de viață a unui cookie?"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Părți de conținut sau servicii pot fi plasate pe website-ul accesat, de către terțe părți prin intermediul bannerelor, boxurilor sau linkurilor - iar toate aceste instrumente pot conține cookie-uri. Ele se numesc “third party cookies“ pentru că nu sunt plasate de proprietarul website-ului respectiv, iar furnizorii terți se supun legilor îin vigoare și politicilor de confidențialitate ale deținătorului site-ului.</p>"
+                    },
+                    "title": {
+                        "ro": "Ce sunt cookie-urile plasate de terți?"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>O vizită pe acest site poate plasa cookie-uri în scopuri de:</p><ul><li><p>Cookie-uri pentru analiza vizitatorilor</p></li><li><p>Cookie-uri de înregistrare</p></li><li><p>Cookie-uri pentru finalizarea unei donații</p></li></ul><p>Unele cookie-uri pot proveni de la terți.</p>"
+                    },
+                    "title": {
+                        "ro": "Cum sunt folosite cookie-urile de către acest site?"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>De fiecare dată când un utilizator vizitează acest site softul de analytics furnizat de o terță parte generează un cookie de analiză a utilizatorului. Acest cookie ne spune dacă ați mai vizitat acest site până acum. Browser-ul ne va spune dacă aveți acest cookie, iar dacă nu, vom genera unul. Acesta permite monitorizarea utilizatorilor unici care ne vizitează și cât de des o fac. Acest cookie nu poate fi folosit pentru a identifica persoanele fizice, ele sunt folosite doar în scop statistic.</p>"
+                    },
+                    "title": {
+                        "ro": "Cookie-uri pentru analiza vizitatorilor"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Pe unele pagini, terții pot seta propriile cookie-uri anonime, în scopul de a urmări succesul unei aplicații, sau pentru a customiza o aplicație. Datorită modului de utilizare, acest site nu poate accesa aceste cookie-uri, la fel cum terțele părți nu pot accesa cookie-urile deținute de acest site. De exemplu, când distribuiți o pagină folosind butonul pentru rețelele sociale aflat pe acest site, acea rețea socială va înregistra activitatea dvs.</p>"
+                    },
+                    "title": {
+                        "ro": "Alte cookie-uri ale terțelor părți"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Cookie-urile păstrează informații într-un fișier text de mici dimensiuni care permit unui website să recunoască un browser. Webserver-ul va recunoaște browserul până când cookie-ul expiră sau este șters. Cookie-ul stochează informații importante care îmbunătățesc experiența de navigare pe Internet (ex: un număr de ordine pentru donația ta).</p>"
+                    },
+                    "title": {
+                        "ro": "Ce tip de informații sunt stocate și accesate prin intermediul cookie-urilor?"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Cookie-urile reprezintă punctul central al funcționării eficiente a Internetului, ajutând la generarea unei experiențe de navigare prietenoase și adaptată preferințelor și intereselor fiecărui utilizator. Refuzarea sau dezactivarea cookieurilor poate face unele site-uri imposibil de folosit.</p><p>Refuzarea sau dezactivarea cookie-urilor nu înseamnă că nu veți mai primi publicitate online - ci doar că aceasta nu va mai putea ține cont de preferințele și interesele dvs, evidențiate prin comportamentul de navigare.</p>"
+                    },
+                    "title": {
+                        "ro": "De ce sunt cookie-urile importante pentru Internet?"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Cookie-urile NU sunt viruși! Ele folosesc formate tip plain text. Nu sunt alcătuite din bucăți de cod așa că nu pot fi executate nici nu pot auto-rula. În consecință, nu se pot duplica sau replica pe alte rețele pentru a se rula sau replica din nou. Deoarece nu pot îndeplini aceste funcții, nu pot fi considerate viruși.</p><p>Cookie-urile pot fi totuși folosite pentru scopuri negative. Deoarece stochează informații despre preferințele și istoricul de navigare al utilizatorilor, atât pe un anume site cât și pe mai multe alte siteuri, cookieurile pot fi folosite ca o formă de Spyware. Multe produse anti-spyware sunt conștiente de acest fapt și în mod constant marchează cookie-urile pentru a fi șterse în cadrul procedurilor de ștergere/scanare anti-virus/anti-spyware.</p><p>În general browserele au integrate setari de confidențialitate care furnizează diferite nivele de acceptare a cookieurilor, perioada de valabilitate și ștergere automată dupa ce utilizatorul a vizitat un anumit site.</p>"
+                    },
+                    "title": {
+                        "ro": "Securitate și probleme legate de confidențialitate"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Deoarece protecția identității este foarte valoroasă și reprezintă dreptul fiecărui utilizator de internet, este indicat să se știe ce eventuale probleme pot crea cookieurile. Pentru că prin intermediul lor se transmit în mod constant în ambele sensuri informații între browser și website, dacă un atacator sau persoana neautorizată intervine în parcursul de transmitere a datelor, informațiile conținute de cookie pot fi interceptate. Deși foarte rar, acest lucru se poate întâmpla dacă browserul se conectează la server folosind o rețea necriptată (ex: o rețea WiFi nesecurizată).</p><p>Alte atacuri bazate pe cookie implică setări greșite ale cookieurilor pe servere. Dacă un website nu solicită browserului să folosească doar canale criptate, atacatorii pot folosi această vulnerabilitate pentru a păcăli browserele în a trimite informații prin intermediul canalelor nesecurizate. Atacatorii utilizează apoi informațiile în scopuri de a accesa neautorizat anumite site-uri. Este foarte important să fiți atenți în alegerea metodei celei mai potrivite de protecție a informațiilor personale.</p>"
+                    },
+                    "title": {
+                        "ro": "Alte aspecte de securitate legate de cookie-uri"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Datorită flexibilitatii lor și a faptului ca majoritatea dintre cele mai vizitate site-uri și cele mai mari folosesc cookieuri, acestea sunt aproape inevitabile. Dezactivarea cookie-urilor nu va permite accesul utilizatorului pe site-urile cele mai răspândite și utilizate printre care Youtube, Gmail, Yahoo și altele. Iată câteva sfaturi care vă pot asigura că navigați fără griji însă cu ajutorul cookie-urilor:</p><ul><li><p>Particularizați-vă setările browserului în ceea ce privește cookie-urile pentru a reflecta un nivel confortabil pentru voi al securității utilizării cookie-urilor. Dacă nu vă deranjează cookie-urile și sunteți singura persoană care utilizează computerul, puteți seta termene lungi de expirare pentru stocarea istoricului de navigare și al datelor personale de acces. Dacă împărțiți accesul la calculator, puteți lua în considerare setarea browserului pentru a șterge datele individuale de navigare de fiecare dată când închideți browserul. Aceasta este o variantă de a accesa site-urile care plasează cookie-uri și de a șterge orice informație de vizitare la închiderea sesiunii navigare.</p></li><li><p>Instalați-vă și updatați-vă constant aplicații antispyware.</p></li></ul><p>Multe dintre aplicațiile de detectare și prevenire a spyware-ului includ detectarea atacurilor pe site-uri. Astfel, impiedică browserul de la a accesa website-uri care ar putea să exploateze vulnerabilitățile browserului sau să descarce software periculos. Asigurați-vă că aveți browserul mereu updatat. Multe dintre atacurile bazate pe cookies se realizează exploatând punctele slabe ale versiunilor vechi ale browserelor.</p><p>Cookie-urile sunt pretutindeni și nu pot fi evitate dacă doriți să vă bucurați de acces pe cele mai bune și cele mai mari site-uri de pe Internet - locale sau internaționale. Cu o înțelegere clară a modului lor de operare și a beneficiilor pe care le aduc, puteți lua măsurile necesare de securitate astel încât să puteți naviga cu încredere pe internet.</p>"
+                    },
+                    "title": {
+                        "ro": "Sfaturi pentru o navigare sigură și responsabilă, bazată pe cookies"
+                    },
+                    "fullwidth": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "text": {
+                        "ro": "<p>Dezactivarea și refuzul de a primi cookie-uri pot face anumite site-uri impracticabile sau dificil de vizitat și folosit. De asemenea, refuzul de a accepta cookie-uri nu înseamnă că nu veți mai primi/vedea publicitate online.</p><p>Este posibilă setarea din browser pentru ca aceste cookie-uri să nu mai fie acceptate sau poți seta browserul să accepte cookie-uri de la un site anume. Dar, de exemplu, dacă nu dorești să folosești cookie-urile nu poți să urmezi și pașii următori după înregistrarea completarea formularului.</p><p>Toate browserele moderne oferă posibilitatea de a schimba setarile cookie-urilor. Aceste setari se găsesc de regula în “opțiuni“ sau în meniul de “preferințe“ al browserului tău.</p><p>Pentru setarile cookie-urilor generate de terți, și pentru mai multe informații privind confidențialitatea legată de publicitatea online, IAB Romania pune la dispoziție următorul site: <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"http://www.youronlinechoices.com/ro/\">http://www.youronlinechoices.com/ro/</a></p>"
+                    },
+                    "title": {
+                        "ro": "Cum pot opri cookie-urile?"
+                    },
+                    "fullwidth": true
+                }
+            }
+        ]
+    },
+    {
+        "title": {
+            "ro": "Raport anual"
+        },
+        "description": {
+            "ro": "Raportul anual al organizației pentru anul 2021"
+        },
+        "blocks": [
+            {
+                "type": "hero-bg-image",
+                "content": {
+                    "fullwidth": true,
+                    "title": {
+                        "ro": "Raport anual 2021"
+                    },
+                    "text": {
+                        "ro": "<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+                    },
+                    "button_text": [],
+                    "button_url": []
+                }
+            },
+            {
+                "type": "image-text",
+                "content": {
+                    "fullwidth": true,
+                    "title": {
+                        "ro": "Titlu reprezentativ pentru raportul anual"
+                    },
+                    "text": {
+                        "ro": "<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+                    },
+                    "position": "right",
+                    "align": "center",
+                    "width": "50%"
+                }
+            },
+            {
+                "type": "divider",
+                "content": {
+                    "fullwidth": true,
+                    "color": null
+                }
+            },
+            {
+                "type": "cards",
+                "content": {
+                    "fullwidth": true,
+                    "title": {
+                        "ro": "Proiectele anului 2021"
+                    },
+                    "columns": 3,
+                    "shadow": true
+                },
+                "children": [
+                    {
+                        "type": "card-item",
+                        "content": {
+                            "icon": "file-copy-2-line",
+                            "title": {
+                                "ro": "Titlu proiect 1"
+                            },
+                            "text": {
+                                "ro": "<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+                            },
+                            "button_text": {
+                                "ro": "Citește mai mult"
+                            },
+                            "button_url": {
+                                "ro": "http://www.proiect.com"
+                            }
+                        }
+                    },
+                    {
+                        "type": "card-item",
+                        "content": {
+                            "icon": "file-copy-2-line",
+                            "title": {
+                                "ro": "Titlu proiect 2"
+                            },
+                            "text": {
+                                "ro": "<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+                            },
+                            "button_text": {
+                                "ro": "Citește mai mult"
+                            },
+                            "button_url": {
+                                "ro": "http://www.proiect.com"
+                            }
+                        }
+                    },
+                    {
+                        "type": "card-item",
+                        "content": {
+                            "icon": "file-copy-2-line",
+                            "title": {
+                                "ro": "Titlu proiect 3"
+                            },
+                            "text": {
+                                "ro": "<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+                            },
+                            "button_text": {
+                                "ro": "Citește mai mult"
+                            },
+                            "button_url": {
+                                "ro": "http://www.proiect.com"
+                            }
+                        }
+                    },
+                    {
+                        "type": "card-item",
+                        "content": {
+                            "icon": "file-copy-2-line",
+                            "title": {
+                                "ro": "Titlu proiect 4"
+                            },
+                            "text": {
+                                "ro": "<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+                            },
+                            "button_text": {
+                                "ro": "Citește mai mult"
+                            },
+                            "button_url": {
+                                "ro": "http://www.proiect.com"
+                            }
+                        }
+                    },
+                    {
+                        "type": "card-item",
+                        "content": {
+                            "icon": "file-copy-2-line",
+                            "title": {
+                                "ro": "Titlu proiect 5"
+                            },
+                            "text": {
+                                "ro": "<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+                            },
+                            "button_text": {
+                                "ro": "Citește mai mult"
+                            },
+                            "button_url": {
+                                "ro": "http://www.proiect.com"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "divider",
+                "content": {
+                    "fullwidth": true,
+                    "color": null
+                }
+            },
+            {
+                "type": "image-grid",
+                "content": {
+                    "fullwidth": true,
+                    "title": {
+                        "ro": "Galerie foto"
+                    },
+                    "columns": 2
+                }
+            },
+            {
+                "type": "divider",
+                "content": {
+                    "fullwidth": true,
+                    "color": null
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "fullwidth": false,
+                    "title": {
+                        "ro": "Evenimentele noastre"
+                    },
+                    "text": {
+                        "ro": "<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+                    }
+                }
+            },
+            {
+                "type": "embed",
+                "content": {
+                    "fullwidth": false,
+                    "title": [],
+                    "url": "https://www.youtube.com/watch?v=LrzDjOmQguE"
+                }
+            },
+            {
+                "type": "divider",
+                "content": {
+                    "fullwidth": true,
+                    "color": null
+                }
+            },
+            {
+                "type": "images-with-links",
+                "content": {
+                    "fullwidth": true,
+                    "title": {
+                        "ro": "Partenerii noștri"
+                    },
+                    "columns": 5
+                },
+                "children": [
+                    {
+                        "type": "image-with-link",
+                        "content": {
+                            "url": {
+                                "ro": "http://www.code4.ro"
+                            },
+                            "caption": []
+                        }
+                    },
+                    {
+                        "type": "image-with-link",
+                        "content": {
+                            "url": {
+                                "ro": "http://www.code4.ro"
+                            },
+                            "caption": []
+                        }
+                    },
+                    {
+                        "type": "image-with-link",
+                        "content": {
+                            "url": {
+                                "ro": "http://www.code4.ro"
+                            },
+                            "caption": []
+                        }
+                    },
+                    {
+                        "type": "image-with-link",
+                        "content": {
+                            "url": {
+                                "ro": "http://www.code4.ro"
+                            },
+                            "caption": []
+                        }
+                    },
+                    {
+                        "type": "image-with-link",
+                        "content": {
+                            "url": {
+                                "ro": "http://www.code4.ro"
+                            },
+                            "caption": []
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "divider",
+                "content": {
+                    "fullwidth": true,
+                    "color": null
+                }
+            },
+            {
+                "type": "accordion",
+                "content": {
+                    "fullwidth": true,
+                    "title": {
+                        "ro": "Date financiare"
+                    }
+                },
+                "children": [
+                    {
+                        "type": "accordion-item",
+                        "content": {
+                            "title": {
+                                "ro": "Total venituri  - 100.000 lei"
+                            },
+                            "text": {
+                                "ro": "<ul><li><p>Venituri din cotizații: 7.588 lei</p></li><li><p>Venituri din donații: 24902 lei</p></li><li><p>Venituri din 3,5%: 0 lei</p></li><li><p>Venituri din sponsorizări: 50.000 lei</p></li><li><p>Venituri din activitatea economică: 5.000 lei</p></li><li><p>Alte venituri: 1.990 lei</p></li><li><p>Venituri financiare: 1.000 lei</p></li></ul>"
+                            }
+                        }
+                    },
+                    {
+                        "type": "accordion-item",
+                        "content": {
+                            "title": {
+                                "ro": "Total cheltuieli  - 98.000 lei"
+                            },
+                            "text": {
+                                "ro": "<ul><li><p>Cheltuieli cu resursele umane: 70.000 lei</p><ul><li><p>Salarii nete: 50.000 lei</p></li><li><p>Contribuții (CAS, CASS, Impozit, CAM): 20.000 lei</p></li></ul></li><li><p>Cheltuieli directe activitate economică: 3.000 lei</p></li><li><p>Cheltuieli administrative: 166 lei</p></li><li><p>Transport și cazare: 100 lei</p></li><li><p>Catering: 100 lei</p></li><li><p>Producție: 200 lei</p></li><li><p>Reclamă și publicitate: 270 lei</p></li><li><p>Alte taxe (TVA, impozit pe profit): 600 lei</p></li><li><p>Alte cheltuieli: 100 lei</p></li></ul>"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "call-to-action",
+                "content": {
+                    "fullwidth": true,
+                    "title": {
+                        "ro": "Susține-ne cu o donație"
+                    },
+                    "text": {
+                        "ro": "<p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+                    },
+                    "button_text": {
+                        "ro": "Donează acum"
+                    },
+                    "button_url": {
+                        "ro": "http://www.doneaza.ro"
+                    }
+                }
+            },
+            {
+                "type": "divider",
+                "content": {
+                    "fullwidth": true,
+                    "color": null
+                }
+            }
+        ]
+    }
+]

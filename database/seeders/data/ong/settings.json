@@ -1,0 +1,33 @@
+[
+    {
+        "section": "site",
+        "key": "title",
+        "value": {
+            "ro": "Website Factory: ONG"
+        }
+    },
+    {
+        "section": "site",
+        "key": "colors",
+        "value": {
+            "primary": "#FFCC00"
+        }
+    },
+    {
+        "section": "site-notice",
+        "key": "enabled",
+        "value": false
+    },
+    {
+        "section": "site-notice",
+        "key": "color",
+        "value": "#FCB900"
+    },
+    {
+        "section": "site-notice",
+        "key": "text",
+        "value": {
+            "ro": ""
+        }
+    }
+]
