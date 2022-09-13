@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use Illuminate\Support\Facades\File;
 use Spatie\ResponseCache\Facades\ResponseCache;
 
 trait ClearsResponseCache
@@ -19,9 +20,6 @@ trait ClearsResponseCache
     {
         ResponseCache::clear();
 
-        $cacheDir = '/tmp/fastcgi/cache';
-        if (file_exists($cacheDir)) {
-            exec("rm -rf $cacheDir/*");
-        }
+        File::cleanDirectory('/tmp/fastcgi/cache');
     }
 }

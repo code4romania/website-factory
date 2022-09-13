@@ -8,7 +8,6 @@ use App\Models\MenuItem;
 use App\Services\Features;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Component;
 
 class Footer extends Component
@@ -28,13 +27,10 @@ class Footer extends Component
     {
         $this->title = localized_settings('site.title');
 
-        $this->menu = Cache::rememberForever(
-            'menu-footer',
-            fn () => MenuItem::query()
-                ->location('footer')
-                ->get()
-                ->toTree()
-        );
+        $this->menu = MenuItem::query()
+            ->location('footer')
+            ->get()
+            ->toTree();
 
         $this->social = settings('social.profiles');
     }

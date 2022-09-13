@@ -19,6 +19,8 @@ use Throwable;
 
 class SetupCommand extends Command
 {
+    use ClearsResponseCache;
+
     /**
      * The name and signature of the console command.
      *
@@ -44,6 +46,8 @@ class SetupCommand extends Command
         $this->seedSettings();
         $this->seedPages();
         $this->seedAdministrator();
+
+        self::clearResponseCache();
 
         $this->info('Setup complete!');
 
