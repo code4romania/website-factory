@@ -67,6 +67,7 @@
         "laravel-vue-i18n": "^2.2.2",
         "latinize": "^0.5.0",
         "lodash": "^4.17.21",
+        "luminous-lightbox": "^2.4.0",
         "mitt": "^3.0.0",
         "postcss": "^8.4.16",
         "postcss-100vh-fix": "^1.0.2",

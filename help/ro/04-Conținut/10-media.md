@@ -60,7 +60,9 @@ Pentru a **descărca** o imagine din secțiunea **Imagini** din
 6)  Imaginea se va deschide într-un tab nou, de unde o poți salva
     conform browserului folosit.
 
-![](/assets/help/008.png)
+<a href="/assets/help/008.png">
+    <img src="/assets/help/008.png" />
+</a>
 
 ---
 

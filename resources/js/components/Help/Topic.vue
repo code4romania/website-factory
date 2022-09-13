@@ -21,12 +21,17 @@
     </div>
 
     <div
-        class="flex-1 p-4 overflow-y-auto prose-sm prose sm:px-6 prose-blue"
+        ref="content"
+        class="flex-1 p-4 overflow-y-auto prose-sm prose sm:px-6 prose-blue prose-img:cursor-zoom-in"
         v-html="topic.content"
     />
 </template>
 
 <script>
+    import { ref, onMounted } from 'vue';
+    import { Luminous } from 'luminous-lightbox';
+    import 'luminous-lightbox/dist/luminous-basic.css';
+
     export default {
         name: 'HelpTopic',
         props: {
@@ -36,5 +41,21 @@
             },
         },
         emits: ['topic:close'],
+        setup() {
+            const content = ref(null);
+
+            onMounted(() => {
+                content.value.querySelectorAll('img').forEach((image) => {
+                    new Luminous(image, {
+                        sourceAttribute: 'src',
+                        appendToNode: content.value,
+                    });
+                });
+            });
+
+            return {
+                content,
+            };
+        },
     };
 </script>

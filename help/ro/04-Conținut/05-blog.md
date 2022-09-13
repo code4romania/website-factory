@@ -209,7 +209,9 @@ următorii pași:
 7)  Completează descrierea categoriei în câmpul **Descriere**
 8)  Apasă butonul **Salvează**
 
-![](/assets/help/027.png)
+<a href="/assets/help/027.png">
+    <img src="/assets/help/027.png" />
+</a>
 
 Pentru **a vizualiza o categorie**, este necesar să parcurgi următorii
 pași:
@@ -273,4 +275,6 @@ pași:
 6)  Confirmă ștergerea prin apăsarea butonului **Șterge**
 7)  Categoria a fost ștearsă și mutată în **Șterse**
 
-![](/assets/help/026.png)
+<a href="/assets/help/026.png">
+    <img src="/assets/help/026.png" />
+</a>

@@ -33,4 +33,6 @@ parcurgi următorii pași:
     afișeze corect.
 </p>
 
-![](/assets/help/005.png)
+<a href="/assets/help/005.png">
+    <img src="/assets/help/005.png" />
+</a>

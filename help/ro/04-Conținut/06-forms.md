@@ -33,7 +33,9 @@ pași:
     butonului **Adaugă câmp nou.**
 10) Apasă **Salvează**
 
-![](/assets/help/021.png)
+<a href="/assets/help/021.png">
+    <img src="/assets/help/021.png" />
+</a>
 
 Pentru **a vizualiza un formular deja creat**, este necesar să parcurgi
 următorii pași:

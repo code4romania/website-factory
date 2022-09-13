@@ -26,7 +26,9 @@ este necesar să parcurgi următorii pași:
     Managementul continutului.
 8)  Apasă **Salvează**
 
-![](/assets/help/016.png)
+<a href="/assets/help/016.png">
+    <img src="/assets/help/016.png" />
+</a>
 
 Îți recomandăm ca titlul și descrierea website-ului să fie cât mai clare
 pentru că acestea vor fi indexate în motoarele de căutare, iar vizitele

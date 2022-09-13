@@ -37,7 +37,9 @@ donatorilor tăi, este necesar să parcurgi următorii pași:
     valoarea cu ajutorul săgeților.
 7)  Apasă **Salvează**
 
-![](/assets/help/011.png)
+<a href="/assets/help/011.png">
+    <img src="/assets/help/011.png" />
+</a>
 
 ### Integrarea procesatorului de plăți EuPlătesc
 

@@ -17,4 +17,6 @@ este necesar să parcurgi următorii pași:
 7)  Iconițele platformelor de social media în câmpul cărora ai completat
     vor apărea în footerul website-ului.
 
-![](/assets/help/024.png)
+<a href="/assets/help/024.png">
+    <img src="/assets/help/024.png" />
+</a>

@@ -27,7 +27,9 @@ recomandăm să folosești o culoare care se regăsește în logo-ul tău (sau
 un ton al culorii dominante din logo-ul tău) pentru că ea va fi folosită
 pentru butoanele din site, headere și alte elemente.**
 
-![](/assets/help/009.png)
+<a href="/assets/help/009.png">
+    <img src="/assets/help/009.png" />
+</a>
 
 Pentru adăugarea **logo-ului**, este necesar să parcurgi următorii pași:
 
@@ -44,4 +46,6 @@ Logo-ul va fi încărcat în website și se va afișa deasupra meniului din
 header, pe toate paginile website-ului. Cel mai bine ar fi ca logo-ul să
 fie în format .png fără margini nenecesare în jur.
 
-![](/assets/help/023.png)
+<a href="/assets/help/023.png">
+    <img src="/assets/help/023.png" />
+</a>
