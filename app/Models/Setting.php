@@ -80,7 +80,11 @@ class Setting extends Model
 
     protected static function sectionData(string $section): array
     {
-        $pages = PageResource::collection(Page::all('id', 'title'));
+        $pages = PageResource::collection(
+            Page::query()
+                ->orderByTranslated('title')
+                ->get(['id', 'title'])
+        );
 
         return match ($section) {
             'site' => [
