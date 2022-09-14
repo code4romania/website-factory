@@ -40,6 +40,12 @@ export default function (props) {
         );
     };
 
+    const getOptionForLocale = (option, key) => {
+        return option.hasOwnProperty(key)
+            ? option[key][currentLocale.value] || option[key]
+            : option[currentLocale.value] || option || null;
+    };
+
     return {
         locales,
         activeLocales,
@@ -54,5 +60,6 @@ export default function (props) {
         isTranslatable,
         changeLocale,
         nextLocale,
+        getOptionForLocale,
     };
 }
