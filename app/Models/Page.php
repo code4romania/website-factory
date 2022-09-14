@@ -18,6 +18,9 @@ use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Kalnoy\Nestedset\Collection as NestedSetCollection;
+use Kalnoy\Nestedset\NodeTrait;
+use Plank\Mediable\MediableCollection;
 
 class Page extends Model
 {
@@ -28,6 +31,7 @@ class Page extends Model
     use HasFactory;
     use HasMedia;
     use HasSlug;
+    use NodeTrait;
     use Publishable;
     use Searchable;
     use SoftDeletes;
@@ -63,5 +67,12 @@ class Page extends Model
             'url_public'  => localized_route('front.pages.show', ['page' => $this->slug]),
             'updated_at'  => $this->updated_at->diffForHumans(),
         ]);
+    }
+
+    public function newCollection(array $models = [])
+    {
+        return new NestedSetCollection(
+            new MediableCollection($models)
+        );
     }
 }
