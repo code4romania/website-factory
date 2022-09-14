@@ -78,8 +78,15 @@ trait HasSlug
         return $column;
     }
 
-    protected function fillSlugs()
+    protected function fillSlugs(): void
     {
+        if (
+            ! \array_key_exists('slug', $this->attributes) ||
+            ! \array_key_exists($this->slugFieldSource, $this->attributes)
+        ) {
+            return;
+        }
+
         if ($this->slugIsTranslatable()) {
             $slugs = $this->getTranslationsWithFallback('slug');
 
