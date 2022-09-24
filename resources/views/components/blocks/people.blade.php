@@ -8,7 +8,7 @@
     </div>
 
     <ul
-        class="grid lg:col-span-2 sm:grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 lg:gap-y-12 lg:gap-x-8">
+        class="grid lg:col-span-2 sm:grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-y-12 lg:gap-x-8">
         @foreach ($people as $person)
             <li class="space-y-4">
                 @if ($show_images && $person->hasMedia('image'))
