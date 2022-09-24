@@ -8,8 +8,9 @@
             v-for="(buttons, index) in items"
             :key="`toolbar-${index}`"
         >
-            <editor-button
+            <component
                 v-for="button in buttons"
+                :is="button.component || 'editor-button'"
                 :key="`toolbar-${index}-${button.name}`"
                 v-bind="button"
             />
