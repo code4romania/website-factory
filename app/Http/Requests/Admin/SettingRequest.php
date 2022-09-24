@@ -65,6 +65,7 @@ class SettingRequest extends BaseRequest
 
             return [
                 'settings.profiles' => ['required', "array:$platforms"],
+                'settings.profiles.*' => ['nullable', 'url'],
             ];
         }
 

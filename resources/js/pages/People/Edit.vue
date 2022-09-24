@@ -73,9 +73,8 @@
                     v-for="(platform, id) in platforms"
                     :key="id"
                     :label="platform.label"
-                    name="social"
+                    :name="`social.${id}`"
                     v-model="form.social[id]"
-                    :prefix="platform.prefix"
                 />
             </panel>
         </template>
