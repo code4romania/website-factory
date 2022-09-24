@@ -1,6 +1,6 @@
 <x-layout>
     <header class="relative mb-16 sm:mb-24 lg:mb-32">
-        <div class="container grid py-8 sm:py-12 lg:py-16 lg:grid-cols-2 lg:min-h-[50vh] items-center">
+        <div class="container grid items-center gap-8 py-8 sm:py-12 lg:py-16 lg:grid-cols-2 lg:gap-16">
             <div class="space-y-8">
                 <div class="space-y-2">
                     <h1 class="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
@@ -18,17 +18,18 @@
 
                 <x-social-media-links :links="$person->social" />
             </div>
-        </div>
 
-        <div
-            class="overflow-hidden mx-4 lg:mx-0 bg-gray-100 rounded-xl hero-side-image-clip lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:min-h-[50vh] lg:rounded-none">
             @if ($image)
-                <x-media.image
-                    class="w-full lg:object-cover lg:h-full"
-                    :src="$image->getUrl()"
-                    :alt="$image->caption" />
+                <div
+                    class="overflow-hidden shadow-xl rounded-xl aspect-w-1 aspect-h-1">
+                    <x-media.image
+                        class="object-cover"
+                        :src="$image->getUrl()"
+                        :alt="$image->caption" />
+                </div>
             @endif
         </div>
+
     </header>
 
     <x-blocks :model="$person" />
