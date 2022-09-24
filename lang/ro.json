@@ -172,6 +172,7 @@
     "field.columns": "Coloane",
     "field.content": "Conținut",
     "field.created_at": "Creat la",
+    "field.default_locale": "Limbă implicită",
     "field.description": "Descriere",
     "field.documents": "Documente",
     "field.email": "Email",

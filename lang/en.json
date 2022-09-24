@@ -172,6 +172,7 @@
     "field.columns": "Columns",
     "field.content": "Content",
     "field.created_at": "Created at",
+    "field.default_locale": "Default language",
     "field.description": "Description",
     "field.documents": "Documents",
     "field.email": "Email",

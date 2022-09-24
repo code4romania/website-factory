@@ -18,6 +18,14 @@
                 />
 
                 <form-select
+                    :label="$t('field.default_locale')"
+                    name="settings.default_locale"
+                    v-model="form.settings.default_locale"
+                    :options="localeOptions"
+                    required
+                />
+
+                <form-select
                     :label="$t('field.front_page')"
                     name="settings.front_page"
                     v-model="form.settings.front_page"
@@ -84,7 +92,7 @@
 </template>
 
 <script>
-    import { useFeature } from '@/helpers';
+    import { useFeature, useLocale } from '@/helpers';
 
     export default {
         props: {
@@ -96,7 +104,19 @@
         setup(props) {
             const { hasFeature } = useFeature();
 
-            return { hasFeature };
+            const { locales, activeLocales } = useLocale();
+
+            const localeOptions = Object.entries(locales.value)
+                .filter(([locale]) => activeLocales.value.includes(locale))
+                .map(([locale, config]) => ({
+                    value: locale,
+                    label: config.name,
+                }));
+
+            return {
+                hasFeature,
+                localeOptions,
+            };
         },
     };
 </script>
