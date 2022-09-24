@@ -33,6 +33,7 @@ class SettingRequest extends BaseRequest
                 'settings.title'          => ['array'],
                 'settings.description'    => ['array'],
                 'settings.logo'           => ['nullable', 'image'],
+                'settings.default_locale' => ['required', 'exists:languages,code'],
                 'settings.front_page'     => ['required', 'exists:pages,id'],
                 'settings.privacy_page'   => ['required', 'exists:pages,id'],
                 'settings.terms_page'     => ['required', 'exists:pages,id'],
