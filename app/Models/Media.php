@@ -46,7 +46,9 @@ class Media extends BaseMedia
 
         static::saved(function (self $media) {
             if ($media->aggregate_type === self::TYPE_IMAGE && $media->isOriginal()) {
-                CreateImageVariants::dispatchSync($media, config('mediable.variants'));
+                CreateImageVariants::dispatchSync($media, ['thumb']);
+
+                CreateImageVariants::dispatchAfterResponse($media, ['600']);
             }
         });
     }

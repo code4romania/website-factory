@@ -41,5 +41,14 @@ class MediaServiceProvider extends ServiceProvider
                 });
             })
         );
+
+        ImageManipulator::defineVariant(
+            '600',
+            ImageManipulation::make(function (Image $image) {
+                $image->resize(600, 600, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            })
+        );
     }
 }
