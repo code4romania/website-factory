@@ -30,6 +30,24 @@ if (! function_exists('active_locales')) {
     }
 }
 
+if (! function_exists('default_locale')) {
+    /**
+     * Return the current default enabled locale locale.
+     *
+     * @return string
+     */
+    function default_locale(): string
+    {
+        $locale = settings('site.default_locale');
+
+        if (! active_locales()->has($locale)) {
+            return config('app.fallback_locale');
+        }
+
+        return $locale;
+    }
+}
+
 if (! function_exists('localized_route')) {
     /**
      * Generate the URL to a named route for the current locale.
