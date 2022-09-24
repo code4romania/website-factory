@@ -27,6 +27,7 @@
     import Bold from '@tiptap/extension-bold';
     import BulletList from '@tiptap/extension-bullet-list';
     import Document from '@tiptap/extension-document';
+    import { Color } from '@tiptap/extension-color';
     import Dropcursor from '@tiptap/extension-dropcursor';
     import Gapcursor from '@tiptap/extension-gapcursor';
     import HardBreak from '@tiptap/extension-hard-break';
@@ -49,6 +50,7 @@
     import TableRow from '@tiptap/extension-table-row';
     import Text from '@tiptap/extension-text';
     import TextAlign from '@tiptap/extension-text-align';
+    import TextStyle from '@tiptap/extension-text-style';
     import Typography from '@tiptap/extension-typography';
     import Underline from '@tiptap/extension-underline';
 
@@ -87,6 +89,7 @@
                     Blockquote,
                     Bold,
                     BulletList,
+                    Color,
                     Document,
                     Dropcursor,
                     Gapcursor,
@@ -110,6 +113,7 @@
                     TableRow,
                     Text,
                     TextAlign.configure({ types: ['heading', 'paragraph'] }),
+                    TextStyle,
                     Typography,
                     Underline,
                 ],
