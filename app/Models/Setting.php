@@ -38,6 +38,7 @@ class Setting extends Model
                 'privacy_page'   => null,
                 'terms_page'     => null,
                 'logo'           => null,
+                'favicon'        => null,
                 'html' => [
                     'header' => null,
                     'footer' => null,

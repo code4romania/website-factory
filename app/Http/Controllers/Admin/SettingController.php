@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
+use Intervention\Image\Image;
 
 class SettingController extends Controller
 {
@@ -48,8 +49,13 @@ class SettingController extends Controller
         $settings = match ($section) {
             'site' => $attributes->map(
                 fn ($value, $key) => match ($key) {
-                    default => $value,
-                    'logo'  => $value?->storePubliclyAs('assets', 'logo.' . $value?->extension()),
+                    default    => $value,
+                    'logo'     => $value?->storePubliclyAs('assets', 'logo.' . $value?->extension()),
+                    'favicon'  => $value
+                        ?->manipulate(function (Image $image) {
+                            $image->fit(48, 48)->encode('png');
+                        })
+                        ->storePubliclyAs('assets', 'favicon.' . $value?->extension()),
                 }
             ),
             'donations' => $attributes->map(

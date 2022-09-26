@@ -32,7 +32,8 @@ class SettingRequest extends BaseRequest
             $rules = [
                 'settings.title'          => ['array'],
                 'settings.description'    => ['array'],
-                'settings.logo'           => ['nullable', 'image'],
+                'settings.logo'           => ['nullable', 'image', 'mimes:jpg,png,gif,svg'],
+                'settings.favicon'        => ['nullable', 'image', 'mimes:jpg,png,gif', 'dimensions:min_width=32,max_width=1000'],
                 'settings.default_locale' => ['required', 'exists:languages,code'],
                 'settings.front_page'     => ['required', 'exists:pages,id'],
                 'settings.privacy_page'   => ['required', 'exists:pages,id'],
