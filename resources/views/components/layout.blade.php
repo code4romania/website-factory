@@ -14,6 +14,14 @@
         }
     </style>
 
+    @if (is_internal_site())
+        <style>
+            * {
+                border-radius: 0 !important;
+            }
+        </style>
+    @endif
+
     @stack('preload')
 
     {{-- Scripts --}}

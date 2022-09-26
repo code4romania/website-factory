@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Services\Features;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
@@ -129,5 +130,19 @@ if (! function_exists('format_bytes')) {
         $exp = floor(log($bytes, 1024)) | 0;
 
         return round($bytes / (pow(1024, $exp)), $precision) . $unit[$exp];
+    }
+}
+
+if (! function_exists('is_internal_site')) {
+    function is_internal_site(): bool
+    {
+        return Features::isCode4RomaniaSite();
+    }
+}
+
+if (! function_exists('is_external_site')) {
+    function is_external_site(): bool
+    {
+        return ! is_internal_site();
     }
 }
