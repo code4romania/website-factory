@@ -42,7 +42,7 @@
 
     <x-site.notice />
 
-    <main id="content" class="flex-1 mb-16 sm:mb-24 lg:mb-32">
+    <main id="content" class="flex-1 mb-12 lg:mb-16">
         {{ $slot }}
     </main>
 
