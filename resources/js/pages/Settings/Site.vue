@@ -69,6 +69,15 @@
                     name="settings.logo"
                     v-model="form.settings.logo"
                     :accept="['.png', '.gif', '.jpg', '.jpeg', '.svg']"
+                    :help="$t('field_help.logo')"
+                />
+
+                <form-file
+                    :label="$t('setting.site.favicon')"
+                    name="settings.favicon"
+                    v-model="form.settings.favicon"
+                    :accept="['.png', '.gif', '.jpg', '.jpeg']"
+                    :help="$t('field_help.favicon')"
                 />
             </panel>
 

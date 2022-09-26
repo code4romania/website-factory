@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Services\Features;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 if (! function_exists('locales')) {
@@ -144,5 +145,14 @@ if (! function_exists('is_external_site')) {
     function is_external_site(): bool
     {
         return ! is_internal_site();
+    }
+}
+
+if (! function_exists('favicon_url')) {
+    function favicon_url(): string
+    {
+        return settings('site.favicon')
+            ? Storage::url(settings('site.favicon'))
+            : asset(mix('assets/images/favicon.png'));
     }
 }
