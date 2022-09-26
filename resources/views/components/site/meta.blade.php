@@ -36,3 +36,5 @@
 @foreach (seo()->extensions() as $extension)
     <x-dynamic-component :component="$extension" />
 @endforeach
+
+<link rel="icon" type="image/png" href="{{ favicon_url() }}">
