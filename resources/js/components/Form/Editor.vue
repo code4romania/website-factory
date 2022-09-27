@@ -12,9 +12,10 @@
             v-if="editor"
             class="flex flex-col w-full overflow-hidden bg-white border border-inherit max-h-[75vh]"
         >
-            <editor-toolbar :editor="editor" class="sticky top-0 shrink-0" />
-
-            <!-- <editor-bubble-menus :editor="editor" /> -->
+            <editor-toolbar
+                :editor="editor"
+                class="sticky top-0 z-10 shrink-0"
+            />
 
             <editor-content :editor="editor" class="flex-1 overflow-x-scroll" />
         </div>

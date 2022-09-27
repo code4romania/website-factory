@@ -28,7 +28,6 @@
 
 <script>
     import { Twitter } from '@ckpack/vue-color';
-
     import { ref, watch } from 'vue';
     import { defineInput } from '@/helpers';
 
