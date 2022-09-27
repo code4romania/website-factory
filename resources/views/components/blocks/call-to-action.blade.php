@@ -1,9 +1,18 @@
-<div class="relative overflow-hidden shadow-xl bg-primary rounded-xl">
+<div
+    @class([
+        'relative overflow-hidden shadow-xl rounded-xl',
+        'bg-primary' => is_null($color),
+    ])
+
+    @if (!is_null($color))
+    style="background-color: {{ $color }}"
+    @endif
+    >
     <div class="px-6 py-10 sm:p-16 xl:p-20">
         <div class="max-w-2xl mx-auto">
-            <x-blocks._title :title="$title" class="text-white" />
+            <x-blocks._title :title="$title" />
 
-            <div class="leading-7 prose prose-lg text-white max-w-prose">
+            <div class="leading-7 prose prose-lg max-w-prose">
                 {!! $html !!}
             </div>
 

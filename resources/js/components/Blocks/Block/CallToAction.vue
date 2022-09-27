@@ -24,6 +24,8 @@
         :label="$t('field.button_url')"
         v-model="content.button_url"
     />
+
+    <form-color-picker :label="$t('field.color')" v-model="content.color" />
 </template>
 
 <script>
@@ -35,6 +37,7 @@
         fields: {
             title: Object,
             text: Object,
+            color: String,
             button_text: Object,
             button_url: Object,
         },

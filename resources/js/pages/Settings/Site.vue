@@ -62,6 +62,7 @@
                     :label="$t('setting.site.colors.primary')"
                     name="settings.colors.primary"
                     v-model="form.settings.colors.primary"
+                    disable-alpha
                 />
 
                 <form-file
