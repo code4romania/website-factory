@@ -4,7 +4,7 @@
         type="button"
         @click="action"
         :disabled="isDisabled ? isDisabled() : false"
-        class="inline-flex px-1 py-1 rounded-sm hover:bg-gray-300 focus:bg-gray-300 disabled:opacity-50 disabled:cursor-default disabled:bg-transparent"
+        class="px-1 py-1 rounded-sm hover:bg-gray-300 focus:bg-gray-300 disabled:opacity-50 disabled:cursor-default disabled:bg-transparent"
         :class="{ 'bg-gray-200': isActive ? isActive() : false }"
     >
         <icon :name="icon" class="w-5 h-5" />

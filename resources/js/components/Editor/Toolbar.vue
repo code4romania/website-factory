@@ -13,6 +13,7 @@
                 :is="button.component || 'editor-button'"
                 :key="`toolbar-${index}-${button.name}`"
                 v-bind="button"
+                class="inline-flex"
             />
         </div>
     </div>
@@ -137,6 +138,32 @@
                 ],
                 [
                     {
+                        icon: 'Editor/font-color',
+                        component: 'editor-font-color',
+                        getColor: () =>
+                            props.editor.getAttributes('textStyle').color,
+                        setColor: (value) =>
+                            props.editor.chain().focus().setColor(value).run(),
+                    },
+                    {
+                        icon: 'Design/mark-pen-fill',
+                        action: () =>
+                            props.editor.chain().focus().toggleHighlight().run(),
+                        isActive: () => props.editor.isActive('highlight'),
+                    },
+                    {
+                        icon: 'Editor/format-clear',
+                        action: () =>
+                            props.editor
+                                .chain()
+                                .focus()
+                                .clearNodes()
+                                .unsetAllMarks()
+                                .run(),
+                    },
+                ],
+                [
+                    {
                         icon: 'Editor/list-unordered',
                         action: () =>
                             props.editor.chain().focus().toggleBulletList().run(),
@@ -251,16 +278,6 @@
                         action: () =>
                             props.editor.chain().focus().setParagraph().run(),
                         isActive: () => props.editor.isActive('paragraph'),
-                    },
-                    {
-                        icon: 'Editor/format-clear',
-                        action: () =>
-                            props.editor
-                                .chain()
-                                .focus()
-                                .clearNodes()
-                                .unsetAllMarks()
-                                .run(),
                     },
                 ],
             ];
