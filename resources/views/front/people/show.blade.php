@@ -1,6 +1,6 @@
 <x-layout>
-    <header class="container grid items-center gap-8 py-8 sm:py-12 lg:py-16 lg:grid-cols-2 lg:gap-16">
-        <div class="space-y-8">
+    <header class="container grid items-center gap-8 my-8 lg:my-12 lg:grid-cols-7 lg:gap-16">
+        <div class="space-y-8 lg:col-span-4">
             <div class="space-y-2">
                 <h1 class="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
                     {{ $person->name }}
@@ -20,7 +20,7 @@
 
         @if ($image)
             <div
-                class="overflow-hidden shadow-xl rounded-xl aspect-w-1 aspect-h-1">
+                class="overflow-hidden shadow-xl rounded-xl aspect-w-1 aspect-h-1 lg:col-span-3">
                 <x-media.image
                     class="object-cover"
                     :src="$image->getUrl()"
