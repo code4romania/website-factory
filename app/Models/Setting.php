@@ -31,12 +31,14 @@ class Setting extends Model
 
         $sections = [
             'site' => [
-                'title'        => $translatable,
-                'description'  => $translatable,
-                'front_page'   => null,
-                'privacy_page' => null,
-                'terms_page'   => null,
-                'logo'         => null,
+                'title'          => $translatable,
+                'description'    => $translatable,
+                'default_locale' => Language::whereEnabled()->first()?->code,
+                'front_page'     => null,
+                'privacy_page'   => null,
+                'terms_page'     => null,
+                'logo'           => null,
+                'favicon'        => null,
                 'html' => [
                     'header' => null,
                     'footer' => null,

@@ -20,7 +20,7 @@ class SetLocale
     {
         $locale = auth()->check()
             ? auth()->user()->preferredLocale()
-            : config('app.fallback_locale');
+            : default_locale();
 
         if (locales()->has($locale)) {
             app()->setLocale($locale);

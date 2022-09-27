@@ -1,7 +1,7 @@
 <div {{ $attributes->class('flex space-x-4') }}>
     @foreach ($links as $link)
         <a
-            href="{{ $link['prefix'] }}{{ $link['value'] }}"
+            href="{{ $link['value'] }}"
             target="_blank"
             rel="noopener noreferer"
             class="hover:opacity-60">

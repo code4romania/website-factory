@@ -18,6 +18,7 @@
         "guzzlehttp/guzzle": "^7.5",
         "htmlmin/htmlmin": "^9.0",
         "inertiajs/inertia-laravel": "^0.6",
+        "intervention/image": "^2.7",
         "kalnoy/nestedset": "^6.0",
         "laravel/framework": "^9.30",
         "laravel/tinker": "^2.7",

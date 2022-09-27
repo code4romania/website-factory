@@ -38,7 +38,7 @@
                     ])>
                     <a
                         href="{{ $item->translatedInput('button_url') }}"
-                        class="flex items-center font-semibold text-primary hover:underline">
+                        class="flex items-center font-semibold hover:underline">
                         {{ $item->translatedInput('button_text') }}
 
                         <x-ri-arrow-right-line class="w-5 h-5 ml-2 shrink-0" />
