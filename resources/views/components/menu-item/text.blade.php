@@ -3,7 +3,7 @@
 @if ($item->isRoot() && $item->children->isNotEmpty())
     <button
         x-on:click="open = !open"
-        {{ $attributes }}>
+        {{ $attributes->class('text-left') }}>
 
         {{ $item->label }}
     </button>
