@@ -20,7 +20,7 @@
 
         @if ($image)
             <div
-                class="overflow-hidden shadow-xl rounded-xl aspect-w-1 aspect-h-1 lg:col-span-3">
+                class="overflow-hidden bg-gray-100 shadow-xl rounded-xl aspect-w-1 aspect-h-1 lg:col-span-3">
                 <x-media.image
                     class="object-cover"
                     :src="$image->getUrl()"
