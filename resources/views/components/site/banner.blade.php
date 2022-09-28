@@ -1,12 +1,12 @@
 <aside class="bg-gray-100">
-    <div class="container py-3">
+    <div class="container flex py-3">
         <a
-            href="https://www.code4.ro"
+            href="https://www.commitglobal.org"
             target="_blank"
             rel="noopener"
-            class="inline-flex flex-wrap items-center text-sm gap-x-6 gap-y-3 sm:flex-nowrap hover:text-blue-600 focus:text-blue-600 focus:outline-0 hover:underline focus:underline">
+            class="flex items-center w-auto gap-3 text-sm hover:text-blue-600 focus:text-blue-600 focus:outline-0 hover:underline focus:underline">
 
-            <x-icon-code4 class="h-6 shrink-0" />
+            <x-icon-commitglobal class="h-6 sm:h-8 shrink-0" />
 
             <span>{{ $text }}</span>
         </a>
