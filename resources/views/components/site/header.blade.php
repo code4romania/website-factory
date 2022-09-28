@@ -35,7 +35,7 @@
                     @class([
                         'flex flex-wrap border-b-2 border-transparent px-3 py-2 font-medium items-center',
                         $item->isCurrentUrl()
-                            ? 'border-primary bg-primary/10'
+                            ? 'text-gray-900 border-primary bg-primary/10'
                             : 'text-gray-700 hover:bg-primary/5',
                     ])>
 
@@ -64,9 +64,9 @@
                                             :item="$item"
                                             class="font-semibold"
                                             inactive-class="text-gray-700 hover:text-primary"
-                                            active-class="border-primary text-primary" />
+                                            active-class="text-gray-900" />
 
-                                        @if ($item->children)
+                                        @if ($item->children->isNotEmpty())
                                             <ul class="pt-2 mt-2 space-y-2 border-t border-gray-200">
                                                 @foreach ($item->children as $item)
                                                     <li class="flex">
@@ -74,7 +74,7 @@
                                                             :component="$item->component"
                                                             :item="$item"
                                                             inactive-class="text-gray-700 hover:text-primary"
-                                                            active-class="border-primary text-primary hover:text-gray-800" />
+                                                            active-class="text-gray-900" />
                                                     </li>
                                                 @endforeach
                                             </ul>
