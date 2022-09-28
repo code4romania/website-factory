@@ -51,7 +51,7 @@
             const open = ref(false);
 
             const color = computed({
-                get: () => props.modelValue,
+                get: () => props.modelValue || '#000000',
                 set: (color) => {
                     emit(
                         'update:modelValue',
