@@ -12,7 +12,7 @@
                 <dt>
                     @if ($item->input('icon'))
                         <div
-                            class="flex items-center justify-center w-12 h-12 rounded-md text-primary bg-opacity-10 bg-primary">
+                            class="flex items-center justify-center w-12 h-12 rounded-md text-primary bg-primary/5">
                             {{ svg("ri-{$item->input('icon')}", 'w-6 h-6') }}
                         </div>
                     @endif
