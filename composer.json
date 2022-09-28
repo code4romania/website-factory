@@ -20,9 +20,9 @@
         "inertiajs/inertia-laravel": "^0.6",
         "intervention/image": "^2.7",
         "kalnoy/nestedset": "^6.0",
-        "laravel/framework": "^9.30",
+        "laravel/framework": "^9.32",
         "laravel/tinker": "^2.7",
-        "league/flysystem-aws-s3-v3": "^3.3",
+        "league/flysystem-aws-s3-v3": "^3.5",
         "league/omnipay": "^3.2",
         "matthewbdaly/laravel-azure-storage": "^2.0",
         "netopia/payment": "^1.0",
@@ -33,7 +33,7 @@
         "spatie/laravel-translatable": "^6.0",
         "spatie/laravel-translation-loader": "^2.7",
         "symfony/yaml": "^6.1",
-        "tightenco/ziggy": "^1.4"
+        "tightenco/ziggy": "^1.5"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
@@ -45,7 +45,7 @@
         "mockery/mockery": "^1.5",
         "nunomaduro/collision": "^6.3",
         "phpunit/phpunit": "^9.5",
-        "spatie/laravel-ignition": "^1.4"
+        "spatie/laravel-ignition": "^1.5"
     },
     "autoload": {
         "files": [
