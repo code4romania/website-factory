@@ -1,7 +1,7 @@
 <li class="divide-y divide-gray-100">
     <a
         @class([
-            'flex px-3 py-2 text-sm font-medium border-l-4',
+            'block px-3 py-2 text-sm font-medium border-l-4',
             Request::url() === $item->url
                 ? 'text-gray-900 bg-primary/5 border-primary'
                 : 'text-gray-600 border-transparent hover:border-primary/25 hover:bg-primary/5',

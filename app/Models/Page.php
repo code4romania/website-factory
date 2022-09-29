@@ -11,6 +11,7 @@ use App\Traits\Filterable;
 use App\Traits\HasBlocks;
 use App\Traits\HasMedia;
 use App\Traits\HasSlug;
+use App\Traits\NestedSet;
 use App\Traits\Publishable;
 use App\Traits\Searchable;
 use App\Traits\Sortable;
@@ -19,7 +20,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kalnoy\Nestedset\Collection as NestedSetCollection;
-use Kalnoy\Nestedset\NodeTrait;
 use Plank\Mediable\MediableCollection;
 
 class Page extends Model
@@ -31,7 +31,7 @@ class Page extends Model
     use HasFactory;
     use HasMedia;
     use HasSlug;
-    use NodeTrait;
+    use NestedSet;
     use Publishable;
     use Searchable;
     use SoftDeletes;

@@ -13,6 +13,8 @@ class NestedNavigation extends Component
 {
     public ?Collection $items = null;
 
+    public Model $model;
+
     /**
      * Create a new component instance.
      *
@@ -20,27 +22,19 @@ class NestedNavigation extends Component
      */
     public function __construct(Model $model)
     {
-        if (
-            ! SupportsTrait::nestedSet($model) ||
-            $model->isRoot() && $model->isLeaf()
-        ) {
+        $this->model = $model;
+
+        if (! SupportsTrait::nestedSet($model)) {
             return;
         }
 
-        $this->items = $model->query()
-            ->select([
-                'id', 'title', 'slug',
-                'parent_id', '_lft', '_rgt',
-            ])
-            ->descendantsAndSelf(
-                $model->isRoot()
-                    ? $model
-                    : $model->ancestors()
-                        ->select(['id', 'parent_id', '_lft', '_rgt'])
-                        ->whereIsRoot()
-                        ->first()
-            )
-            ->toTree();
+        if ($model->isRoot() && $model->isLeaf()) {
+            return;
+        }
+
+        $this->items = $model->nestedNavigation(
+            columns: ['title', 'slug']
+        );
     }
 
     /**

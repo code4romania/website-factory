@@ -22,6 +22,7 @@ class PageRequest extends BaseRequest
             'slug'                               => ['nullable', 'string', 'max:200'],
             'description'                        => ['nullable', 'string'],
             'published_at'                       => ['nullable', 'date'],
+            'parent'                             => ['nullable', 'exists:pages,id'],
             'media'                              => ['array'],
             'media.*.id'                         => ['required', 'exists:media'],
             'blocks'                             => ['array'],

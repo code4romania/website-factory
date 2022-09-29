@@ -201,6 +201,7 @@
     "field.name": "Name",
     "field.options": "Options",
     "field.page": "Page",
+    "field.parent": "Parent",
     "field.password_confirmation": "Password confirmation",
     "field.password": "Password",
     "field.paypal_button_id": "PayPal button ID",
