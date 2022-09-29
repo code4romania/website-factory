@@ -27,6 +27,7 @@ module.exports = merge(require('../../tailwind.config.js'), {
                         color: null,
                         maxWidth: null,
                         overflowX: 'auto',
+                        overflowY: 'hidden',
                         '[class~="lead"]': {
                             color: null,
                         },

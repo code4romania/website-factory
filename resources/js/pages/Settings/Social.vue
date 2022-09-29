@@ -6,9 +6,8 @@
                     v-for="(platform, id) in data.platforms"
                     :key="id"
                     :label="platform.label"
-                    name="settings.profiles"
+                    :name="`settings.profiles.${id}`"
                     v-model="form.settings.profiles[id]"
-                    :prefix="platform.prefix"
                 />
             </panel>
         </template>

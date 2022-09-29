@@ -17,7 +17,7 @@ class ValidHex implements Rule
      */
     public function passes($attribute, $value)
     {
-        return preg_match('/^#([0-9a-f]{6}|[0-9a-f]{3})$/i', $value);
+        return preg_match('/^#([0-9a-f]{3}|[0-9a-f]{4}|[0-9a-f]{6}|[0-9a-f]{8})$/i', $value);
     }
 
     /**

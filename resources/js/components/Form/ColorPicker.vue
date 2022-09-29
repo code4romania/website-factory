@@ -16,39 +16,49 @@
                 @click="open = !open"
             />
 
-            <twitter
+            <sketch
                 v-if="open"
                 v-click-away="() => (open = false)"
                 class="!absolute top-full z-50"
                 v-model="color"
+                :disable-alpha="disableAlpha"
             />
         </div>
     </form-field>
 </template>
 
 <script>
-    import { Twitter } from '@ckpack/vue-color';
-
-    import { ref, watch } from 'vue';
+    import { Sketch } from '@ckpack/vue-color';
+    import { ref, computed } from 'vue';
     import { defineInput } from '@/helpers';
 
     export default defineInput({
         name: 'FormColorPicker',
         components: {
-            Twitter,
+            Sketch,
         },
         props: {
             modelValue: {
                 type: String,
                 default: null,
             },
+            disableAlpha: {
+                type: Boolean,
+                default: false,
+            },
         },
         setup(props, { emit }) {
             const open = ref(false);
 
-            const color = ref(props.modelValue || '#000');
-
-            watch(color, (color) => emit('update:modelValue', color.hex));
+            const color = computed({
+                get: () => props.modelValue || '#000000',
+                set: (color) => {
+                    emit(
+                        'update:modelValue',
+                        !props.disableAlpha && color.a < 1 ? color.hex8 : color.hex
+                    );
+                },
+            });
 
             return {
                 color,

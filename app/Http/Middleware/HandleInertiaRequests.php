@@ -43,7 +43,9 @@ class HandleInertiaRequests extends Middleware
             'locales' => fn () => [
                 'available' => locales(),
                 'active'    => active_locales()->keys(),
-                'current'   => app()->getLocale(),
+                'current'   => active_locales()->has(app()->getLocale())
+                    ? app()->getLocale()
+                    : active_locales()->keys()->first(),
             ],
             'navigation' => fn () => $this->navigation($request),
             'mediaLibrary' => fn () => $this->mediaLibraryConfig(),

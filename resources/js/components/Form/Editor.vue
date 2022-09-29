@@ -12,9 +12,10 @@
             v-if="editor"
             class="flex flex-col w-full overflow-hidden bg-white border border-inherit max-h-[75vh]"
         >
-            <editor-toolbar :editor="editor" class="sticky top-0 shrink-0" />
-
-            <!-- <editor-bubble-menus :editor="editor" /> -->
+            <editor-toolbar
+                :editor="editor"
+                class="sticky top-0 z-10 shrink-0"
+            />
 
             <editor-content :editor="editor" class="flex-1 overflow-x-scroll" />
         </div>
@@ -27,6 +28,7 @@
     import Bold from '@tiptap/extension-bold';
     import BulletList from '@tiptap/extension-bullet-list';
     import Document from '@tiptap/extension-document';
+    import { Color } from '@tiptap/extension-color';
     import Dropcursor from '@tiptap/extension-dropcursor';
     import Gapcursor from '@tiptap/extension-gapcursor';
     import HardBreak from '@tiptap/extension-hard-break';
@@ -49,6 +51,7 @@
     import TableRow from '@tiptap/extension-table-row';
     import Text from '@tiptap/extension-text';
     import TextAlign from '@tiptap/extension-text-align';
+    import TextStyle from '@tiptap/extension-text-style';
     import Typography from '@tiptap/extension-typography';
     import Underline from '@tiptap/extension-underline';
 
@@ -87,6 +90,7 @@
                     Blockquote,
                     Bold,
                     BulletList,
+                    Color,
                     Document,
                     Dropcursor,
                     Gapcursor,
@@ -110,6 +114,7 @@
                     TableRow,
                     Text,
                     TextAlign.configure({ types: ['heading', 'paragraph'] }),
+                    TextStyle,
                     Typography,
                     Underline,
                 ],

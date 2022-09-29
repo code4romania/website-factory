@@ -8,6 +8,8 @@ class CallToAction extends BlockComponent
 {
     public ?string $title;
 
+    public ?string $color;
+
     public ?string $html;
 
     public ?string $button_url;
@@ -17,6 +19,8 @@ class CallToAction extends BlockComponent
     public function setup(): void
     {
         $this->title = $this->block->translatedInput('title');
+
+        $this->color = $this->block->input('color');
 
         $this->html = $this->block->translatedInput('text');
 

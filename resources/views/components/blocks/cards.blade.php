@@ -12,7 +12,7 @@
                 <dt>
                     @if ($item->input('icon'))
                         <div
-                            class="flex items-center justify-center w-12 h-12 rounded-md text-primary bg-opacity-10 bg-primary">
+                            class="flex items-center justify-center w-12 h-12 rounded-md text-primary bg-primary/5">
                             {{ svg("ri-{$item->input('icon')}", 'w-6 h-6') }}
                         </div>
                     @endif
@@ -38,7 +38,7 @@
                     ])>
                     <a
                         href="{{ $item->translatedInput('button_url') }}"
-                        class="flex items-center font-semibold text-primary hover:underline">
+                        class="flex items-center font-semibold hover:underline">
                         {{ $item->translatedInput('button_text') }}
 
                         <x-ri-arrow-right-line class="w-5 h-5 ml-2 shrink-0" />

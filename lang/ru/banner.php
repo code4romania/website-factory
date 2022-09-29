@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 return [
 
-    'internal' => 'Продукт Code for Romania.',
-    'external' => 'Веб-сайт создан с помощью Website Factory: :edition, решения, разработанного Code for Romania.',
+    'internal' => 'Продукт Commit Global.',
+    'external' => 'Веб-сайт создан с помощью Website Factory: :edition, решения, разработанного Commit Global.',
 
     'edition' => [
         'primarie' => 'Primărie',

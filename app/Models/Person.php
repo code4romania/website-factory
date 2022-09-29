@@ -79,4 +79,10 @@ class Person extends Model
             'updated_at'  => $this->updated_at->diffForHumans(),
         ]);
     }
+
+    public function getImageUrlAttribute(): string
+    {
+        return $this->getMediaUrl('image', '600')
+            ?? $this->getMediaUrl('image', 'thumb');
+    }
 }

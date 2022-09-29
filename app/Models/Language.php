@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Traits\ClearsResponseCache;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
@@ -59,5 +60,10 @@ class Language extends Model
 
         Cache::flush();
         static::clearResponseCache();
+    }
+
+    public function scopeWhereEnabled(Builder $query): Builder
+    {
+        return $query->where('enabled', true);
     }
 }

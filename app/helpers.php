@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Services\Features;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 if (! function_exists('locales')) {
@@ -27,6 +29,24 @@ if (! function_exists('active_locales')) {
     {
         return collect(app('languages'))
             ->reject(fn (array $config) => ! $config['enabled']);
+    }
+}
+
+if (! function_exists('default_locale')) {
+    /**
+     * Return the current default enabled locale locale.
+     *
+     * @return string
+     */
+    function default_locale(): string
+    {
+        $locale = settings('site.default_locale');
+
+        if (! active_locales()->has($locale)) {
+            return config('app.fallback_locale');
+        }
+
+        return $locale;
     }
 }
 
@@ -111,5 +131,28 @@ if (! function_exists('format_bytes')) {
         $exp = floor(log($bytes, 1024)) | 0;
 
         return round($bytes / (pow(1024, $exp)), $precision) . $unit[$exp];
+    }
+}
+
+if (! function_exists('is_internal_site')) {
+    function is_internal_site(): bool
+    {
+        return Features::isCode4RomaniaSite();
+    }
+}
+
+if (! function_exists('is_external_site')) {
+    function is_external_site(): bool
+    {
+        return ! is_internal_site();
+    }
+}
+
+if (! function_exists('favicon_url')) {
+    function favicon_url(): string
+    {
+        return settings('site.favicon')
+            ? Storage::url(settings('site.favicon'))
+            : asset(mix('assets/images/favicon.png'));
     }
 }

@@ -27,8 +27,7 @@ class SetSeoDefaults
                 default: $title,
                 modifier: fn (string $title) => $title . ' — ' . localized_settings('site.title')
             )
-            ->description(default: $description)
-            ->favicon();
+            ->description(default: $description);
 
         return $next($request);
     }

@@ -28,6 +28,7 @@ class PersonRequest extends BaseRequest
             ],
             'title'               => ['required', 'string', 'max:200'],
             'social'              => ['nullable', "array:$platforms"],
+            'social.*'            => ['nullable', 'url'],
             'description'         => ['nullable', 'string'],
             'media'               => ['array'],
             'media.*.id'          => ['required', 'exists:media'],
