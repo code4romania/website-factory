@@ -126,7 +126,7 @@
             },
         },
         setup(props, { emit }) {
-            const { currentLocale } = useLocale();
+            const { getOptionForLocale } = useLocale();
             const { filterPredicate } = useFilter();
 
             const selected = ref([]);
@@ -138,16 +138,10 @@
             const input = ref(null);
             const menu = ref(null);
 
-            const get = (option, key) => {
-                return option.hasOwnProperty(key)
-                    ? option[key][currentLocale.value] || option[key]
-                    : option[currentLocale.value] || option || null;
-            };
-
             const options = computed(() =>
                 props.options.map((option) => ({
-                    value: get(option, props.optionValueKey),
-                    label: get(option, props.optionLabelKey),
+                    value: getOptionForLocale(option, props.optionValueKey),
+                    label: getOptionForLocale(option, props.optionLabelKey),
                 }))
             );
 

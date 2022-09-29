@@ -33,7 +33,10 @@ class PageController extends AdminController
     public function create(): Response
     {
         return Inertia::render('Pages/Edit', [
-            //
+            'pages' => Page::query()
+                ->withDrafted()
+                ->orderByTranslated('title')
+                ->get(['id', 'title']),
         ])->model(Page::class);
     }
 
@@ -54,6 +57,11 @@ class PageController extends AdminController
     {
         return Inertia::render('Pages/Edit', [
             'resource' => PageResource::make($page),
+            'pages' => Page::query()
+                ->withDrafted()
+                ->orderByTranslated('title')
+                ->whereNotDescendantOf($page->id)
+                ->get(['id', 'title']),
         ])->model(Page::class);
     }
 

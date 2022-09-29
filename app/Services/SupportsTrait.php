@@ -13,6 +13,7 @@ class SupportsTrait
         'filterable'   => \App\Traits\Filterable::class,
         'layout'       => \App\Traits\HasLayout::class,
         'media'        => \App\Traits\HasMedia::class,
+        'nestedSet'    => \Kalnoy\Nestedset\NodeTrait::class,
         'publishable'  => \App\Traits\Publishable::class,
         'softDeletes'  => \Illuminate\Database\Eloquent\SoftDeletes::class,
         'sortable'     => \App\Traits\Sortable::class,

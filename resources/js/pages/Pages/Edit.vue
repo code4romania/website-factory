@@ -9,6 +9,7 @@
             'blocks',
             'media',
             'published_at',
+            'parent',
         ]"
         :breadcrumbs="[
             {
@@ -55,6 +56,14 @@
                 accepts="images"
                 :limit="1"
             />
+
+            <form-select
+                :label="$t('field.parent')"
+                v-model="form.parent"
+                :options="pages"
+                option-value-key="id"
+                option-label-key="title"
+            />
         </template>
 
         <template #content="{ form }">
@@ -68,6 +77,7 @@
         props: {
             resource: Object,
             model: Object,
+            pages: Object,
         },
     };
 </script>

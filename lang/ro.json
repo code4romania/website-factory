@@ -201,6 +201,7 @@
     "field.name": "Nume",
     "field.options": "Opțiuni",
     "field.page": "Pagină",
+    "field.parent": "Părinte",
     "field.password_confirmation": "Confirmarea parolei",
     "field.password": "Parolă",
     "field.paypal_button_id": "ID buton PayPal",

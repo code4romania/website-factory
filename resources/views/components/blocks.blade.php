@@ -1,10 +1,10 @@
 @props(['container' => true])
 
 <div
-    @class([
+    {{ $attributes->class([
         'grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12 my-8 lg:my-12',
         'container' => $container,
-    ])>
+    ]) }}>
     @foreach ($blocks as $block)
         <div
             @class([
