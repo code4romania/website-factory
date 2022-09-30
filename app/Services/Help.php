@@ -39,6 +39,7 @@ class Help
                     'section'   => $section,
                     'topic'     => $topic,
                     'title'     => data_get($frontMatter, 'title'),
+                    'video'     => (bool) data_get($frontMatter, 'video'),
                     'content'   => $content,
                     'excerpt'   => Str::of((string) $content)
                         ->stripTags()

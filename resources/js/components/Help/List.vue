@@ -40,10 +40,16 @@
                     class="w-full text-left group"
                     @click="$emit('topic:open', item)"
                 >
-                    <div class="flex items-start justify-between gap-2">
+                    <div class="flex items-start gap-2">
                         <h3
-                            class="text-sm font-semibold text-gray-800 group-hover:underline"
+                            class="flex-1 text-sm font-semibold text-gray-800 group-hover:underline"
                             v-text="item.title"
+                        />
+
+                        <icon
+                            v-if="item.video"
+                            name="Logos/youtube-fill"
+                            class="w-5 h-5 text-red-500"
                         />
 
                         <help-section-badge
@@ -102,4 +108,3 @@
         },
     };
 </script>
-
