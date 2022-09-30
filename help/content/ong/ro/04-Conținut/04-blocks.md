@@ -30,7 +30,8 @@ proporția cu ajutorul butoanelor din dreapta lui.
 1)  Butonul de coloane micșorează sau mărește blocul de conținut.
 2)  Săgeata restrânge sau extinde cardul pentru a edita pagina mai ușor
 3)  Cele trei puncte deschid meniul din care poți alege să faci un
-    duplicat al cardului sau să ștergi acel card cu totul.
+    duplicat al blocului de conținut sau să ștergi acel bloc de
+    conținut cu totul.
 
 ## Tipuri de blocuri de conținut
 
@@ -116,10 +117,9 @@ proporția cu ajutorul butoanelor din dreapta lui.
 
 - tip de bloc folosit pentru a configura donații prin PayPal
 - un bloc **Donații PayPal** are următoarele elemente: Titlu, Text (câmp
-  în care poți introduce un mesaj care să îi determine pe useri să
-  facă o donație prin PayPal) și ID buton PayPalfield.button_id (câmp
-  în care se introduce id-ul unic primit la deschiderea contului de
-  PayPal)
+  în care poți introduce un mesaj care să îi determine pe useri să facă
+  o donație prin PayPal) și ID buton PayPal (câmp în care se introduce
+  id-ul unic primit la deschiderea contului de PayPal)
 
 <a href="/assets/help/017.png">
     <img src="/assets/help/017.png" />

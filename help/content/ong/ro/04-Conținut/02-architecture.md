@@ -13,7 +13,7 @@ cu două categorii de conținut: Conținutul narativ și conținutul
 utilitar.
 
 **Conținutul narativ** este cel de tipul: despre misiunea organizației,
-proiectele noastre, blogul de articole, rapoartele anuale, testimoiale
+proiectele noastre, blogul de articole, rapoartele anuale, testimoniale
 de la beneficiari, informații despre partenerii noștri, sponsori sau
 alte lucruri care au direct de a face cu activitatea organizației.
 
@@ -27,9 +27,9 @@ acesta. O structură de content arată cam așa:
 #### Meniul Principal:
 - Prima pagina
 - Despre noi
-  - Pagina despre misiunea organizatiei
+  - Pagina despre misiunea organizației
   - Cum funcționăm
-  - Documentele oficiale ale organizatiei
+  - Documentele oficiale ale organizației
   - Echipa noastra
   - Codul de conduită al organizației
   - Parteneri și sponsori

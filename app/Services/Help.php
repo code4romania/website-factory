@@ -39,6 +39,7 @@ class Help
                     'section'   => $section,
                     'topic'     => $topic,
                     'title'     => data_get($frontMatter, 'title'),
+                    'video'     => (bool) data_get($frontMatter, 'video'),
                     'content'   => $content,
                     'excerpt'   => Str::of((string) $content)
                         ->stripTags()
@@ -47,6 +48,18 @@ class Help
                 ];
             })
             ->values();
+    }
+
+    private static function getContentPath(string $locale): string
+    {
+        $edition = config('website-factory.edition');
+
+        $edition = match ($edition) {
+            'internal' => 'ong',
+            default    => $edition,
+        };
+
+        return base_path("help/content/{$edition}/{$locale}");
     }
 
     private static function getAllFiles(): Collection
@@ -59,7 +72,7 @@ class Help
         ];
 
         foreach ($locales as $locale) {
-            $path = base_path("help/{$locale}");
+            $path = static::getContentPath($locale);
 
             if ($filesystem->exists($path) && $filesystem->isDirectory($path)) {
                 return collect($filesystem->allFiles($path))

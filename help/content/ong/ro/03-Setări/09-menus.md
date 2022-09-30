@@ -1,6 +1,11 @@
 ---
 title: "Cum construiesc meniurile site-ului?"
+video: true
 ---
+
+<div class="aspect-w-16 aspect-h-9">
+  <iframe src="https://www.youtube.com/embed/DZx1QC1BVAU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 Meniurile din header și footer ajută utilizatorul să parcurgă website-ul
 tău și să găsească informații mai ușor.
@@ -27,7 +32,6 @@ pași:
 <a href="/assets/help/001.png">
     <img src="/assets/help/001.png" />
 </a>
-
 
 ## Tipuri elemente meniu
 

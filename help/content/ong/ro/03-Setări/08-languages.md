@@ -25,7 +25,7 @@ pași:
 4)  Apasă butonul **Adaugă**
 5)  Completează codul internațional al limbii pe care vrei să o adaugi
     în câmpul **Cod.** (La [acest
-    link](https://www.w3schools.com/tags/ref_country_codes.asp)
+    link](https://www.w3schools.com/tags/ref_language_codes.asp)
     găsești lista codurilor pentru toate limbile)
 6)  Completează numele limbii pe care vrei să adaugi în câmpul **Nume**
     (ex: Franceză/French)
