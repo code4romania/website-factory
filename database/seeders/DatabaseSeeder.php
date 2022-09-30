@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Decision;
 use App\Models\DecisionCategory;
 use App\Models\Form;
+use App\Models\Language;
 use App\Models\Media;
 use App\Models\MenuItem;
 use App\Models\Page;
@@ -28,6 +29,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Cache::flush();
+
+        Language::insert([
+            [
+                'code'    => 'ro',
+                'name'    => 'Română',
+                'enabled' => true,
+            ],
+            [
+                'code'    => 'en',
+                'name'    => 'English',
+                'enabled' => false,
+            ],
+        ]);
 
         $images = Media::query()
             ->whereImages()
