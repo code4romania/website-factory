@@ -1,6 +1,11 @@
 ---
 title: "Cum creez un formular?"
+video: true
 ---
+
+<div class="aspect-w-16 aspect-h-9">
+  <iframe src="https://www.youtube.com/embed/tvf2GCTWePc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 Formularele au diferite utilizări în economia website-ului unei
 organizații. Acestea pot fi folosite în pagina de contact, pentru ca cei
@@ -63,6 +68,17 @@ sau
 3)  Apasă pe titlul formularului pe care dorești să îl editezi și vei ajunge în pagina de editare.
 4)  Editează câmpurile pe care vrei să le modifici
 5)  Apasă **Salvează**
+
+Pentru **a duplica un formular deja creat**, este necesar să parcurgi
+următorii pași:
+
+1)  Accesează panoul de administrare
+2)  Selectează din Meniul principal butonul **Formulare**
+3)  Apasă butonul din dreptul formularului pe care dorești să îl vizualizezi
+4)  Selectează opțiunea **Duplică**
+5)  Confirmă duplicarea formularului prin apăsarea butonului **Duplică**
+6)  Editează câmpurile pe care vrei să le modifici din formularul duplicat
+7)  Apasă **Salvează**
 
 Pentru **a duplica un formular deja creat**, este necesar să parcurgi
 următorii pași:
