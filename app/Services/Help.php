@@ -49,6 +49,18 @@ class Help
             ->values();
     }
 
+    private static function getContentPath(string $locale): string
+    {
+        $edition = config('website-factory.edition');
+
+        $edition = match ($edition) {
+            'internal' => 'ong',
+            default    => $edition,
+        };
+
+        return base_path("help/content/{$edition}/{$locale}");
+    }
+
     private static function getAllFiles(): Collection
     {
         $filesystem = app(Filesystem::class);
@@ -59,7 +71,7 @@ class Help
         ];
 
         foreach ($locales as $locale) {
-            $path = base_path("help/{$locale}");
+            $path = static::getContentPath($locale);
 
             if ($filesystem->exists($path) && $filesystem->isDirectory($path)) {
                 return collect($filesystem->allFiles($path))
