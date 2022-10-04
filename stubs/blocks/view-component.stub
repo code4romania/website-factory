@@ -1,0 +1,19 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\View\Components\Blocks;
+
+use App\View\Components\Blocks\BlockComponent;
+
+class {{ class }} extends BlockComponent
+{
+    public ?string $title;
+
+    public function setup(): void
+    {
+        $this->title = $this->block->translatedInput('title');
+
+        //
+    }
+}

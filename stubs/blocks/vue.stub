@@ -1,0 +1,21 @@
+<template>
+    <localized-field
+        field="form-input"
+        :label="$t('field.title')"
+        v-model="content.title"
+    />
+
+    <!--  -->
+</template>
+
+<script>
+    import { defineBlock } from '@/helpers';
+
+    export default defineBlock({
+        type: '{{ name }}',
+        icon: 'Editor/rounded-corner',
+        fields: {
+            title: Object,
+        },
+    });
+</script>
