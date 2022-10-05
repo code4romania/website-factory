@@ -2,7 +2,7 @@
     <settings-section>
         <template #fields="{ form }">
             <panel :title="$t('setting.section.site-notice')">
-                <form-checkbox
+                <form-switch
                     :label="$t('field.enabled')"
                     v-model="form.settings.enabled"
                 />
