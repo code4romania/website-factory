@@ -39,4 +39,14 @@ trait HasMedia
 
         return $media->findVariant($variant)?->getUrl();
     }
+
+    public function getThumbnailUrl(bool $large = false): ?string
+    {
+        if ($large) {
+            return $this->getMediaUrl('image', '600')
+                ?? $this->getMediaUrl('image', 'thumb');
+        }
+
+        return $this->getMediaUrl('image', 'thumb');
+    }
 }
