@@ -21,7 +21,7 @@
             </panel>
 
             <panel title="EuPlătesc">
-                <form-checkbox
+                <form-switch
                     :label="$t('field.enabled')"
                     v-model="form.settings.euplatesc_enabled"
                 />
@@ -42,7 +42,7 @@
             </panel>
 
             <panel title="Netopia">
-                <form-checkbox
+                <form-switch
                     :label="$t('field.enabled')"
                     v-model="form.settings.mobilpay_enabled"
                 />

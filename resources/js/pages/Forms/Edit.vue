@@ -55,13 +55,13 @@
                 v-model="form.description"
             />
 
-            <form-checkbox
+            <form-switch
                 name="store_submissions"
                 :label="$t('field.store_submissions')"
                 v-model="form.store_submissions"
             />
 
-            <form-checkbox
+            <form-switch
                 name="send_submissions"
                 :label="$t('field.send_submissions')"
                 v-model="form.send_submissions"
