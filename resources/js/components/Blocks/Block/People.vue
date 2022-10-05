@@ -11,7 +11,7 @@
         v-model="content.text"
     />
 
-    <form-checkbox
+    <form-switch
         :label="$t('field.show_images')"
         v-model="content.show_images"
     />

@@ -35,10 +35,7 @@
                 required
             />
 
-            <form-checkbox
-                :label="$t('field.enabled')"
-                v-model="form.enabled"
-            />
+            <form-switch :label="$t('field.enabled')" v-model="form.enabled" />
         </template>
 
         <template #content="{ form }">

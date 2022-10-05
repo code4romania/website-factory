@@ -12,7 +12,7 @@
         v-model="content.help"
     />
 
-    <form-checkbox :label="$t('field.required')" v-model="content.required" />
+    <form-switch :label="$t('field.required')" v-model="content.required" />
 
     <form-input
         type="number"
