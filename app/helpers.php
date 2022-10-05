@@ -153,6 +153,6 @@ if (! function_exists('favicon_url')) {
     {
         return settings('site.favicon')
             ? Storage::url(settings('site.favicon'))
-            : asset(mix('assets/images/favicon.png'));
+            : (string) asset(mix('assets/images/favicon.png'));
     }
 }
