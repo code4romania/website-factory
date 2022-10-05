@@ -17,7 +17,7 @@
                         title="{{ __('person.action.view') }}"
                         class="block overflow-hidden transition-shadow duration-150 rounded-lg shadow-lg aspect-w-1 aspect-h-1 hover:shadow-xl">
                         <x-media.image
-                            :src="$person->image_url"
+                            :src="$person->getThumbnailUrl(large: true)"
                             class="object-cover"
                             :preload="$shouldPreload()" />
                     </a>
