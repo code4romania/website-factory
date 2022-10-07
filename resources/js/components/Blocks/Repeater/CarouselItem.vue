@@ -35,14 +35,12 @@
     <form-switch
         v-if="media.length"
         :label="$t('field.color_overlay')"
-        :help="$t('field.color_overlay')"
         v-model="content.color_overlay"
     />
 
     <form-switch
         v-if="media.length"
         :label="$t('field.image_as_background')"
-        :help="$t('field.image_as_background')"
         v-model="content.image_as_background"
     />
 </template>
