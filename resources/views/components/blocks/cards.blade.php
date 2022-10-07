@@ -3,7 +3,7 @@
 <div @class(['grid gap-x-8 gap-y-16', $columns])>
     @foreach ($items as $item)
         <div @class([
-            'bg-white shadow-lg rounded-lg overflow-hidden flex flex-col' => $shadow,
+            'shadow-md rounded-lg overflow-hidden flex flex-col border border-gray-100' => $shadow,
         ])>
             <div
                 @class([
@@ -12,7 +12,7 @@
                 <dt>
                     @if ($item->input('icon'))
                         <div
-                            class="flex items-center justify-center w-12 h-12 rounded-md text-primary bg-primary/5">
+                            class="flex items-center justify-center w-12 h-12 border rounded-md text-primary bg-primary/10 border-primary/25">
                             {{ svg("ri-{$item->input('icon')}", 'w-6 h-6') }}
                         </div>
                     @endif
@@ -23,7 +23,7 @@
                         </p>
                     @endif
                 </dt>
-                <dd class="mt-2 prose prose-blue">
+                <dd class="mt-2 prose">
                     {!! $item->translatedInput('text') !!}
                 </dd>
 
