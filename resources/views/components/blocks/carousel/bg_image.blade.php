@@ -1,6 +1,6 @@
 @props(['item'])
 
-<div class="relative overflow-hidden shadow-xl rounded-xl">
+<div class="relative">
     <x-media.image
         class="absolute inset-0 object-cover w-full h-full"
         :src="$item['image']->getUrl()"
@@ -10,7 +10,7 @@
         <div class="absolute inset-0 bg-primary mix-blend-multiply"></div>
     @endif
 
-    <div class="relative px-6 py-24 text-center sm:px-12 md:py-32 lg:py-40">
+    <div class="relative px-8 py-24 text-center sm:px-12 md:py-32 lg:py-40">
         <x-blocks._title :title="$item['title']" class="text-white empty:hidden" />
 
         <div class="mx-auto prose text-white max-w-prose sm:prose-lg">

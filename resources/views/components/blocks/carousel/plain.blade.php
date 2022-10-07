@@ -1,7 +1,7 @@
 @props(['item'])
 
-<div class="relative overflow-hidden bg-white shadow-xl rounded-xl">
-    <div class="px-6 py-24 space-y-8 text-center sm:px-12 md:py-32 lg:py-40">
+<div>
+    <div class="px-8 py-24 space-y-8 text-center sm:px-12 md:py-32 lg:py-40">
         <x-blocks._title :title="$item['title']" />
 
         <div class="mx-auto prose max-w-prose sm:prose-lg">

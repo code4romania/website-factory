@@ -1,8 +1,9 @@
 @props(['item'])
 
-<div class="relative overflow-hidden bg-white shadow-xl rounded-xl">
-    <div class="grid items-center justify-center gap-8 px-6 py-24 sm:px-12 md:py-32 lg:py-40 lg:grid-cols-11">
-        <div class="space-y-8 sm:max-w-lg lg:col-span-6">
+<div>
+    <div
+        class="grid items-center justify-center gap-8 px-8 py-24 sm:px-12 md:px-20 md:py-32 xl:grid-cols-11 lg:gap-16">
+        <div class="space-y-8 sm:max-w-lg lg:max-w-2xl xl:max-w-none xl:col-span-6">
             <x-blocks._title :title="$item['title']" />
 
             <div class="prose max-w-prose sm:prose-lg">
@@ -18,7 +19,7 @@
         </div>
 
         <div
-            class="overflow-hidden bg-gray-100 shadow-xl rounded-xl sm:max-w-lg lg:col-span-5 lg:max-w-none">
+            class="overflow-hidden bg-gray-100 shadow-sm rounded-xl sm:max-w-lg lg:max-w-2xl xl:col-span-5 xl:max-w-none">
             <x-media.image
                 class="object-cover"
                 :src="$item['image']->getUrl()"
