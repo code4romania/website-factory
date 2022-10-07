@@ -6,8 +6,13 @@
         :src="$item['image']->getUrl()"
         :alt="$item['image']->caption" />
 
-    @if ($item['color_overlay'])
-        <div class="absolute inset-0 bg-primary mix-blend-multiply"></div>
+
+    @if ($item['color_overlay_enabled'])
+        @if ($item['color_overlay'])
+            <div class="absolute inset-0" style="background: {{ $item['color_overlay'] }}"></div>
+        @else
+            <div class="absolute inset-0 bg-primary mix-blend-multiply"></div>
+        @endif
     @endif
 
     <div class="relative px-8 py-24 text-center sm:px-12 md:py-32 lg:py-40">

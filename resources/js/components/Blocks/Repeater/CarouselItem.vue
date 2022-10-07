@@ -35,6 +35,12 @@
     <form-switch
         v-if="media.length"
         :label="$t('field.color_overlay')"
+        v-model="content.color_overlay_enabled"
+    />
+
+    <form-color-picker
+        v-if="media.length && content.color_overlay_enabled"
+        :label="$t('field.color')"
         v-model="content.color_overlay"
     />
 
@@ -53,6 +59,7 @@
         fields: {
             title: Object,
             text: Object,
+            color_overlay_enabled: Boolean,
             color_overlay: Boolean,
             image_as_background: Boolean,
             button_text: Object,

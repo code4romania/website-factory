@@ -19,13 +19,14 @@ class Carousel extends BlockComponent
                 $image = $block->firstMedia('image');
 
                 $item = [
-                    'title'               => $block->translatedInput('title'),
-                    'text'                => $block->translatedInput('text'),
-                    'image'               => $image,
-                    'color_overlay'       => $image !== null ? $block->checkbox('color_overlay') : false,
-                    'image_as_background' => $image !== null ? $block->checkbox('image_as_background') : false,
-                    'button_url'          => $block->translatedInput('button_url'),
-                    'button_text'         => $block->translatedInput('button_text'),
+                    'title'                 => $block->translatedInput('title'),
+                    'text'                  => $block->translatedInput('text'),
+                    'image'                 => $image,
+                    'color_overlay_enabled' => $image !== null ? $block->checkbox('color_overlay_enabled') : false,
+                    'color_overlay'         => $image !== null ? $block->input('color_overlay') : false,
+                    'image_as_background'   => $image !== null ? $block->checkbox('image_as_background') : false,
+                    'button_url'            => $block->translatedInput('button_url'),
+                    'button_text'           => $block->translatedInput('button_text'),
                 ];
 
                 $item['component'] = $this->getComponent($item);

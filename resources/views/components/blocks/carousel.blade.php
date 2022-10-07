@@ -53,9 +53,9 @@
         @foreach ($items as $item)
             <button
                 type="button"
-                class="w-3 h-3 !rounded-full shrink-0"
+                class="w-3 h-3 !rounded-full shrink-0 shadow-sm"
                 :class="[
-                    isCurrent(@js($loop->index)) ? 'bg-primary' : 'bg-primary/25'
+                    isCurrent(@js($loop->index)) ? 'bg-primary' : 'bg-primary/40'
                 ]"
                 aria-current=""
                 x-on:click="setCurrent(@js($loop->index))"></button>
