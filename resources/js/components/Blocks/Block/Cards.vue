@@ -5,8 +5,7 @@
         v-model="content.title"
     />
 
-    <form-input
-        type="number"
+    <form-range
         :label="$t('field.columns')"
         v-model.number="content.columns"
         :min="1"
