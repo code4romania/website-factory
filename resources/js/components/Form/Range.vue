@@ -34,10 +34,32 @@
 </template>
 
 <script>
+    import { watch } from 'vue';
     import { defineInput } from '@/helpers';
 
     export default defineInput({
         name: 'FormRange',
+        setup(props, { attrs, emit }) {
+            const normalize = (value) => {
+                let normalized = value;
+
+                if (attrs.hasOwnProperty('min')) {
+                    normalized = Math.max(normalized, attrs.min);
+                }
+
+                if (attrs.hasOwnProperty('max')) {
+                    normalized = Math.min(normalized, attrs.max);
+                }
+
+                if (normalized !== value) {
+                    emit('update:modelValue', normalized);
+                }
+            };
+
+            watch(() => props.modelValue, normalize, {
+                immediate: true,
+            });
+        },
     });
 </script>
 

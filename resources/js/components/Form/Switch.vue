@@ -1,5 +1,5 @@
 <template>
-    <switch-group as="div" class="flex items-center justify-between gap-3">
+    <switch-group as="div" class="flex items-center gap-3">
         <switch-toggle
             v-model="proxyChecked"
             :class="[
