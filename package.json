@@ -63,6 +63,7 @@
         "alpinejs": "^3.10.3",
         "autoprefixer": "^10.4.12",
         "axios": "^0.27.2",
+        "echarts": "^5.4.0",
         "file-loader": "^6.2.0",
         "fuse.js": "^6.6.2",
         "laravel-mix": "^6.0.49",
