@@ -4,10 +4,13 @@
     {!! $html !!}
 </div>
 
-<div class="p-4 mt-8 bg-zinc-100">
+<div class="mt-8 overflow-hidden bg-zinc-100">
     <script>
-        var {{ $dataKey }} = @json($chartData);
+        var {{ $dataKey }} = @json([
+            'name' => $title,
+            'data' => $chartData,
+        ]);
     </script>
 
-    <div x-data x-budget="{{ $dataKey }}" class="w-full max-h-screen aspect-[2/3] sm:aspect-[3/2]"></div>
+    <div x-data x-budget="{{ $dataKey }}" class="w-full max-h-screen aspect-[2/3] md:aspect-[3/2]"></div>
 </div>
