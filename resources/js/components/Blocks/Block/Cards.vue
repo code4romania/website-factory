@@ -5,11 +5,10 @@
         v-model="content.title"
     />
 
-    <form-range
+    <form-radio-group
         :label="$t('field.columns')"
         v-model.number="content.columns"
-        :min="1"
-        :max="5"
+        :options="[1, 2, 3, 4, 5]"
     />
 
     <form-switch :label="$t('field.shadow')" v-model="content.shadow" />
