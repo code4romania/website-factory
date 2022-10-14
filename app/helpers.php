@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Services\Features;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -65,6 +66,21 @@ if (! function_exists('localized_route')) {
         $parameters['locale'] = $locale ?? app()->getLocale();
 
         return route($name, $parameters, $absolute);
+    }
+}
+
+if (! function_exists('localized_input')) {
+    function localized_input(mixed $input, ?string $locale = null): mixed
+    {
+        $input = Arr::wrap($input);
+
+        $locale ??= app()->getLocale();
+
+        if (! array_key_exists($locale, $input) || $input[$locale] === '') {
+            $locale = config('app.fallback_locale');
+        }
+
+        return $input[$locale] ?? null;
     }
 }
 

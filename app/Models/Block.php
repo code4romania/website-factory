@@ -13,7 +13,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Illuminate\Support\Arr;
 
 class Block extends Model
 {
@@ -69,15 +68,7 @@ class Block extends Model
 
     public function translatedInput(string $field, ?string $locale = null)
     {
-        $input = Arr::wrap($this->input($field));
-
-        $locale ??= app()->getLocale();
-
-        if (! \array_key_exists($locale, $input) || $input[$locale] === '') {
-            $locale = config('app.fallback_locale');
-        }
-
-        return $input[$locale] ?? null;
+        return localized_input($this->input($field), $locale);
     }
 
     public function checkbox(string $field): bool
