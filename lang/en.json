@@ -11,6 +11,8 @@
     "app.skip": "Skip to content",
 
     "app.action.add": "Add",
+    "app.action.addItemSameLevel": "Add item on the same level",
+    "app.action.addItemChild": "Add item on the next level",
     "app.action.apply": "Apply",
     "app.action.attach": "Attach",
     "app.action.back": "Back",
@@ -75,6 +77,7 @@
     "block.add-new": "Add new block",
     "block.accordion-item": "Accordion item",
     "block.accordion": "Accordion",
+    "block.budget": "Buget",
     "block.call-to-action": "Call to action",
     "block.card-item": "Card",
     "block.cards": "Cards",

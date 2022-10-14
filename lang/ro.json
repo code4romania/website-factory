@@ -11,6 +11,8 @@
     "app.skip": "Sari la conținut",
 
     "app.action.add": "Adaugă",
+    "app.action.addItemSameLevel": "Adaugă item pe același nivel",
+    "app.action.addItemChild": "Adaugă item pe următorul nivel",
     "app.action.apply": "Aplică",
     "app.action.attach": "Atașează",
     "app.action.back": "Înapoi",
@@ -75,6 +77,7 @@
     "block.add-new": "Adaugă bloc nou",
     "block.accordion-item": "Element",
     "block.accordion": "Acordeon",
+    "block.budget": "Buget",
     "block.call-to-action": "Call to action",
     "block.card-item": "Card",
     "block.cards": "Carduri",
