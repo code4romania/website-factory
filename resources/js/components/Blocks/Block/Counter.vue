@@ -19,7 +19,7 @@
 
     export default defineBlock({
         type: 'counter',
-        icon: 'Editor/rounded-corner',
+        icon: 'Business/flag-line',
         fields: {
             title: Object,
         },

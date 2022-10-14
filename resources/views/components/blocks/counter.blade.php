@@ -26,7 +26,6 @@
                     </dd>
                 </div>
             </div>
-
         </div>
     @endforeach
 </div>
