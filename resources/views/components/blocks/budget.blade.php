@@ -12,5 +12,6 @@
         ]);
     </script>
 
-    <div x-data x-budget="{{ $dataKey }}" class="w-full max-h-screen aspect-[2/3] md:aspect-[3/2]"></div>
+    <div x-data x-budget="{{ $dataKey }}" class="w-full max-h-screen aspect-[1/3] sm:aspect-[2/3] md:aspect-[3/2]">
+    </div>
 </div>

@@ -15,48 +15,58 @@ export default function (el, { expression }, { evaluate }) {
 
     const args = evaluate(expression);
 
+    const rich = {
+        name: {
+            fontSize: 12,
+            color: '#FFF',
+        },
+        value: {
+            fontSize: 18,
+            fontWeight: 'bold',
+            color: '#FFF',
+        },
+        hr: {
+            width: '100%',
+            borderColor: '#FFF',
+            borderWidth: 0.25,
+            height: 0,
+            lineHeight: 10,
+        },
+    };
+
     chart.setOption({
+        tooltip: {
+            valueFormatter,
+        },
+        textStyle: {
+            fontFamily: `ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`,
+        },
         series: [
             {
                 name: args.name || null,
                 type: 'treemap',
-                left: 'left',
-                top: 'top',
+
+                left: 0,
+                top: 0,
                 right: 0,
-                bottom: 50,
+                bottom: 55,
                 leafDepth: 2,
-                levels: [
-                    {
-                        itemStyle: {
-                            borderColor: 'rgb(244,244,245)',
-                            borderWidth: 16,
-                            gapWidth: 10,
-                        },
-                    },
-                    {
-                        colorSaturation: [0.3, 0.6],
-                        itemStyle: {
-                            borderColorSaturation: 0.7,
-                            gapWidth: 2,
-                            borderWidth: 2,
-                        },
-                    },
-                    {
-                        colorSaturation: [0.3, 0.5],
-                        itemStyle: {
-                            borderColorSaturation: 0.6,
-                            gapWidth: 1,
-                        },
-                    },
-                    {
-                        colorSaturation: [0.3, 0.5],
-                    },
-                ],
+
                 animation: false,
                 visibleMin: 500,
-                roam: 'move',
+                childrenVisibleMin: 500,
+                roam: false,
+                nodeClick: 'link',
+
+                upperLabel: {
+                    show: false,
+                    padding: 10,
+                    height: 60,
+                    rich,
+                },
                 label: {
                     show: true,
+                    padding: 10,
                     position: 'insideTopLeft',
                     formatter: (params) =>
                         [
@@ -64,38 +74,46 @@ export default function (el, { expression }, { evaluate }) {
                             '{hr|}',
                             `{value|${valueFormatter(params.value)}}`,
                         ].join('\n'),
-                    fontFamily:
-                        'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-                    rich: {
-                        name: {
-                            fontSize: 12,
-                            color: '#fff',
-                        },
-                        value: {
-                            fontSize: 18,
-                            fontWeight: 'bold',
-                            color: '#fff',
-                        },
-                        hr: {
-                            width: '100%',
-                            borderColor: 'rgba(255,255,255,0.2)',
-                            borderWidth: 0.5,
-                            height: 0,
-                            lineHeight: 10,
-                        },
-                    },
+                    rich,
                 },
                 breadcrumb: {
                     show: true,
                     emptyItemWidth: 22,
                     bottom: 16,
+                    top: 'auto',
                 },
+                colorSaturation: [0.2, 0.5],
+                itemStyle: {
+                    borderColorSaturation: 0.6,
+                    borderWidth: 4,
+                    padding: [6, 12],
+                    gapWidth: 4,
+                },
+                levels: [
+                    {
+                        upperLabel: {
+                            show: true,
+                            rich: {
+                                name: {
+                                    color: '#000',
+                                },
+                                value: {
+                                    color: '#000',
+                                },
+                                hr: {
+                                    borderColor: '#000',
+                                },
+                            },
+                        },
+                        itemStyle: {
+                            borderWidth: 16,
+                            gapWidth: 16,
+                        },
+                    },
+                ],
                 data: args.data,
             },
         ],
-        tooltip: {
-            valueFormatter,
-        },
     });
 
     window.addEventListener('resize', chart.resize);
