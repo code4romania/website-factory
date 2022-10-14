@@ -13,7 +13,7 @@
 
                 <div class="flex flex-col flex-1">
                     <dt @class([
-                        'text-sm font-medium text-gray-500 truncate',
+                        'text-sm font-medium text-gray-500 leading-6',
                         'order-2' => $item->checkbox('show_label_under_value'),
                     ])>
                         {{ $item->translatedInput('label') }}
@@ -26,7 +26,6 @@
                     </dd>
                 </div>
             </div>
-
         </div>
     @endforeach
 </div>
