@@ -32,7 +32,7 @@ module.exports = merge(require('../../tailwind.config.js'), {
                             color: null,
                         },
                         a: {
-                            color: null,
+                            color: 'var(--tw-prose-links)',
                             textDecoration: 'underline',
                         },
                         'a:hover': {
@@ -78,6 +78,11 @@ module.exports = merge(require('../../tailwind.config.js'), {
                         code: {
                             color: 'var(--tw-prose-code)',
                         },
+                    },
+                },
+                primary: {
+                    css: {
+                        '--tw-prose-links': 'rgb(var(--color-primary))',
                     },
                 },
             }),
