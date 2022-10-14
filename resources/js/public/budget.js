@@ -53,15 +53,13 @@ export default function (el, { expression }, { evaluate }) {
                 leafDepth: 2,
 
                 animation: false,
-                visibleMin: 500,
-                childrenVisibleMin: 500,
                 roam: false,
                 nodeClick: 'link',
 
                 upperLabel: {
                     show: false,
-                    padding: 10,
-                    height: 60,
+                    padding: [12, 6],
+                    height: 70,
                     rich,
                 },
                 label: {
@@ -82,7 +80,7 @@ export default function (el, { expression }, { evaluate }) {
                     bottom: 16,
                     top: 'auto',
                 },
-                colorSaturation: [0.2, 0.5],
+                colorSaturation: [0.25, 0.55],
                 itemStyle: {
                     borderColorSaturation: 0.6,
                     borderWidth: 4,
