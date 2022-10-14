@@ -7,7 +7,7 @@
     close() {
         this.showCookieNotice = false;
     }
-}">
+}" x-cloak>
     <div
         x-show="showCookieNotice"
         class="fixed inset-0 z-50 flex items-end px-4 py-6 pointer-events-none sm:p-6">
