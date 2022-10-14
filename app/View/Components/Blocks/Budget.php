@@ -22,6 +22,27 @@ class Budget extends BlockComponent
 
         $this->dataKey = 'budgetData' . $this->id;
 
-        $this->chartData = $this->block->input('data');
+        $this->chartData = $this->prepareChartData(
+            $this->block->input('data')
+        );
+    }
+
+    protected function prepareChartData(array $items): array
+    {
+        foreach ($items as &$item) {
+            $item['name'] = localized_input($item['name']);
+
+            if (\array_key_exists('children', $item)) {
+                $item['children'] = $this->prepareChartData($item['children']);
+
+                if (empty($item['children'])) {
+                    unset($item['children']);
+                } else {
+                    unset($item['value']);
+                }
+            }
+        }
+
+        return $items;
     }
 }
