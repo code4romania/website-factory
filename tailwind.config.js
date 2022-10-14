@@ -15,9 +15,9 @@ module.exports = {
             minHeight: (theme) => theme('spacing'),
             maxHeight: (theme) => theme('spacing'),
 
-            borderColor: (theme) => ({
+            borderColor: {
                 inherit: 'inherit',
-            }),
+            },
             typography: {
                 DEFAULT: {
                     css: {

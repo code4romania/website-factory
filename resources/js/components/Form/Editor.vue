@@ -108,7 +108,7 @@
                     Strike,
                     Subscript,
                     Superscript,
-                    Table,
+                    Table.configure({ resizable: true }),
                     TableCell,
                     TableHeader,
                     TableRow,
@@ -136,4 +136,3 @@
         },
     });
 </script>
-

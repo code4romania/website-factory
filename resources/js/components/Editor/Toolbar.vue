@@ -280,6 +280,60 @@
                         isActive: () => props.editor.isActive('paragraph'),
                     },
                 ],
+                [
+                    {
+                        icon: 'Editor/table-2',
+                        action: () => props.editor.commands.insertTable(),
+                    },
+                    {
+                        icon: 'Editor/insert-column-left',
+                        action: () =>
+                            props.editor.chain().focus().addColumnBefore().run(),
+                        isVisible: () => props.editor.isActive('table'),
+                    },
+                    {
+                        icon: 'Editor/insert-column-right',
+                        action: () =>
+                            props.editor.chain().focus().addColumnAfter().run(),
+                        isVisible: () => props.editor.isActive('table'),
+                    },
+                    {
+                        icon: 'Editor/delete-column',
+                        action: () =>
+                            props.editor.chain().focus().deleteColumn().run(),
+                        isVisible: () => props.editor.isActive('table'),
+                    },
+                    {
+                        icon: 'Editor/insert-row-top',
+                        action: () =>
+                            props.editor.chain().focus().addRowBefore().run(),
+                        isVisible: () => props.editor.isActive('table'),
+                    },
+                    {
+                        icon: 'Editor/insert-row-bottom',
+                        action: () =>
+                            props.editor.chain().focus().addRowAfter().run(),
+                        isVisible: () => props.editor.isActive('table'),
+                    },
+                    {
+                        icon: 'Editor/delete-row',
+                        action: () =>
+                            props.editor.chain().focus().deleteRow().run(),
+                        isVisible: () => props.editor.isActive('table'),
+                    },
+                    {
+                        icon: 'Editor/merge-cells-horizontal',
+                        action: () =>
+                            props.editor.chain().focus().mergeCells().run(),
+                        isVisible: () => props.editor.isActive('table'),
+                    },
+                    {
+                        icon: 'Editor/split-cells-horizontal',
+                        action: () =>
+                            props.editor.chain().focus().splitCell().run(),
+                        isVisible: () => props.editor.isActive('table'),
+                    },
+                ],
             ];
 
             return {
