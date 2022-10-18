@@ -1,12 +1,12 @@
 <div @class([
-    'relative py-16 space-y-8 sm:py-24 flex flex-col',
+    'relative py-16 sm:py-24 flex flex-col',
     'text-center items-center justify-center' => $center,
 ])>
-    <h1 class="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
+    <h1 class="mb-8 text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl empty:hidden">
         {{ $title }}
     </h1>
 
-    <div class="prose text-gray-500 max-w-prose sm:prose-lg lg:prose-xl">
+    <div class="prose max-w-prose sm:prose-lg lg:prose-xl">
         {!! $text !!}
     </div>
 </div>
