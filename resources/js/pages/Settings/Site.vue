@@ -17,7 +17,7 @@
                     v-model="form.settings.description"
                 />
 
-                <form-select
+                <form-radio-group
                     :label="$t('field.default_locale')"
                     name="settings.default_locale"
                     v-model="form.settings.default_locale"

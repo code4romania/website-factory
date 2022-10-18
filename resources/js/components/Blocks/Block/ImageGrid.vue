@@ -9,6 +9,7 @@
         :label="$t('field.columns')"
         v-model.number="content.columns"
         :options="[1, 2, 3, 4, 5]"
+        :default="1"
     />
 
     <form-media
