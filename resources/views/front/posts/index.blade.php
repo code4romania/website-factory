@@ -5,7 +5,7 @@
         </h1>
 
         <div class="mt-4 prose text-gray-500 max-w-prose sm:prose-lg lg:prose-xl">
-            {{-- {!! $post->description !!} --}}
+            {{-- --}}
         </div>
 
         <div class="mt-8 border-b border-gray-300"></div>
