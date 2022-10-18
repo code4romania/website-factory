@@ -11,29 +11,32 @@
         v-model="content.text"
     />
 
-    <form-select
-        :label="$t('field.image_position')"
-        v-model="content.position"
-        :options="position"
-    />
-
-    <form-select
-        :label="$t('field.image_width')"
-        v-model="content.width"
-        :options="['25%', '33%', '50%']"
-    />
-
-    <form-select
-        :label="$t('field.align')"
-        v-model="content.align"
-        :options="align"
-    />
-
     <form-media
         :label="$t('field.image')"
         v-model:media="media"
         accepts="images"
         :limit="1"
+    />
+
+    <form-radio-group
+        :label="$t('field.image_position')"
+        v-model="content.position"
+        :options="position"
+        default="left"
+    />
+
+    <form-radio-group
+        :label="$t('field.image_width')"
+        v-model="content.width"
+        :options="['25%', '33%', '50%']"
+        default="25%"
+    />
+
+    <form-radio-group
+        :label="$t('field.align')"
+        v-model="content.align"
+        :options="align"
+        default="top"
     />
 </template>
 

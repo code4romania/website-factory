@@ -32,18 +32,20 @@
                 required
             />
 
-            <form-select
+            <form-radio-group
                 :label="$t('field.role')"
                 name="role"
                 :options="roles"
+                default="editor"
                 v-model="form.role"
                 required
             />
 
-            <form-select
+            <form-radio-group
                 :label="$t('field.locale')"
                 name="locale"
                 :options="localeOptions"
+                :default="currentLocale"
                 v-model="form.locale"
                 required
             />
@@ -64,7 +66,7 @@
         },
 
         setup(props) {
-            const { locales } = useLocale();
+            const { locales, currentLocale } = useLocale();
 
             const localeOptions = computed(() =>
                 Object.entries(locales.value).map(([locale, config]) => ({
@@ -81,6 +83,7 @@
             );
 
             return {
+                currentLocale,
                 localeOptions,
                 roles,
             };
