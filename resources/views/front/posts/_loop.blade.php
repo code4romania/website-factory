@@ -19,7 +19,7 @@
                             {{ $post->title }}
                         </h1>
                         <p class="text-gray-500 line-clamp-3">
-                            {{ $post->description }}
+                            {!! $post->description !!}
                         </p>
                     </a>
                 </div>
