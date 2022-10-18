@@ -28,7 +28,7 @@
 </template>
 
 <script>
-    import { computed } from 'vue';
+    import { computed, onMounted } from 'vue';
     import { defineInput, useLocale } from '@/helpers';
 
     export default defineInput({
@@ -46,6 +46,10 @@
                 type: String,
                 default: 'label',
             },
+            default: {
+                type: [String, Number],
+                default: null,
+            },
         },
         setup(props, { emit }) {
             const { getOptionForLocale } = useLocale();
@@ -60,6 +64,12 @@
             const proxySelected = computed({
                 get: () => props.modelValue,
                 set: (selected) => emit('update:modelValue', selected),
+            });
+
+            onMounted(() => {
+                if (props.modelValue === null) {
+                    proxySelected.value = props.default;
+                }
             });
 
             return {
