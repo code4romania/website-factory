@@ -96,7 +96,7 @@ jobs:
         run: npm ci --prefer-offline
 
       - name: Build frontend
-        run: npm run production
+        run: npm run build
 
       - name: Setup env
         run: |

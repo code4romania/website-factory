@@ -24,11 +24,17 @@
         },
         setup(props) {
             const svgString = computed(
-                () =>
-                    (props.local === true
-                        ? require(`~/svg/${props.name}.svg`)
-                        : require(`remixicon/icons/${props.name}.svg`)
-                    ).default
+                () => {
+                    if (props.local) {
+                        return import(`~/svg/${props.name}.svg`);
+                    }
+
+                    return import(`remixicon/icons/${props.name}.svg`);
+                }
+                // (props.local === true
+                //     ? import(`~/svg/${props.name}.svg`)
+                //     : import(`remixicon/icons/${props.name}.svg`)
+                // ).default
             );
 
             const viewBox = computed(

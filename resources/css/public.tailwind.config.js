@@ -1,5 +1,3 @@
-const merge = require('lodash/merge');
-
 const colorVariable = (variable) => {
     return ({ opacityVariable, opacityValue }) => {
         if (opacityValue !== undefined) {
@@ -15,12 +13,30 @@ const colorVariable = (variable) => {
 };
 
 /** @type {import('tailwindcss').Config} */
-module.exports = merge(require('../../tailwind.config.js'), {
+module.exports = {
     theme: {
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: '1rem',
+                sm: '1.5rem',
+                lg: '2rem',
+            },
+        },
         extend: {
             colors: {
                 primary: colorVariable('--color-primary'),
             },
+
+            minWidth: (theme) => theme('spacing'),
+            maxWidth: (theme) => theme('spacing'),
+            minHeight: (theme) => theme('spacing'),
+            maxHeight: (theme) => theme('spacing'),
+
+            borderColor: {
+                inherit: 'inherit',
+            },
+
             typography: (theme) => ({
                 DEFAULT: {
                     css: {
@@ -50,6 +66,10 @@ module.exports = merge(require('../../tailwind.config.js'), {
                         'ul > li::marker': {
                             color: null,
                         },
+                        '> ul > li > *:first-child': null,
+                        '> ul > li > *:last-child': null,
+                        '> ol > li > *:first-child': null,
+                        '> ol > li > *:last-child': null,
                         hr: {
                             borderColor: 'var(--tw-prose-hr)',
                             borderTopWidth: 1,
@@ -93,4 +113,10 @@ module.exports = merge(require('../../tailwind.config.js'), {
         'app/View/Components/**/*.php',
         'resources/views/**/*.blade.php',
     ],
-});
+    plugins: [
+        require('@tailwindcss/aspect-ratio'),
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/line-clamp'),
+        require('@tailwindcss/typography'),
+    ],
+};

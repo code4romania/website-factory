@@ -1,20 +1,11 @@
-const requireComponent = require.context(
-    // The relative path of the components folder
-    '@/components',
-    // Whether or not to look in subfolders
-    true,
-    // The regular expression used to match base component filenames
-    /[A-Z]\w+\.(vue|js)$/
-);
-
 export default {
     install(Vue) {
-        requireComponent.keys().forEach((fileName) => {
-            const component = requireComponent(fileName);
+        const componentFiles = import.meta.globEager('../components/**/*.vue');
 
+        Object.entries(componentFiles).forEach(([path, component]) => {
             if (!component.default.hasOwnProperty('name')) {
                 return console.error(
-                    `Component ${fileName} missing 'name' property. Skipping...`
+                    `Component ${path} missing 'name' property. Skipping...`
                 );
             }
 
