@@ -6,6 +6,7 @@ use App\Services\Features;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\Str;
 
 if (! function_exists('locales')) {
@@ -169,6 +170,6 @@ if (! function_exists('favicon_url')) {
     {
         return settings('site.favicon')
             ? Storage::url(settings('site.favicon'))
-            : (string) asset(mix('assets/images/favicon.png'));
+            : Vite::asset('resources/images/favicon.png');
     }
 }

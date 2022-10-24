@@ -21,13 +21,9 @@
             <template #item="{ element, index }">
                 <div class="relative flex text-sm bg-white list-group-item">
                     <div
-                        class="w-5 px-1 py-2 bg-gray-100 border-r cursor-move shrink-0 handle"
+                        class="flex items-center px-1 py-2 bg-gray-100 border-r cursor-move shrink-0 handle"
                     >
-                        <icon
-                            name="drag"
-                            class="w-full h-full text-gray-400"
-                            local
-                        />
+                        <icon name="drag" class="w-2.5 h-6 text-gray-400" />
                     </div>
 
                     <div class="flex flex-1 gap-4 px-2 py-4">

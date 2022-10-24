@@ -16,11 +16,16 @@ const loadTranslations = (locale) => {
         axios
             .get(route('admin.i18n', { locale }))
             .then(({ data }) => resolve({ default: data }))
-            .catch(() =>
-                import(`%/${locale}.json`)
-                    .then((data) => resolve({ default: data }))
-                    .catch(() => resolve({ default: import('%/ro.json') }))
-            );
+            .catch(async () => {
+                const langs = import.meta.glob(`../../../lang/*.json`);
+                const path = '../../../lang';
+
+                if (langs.hasOwnProperty(`${path}/${locale}.json`)) {
+                    resolve(await langs[`${path}/${locale}.json`]());
+                } else {
+                    resolve(await langs[`${path}/ro.json`]());
+                }
+            });
     });
 };
 

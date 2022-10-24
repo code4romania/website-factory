@@ -6,19 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex">
 
-    <link rel="stylesheet" href="{{ asset(mix('assets/public.css')) }}">
+    @vite(['resources/css/public.css', 'resources/js/public.js'])
+    @stack('preload')
+    @stack('scripts')
 
     <style>
         [x-cloak] {
             display: none !important;
         }
     </style>
-
-    @stack('preload')
-
-    {{-- Scripts --}}
-    <script src="{{ asset(mix('assets/public.js')) }}" defer></script>
-    @stack('scripts')
 
     <title>@yield('title')</title>
 </head>

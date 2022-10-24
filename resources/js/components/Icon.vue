@@ -1,10 +1,7 @@
 <template>
-    <svg
-        :viewBox="viewBox"
-        v-html="content"
-        class="fill-current"
-        aria-hidden="true"
-    />
+    <svg class="fill-current" aria-hidden="true">
+        <use :href="symbolId" />
+    </svg>
 </template>
 
 <script>
@@ -13,38 +10,20 @@
     export default {
         name: 'Icon',
         props: {
+            prefix: {
+                type: String,
+                default: 'icon',
+            },
             name: {
                 type: String,
                 required: true,
             },
-            local: {
-                type: Boolean,
-                default: false,
-            },
         },
         setup(props) {
-            const svgString = computed(
-                () =>
-                    (props.local === true
-                        ? require(`~/svg/${props.name}.svg`)
-                        : require(`remixicon/icons/${props.name}.svg`)
-                    ).default
-            );
-
-            const viewBox = computed(
-                () => (/viewBox="([^"]+)"/.exec(svgString.value) || '')[1]
-            );
-
-            const content = computed(() =>
-                svgString.value.replace(
-                    /^(<template>)?<svg[^>]*>|<\/svg>(<\/template>)?$/g,
-                    ''
-                )
-            );
+            const symbolId = computed(() => `#${props.prefix}-${props.name}`);
 
             return {
-                viewBox,
-                content,
+                symbolId,
             };
         },
     };

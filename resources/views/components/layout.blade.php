@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="{{ asset(mix('assets/public.css')) }}">
+    @vite(['resources/css/public.css', 'resources/js/public.js'])
     <link rel="stylesheet" href="{{ route('front.theme') }}">
+    @stack('preload')
+    @stack('scripts')
 
     <style>
         [x-cloak] {
@@ -21,12 +23,6 @@
             }
         </style>
     @endif
-
-    @stack('preload')
-
-    {{-- Scripts --}}
-    <script src="{{ asset(mix('assets/public.js')) }}" defer></script>
-    @stack('scripts')
 
     <x-site.meta />
 

@@ -15,9 +15,10 @@ module.exports = {
             minHeight: (theme) => theme('spacing'),
             maxHeight: (theme) => theme('spacing'),
 
-            borderColor: (theme) => ({
+            borderColor: {
                 inherit: 'inherit',
-            }),
+            },
+
             typography: {
                 DEFAULT: {
                     css: {
@@ -31,6 +32,13 @@ module.exports = {
             },
         },
     },
+    content: [
+        'app/Services/Help.php',
+        'help/**/*.md',
+        'resources/views/admin/**/*.blade.php',
+        'resources/js/**/*.vue',
+        'resources/js/**/*.js',
+    ],
     plugins: [
         require('@tailwindcss/aspect-ratio'),
         require('@tailwindcss/forms'),
