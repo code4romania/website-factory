@@ -4,7 +4,7 @@ import persist from '@alpinejs/persist';
 import form from '@/public/form';
 import budget from '@/public/budget';
 
-import '~/images/favicon.png';
+import.meta.glob(['../images/**']);
 
 Alpine.plugin(collapse);
 Alpine.plugin(persist);

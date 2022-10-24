@@ -85,6 +85,7 @@
         "laravel-vite-plugin": "^0.6.1",
         "prettier": "^2.7.1",
         "prettier-plugin-tailwindcss": "^0.1.13",
-        "vite": "^3.1.8"
+        "vite": "^3.1.8",
+        "vite-plugin-manifest-sri": "^0.1.0"
     }
 }
