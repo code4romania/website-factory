@@ -10,18 +10,22 @@
     >
         <button
             type="button"
-            class="w-16 h-16 p-3 border border-gray-400"
+            class="w-16 h-16 p-3.5 border border-gray-400"
             :title="$t('app.action.select')"
             @click="open"
         >
-            <icon v-if="selectedIcon" :name="selectedIcon" />
+            <icon
+                class="w-full h-full"
+                v-if="selectedIcon"
+                :name="selectedIcon"
+            />
             <span v-else>&mdash;</span>
         </button>
 
         <div
             v-show="isOpen"
             v-click-away="() => close()"
-            class="absolute z-50 flex flex-col bg-white rounded shadow-xl top-full w-72 max-h-96"
+            class="absolute z-50 flex flex-col w-64 bg-white rounded shadow-xl top-full max-h-96"
         >
             <input
                 type="search"
@@ -52,12 +56,9 @@
                             :key="`${group}/${icon}`"
                             :title="`${group}/${icon}`"
                             @click.prevent="select(group, icon)"
-                            class="p-2 hover:bg-blue-600 hover:text-white"
+                            class="flex items-center justify-center hover:bg-blue-600 hover:text-white aspect-1"
                         >
-                            <icon
-                                :name="`${group}/${icon}`"
-                                class="w-full h-full"
-                            />
+                            <icon :name="`${group}/${icon}`" class="w-6 h-6" />
                         </button>
                     </div>
                 </div>

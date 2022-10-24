@@ -16,12 +16,10 @@
                 }"
             >
                 <div class="flex flex-wrap items-end gap-4 sm:flex-nowrap">
-                    <div class="w-3 py-2 cursor-move handle shrink-0">
-                        <icon
-                            name="drag"
-                            class="w-full h-full text-gray-400"
-                            local
-                        />
+                    <div
+                        class="flex items-center px-1 py-2 cursor-move handle shrink-0"
+                    >
+                        <icon name="drag" class="w-2.5 h-6 text-gray-400" />
                     </div>
 
                     <div class="flex-1 basis-2/3">

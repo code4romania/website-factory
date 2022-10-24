@@ -6,7 +6,7 @@
             'hover:opacity-75 transition-opacity duration-150': link,
         }"
     >
-        <icon name="logo" class="h-full" local />
+        <icon name="logo" class="w-full h-full" />
     </component>
 </template>
 

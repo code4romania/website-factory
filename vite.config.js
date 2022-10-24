@@ -1,15 +1,10 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
+import path from 'path';
 
 export default defineConfig({
-    resolve: {
-        alias: {
-            '@': '/resources/js',
-            '~': '/resources',
-            '%': '/lang',
-        },
-    },
     plugins: [
         laravel({
             valetTls: 'wf.test',
@@ -28,5 +23,19 @@ export default defineConfig({
                 },
             },
         }),
+        createSvgIconsPlugin({
+            iconDirs: [
+                path.resolve(process.cwd(), 'node_modules/remixicon/icons'),
+                path.resolve(process.cwd(), 'resources/svg'),
+            ],
+            symbolId: 'icon-[name]',
+        }),
     ],
+    resolve: {
+        alias: {
+            '@': '/resources/js',
+            '~': '/resources',
+            '%': '/lang',
+        },
+    },
 });

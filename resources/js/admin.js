@@ -9,6 +9,7 @@ import progress from '@/plugins/progress';
 import i18n from '@/plugins/i18n';
 
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
+import 'virtual:svg-icons-register';
 
 createInertiaApp({
     title: (title) => `${title} - Admin`,

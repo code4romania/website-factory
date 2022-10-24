@@ -2,9 +2,9 @@
     <section class="bg-white border">
         <header class="relative flex items-stretch bg-gray-50">
             <div
-                class="handle shrink-0 w-6 px-1.5 py-2 bg-gray-100 border-r cursor-move"
+                class="handle shrink-0 px-1.5 py-2.5 bg-gray-100 border-r cursor-move flex items-center"
             >
-                <icon name="drag" class="w-full h-full text-gray-400" local />
+                <icon name="drag" class="w-2.5 h-6 text-gray-400" />
             </div>
 
             <button
@@ -78,7 +78,7 @@
             </div>
         </header>
 
-        <div v-show="open" class="px-4 py-5 space-y-8 sm:p-6">
+        <div v-show="open" class="px-4 py-5 space-y-8 border-t sm:p-6">
             <component
                 :is="component"
                 v-model:content="content"
