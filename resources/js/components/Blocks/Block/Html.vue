@@ -16,6 +16,7 @@
         :label="$t('field.aspect_ratio')"
         v-model="content.aspect_ratio"
         :options="aspectRatios"
+        default="none"
     />
 </template>
 

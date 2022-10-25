@@ -11,12 +11,13 @@ COPY \
     artisan \
     package.json \
     package-lock.json \
+    postcss.config.js \
     tailwind.config.js \
-    webpack.mix.js \
+    vite.config.js \
     ./
 
 RUN npm ci --no-audit --ignore-scripts
-RUN npm run production
+RUN npm run build
 
 FROM php:8.1-fpm-alpine
 
@@ -90,8 +91,7 @@ WORKDIR /var/www
 
 COPY --chown=www-data:www-data . /var/www
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-COPY --from=assets --chown=www-data:www-data /build/public/assets /var/www/public/assets
-COPY --from=assets --chown=www-data:www-data /build/public/mix-manifest.json /var/www/public
+COPY --from=assets --chown=www-data:www-data /build/public/build /var/www/public/build
 
 ARG VERSION
 ARG REVISION

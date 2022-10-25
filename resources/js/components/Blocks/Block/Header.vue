@@ -5,10 +5,11 @@
         v-model="content.title"
     />
 
-    <form-select
+    <form-radio-group
         :label="$t('field.align')"
         v-model="content.align"
         :options="align"
+        default="left"
     />
 
     <localized-field

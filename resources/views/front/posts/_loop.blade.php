@@ -18,9 +18,9 @@
                         <h1 class="text-xl font-semibold text-gray-900 line-clamp-2">
                             {{ $post->title }}
                         </h1>
-                        <p class="text-gray-500 line-clamp-3">
-                            {{ $post->description }}
-                        </p>
+                        <div class="prose line-clamp-4">
+                            {!! $post->description !!}
+                        </div>
                     </a>
                 </div>
             </article>

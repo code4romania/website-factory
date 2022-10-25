@@ -4,7 +4,7 @@
             <div
                 class="relative flex items-center justify-between h-16 gap-x-4"
             >
-                <app-logo class="block h-10 text-gray-100 shrink-0" link />
+                <app-logo class="block w-12 h-10 text-gray-100 shrink-0" link />
 
                 <search class="flex-1" />
 
