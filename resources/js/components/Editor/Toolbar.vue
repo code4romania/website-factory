@@ -29,32 +29,6 @@
             },
         },
         setup(props) {
-            const setLink = () => {
-                const previousUrl = props.editor.getAttributes('link').href;
-                const url = window.prompt('URL', previousUrl);
-                // cancelled
-                if (url === null) {
-                    return;
-                }
-                // empty
-                if (url === '') {
-                    props.editor
-                        .chain()
-                        .focus()
-                        .extendMarkRange('link')
-                        .unsetLink()
-                        .run();
-                    return;
-                }
-                // update link
-                props.editor
-                    .chain()
-                    .focus()
-                    .extendMarkRange('link')
-                    .setLink({ href: url })
-                    .run();
-            };
-
             const items = [
                 [
                     {
@@ -192,10 +166,12 @@
                             const previousUrl = props.editor.getAttributes('link')
                                 .href;
                             const url = window.prompt('URL', previousUrl);
+
                             // cancelled
                             if (url === null) {
                                 return;
                             }
+
                             // empty
                             if (url === '') {
                                 props.editor
@@ -206,6 +182,7 @@
                                     .run();
                                 return;
                             }
+
                             // update link
                             return props.editor
                                 .chain()
@@ -214,7 +191,6 @@
                                 .setLink({ href: url })
                                 .run();
                         },
-                        // isVisible: () =>
                     },
                     {
                         icon: 'Editor/link-unlink',
@@ -283,62 +259,88 @@
                 [
                     {
                         icon: 'Editor/table-2',
-                        action: () => props.editor.commands.insertTable(),
+                        action: () =>
+                            props.editor.commands.insertTable({
+                                rows: 3,
+                                cols: 3,
+                                withHeaderRow: true,
+                            }),
+                    },
+                    {
+                        icon: 'Design/layout-left-line',
+                        action: () =>
+                            props.editor.chain().focus().toggleHeaderColumn().run(),
+                        isVisible: () => props.editor.isActive('table'),
+                        isDisabled: () => !props.editor.can().toggleHeaderColumn(),
+                    },
+                    {
+                        icon: 'Design/layout-top-line',
+                        action: () =>
+                            props.editor.chain().focus().toggleHeaderRow().run(),
+                        isVisible: () => props.editor.isActive('table'),
+                        isDisabled: () => !props.editor.can().toggleHeaderRow(),
                     },
                     {
                         icon: 'Editor/insert-column-left',
                         action: () =>
                             props.editor.chain().focus().addColumnBefore().run(),
                         isVisible: () => props.editor.isActive('table'),
+                        isDisabled: () => !props.editor.can().addColumnBefore(),
                     },
                     {
                         icon: 'Editor/insert-column-right',
                         action: () =>
                             props.editor.chain().focus().addColumnAfter().run(),
                         isVisible: () => props.editor.isActive('table'),
+                        isDisabled: () => !props.editor.can().addColumnAfter(),
                     },
                     {
                         icon: 'Editor/delete-column',
                         action: () =>
                             props.editor.chain().focus().deleteColumn().run(),
                         isVisible: () => props.editor.isActive('table'),
+                        isDisabled: () => !props.editor.can().deleteColumn(),
                     },
                     {
                         icon: 'Editor/insert-row-top',
                         action: () =>
                             props.editor.chain().focus().addRowBefore().run(),
                         isVisible: () => props.editor.isActive('table'),
+                        isDisabled: () => !props.editor.can().addRowBefore(),
                     },
                     {
                         icon: 'Editor/insert-row-bottom',
                         action: () =>
                             props.editor.chain().focus().addRowAfter().run(),
                         isVisible: () => props.editor.isActive('table'),
+                        isDisabled: () => !props.editor.can().addRowAfter(),
                     },
                     {
                         icon: 'Editor/delete-row',
                         action: () =>
                             props.editor.chain().focus().deleteRow().run(),
                         isVisible: () => props.editor.isActive('table'),
+                        isDisabled: () => !props.editor.can().deleteRow(),
                     },
                     {
                         icon: 'Editor/merge-cells-horizontal',
                         action: () =>
                             props.editor.chain().focus().mergeCells().run(),
                         isVisible: () => props.editor.isActive('table'),
+                        isDisabled: () => !props.editor.can().mergeCells(),
                     },
                     {
                         icon: 'Editor/split-cells-horizontal',
                         action: () =>
                             props.editor.chain().focus().splitCell().run(),
                         isVisible: () => props.editor.isActive('table'),
+                        isDisabled: () => !props.editor.can().splitCell(),
                     },
                 ],
             ];
 
             return {
                 items,
-                setLink,
             };
         },
     };

@@ -136,3 +136,24 @@
         },
     });
 </script>
+
+<style lang="postcss">
+    .ProseMirror {
+        table {
+            .selectedCell {
+                @apply after:absolute after:inset-0 after:z-10 after:pointer-events-none;
+                @apply after:bg-blue-400/30;
+            }
+
+            .column-resize-handle {
+                @apply absolute -right-0.5 -bottom-0.5 top-0 w-1 pointer-events-none;
+                @apply bg-blue-400;
+            }
+        }
+
+        &.resize-cursor {
+            cursor: ew-resize;
+            cursor: col-resize;
+        }
+    }
+</style>
