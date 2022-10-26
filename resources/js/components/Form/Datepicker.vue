@@ -25,9 +25,10 @@
 
 <script>
     import flatPickr from 'vue-flatpickr-component';
+    import { Romanian } from 'flatpickr/dist/l10n/ro.js';
     import 'flatpickr/dist/themes/airbnb.css';
     import { computed } from 'vue';
-    import { defineInput } from '@/helpers';
+    import { defineInput, useLocale } from '@/helpers';
 
     export default defineInput({
         name: 'FormDatePicker',
@@ -53,15 +54,18 @@
             },
         },
         setup(props) {
+            const { isCurrentLocale } = useLocale();
+
             const config = computed(() => ({
                 allowInput: true,
                 enableTime: props.enableTime,
                 enableSeconds: true,
                 time_24hr: true,
                 altInput: true,
-                altFormat: 'j F Y' + (props.enableTime ? ' H:i:S' : ''),
+                altFormat: 'd.m.Y' + (props.enableTime ? ' H:i:S' : ''),
                 dateFormat: 'Y-m-d' + (props.enableTime ? ' H:i:S' : ''),
                 defaultDate: props.defaultDate,
+                locale: isCurrentLocale('ro') ? Romanian : { firstDayOfWeek: 1 },
             }));
 
             return {
