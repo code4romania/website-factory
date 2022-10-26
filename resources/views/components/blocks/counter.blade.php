@@ -2,7 +2,7 @@
 
 <div @class(['grid gap-x-8 gap-y-16', $columns])>
     @foreach ($items as $item)
-        <div class="overflow-hidden border border-gray-100 rounded-lg shadow-md">
+        <div class="relative overflow-hidden border border-gray-100 rounded-lg shadow-md">
             <div class="flex gap-4 px-4 py-5 sm:p-6">
                 @if ($item->input('icon'))
                     <div
@@ -25,6 +25,14 @@
                         {{ $item->input('value') }}
                     </dd>
                 </div>
+
+
+                @if ($item->translatedInput('url'))
+                    <a href="{{ $item->translatedInput('url') }}" class="shrink-0">
+                        <span class="absolute inset-0"></span>
+                        <x-ri-external-link-line class="w-4 h-4 text-gray-500" />
+                    </a>
+                @endif
             </div>
         </div>
     @endforeach
