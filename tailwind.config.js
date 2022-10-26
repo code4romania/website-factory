@@ -18,8 +18,7 @@ module.exports = {
             borderColor: {
                 inherit: 'inherit',
             },
-
-            typography: {
+            typography: (theme) => ({
                 DEFAULT: {
                     css: {
                         maxWidth: null,
@@ -27,9 +26,60 @@ module.exports = {
                         '> ul > li > *:last-child': null,
                         '> ol > li > *:first-child': null,
                         '> ol > li > *:last-child': null,
+
+                        table: {
+                            width: '100%',
+                            marginTop: null,
+                            marginBottom: null,
+                            overflow: 'hidden',
+
+                            'th, td': {
+                                minWidth: '1em',
+                                borderWidth: '2px',
+                                borderStyle: 'solid',
+                                borderColor: theme('colors.gray.200'),
+                                padding: '0.5714286em',
+                                position: 'relative',
+
+                                '> *': {
+                                    marginTop: 0,
+                                    marginBottom: 0,
+                                },
+                            },
+                            th: {
+                                backgroundColor: theme('colors.gray.100'),
+                                position: 'relative',
+                            },
+                        },
+
+                        'thead th': {
+                            paddingRight: null,
+                            paddingBottom: null,
+                            paddingLeft: null,
+                        },
+                        'thead th:first-child': {
+                            paddingLeft: null,
+                        },
+                        'thead th:last-child': {
+                            paddingRight: null,
+                        },
+
+                        'tbody td, tfoot td': {
+                            paddingTop: null,
+                            paddingRight: null,
+                            paddingBottom: null,
+                            paddingLeft: null,
+                        },
+
+                        'tbody td:first-child, tfoot td:first-child': {
+                            paddingLeft: null,
+                        },
+                        'tbody td:last-child, tfoot td:last-child': {
+                            paddingRight: null,
+                        },
                     },
                 },
-            },
+            }),
         },
     },
     content: [

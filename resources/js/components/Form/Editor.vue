@@ -10,7 +10,7 @@
     >
         <div
             v-if="editor"
-            class="flex flex-col w-full overflow-hidden bg-white border border-inherit max-h-[75vh]"
+            class="flex flex-col w-full overflow-hidden bg-white border border-inherit max-h-[75vh] min-h-72 resize-y"
         >
             <editor-toolbar
                 :editor="editor"
@@ -108,7 +108,7 @@
                     Strike,
                     Subscript,
                     Superscript,
-                    Table,
+                    Table.configure({ resizable: false }),
                     TableCell,
                     TableHeader,
                     TableRow,
@@ -137,3 +137,23 @@
     });
 </script>
 
+<style lang="postcss">
+    .ProseMirror {
+        table {
+            .selectedCell {
+                @apply after:absolute after:inset-0 after:z-10 after:pointer-events-none;
+                @apply after:bg-blue-400/30;
+            }
+
+            .column-resize-handle {
+                @apply absolute -right-0.5 -bottom-0.5 top-0 w-1 pointer-events-none;
+                @apply bg-blue-400;
+            }
+        }
+
+        &.resize-cursor {
+            cursor: ew-resize;
+            cursor: col-resize;
+        }
+    }
+</style>

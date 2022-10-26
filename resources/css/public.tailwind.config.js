@@ -98,6 +98,59 @@ module.exports = {
                         code: {
                             color: 'var(--tw-prose-code)',
                         },
+
+                        table: {
+                            width: '100%',
+                            marginTop: null,
+                            marginBottom: null,
+                            overflow: 'hidden',
+
+                            'th, td': {
+                                minWidth: '1em',
+                                borderWidth: '1px',
+                                borderStyle: 'solid',
+                                borderColor: theme('colors.gray.200'),
+                                padding: '0.5714286em',
+                                position: 'relative',
+
+                                '> *:first-child': {
+                                    marginTop: 0,
+                                },
+                                '> *:last-child': {
+                                    marginBottom: 0,
+                                },
+                            },
+                            th: {
+                                backgroundColor: theme('colors.gray.50'),
+                                position: 'relative',
+                            },
+                        },
+
+                        'thead th': {
+                            paddingRight: null,
+                            paddingBottom: null,
+                            paddingLeft: null,
+                        },
+                        'thead th:first-child': {
+                            paddingLeft: null,
+                        },
+                        'thead th:last-child': {
+                            paddingRight: null,
+                        },
+
+                        'tbody td, tfoot td': {
+                            paddingTop: null,
+                            paddingRight: null,
+                            paddingBottom: null,
+                            paddingLeft: null,
+                        },
+
+                        'tbody td:first-child, tfoot td:first-child': {
+                            paddingLeft: null,
+                        },
+                        'tbody td:last-child, tfoot td:last-child': {
+                            paddingRight: null,
+                        },
                     },
                 },
                 primary: {
