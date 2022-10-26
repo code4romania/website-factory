@@ -23,6 +23,7 @@
         icon: 'Business/flag-line',
         fields: {
             title: Object,
+            columns: Number,
         },
     });
 </script>

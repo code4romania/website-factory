@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Resources\Collections;
 
-class DecisionCollection extends ResourceCollection
+class DecisionAuthorCollection extends ResourceCollection
 {
     /**
      * The default table columns.
@@ -12,6 +12,6 @@ class DecisionCollection extends ResourceCollection
      * @var array
      */
     protected array $columns = [
-        'title', 'number', 'date', 'created_at',
+        'title', 'decisions_count',
     ];
 }

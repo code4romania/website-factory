@@ -47,17 +47,16 @@ export default function (el, { expression }, { evaluate }) {
                 type: 'treemap',
 
                 left: 0,
-                top: 0,
+                top: 55,
                 right: 0,
-                bottom: 55,
+                bottom: 0,
                 leafDepth: 2,
 
                 animation: false,
                 roam: false,
-                nodeClick: 'link',
 
                 upperLabel: {
-                    show: false,
+                    show: true,
                     padding: [12, 6],
                     height: 70,
                     rich,
@@ -77,10 +76,11 @@ export default function (el, { expression }, { evaluate }) {
                 breadcrumb: {
                     show: true,
                     emptyItemWidth: 22,
-                    bottom: 16,
-                    top: 'auto',
+                    top: 16,
+                    left: 16,
+                    bottom: 'auto',
                 },
-                colorSaturation: [0.25, 0.55],
+                colorSaturation: [0.25, 0.45],
                 itemStyle: {
                     borderColorSaturation: 0.6,
                     borderWidth: 4,

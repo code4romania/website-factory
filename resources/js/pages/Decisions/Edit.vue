@@ -10,10 +10,14 @@
             'blocks',
             'media',
             'categories',
+            'authors',
+            'number',
+            'date',
             'published_at',
         ]"
         :field-types="{
             categories: Array,
+            authors: Array,
         }"
         :breadcrumbs="[
             {
@@ -82,6 +86,27 @@
                 option-value-key="id"
                 option-label-key="title"
             />
+
+            <form-select-multiple
+                name="authors"
+                :label="$t('field.authors')"
+                v-model="form.authors"
+                :options="authors"
+                option-value-key="id"
+                option-label-key="title"
+            />
+
+            <form-input
+                :label="$t('field.number')"
+                name="number"
+                v-model="form.number"
+            />
+
+            <form-date-picker
+                :label="$t('field.date')"
+                name="date"
+                v-model="form.date"
+            />
         </template>
 
         <template #content="{ form }">
@@ -97,6 +122,7 @@
             model: Object,
             subnav: Array,
             categories: Array,
+            authors: Array,
         },
     };
 </script>

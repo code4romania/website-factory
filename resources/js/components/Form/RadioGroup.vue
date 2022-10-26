@@ -86,7 +86,7 @@
             });
 
             onMounted(() => {
-                if (props.modelValue === null) {
+                if (props.modelValue === null || props.modelValue === 0) {
                     proxyChecked.value = props.default;
                 }
             });
