@@ -26,7 +26,6 @@
                     </dd>
                 </div>
 
-
                 @if ($item->translatedInput('url'))
                     <a href="{{ $item->translatedInput('url') }}" class="shrink-0">
                         <span class="absolute inset-0"></span>
