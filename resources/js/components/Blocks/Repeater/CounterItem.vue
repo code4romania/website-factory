@@ -14,6 +14,13 @@
         v-model="content.label"
     />
 
+    <localized-field
+        field="form-input"
+        type="url"
+        :label="$t('field.url')"
+        v-model="content.url"
+    />
+
     <form-switch
         :label="$t('field.show_label_under_value')"
         v-model="content.show_label_under_value"
@@ -29,6 +36,7 @@
             icon: String,
             value: String,
             label: Object,
+            url: Object,
         },
     });
 </script>

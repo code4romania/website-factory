@@ -111,6 +111,10 @@ class DecisionCategoryController extends AdminController
                 'label' => 'decision.subnav.categories',
                 'route' => 'admin.decision_categories.index',
             ],
+            [
+                'label' => 'decision.subnav.authors',
+                'route' => 'admin.decision_authors.index',
+            ],
         ];
     }
 }

@@ -116,6 +116,23 @@ if (Features::hasDecisions()) {
         });
 
         Route::group([
+            'prefix'     => 'authors',
+            'as'         => 'decision_authors.',
+            'controller' => Admin\DecisionAuthorController::class,
+        ], function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/', 'store')->name('store');
+            Route::get('/{decision_author}/edit', 'edit')->name('edit');
+            Route::post('/{decision_author}/duplicate', 'duplicate')->name('duplicate');
+            Route::post('/{decision_author}/preview', 'preview')->name('preview');
+            Route::put('/{decision_author}', 'update')->name('update');
+            Route::delete('/{decision_author}', 'destroy')->name('destroy');
+            Route::put('/{decision_author}/restore', 'restore')->name('restore')->withTrashed();
+            Route::delete('/{decision_author}/force', 'forceDelete')->name('forceDelete')->withTrashed();
+        });
+
+        Route::group([
             'as'         => 'decisions.',
             'controller' => Admin\DecisionController::class,
         ], function () {
