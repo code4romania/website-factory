@@ -54,10 +54,10 @@ export default function (el, { expression }, { evaluate }) {
 
                 animation: false,
                 roam: false,
-                nodeClick: 'link',
+                // nodeClick: 'link',
 
                 upperLabel: {
-                    show: false,
+                    show: true,
                     padding: [12, 6],
                     height: 70,
                     rich,
