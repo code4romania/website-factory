@@ -10,12 +10,14 @@
             'blocks',
             'media',
             'categories',
+            'authors',
             'number',
             'date',
             'published_at',
         ]"
         :field-types="{
             categories: Array,
+            authors: Array,
         }"
         :breadcrumbs="[
             {
@@ -85,6 +87,15 @@
                 option-label-key="title"
             />
 
+            <form-select-multiple
+                name="authors"
+                :label="$t('field.authors')"
+                v-model="form.authors"
+                :options="authors"
+                option-value-key="id"
+                option-label-key="title"
+            />
+
             <form-input
                 :label="$t('field.number')"
                 name="number"
@@ -111,6 +122,7 @@
             model: Object,
             subnav: Array,
             categories: Array,
+            authors: Array,
         },
     };
 </script>

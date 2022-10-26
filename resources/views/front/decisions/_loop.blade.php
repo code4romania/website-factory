@@ -29,12 +29,19 @@
 
                 @if ($decision->categories->isNotEmpty())
                     <div class="flex items-center gap-1">
-                        <x-ri-price-tag-3-fill class="w-5 h-5 text-gray-400 shrink-0" />
+                        <x-ri-price-tag-3-line class="w-5 h-5 text-gray-400 shrink-0" />
 
                         <x-categories :categories="$decision->categories" />
                     </div>
                 @endif
 
+                @if ($decision->authors->isNotEmpty())
+                    <div class="flex items-center gap-1">
+                        <x-ri-shield-user-line class="w-5 h-5 text-gray-400 shrink-0" />
+
+                        <x-categories :categories="$decision->authors" />
+                    </div>
+                @endif
             </div>
 
             <div class="prose-sm prose">

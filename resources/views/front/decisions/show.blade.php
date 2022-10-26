@@ -4,7 +4,7 @@
             {{ $decision->title }}
         </h1>
 
-        <div class="items-center mt-1 space-y-2 text-gray-500 sm:flex sm:space-y-0 sm:space-x-6">
+        <div class="items-center mt-2 space-y-2 text-gray-500 sm:flex sm:space-y-0 sm:space-x-6">
             <div class="flex items-center gap-1">
                 <x-ri-calendar-event-fill class="w-5 h-5 text-gray-400 shrink-0" />
 
@@ -18,11 +18,21 @@
                 </time>
             </div>
 
-            <div class="flex items-center gap-1">
-                <x-ri-price-tag-3-fill class="w-5 h-5 text-gray-400 shrink-0" />
+            @if ($decision->categories->isNotEmpty())
+                <div class="flex items-center gap-1">
+                    <x-ri-price-tag-3-line class="w-5 h-5 text-gray-400 shrink-0" />
 
-                <x-categories :categories="$decision->categories" />
-            </div>
+                    <x-categories :categories="$decision->categories" />
+                </div>
+            @endif
+
+            @if ($decision->authors->isNotEmpty())
+                <div class="flex items-center gap-1">
+                    <x-ri-shield-user-line class="w-5 h-5 text-gray-400 shrink-0" />
+
+                    <x-categories :categories="$decision->authors" />
+                </div>
+            @endif
         </div>
 
         <div class="mt-4 prose text-gray-500 max-w-prose md:prose-lg">

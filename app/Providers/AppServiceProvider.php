@@ -38,6 +38,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Relation::enforceMorphMap([
             'block'             => \App\Models\Block::class,
+            'decision_author'   => \App\Models\DecisionAuthor::class,
             'decision_category' => \App\Models\DecisionCategory::class,
             'decision'          => \App\Models\Decision::class,
             'form_field'        => \App\Models\FormField::class,

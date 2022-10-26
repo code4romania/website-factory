@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\DecisionRequest;
 use App\Http\Resources\Collections\DecisionCollection;
 use App\Http\Resources\DecisionResource;
 use App\Models\Decision;
+use App\Models\DecisionAuthor;
 use App\Models\DecisionCategory;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
@@ -33,6 +34,7 @@ class DecisionController extends AdminController
     {
         return Inertia::render('Decisions/Edit', [
             'categories' => DecisionCategory::all(['id', 'title']),
+            'authors' => DecisionAuthor::all(['id', 'title']),
             'subnav' => $this->subnav(),
         ])->model(Decision::class);
     }
@@ -44,6 +46,7 @@ class DecisionController extends AdminController
         $decision = Decision::create($attributes);
 
         $decision->categories()->sync($attributes['categories']);
+        $decision->authors()->sync($attributes['authors']);
 
         $decision->saveBlocks($attributes['blocks'])
             ->saveMedia($attributes['media']);
@@ -57,6 +60,7 @@ class DecisionController extends AdminController
         return Inertia::render('Decisions/Edit', [
             'resource' => DecisionResource::make($decision),
             'categories' => DecisionCategory::all(['id', 'title']),
+            'authors' => DecisionAuthor::all(['id', 'title']),
             'subnav' => $this->subnav(),
         ])->model(Decision::class);
     }
@@ -68,6 +72,7 @@ class DecisionController extends AdminController
         $decision->update($attributes);
 
         $decision->categories()->sync($attributes['categories']);
+        $decision->authors()->sync($attributes['authors']);
 
         $decision->saveBlocks($attributes['blocks'])
             ->saveMedia($attributes['media']);
@@ -118,6 +123,10 @@ class DecisionController extends AdminController
             [
                 'label' => 'decision.subnav.categories',
                 'route' => 'admin.decision_categories.index',
+            ],
+            [
+                'label' => 'decision.subnav.authors',
+                'route' => 'admin.decision_authors.index',
             ],
         ];
     }

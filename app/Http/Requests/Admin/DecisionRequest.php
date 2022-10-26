@@ -26,6 +26,8 @@ class DecisionRequest extends BaseRequest
             'published_at'                       => ['nullable', 'date'],
             'categories'                         => ['array'],
             'categories.*'                       => ['required', 'exists:decision_categories,id'],
+            'authors'                            => ['array'],
+            'authors.*'                          => ['required', 'exists:decision_authors,id'],
             'media'                              => ['array'],
             'media.*.id'                         => ['required', 'exists:media'],
             'blocks'                             => ['array'],

@@ -57,6 +57,15 @@ class Decision extends Model
         //
     ];
 
+    protected $with = [
+        'categories', 'authors',
+    ];
+
+    public function authors(): BelongsToMany
+    {
+        return $this->belongsToMany(DecisionAuthor::class, 'author_decision');
+    }
+
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(DecisionCategory::class, 'category_decision');
