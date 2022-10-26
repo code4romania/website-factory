@@ -108,7 +108,7 @@
                     Strike,
                     Subscript,
                     Superscript,
-                    Table.configure({ resizable: true }),
+                    Table.configure({ resizable: false }),
                     TableCell,
                     TableHeader,
                     TableRow,
