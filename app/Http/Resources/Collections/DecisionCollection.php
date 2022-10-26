@@ -12,6 +12,6 @@ class DecisionCollection extends ResourceCollection
      * @var array
      */
     protected array $columns = [
-        'title', 'created_at',
+        'title', 'number', 'date', 'created_at',
     ];
 }

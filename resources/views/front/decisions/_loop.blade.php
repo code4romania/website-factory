@@ -14,18 +14,27 @@
 
 
             <div class="items-center space-y-2 text-sm text-gray-500 sm:flex sm:space-y-0 sm:space-x-6">
-                <div class="flex items-center">
-                    <x-ri-calendar-event-fill class="shrink-0 mr-1.5 h-5 w-5 text-gray-400" />
+                <div class="flex items-center gap-1">
+                    <x-ri-calendar-event-fill class="w-5 h-5 text-gray-400 shrink-0" />
 
-                    <time datetime="{{ $decision->created_at->toDateString() }}">
-                        {{ $decision->created_at->isoFormat('D MMMM YYYY') }}
+                    @if ($decision->number)
+                        <span>{{ $decision->number }}</span>
+                        <span>/</span>
+                    @endif
+
+                    <time datetime="{{ ($decision->date ?? $decision->created_at)->toDateString() }}">
+                        {{ ($decision->date ?? $decision->created_at)->isoFormat('D MMMM YYYY') }}
                     </time>
                 </div>
-                <div class="flex items-center">
-                    <x-ri-price-tag-3-fill class="shrink-0 mr-1.5 h-5 w-5 text-gray-400" />
 
-                    <x-categories :categories="$decision->categories" />
-                </div>
+                @if ($decision->categories->isNotEmpty())
+                    <div class="flex items-center gap-1">
+                        <x-ri-price-tag-3-fill class="w-5 h-5 text-gray-400 shrink-0" />
+
+                        <x-categories :categories="$decision->categories" />
+                    </div>
+                @endif
+
             </div>
 
             <div class="prose-sm prose">

@@ -37,12 +37,20 @@ class Decision extends Model
 
     public string $slugFieldSource = 'title';
 
+    protected $fillable = [
+        'number', 'date',
+    ];
+
+    protected $casts = [
+        'date' => 'date',
+    ];
+
     public array $translatable = [
         'title', 'slug', 'description',
     ];
 
     public array $allowedSorts = [
-        'title',
+        'title', 'date',
     ];
 
     public array $allowedFilters = [

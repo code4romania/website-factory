@@ -10,6 +10,8 @@
             'blocks',
             'media',
             'categories',
+            'number',
+            'date',
             'published_at',
         ]"
         :field-types="{
@@ -81,6 +83,18 @@
                 :options="categories"
                 option-value-key="id"
                 option-label-key="title"
+            />
+
+            <form-input
+                :label="$t('field.number')"
+                name="number"
+                v-model="form.number"
+            />
+
+            <form-date-picker
+                :label="$t('field.date')"
+                name="date"
+                v-model="form.date"
             />
         </template>
 
