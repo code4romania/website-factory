@@ -10,7 +10,7 @@
     >
         <div
             v-if="editor"
-            class="flex flex-col w-full overflow-hidden bg-white border border-inherit max-h-[75vh]"
+            class="flex flex-col w-full overflow-hidden bg-white border border-inherit max-h-[75vh] min-h-72 resize-y"
         >
             <editor-toolbar
                 :editor="editor"
