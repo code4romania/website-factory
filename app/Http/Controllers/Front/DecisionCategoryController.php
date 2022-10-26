@@ -26,7 +26,6 @@ class DecisionCategoryController extends Controller
             'category'  => $decisionCategory,
             'decisions' => $decisionCategory
                 ->decisions()
-                ->with('categories')
                 ->paginate(12),
         ]);
     }

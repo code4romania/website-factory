@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Admin;
 
-use App\Models\Decision;
+use App\Models\DecisionCategory;
 use App\Services\TranslatableFormRequestRules;
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
 
@@ -17,7 +17,7 @@ class DecisionCategoryRequest extends BaseRequest
      */
     public function rules(): array
     {
-        return TranslatableFormRequestRules::make(Decision::class, [
+        return TranslatableFormRequestRules::make(DecisionCategory::class, [
             'title'               => ['required', 'string', 'max:200'],
             'slug'                => ['nullable', 'string', 'max:200'],
             'description'         => ['nullable', 'string'],
