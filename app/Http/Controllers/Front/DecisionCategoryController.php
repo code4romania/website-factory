@@ -26,6 +26,7 @@ class DecisionCategoryController extends Controller
             'category'  => $decisionCategory,
             'decisions' => $decisionCategory
                 ->decisions()
+                ->latest('published_at')
                 ->paginate(12),
         ]);
     }

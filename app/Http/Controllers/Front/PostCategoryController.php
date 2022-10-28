@@ -27,6 +27,7 @@ class PostCategoryController extends Controller
             'posts'    => $postCategory
                 ->posts()
                 ->with(['categories', 'media'])
+                ->latest('published_at')
                 ->paginate(12),
         ]);
     }
