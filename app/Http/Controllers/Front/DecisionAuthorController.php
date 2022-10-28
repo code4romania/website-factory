@@ -26,6 +26,7 @@ class DecisionAuthorController extends Controller
             'category'  => $decisionAuthor,
             'decisions' => $decisionAuthor
                 ->decisions()
+                ->latest('published_at')
                 ->paginate(12),
         ]);
     }

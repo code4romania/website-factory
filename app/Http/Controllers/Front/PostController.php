@@ -19,7 +19,7 @@ class PostController extends Controller
             'posts' => Post::query()
                 ->withMedia()
                 ->with('categories')
-                ->orderByDesc('published_at')
+                ->latest('published_at')
                 ->paginate(12),
         ]);
     }
