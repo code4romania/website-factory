@@ -65,13 +65,13 @@ class Post extends Model
 
     public function getSearchResultAttribute(): SearchResult
     {
-        return new SearchResult([
-            'type'        => $this->getMorphClass(),
-            'title'       => $this->title,
-            'description' => $this->description,
-            'url_admin'   => route('admin.posts.edit', $this->id),
-            'url_public'  => localized_route('front.posts.show', ['post' => $this->slug]),
-            'updated_at'  => $this->updated_at->diffForHumans(),
-        ]);
+        return new SearchResult(
+            type: $this->getMorphClass(),
+            title: $this->title,
+            description: $this->description,
+            url_admin: route('admin.posts.edit', $this->id),
+            url_public: localized_route('front.posts.show', ['post' => $this->slug]),
+            updated_at: $this->updated_at,
+        );
     }
 }

@@ -70,13 +70,13 @@ class Person extends Model
 
     public function getSearchResultAttribute(): SearchResult
     {
-        return new SearchResult([
-            'type'        => $this->getMorphClass(),
-            'title'       => $this->name,
-            'description' => $this->title,
-            'url_admin'   => route('admin.people.edit', $this->id),
-            'url_public'  => localized_route('front.people.show', ['person' => $this->slug]),
-            'updated_at'  => $this->updated_at->diffForHumans(),
-        ]);
+        return new SearchResult(
+            type: $this->getMorphClass(),
+            title: $this->name,
+            description: $this->title,
+            url_admin: route('admin.people.edit', $this->id),
+            url_public: localized_route('front.people.show', ['person' => $this->slug]),
+            updated_at: $this->updated_at,
+        );
     }
 }
