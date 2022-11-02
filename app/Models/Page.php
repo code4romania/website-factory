@@ -59,14 +59,14 @@ class Page extends Model
 
     public function getSearchResultAttribute(): SearchResult
     {
-        return new SearchResult([
-            'type'        => $this->getMorphClass(),
-            'title'       => $this->title,
-            'description' => $this->description,
-            'url_admin'   => route('admin.pages.edit', $this->id),
-            'url_public'  => localized_route('front.pages.show', ['page' => $this->slug]),
-            'updated_at'  => $this->updated_at->diffForHumans(),
-        ]);
+        return new SearchResult(
+            type: $this->getMorphClass(),
+            title: $this->title,
+            description: $this->description,
+            url_admin: route('admin.pages.edit', $this->id),
+            url_public: localized_route('front.pages.show', ['page' => $this->slug]),
+            updated_at: $this->updated_at,
+        );
     }
 
     public function newCollection(array $models = [])

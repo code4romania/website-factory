@@ -113,13 +113,13 @@ class Form extends Model
 
     public function getSearchResultAttribute(): SearchResult
     {
-        return new SearchResult([
-            'type'        => $this->getMorphClass(),
-            'title'       => $this->title,
-            'description' => $this->description,
-            'url_admin'   => route('admin.forms.edit', $this->id),
-            'url_public'  => localized_route('front.forms.show', ['form' => $this->slug]),
-            'updated_at'  => $this->updated_at->diffForHumans(),
-        ]);
+        return new SearchResult(
+            type: $this->getMorphClass(),
+            title: $this->title,
+            description: $this->description,
+            url_admin: route('admin.forms.edit', $this->id),
+            url_public: localized_route('front.forms.show', ['form' => $this->slug]),
+            updated_at: $this->updated_at,
+        );
     }
 }
