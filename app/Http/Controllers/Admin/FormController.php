@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\FormSubmissionsExport;
 use App\Http\Requests\Admin\FormRequest;
 use App\Http\Resources\Collections\FormCollection;
 use App\Http\Resources\Collections\FormSubmissionCollection;
 use App\Http\Resources\FormResource;
 use App\Models\Form;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response as HttpResponse;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class FormController extends AdminController
 {
@@ -58,6 +62,14 @@ class FormController extends AdminController
                     ->paginate()
             ),
         ])->model(Form::class);
+    }
+
+    public function export(Form $form): HttpResponse|BinaryFileResponse
+    {
+        $filename = Str::slug($form->title) . '.xlsx';
+
+        return (new FormSubmissionsExport($form))
+            ->download($filename);
     }
 
     public function edit(Form $form): Response

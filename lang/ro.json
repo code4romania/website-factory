@@ -31,6 +31,7 @@
     "app.action.duplicateConfirm": "Ești sigur că dorești să duplici aceast item?",
     "app.action.edit": "Editează",
     "app.action.enable": "Activează",
+    "app.action.export": "Exportă",
     "app.action.filter": "Filtrează",
     "app.action.forceDelete": "Șterge permanent",
     "app.action.forceDeleteConfirm": "Ești sigur că dorești să ștergi permanent aceast item?",
@@ -285,6 +286,7 @@
     "form_submission.id": "Răspuns #:id",
 
     "form_submission.empty.title": "Nu am găsit niciun răspuns pentru acest formular.",
+    "form_submission.event.deleted": "Răspunsul a fost șters.",
 
     "form_submission.mail.intro": "Formularul \":title\" a primit un nou răspuns.",
     "form_submission.mail.stored": "Răspunsul a fost stocat și în baza de date cu următorul id:",

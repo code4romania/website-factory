@@ -31,6 +31,7 @@
     "app.action.duplicateConfirm": "Are you sure you want to duplicate this item?",
     "app.action.edit": "Edit",
     "app.action.enable": "Activate",
+    "app.action.export": "Export",
     "app.action.filter": "Filter",
     "app.action.forceDelete": "Permanently delete",
     "app.action.forceDeleteConfirm": "Are you sure you want to permanently delete this item?",
@@ -285,6 +286,7 @@
     "form_submission.id": "Submission #:id",
 
     "form_submission.empty.title": "No form submsisions found.",
+    "form_submission.event.deleted": "Submission successfully deleted.",
 
     "form_submission.mail.intro": "The form \":title\" received a new submission.",
     "form_submission.mail.stored": "The submission was also stored in the database with the following id:",
