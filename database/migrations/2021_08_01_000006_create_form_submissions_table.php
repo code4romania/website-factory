@@ -16,7 +16,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('form_submissions', function (Blueprint $table) {
-            $table->commonFields();
+            $table->id();
+            $table->timestamps();
             $table->uuid('uuid')->nullable()->unique();
 
             $table->json('data');

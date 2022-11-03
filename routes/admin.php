@@ -160,6 +160,7 @@ Route::group([
     Route::post('/', 'store')->name('store');
     Route::get('/collection', 'collection')->name('collection');
     Route::get('/{form}', 'show')->name('show');
+    Route::get('/{form}/export', 'export')->name('export');
     Route::get('/{form}/edit', 'edit')->name('edit');
     Route::post('/{form}/duplicate', 'duplicate')->name('duplicate');
     Route::post('/{form}/preview', 'preview')->name('preview');
