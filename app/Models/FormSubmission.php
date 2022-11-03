@@ -31,7 +31,7 @@ class FormSubmission extends Model
     ];
 
     public $casts = [
-        'data' => 'array',
+        'data' => 'collection',
     ];
 
     public function form(): BelongsTo
