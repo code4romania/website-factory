@@ -66,10 +66,12 @@ class FormController extends AdminController
 
     public function export(Form $form): HttpResponse|BinaryFileResponse
     {
-        $filename = Str::slug($form->title) . '.xlsx';
+        $form->loadMissing('submissions');
+
+        abort_if($form->submissions->isEmpty(), 404);
 
         return (new FormSubmissionsExport($form))
-            ->download($filename);
+            ->download(Str::slug($form->title) . '.xlsx');
     }
 
     public function edit(Form $form): Response

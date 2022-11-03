@@ -37,12 +37,20 @@ class FormSubmissionsExport implements FromCollection, ShouldAutoSize, WithHeadi
         ];
     }
 
+    protected function getQuestions(): array
+    {
+        return $this->collection()->first()
+            ?->data
+            ->pluck('label')
+            ->all() ?? [];
+    }
+
     public function headings(): array
     {
         return [
             __('form_submission.id', ['id' => null]),
             __('field.created_at'),
-            ...$this->collection()->first()->data->pluck('label'),
+            ...$this->getQuestions(),
         ];
     }
 
