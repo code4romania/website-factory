@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-white border">
+    <section class="overflow-hidden bg-white border">
         <header class="relative flex items-stretch bg-gray-50">
             <div
                 class="handle shrink-0 px-1.5 py-2.5 bg-gray-100 border-r cursor-move flex items-center"
@@ -10,7 +10,7 @@
             <button
                 type="button"
                 @click="toggleOpen"
-                class="flex flex-wrap flex-1 p-3 space-x-1 text-sm font-semibold text-left text-gray-400 truncate focus:outline-none"
+                class="flex flex-1 p-3 space-x-1 overflow-hidden text-sm font-semibold text-left text-gray-400 truncate focus:outline-none"
             >
                 <icon
                     v-if="icon"
@@ -20,7 +20,7 @@
 
                 <h1 class="text-gray-900" v-text="$t(name)" />
 
-                <span v-if="title">&mdash; {{ title }}</span>
+                <span v-if="title" class="truncate">&mdash; {{ title }}</span>
             </button>
 
             <div class="relative flex items-center pr-3 space-x-3 shrink-0">
