@@ -23,7 +23,7 @@
         </button>
 
         <div
-            v-show="isOpen"
+            v-if="isOpen"
             v-click-away="() => close()"
             class="absolute z-50 flex flex-col w-64 bg-white rounded shadow-xl top-full max-h-96"
         >
