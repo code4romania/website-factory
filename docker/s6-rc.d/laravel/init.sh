@@ -16,5 +16,5 @@ php artisan wf:setup
 php artisan wf:sequences
 
 echo "Laravel init done"
-php artisan about
 php artisan up
+php artisan about
