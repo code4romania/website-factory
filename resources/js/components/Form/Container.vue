@@ -70,7 +70,7 @@
 
 <script>
     import { computed, onUnmounted, watch } from 'vue';
-    import { useForm, route } from '@/helpers';
+    import { useForm, useLocale, route } from '@/helpers';
     import { trans } from 'laravel-vue-i18n';
     import { Inertia } from '@inertiajs/inertia';
 
@@ -142,9 +142,21 @@
                 },
             });
 
+            const { isTranslatable } = useLocale();
+
             watch(
                 () => props.resource?.slug,
-                (slug) => (form.slug = slug)
+                (newValue) => {
+                    if (isTranslatable('slug')) {
+                        Object.entries(form.slug).forEach(([locale, value]) => {
+                            if (value !== newValue[locale]) {
+                                form.slug[locale] = newValue[locale];
+                            }
+                        });
+                    } else if (form.slug !== newValue) {
+                        form.slug = newValue;
+                    }
+                }
             );
 
             /**
