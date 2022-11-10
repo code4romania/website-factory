@@ -7,9 +7,9 @@
 
     <link rel="icon" type="image/png" href="{{ favicon_url() }}">
 
-    @vite(['resources/css/admin.css', 'resources/js/admin.js'])
-
     @routes
+
+    @vite(['resources/css/admin.css', 'resources/js/admin.js'])
 </head>
 
 <body class="min-h-screen antialiased bg-gray-100">
