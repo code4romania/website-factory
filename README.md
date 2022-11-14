@@ -4,7 +4,7 @@
 
 Code4ro presentation website
 
-[Contributing](#contributing) | [Built with](#built-with) | [Development](#development) | [Deployment](#deployment) | [Feedback](#feedback) | [License](#license) | [About Code4Ro](#about-code4ro)
+[Contributing](#contributing) | [Built with](#built-with) | [Development](#development) | [Deployment](#deployment) | [Feedback](#feedback) | [License](#license) | [About Code for Romania](#about-code-for-romania)
 
 ## Contributing
 
@@ -65,7 +65,43 @@ For more information on Laravel Sail, check out the [official documentation](htt
 
 ## Deployment
 
-TBD
+The fastest way to deploy Website Factory is by using our first-party [Docker image](https://hub.docker.com/r/code4romania/website-factory).
+
+### Prerequisites
+
+#### Generate an application key
+
+Before deploying Website Factory, make sure you generate a valid application key. If you are not sure what an application key is, you can read more about it here: [`APP_KEY` And You](https://tighten.com/blog/app-key-and-you/) blog post on Tighten's website.
+
+To generate an application key, you can run the following command in your terminal.
+
+```sh
+docker run --rm -it code4romania/website-factory php artisan key:generate --show
+```
+
+The generated application key will look like this:
+
+```
+base64:yEtz1eacKMwq0iVT5BUjMMvcn4OAD7QpCgz1yDoXroE=
+```
+
+### Running the image
+
+Download the [example `docker-compose.yml`](docs/examples/docker-compose.yml) and configure the environment variables. Here's where you use the `APP_KEY` generated earlier. After you're done, save the file and run it with:
+
+```sh
+docker-compose up -d
+```
+
+You should now be able to access your instance admin area by visiting `<your-ip>:8080/admin` and logging in with the `ADMIN_EMAIL` and `ADMIN_PASSWORD` you specified in the configuration.
+
+
+## Deployment on AWS / Microsoft Azure with terraform
+
+We maintain two separate terraform repositories for Website Factory. To learn more about the infrastructure we provisioned for Website Factory on these cloud providers, please check their respective repositories:
+- https://github.com/code4romania/terraform-aws-website-factory
+- https://github.com/code4romania/terraform-azure-website-factory
+
 
 ## Feedback
 
@@ -78,7 +114,7 @@ TBD
 
 This project is licensed under the MPL 2.0 License - see the [LICENSE](LICENSE) file for details
 
-## About Code4Ro
+## About Code for Romania
 
 Started in 2016, Code for Romania is a civic tech NGO, official member of the Code for All network. We have a community of over 500 volunteers (developers, ux/ui, communications, data scientists, graphic designers, devops, it security and more) who work pro-bono for developing digital solutions to solve social problems. #techforsocialgood. If you want to learn more details about our projects [visit our site](https://www.code4.ro/en/) or if you want to talk to one of our staff members, please e-mail us at contact@code4.ro.
 
