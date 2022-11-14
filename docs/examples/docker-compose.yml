@@ -1,0 +1,48 @@
+version: '3'
+services:
+  app:
+    image: code4romania/website-factory
+    depends_on:
+      - db
+    ports:
+      - 8080:80
+    environment:
+      APP_KEY: "CHANGE_ME"
+      APP_URL: "https://example.com"
+
+      DB_CONNECTION: "pgsql"
+      DB_HOST: "db"
+      DB_PORT: "5432"
+      DB_DATABASE: "website_factory"
+      DB_USERNAME: "postgres"
+      DB_PASSWORD: "RANDOM_GENERATED_PASSWORD"
+
+      MAIL_MAILER: "smtp"
+      MAIL_HOST: "smtp.example.com"
+      MAIL_PORT: "587"
+      MAIL_USERNAME: "mail@example.com"
+      MAIL_PASSWORD: "CHANGE_ME"
+      MAIL_ENCRYPTION: "tls"
+      MAIL_FROM_ADDRESS: "mail@example.com"
+      MAIL_FROM_NAME: "CHANGE_ME"
+
+      # you can safely remove these two lines after running the container for the first time
+      ADMIN_EMAIL: "admin@example.com"
+      ADMIN_PASSWORD: "INITIAL_PASSWORD"
+    volumes:
+      - app-data:/var/www/storage
+
+  db:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "RANDOM_GENERATED_PASSWORD"
+      POSTGRES_DB: "website_factory"
+    volumes:
+      - db-data:/var/lib/postgresql/data/
+
+volumes:
+  app-data:
+  db-data:
