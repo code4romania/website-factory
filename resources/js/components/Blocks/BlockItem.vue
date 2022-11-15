@@ -1,5 +1,5 @@
 <template>
-    <section class="overflow-hidden bg-white border">
+    <section class="bg-white border">
         <header class="relative flex items-stretch bg-gray-50">
             <div
                 class="handle shrink-0 px-1.5 py-2.5 bg-gray-100 border-r cursor-move flex items-center"
