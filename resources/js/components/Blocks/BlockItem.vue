@@ -81,10 +81,14 @@
         <div v-show="open" class="px-4 py-5 space-y-8 border-t sm:p-6">
             <component
                 :is="component"
-                v-model:content="content"
-                v-model:children="children"
-                v-model:media="media"
-                v-model:related="related"
+                :content="content"
+                @update:content="emit('update:content', $event)"
+                :children="children"
+                @update:children="emit('update:children', $event)"
+                :media="media"
+                @update:media="emit('update:media', $event)"
+                :related="related"
+                @update:related="emit('update:related', $event)"
             />
 
             <details v-if="$page.props.app.debug">
