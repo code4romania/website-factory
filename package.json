@@ -49,7 +49,7 @@
         "@tiptap/extension-text": "^2.0.0-beta",
         "@tiptap/extension-text-align": "^2.0.0-beta",
         "@tiptap/extension-text-style": "^2.0.0-beta",
-        "@tiptap/extension-typography": "^2.0.0-beta",
+        "@tiptap/extension-typography": "^2.0.0-beta.202",
         "@tiptap/extension-underline": "^2.0.0-beta",
         "@tiptap/vue-3": "^2.0.0-beta",
         "@vue/compiler-sfc": "^3.2.45",
