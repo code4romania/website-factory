@@ -83,7 +83,7 @@
         "@vitejs/plugin-vue": "^3.2.0",
         "husky": "^8.0.2",
         "laravel-vite-plugin": "^0.7.1",
-        "prettier": "^2.7.1",
+        "prettier": "^2.8.0",
         "prettier-plugin-tailwindcss": "^0.1.13",
         "vite": "^3.2.4",
         "vite-plugin-manifest-sri": "^0.1.0"
