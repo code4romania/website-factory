@@ -85,6 +85,20 @@ return [
 
             'CacheControl' => 'max-age=2628000, no-transform, public',
         ],
+
+        'gcs' => [
+            'driver' => 'gcs',
+            'key_file_path' => env('GOOGLE_CLOUD_KEY_FILE'),
+            'project_id' => env('GOOGLE_CLOUD_PROJECT_ID'),
+            'bucket' => env('GOOGLE_CLOUD_STORAGE_BUCKET'),
+            'path_prefix' => (string) env('GOOGLE_CLOUD_STORAGE_PATH_PREFIX'),
+            'storage_api_uri' => env('GOOGLE_CLOUD_STORAGE_API_URI'),
+            'apiEndpoint' => env('GOOGLE_CLOUD_STORAGE_API_ENDPOINT'),
+            'visibility' => env('GOOGLE_CLOUD_DEFAULT_VISIBILITY', 'public'),
+            'metadata' => [
+                'cacheControl'=> 'max-age=2628000, no-transform, public',
+            ],
+        ],
     ],
 
     /*

@@ -29,6 +29,7 @@ return [
         'public',
         's3',
         'azure',
+        'gcs',
     ],
 
     /*
@@ -222,6 +223,7 @@ return [
         'local' => Plank\Mediable\UrlGenerators\LocalUrlGenerator::class,
         's3' => Plank\Mediable\UrlGenerators\S3UrlGenerator::class,
         'azure' => Plank\Mediable\UrlGenerators\S3UrlGenerator::class,
+        'gcs' => Plank\Mediable\UrlGenerators\S3UrlGenerator::class,
     ],
 
     /*
