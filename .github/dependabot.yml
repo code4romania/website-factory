@@ -13,10 +13,12 @@ updates:
       interval: "weekly"
       day: "wednesday"
     versioning-strategy: increase
+    open-pull-requests-limit: 10
 
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "monthly"
-    open-pull-requests-limit: 0
+    versioning-strategy: increase
+    open-pull-requests-limit: 10
