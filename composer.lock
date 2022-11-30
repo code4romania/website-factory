@@ -6558,16 +6558,16 @@
         },
         {
             "name": "spatie/laravel-responsecache",
-            "version": "7.4.3",
+            "version": "7.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-responsecache.git",
-                "reference": "59b28a5898da23a44e0a1b0be83db253733a8f86"
+                "reference": "48cb5af1d80e023761ac4c93963cfc7d5adaa38b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/59b28a5898da23a44e0a1b0be83db253733a8f86",
-                "reference": "59b28a5898da23a44e0a1b0be83db253733a8f86",
+                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/48cb5af1d80e023761ac4c93963cfc7d5adaa38b",
+                "reference": "48cb5af1d80e023761ac4c93963cfc7d5adaa38b",
                 "shasum": ""
             },
             "require": {
@@ -6576,7 +6576,7 @@
                 "illuminate/container": "^8.71|^9.0",
                 "illuminate/http": "^8.71|^9.0",
                 "illuminate/support": "^8.71|^9.0",
-                "nesbot/carbon": "^2.35",
+                "nesbot/carbon": "^2.63",
                 "php": "^8.0",
                 "spatie/laravel-package-tools": "^1.9"
             },
@@ -6584,6 +6584,7 @@
                 "laravel/framework": "^9.0",
                 "mockery/mockery": "^1.4",
                 "orchestra/testbench": "^6.23|^7.0",
+                "pestphp/pest": "^1.22",
                 "phpunit/phpunit": "^9.4"
             },
             "type": "library",
@@ -6625,7 +6626,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/laravel-responsecache/tree/7.4.3"
+                "source": "https://github.com/spatie/laravel-responsecache/tree/7.4.4"
             },
             "funding": [
                 {
@@ -6637,7 +6638,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-09-24T12:15:10+00:00"
+            "time": "2022-11-25T08:07:24+00:00"
         },
         {
             "name": "spatie/laravel-translatable",
