@@ -62,11 +62,6 @@ jobs:
           coverage: pcov
           tools: composer:v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: ".nvmrc"
-
       - name: Get composer cache directory
         id: composercache
         run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
@@ -78,25 +73,8 @@ jobs:
           key: dependencies-composer-${{ hashFiles('composer.lock') }}-php-${{ matrix.php-version }}
           restore-keys: dependencies-composer-
 
-      - name: Get npm cache directory
-        id: npmcache
-        run: echo "dir=$(npm config get cache)" >> $GITHUB_OUTPUT
-
-      - name: Cache npm dependencies
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.npmcache.outputs.dir }}
-          key: dependencies-npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: dependencies-npm-
-
       - name: Install composer dependencies
         run: composer install --prefer-dist --no-interaction
-
-      - name: Install npm dependencies
-        run: npm ci --prefer-offline
-
-      - name: Build frontend
-        run: npm run build
 
       - name: Setup env
         run: |
