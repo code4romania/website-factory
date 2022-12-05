@@ -30,7 +30,7 @@ class FormController extends Controller
 
         $data = $form->blocks
             ->map(function (FormField $field) use ($attributes) {
-                $value = $attributes[$field->name] ?? '&mdash;';
+                $value = $attributes[$field->name] ?? null;
 
                 if (\is_array($value)) {
                     $value = implode(', ', $value);
