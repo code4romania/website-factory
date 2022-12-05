@@ -25,7 +25,10 @@ class FormController extends AdminController
             'collection' => new FormCollection(
                 Form::query()
                     ->withCount('submissions')
-                    ->sort()
+                    ->sort(
+                        defaultColumn: 'created_at',
+                        defaultDirection: 'desc'
+                    )
                     ->filter()
                     ->paginate()
             ),
@@ -57,7 +60,10 @@ class FormController extends AdminController
             'resource' => FormResource::make($form),
             'collection' => new FormSubmissionCollection(
                 $form->submissions()
-                    ->sort()
+                    ->sort(
+                        defaultColumn: 'created_at',
+                        defaultDirection: 'desc'
+                    )
                     ->filter()
                     ->paginate()
             ),
