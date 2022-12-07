@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e964ca5bbc235e98e521752b696ffd8",
+    "content-hash": "9d2b8e5cef21ca715bbec12be917faf7",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -471,16 +471,16 @@
         },
         {
             "name": "codezero/laravel-unique-translation",
-            "version": "3.5.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codezero-be/laravel-unique-translation.git",
-                "reference": "9e381f44c18ec4603948707f900f232819f2fe96"
+                "reference": "a59218771c56291c9035f353c8e77495b94f7b83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codezero-be/laravel-unique-translation/zipball/9e381f44c18ec4603948707f900f232819f2fe96",
-                "reference": "9e381f44c18ec4603948707f900f232819f2fe96",
+                "url": "https://api.github.com/repos/codezero-be/laravel-unique-translation/zipball/a59218771c56291c9035f353c8e77495b94f7b83",
+                "reference": "a59218771c56291c9035f353c8e77495b94f7b83",
                 "shasum": ""
             },
             "require": {
@@ -530,7 +530,7 @@
             ],
             "support": {
                 "issues": "https://github.com/codezero-be/laravel-unique-translation/issues",
-                "source": "https://github.com/codezero-be/laravel-unique-translation/tree/3.5.0"
+                "source": "https://github.com/codezero-be/laravel-unique-translation/tree/4.0.0"
             },
             "funding": [
                 {
@@ -542,7 +542,7 @@
                     "type": "ko_fi"
                 }
             ],
-            "time": "2022-02-03T12:28:11+00:00"
+            "time": "2022-11-30T14:53:16+00:00"
         },
         {
             "name": "composer/ca-bundle",
