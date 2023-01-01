@@ -58,7 +58,7 @@
         "@vueuse/integrations": "^9.7.0",
         "alpinejs": "^3.10.5",
         "autoprefixer": "^10.4.13",
-        "axios": "^1.2.1",
+        "axios": "^1.2.2",
         "echarts": "^5.4.1",
         "fuse.js": "^6.6.2",
         "husky": "^8.0.2",
