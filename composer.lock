@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dbcd220574755470b20da415b36dc6da",
+    "content-hash": "3611b0892b3095f441a89e002a5797f5",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -5571,24 +5571,24 @@
         },
         {
             "name": "plank/laravel-mediable",
-            "version": "5.7.0",
+            "version": "5.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/plank/laravel-mediable.git",
-                "reference": "d5a4e3888ae2fd9d3b931d81a7faad412d5c901c"
+                "reference": "f613f66848c68ae8c7bbd5ae1bb503109235f4f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plank/laravel-mediable/zipball/d5a4e3888ae2fd9d3b931d81a7faad412d5c901c",
-                "reference": "d5a4e3888ae2fd9d3b931d81a7faad412d5c901c",
+                "url": "https://api.github.com/repos/plank/laravel-mediable/zipball/f613f66848c68ae8c7bbd5ae1bb503109235f4f6",
+                "reference": "f613f66848c68ae8c7bbd5ae1bb503109235f4f6",
                 "shasum": ""
             },
             "require": {
                 "ext-fileinfo": "*",
                 "guzzlehttp/guzzle": "^6.5.5|^7.4.1",
-                "illuminate/database": "^8.83|^9.0",
-                "illuminate/filesystem": "^8.83|^9.0",
-                "illuminate/support": "^8.83|^9.0",
+                "illuminate/database": "^8.83.3|^9.0",
+                "illuminate/filesystem": "^8.83.3|^9.0",
+                "illuminate/support": "^8.83.3|^9.0",
                 "intervention/image": "^2.7.1",
                 "league/flysystem": "^1.1.9|^2.4.2|^3.0.4",
                 "php": ">=7.4.0",
@@ -5644,9 +5644,9 @@
             ],
             "support": {
                 "issues": "https://github.com/plank/laravel-mediable/issues",
-                "source": "https://github.com/plank/laravel-mediable/tree/5.7.0"
+                "source": "https://github.com/plank/laravel-mediable/tree/5.8.0"
             },
-            "time": "2022-11-22T00:56:37+00:00"
+            "time": "2023-01-03T15:59:48+00:00"
         },
         {
             "name": "psr/container",
