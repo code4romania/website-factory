@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ac9757cdd92dc684c35b2614c949aeb",
+    "content-hash": "686d279f6cc0e2ca3ddeb94ebc119ba5",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -174,16 +174,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.253.4",
+            "version": "3.256.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "da3b60b090b2070bd452d8b87737ea1e00d8002f"
+                "reference": "d993c3aa72233186375f3ceb5811a30982fbcad8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/da3b60b090b2070bd452d8b87737ea1e00d8002f",
-                "reference": "da3b60b090b2070bd452d8b87737ea1e00d8002f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d993c3aa72233186375f3ceb5811a30982fbcad8",
+                "reference": "d993c3aa72233186375f3ceb5811a30982fbcad8",
                 "shasum": ""
             },
             "require": {
@@ -262,9 +262,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.253.4"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.256.1"
             },
-            "time": "2022-12-16T19:23:03+00:00"
+            "time": "2023-01-10T19:20:06+00:00"
         },
         {
             "name": "blade-ui-kit/blade-icons",
@@ -2907,20 +2907,20 @@
         },
         {
             "name": "league/flysystem-aws-s3-v3",
-            "version": "3.10.3",
+            "version": "3.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem-aws-s3-v3.git",
-                "reference": "f593bf91f94f2adf4f71513d29f1dfa693f2f640"
+                "reference": "ea100348d497585687e4ad487bf150b0d766b46d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/f593bf91f94f2adf4f71513d29f1dfa693f2f640",
-                "reference": "f593bf91f94f2adf4f71513d29f1dfa693f2f640",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/ea100348d497585687e4ad487bf150b0d766b46d",
+                "reference": "ea100348d497585687e4ad487bf150b0d766b46d",
                 "shasum": ""
             },
             "require": {
-                "aws/aws-sdk-php": "^3.132.4",
+                "aws/aws-sdk-php": "^3.220.0",
                 "league/flysystem": "^3.10.0",
                 "league/mime-type-detection": "^1.0.0",
                 "php": "^8.0.2"
@@ -2957,7 +2957,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem-aws-s3-v3/issues",
-                "source": "https://github.com/thephpleague/flysystem-aws-s3-v3/tree/3.10.3"
+                "source": "https://github.com/thephpleague/flysystem-aws-s3-v3/tree/3.12.1"
             },
             "funding": [
                 {
@@ -2973,7 +2973,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-26T18:15:09+00:00"
+            "time": "2023-01-06T15:19:01+00:00"
         },
         {
             "name": "league/flysystem-azure-blob-storage",
