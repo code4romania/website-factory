@@ -73,7 +73,7 @@
 
 <script>
     import { computed } from 'vue';
-    import { usePage } from '@inertiajs/inertia-vue3';
+    import { usePage } from '@inertiajs/vue3';
     import { route } from '@/helpers';
     import { isLoaded } from 'laravel-vue-i18n';
 
@@ -104,15 +104,15 @@
                 });
 
             const mainMenu = computed(() =>
-                buildMenu(usePage().props.value.navigation.primary)
+                buildMenu(usePage().props.navigation.primary)
             );
 
             const secondaryMenu = computed(() =>
-                buildMenu(usePage().props.value.navigation.secondary)
+                buildMenu(usePage().props.navigation.secondary)
             );
 
             const settingsMenu = computed(() =>
-                buildMenu(usePage().props.value.navigation.settings)
+                buildMenu(usePage().props.navigation.settings)
             );
 
             return {

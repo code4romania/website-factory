@@ -60,7 +60,7 @@
 
 <script>
     import { computed } from 'vue';
-    import { usePage } from '@inertiajs/inertia-vue3';
+    import { usePage } from '@inertiajs/vue3';
     import { route } from '@/helpers';
     import pickBy from 'lodash/pickBy';
 
@@ -94,7 +94,7 @@
 
             const sortData = (column) => {
                 const request = {
-                    filters: pickBy(usePage().props.value.filters),
+                    filters: pickBy(usePage().props.filters),
                 };
 
                 if (props.sort.column !== column.field) {

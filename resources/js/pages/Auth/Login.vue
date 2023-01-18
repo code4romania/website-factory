@@ -50,7 +50,7 @@
 </template>
 
 <script>
-    import { useForm } from '@inertiajs/inertia-vue3';
+    import { useForm } from '@inertiajs/vue3';
     import { route } from '@/helpers';
 
     export default {

@@ -86,7 +86,7 @@
 
 <script>
     import { computed } from 'vue';
-    import { usePage } from '@inertiajs/inertia-vue3';
+    import { usePage } from '@inertiajs/vue3';
     import cloneDeep from 'lodash/cloneDeep';
     import Draggable from 'vuedraggable';
 
@@ -116,7 +116,7 @@
         emits: ['update:blocks'],
         setup(props) {
             const allowedBlocks = computed(
-                () => usePage().props.value.model.allowed_blocks
+                () => usePage().props.model.allowed_blocks
             );
 
             const addBlock = (type) => {

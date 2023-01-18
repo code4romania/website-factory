@@ -72,7 +72,7 @@
     import { computed, onUnmounted, watch } from 'vue';
     import { useForm, useLocale, route } from '@/helpers';
     import { trans } from 'laravel-vue-i18n';
-    import { Inertia } from '@inertiajs/inertia';
+    import { router } from '@inertiajs/vue3';
 
     export default {
         name: 'FormContainer',
@@ -163,7 +163,7 @@
              * @see https://inertiajs.com/events#removing-listeners
              */
             onUnmounted(
-                Inertia.on('before', (event) => {
+                router.on('before', (event) => {
                     if (
                         form.isDirty &&
                         event.detail.visit.method === 'get' &&

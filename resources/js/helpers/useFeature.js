@@ -1,8 +1,8 @@
-import { usePage } from '@inertiajs/inertia-vue3';
+import { usePage } from '@inertiajs/vue3';
 
 export default function () {
     const hasFeature = (feature) => {
-        return (usePage().props.value.app.features || []).includes(feature);
+        return (usePage().props.app.features || []).includes(feature);
     };
 
     return {

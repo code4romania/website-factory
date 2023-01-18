@@ -10,12 +10,12 @@
 
 <script>
     import { computed } from 'vue';
-    import { usePage } from '@inertiajs/inertia-vue3';
+    import { usePage } from '@inertiajs/vue3';
 
     export default {
         name: 'ValidationErrors',
         setup(props) {
-            const errors = computed(() => usePage().props.value.errors);
+            const errors = computed(() => usePage().props.errors);
 
             const hasErrors = computed(() => Object.keys(errors.value).length > 0);
 

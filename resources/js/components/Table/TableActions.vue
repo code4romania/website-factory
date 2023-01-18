@@ -145,7 +145,7 @@
 <script>
     import { ref, computed } from 'vue';
     import { useLocale } from '@/helpers';
-    import { useForm } from '@inertiajs/inertia-vue3';
+    import { useForm } from '@inertiajs/vue3';
     import { route } from '@/helpers';
 
     export default {
@@ -161,7 +161,7 @@
             },
         },
         setup(props) {
-            const form = useForm();
+            const form = useForm({});
 
             const { currentLocale } = useLocale();
 

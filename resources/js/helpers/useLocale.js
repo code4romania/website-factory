@@ -1,19 +1,15 @@
-import { usePage } from '@inertiajs/inertia-vue3';
+import { usePage } from '@inertiajs/vue3';
 import { computed } from 'vue';
 
 export default function (props) {
-    const locales = computed(
-        () => usePage().props.value.locales.available || {}
-    );
-    const activeLocales = computed(
-        () => usePage().props.value.locales.active || []
-    );
+    const locales = computed(() => usePage().props.locales.available || {});
+    const activeLocales = computed(() => usePage().props.locales.active || []);
     const translatableFields = computed(
-        () => usePage().props.value.model.translatable || []
+        () => usePage().props.model.translatable || []
     );
     const currentLocale = computed({
-        get: () => usePage().props.value.locales.current,
-        set: (locale) => (usePage().props.value.locales.current = locale),
+        get: () => usePage().props.locales.current,
+        set: (locale) => (usePage().props.locales.current = locale),
     });
     const localeIds = computed(() => Object.keys(locales.value));
 

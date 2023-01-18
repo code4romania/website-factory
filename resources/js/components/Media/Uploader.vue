@@ -57,7 +57,7 @@
 
 <script>
     import { ref, computed } from 'vue';
-    import { usePage } from '@inertiajs/inertia-vue3';
+    import { usePage } from '@inertiajs/vue3';
     import { useDropZone } from '@vueuse/core';
 
     export default {
@@ -72,20 +72,18 @@
         emits: ['upload'],
         setup(props, { emit }) {
             const allowedExtensions = computed(() =>
-                usePage().props.value.mediaLibrary.allowedExtensions[
+                usePage().props.mediaLibrary.allowedExtensions[
                     props.currentType
                 ].join(', ')
             );
 
             const allowedMimeTypes = computed(
                 () =>
-                    usePage().props.value.mediaLibrary.allowedMimeTypes[
-                        props.currentType
-                    ]
+                    usePage().props.mediaLibrary.allowedMimeTypes[props.currentType]
             );
 
             const maxFileSize = computed(
-                () => usePage().props.value.mediaLibrary.maxFileSize
+                () => usePage().props.mediaLibrary.maxFileSize
             );
 
             const dropzone = ref(null);

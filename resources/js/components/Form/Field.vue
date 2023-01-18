@@ -52,7 +52,7 @@
 
 <script>
     import { computed } from 'vue';
-    import { usePage } from '@inertiajs/inertia-vue3';
+    import { usePage } from '@inertiajs/vue3';
     import { defineInput, useLocale } from '@/helpers';
 
     export default defineInput({
@@ -67,7 +67,7 @@
             const { hasMultipleLocales, nextLocale } = useLocale(props);
 
             const errors = computed(() => {
-                const initialErrors = usePage().props.value.errors;
+                const initialErrors = usePage().props.errors;
 
                 if (!props.locale && initialErrors.hasOwnProperty(props.name)) {
                     return [initialErrors[props.name]];
