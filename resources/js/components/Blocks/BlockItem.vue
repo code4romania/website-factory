@@ -127,7 +127,7 @@
 
 <script>
     import { computed, ref } from 'vue';
-    import { usePage } from '@inertiajs/inertia-vue3';
+    import { usePage } from '@inertiajs/vue3';
     import { useLocale } from '@/helpers';
     import get from 'lodash/get';
 
@@ -186,7 +186,7 @@
             );
 
             const icon = computed(() => {
-                const block = usePage().props.value.model.allowed_blocks.find(
+                const block = usePage().props.model.allowed_blocks.find(
                     ({ type }) => type === props.component
                 );
 

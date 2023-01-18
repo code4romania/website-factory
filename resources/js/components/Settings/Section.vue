@@ -46,18 +46,18 @@
 
 <script>
     import { computed } from 'vue';
-    import { useForm, usePage } from '@inertiajs/inertia-vue3';
+    import { useForm, usePage } from '@inertiajs/vue3';
     import { route } from '@/helpers';
     import { trans, transChoice } from 'laravel-vue-i18n';
 
     export default {
         name: 'SettingsSection',
         setup(props) {
-            const sections = computed(() => usePage().props.value.sections);
-            const section = computed(() => usePage().props.value.section);
+            const sections = computed(() => usePage().props.sections);
+            const section = computed(() => usePage().props.section);
 
             const form = useForm({
-                settings: usePage().props.value.settings,
+                settings: usePage().props.settings,
             });
 
             const url = route('admin.settings.store', { section: section.value });

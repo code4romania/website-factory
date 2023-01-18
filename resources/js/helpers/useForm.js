@@ -1,5 +1,5 @@
 import isPlainObject from 'lodash/isPlainObject';
-import { useForm } from '@inertiajs/inertia-vue3';
+import { useForm } from '@inertiajs/vue3';
 import { defaultValue, useLocale } from '@/helpers';
 
 export default function (rememberKey, model, fields, fieldTypes = {}) {

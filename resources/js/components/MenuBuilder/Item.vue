@@ -129,7 +129,7 @@
 
 <script>
     import { computed, ref, watch } from 'vue';
-    import { usePage } from '@inertiajs/inertia-vue3';
+    import { usePage } from '@inertiajs/vue3';
     import { useLocale } from '@/helpers';
     import { trans } from 'laravel-vue-i18n';
     import get from 'lodash/get';
@@ -167,21 +167,21 @@
             const { currentLocale } = useLocale();
 
             const types = computed(() =>
-                (usePage().props.value.types || []).map((type) => ({
+                (usePage().props.types || []).map((type) => ({
                     value: type,
                     label: trans(`menu.item.${type}`),
                 }))
             );
 
             const routes = computed(() =>
-                (usePage().props.value.routes || []).map((route) => ({
+                (usePage().props.routes || []).map((route) => ({
                     value: route,
                     label: trans(`menu.item.${route}`),
                 }))
             );
 
             const models = computed(
-                () => usePage().props.value.models[props.item.type] || []
+                () => usePage().props.models[props.item.type] || []
             );
 
             const itemLabel = computed(() =>
@@ -201,7 +201,7 @@
             const prefix = computed(() => `${props.prefix}.${props.index}`);
 
             const errors = computed(() => {
-                const initialErrors = usePage().props.value.errors;
+                const initialErrors = usePage().props.errors;
                 const errors = {};
 
                 Object.keys(initialErrors).forEach((key) => {

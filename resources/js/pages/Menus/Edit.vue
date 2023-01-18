@@ -44,7 +44,7 @@
 <script>
     import { computed } from 'vue';
     import { route } from '@/helpers';
-    import { useForm } from '@inertiajs/inertia-vue3';
+    import { useForm } from '@inertiajs/vue3';
     import Draggable from 'vuedraggable';
 
     export default {

@@ -65,7 +65,7 @@
 
 <script>
     import { computed } from 'vue';
-    import { usePage } from '@inertiajs/inertia-vue3';
+    import { usePage } from '@inertiajs/vue3';
     import get from 'lodash/get';
 
     export default {
@@ -100,7 +100,7 @@
                 return this.current.name === status.name;
             },
             filterUrl(status) {
-                return this.route(usePage().props.value.route, {
+                return this.route(usePage().props.route, {
                     filter: { status: status.name },
                 });
             },

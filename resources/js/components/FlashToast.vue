@@ -63,7 +63,7 @@
 
 <script>
     import { watch, computed, ref, nextTick } from 'vue';
-    import { usePage } from '@inertiajs/inertia-vue3';
+    import { usePage } from '@inertiajs/vue3';
     import { transChoice } from 'laravel-vue-i18n';
 
     import isEmpty from 'lodash/isEmpty';
@@ -87,8 +87,8 @@
                 setTimeout(hide, props.closeAfter);
             };
 
-            const flash = computed(() => usePage().props.value.flash);
-            const errors = computed(() => usePage().props.value.errors);
+            const flash = computed(() => usePage().props.flash);
+            const errors = computed(() => usePage().props.errors);
 
             watch(
                 [flash, errors],
