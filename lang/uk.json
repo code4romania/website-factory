@@ -1,7 +1,7 @@
 {
     "app.search.placeholder": "Пошук",
     "app.search.results": "Результати пошуку для “:query”",
-    "app.search.empty": "Материалов не найдено.",
+    "app.search.empty": "Матеріалів не знайдено.",
     "app.search.more": "Дізнатися більше",
 
     "pagination.previous": "Наступна",
