@@ -1,0 +1,9 @@
+{
+    "app.search.placeholder": "Поиск",
+    "app.search.results": "Результаты поиска для “:query”",
+    "app.search.empty": "Ничего не найдено.",
+    "app.search.more": "Узнать больше",
+
+    "pagination.previous": "Следующая",
+    "pagination.next": "Предыдущая"
+}
