@@ -9,7 +9,7 @@
     },
     "devDependencies": {
         "@alpinejs/collapse": "^3.10.5",
-        "@alpinejs/persist": "^3.10.5",
+        "@alpinejs/persist": "^3.11.1",
         "@ckpack/vue-color": "^1.3.0",
         "@headlessui/vue": "^1.7.8",
         "@inertiajs/vue3": "^1.0.0",
