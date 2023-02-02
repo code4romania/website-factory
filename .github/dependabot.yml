@@ -10,8 +10,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "wednesday"
+      interval: "monthly"
     versioning-strategy: increase
     open-pull-requests-limit: 10
 
@@ -21,4 +20,4 @@ updates:
     schedule:
       interval: "monthly"
     versioning-strategy: increase
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 20
