@@ -6752,16 +6752,16 @@
         },
         {
             "name": "spatie/laravel-translation-loader",
-            "version": "2.7.4",
+            "version": "2.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-translation-loader.git",
-                "reference": "8c12c702af169c8133fa845a72bf8947ae4d442a"
+                "reference": "3085c2c3d527d4c626eb83f6dd525fed51149dca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-translation-loader/zipball/8c12c702af169c8133fa845a72bf8947ae4d442a",
-                "reference": "8c12c702af169c8133fa845a72bf8947ae4d442a",
+                "url": "https://api.github.com/repos/spatie/laravel-translation-loader/zipball/3085c2c3d527d4c626eb83f6dd525fed51149dca",
+                "reference": "3085c2c3d527d4c626eb83f6dd525fed51149dca",
                 "shasum": ""
             },
             "require": {
@@ -6810,7 +6810,7 @@
                 "translate"
             ],
             "support": {
-                "source": "https://github.com/spatie/laravel-translation-loader/tree/2.7.4"
+                "source": "https://github.com/spatie/laravel-translation-loader/tree/2.7.5"
             },
             "funding": [
                 {
@@ -6818,7 +6818,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2022-02-23T18:25:49+00:00"
+            "time": "2023-02-01T08:59:08+00:00"
         },
         {
             "name": "symfony/console",
