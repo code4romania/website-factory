@@ -53,7 +53,9 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL') . '/storage',
+            'url' => (bool) env('FILESYSTEM_PUBLIC_ABSOLUTE_URL', true)
+                ? env('APP_URL') . '/storage'
+                : '/storage',
             'visibility' => 'public',
         ],
 
