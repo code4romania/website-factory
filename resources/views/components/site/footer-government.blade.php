@@ -16,7 +16,8 @@
                             <x-dynamic-component
                                 class="text-sm font-semibold tracking-wider text-white uppercase hover:text-white/60 focus-visible:text-white/60"
                                 :component="$item->component"
-                                :item="$item" />
+                                :item="$item"
+                            />
 
                             @if ($item->children->count())
                                 <ul class="space-y-4">
@@ -25,7 +26,8 @@
                                             <x-dynamic-component
                                                 class="text-white/60 hover:text-white focus-visible:text-white"
                                                 :component="$item->component"
-                                                :item="$item" />
+                                                :item="$item"
+                                            />
                                         </li>
                                     @endforeach
                                 </ul>
@@ -36,10 +38,20 @@
             </nav>
         </div>
 
-        <div class="pt-8 mt-8 border-t border-gray-200 md:flex md:items-center md:justify-between">
-            <x-social-media-links :links="$social" class="text-white md:order-2" />
+        <div
+            class="flex flex-col gap-4 pt-8 mt-8 border-t border-gray-200 md:flex-row md:items-center md:justify-between md:flex-wrap">
 
-            <p class="mt-8 text-white/60 md:mt-0 md:order-1">
+            <x-site.banner-government
+                :text="$banner()"
+                class="w-full"
+            />
+
+            <x-social-media-links
+                :links="$social"
+                class="text-white md:order-2"
+            />
+
+            <p class="text-white/60 md:mt-0 md:order-1">
                 &copy; {{ date('Y') }} {{ $title }}
             </p>
         </div>

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 return [
 
-    'internal' => 'O soluție Commit Global.',
-    'external' => 'Website construit cu Website Factory: :edition, soluție dezvoltată de Commit Global.',
+    'internal' => 'O soluție :organization.',
+    'external' => 'Website construit cu Website Factory: :edition, soluție dezvoltată de :organization.',
 
     'edition' => [
         'primarie' => 'Primărie',

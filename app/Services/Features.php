@@ -106,4 +106,14 @@ class Features
     {
         return config('website-factory.edition') === 'internal';
     }
+
+    /**
+     * Determine if the application is running a government site.
+     *
+     * @return bool
+     */
+    public static function isGovernmentSite(): bool
+    {
+        return config('website-factory.edition') === 'minister';
+    }
 }
