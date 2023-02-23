@@ -37,7 +37,7 @@ class Footer extends Component
 
     public function render(): View
     {
-        if (config('website-factory.edition') === 'minister') {
+        if (Features::isGovernmentSite()) {
             return view('components.site.footer-minister');
         }
 
@@ -52,6 +52,9 @@ class Footer extends Component
 
         return __('banner.external', [
             'edition' => __('banner.edition.' . config('website-factory.edition')),
+            'organization' => Features::isGovernmentSite()
+                ? 'Code for Romania'
+                : 'Commit Global',
         ]);
     }
 }

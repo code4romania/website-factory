@@ -44,6 +44,8 @@ class Header extends Component
             return null;
         }
 
-        return __('banner.internal');
+        return __('banner.internal', [
+            'organization' => 'Commit Global',
+        ]);
     }
 }
