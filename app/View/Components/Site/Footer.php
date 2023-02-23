@@ -38,7 +38,7 @@ class Footer extends Component
     public function render(): View
     {
         if (Features::isGovernmentSite()) {
-            return view('components.site.footer-minister');
+            return view('components.site.footer-government');
         }
 
         return view('components.site.footer');
