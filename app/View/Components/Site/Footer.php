@@ -50,11 +50,13 @@ class Footer extends Component
             return null;
         }
 
+        if (Features::isGovernmentSite()) {
+            return __('banner.government');
+        }
+
         return __('banner.external', [
             'edition' => __('banner.edition.' . config('website-factory.edition')),
-            'organization' => Features::isGovernmentSite()
-                ? 'Code for Romania'
-                : 'Commit Global',
+            'organization' => 'Commit Global',
         ]);
     }
 }
