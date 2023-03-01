@@ -6846,24 +6846,24 @@
         },
         {
             "name": "spatie/laravel-translation-loader",
-            "version": "2.7.5",
+            "version": "2.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-translation-loader.git",
-                "reference": "3085c2c3d527d4c626eb83f6dd525fed51149dca"
+                "reference": "b45980636d3d60a3426ac44f5a51517bca8cb63a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-translation-loader/zipball/3085c2c3d527d4c626eb83f6dd525fed51149dca",
-                "reference": "3085c2c3d527d4c626eb83f6dd525fed51149dca",
+                "url": "https://api.github.com/repos/spatie/laravel-translation-loader/zipball/b45980636d3d60a3426ac44f5a51517bca8cb63a",
+                "reference": "b45980636d3d60a3426ac44f5a51517bca8cb63a",
                 "shasum": ""
             },
             "require": {
-                "illuminate/translation": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/translation": "^6.0|^7.0|^8.0|^9.0|^10.0",
                 "php": "^7.2|^8.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0",
+                "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0|^8.0",
                 "phpunit/phpunit": "^8.0|^9.0"
             },
             "type": "library",
@@ -6904,7 +6904,7 @@
                 "translate"
             ],
             "support": {
-                "source": "https://github.com/spatie/laravel-translation-loader/tree/2.7.5"
+                "source": "https://github.com/spatie/laravel-translation-loader/tree/2.7.6"
             },
             "funding": [
                 {
@@ -6912,7 +6912,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2023-02-01T08:59:08+00:00"
+            "time": "2023-02-07T10:08:04+00:00"
         },
         {
             "name": "symfony/console",
