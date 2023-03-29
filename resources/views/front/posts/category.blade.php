@@ -4,7 +4,7 @@
             {{ $category->title }}
         </h1>
 
-        <div class="mt-4 prose text-gray-500 max-w-prose sm:prose-lg lg:prose-xl">
+        <div class="mt-4 prose text-gray-500 sm:prose-lg lg:prose-xl">
             {!! $category->description !!}
         </div>
 
