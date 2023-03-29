@@ -38,6 +38,34 @@
         :options="align"
         default="top"
     />
+
+    <localized-field
+        field="form-input"
+        type="text"
+        :label="$t('field.button_text')"
+        v-model="content.primary_button_text"
+    />
+
+    <localized-field
+        field="form-input"
+        type="url"
+        :label="$t('field.button_url')"
+        v-model="content.primary_button_url"
+    />
+
+    <localized-field
+        field="form-input"
+        type="text"
+        :label="$t('field.button_text')"
+        v-model="content.secondary_button_text"
+    />
+
+    <localized-field
+        field="form-input"
+        type="url"
+        :label="$t('field.button_url')"
+        v-model="content.secondary_button_url"
+    />
 </template>
 
 <script>
@@ -54,6 +82,10 @@
             position: String,
             align: String,
             width: String,
+            primary_button_text: Object,
+            primary_button_url: Object,
+            secondary_button_text: Object,
+            secondary_button_url: Object,
         },
         setup(props) {
             const position = computed(() =>

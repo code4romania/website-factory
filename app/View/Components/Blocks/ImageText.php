@@ -14,6 +14,14 @@ class ImageText extends BlockComponent
 
     public ?Media $image;
 
+    public ?string $primary_button_url;
+
+    public ?string $primary_button_text;
+
+    public ?string $secondary_button_url;
+
+    public ?string $secondary_button_text;
+
     public function setup(): void
     {
         $this->title = $this->block->translatedInput('title');
@@ -21,6 +29,14 @@ class ImageText extends BlockComponent
         $this->html = $this->block->translatedInput('text');
 
         $this->image = $this->block->firstMedia('image');
+
+        $this->primary_button_url = $this->block->translatedInput('primary_button_url');
+
+        $this->primary_button_text = $this->block->translatedInput('primary_button_text');
+
+        $this->secondary_button_url = $this->block->translatedInput('secondary_button_url');
+
+        $this->secondary_button_text = $this->block->translatedInput('secondary_button_text');
     }
 
     public function containerColumns(): string
