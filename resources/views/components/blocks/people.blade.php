@@ -15,11 +15,13 @@
                     <a
                         href="{{ $person->url }}"
                         title="{{ __('person.action.view') }}"
-                        class="block overflow-hidden transition-shadow duration-150 rounded-lg shadow-lg aspect-w-1 aspect-h-1 hover:shadow-xl">
+                        class="block overflow-hidden transition-shadow duration-150 rounded-lg shadow-lg aspect-w-1 aspect-h-1 hover:shadow-xl"
+                    >
                         <x-media.image
                             :src="$person->getThumbnailUrl(large: true)"
                             class="object-cover"
-                            :preload="$shouldPreload()" />
+                            :preload="$shouldPreload()"
+                        />
                     </a>
                 @endif
 
@@ -27,7 +29,8 @@
                     <a
                         href="{{ $person->url }}"
                         title="{{ __('person.action.view') }}"
-                        class="flex items-center justify-between gap-2 hover:underline">
+                        class="flex items-center justify-between gap-2 leading-tight hover:underline"
+                    >
                         <h3 class="font-semibold text-gray-900">
                             {{ $person->name }}
                         </h3>
@@ -35,7 +38,7 @@
                         <x-ri-arrow-right-line class="w-5 h-5 shrink-0" />
                     </a>
 
-                    <p class="font-medium text-primary">{{ $person->title }}</p>
+                    <p class="text-sm font-medium text-primary">{{ $person->title }}</p>
                 </div>
 
                 <div class="prose text-gray-500 line-clamp-3">
