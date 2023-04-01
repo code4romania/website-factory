@@ -47,7 +47,7 @@
         "@tiptap/extension-text-align": "^2.0.0",
         "@tiptap/extension-text-style": "^2.0.0",
         "@tiptap/extension-typography": "^2.0.0",
-        "@tiptap/extension-underline": "^2.0.0",
+        "@tiptap/extension-underline": "^2.0.1",
         "@tiptap/vue-3": "^2.0.0",
         "@vitejs/plugin-vue": "^4.1.0",
         "@vue/compiler-sfc": "^3.2.47",
