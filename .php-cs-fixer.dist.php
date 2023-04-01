@@ -9,22 +9,10 @@ $rules = [
     'align_multiline_comment' => true,
     'array_indentation' => true,
     'array_syntax' => ['syntax' => 'short'],
-
-    'binary_operator_spaces' => [
-        'default' => 'single_space',
-        'operators' => ['=>' => null],
-    ],
     'blank_line_after_namespace' => true,
     'blank_line_after_opening_tag' => true,
-    'blank_line_before_statement' => [
-        'statements' => ['return'],
-    ],
     'braces' => true,
     'cast_spaces' => true,
-    'class_attributes_separation' => [
-        'elements' => ['method'],
-    ],
-    'class_definition' => true,
     'concat_space' => [
         'spacing' => 'one',
     ],
@@ -96,8 +84,7 @@ $rules = [
     'no_singleline_whitespace_before_semicolons' => true,
     'no_spaces_after_function_name' => true,
     'no_spaces_inside_parenthesis' => true,
-    'no_trailing_comma_in_list_call' => true,
-    'no_trailing_comma_in_singleline_array' => true,
+    'no_trailing_comma_in_singleline' => true,
     'no_trailing_whitespace' => true,
     'no_trailing_whitespace_in_comment' => true,
     'no_unreachable_default_argument_value' => true,
@@ -155,7 +142,7 @@ $rules = [
     // php-cs-fixer 3: Changed options
     'binary_operator_spaces' => [
         'default' => 'single_space',
-        'operators' => ['=>' => null],
+        'operators' => [],
     ],
     'blank_line_before_statement' => [
         'statements' => ['return'],
@@ -194,6 +181,7 @@ $finder = Finder::create()
         __DIR__ . '/app',
         __DIR__ . '/config',
         __DIR__ . '/database',
+        __DIR__ . '/lang',
         __DIR__ . '/resources',
         __DIR__ . '/routes',
         __DIR__ . '/tests',
