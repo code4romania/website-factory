@@ -37,23 +37,23 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Relation::enforceMorphMap([
-            'block'             => \App\Models\Block::class,
-            'decision_author'   => \App\Models\DecisionAuthor::class,
+            'block' => \App\Models\Block::class,
+            'decision_author' => \App\Models\DecisionAuthor::class,
             'decision_category' => \App\Models\DecisionCategory::class,
-            'decision'          => \App\Models\Decision::class,
-            'form_field'        => \App\Models\FormField::class,
-            'form_submission'   => \App\Models\FormSubmission::class,
-            'form'              => \App\Models\Form::class,
-            'language'          => \App\Models\Language::class,
-            'media'             => \App\Models\Media::class,
-            'menu_item'         => \App\Models\MenuItem::class,
-            'page'              => \App\Models\Page::class,
-            'partner'           => \App\Models\Partner::class,
-            'person'            => \App\Models\Person::class,
-            'post_category'     => \App\Models\PostCategory::class,
-            'post'              => \App\Models\Post::class,
-            'setting'           => \App\Models\Setting::class,
-            'user'              => \App\Models\User::class,
+            'decision' => \App\Models\Decision::class,
+            'form_field' => \App\Models\FormField::class,
+            'form_submission' => \App\Models\FormSubmission::class,
+            'form' => \App\Models\Form::class,
+            'language' => \App\Models\Language::class,
+            'media' => \App\Models\Media::class,
+            'menu_item' => \App\Models\MenuItem::class,
+            'page' => \App\Models\Page::class,
+            'partner' => \App\Models\Partner::class,
+            'person' => \App\Models\Person::class,
+            'post_category' => \App\Models\PostCategory::class,
+            'post' => \App\Models\Post::class,
+            'setting' => \App\Models\Setting::class,
+            'user' => \App\Models\User::class,
         ]);
 
         Validator::excludeUnvalidatedArrayKeys();
@@ -115,11 +115,11 @@ class AppServiceProvider extends ServiceProvider
 
             return $this->with([
                 'model' => [
-                    'name'               => $morphClass,
+                    'name' => $morphClass,
                     'admin_route_prefix' => 'admin.' . Str::plural($morphClass),
                     'front_route_prefix' => 'front.' . Str::plural($morphClass),
-                    'allowed_blocks'     => $allowedBlocks ?? [],
-                    'translatable'       => $translatable ?? [],
+                    'allowed_blocks' => $allowedBlocks ?? [],
+                    'translatable' => $translatable ?? [],
                 ],
             ]);
         });

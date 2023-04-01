@@ -15,20 +15,20 @@ class FormSubmissionResource extends Resource
     protected function show(Request $request): array
     {
         return [
-            'id'              => $this->id,
-            'form'            => FormResource::make($this->form),
-            'created_at'      => $this->created_at->toDateTimeString(),
-            'uuid'            => $this->uuid,
-            'data'            => $this->data,
+            'id' => $this->id,
+            'form' => FormResource::make($this->form),
+            'created_at' => $this->created_at->toDateTimeString(),
+            'uuid' => $this->uuid,
+            'data' => $this->data,
         ];
     }
 
     protected function default(Request $request): array
     {
         return [
-            'id'              => $this->id,
-            'form'            => $this->form_id,
-            'created_at'      => $this->created_at->toDateTimeString(),
+            'id' => $this->id,
+            'form' => $this->form_id,
+            'created_at' => $this->created_at->toDateTimeString(),
         ];
     }
 }

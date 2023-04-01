@@ -12,34 +12,34 @@ return [
 
     'social_platforms' => [
         'facebook' => [
-            'label'  => 'Facebook',
+            'label' => 'Facebook',
             'prefix' => 'https://www.facebook.com/',
-            'icon'   => 'ri-facebook-fill',
+            'icon' => 'ri-facebook-fill',
         ],
         'linkedin' => [
-            'label'  => 'LinkedIn',
+            'label' => 'LinkedIn',
             'prefix' => 'https://www.linkedin.com/',
-            'icon'   => 'ri-linkedin-fill',
+            'icon' => 'ri-linkedin-fill',
         ],
         'instagram' => [
-            'label'  => 'Instagram',
+            'label' => 'Instagram',
             'prefix' => 'https://www.instagram.com/',
-            'icon'   => 'ri-instagram-line',
+            'icon' => 'ri-instagram-line',
         ],
         'twitter' => [
-            'label'  => 'Twitter',
+            'label' => 'Twitter',
             'prefix' => 'https://twitter.com/',
-            'icon'   => 'ri-twitter-fill',
+            'icon' => 'ri-twitter-fill',
         ],
         'youtube' => [
-            'label'  => 'YouTube',
+            'label' => 'YouTube',
             'prefix' => 'https://youtube.com/',
-            'icon'   => 'ri-youtube-fill',
+            'icon' => 'ri-youtube-fill',
         ],
         'github' => [
-            'label'  => 'GitHub',
+            'label' => 'GitHub',
             'prefix' => 'https://github.com/',
-            'icon'   => 'ri-github-fill',
+            'icon' => 'ri-github-fill',
         ],
     ],
 

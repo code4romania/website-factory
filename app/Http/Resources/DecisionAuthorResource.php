@@ -10,27 +10,27 @@ class DecisionAuthorResource extends Resource
 {
     public array $routeMap = [
         'admin.decision_authors.index' => 'index',
-        'admin.decision_authors.edit'  => 'edit',
+        'admin.decision_authors.edit' => 'edit',
     ];
 
     protected function index(Request $request): array
     {
         return [
-            'id'              => $this->id,
-            'title'           => $this->title,
-            'slug'            => $this->slug,
+            'id' => $this->id,
+            'title' => $this->title,
+            'slug' => $this->slug,
             'decisions_count' => $this->decisions_count,
-            'trashed'         => $this->trashed(),
+            'trashed' => $this->trashed(),
         ];
     }
 
     protected function edit(Request $request): array
     {
         return [
-            'id'           => $this->id,
-            'title'        => $this->getTranslations('title'),
-            'description'  => $this->getTranslations('description'),
-            'slug'         => $this->getTranslations('slug'),
+            'id' => $this->id,
+            'title' => $this->getTranslations('title'),
+            'description' => $this->getTranslations('description'),
+            'slug' => $this->getTranslations('slug'),
         ];
     }
 
@@ -39,7 +39,7 @@ class DecisionAuthorResource extends Resource
         $this->withoutPermissions();
 
         return [
-            'id'    => $this->id,
+            'id' => $this->id,
             'title' => $this->title,
         ];
     }

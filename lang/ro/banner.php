@@ -10,8 +10,8 @@ return [
     'edition' => [
         'primarie' => 'Primărie',
         'minister' => 'Minister',
-        'ong'      => 'ONG',
-        'develop'  => 'develop',
+        'ong' => 'ONG',
+        'develop' => 'develop',
     ],
 
     'government' => 'Website creat cu Website Factory: Guvern. O soluție dezvoltată de Asociația Code for Romania (Commit Global) și pusă gratuit la dispoziția administrației publice.',

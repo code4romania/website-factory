@@ -9,27 +9,27 @@ use Illuminate\Http\Request;
 class UserResource extends Resource
 {
     public array $routeMap = [
-        'admin.users.index'  => 'index',
-        'admin.users.edit'   => 'edit',
+        'admin.users.index' => 'index',
+        'admin.users.edit' => 'edit',
     ];
 
     protected function index(Request $request): array
     {
         return [
-            'id'    => $this->id,
-            'name'  => $this->name,
+            'id' => $this->id,
+            'name' => $this->name,
             'email' => $this->email,
-            'role'  => $this->role,
+            'role' => $this->role,
         ];
     }
 
     protected function edit(Request $request): array
     {
         return [
-            'id'     => $this->id,
-            'name'   => $this->name,
-            'email'  => $this->email,
-            'role'   => $this->role,
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'role' => $this->role,
             'locale' => $this->locale,
         ];
     }
@@ -37,7 +37,7 @@ class UserResource extends Resource
     protected function default(Request $request): array
     {
         return [
-            'id'   => $this->id,
+            'id' => $this->id,
             'name' => $this->name,
         ];
     }

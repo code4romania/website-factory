@@ -18,11 +18,11 @@ class PersonFactory extends Factory
         $name = $this->faker->name();
 
         return [
-            'name'         => $name,
-            'slug'         => Str::slug($name),
-            'title'        => $this->translatedFaker('jobTitle'),
-            'description'  => $this->translatedFaker('realText'),
-            'deleted_at'   => $this->faker->boolean(5) ? $this->faker->dateTime() : null,
+            'name' => $name,
+            'slug' => Str::slug($name),
+            'title' => $this->translatedFaker('jobTitle'),
+            'description' => $this->translatedFaker('realText'),
+            'deleted_at' => $this->faker->boolean(5) ? $this->faker->dateTime() : null,
         ];
     }
 }

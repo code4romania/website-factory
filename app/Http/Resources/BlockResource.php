@@ -17,14 +17,14 @@ class BlockResource extends Resource
         $this->withoutPermissions();
 
         return [
-            'id'       => $this->id,
-            'type'     => $this->type,
-            'content'  => $this->content,
+            'id' => $this->id,
+            'type' => $this->type,
+            'content' => $this->content,
             'children' => self::collection($this->children),
-            'media'    => MediaResource::collection(
+            'media' => MediaResource::collection(
                 $this->media()->whereIsOriginal()->get()
             ),
-            'related'  => RelatedResource::collection(
+            'related' => RelatedResource::collection(
                 $this->related_items,
             ),
         ];

@@ -34,15 +34,15 @@ class AdminController extends Controller
     protected function resourceAbilityMap(): array
     {
         return [
-            'index'       => 'viewAny',
-            'show'        => 'view',
-            'create'      => 'create',
-            'store'       => 'create',
-            'duplicate'   => 'update',
-            'edit'        => 'update',
-            'update'      => 'update',
-            'destroy'     => 'delete',
-            'restore'     => 'restore',
+            'index' => 'viewAny',
+            'show' => 'view',
+            'create' => 'create',
+            'store' => 'create',
+            'duplicate' => 'update',
+            'edit' => 'update',
+            'update' => 'update',
+            'destroy' => 'delete',
+            'restore' => 'restore',
             'forceDelete' => 'forceDelete',
         ];
     }

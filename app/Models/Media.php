@@ -38,7 +38,7 @@ class Media extends BaseMedia
                 $image = Image::make($media->contents());
 
                 $media->forceFill([
-                    'width'  => $image->width(),
+                    'width' => $image->width(),
                     'height' => $image->height(),
                 ]);
             }
@@ -62,9 +62,9 @@ class Media extends BaseMedia
         }
 
         return $variants->map(fn (self $variant) => [
-            'width'  => $variant->width,
+            'width' => $variant->width,
             'height' => $variant->height,
-            'url'    => $variant->getUrl(),
+            'url' => $variant->getUrl(),
         ]);
     }
 

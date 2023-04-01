@@ -98,49 +98,49 @@ class FormTest extends TestCase
             // Text
             'text-required' => [
                 [
-                    'type'       => 'text',
-                    'required'   => true,
+                    'type' => 'text',
+                    'required' => true,
                     'min_length' => null,
                     'max_length' => null,
                 ],
                 [
-                    'valid'   => 'Test',
+                    'valid' => 'Test',
                     'invalid' => null,
                 ],
             ],
             'text-optional' => [
                 [
-                    'type'       => 'text',
-                    'required'   => false,
+                    'type' => 'text',
+                    'required' => false,
                     'min_length' => null,
                     'max_length' => null,
                 ],
                 [
-                    'valid'   => null,
+                    'valid' => null,
                     'invalid' => [],
                 ],
             ],
             'text-min' => [
                 [
-                    'type'       => 'text',
-                    'required'   => false,
+                    'type' => 'text',
+                    'required' => false,
                     'min_length' => 25,
                     'max_length' => null,
                 ],
                 [
-                    'valid'   => 'This text is long enough to validate',
+                    'valid' => 'This text is long enough to validate',
                     'invalid' => 'This is too short',
                 ],
             ],
             'text-max' => [
                 [
-                    'type'       => 'text',
-                    'required'   => false,
+                    'type' => 'text',
+                    'required' => false,
                     'min_length' => null,
                     'max_length' => 25,
                 ],
                 [
-                    'valid'   => 'This is short enough',
+                    'valid' => 'This is short enough',
                     'invalid' => 'This is way too much text to validate',
                 ],
             ],
@@ -148,49 +148,49 @@ class FormTest extends TestCase
             // Textarea
             'textarea-required' => [
                 [
-                    'type'       => 'textarea',
-                    'required'   => true,
+                    'type' => 'textarea',
+                    'required' => true,
                     'min_length' => null,
                     'max_length' => null,
                 ],
                 [
-                    'valid'   => 'Test',
+                    'valid' => 'Test',
                     'invalid' => null,
                 ],
             ],
             'textarea-optional' => [
                 [
-                    'type'       => 'textarea',
-                    'required'   => false,
+                    'type' => 'textarea',
+                    'required' => false,
                     'min_length' => null,
                     'max_length' => null,
                 ],
                 [
-                    'valid'   => null,
+                    'valid' => null,
                     'invalid' => [],
                 ],
             ],
             'textarea-min' => [
                 [
-                    'type'       => 'textarea',
-                    'required'   => false,
+                    'type' => 'textarea',
+                    'required' => false,
                     'min_length' => 25,
                     'max_length' => null,
                 ],
                 [
-                    'valid'   => 'This text is long enough to validate',
+                    'valid' => 'This text is long enough to validate',
                     'invalid' => 'This is too short',
                 ],
             ],
             'textarea-max' => [
                 [
-                    'type'       => 'textarea',
-                    'required'   => false,
+                    'type' => 'textarea',
+                    'required' => false,
                     'min_length' => null,
                     'max_length' => 25,
                 ],
                 [
-                    'valid'   => 'This is short enough',
+                    'valid' => 'This is short enough',
                     'invalid' => 'This is way too much text to validate',
                 ],
             ],
@@ -198,21 +198,21 @@ class FormTest extends TestCase
             // Email
             'email-required' => [
                 [
-                    'type'     => 'email',
+                    'type' => 'email',
                     'required' => true,
                 ],
                 [
-                    'valid'   => 'test@example.com',
+                    'valid' => 'test@example.com',
                     'invalid' => null,
                 ],
             ],
             'email-optional' => [
                 [
-                    'type'     => 'email',
+                    'type' => 'email',
                     'required' => false,
                 ],
                 [
-                    'valid'   => null,
+                    'valid' => null,
                     'invalid' => 'not an email',
                 ],
             ],
@@ -220,21 +220,21 @@ class FormTest extends TestCase
             // Url
             'url-required' => [
                 [
-                    'type'     => 'url',
+                    'type' => 'url',
                     'required' => true,
                 ],
                 [
-                    'valid'   => 'https://example.com',
+                    'valid' => 'https://example.com',
                     'invalid' => null,
                 ],
             ],
             'url-optional' => [
                 [
-                    'type'     => 'url',
+                    'type' => 'url',
                     'required' => false,
                 ],
                 [
-                    'valid'   => null,
+                    'valid' => null,
                     'invalid' => 'not a url',
                 ],
             ],
@@ -242,49 +242,49 @@ class FormTest extends TestCase
             // Number
             'number-required' => [
                 [
-                    'type'      => 'number',
-                    'required'  => true,
+                    'type' => 'number',
+                    'required' => true,
                     'min_value' => null,
                     'max_value' => null,
                 ],
                 [
-                    'valid'   => 17,
+                    'valid' => 17,
                     'invalid' => null,
                 ],
             ],
             'number-optional' => [
                 [
-                    'type'      => 'number',
-                    'required'  => false,
+                    'type' => 'number',
+                    'required' => false,
                     'min_value' => null,
                     'max_value' => null,
                 ],
                 [
-                    'valid'   => null,
+                    'valid' => null,
                     'invalid' => 'not a number',
                 ],
             ],
             'number-min' => [
                 [
-                    'type'      => 'number',
-                    'required'  => false,
+                    'type' => 'number',
+                    'required' => false,
                     'min_value' => 17,
                     'max_value' => null,
                 ],
                 [
-                    'valid'   => 17,
+                    'valid' => 17,
                     'invalid' => 5,
                 ],
             ],
             'number-max' => [
                 [
-                    'type'      => 'number',
-                    'required'  => false,
+                    'type' => 'number',
+                    'required' => false,
                     'min_value' => null,
                     'max_value' => 17,
                 ],
                 [
-                    'valid'   => 17,
+                    'valid' => 17,
                     'invalid' => 25,
                 ],
             ],
@@ -292,61 +292,61 @@ class FormTest extends TestCase
             // Date
             'date-required' => [
                 [
-                    'type'     => 'date',
+                    'type' => 'date',
                     'required' => true,
                     'min_date' => null,
                     'max_date' => null,
                 ],
                 [
-                    'valid'   => today(),
+                    'valid' => today(),
                     'invalid' => null,
                 ],
             ],
             'date-optional' => [
                 [
-                    'type'     => 'date',
+                    'type' => 'date',
                     'required' => false,
                     'min_date' => null,
                     'max_date' => null,
                 ],
                 [
-                    'valid'   => null,
+                    'valid' => null,
                     'invalid' => 'not a date',
                 ],
             ],
             'date-min' => [
                 [
-                    'type'     => 'date',
+                    'type' => 'date',
                     'required' => false,
                     'min_date' => '2020-01-01',
                     'max_date' => null,
                 ],
                 [
-                    'valid'   => '2022-01-01',
+                    'valid' => '2022-01-01',
                     'invalid' => '1999-01-01',
                 ],
             ],
             'date-max' => [
                 [
-                    'type'     => 'date',
+                    'type' => 'date',
                     'required' => false,
                     'min_date' => null,
                     'max_date' => '2021-12-31',
                 ],
                 [
-                    'valid'   => '1999-01-01',
+                    'valid' => '1999-01-01',
                     'invalid' => '2022-01-01',
                 ],
             ],
             'date-minmax' => [
                 [
-                    'type'     => 'date',
+                    'type' => 'date',
                     'required' => false,
                     'min_date' => '2020-01-01',
                     'max_date' => '2021-12-31',
                 ],
                 [
-                    'valid'   => '2020-06-01',
+                    'valid' => '2020-06-01',
                     'invalid' => '2022-01-01',
                 ],
             ],
@@ -354,9 +354,9 @@ class FormTest extends TestCase
             // Radio
             'radio-required' => [
                 [
-                    'type'     => 'radio',
+                    'type' => 'radio',
                     'required' => true,
-                    'options'  => [
+                    'options' => [
                         'similique',
                         'accusantium',
                         'minima',
@@ -364,16 +364,16 @@ class FormTest extends TestCase
                     ],
                 ],
                 [
-                    'valid'   => 'similique',
+                    'valid' => 'similique',
                     'invalid' => null,
                 ],
             ],
 
             'radio-optional' => [
                 [
-                    'type'     => 'radio',
+                    'type' => 'radio',
                     'required' => false,
-                    'options'  => [
+                    'options' => [
                         'assumenda',
                         'excepturi',
                         'impedit',
@@ -381,7 +381,7 @@ class FormTest extends TestCase
                     ],
                 ],
                 [
-                    'valid'   => null,
+                    'valid' => null,
                     'invalid' => 'not a valid option',
                 ],
             ],
@@ -389,25 +389,25 @@ class FormTest extends TestCase
             // Checkbox
             'checkbox-required' => [
                 [
-                    'type'     => 'checkbox',
+                    'type' => 'checkbox',
                     'required' => true,
-                    'options'  => [
+                    'options' => [
                         'architecto',
                         'quis',
                         'maiores',
                     ],
                 ],
                 [
-                    'valid'   => ['quis', 'maiores'],
+                    'valid' => ['quis', 'maiores'],
                     'invalid' => null,
                 ],
             ],
 
             'checkbox-optional' => [
                 [
-                    'type'     => 'checkbox',
+                    'type' => 'checkbox',
                     'required' => false,
-                    'options'  => [
+                    'options' => [
                         'dolorem',
                         'iure',
                         'animi',
@@ -415,7 +415,7 @@ class FormTest extends TestCase
                     ],
                 ],
                 [
-                    'valid'   => ['iure'],
+                    'valid' => ['iure'],
                     'invalid' => 'not a valid option',
                 ],
             ],

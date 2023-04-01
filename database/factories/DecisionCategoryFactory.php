@@ -14,10 +14,10 @@ class DecisionCategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'title'        => $this->translatedFaker('word'),
-            'slug'         => $this->translatedFaker('slug'),
-            'description'  => $this->translatedFaker('text'),
-            'deleted_at'   => $this->faker->boolean(5) ? $this->faker->dateTime() : null,
+            'title' => $this->translatedFaker('word'),
+            'slug' => $this->translatedFaker('slug'),
+            'description' => $this->translatedFaker('text'),
+            'deleted_at' => $this->faker->boolean(5) ? $this->faker->dateTime() : null,
         ];
     }
 }

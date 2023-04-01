@@ -76,8 +76,8 @@ class UpdateTranslationsCommand extends Command
         $values = collect($this->lines)
             ->map(fn (array $text, string $key) => [
                 'group' => '*',
-                'key'   => $key,
-                'text'  => json_encode($text),
+                'key' => $key,
+                'text' => json_encode($text),
             ])
             ->all();
 
@@ -101,8 +101,8 @@ class UpdateTranslationsCommand extends Command
 
             $newLines->push([
                 'group' => '*',
-                'key'   => $key,
-                'text'  => json_encode($text),
+                'key' => $key,
+                'text' => json_encode($text),
             ]);
         }
 

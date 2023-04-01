@@ -14,9 +14,9 @@ class MenuItemFactory extends Factory
     public function definition()
     {
         return [
-            'location'  => $this->faker->randomElement(['header', 'footer']),
-            'label'     => $this->translatedFaker('word'),
-            'position'  => $this->faker->randomDigit(),
+            'location' => $this->faker->randomElement(['header', 'footer']),
+            'label' => $this->translatedFaker('word'),
+            'position' => $this->faker->randomDigit(),
             'parent_id' => null,
         ];
     }
@@ -39,7 +39,7 @@ class MenuItemFactory extends Factory
     {
         return $this->state(fn (array $attributes) => [
             'type' => 'external',
-            'url'  => 'https://example.com/',
+            'url' => 'https://example.com/',
         ]);
     }
 }

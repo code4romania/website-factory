@@ -40,10 +40,10 @@ class CreateAdminCommand extends Command
         $password = $this->getUserPassword();
 
         User::create([
-            'name'     => $name,
-            'email'    => $email,
+            'name' => $name,
+            'email' => $email,
             'password' => Hash::make($password),
-            'role'     => 'admin',
+            'role' => 'admin',
         ]);
 
         $this->info('The admin account was successfully created!');
@@ -136,7 +136,7 @@ class CreateAdminCommand extends Command
     {
         $validator = Validator::make(
             [
-                'password'              => $password,
+                'password' => $password,
                 'password_confirmation' => $confirmation,
             ],
             [

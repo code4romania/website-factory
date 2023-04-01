@@ -19,9 +19,9 @@ class UserRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'name'   => ['required', 'string', 'max:200'],
-            'email'  => ['required', 'email', Rule::unique('users')->ignore($this->user)],
-            'role'   => ['required', 'string', new Enum(UserRole::class)],
+            'name' => ['required', 'string', 'max:200'],
+            'email' => ['required', 'email', Rule::unique('users')->ignore($this->user)],
+            'role' => ['required', 'string', new Enum(UserRole::class)],
             'locale' => ['required', 'string', Rule::in(locales()->keys())],
         ];
     }

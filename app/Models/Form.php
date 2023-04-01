@@ -56,7 +56,7 @@ class Form extends Model
 
     public $casts = [
         'store_submissions' => 'boolean',
-        'send_submissions'  => 'boolean',
+        'send_submissions' => 'boolean',
     ];
 
     public string $allowedBlockType = 'form';

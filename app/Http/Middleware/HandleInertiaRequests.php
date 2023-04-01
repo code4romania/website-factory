@@ -31,19 +31,19 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
-            'auth'  => fn () => $request->user(),
+            'auth' => fn () => $request->user(),
             'flash' => fn () => $this->flash($request),
             'route' => fn () => $request->route()->getName(),
-            'app'   => fn () => [
-                'debug'    => config('app.debug'),
-                'version'  => config('app.version'),
-                'edition'  => config('website-factory.edition'),
+            'app' => fn () => [
+                'debug' => config('app.debug'),
+                'version' => config('app.version'),
+                'edition' => config('website-factory.edition'),
                 'features' => Features::all(),
             ],
             'locales' => fn () => [
                 'available' => locales(),
-                'active'    => active_locales()->keys(),
-                'current'   => active_locales()->has(app()->getLocale())
+                'active' => active_locales()->keys(),
+                'current' => active_locales()->has(app()->getLocale())
                     ? app()->getLocale()
                     : active_locales()->keys()->first(),
             ],
@@ -67,7 +67,7 @@ class HandleInertiaRequests extends Middleware
         return [
             'message' => $request->session()->get($type),
             'details' => $request->session()->get('details'),
-            'type'    => $type,
+            'type' => $type,
         ];
     }
 
@@ -173,10 +173,10 @@ class HandleInertiaRequests extends Middleware
 
         return [
             'allowedExtensions' => $extractConfig('extensions'),
-            'allowedMimeTypes'  => $extractConfig('mime_types'),
+            'allowedMimeTypes' => $extractConfig('mime_types'),
 
             'maxFileSize' => [
-                'raw'       => config('mediable.max_size'),
+                'raw' => config('mediable.max_size'),
                 'formatted' => format_bytes(config('mediable.max_size')),
             ],
         ];

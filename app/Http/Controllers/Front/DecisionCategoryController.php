@@ -23,7 +23,7 @@ class DecisionCategoryController extends Controller
             ->description($decisionCategory->description);
 
         return view('front.decisions.category', [
-            'category'  => $decisionCategory,
+            'category' => $decisionCategory,
             'decisions' => $decisionCategory
                 ->decisions()
                 ->latest('published_at')

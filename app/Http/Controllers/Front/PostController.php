@@ -34,7 +34,7 @@ class PostController extends Controller
             ->image($image?->getUrl());
 
         return view('front.posts.show', [
-            'post'  => $post,
+            'post' => $post,
             'image' => $image,
         ]);
     }

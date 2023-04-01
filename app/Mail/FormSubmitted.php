@@ -44,8 +44,8 @@ class FormSubmitted extends Mailable implements ShouldQueue
         return $this
             ->subject($this->form->title)
             ->markdown('emails.forms.submitted', [
-                'form'   => $this->form,
-                'data'   => $this->data,
+                'form' => $this->form,
+                'data' => $this->data,
                 'stored' => $this->stored,
             ]);
     }

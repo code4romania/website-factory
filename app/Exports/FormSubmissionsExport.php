@@ -33,7 +33,7 @@ class FormSubmissionsExport implements FromCollection, ShouldAutoSize, WithHeadi
     {
         return [
             // Style the first row as bold text.
-            1    => ['font' => ['bold' => true]],
+            1 => ['font' => ['bold' => true]],
         ];
     }
 

@@ -20,17 +20,17 @@ class FormRequest extends BaseRequest
     public function rules(): array
     {
         return TranslatableFormRequestRules::make(Page::class, [
-            'title'             => ['required', 'string', 'max:200'],
-            'slug'              => ['nullable', 'string', 'max:200'],
-            'description'       => ['nullable', 'string'],
-            'published_at'      => ['nullable', 'date'],
+            'title' => ['required', 'string', 'max:200'],
+            'slug' => ['nullable', 'string', 'max:200'],
+            'description' => ['nullable', 'string'],
+            'published_at' => ['nullable', 'date'],
             'store_submissions' => ['nullable', 'boolean'],
-            'send_submissions'  => ['nullable', 'boolean'],
-            'recipients'        => [Rule::requiredIf($this->send_submissions), new OneEmailPerLine],
-            'blocks'            => ['array'],
-            'blocks.*.id'       => ['required', 'numeric', 'integer'],
-            'blocks.*.type'     => ['required', 'string'],
-            'blocks.*.content'  => ['required', 'array'],
+            'send_submissions' => ['nullable', 'boolean'],
+            'recipients' => [Rule::requiredIf($this->send_submissions), new OneEmailPerLine],
+            'blocks' => ['array'],
+            'blocks.*.id' => ['required', 'numeric', 'integer'],
+            'blocks.*.type' => ['required', 'string'],
+            'blocks.*.content' => ['required', 'array'],
         ]);
     }
 }

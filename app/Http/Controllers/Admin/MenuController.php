@@ -23,7 +23,7 @@ class MenuController extends Controller
     public function edit(string $location): Response
     {
         return Inertia::render('Menus/Edit', [
-            'location'   => $location,
+            'location' => $location,
             'collection' => new MenuItemCollection(
                 MenuItem::query()
                     ->location($location)
@@ -62,13 +62,13 @@ class MenuController extends Controller
         return collect($items)
             ->map(function (array $item, int $index) use ($location, $depth) {
                 $prepared = [
-                    'location'     => $location,
-                    'position'     => $index + 1,
-                    'label'        => $item['label'],
-                    'type'         => $item['type'],
-                    'url'          => $item['type'] === 'external' ? ($item['url'] ?? null) : null,
-                    'route'        => $item['type'] === 'route' ? ($item['route'] ?? null) : null,
-                    'children'     => $this->prepareItems($item['children'] ?? [], $location, ++$depth),
+                    'location' => $location,
+                    'position' => $index + 1,
+                    'label' => $item['label'],
+                    'type' => $item['type'],
+                    'url' => $item['type'] === 'external' ? ($item['url'] ?? null) : null,
+                    'route' => $item['type'] === 'route' ? ($item['route'] ?? null) : null,
+                    'children' => $this->prepareItems($item['children'] ?? [], $location, ++$depth),
                 ];
 
                 if (MenuItem::allowedModels()->has($item['type'])) {

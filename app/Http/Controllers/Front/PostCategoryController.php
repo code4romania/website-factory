@@ -24,7 +24,7 @@ class PostCategoryController extends Controller
 
         return view('front.posts.category', [
             'category' => $postCategory,
-            'posts'    => $postCategory
+            'posts' => $postCategory
                 ->posts()
                 ->with(['categories', 'media'])
                 ->latest('published_at')

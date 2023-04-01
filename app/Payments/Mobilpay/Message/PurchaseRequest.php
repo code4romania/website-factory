@@ -49,7 +49,7 @@ class PurchaseRequest extends AbstractRequest
 
         $data = [
             'env_key' => $request->getEnvKey(),
-            'data'    => $request->getEncData(),
+            'data' => $request->getEncData(),
         ];
 
         return $data;
