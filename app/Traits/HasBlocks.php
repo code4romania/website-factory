@@ -22,14 +22,14 @@ trait HasBlocks
         $this->blocks->map->delete();
 
         $blocks = collect($blocks)->map(fn (array $block, int $index) => [
-            'blockable_id'   => $this->id,
+            'blockable_id' => $this->id,
             'blockable_type' => $this->getMorphClass(),
-            'position'       => $index + 1,
-            'type'           => $block['type'],
-            'content'        => $block['content'] ?? [],
-            'children'       => $block['children'] ?? [],
-            'media'          => collect($block['media'] ?? [])->pluck('id')->all(),
-            'related'        => $block['related'] ?? [],
+            'position' => $index + 1,
+            'type' => $block['type'],
+            'content' => $block['content'] ?? [],
+            'children' => $block['children'] ?? [],
+            'media' => collect($block['media'] ?? [])->pluck('id')->all(),
+            'related' => $block['related'] ?? [],
         ]);
 
         $this->blocks()->createMany($blocks)
@@ -40,14 +40,14 @@ trait HasBlocks
 
                 $children = collect($currentBlock['children'])
                     ->map(fn (array $block, int $index) => [
-                        'blockable_id'   => $this->id,
+                        'blockable_id' => $this->id,
                         'blockable_type' => $this->getMorphClass(),
-                        'position'       => $index + 1,
-                        'type'           => $block['type'],
-                        'content'        => $block['content'] ?? [],
-                        'children'       => $block['children'] ?? [],
-                        'media'          => collect($block['media'] ?? [])->pluck('id')->all(),
-                        'related'        => $block['related'] ?? [],
+                        'position' => $index + 1,
+                        'type' => $block['type'],
+                        'content' => $block['content'] ?? [],
+                        'children' => $block['children'] ?? [],
+                        'media' => collect($block['media'] ?? [])->pluck('id')->all(),
+                        'related' => $block['related'] ?? [],
                     ]);
 
                 $block->children()->createMany($children)

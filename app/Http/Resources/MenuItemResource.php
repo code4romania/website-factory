@@ -13,14 +13,14 @@ class MenuItemResource extends Resource
         $this->withoutPermissions();
 
         return [
-            'id'           => $this->id,
-            'type'         => $this->normalized_type,
-            'label'        => $this->getTranslationsWithFallback('label'),
-            'url'          => $this->getTranslationsWithFallback('url'),
-            'model_type'   => $this->model_type,
-            'model'        => $this->model_id,
-            'route'        => $this->route,
-            'children'     => self::collection($this->children),
+            'id' => $this->id,
+            'type' => $this->normalized_type,
+            'label' => $this->getTranslationsWithFallback('label'),
+            'url' => $this->getTranslationsWithFallback('url'),
+            'model_type' => $this->model_type,
+            'model' => $this->model_id,
+            'route' => $this->route,
+            'children' => self::collection($this->children),
         ];
     }
 }

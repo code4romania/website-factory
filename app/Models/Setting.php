@@ -31,14 +31,14 @@ class Setting extends Model
 
         $sections = [
             'site' => [
-                'title'          => $translatable,
-                'description'    => $translatable,
+                'title' => $translatable,
+                'description' => $translatable,
                 'default_locale' => Language::whereEnabled()->first()?->code,
-                'front_page'     => null,
-                'privacy_page'   => null,
-                'terms_page'     => null,
-                'logo'           => null,
-                'favicon'        => null,
+                'front_page' => null,
+                'privacy_page' => null,
+                'terms_page' => null,
+                'logo' => null,
+                'favicon' => null,
                 'html' => [
                     'header' => null,
                     'footer' => null,
@@ -46,11 +46,11 @@ class Setting extends Model
             ],
             'site-notice' => [
                 'enabled' => false,
-                'color'   => null,
-                'text'    => $translatable,
+                'color' => null,
+                'text' => $translatable,
             ],
             'social' => [
-                'profiles'    => collect(config('website-factory.social_platforms'))
+                'profiles' => collect(config('website-factory.social_platforms'))
                     ->mapWithKeys(fn (array $config, string $id) => [$id => null]),
             ],
         ];
@@ -66,14 +66,14 @@ class Setting extends Model
                 'page' => [
                     'thanks' => null,
                 ],
-                'amounts'              => [],
-                'mobilpay_enabled'     => false,
-                'mobilpay_signature'   => null,
+                'amounts' => [],
+                'mobilpay_enabled' => false,
+                'mobilpay_signature' => null,
                 'mobilpay_certificate' => null,
                 'mobilpay_private_key' => null,
-                'euplatesc_enabled'    => false,
-                'euplatesc_mid'        => null,
-                'euplatesc_key'        => null,
+                'euplatesc_enabled' => false,
+                'euplatesc_mid' => null,
+                'euplatesc_key' => null,
             ];
         }
 

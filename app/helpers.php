@@ -123,8 +123,8 @@ if (! function_exists('color_var')) {
         $hex = ltrim((string) $hex, '#');
 
         $rgb = match (Str::length($hex)) {
-            3       => str_split($hex, 1),
-            6       => str_split($hex, 2),
+            3 => str_split($hex, 1),
+            6 => str_split($hex, 2),
             default => str_split('000', 1),
         };
 

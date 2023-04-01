@@ -54,9 +54,9 @@ class SettingsServiceProvider extends ServiceProvider
         }
 
         data_set($this->settings, 'payments.gateways.euplatesc', [
-            'driver'    => '\App\Payments\Euplatesc\Gateway',
+            'driver' => '\App\Payments\Euplatesc\Gateway',
             'recurring' => true,
-            'config'    => [
+            'config' => [
                 'mid' => $mid,
                 'key' => $key,
             ],
@@ -78,12 +78,12 @@ class SettingsServiceProvider extends ServiceProvider
         }
 
         data_set($this->settings, 'payments.gateways.mobilpay', [
-            'driver'    => '\App\Payments\Mobilpay\Gateway',
+            'driver' => '\App\Payments\Mobilpay\Gateway',
             'recurring' => false,
-            'config'    => [
-                'signature'   => $signature,
+            'config' => [
+                'signature' => $signature,
                 'certificate' => $certificate,
-                'privateKey'  => $privateKey,
+                'privateKey' => $privateKey,
             ],
         ]);
     }

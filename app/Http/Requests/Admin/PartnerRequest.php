@@ -16,11 +16,11 @@ class PartnerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'         => ['required', 'string', 'max:200'],
-            'url'          => ['nullable', 'string', 'url', 'max:200'],
-            'position'     => ['nullable', 'integer'],
-            'media'        => ['array'],
-            'media.*.id'   => ['required', 'exists:media'],
+            'name' => ['required', 'string', 'max:200'],
+            'url' => ['nullable', 'string', 'url', 'max:200'],
+            'position' => ['nullable', 'integer'],
+            'media' => ['array'],
+            'media.*.id' => ['required', 'exists:media'],
         ];
     }
 }

@@ -57,7 +57,7 @@ class LanguageController extends Controller
     {
         return Inertia::render('Languages/Edit', [
             'resource' => LanguageResource::make($language),
-            'source'   => LanguageLine::getTranslationsForGroup(config('app.fallback_locale'), '*'),
+            'source' => LanguageLine::getTranslationsForGroup(config('app.fallback_locale'), '*'),
         ])->model(Language::class);
     }
 

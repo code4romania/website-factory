@@ -17,8 +17,8 @@ class RelatedResource extends Resource
         $this->withoutPermissions();
 
         return [
-            'id'    => $this->related_id,
-            'type'  => $this->related_type,
+            'id' => $this->related_id,
+            'type' => $this->related_type,
             'title' => $this->related->name ?? $this->related->title,
         ];
     }

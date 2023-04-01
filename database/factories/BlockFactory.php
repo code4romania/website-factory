@@ -14,9 +14,9 @@ class BlockFactory extends Factory
     public function definition(): array
     {
         return [
-            'type'      => null,
-            'position'  => $this->faker->randomDigit(),
-            'content'   => [],
+            'type' => null,
+            'position' => $this->faker->randomDigit(),
+            'content' => [],
             'parent_id' => null,
         ];
     }

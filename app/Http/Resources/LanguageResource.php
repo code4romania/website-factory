@@ -12,11 +12,11 @@ class LanguageResource extends Resource
     protected function default(Request $request): array
     {
         return [
-            'id'      => $this->code,
-            'code'    => $this->code,
-            'name'    => $this->name,
+            'id' => $this->code,
+            'code' => $this->code,
+            'name' => $this->name,
             'enabled' => $this->enabled,
-            'lines'   => LanguageLine::getTranslationsForGroup($this->code, '*'),
+            'lines' => LanguageLine::getTranslationsForGroup($this->code, '*'),
         ];
     }
 }

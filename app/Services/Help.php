@@ -36,12 +36,12 @@ class Help
 
                 return [
                     'sectionId' => (int) $sectionId,
-                    'section'   => $section,
-                    'topic'     => $topic,
-                    'title'     => data_get($frontMatter, 'title'),
-                    'video'     => (bool) data_get($frontMatter, 'video'),
-                    'content'   => $content,
-                    'excerpt'   => Str::of((string) $content)
+                    'section' => $section,
+                    'topic' => $topic,
+                    'title' => data_get($frontMatter, 'title'),
+                    'video' => (bool) data_get($frontMatter, 'video'),
+                    'content' => $content,
+                    'excerpt' => Str::of((string) $content)
                         ->stripTags()
                         ->limit(160)
                         ->toString(),
@@ -56,7 +56,7 @@ class Help
 
         $edition = match ($edition) {
             'internal' => 'ong',
-            default    => $edition,
+            default => $edition,
         };
 
         return base_path("help/content/{$edition}/{$locale}");

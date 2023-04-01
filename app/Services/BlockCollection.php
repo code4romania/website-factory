@@ -46,10 +46,10 @@ class BlockCollection extends Collection
                 $type = $this->getProperty('type', $component) ?? Str::kebab(preg_replace('/(.vue|.js)$/u', '', $file->getFilename()));
 
                 return [
-                    'type'    => $type,
-                    'icon'    => $this->getProperty('icon', $component) ?? 'Design/layout-top-2-line',
+                    'type' => $type,
+                    'icon' => $this->getProperty('icon', $component) ?? 'Design/layout-top-2-line',
                     'feature' => $this->getProperty('feature', $component),
-                    'label'   => __("block.$type"),
+                    'label' => __("block.$type"),
                 ];
             })
             ->filter(fn (array $block) => \is_null($block['feature']) || Features::enabled($block['feature']))

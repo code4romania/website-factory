@@ -26,11 +26,11 @@ class MenuRequest extends BaseRequest
     protected function nestedRules(int $depth): array
     {
         $template = [
-            '%prefix%'         => ['array'],
-            '%prefix%.*.id'    => ['nullable', 'integer'],
+            '%prefix%' => ['array'],
+            '%prefix%.*.id' => ['nullable', 'integer'],
             '%prefix%.*.label' => ['required', 'string'],
-            '%prefix%.*.type'  => ['required', 'string'],
-            '%prefix%.*.url'   => ['required_if:%prefix%.*.type,external', 'nullable', 'url'],
+            '%prefix%.*.type' => ['required', 'string'],
+            '%prefix%.*.url' => ['required_if:%prefix%.*.type,external', 'nullable', 'url'],
             '%prefix%.*.model' => ['required_if:%prefix%.*.type,' . MenuItem::allowedModels()->keys()->join(',')],
             '%prefix%.*.route' => ['required_if:%prefix%.*.type,route'],
         ];

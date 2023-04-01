@@ -27,8 +27,8 @@ Route::get('/i18n/{locale}.json', [Admin\LanguageController::class, 'lines'])
     ->name('i18n');
 
 Route::group([
-    'prefix'     => 'pages',
-    'as'         => 'pages.',
+    'prefix' => 'pages',
+    'as' => 'pages.',
     'controller' => Admin\PageController::class,
 ], function () {
     Route::get('/', 'index')->name('index');
@@ -44,8 +44,8 @@ Route::group([
 });
 
 Route::group([
-    'prefix'     => 'people',
-    'as'         => 'people.',
+    'prefix' => 'people',
+    'as' => 'people.',
     'controller' => Admin\PersonController::class,
 ], function () {
     Route::get('/', 'index')->name('index');
@@ -63,8 +63,8 @@ Route::group([
 
 Route::prefix('posts')->group(function () {
     Route::group([
-        'prefix'     => 'categories',
-        'as'         => 'post_categories.',
+        'prefix' => 'categories',
+        'as' => 'post_categories.',
         'controller' => Admin\PostCategoryController::class,
     ], function () {
         Route::get('/', 'index')->name('index');
@@ -80,7 +80,7 @@ Route::prefix('posts')->group(function () {
     });
 
     Route::group([
-        'as'         => 'posts.',
+        'as' => 'posts.',
         'controller' => Admin\PostController::class,
     ], function () {
         Route::get('/', 'index')->name('index');
@@ -99,8 +99,8 @@ Route::prefix('posts')->group(function () {
 if (Features::hasDecisions()) {
     Route::prefix('decisions')->group(function () {
         Route::group([
-            'prefix'     => 'categories',
-            'as'         => 'decision_categories.',
+            'prefix' => 'categories',
+            'as' => 'decision_categories.',
             'controller' => Admin\DecisionCategoryController::class,
         ], function () {
             Route::get('/', 'index')->name('index');
@@ -116,8 +116,8 @@ if (Features::hasDecisions()) {
         });
 
         Route::group([
-            'prefix'     => 'authors',
-            'as'         => 'decision_authors.',
+            'prefix' => 'authors',
+            'as' => 'decision_authors.',
             'controller' => Admin\DecisionAuthorController::class,
         ], function () {
             Route::get('/', 'index')->name('index');
@@ -133,7 +133,7 @@ if (Features::hasDecisions()) {
         });
 
         Route::group([
-            'as'         => 'decisions.',
+            'as' => 'decisions.',
             'controller' => Admin\DecisionController::class,
         ], function () {
             Route::get('/', 'index')->name('index');
@@ -151,8 +151,8 @@ if (Features::hasDecisions()) {
 }
 
 Route::group([
-    'prefix'     => 'forms',
-    'as'         => 'forms.',
+    'prefix' => 'forms',
+    'as' => 'forms.',
     'controller' => Admin\FormController::class,
 ], function () {
     Route::get('/', 'index')->name('index');
@@ -171,7 +171,7 @@ Route::group([
 });
 
 Route::group([
-    'as'         => 'form_submissions.',
+    'as' => 'form_submissions.',
     'controller' => Admin\FormSubmissionController::class,
 ], function () {
     Route::get('form_submission/{form_submission}', 'show')->name('show');
@@ -179,8 +179,8 @@ Route::group([
 });
 
 Route::group([
-    'prefix'     => 'users',
-    'as'         => 'users.',
+    'prefix' => 'users',
+    'as' => 'users.',
     'controller' => Admin\UserController::class,
     'middleware' => 'role:admin',
 ], function () {
@@ -193,8 +193,8 @@ Route::group([
 });
 
 Route::group([
-    'prefix'     => 'media',
-    'as'         => 'media.',
+    'prefix' => 'media',
+    'as' => 'media.',
     'controller' => Admin\MediaController::class,
 ], function () {
     Route::get('/images', 'images')->name('images');
@@ -205,8 +205,8 @@ Route::group([
 });
 
 Route::group([
-    'prefix'     => 'partners',
-    'as'         => 'partners.',
+    'prefix' => 'partners',
+    'as' => 'partners.',
     'controller' => Admin\PartnerController::class,
     'middleware' => 'role:admin',
 ], function () {
@@ -223,11 +223,11 @@ Route::group([
 });
 
 Route::group([
-    'prefix'     => 'menus',
-    'as'         => 'menus.',
+    'prefix' => 'menus',
+    'as' => 'menus.',
     'controller' => Admin\MenuController::class,
     'middleware' => 'role:admin',
-    'where'      => ['location' => '(header|footer)'],
+    'where' => ['location' => '(header|footer)'],
 ], function () {
     Route::get('/', 'index')->name('index');
     Route::get('/{location}', 'edit')->name('edit');
@@ -235,8 +235,8 @@ Route::group([
 });
 
 Route::group([
-    'prefix'     => 'settings',
-    'as'         => 'settings.',
+    'prefix' => 'settings',
+    'as' => 'settings.',
     'controller' => Admin\SettingController::class,
     'middleware' => 'role:admin',
 ], function () {
@@ -246,8 +246,8 @@ Route::group([
 });
 
 Route::group([
-    'prefix'     => 'languages',
-    'as'         => 'languages.',
+    'prefix' => 'languages',
+    'as' => 'languages.',
     'controller' => Admin\LanguageController::class,
     'middleware' => 'role:admin',
 ], function () {

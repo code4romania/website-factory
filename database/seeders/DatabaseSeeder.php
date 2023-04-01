@@ -32,13 +32,13 @@ class DatabaseSeeder extends Seeder
 
         Language::insert([
             [
-                'code'    => 'ro',
-                'name'    => 'Română',
+                'code' => 'ro',
+                'name' => 'Română',
                 'enabled' => true,
             ],
             [
-                'code'    => 'en',
-                'name'    => 'English',
+                'code' => 'en',
+                'name' => 'English',
                 'enabled' => false,
             ],
         ]);

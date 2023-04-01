@@ -18,7 +18,7 @@ class SearchRequest extends FormRequest
     {
         return [
             'query' => ['required', 'string', 'min:3'],
-            'type'  => ['string', Rule::in(
+            'type' => ['string', Rule::in(
                 collect(config('search.models'))
                     ->map(fn (string $model) => app($model)->getMorphClass())
             )],

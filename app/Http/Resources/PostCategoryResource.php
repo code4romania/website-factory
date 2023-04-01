@@ -10,27 +10,27 @@ class PostCategoryResource extends Resource
 {
     public array $routeMap = [
         'admin.post_categories.index' => 'index',
-        'admin.post_categories.edit'  => 'edit',
+        'admin.post_categories.edit' => 'edit',
     ];
 
     protected function index(Request $request): array
     {
         return [
-            'id'          => $this->id,
-            'title'       => $this->title,
-            'slug'        => $this->slug,
+            'id' => $this->id,
+            'title' => $this->title,
+            'slug' => $this->slug,
             'posts_count' => $this->posts_count,
-            'trashed'     => $this->trashed(),
+            'trashed' => $this->trashed(),
         ];
     }
 
     protected function edit(Request $request): array
     {
         return [
-            'id'           => $this->id,
-            'title'        => $this->getTranslations('title'),
-            'description'  => $this->getTranslations('description'),
-            'slug'         => $this->getTranslations('slug'),
+            'id' => $this->id,
+            'title' => $this->getTranslations('title'),
+            'description' => $this->getTranslations('description'),
+            'slug' => $this->getTranslations('slug'),
         ];
     }
 
@@ -39,7 +39,7 @@ class PostCategoryResource extends Resource
         $this->withoutPermissions();
 
         return [
-            'id'    => $this->id,
+            'id' => $this->id,
             'title' => $this->title,
         ];
     }

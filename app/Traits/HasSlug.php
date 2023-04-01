@@ -157,7 +157,7 @@ trait HasSlug
 
         return route('front.' . Str::plural($key) . '.show', [
             'locale' => app()->getLocale(),
-            $key     => $slug,
+            $key => $slug,
         ]);
     }
 }

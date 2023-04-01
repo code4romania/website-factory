@@ -9,17 +9,17 @@ use Exception;
 class SupportsTrait
 {
     private static array $traitMap = [
-        'blocks'       => \App\Traits\HasBlocks::class,
-        'filterable'   => \App\Traits\Filterable::class,
-        'layout'       => \App\Traits\HasLayout::class,
-        'media'        => \App\Traits\HasMedia::class,
-        'nestedSet'    => \Kalnoy\Nestedset\NodeTrait::class,
-        'publishable'  => \App\Traits\Publishable::class,
-        'softDeletes'  => \Illuminate\Database\Eloquent\SoftDeletes::class,
-        'sortable'     => \App\Traits\Sortable::class,
-        'slug'         => \App\Traits\HasSlug::class,
+        'blocks' => \App\Traits\HasBlocks::class,
+        'filterable' => \App\Traits\Filterable::class,
+        'layout' => \App\Traits\HasLayout::class,
+        'media' => \App\Traits\HasMedia::class,
+        'nestedSet' => \Kalnoy\Nestedset\NodeTrait::class,
+        'publishable' => \App\Traits\Publishable::class,
+        'softDeletes' => \Illuminate\Database\Eloquent\SoftDeletes::class,
+        'sortable' => \App\Traits\Sortable::class,
+        'slug' => \App\Traits\HasSlug::class,
         'translatable' => \App\Traits\Translatable::class,
-        'uuid'         => \App\Traits\HasUuid::class,
+        'uuid' => \App\Traits\HasUuid::class,
     ];
 
     public static function __callStatic(string $method, array $args): bool

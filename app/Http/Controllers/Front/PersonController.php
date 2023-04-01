@@ -21,7 +21,7 @@ class PersonController extends Controller
 
         return view('front.people.show', [
             'person' => $person,
-            'image'  => $image,
+            'image' => $image,
         ]);
     }
 }

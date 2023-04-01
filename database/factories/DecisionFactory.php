@@ -14,11 +14,11 @@ class DecisionFactory extends Factory
     public function definition()
     {
         return [
-            'title'        => $this->translatedFaker('sentence'),
-            'slug'         => $this->translatedFaker('slug'),
-            'description'  => $this->translatedFaker('text'),
+            'title' => $this->translatedFaker('sentence'),
+            'slug' => $this->translatedFaker('slug'),
+            'description' => $this->translatedFaker('text'),
             'published_at' => $this->faker->boolean(95) ? $this->faker->dateTimeThisYear() : null,
-            'deleted_at'   => $this->faker->boolean(5) ? $this->faker->dateTime() : null,
+            'deleted_at' => $this->faker->boolean(5) ? $this->faker->dateTime() : null,
         ];
     }
 }

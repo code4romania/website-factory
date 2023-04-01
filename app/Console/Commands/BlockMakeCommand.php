@@ -108,7 +108,7 @@ class BlockMakeCommand extends Command
         $content = $this->build(
             base_path('stubs/blocks/view-component.stub'),
             [
-                'class'  => $this->getComponentName(),
+                'class' => $this->getComponentName(),
             ]
         );
 
@@ -125,7 +125,7 @@ class BlockMakeCommand extends Command
         $content = $this->build(
             base_path('stubs/blocks/vue.stub'),
             [
-                'name'  => $this->getComponentName(kebabCase: true),
+                'name' => $this->getComponentName(kebabCase: true),
             ]
         );
 

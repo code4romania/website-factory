@@ -23,7 +23,7 @@ class DecisionAuthorController extends Controller
             ->description($decisionAuthor->description);
 
         return view('front.decisions.category', [
-            'category'  => $decisionAuthor,
+            'category' => $decisionAuthor,
             'decisions' => $decisionAuthor
                 ->decisions()
                 ->latest('published_at')

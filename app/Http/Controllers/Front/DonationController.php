@@ -20,18 +20,18 @@ class DonationController extends Controller
         abort_unless(PaymentGateway::isActive($attributes['gateway']), 403);
 
         $response = PaymentGateway::purchase($attributes['gateway'], [
-            'amount'               => $attributes['amount'] ?? $attributes['other'],
-            'currency'             => $attributes['currency'],
-            'transactionId'        => (string) time(),
+            'amount' => $attributes['amount'] ?? $attributes['other'],
+            'currency' => $attributes['currency'],
+            'transactionId' => (string) time(),
             'transactionReference' => __('donation'),
-            'returnUrl'            => localized_route('front.donations.return'),
-            'card'                 => [
+            'returnUrl' => localized_route('front.donations.return'),
+            'card' => [
                 'first_name' => $attributes['first_name'],
-                'last_name'  => $attributes['last_name'],
-                'email'      => $attributes['email'],
-                'phone'      => $attributes['phone'],
+                'last_name' => $attributes['last_name'],
+                'email' => $attributes['email'],
+                'phone' => $attributes['phone'],
             ],
-            'recurring'  => (bool) $attributes['recurring'],
+            'recurring' => (bool) $attributes['recurring'],
         ]);
 
         if ($response->isSuccessful()) {

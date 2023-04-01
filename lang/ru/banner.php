@@ -10,8 +10,8 @@ return [
     'edition' => [
         'primarie' => 'Primărie',
         'minister' => 'Minister',
-        'ong'      => 'NGO',
-        'develop'  => 'develop',
+        'ong' => 'NGO',
+        'develop' => 'develop',
     ],
 
 ];

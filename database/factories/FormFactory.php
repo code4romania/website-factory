@@ -18,11 +18,11 @@ class FormFactory extends Factory
         $send_submissions = $this->faker->boolean();
 
         return [
-            'title'             => $this->translatedFaker('sentence'),
-            'slug'              => $this->translatedFaker('slug'),
+            'title' => $this->translatedFaker('sentence'),
+            'slug' => $this->translatedFaker('slug'),
             'store_submissions' => $this->faker->boolean(),
-            'send_submissions'  => $send_submissions,
-            'recipients'        => $send_submissions ? collect([
+            'send_submissions' => $send_submissions,
+            'recipients' => $send_submissions ? collect([
                 $this->faker->safeEmail(),
                 $this->faker->safeEmail(),
                 $this->faker->safeEmail(),
@@ -42,13 +42,13 @@ class FormFactory extends Factory
             }
 
             $form->blocks()->create([
-                'blockable_id'   => $form->id,
+                'blockable_id' => $form->id,
                 'blockable_type' => $form->getMorphClass(),
-                'position'       => 1,
-                'type'           => $type,
-                'content'        => array_merge([
+                'position' => 1,
+                'type' => $type,
+                'content' => array_merge([
                     'label' => $this->translatedFaker('word'),
-                    'help'  => $this->translatedFaker('sentence'),
+                    'help' => $this->translatedFaker('sentence'),
                 ], $field),
             ]);
         });

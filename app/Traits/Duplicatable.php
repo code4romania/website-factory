@@ -11,7 +11,6 @@ trait Duplicatable
 {
     public function duplicate(): Model
     {
-
         /** @var Model */
         $duplicate = $this->replicate();
 

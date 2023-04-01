@@ -34,10 +34,10 @@ class SettingController extends Controller
     public function edit(string $section): Response
     {
         return Inertia::render('Settings/' . Str::studly($section), [
-            'section'  => $section,
+            'section' => $section,
             'sections' => Setting::sections(),
             'settings' => Setting::section($section),
-            'data'     => Setting::sectionData($section),
+            'data' => Setting::sectionData($section),
         ])->model(Setting::class);
     }
 
@@ -49,9 +49,9 @@ class SettingController extends Controller
         $settings = match ($section) {
             'site' => $attributes->map(
                 fn ($value, $key) => match ($key) {
-                    default    => $value,
-                    'logo'     => $value?->storePubliclyAs('assets', 'logo.' . $value?->extension()),
-                    'favicon'  => $value
+                    default => $value,
+                    'logo' => $value?->storePubliclyAs('assets', 'logo.' . $value?->extension()),
+                    'favicon' => $value
                         ?->manipulate(function (Image $image) {
                             $image->fit(48, 48)->encode('png');
                         })
@@ -60,10 +60,10 @@ class SettingController extends Controller
             ),
             'donations' => $attributes->map(
                 fn ($value, $key) => match ($key) {
-                    default                => $value,
-                    'euplatesc_enabled'    => \boolval($value),
+                    default => $value,
+                    'euplatesc_enabled' => \boolval($value),
 
-                    'mobilpay_enabled'     => \boolval($value),
+                    'mobilpay_enabled' => \boolval($value),
                     'mobilpay_certificate' => encrypt($value?->get()),
                     'mobilpay_private_key' => encrypt($value?->get()),
                 }
@@ -76,7 +76,7 @@ class SettingController extends Controller
             ->each(
                 fn ($value, $key) => Setting::updateOrCreate(
                     [
-                        'key'     => $key,
+                        'key' => $key,
                         'section' => $section,
                     ],
                     [

@@ -29,7 +29,7 @@ class SearchController extends Controller
         return response()
             ->view('front.search.results', [
                 'query' => $attributes['query'],
-                'type'  => $attributes['type'],
+                'type' => $attributes['type'],
                 'types' => $this->getAvailableTypes(),
                 'items' => $this->search($attributes['query'], $attributes['type']),
             ])

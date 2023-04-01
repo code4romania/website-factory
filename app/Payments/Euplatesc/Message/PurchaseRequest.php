@@ -17,13 +17,13 @@ class PurchaseRequest extends AbstractRequest
         $this->validate('amount', 'returnUrl');
 
         $data = [
-            'amount'      => $this->getAmount(),
-            'curr'        => $this->getCurrency(),
-            'invoice_id'  => $this->getTransactionId(),
-            'order_desc'  => $this->getTransactionReference(),
-            'merch_id'    => $this->getMid(),
-            'timestamp'   => gmdate('YmdHis'),
-            'nonce'		  => md5(microtime() . mt_rand()),
+            'amount' => $this->getAmount(),
+            'curr' => $this->getCurrency(),
+            'invoice_id' => $this->getTransactionId(),
+            'order_desc' => $this->getTransactionReference(),
+            'merch_id' => $this->getMid(),
+            'timestamp' => gmdate('YmdHis'),
+            'nonce' => md5(microtime() . mt_rand()),
         ];
 
         if ($this->getRecurring()) {

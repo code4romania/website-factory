@@ -63,13 +63,13 @@ class SetupCommand extends Command
 
             Language::insert([
                 [
-                    'code'    => 'ro',
-                    'name'    => 'Română',
+                    'code' => 'ro',
+                    'name' => 'Română',
                     'enabled' => true,
                 ],
                 [
-                    'code'    => 'en',
-                    'name'    => 'English',
+                    'code' => 'en',
+                    'name' => 'English',
                     'enabled' => false,
                 ],
             ]);
@@ -107,8 +107,8 @@ class SetupCommand extends Command
             if (\count($setting) === 2) {
                 Setting::create([
                     'section' => $setting[0],
-                    'key'     => $setting[1],
-                    'value'   => $page->id,
+                    'key' => $setting[1],
+                    'value' => $page->id,
                 ]);
             }
         });
@@ -133,10 +133,10 @@ class SetupCommand extends Command
         }
 
         User::create([
-            'email'    => $email,
-            'name'     => 'Administrator',
+            'email' => $email,
+            'name' => 'Administrator',
             'password' => Hash::make($password),
-            'role'     => 'admin',
+            'role' => 'admin',
         ]);
 
         $this->info('Successfully created administrator for ' . $email);

@@ -45,10 +45,10 @@ class MenuItem extends Model
     public static function allowedModels(): Collection
     {
         $models = [
-            Page::class             => true,
-            Post::class             => true,
-            PostCategory::class     => true,
-            Decision::class         => Features::hasDecisions(),
+            Page::class => true,
+            Post::class => true,
+            PostCategory::class => true,
+            Decision::class => Features::hasDecisions(),
             DecisionCategory::class => Features::hasDecisions(),
         ];
 

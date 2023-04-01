@@ -71,14 +71,14 @@ abstract class ResourceCollection extends BaseCollection
         $morphClass = $this->model->getMorphClass();
 
         return array_merge([
-            'columns'    => $this->tableColumns($request),
-            'statuses'   => $this->statuses(),
-            'filters'    => $this->filters($request),
-            'sort'       => $this->sort($request),
-            'data'       => $this->collection,
+            'columns' => $this->tableColumns($request),
+            'statuses' => $this->statuses(),
+            'filters' => $this->filters($request),
+            'sort' => $this->sort($request),
+            'data' => $this->collection,
             'properties' => [
-                'model'              => $morphClass,
-                'main_action_route'  => $this->mainActionRoute ?? 'admin.' . Str::plural($morphClass) . '.edit',
+                'model' => $morphClass,
+                'main_action_route' => $this->mainActionRoute ?? 'admin.' . Str::plural($morphClass) . '.edit',
                 'admin_route_prefix' => 'admin.' . Str::plural($morphClass),
                 'front_route_prefix' => 'front.' . Str::plural($morphClass),
             ],
@@ -95,8 +95,8 @@ abstract class ResourceCollection extends BaseCollection
     {
         return $this->getColumnsByRouteName($request)
             ->map(fn (string $column) => [
-                'field'    => Str::replace('.', '___', $column),
-                'label'    => __("field.{$column}"),
+                'field' => Str::replace('.', '___', $column),
+                'label' => __("field.{$column}"),
                 'sortable' => $this->isColumnSortable($column),
             ]);
     }
@@ -158,7 +158,7 @@ abstract class ResourceCollection extends BaseCollection
 
         if (! \is_string($column)) {
             return [
-                'column'    => null,
+                'column' => null,
                 'direction' => null,
             ];
         }
@@ -170,13 +170,13 @@ abstract class ResourceCollection extends BaseCollection
 
         if (! $this->isColumnSortable($column)) {
             return [
-                'column'    => null,
+                'column' => null,
                 'direction' => null,
             ];
         }
 
         return [
-            'column'    => $column,
+            'column' => $column,
             'direction' => $direction,
         ];
     }
@@ -187,7 +187,7 @@ abstract class ResourceCollection extends BaseCollection
 
         if (SupportsTrait::publishable($this->model)) {
             $statuses->push([
-                'name'  => 'all',
+                'name' => 'all',
                 'count' => $this->model
                     ->newQuery()
                     ->withDrafted()
@@ -195,14 +195,14 @@ abstract class ResourceCollection extends BaseCollection
             ]);
 
             $statuses->push([
-                'name'  => 'published',
+                'name' => 'published',
                 'count' => $this->model
                     ->newQuery()
                     ->count(),
             ]);
 
             $statuses->push([
-                'name'  => 'draft',
+                'name' => 'draft',
                 'count' => $this->model
                     ->newQuery()
                     ->onlyDrafted()
@@ -210,7 +210,7 @@ abstract class ResourceCollection extends BaseCollection
             ]);
         } else {
             $statuses->push([
-                'name'  => 'all',
+                'name' => 'all',
                 'count' => $this->model
                     ->newQuery()
                     ->count(),
@@ -219,7 +219,7 @@ abstract class ResourceCollection extends BaseCollection
 
         if (SupportsTrait::softDeletes($this->model)) {
             $statuses->push([
-                'name'  => 'trashed',
+                'name' => 'trashed',
                 'count' => $this->model
                     ->newQuery()
                     ->onlyTrashed()

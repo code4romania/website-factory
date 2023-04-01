@@ -30,17 +30,17 @@ class SettingRequest extends BaseRequest
     {
         if ($this->section === 'site') {
             $rules = [
-                'settings.title'          => ['array'],
-                'settings.description'    => ['array'],
-                'settings.logo'           => ['nullable', 'image', 'mimes:jpg,png,gif,svg'],
-                'settings.favicon'        => ['nullable', 'image', 'mimes:jpg,png,gif', 'dimensions:min_width=32,max_width=1000'],
+                'settings.title' => ['array'],
+                'settings.description' => ['array'],
+                'settings.logo' => ['nullable', 'image', 'mimes:jpg,png,gif,svg'],
+                'settings.favicon' => ['nullable', 'image', 'mimes:jpg,png,gif', 'dimensions:min_width=32,max_width=1000'],
                 'settings.default_locale' => ['required', 'exists:languages,code'],
-                'settings.front_page'     => ['required', 'exists:pages,id'],
-                'settings.privacy_page'   => ['required', 'exists:pages,id'],
-                'settings.terms_page'     => ['required', 'exists:pages,id'],
-                'settings.html'           => ['array'],
-                'settings.html.header'    => ['nullable', 'string'],
-                'settings.html.footer'    => ['nullable', 'string'],
+                'settings.front_page' => ['required', 'exists:pages,id'],
+                'settings.privacy_page' => ['required', 'exists:pages,id'],
+                'settings.terms_page' => ['required', 'exists:pages,id'],
+                'settings.html' => ['array'],
+                'settings.html.header' => ['nullable', 'string'],
+                'settings.html.footer' => ['nullable', 'string'],
             ];
 
             if (Features::hasTheme()) {
@@ -54,8 +54,8 @@ class SettingRequest extends BaseRequest
         if ($this->section === 'site-notice') {
             return [
                 'settings.enabled' => ['required', 'boolean'],
-                'settings.color'   => ['required', new ValidHex],
-                'settings.text'    => ['array'],
+                'settings.color' => ['required', new ValidHex],
+                'settings.text' => ['array'],
             ];
         }
 
@@ -72,18 +72,18 @@ class SettingRequest extends BaseRequest
 
         if ($this->section === 'donations') {
             return [
-                'settings.page.thanks'      => ['required', 'exists:pages,id'],
-                'settings.amounts'          => ['array'],
+                'settings.page.thanks' => ['required', 'exists:pages,id'],
+                'settings.amounts' => ['array'],
                 'settings.amounts.*.amount' => ['required', 'integer'],
 
-                'settings.mobilpay_enabled'     => ['boolean'],
-                'settings.mobilpay_signature'   => ['nullable', 'regex:/^([A-Z0-9]{4}-?){5}$/'],
+                'settings.mobilpay_enabled' => ['boolean'],
+                'settings.mobilpay_signature' => ['nullable', 'regex:/^([A-Z0-9]{4}-?){5}$/'],
                 'settings.mobilpay_certificate' => ['nullable', 'file'],
                 'settings.mobilpay_private_key' => ['nullable', 'file'],
 
                 'settings.euplatesc_enabled' => ['boolean'],
-                'settings.euplatesc_mid'     => ['nullable', 'string'],
-                'settings.euplatesc_key'     => ['nullable', 'string'],
+                'settings.euplatesc_mid' => ['nullable', 'string'],
+                'settings.euplatesc_key' => ['nullable', 'string'],
             ];
         }
 
