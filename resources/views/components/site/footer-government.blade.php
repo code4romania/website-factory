@@ -2,7 +2,7 @@
     <div class="container py-12 lg:py-16">
         <div class="grid gap-8 xl:grid-cols-3">
             <div>
-                {{-- TODO --}}
+                {!! $footer !!}
             </div>
 
             <nav class="xl:col-span-2">

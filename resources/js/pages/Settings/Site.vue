@@ -80,6 +80,12 @@
                     :accept="['.png', '.gif', '.jpg', '.jpeg']"
                     :help="$t('field_help.favicon')"
                 />
+
+                <localized-field
+                    field="form-editor"
+                    :label="$t('field.footer')"
+                    v-model="form.settings.footer"
+                />
             </panel>
 
             <panel title="Custom HTML">

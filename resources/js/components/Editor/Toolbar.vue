@@ -258,6 +258,22 @@
                 ],
                 [
                     {
+                        icon: 'Media/image-fill',
+                        action: () => {
+                            const url = window.prompt('URL');
+
+                            if (url) {
+                                props.editor
+                                    .chain()
+                                    .focus()
+                                    .setImage({ src: url })
+                                    .run();
+                            }
+                        },
+                    },
+                ],
+                [
+                    {
                         icon: 'Editor/table-2',
                         action: () =>
                             props.editor.commands.insertTable({
