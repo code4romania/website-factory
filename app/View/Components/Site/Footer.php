@@ -14,6 +14,8 @@ class Footer extends Component
 {
     public ?string $title;
 
+    public ?string $footer;
+
     public Collection $menu;
 
     public ?array $social;
@@ -26,6 +28,8 @@ class Footer extends Component
     public function __construct()
     {
         $this->title = localized_settings('site.title');
+
+        $this->footer = localized_settings('site.footer');
 
         $this->menu = MenuItem::query()
             ->location('footer')

@@ -155,5 +155,14 @@
             cursor: ew-resize;
             cursor: col-resize;
         }
+
+        img {
+            max-width: 100%;
+            height: auto;
+
+            &.ProseMirror-selectednode {
+                outline: 3px solid #68cef8;
+            }
+        }
     }
 </style>

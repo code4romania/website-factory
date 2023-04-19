@@ -39,6 +39,7 @@ class Setting extends Model
                 'terms_page' => null,
                 'logo' => null,
                 'favicon' => null,
+                'footer' => $translatable,
                 'html' => [
                     'header' => null,
                     'footer' => null,
