@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
 class FormField extends Block
@@ -35,5 +36,10 @@ class FormField extends Block
 
         return collect(preg_split('/\r\n|\r|\n/', $rawOptions))
             ->filter();
+    }
+
+    public function scopeOnlyFields(Builder $query): Builder
+    {
+        return $query->whereNotIn('type', ['content', 'divider']);
     }
 }
