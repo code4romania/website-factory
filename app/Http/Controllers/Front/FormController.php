@@ -28,7 +28,9 @@ class FormController extends Controller
     {
         $attributes = $request->validated();
 
-        $data = $form->blocks
+        $data = $form->blocks()
+            ->onlyFields()
+            ->get()
             ->map(function (FormField $field) use ($attributes) {
                 $value = $attributes[$field->name] ?? null;
 

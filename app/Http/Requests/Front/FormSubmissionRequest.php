@@ -18,7 +18,9 @@ class FormSubmissionRequest extends BaseRequest
      */
     public function rules(): array
     {
-        return $this->form->blocks
+        return $this->form->blocks()
+            ->onlyFields()
+            ->get()
             ->mapWithKeys(function (Block $field) {
                 $rules = [
                     $field->checkbox('required') ? 'required' : 'nullable',
