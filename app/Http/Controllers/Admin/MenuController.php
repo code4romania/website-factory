@@ -68,6 +68,7 @@ class MenuController extends Controller
                     'type' => $item['type'],
                     'url' => $item['type'] === 'external' ? ($item['url'] ?? null) : null,
                     'route' => $item['type'] === 'route' ? ($item['route'] ?? null) : null,
+                    'new_tab' => $item['new_tab'] ?? false,
                     'children' => $this->prepareItems($item['children'] ?? [], $location, ++$depth),
                 ];
 

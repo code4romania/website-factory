@@ -20,6 +20,7 @@ class MenuItemResource extends Resource
             'model_type' => $this->model_type,
             'model' => $this->model_id,
             'route' => $this->route,
+            'new_tab' => $this->new_tab,
             'children' => self::collection($this->children),
         ];
     }

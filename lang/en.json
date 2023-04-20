@@ -224,6 +224,7 @@
     "field.min_value": "Minimum value",
     "field.name": "Name",
     "field.number": "Number",
+    "field.open_in_new_tab": "Open in new tab",
     "field.options": "Options",
     "field.page": "Page",
     "field.parent": "Parent",
@@ -268,7 +269,7 @@
 
     "form.label": "Form|Forms",
     "form.action.create": "Add form",
-    "form.action.edit": "Edit formu",
+    "form.action.edit": "Edit form",
     "form.action.update": "Update form",
     "form.action.delete": "Delete form",
     "form.action.submit": "Submit",

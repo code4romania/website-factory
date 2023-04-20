@@ -4,7 +4,7 @@
     <a
         {{ $attributes->merge([
             'href' => $item->url,
-            'target' => '_blank',
+            'target' => $item->new_tab ? '_blank' : null,
             'rel' => 'noopener',
             'class' => $inactiveClass,
         ]) }}>
