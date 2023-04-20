@@ -34,7 +34,7 @@ class MenuItem extends Model
     ];
 
     protected $fillable = [
-        'id', 'type', 'location', 'position', 'model_type', 'model_id', 'route',
+        'id', 'type', 'location', 'position', 'model_type', 'model_id', 'route', 'new_tab',
     ];
 
     /**

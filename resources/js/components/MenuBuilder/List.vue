@@ -77,6 +77,7 @@
                 props.items.push({
                     label: {},
                     type: 'external',
+                    new_tab: false,
                     url: {},
                     children: [],
                 });

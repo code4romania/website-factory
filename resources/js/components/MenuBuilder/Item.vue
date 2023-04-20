@@ -77,40 +77,47 @@
                     required
                 />
 
-                <template v-if="item.type === 'external'">
-                    <localized-field
-                        field="form-input"
-                        type="url"
-                        :label="$t('field.url')"
-                        :name="`${prefix}.url`"
-                        v-model="item.url"
-                        required
-                    />
-                </template>
-
-                <template v-else-if="item.type === 'text'">
+                <template v-if="item.type === 'text'">
                     <!-- blank -->
                 </template>
 
-                <template v-else-if="item.type === 'route'">
-                    <form-select
-                        :label="$t(`field.${item.type}`)"
-                        :name="`${prefix}.route`"
-                        v-model="item.route"
-                        :options="routes"
-                        required
-                    />
-                </template>
+                <template v-else>
+                    <template v-if="item.type === 'external'">
+                        <localized-field
+                            field="form-input"
+                            type="url"
+                            :label="$t('field.url')"
+                            :name="`${prefix}.url`"
+                            v-model="item.url"
+                            required
+                        />
+                    </template>
 
-                <template v-else-if="models.length">
-                    <form-select
-                        :label="$t(`field.${item.type}`)"
-                        :name="`${prefix}.model`"
-                        v-model="item.model"
-                        :options="models"
-                        option-value-key="id"
-                        option-label-key="title"
-                        required
+                    <template v-else-if="item.type === 'route'">
+                        <form-select
+                            :label="$t(`field.${item.type}`)"
+                            :name="`${prefix}.route`"
+                            v-model="item.route"
+                            :options="routes"
+                            required
+                        />
+                    </template>
+
+                    <template v-else-if="models.length">
+                        <form-select
+                            :label="$t(`field.${item.type}`)"
+                            :name="`${prefix}.model`"
+                            v-model="item.model"
+                            :options="models"
+                            option-value-key="id"
+                            option-label-key="title"
+                            required
+                        />
+                    </template>
+
+                    <form-toggle
+                        :label="$t('field.open_in_new_tab')"
+                        v-model="item.new_tab"
                     />
                 </template>
             </div>

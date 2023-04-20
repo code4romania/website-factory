@@ -33,6 +33,7 @@ class MenuRequest extends BaseRequest
             '%prefix%.*.url' => ['required_if:%prefix%.*.type,external', 'nullable', 'url'],
             '%prefix%.*.model' => ['required_if:%prefix%.*.type,' . MenuItem::allowedModels()->keys()->join(',')],
             '%prefix%.*.route' => ['required_if:%prefix%.*.type,route'],
+            '%prefix%.*.new_tab' => ['boolean'],
         ];
 
         $rules = collect();
