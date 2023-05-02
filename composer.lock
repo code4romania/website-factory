@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc23d0fa64463455881c9fe133736d2d",
+    "content-hash": "45adf9e4ff02b955b01eb4def215b45a",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -10782,16 +10782,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.15.1",
+            "version": "v3.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "d48755372a113bddb99f749e34805d83f3acfe04"
+                "reference": "d40f9436e1c448d309fa995ab9c14c5c7a96f2dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/d48755372a113bddb99f749e34805d83f3acfe04",
-                "reference": "d48755372a113bddb99f749e34805d83f3acfe04",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/d40f9436e1c448d309fa995ab9c14c5c7a96f2dc",
+                "reference": "d40f9436e1c448d309fa995ab9c14c5c7a96f2dc",
                 "shasum": ""
             },
             "require": {
@@ -10866,7 +10866,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.15.1"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.16.0"
             },
             "funding": [
                 {
@@ -10874,7 +10874,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-13T23:26:30+00:00"
+            "time": "2023-04-02T19:30:06+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -13343,16 +13343,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v6.2.7",
+            "version": "v6.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "82b6c62b959f642d000456f08c6d219d749215b3"
+                "reference": "fd588debf7d1bc16a2c84b4b3b71145d9946b894"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/82b6c62b959f642d000456f08c6d219d749215b3",
-                "reference": "82b6c62b959f642d000456f08c6d219d749215b3",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/fd588debf7d1bc16a2c84b4b3b71145d9946b894",
+                "reference": "fd588debf7d1bc16a2c84b4b3b71145d9946b894",
                 "shasum": ""
             },
             "require": {
@@ -13386,7 +13386,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v6.2.7"
+                "source": "https://github.com/symfony/filesystem/tree/v6.2.10"
             },
             "funding": [
                 {
@@ -13402,7 +13402,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-14T08:44:56+00:00"
+            "time": "2023-04-18T13:46:08+00:00"
         },
         {
             "name": "symfony/polyfill-php81",
