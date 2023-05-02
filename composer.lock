@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7a56547a5f4569771009eb18f4cfb63",
+    "content-hash": "cc23d0fa64463455881c9fe133736d2d",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -66,16 +66,16 @@
         },
         {
             "name": "archtechx/laravel-seo",
-            "version": "v0.7.0",
+            "version": "v0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/archtechx/laravel-seo.git",
-                "reference": "3a17c8ee117cfa2655dded5e997dfaf75e4ec1eb"
+                "reference": "567a7b09efb249eb2a952ec11e051535f0c8db8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/archtechx/laravel-seo/zipball/3a17c8ee117cfa2655dded5e997dfaf75e4ec1eb",
-                "reference": "3a17c8ee117cfa2655dded5e997dfaf75e4ec1eb",
+                "url": "https://api.github.com/repos/archtechx/laravel-seo/zipball/567a7b09efb249eb2a952ec11e051535f0c8db8c",
+                "reference": "567a7b09efb249eb2a952ec11e051535f0c8db8c",
                 "shasum": ""
             },
             "require": {
@@ -118,9 +118,9 @@
             ],
             "support": {
                 "issues": "https://github.com/archtechx/laravel-seo/issues",
-                "source": "https://github.com/archtechx/laravel-seo/tree/v0.7.0"
+                "source": "https://github.com/archtechx/laravel-seo/tree/v0.8.0"
             },
-            "time": "2023-03-03T13:19:18+00:00"
+            "time": "2023-04-24T03:18:46+00:00"
         },
         {
             "name": "aws/aws-crt-php",
@@ -11569,16 +11569,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.20.3",
+            "version": "1.20.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "6c04009f6cae6eda2f040745b6b846080ef069c2"
+                "reference": "7d568c87a9df9c5f7e8b5f075fc469aa8cb0a4cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/6c04009f6cae6eda2f040745b6b846080ef069c2",
-                "reference": "6c04009f6cae6eda2f040745b6b846080ef069c2",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/7d568c87a9df9c5f7e8b5f075fc469aa8cb0a4cd",
+                "reference": "7d568c87a9df9c5f7e8b5f075fc469aa8cb0a4cd",
                 "shasum": ""
             },
             "require": {
@@ -11608,9 +11608,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.20.3"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.20.4"
             },
-            "time": "2023-04-25T09:01:03+00:00"
+            "time": "2023-05-02T09:19:37+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
