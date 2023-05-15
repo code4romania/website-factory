@@ -9,7 +9,7 @@
         <div class="relative flex items-center justify-between gap-3">
             <a href="{{ localized_route('front.pages.index') }}" class="inline-flex text-primary">
                 @if ($logo)
-                    @if(env('APP_URL') == 'https://crestem.ong')
+                    @if(env('APP_NAME') == 'CrestemOng')
                         <img
                             class="object-contain max-w-[180px]  sm:max-w-64"
                             src="{{ $logo }}"
