@@ -20,7 +20,7 @@
                     </a>
                 @else
                     <span class="inline-flex shrink-0">
-                        <img class="object-contain h-12" src="{{ $partner->logo }}" alt="{{ $partner->name }}">
+                        <img class="object-contain h-[80px]" src="{{ $partner->logo }}" alt="{{ $partner->name }}">
                     </span>
                 @endif
             @endforeach
