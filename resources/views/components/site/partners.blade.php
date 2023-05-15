@@ -1,6 +1,6 @@
 <aside class="border-b">
     <div class="container flex items-center gap-4 sm:justify-end md:gap-x-8">
-        @if(env('APP_URL') != 'https://crestem.ong')
+          @if(env('APP_URL') != 'https://crestem.ong')
             <span class="text-sm font-medium text-gray-600">@lang('partner.banner')</span>
         @endif
         <div class="flex flex-wrap items-center justify-end flex-1 gap-4 py-5 lg:gap-x-6 sm:flex-initial">
