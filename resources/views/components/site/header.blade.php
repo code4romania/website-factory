@@ -11,7 +11,7 @@
                 @if ($logo)
                     @if(env('APP_NAME') == 'CrestemOng')
                         <img
-                            class="object-contain max-w-[180px]  sm:max-w-64"
+                            class="object-contain max-w-[180px]"
                             src="{{ $logo }}"
                             alt="{{ $title }}">
                         @else
