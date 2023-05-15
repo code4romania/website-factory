@@ -9,10 +9,18 @@
         <div class="relative flex items-center justify-between gap-3">
             <a href="{{ localized_route('front.pages.index') }}" class="inline-flex text-primary">
                 @if ($logo)
-                    <img
-                        class="object-contain h-16 max-w-48 sm:max-w-64"
-                        src="{{ $logo }}"
-                        alt="{{ $title }}">
+                    @if(env('APP_URL') != 'https://wf.test')
+                        <img
+                            class="object-contain max-w-[180px]  sm:max-w-64"
+                            src="{{ $logo }}"
+                            alt="{{ $title }}">
+                        @else
+                        <img
+                            class="object-contain h-16 max-w-48 sm:max-w-64"
+                            src="{{ $logo }}"
+                            alt="{{ $title }}">
+                    @endif
+
                 @else
                     <x-icon-logo class="h-12 md:h-16" />
                 @endif
