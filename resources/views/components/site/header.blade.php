@@ -16,7 +16,7 @@
                             alt="{{ $title }}">
                         @else
                         <img
-                            class="object-contain h-16 max-w-48 sm:max-w-64"
+                            class="object-contain h-16 max-w-48"
                             src="{{ $logo }}"
                             alt="{{ $title }}">
                     @endif
