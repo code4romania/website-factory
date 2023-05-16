@@ -18,11 +18,6 @@ putea să se mai logheze cu adresa anterioară în panou. Un email de
 setare a parolei va fi trimis pe emailul nou introdus în profilul acelui
 utilizator.
 
-
-<a href="/assets/help/004.png">
-    <img src="/assets/help/004.png" />
-</a>
-
 Pentru a șterge un utilizator trebuie să parcurgi următorii pași:
 
 1)  Accesează panoul de administrare
