@@ -9,12 +9,11 @@ platformei, butonul **Pagini**.
 În secțiunea **Pagini** poți crea pagini noi sau poți modifica paginile
 deja existente.
 
-Atenție: la instalarea instanței tale de Website Factory: ONG, vei găsi
+Atenție: la instalarea instanței tale de Website Factory: Guvern, vei găsi
 în platformă deja create exemple de pagini pentru: Termeni și Condiții,
-Politică de Confidențialitate, model de raport anual, model de pagina de
-donații, model de pagină de mulțumire. Acestea sunt obligatorii pentru
+Politică de Confidențialitate, și alte modele. Unele dintre ele sunt obligatorii pentru
 orice website, însă conținutul lor se poate modifica în funcție de
-activitatea organizației tale.
+activitatea ta.
 
 Pentru a crea **o pagină nouă**, este necesar să parcurgi următorii
 pași:
@@ -40,10 +39,6 @@ parcurgi următorii pași:
 5)  Pagina se va deschide într-un tab nou al browserului pe care îl
     folosești
 
-<a href="/assets/help/015.png">
-    <img src="/assets/help/015.png" />
-</a>
-
 Pentru **a edita o pagină deja existentă**, este necesar să parcurgi
 următorii pași:
 
@@ -66,10 +61,6 @@ este necesar să parcurgi următorii pași:
 4)  Selectează opțiunea **Duplică**
 5)  Confirmă duplicarea apăsând pe butonul **Duplică**
 6)  Pagina duplicată a fost adăugată în lista paginilor existente
-
-<a href="/assets/help/029.png">
-    <img src="/assets/help/029.png" />
-</a>
 
 Pentru a **șterge** **o pagină**, este necesar să parcurgi următorii
 pași:
