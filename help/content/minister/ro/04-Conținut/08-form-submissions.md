@@ -4,7 +4,7 @@ title: "Gestionare răspunsuri"
 
 Pentru formularele la care a fost bifată opțiunea **Salvează
 răspunsurile în panou**, poți vizualiza răspunsurile direct în Website
-Factory: ONG. Pentru aceasta, este necesar să parcurgi următorii pași:
+Factory: Guvern. Pentru aceasta, este necesar să parcurgi următorii pași:
 
 1)  Accesează panoul de administrare
 2)  Selectează din Meniul principal butonul **Formulare**
@@ -15,10 +15,6 @@ Factory: ONG. Pentru aceasta, este necesar să parcurgi următorii pași:
     vrei să îl vizualizezi
 5)  Vei ajunge în pagina în care sunt listate toate întrebările, cu
     răspunsul aferent
-
-<a href="/assets/help/025.png">
-    <img src="/assets/help/025.png" />
-</a>
 
 Pentru **a șterge un răspuns**, este necesar să parcurgi următorii pași:
 
