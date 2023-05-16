@@ -2,10 +2,8 @@
 title: "Introducere în utilizarea Website Factory: Guvern"
 ---
 
-Website Factory: Guvern este un constructor de website-uri croit după
-nevoile societății civile, pliat pe necesarul de comunicare al
-fiecăruia. Simplu și intuitiv, Website Factory: Guvern va ajuta fiecare
-organizație să construiască rapid platforma de care are nevoie.
+Website Factory: Guvern este un constructor de website-uri simplu și intuitiv, care va ajuta fiecare
+instituție guvernamentală să construiască rapid platforma de care are nevoie.
 
 ## Codul sursă
 
