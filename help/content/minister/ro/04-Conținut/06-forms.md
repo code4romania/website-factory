@@ -1,19 +1,12 @@
 ---
 title: "Cum creez un formular?"
-video: true
 ---
 
-<div class="aspect-w-16 aspect-h-9">
-  <iframe src="https://www.youtube.com/embed/tvf2GCTWePc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-
-Formularele au diferite utilizări în economia website-ului unei
-organizații. Acestea pot fi folosite în pagina de contact, pentru ca cei
-care urmăresc activitatea organizației să poată transmite un mesaj
+Formularele au diferite utilizări în economia website-ului. 
+Acestea pot fi folosite în pagina de contact, pentru ca cei
+care urmăresc activitatea instituției să poată transmite un mesaj
 direct prin website, pot fi un instrument pe care îl folosești pentru a
-înregistra participanții la un eveniment sau pot reprezenta un mecanism
-prin care poți măsura eficiența campaniilor de comunicare prin cererea
-de feedback din partea donatorilor tăi.
+înregistra participanții la un eveniment sau poți colecta diferite tipuri de date.
 
 Pentru **a crea un formular nou**, este necesar să parcurgi următorii
 pași:
@@ -37,10 +30,6 @@ pași:
 9)  Adaugă întrebările / câmpurile din formularul tău prin apăsarea
     butonului **Adaugă câmp nou.**
 10) Apasă **Salvează**
-
-<a href="/assets/help/021.png">
-    <img src="/assets/help/021.png" />
-</a>
 
 Pentru **a vizualiza un formular deja creat**, este necesar să parcurgi
 următorii pași:
