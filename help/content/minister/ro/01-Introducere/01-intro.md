@@ -1,10 +1,10 @@
 ---
-title: "Introducere în utilizarea Website Factory: ONG"
+title: "Introducere în utilizarea Website Factory: Guvern"
 ---
 
-Website Factory: ONG este un constructor de website-uri croit după
+Website Factory: Guvern este un constructor de website-uri croit după
 nevoile societății civile, pliat pe necesarul de comunicare al
-fiecăruia. Simplu și intuitiv, Website Factory: ONG va ajuta fiecare
+fiecăruia. Simplu și intuitiv, Website Factory: Guvern va ajuta fiecare
 organizație să construiască rapid platforma de care are nevoie.
 
 ## Codul sursă
