@@ -274,7 +274,3 @@ pași:
 5)  Alege opțiunea **Șterge**
 6)  Confirmă ștergerea prin apăsarea butonului **Șterge**
 7)  Categoria a fost ștearsă și mutată în **Șterse**
-
-<a href="/assets/help/026.png">
-    <img src="/assets/help/026.png" />
-</a>
