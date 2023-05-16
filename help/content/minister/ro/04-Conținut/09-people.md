@@ -3,9 +3,7 @@ title: "Cum adaug un profil nou de membru al echipei?"
 ---
 
 Secțiunea **Persoane** te ajută să completezi mai ușor secțiunile din
-website unde este necesar să adaugi fiecare membru al echipei tale sau
-grupul care a lucrat la un anumit proiect, fără să fie necesare intrări
-multiple. O persoană odată adăugată în secțiunea Persoane, poate fi
+website unde este necesar să adaugi echipa instituției. O persoană odată adăugată în secțiunea Persoane, poate fi
 inserată ori de câte ori este nevoie.
 
 Pentru a accesa secțiunea **Persoane** este necesar să parcurgi
