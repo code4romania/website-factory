@@ -23,10 +23,6 @@ pași:
 Fiecare bloc de conținut poate fi duplicat, șters sau i se poate schimba
 proporția cu ajutorul butoanelor din dreapta lui.
 
-<a href="/assets/help/003.png">
-    <img src="/assets/help/003.png" />
-</a>
-
 1)  Butonul de coloane micșorează sau mărește blocul de conținut.
 2)  Săgeata restrânge sau extinde cardul pentru a edita pagina mai ușor
 3)  Cele trei puncte deschid meniul din care poți alege să faci un
@@ -46,10 +42,6 @@ proporția cu ajutorul butoanelor din dreapta lui.
   tipul “Întrebări frecvente” sau pentru liste cu multă informație
   la fiecare item.
 
-<a href="/assets/help/007.png">
-    <img src="/assets/help/007.png" />
-</a>
-
 ---
 
 ### Call to action
@@ -59,10 +51,6 @@ proporția cu ajutorul butoanelor din dreapta lui.
   sau program sau să se înscrie la un eveniment
 - un bloc Call to action este format din: Titlu, Text, Text Buton și
   Link buton
-
-<a href="/assets/help/012.png">
-    <img src="/assets/help/012.png" />
-</a>
 
 ---
 
@@ -89,44 +77,6 @@ proporția cu ajutorul butoanelor din dreapta lui.
 
 ---
 
-### Donații: EuPlătesc
-
-- tip de bloc folosit pentru a configura donații prin EuPlătesc
-- un bloc **Donații EuPlătesc** are următoarele elemente: Titlu, Text
-  (câmp în care poți introduce un mesaj care să îi determine pe
-  useri să facă o donație prin EuPlătesc)
-- Atenție: pentru a avea acest bloc de conținut activ este necesar să
-  aveți deja configurată integrarea cu EuPlătesc făcută în secțiunea
-  Setări din panoul de administrare.
-
----
-
-### Donații: Netopia
-
-- tip de bloc folosit pentru a configura donații prin Netopia
-- un bloc **Donații Netopia** are următoarele elemente: Titlu, Text
-  (câmp în care poți introduce un mesaj care să îi determine pe
-  useri să facă o donație prin EuPlătesc)
-- Atenție: pentru a avea acest bloc de conținut activ este necesar să
-  aveți deja configurată integrarea cu Netopia făcută în secțiunea
-  Setări din panoul de administrare.
-
----
-
-### Donații: PayPal
-
-- tip de bloc folosit pentru a configura donații prin PayPal
-- un bloc **Donații PayPal** are următoarele elemente: Titlu, Text (câmp
-  în care poți introduce un mesaj care să îi determine pe useri să facă
-  o donație prin PayPal) și ID buton PayPal (câmp în care se introduce
-  id-ul unic primit la deschiderea contului de PayPal)
-
-<a href="/assets/help/017.png">
-    <img src="/assets/help/017.png" />
-</a>
-
----
-
 ### Embed
 
 - tip de bloc folosit pentru a adăuga elemente din alte surse doar pe
@@ -134,10 +84,6 @@ proporția cu ajutorul butoanelor din dreapta lui.
 - un bloc **Embed** este format din Titlu și URL
 - Aici vei putea pune link către video-uri de pe Youtube sau Vimeo de
   exemplu.
-
-<a href="/assets/help/022.png">
-    <img src="/assets/help/022.png" />
-</a>
 
 ---
 
@@ -150,10 +96,6 @@ proporția cu ajutorul butoanelor din dreapta lui.
 - Pentru a adăuga un formular într-o pagină este necesar ca acest
   formular să existe deja creat în secțiunea de Formulare
 
-<a href="/assets/help/002.png">
-    <img src="/assets/help/002.png" />
-</a>
-
 ---
 
 ### Grilă de imagini
@@ -164,10 +106,6 @@ proporția cu ajutorul butoanelor din dreapta lui.
   Coloane (numărul de coloane pe care sunt afișate imaginile),
   Imagini (se pot adăuga în aceste bloc imagini deja existente în
   Biblioteca Media)
-
-<a href="/assets/help/028.png">
-    <img src="/assets/help/028.png" />
-</a>
 
 ---
 
@@ -213,10 +151,6 @@ proporția cu ajutorul butoanelor din dreapta lui.
   celelalte elemente din bloc - sus, centru, jos) și Imagine (se pot
   adăuga în aceste bloc imagini deja existente în Biblioteca Media)
 
-<a href="/assets/help/013.png">
-    <img src="/assets/help/013.png" />
-</a>
-
 ---
 
 ### Imagine cu link
@@ -229,10 +163,6 @@ proporția cu ajutorul butoanelor din dreapta lui.
   imaginile din bloc) și Imagine cu link cu următoarele elemente:
   Imagine (se selectează din Biblioteca Media, Text field.caption și
   URL (link care se poate accesa prin click pe imagine)
-
-<a href="/assets/help/019.png">
-    <img src="/assets/help/019.png" />
-</a>
 
 ---
 
@@ -247,10 +177,6 @@ proporția cu ajutorul butoanelor din dreapta lui.
   persoanelor să fie afișate în acest bloc) și Persoane (se
   selectează dintre persoanele deja create în meniul **Persoane**)
 
-<a href="/assets/help/010.png">
-    <img src="/assets/help/010.png" />
-</a>
-
 ---
 
 ### Progres
@@ -262,10 +188,6 @@ proporția cu ajutorul butoanelor din dreapta lui.
   Progres (se poate modifica prin glisarea elementului pe linia de
   progres, se poate selecta din săgeți sau se poate introduce manual
   valoarea), Text Buton și Link Buton
-
-<a href="/assets/help/018.png">
-    <img src="/assets/help/018.png" />
-</a>
 
 ---
 
