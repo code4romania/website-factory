@@ -23,12 +23,8 @@ este necesar să parcurgi următorii pași:
     confidențialitate a website-ului tău și pagina care conține
     Termenii și condițiile de utilizare. Dacă paginile nu există, le
     poți crea.Găsești informații despre crearea paginilor în secțiunea
-    Managementul continutului.
+    Managementul conținutului.
 8)  Apasă **Salvează**
-
-<a href="/assets/help/016.png">
-    <img src="/assets/help/016.png" />
-</a>
 
 Îți recomandăm ca titlul și descrierea website-ului să fie cât mai clare
 pentru că acestea vor fi indexate în motoarele de căutare, iar vizitele
