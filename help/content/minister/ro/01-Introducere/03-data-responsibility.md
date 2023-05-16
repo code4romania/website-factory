@@ -2,12 +2,12 @@
 title: "Responsabilitatea cu privire la datele cu caracter personal (GDPR)"
 ---
 
-Website Factory: ONG vine echipat cu pagini predefinite cu recomandări
+Website Factory: Guvern vine echipat cu pagini predefinite cu recomandări
 de texte pentru o serie de pagini. Unele dintre acestea fac referire la
 procesarea datelor cu caracter personal și la politica de
 confidențialitate. Îți recomandăm să folosești aceste exemple dacă
-organizația ta nu are deja documente dedicate de Termeni și Condiții sau
-politică de Confidențialitate.
+nu ai deja politici dedicate de Termeni și Condiții sau
+Politică de Confidențialitate.
 
 În panoul de administrare în secțiunea ”Pagini” vei găsi mai multe
 pagini deja create de noi pentru a veni în ajutorul tău. Paginile
@@ -32,19 +32,16 @@ disponibile sunt:
 
 **Important!**
 
-Website Factory: ONG îți permite să colectezi donații și să creezi
-formulare prin care poți colecta tot felul de date. Toate datele sunt
-colectate pe serverul tău, pe care noi am instalat soluția pe care o
-folosești ca să îți administrezi website-ul organizației sau
-proiectului/programului tău. Implicit responsabilitatea cu privire la
-aceste date este integral a organizației tale și, în cazul donațiilor, a
-operatorilor de plăți pe care îi utilizezi.
+Website Factory: Guvern îți permite să colectezi date prin
+formularele pe care le creezi în panoul de administrare. Toate datele sunt
+colectate pe serverul tău, pe care a fost instalată soluția pe care o
+folosești ca să îți administrezi website-ul. Implicit responsabilitatea cu privire la
+aceste date este integral a instituției tale.
 
 De fiecare dată când construiești un formular care colectează informații
 personale de la utilizatori trebuie să
 
-1)  Adaugi în pagina de Termeni și condiții ce fel de date colectezi în
-    secțiunea ”2. Datele personale prelucrate”
+1)  Adaugi în pagina de Termeni și condiții ce fel de date colectezi
 2)  Adaugi la finalul formularului o bifă care solicită utilizatorilor
     să citească și să accepte Termenii și Condițiile de utilizare ale
     site-ului tău.
