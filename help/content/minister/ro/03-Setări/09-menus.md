@@ -1,16 +1,11 @@
 ---
 title: "Cum construiesc meniurile site-ului?"
-video: true
 ---
-
-<div class="aspect-w-16 aspect-h-9">
-  <iframe src="https://www.youtube.com/embed/DZx1QC1BVAU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
 
 Meniurile din header și footer ajută utilizatorul să parcurgă website-ul
 tău și să găsească informații mai ușor.
 
-În Website Factory: ONG poți ajunge să construiești sau să modifici un
+În Website Factory: Guvern poți ajunge să construiești sau să modifici un
 meniu parcurgând următorii pași:
 
 1)  Accesează panoul de administrare
@@ -28,10 +23,6 @@ pași:
 4)  Meniul **Header** se deschide implicit
 5)  Apasă butonul **Adaugă**
 6)  Alege **tipul** de element de meniu potrivit
-
-<a href="/assets/help/001.png">
-    <img src="/assets/help/001.png" />
-</a>
 
 ## Tipuri elemente meniu
 
