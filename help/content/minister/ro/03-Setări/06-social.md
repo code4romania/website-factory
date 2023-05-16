@@ -1,5 +1,5 @@
 ---
-title: "Cum conectez conturile de social media ale organizației cu site-ul?"
+title: "Cum conectez conturile de social media cu site-ul?"
 ---
 
 Pentru a integra conturile de social media ale organizației pe website,
@@ -17,6 +17,3 @@ este necesar să parcurgi următorii pași:
 7)  Iconițele platformelor de social media în câmpul cărora ai completat
     vor apărea în footerul website-ului.
 
-<a href="/assets/help/024.png">
-    <img src="/assets/help/024.png" />
-</a>
