@@ -1,8 +1,8 @@
 ---
-title: "Ce este Website Factory: ONG"
+title: "Ce este Website Factory: Guvern"
 ---
 
-Website Factory: ONG este o soluție tehnică cu ajutorul căreia tu vei
+Website Factory: Guvern este o soluție tehnică cu ajutorul căreia tu vei
 putea să îți construiești propriile website-uri. Aceasta este integrată
 din fabrică cu o serie de funcționalități de care ai nevoie, cum ar fi
 operatorii de plăți online prin care tu poți colecta donații, cu
