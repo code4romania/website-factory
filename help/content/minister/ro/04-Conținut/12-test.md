@@ -20,16 +20,12 @@ care vor fi preluate atunci când, de exemplu, faci share unei pagini pe
 social media. Verifică dacă la share pe social media se distribuie
 imaginea corectă și titlurile corecte ale paginilor.
 
-Verifică integrarea cu operatorii de plăți online. Încearcă să faci o
-donație prin Netopia, EuPlatesc sau PayPal și testează că totul
-funcționează bine de la început la final.
-
 Dacă ai adăugat codul de urmărire de Google Analytics pentru a măsura
 traficul atunci verifică dacă datele se transmit corect și dacă Google
 Analytics înregistrează vizitatorii pe site.
 
 Dacă ai adăugat integrări suplimentare care nu sunt parte integrantă din
-soluția Website Factory: ONG atunci verifică dacă acestea sunt complet
+soluția Website Factory: Guvern atunci verifică dacă acestea sunt complet
 funcționale înainte de lansarea publică a website-ului.
 
 ### Verifică tot conținutul
