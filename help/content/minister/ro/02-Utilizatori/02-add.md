@@ -17,7 +17,3 @@ Utilizatorul creat va primi un e-mail cu un link pentru a-și seta
 propria parola și instrucțiuni de accesare a panoului de administrare.
 Îți recomandăm să dai acces utilizatorilor pe adresele lor oficiale de
 e-mail și nu pe cele personale.
-
-<a href="/assets/help/020.png">
-    <img src="/assets/help/020.png" />
-</a>
