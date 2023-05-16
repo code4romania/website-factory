@@ -2,7 +2,7 @@
 title: "Cum adaug traducerea într-o altă limbă a site-ului?"
 ---
 
-**Website Factory: ONG** are adăugat în mod implicit limba română și
+**Website Factory: Guvern** are adăugat în mod implicit limba română și
 limba engleză. Pe lângă acestea, utilizatorul poate adăuga orice altă
 limbă în care să fie traduse paginile sale, fără dezvoltări
 suplimentare. Pentru a accesa secțiunea de **Limbi** a platformei, este
@@ -27,7 +27,7 @@ pași:
     în câmpul **Cod.** (La [acest
     link](https://www.w3schools.com/tags/ref_language_codes.asp)
     găsești lista codurilor pentru toate limbile)
-6)  Completează numele limbii pe care vrei să adaugi în câmpul **Nume**
+6)  Completează numele limbii pe care vrei să o adaugi în câmpul **Nume**
     (ex: Franceză/French)
 7)  Bifează opțiunea **Activat**
 8)  Completează fiecare câmp din coloana **Translation** cu traducerea
