@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Services\BlockCollection;
+use App\Services\Features;
 use App\Services\SupportsTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
@@ -73,6 +75,8 @@ class AppServiceProvider extends ServiceProvider
 
         Paginator::defaultView('pagination.default');
         Paginator::defaultSimpleView('pagination.simple');
+
+        $this->addAboutCommandInfo();
     }
 
     protected function registerBlueprintMacros(): void
@@ -145,5 +149,24 @@ class AppServiceProvider extends ServiceProvider
         }
 
         return trim(file_get_contents($version));
+    }
+
+    protected function addAboutCommandInfo(): void
+    {
+        $isEnabled = fn (bool $state) => $state
+            ? '<fg=green;options=bold>ENABLED</>'
+            : '<fg=yellow;options=bold>DISABLED</>';
+
+        AboutCommand::add('Website Factory', fn () => [
+            'Edition' => config('website-factory.edition'),
+            'Version' => config('app.version'),
+        ]);
+
+        AboutCommand::add('Website Factory: Features', fn () => [
+            'Commit Global Banner' => $isEnabled(! config('website-factory.hide_banner')),
+            'Decisions' => $isEnabled(Features::hasDecisions()),
+            'Donations' => $isEnabled(Features::hasDonations()),
+            'Theme' => $isEnabled(Features::hasTheme()),
+        ]);
     }
 }
