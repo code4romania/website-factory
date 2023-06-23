@@ -25,6 +25,7 @@ class Help
     public static function all(): Collection
     {
         return static::getAllFiles()
+            ->filter(fn (SplFileInfo $file) => $file->getExtension() === 'md')
             ->map(function (SplFileInfo $file, string $section) {
                 $markdown = static::markdown($file->getContents());
                 $frontMatter = $markdown->getFrontMatter();
