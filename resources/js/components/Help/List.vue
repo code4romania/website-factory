@@ -66,7 +66,7 @@
             </div>
         </template>
 
-        <help-ask class="mt-8 !border-0 sm:mt-16" />
+        <help-ask v-if="isNgoSite" class="mt-8 !border-0 sm:mt-16" />
     </div>
 </template>
 
@@ -74,6 +74,7 @@
     import groupBy from 'lodash/groupBy';
     import { computed, ref } from 'vue';
     import { useFuse } from '@vueuse/integrations/useFuse';
+    import { useEdition } from '@/helpers';
 
     export default {
         name: 'HelpList',
@@ -100,10 +101,13 @@
                 groupBy(results.value, 'item.section')
             );
 
+            const { isNgoSite } = useEdition();
+
             return {
                 query,
                 results,
                 groupedResults,
+                isNgoSite,
             };
         },
     };
