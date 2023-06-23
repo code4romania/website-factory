@@ -9,9 +9,11 @@ return [
 
     'edition' => [
         'primarie' => 'Primărie',
-        'minister' => 'Minister',
+        'government' => 'Government',
         'ong' => 'ONG',
         'develop' => 'develop',
     ],
+
+    'government' => 'Website built with Website Factory: Government. A solution developed by Code for Romania (Commit Global) and și made available free of charge to the public administration.',
 
 ];

@@ -9,7 +9,7 @@ return [
 
     'edition' => [
         'primarie' => 'Primărie',
-        'minister' => 'Minister',
+        'government' => 'Guvern',
         'ong' => 'ONG',
         'develop' => 'develop',
     ],

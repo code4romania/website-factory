@@ -23,6 +23,11 @@ class Features
      */
     public static function edition(string $edition): string
     {
+        $edition = match ($edition) {
+            'minister' => 'government',
+            default => $edition,
+        };
+
         config()->set(static::$featureKey, match ($edition) {
             'internal', 'ong' => [
                 static::DONATIONS,
@@ -32,7 +37,7 @@ class Features
                 static::DECISIONS,
                 static::THEME,
             ],
-            'minister' => [
+            'government' => [
                 static::DECISIONS,
             ],
             'develop' => [
@@ -40,7 +45,7 @@ class Features
                 static::DONATIONS,
                 static::THEME,
             ],
-            default => throw new InvalidWebsiteFactoryEditionException($edition, ['ong', 'primarie', 'minister']),
+            default => throw new InvalidWebsiteFactoryEditionException($edition, ['ong', 'primarie', 'government']),
         });
 
         return $edition;
@@ -114,6 +119,6 @@ class Features
      */
     public static function isGovernmentSite(): bool
     {
-        return config('website-factory.edition') === 'minister';
+        return config('website-factory.edition') === 'government';
     }
 }
