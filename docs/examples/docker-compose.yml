@@ -10,6 +10,8 @@ services:
       APP_KEY: "CHANGE_ME"
       APP_URL: "https://example.com"
 
+      WEBSITE_FACTORY_EDITION: "ong" # or "government" or "primarie"
+
       DB_CONNECTION: "pgsql"
       DB_HOST: "db"
       DB_PORT: "5432"
