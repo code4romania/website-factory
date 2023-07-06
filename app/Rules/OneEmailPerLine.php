@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace App\Rules;
 
-use Illuminate\Contracts\Validation\Rule;
+use Closure;
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Facades\Validator;
 
-class OneEmailPerLine implements Rule
+class OneEmailPerLine implements ValidationRule
 {
     /**
      * Rules to validate against.
@@ -19,15 +20,13 @@ class OneEmailPerLine implements Rule
     ];
 
     /**
-     * Determine if the validation rule passes.
+     * Run the validation rule.
      *
-     * @param  string $attribute
-     * @param  mixed  $value
-     * @return bool
+     * @param \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString $fail
      */
-    public function passes($attribute, $value)
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        return collect(preg_split('/\r\n|\r|\n/', (string) $value))
+        $valid = collect(preg_split('/\r\n|\r|\n/', (string) $value))
             ->filter()
             ->every(
                 fn (string $email) => Validator::make(
@@ -35,15 +34,9 @@ class OneEmailPerLine implements Rule
                     $this->rules
                 )->passes()
             );
-    }
 
-    /**
-     * Get the validation error message.
-     *
-     * @return string
-     */
-    public function message()
-    {
-        return __('validation.email');
+        if (! $valid) {
+            $fail(__('validation.email'));
+        }
     }
 }

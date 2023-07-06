@@ -11,41 +11,40 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "andreiio/blade-remix-icon": "^1.2",
-        "archtechx/laravel-seo": "^0.8",
+        "andreiio/blade-remix-icon": "^2.4",
+        "archtechx/laravel-seo": "^0.9",
         "blade-ui-kit/blade-icons": "^1.5",
         "embed/embed": "^4.4",
-        "guzzlehttp/guzzle": "^7.5",
-        "htmlmin/htmlmin": "^9.0",
+        "guzzlehttp/guzzle": "^7.7",
         "inertiajs/inertia-laravel": "^0.6",
         "intervention/image": "^2.7",
         "kalnoy/nestedset": "^6.0",
-        "laravel/framework": "^9.49",
+        "laravel/framework": "^10.14",
         "laravel/tinker": "^2.8",
-        "league/flysystem-aws-s3-v3": "^3.13",
+        "league/flysystem-aws-s3-v3": "^3.15",
         "league/omnipay": "^3.2",
         "maatwebsite/excel": "^3.1",
         "matthewbdaly/laravel-azure-storage": "^2.0",
         "netopia/payment": "^1.0",
         "plank/laravel-mediable": "^5.9",
-        "sentry/sentry-laravel": "^2.14",
+        "sentry/sentry-laravel": "^3.5",
         "spatie/laravel-responsecache": "^7.4",
-        "spatie/laravel-translatable": "^6.4",
+        "spatie/laravel-translatable": "^6.5",
         "spatie/laravel-translation-loader": "^2.7",
-        "symfony/yaml": "^6.2",
-        "tightenco/ziggy": "^1.5"
+        "symfony/yaml": "^6.3",
+        "tightenco/ziggy": "^1.6"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
         "barryvdh/laravel-ide-helper": "^2.13",
-        "fakerphp/faker": "^1.21",
-        "friendsofphp/php-cs-fixer": "^3.16",
+        "fakerphp/faker": "^1.23",
+        "friendsofphp/php-cs-fixer": "^3.21",
         "itsgoingd/clockwork": "^5.1",
-        "laravel/sail": "^1.21",
-        "mockery/mockery": "^1.5",
-        "nunomaduro/collision": "^6.4",
-        "phpunit/phpunit": "^9.6",
-        "spatie/laravel-ignition": "^1.6"
+        "laravel/sail": "^1.23",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^7.7",
+        "phpunit/phpunit": "^10.2",
+        "spatie/laravel-ignition": "^2.2"
     },
     "autoload": {
         "files": [
@@ -95,6 +94,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

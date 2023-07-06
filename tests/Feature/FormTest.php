@@ -92,7 +92,7 @@ class FormTest extends TestCase
         $response->assertInvalid($field->name);
     }
 
-    public function fields(): array
+    public static function fields(): array
     {
         return [
             // Text

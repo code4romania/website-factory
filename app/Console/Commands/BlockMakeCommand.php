@@ -135,7 +135,7 @@ class BlockMakeCommand extends Command
     /**
      * Replace the stub variables(key) with the desire value.
      *
-     * @param $stub
+     * @param                    $stub
      * @param  array             $variables
      * @return bool|mixed|string
      */
