@@ -7,6 +7,7 @@ namespace App\Http\Requests\Front;
 use App\Exceptions\InvalidFormFieldTypeException;
 use App\Models\Block;
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class FormSubmissionRequest extends BaseRequest
@@ -26,21 +27,16 @@ class FormSubmissionRequest extends BaseRequest
                     $field->checkbox('required') ? 'required' : 'nullable',
                 ];
 
-                return [
-                    "field-{$field->id}" => match ($field->type) {
-                        'checkbox' => $this->rulesOptions($field, $rules),
-                        'date' => $this->rulesDate($field, $rules),
-                        'email' => $this->rulesEmail($field, $rules),
-                        'file' => $this->rulesFile($field, $rules),
-                        'number' => $this->rulesNumber($field, $rules),
-                        'radio' => $this->rulesOption($field, $rules),
-                        'select' => $this->rulesOption($field, $rules),
-                        'text' => $this->rulesText($field, $rules),
-                        'textarea' => $this->rulesText($field, $rules),
-                        'url' => $this->rulesUrl($field, $rules),
-                        default => throw new InvalidFormFieldTypeException($field->type),
-                    },
-                ];
+                $method = Str::of("rules-{$field->type}")
+                    ->slug()
+                    ->camel()
+                    ->value();
+
+                if (! method_exists($this, $method)) {
+                    throw new InvalidFormFieldTypeException($field->type);
+                }
+
+                return $this->$method($field, $rules);
             })
             ->all();
     }
@@ -55,6 +51,7 @@ class FormSubmissionRequest extends BaseRequest
         return $this->form->blocks
             ->mapWithKeys(fn (Block $field) => [
                 "field-{$field->id}" => $field->translatedInput('label'),
+                "field-{$field->id}.*" => $field->translatedInput('label'),
             ])
             ->all();
     }
@@ -74,27 +71,46 @@ class FormSubmissionRequest extends BaseRequest
             $rules[] = 'before_or_equal:' . $max_date;
         }
 
-        return $rules;
+        return [
+            "field-{$field->id}" => $rules,
+        ];
     }
 
     private function rulesEmail(Block $field, array $rules): array
     {
         $rules[] = 'email';
 
-        return $rules;
+        return [
+            "field-{$field->id}" => $rules,
+        ];
     }
 
     private function rulesFile(Block $field, array $rules): array
     {
-        $max_size = $field->input('max_size');
+        $max_files = $field->checkbox('multiple')
+            ? $field->input('max_files')
+            : 1;
 
         $rules[] = 'file';
 
-        if (! \is_null($max_size)) {
-            $rules[] = 'max:' . ($max_size * 1024);
+        $accept = collect($field->input('accepts'));
+
+        if ($accept->contains('other')) {
+            $accept = collect();
+        } else {
+            $accept = $accept
+                ->flatMap(fn (string $type) => config("mediable.aggregate_types.{$type}.extensions"))
+                ->filter();
         }
 
-        return $rules;
+        if ($accept->isNotEmpty()) {
+            $rules[] = 'mimes:' . $accept->implode(',');
+        }
+
+        return [
+            "field-{$field->id}" => $max_files ? ['array', 'max:' . $max_files] : ['array'],
+            "field-{$field->id}.*" => $rules,
+        ];
     }
 
     private function rulesNumber(Block $field, array $rules): array
@@ -112,22 +128,38 @@ class FormSubmissionRequest extends BaseRequest
             $rules[] = 'max:' . $max_value;
         }
 
-        return $rules;
+        return [
+            "field-{$field->id}" => $rules,
+        ];
     }
 
     private function rulesOption(Block $field, array $rules): array
     {
         $rules[] = Rule::in($field->options());
 
-        return $rules;
+        return [
+            "field-{$field->id}" => $rules,
+        ];
     }
 
-    private function rulesOptions(Block $field, array $rules): array
+    private function rulesRadio(Block $field, array $rules): array
+    {
+        return $this->rulesOption($field, $rules);
+    }
+
+    private function rulesSelect(Block $field, array $rules): array
+    {
+        return $this->rulesOption($field, $rules);
+    }
+
+    private function rulesCheckbox(Block $field, array $rules): array
     {
         $rules[] = 'array';
         $rules[] = Rule::in($field->options());
 
-        return $rules;
+        return [
+            "field-{$field->id}" => $rules,
+        ];
     }
 
     private function rulesText(Block $field, array $rules): array
@@ -145,13 +177,22 @@ class FormSubmissionRequest extends BaseRequest
             $rules[] = 'max:' . $max_length;
         }
 
-        return $rules;
+        return [
+            "field-{$field->id}" => $rules,
+        ];
+    }
+
+    private function rulesTextarea(Block $field, array $rules): array
+    {
+        return $this->rulesText($field, $rules);
     }
 
     private function rulesUrl(Block $field, array $rules): array
     {
         $rules[] = 'url';
 
-        return $rules;
+        return [
+            "field-{$field->id}" => $rules,
+        ];
     }
 }

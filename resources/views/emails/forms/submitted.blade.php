@@ -16,7 +16,7 @@
 <dl>
 @foreach ($data as $item)
 <dt>{{ $item['label'] }}</dt>
-<dd>{{ $item['value'] }}</dd>
+<dd>{!! $item['value'] !!}</dd>
 @endforeach
 </dl>
 @endcomponent

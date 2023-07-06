@@ -154,30 +154,28 @@ return [
         App\Models\Media::TYPE_DOCUMENT => [
             'mime_types' => [
                 'text/plain',
-                'text/csv',
                 'application/plain',
-                'text/xml',
-                'text/json',
-                'application/json',
                 'application/msword',
+                'application/vnd.oasis.opendocument.text',
                 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
             ],
             'extensions' => [
-                'csv',
                 'doc',
                 'docx',
+                'odt',
                 'txt',
-                'text',
-                'xml',
-                'json',
             ],
         ],
         App\Models\Media::TYPE_SPREADSHEET => [
             'mime_types' => [
+                'text/csv',
                 'application/vnd.ms-excel',
+                'application/vnd.oasis.opendocument.spreadsheet',
                 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             ],
             'extensions' => [
+                'csv',
+                'ods',
                 'xls',
                 'xlsx',
             ],
@@ -185,10 +183,12 @@ return [
         App\Models\Media::TYPE_PRESENTATION => [
             'mime_types' => [
                 'application/vnd.ms-powerpoint',
+                'application/vnd.oasis.opendocument.presentation',
                 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
                 'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
             ],
             'extensions' => [
+                'odp',
                 'ppt',
                 'pptx',
                 'ppsx',
