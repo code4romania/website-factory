@@ -36,7 +36,7 @@
                         &mdash;
                     </span>
 
-                    <span v-else v-text="row.value" />
+                    <span v-else v-html="row.value" />
                 </dd>
             </div>
         </dl>

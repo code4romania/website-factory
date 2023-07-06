@@ -164,6 +164,7 @@ module.exports = {
     content: [
         'vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         'app/View/Components/**/*.php',
+        'resources/js/public/**/*.js',
         'resources/views/**/*.blade.php',
     ],
     plugins: [

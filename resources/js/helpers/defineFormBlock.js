@@ -12,10 +12,17 @@ export default function (block) {
             ...block.props,
         },
         emits: ['update:content'],
-        setup(props) {
+        setup(props, context) {
             const { initializeFields } = useBlock();
 
             initializeFields(block, props);
+
+            if (
+                block.hasOwnProperty('setup') &&
+                block.setup instanceof Function
+            ) {
+                return block.setup(props, context);
+            }
         },
     };
 }
