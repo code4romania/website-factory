@@ -17,10 +17,8 @@ trait HasBlocks
             ->orderBy('blocks.position');
     }
 
-    public function saveBlocks(iterable $blocks): Model
+    private function createBlocks(iterable $blocks, ?Block $parent = null)
     {
-        $this->blocks->map->delete();
-
         $blocks = collect($blocks)->map(fn (array $block, int $index) => [
             'blockable_id' => $this->id,
             'blockable_type' => $this->getMorphClass(),
@@ -32,39 +30,29 @@ trait HasBlocks
             'related' => $block['related'] ?? [],
         ]);
 
-        $this->blocks()->createMany($blocks)
+        $target = $parent ? $parent->children() : $this->blocks();
+
+        $target->createMany($blocks)
             ->each(function (Block $block) use ($blocks) {
-                $currentBlock = $blocks
+                $parent = $blocks
                     ->where('type', $block->type)
                     ->firstWhere('position', $block->position);
 
-                $children = collect($currentBlock['children'])
-                    ->map(fn (array $block, int $index) => [
-                        'blockable_id' => $this->id,
-                        'blockable_type' => $this->getMorphClass(),
-                        'position' => $index + 1,
-                        'type' => $block['type'],
-                        'content' => $block['content'] ?? [],
-                        'children' => $block['children'] ?? [],
-                        'media' => collect($block['media'] ?? [])->pluck('id')->all(),
-                        'related' => $block['related'] ?? [],
-                    ]);
+                $block->attachMedia($parent['media'], ['image']);
 
-                $block->children()->createMany($children)
-                    ->each(function (Block $block) use ($children) {
-                        $currentBlock = $children
-                            ->where('type', $block->type)
-                            ->firstWhere('position', $block->position);
+                $block->saveRelated($parent['related']);
 
-                        $block->attachMedia($currentBlock['media'], ['image']);
-
-                        $block->saveRelated($currentBlock['related']);
-                    });
-
-                $block->attachMedia($currentBlock['media'], ['image']);
-
-                $block->saveRelated($currentBlock['related']);
+                if (! empty($parent['children'])) {
+                    $this->createBlocks($parent['children'], $block);
+                }
             });
+    }
+
+    public function saveBlocks(iterable $blocks): Model
+    {
+        $this->blocks->map->delete();
+
+        $this->createBlocks($blocks);
 
         return $this;
     }

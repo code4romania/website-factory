@@ -43,6 +43,15 @@ class PageRequest extends BaseRequest
             'blocks.*.children.*.related' => ['array'],
             'blocks.*.children.*.related.*.id' => ['required', 'numeric', 'integer'],
             'blocks.*.children.*.related.*.type' => ['required', 'string'],
+            'blocks.*.children.*.children' => ['array'],
+            'blocks.*.children.*.children.*.id' => ['required', 'numeric', 'integer'],
+            'blocks.*.children.*.children.*.type' => ['required', 'string'],
+            'blocks.*.children.*.children.*.content' => ['required', 'array'],
+            'blocks.*.children.*.children.*.media' => ['array'],
+            'blocks.*.children.*.children.*.media.*.id' => ['required', 'exists:media'],
+            'blocks.*.children.*.children.*.related' => ['array'],
+            'blocks.*.children.*.children.*.related.*.id' => ['required', 'numeric', 'integer'],
+            'blocks.*.children.*.children.*.related.*.type' => ['required', 'string'],
         ]);
     }
 }

@@ -20,6 +20,7 @@
                 :media="element.media"
                 @update:media="emit('update:media', $event)"
                 :related="element.related"
+                :parameters="parameters"
                 @update:related="emit('update:related', $event)"
                 @duplicate="duplicateBlock(index)"
                 @delete="deleteBlock(index)"
@@ -58,6 +59,10 @@
                 required: true,
             },
             items: {
+                type: Array,
+                default: () => [],
+            },
+            parameters: {
                 type: Array,
                 default: () => [],
             },

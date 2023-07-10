@@ -6,6 +6,10 @@ export default function (block) {
     return {
         name: 'Block' + upperFirst(camelCase(block.type)),
         props: {
+            id: {
+                type: [String, Number],
+                required: true,
+            },
             content: {
                 type: Object,
                 default: () => ({}),
@@ -19,6 +23,10 @@ export default function (block) {
                 default: () => [],
             },
             related: {
+                type: Array,
+                default: () => [],
+            },
+            parameters: {
                 type: Array,
                 default: () => [],
             },
