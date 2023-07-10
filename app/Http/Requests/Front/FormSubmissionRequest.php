@@ -121,8 +121,8 @@ class FormSubmissionRequest extends BaseRequest
 
     private function rulesNumber(Block $field, array $rules): array
     {
-        $min_value = $field->input('min_value');
-        $max_value = $field->input('max_value');
+        $min_value = $field->input('min_value') ?: null;
+        $max_value = $field->input('max_value') ?: null;
 
         $rules[] = 'integer';
 

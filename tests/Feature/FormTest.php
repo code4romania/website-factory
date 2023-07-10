@@ -288,6 +288,30 @@ class FormTest extends TestCase
                     'invalid' => 25,
                 ],
             ],
+            'number-min-0' => [
+                [
+                    'type' => 'number',
+                    'required' => false,
+                    'min_value' => 0,
+                    'max_value' => 1,
+                ],
+                [
+                    'valid' => 1,
+                    'invalid' => 5,
+                ],
+            ],
+            'number-max-0' => [
+                [
+                    'type' => 'number',
+                    'required' => false,
+                    'min_value' => 5,
+                    'max_value' => 0,
+                ],
+                [
+                    'valid' => \PHP_INT_MAX,
+                    'invalid' => 3,
+                ],
+            ],
 
             // Date
             'date-required' => [
