@@ -41,21 +41,16 @@ class FormController extends Controller
 
                 if ($field->type === 'file') {
                     $value = collect($value)
-                        ->map(
-                            fn (UploadedFile $file) => sprintf(
-                                '<a href="%1$s" download="%2$s">%2$s</a>',
-                                Storage::url($file->store($formStoragePath)),
-                                $file->getClientOriginalName()
-                            )
-                        )
-                        ->implode(', ');
-                }
-
-                if (\is_array($value)) {
-                    $value = implode(', ', $value);
+                        ->map(fn (UploadedFile $file) => [
+                            'url' => Storage::url($file->store($formStoragePath)),
+                            'name' => $file->getClientOriginalName(),
+                            'size' => $file->getSize(),
+                        ])
+                        ->all();
                 }
 
                 return [
+                    'type' => $field->type,
                     'label' => $field->translatedInput('label'),
                     'value' => $value,
                 ];

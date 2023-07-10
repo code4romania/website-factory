@@ -91,6 +91,12 @@ class FormSubmissionRequest extends BaseRequest
             ? $field->input('max_files')
             : 1;
 
+        $parentRules = array_merge($rules, ['array']);
+
+        if ($max_files) {
+            $parentRules[] = 'max:' . $max_files;
+        }
+
         $rules[] = 'file';
 
         $accept = collect($field->input('accepts'));
@@ -108,7 +114,7 @@ class FormSubmissionRequest extends BaseRequest
         }
 
         return [
-            "field-{$field->id}" => $max_files ? ['array', 'max:' . $max_files] : ['array'],
+            "field-{$field->id}" => $parentRules,
             "field-{$field->id}.*" => $rules,
         ];
     }

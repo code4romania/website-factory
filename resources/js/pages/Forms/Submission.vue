@@ -30,10 +30,40 @@
                 />
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                     <span
-                        v-if="[null, '&amp;mdash;'].includes(row.value)"
+                        v-if="
+                            [null, '&amp;mdash;'].includes(row.value) ||
+                            row.value.length === 0
+                        "
                         class="text-gray-500"
                     >
                         &mdash;
+                    </span>
+
+                    <span v-else-if="typeOf(row.value) === Array">
+                        <span v-if="row.type === 'file'">
+                            <ul class="md:columns-2">
+                                <li
+                                    v-for="(file, index) in row.value"
+                                    :key="index"
+                                >
+                                    <a
+                                        :href="file.url"
+                                        :download="file.name"
+                                        class="inline-flex items-center gap-1 text-blue-600 hover:underline"
+                                        target="_blank"
+                                    >
+                                        <icon
+                                            name="System/download-line"
+                                            class="w-4 h-4"
+                                        />
+
+                                        {{ file.name }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </span>
+
+                        <span v-else v-text="row.value.join(', ')" />
                     </span>
 
                     <span v-else v-html="row.value" />
@@ -46,6 +76,7 @@
 <script>
     import { computed } from 'vue';
     import { trans } from 'laravel-vue-i18n';
+    import { typeOf } from '@/helpers';
 
     export default {
         props: {
@@ -66,6 +97,7 @@
 
             return {
                 data,
+                typeOf,
             };
         },
     };

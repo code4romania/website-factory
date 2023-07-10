@@ -16,7 +16,28 @@
 <dl>
 @foreach ($data as $item)
 <dt>{{ $item['label'] }}</dt>
-<dd>{!! $item['value'] !!}</dd>
+<dd>@if (!$item['value'])
+&mdash;
+@elseif (is_array($item['value']))
+@if ($item['type'] === 'file')
+<ul>
+@foreach ($item['value'] as $file)
+<li>
+@component('mail::link', [
+    'url' => $file['url'],
+    'name' => $file['name'],
+])
+@endcomponent
+</li>
+@endforeach
+</ul>
+@else
+{{ implode(', ', $item['value']) }}
+@endif
+@else
+{{ $item['value'] }}
+@endif
+</dd>
 @endforeach
 </dl>
 @endcomponent
