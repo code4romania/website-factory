@@ -5,6 +5,12 @@
         v-model="content.title"
     />
 
+    <localized-field
+        field="form-editor"
+        :label="$t('field.text')"
+        v-model="content.text"
+    />
+
     <block-repeater
         component="decision-tree-step"
         :items="children"
@@ -22,6 +28,7 @@
         icon: 'Editor/node-tree',
         fields: {
             title: Object,
+            text: Object,
         },
         setup(props) {
             const steps = computed(() =>

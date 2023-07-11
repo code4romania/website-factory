@@ -18,12 +18,20 @@
         v-model="content.text"
     />
 
-    <block-repeater
-        v-if="content.type === 'question'"
-        component="decision-tree-choice"
-        :items="children"
-        :parameters="otherSteps"
-    />
+    <template v-if="content.type === 'question'">
+        <form-radio-group
+            :label="$t('field.columns')"
+            v-model.number="content.columns"
+            :options="[1, 2, 3]"
+            :default="1"
+        />
+
+        <block-repeater
+            component="decision-tree-choice"
+            :items="children"
+            :parameters="otherSteps"
+        />
+    </template>
 </template>
 
 <script>
@@ -38,6 +46,7 @@
             type: String,
             title: Object,
             text: Object,
+            columns: Number,
         },
         setup(props) {
             const types = computed(() => [
@@ -51,12 +60,14 @@
                 },
             ]);
 
-            const otherSteps = props.parameters
-                .filter((item) => item.id !== props.content.id)
-                .map((item) => ({
-                    label: item.title,
-                    value: item.id,
-                }));
+            const otherSteps = computed(() =>
+                props.parameters
+                    .filter((item) => item.id !== props.content.id)
+                    .map((item) => ({
+                        label: item.title,
+                        value: item.id,
+                    }))
+            );
 
             return {
                 types,

@@ -1,14 +1,22 @@
 <template>
     <localized-field
-        field="form-editor"
-        :label="$t('field.text')"
-        v-model="content.text"
+        field="form-input"
+        :label="$t('field.title')"
+        v-model="content.title"
+        required
+    />
+
+    <localized-field
+        field="form-input"
+        :label="$t('field.description')"
+        v-model="content.description"
     />
 
     <form-select
         :label="$t('field.go_to_step')"
         v-model="content.step"
         :options="parameters"
+        required
     />
 </template>
 
@@ -18,7 +26,8 @@
     export default defineRepeater({
         type: 'decision-tree-choice',
         fields: {
-            text: Object,
+            title: Object,
+            description: Object,
             step: String,
         },
     });
