@@ -1,12 +1,15 @@
 <div class="flex flex-wrap justify-between mb-8 gap-y-4 gap-x-8 md:flex-nowrap">
     <div class="flex gap-3">
-        <div
-            class="flex items-center justify-center shrink-0 w-12 h-12 rounded-md text-primary bg-opacity-10 bg-primary">
-            <x-dynamic-component
-                :component="$icon"
-                class="w-6 h-6"
-                aria-hidden="true" />
-        </div>
+        @if ($icon)
+            <div
+                class="flex items-center justify-center w-12 h-12 rounded-md shrink-0 text-primary bg-opacity-10 bg-primary">
+                <x-dynamic-component
+                    :component="$icon"
+                    class="w-6 h-6"
+                    aria-hidden="true"
+                />
+            </div>
+        @endif
 
         <div class="space-y-1">
             <h1 class="text-base font-semibold text-gray-900">
