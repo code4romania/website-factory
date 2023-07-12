@@ -37,7 +37,7 @@
                 >
                     <icon name="System/add-line" class="w-5 h-5 mr-2 -ml-1" />
 
-                    <span v-text="$t('app.action.add')" />
+                    <span v-text="addButtonLabel" />
                 </button>
             </div>
         </template>
@@ -45,6 +45,8 @@
 </template>
 
 <script>
+    import { trans } from 'laravel-vue-i18n';
+    import { computed } from 'vue';
     import cloneDeep from 'lodash/cloneDeep';
     import Draggable from 'vuedraggable';
 
@@ -65,6 +67,10 @@
             parameters: {
                 type: Array,
                 default: () => [],
+            },
+            addButtonLabel: {
+                type: String,
+                default: null,
             },
         },
         emits: ['update:modelValue'],
@@ -93,10 +99,15 @@
                 props.items.splice(index, 1);
             };
 
+            const addButtonLabel = computed(() => {
+                return props.addButtonLabel || trans('app.action.add');
+            });
+
             return {
                 addBlock,
                 duplicateBlock,
                 deleteBlock,
+                addButtonLabel,
             };
         },
     };

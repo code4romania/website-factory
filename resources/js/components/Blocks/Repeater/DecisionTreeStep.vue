@@ -23,13 +23,14 @@
             :label="$t('field.columns')"
             v-model.number="content.columns"
             :options="[1, 2, 3]"
-            :default="1"
+            :default="2"
         />
 
         <block-repeater
             component="decision-tree-choice"
             :items="children"
             :parameters="otherSteps"
+            :add-button-label="$t('app.action.addChoice')"
         />
     </template>
 </template>

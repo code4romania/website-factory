@@ -15,5 +15,9 @@ export default function (initial) {
         goBack() {
             this.current = this.history.pop();
         },
+        goBackToStart() {
+            this.current = initial;
+            this.history = [];
+        }
     };
 }

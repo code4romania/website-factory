@@ -1,15 +1,9 @@
-<x-blocks._title :title="$title" />
-
-<div class="prose prose-blue md:prose-lg">
-    {!! $html !!}
-</div>
-
 <div x-data="decisionTree(@js($items->first()?->input('id')))">
     <button
         x-show="history.length"
         x-cloak
-        @@click="goBack"
-        class="inline-flex items-center"
+        x-on:click="goBack"
+        class="inline-flex items-center px-2 py-1 text-sm font-semibold text-gray-900 rounded shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
     >
         <x-ri-arrow-left-line class="w-4 h-4 mr-2" />
 
@@ -30,7 +24,19 @@
                 {!! $item->translatedInput('text') !!}
             </div>
 
-            @if ($item->children->isNotEmpty())
+            @if ($item->input('type') === 'answer')
+                <div>
+                    <button
+                        x-cloak
+                        x-on:click="goBackToStart"
+                        class="inline-flex items-center px-2 py-1 text-sm font-semibold text-gray-900 rounded shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                    >
+                        <x-ri-arrow-left-line class="w-4 h-4 mr-2" />
+
+                        @lang('app.action.backToStart')
+                    </button>
+                </div>
+            @elseif ($item->children->isNotEmpty())
                 <div @class([
                     'grid gap-4',
                     match ((int) $item->input('columns')) {
@@ -43,7 +49,7 @@
                         <button
                             type="button"
                             class="relative flex flex-col px-4 py-5 overflow-hidden text-left bg-white border border-gray-100 rounded-lg shadow-md group focus:ring-2 focus:ring-inset focus:outline-none focus:ring-primary"
-                            @@click="goTo(@js($choice->input('step')))"
+                            x-on:click="goTo(@js($choice->input('step')))"
                         >
                             <div
                                 class="absolute flex items-end justify-center w-20 h-20 text-gray-400 transition-colors rotate-45 bg-gray-100 group-hover:text-primary group-hover:bg-primary/10 group-focus:text-primary group-focus:bg-primary/10 -top-10 -right-10">

@@ -1,20 +1,9 @@
 <template>
-    <localized-field
-        field="form-input"
-        :label="$t('field.title')"
-        v-model="content.title"
-    />
-
-    <localized-field
-        field="form-editor"
-        :label="$t('field.text')"
-        v-model="content.text"
-    />
-
     <block-repeater
         component="decision-tree-step"
         :items="children"
         :parameters="steps"
+        :add-button-label="$t('app.action.addStep')"
     />
 </template>
 
