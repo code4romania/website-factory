@@ -81,6 +81,7 @@
         <div v-show="open" class="px-4 py-5 space-y-8 border-t sm:p-6">
             <component
                 :is="component"
+                :id="id"
                 :content="content"
                 @update:content="emit('update:content', $event)"
                 :children="children"
@@ -89,6 +90,7 @@
                 @update:media="emit('update:media', $event)"
                 :related="related"
                 @update:related="emit('update:related', $event)"
+                :parameters="parameters"
             />
 
             <details v-if="$page.props.app.debug">
@@ -119,6 +121,12 @@
                     </pre>
 
                     <pre class="whitespace-pre-wrap" v-text="related" />
+
+                    <pre class="mt-4 whitespace-pre-line">
+                        parameters:
+                    </pre>
+
+                    <pre class="whitespace-pre-wrap" v-text="parameters" />
                 </div>
             </details>
         </div>
@@ -160,6 +168,10 @@
                 default: () => [],
             },
             related: {
+                type: Array,
+                default: () => [],
+            },
+            parameters: {
                 type: Array,
                 default: () => [],
             },

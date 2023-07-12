@@ -6,6 +6,10 @@ export default function (block) {
         inheritAttrs: false,
         name: 'Repeater' + upperFirst(camelCase(block.type)),
         props: {
+            id: {
+                type: [String, Number],
+                required: true,
+            },
             content: {
                 type: Object,
                 default: () => ({}),
@@ -18,6 +22,10 @@ export default function (block) {
                 type: Array,
                 default: () => [],
             },
+            parameters: {
+                type: Array,
+                default: () => [],
+            },
             ...block.props,
         },
         emits: [
@@ -26,10 +34,17 @@ export default function (block) {
             'update:media',
             'update:related',
         ],
-        setup(props) {
+        setup(props, context) {
             const { initializeFields } = useBlock();
 
             initializeFields(block, props);
+
+            if (
+                block.hasOwnProperty('setup') &&
+                block.setup instanceof Function
+            ) {
+                return block.setup(props, context);
+            }
         },
     };
 }
