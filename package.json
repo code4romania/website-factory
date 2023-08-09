@@ -81,6 +81,6 @@
         "vue-flatpickr-component": "^11.0.3",
         "vue3-click-away": "^1.2.4",
         "vuedraggable": "^4.1.0",
-        "ziggy-js": "^1.6.0"
+        "ziggy-js": "^1.6.1"
     }
 }
