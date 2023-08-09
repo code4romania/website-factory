@@ -74,7 +74,7 @@
         "tailwindcss": "^3.3.3",
         "uniqid": "^5.4.0",
         "uuid": "^9.0.0",
-        "vite": "^4.4.3",
+        "vite": "^4.4.9",
         "vite-plugin-manifest-sri": "^0.1.0",
         "vite-plugin-svg-icons": "^2.0.1",
         "vue": "^3.3.4",
