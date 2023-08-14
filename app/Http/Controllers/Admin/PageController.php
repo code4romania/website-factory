@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Concerns\PagesSecondaryNavigation;
+use App\Contracts\HasSecondaryNavigation;
 use App\Http\Requests\Admin\PageRequest;
 use App\Http\Resources\Collections\PageCollection;
 use App\Http\Resources\PageResource;
@@ -12,8 +14,10 @@ use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class PageController extends AdminController
+class PageController extends AdminController implements HasSecondaryNavigation
 {
+    use PagesSecondaryNavigation;
+
     public function index(): Response
     {
         return Inertia::render('Pages/Index', [
@@ -27,6 +31,7 @@ class PageController extends AdminController
                     ->filter()
                     ->paginate()
             ),
+            'subnav' => $this->getSecondaryNavigation(),
         ]);
     }
 

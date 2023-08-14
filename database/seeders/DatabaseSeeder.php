@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Console\Commands\UpdateTranslationsCommand;
 use App\Models\Decision;
 use App\Models\DecisionCategory;
 use App\Models\Form;
@@ -17,6 +18,7 @@ use App\Models\PostCategory;
 use App\Models\User;
 use App\Services\Features;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
 
 class DatabaseSeeder extends Seeder
@@ -42,6 +44,8 @@ class DatabaseSeeder extends Seeder
                 'enabled' => false,
             ],
         ]);
+
+        Artisan::call(UpdateTranslationsCommand::class);
 
         $images = Media::query()
             ->whereImages()

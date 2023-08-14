@@ -50,6 +50,8 @@ class AppServiceProvider extends ServiceProvider
             'media' => \App\Models\Media::class,
             'menu_item' => \App\Models\MenuItem::class,
             'page' => \App\Models\Page::class,
+            'page_group' => \App\Models\PageGroup::class,
+            'page_group_item' => \App\Models\PageGroupItem::class,
             'partner' => \App\Models\Partner::class,
             'person' => \App\Models\Person::class,
             'post_category' => \App\Models\PostCategory::class,

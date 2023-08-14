@@ -373,6 +373,18 @@
     "page.event.created": "Pagina a fost creată.",
     "page.event.updated": "Pagina a fost actualizată.",
     "page.event.deleted": "Pagina a fost ștersă.",
+    "page.subnav.pages": "Pagini",
+    "page.subnav.groups": "Grupuri de pagini",
+
+    "page_group.label": "Grup de pagini|Grupuri de pagini",
+    "page_group.action.create": "Adaugă grup de pagini",
+    "page_group.action.edit": "Editează grup de pagini",
+    "page_group.action.update": "Actualizează grup de pagini",
+    "page_group.action.delete": "Șterge grup de pagini",
+    "page_group.empty.title": "Nu am găsit niciun grup de pagini.",
+    "page_group.event.created": "Grupul de pagini a fost creat.",
+    "page_group.event.updated": "Grupul de pagini a fost actualizat.",
+    "page_group.event.deleted": "Grupul de pagini a fost șters.",
 
     "pagination.previous": "Înapoi",
     "pagination.next": "Înainte",

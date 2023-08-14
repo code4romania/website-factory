@@ -1,10 +1,20 @@
 <template>
-    <layout
-        :title="$tChoice('page.label', 2)"
+    <form-container
+        :resource="resource"
+        :model="model"
+        :fields="['title']"
         :breadcrumbs="[
             {
                 label: $t('app.dashboard'),
                 url: route('admin.dashboard'),
+            },
+            {
+                label: $t('page.subnav.pages'),
+                url: route('admin.pages.index'),
+            },
+            {
+                label: $t('page.subnav.groups'),
+                url: route('admin.page_groups.index'),
             },
         ]"
     >
@@ -21,14 +31,23 @@
             </menu-item>
         </template>
 
-        <inertia-table :collection="collection" />
-    </layout>
+        <template #panel="{ form }">
+            <localized-field
+                field="form-input"
+                :label="$t('field.title')"
+                name="title"
+                v-model="form.title"
+                required
+            />
+        </template>
+    </form-container>
 </template>
 
 <script>
     export default {
         props: {
-            collection: Object,
+            resource: Object,
+            model: Object,
             subnav: Array,
         },
     };
