@@ -2,7 +2,7 @@
     <form-container
         :resource="resource"
         :model="model"
-        :fields="['title']"
+        :fields="['title', 'items']"
         :breadcrumbs="[
             {
                 label: $t('app.dashboard'),
@@ -38,6 +38,14 @@
                 name="title"
                 v-model="form.title"
                 required
+            />
+        </template>
+
+        <template #content="{ form }">
+            <menu-builder-list
+                prefix="items"
+                :items="form.items"
+                :max-depth="3"
             />
         </template>
     </form-container>

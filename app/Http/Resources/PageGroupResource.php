@@ -27,6 +27,7 @@ class PageGroupResource extends Resource
         return [
             'id' => $this->id,
             'title' => $this->getTranslations('title'),
+            'items' => $this->items,
         ];
     }
 

@@ -42,7 +42,7 @@ class PageGroupController extends AdminController implements HasSecondaryNavigat
         ])->model(PageGroup::class);
     }
 
-    public function store(PageRequest $request): RedirectResponse
+    public function store(PageGroupRequest $request): RedirectResponse
     {
         $attributes = $request->validated();
 
@@ -65,7 +65,7 @@ class PageGroupController extends AdminController implements HasSecondaryNavigat
         ])->model(PageGroup::class);
     }
 
-    public function update(PageRequest $request, PageGroup $pageGroup): RedirectResponse
+    public function update(PageGroupRequest $request, PageGroup $pageGroup): RedirectResponse
     {
         $attributes = $request->validated();
 
