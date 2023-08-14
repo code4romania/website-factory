@@ -99,7 +99,9 @@
                     Highlight,
                     History,
                     HorizontalRule,
-                    Image,
+                    Image.configure({
+                        inline: true,
+                    }),
                     Italic,
                     Link.configure({ openOnClick: false }),
                     ListItem,
