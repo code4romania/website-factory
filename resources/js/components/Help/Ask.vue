@@ -4,7 +4,7 @@
     >
         <p v-text="$t('help.ask.info')" />
         <a
-            href="https://calendly.com/civictech911"
+            href="https://calendar.app.google/f9Jts3L9NS6VRYKKA"
             target="_blank"
             className="whitespace-nowrap w-full justify-center flex items-center px-3 py-2 leading-none border border-transparent text-sm shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
         >
