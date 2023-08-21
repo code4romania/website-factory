@@ -11,14 +11,42 @@
         <button
             type="button"
             class="flex-1 px-4 py-2 text-sm font-semibold text-center text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-            @click="$emit('delete-selected')"
+            @click="confirmDelete = true"
             v-text="$t('app.action.delete')"
         />
+
+        <confirmation-modal
+            v-if="confirmDelete"
+            @close="confirmAction = false"
+            @submit="$emit('delete-selected')"
+            color="red"
+        >
+            <template #title>{{ $t('app.action.delete') }}</template>
+
+            <template #content>
+                {{ $t('app.action.deleteConfirm') }}
+            </template>
+
+            <template #footer>
+                <form-button
+                    type="button"
+                    @click.prevent="confirmAction = false"
+                    :label="$t('app.action.cancel')"
+                    color="white"
+                />
+
+                <form-button
+                    type="submit"
+                    :label="$t('app.action.delete')"
+                    color="red"
+                />
+            </template>
+        </confirmation-modal>
     </div>
 </template>
 
 <script>
-    import { inject } from 'vue';
+    import { inject, ref } from 'vue';
 
     export default {
         name: 'MediaActions',
@@ -45,8 +73,12 @@
                 bus.emit('media-library:close');
             };
 
+            const confirmDelete = ref(false);
+
             return {
                 attach,
+
+                confirmDelete,
             };
         },
     };
