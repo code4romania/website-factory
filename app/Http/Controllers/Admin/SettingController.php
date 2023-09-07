@@ -10,6 +10,7 @@ use App\Models\Setting;
 use Closure;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -64,10 +65,10 @@ class SettingController extends Controller
                     'euplatesc_enabled' => \boolval($value),
 
                     'mobilpay_enabled' => \boolval($value),
-                    'mobilpay_certificate' => encrypt($value?->get()),
-                    'mobilpay_private_key' => encrypt($value?->get()),
+                    'mobilpay_certificate' => $this->encryptFile($value),
+                    'mobilpay_private_key' => $this->encryptFile($value),
                 }
-            ),
+            )->filter(),
             default => $attributes,
         };
 
@@ -87,5 +88,14 @@ class SettingController extends Controller
 
         return redirect()->route('admin.settings.edit', $section)
             ->with('success', __('setting.event.updated'));
+    }
+
+    private function encryptFile(?UploadedFile $file): ?string
+    {
+        if ($file === null) {
+            return null;
+        }
+
+        return encrypt($file->get());
     }
 }
