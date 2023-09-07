@@ -6,7 +6,6 @@ namespace App\Providers;
 
 use App\Models\Setting;
 use App\Services\Features;
-use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
@@ -92,22 +91,20 @@ class SettingsServiceProvider extends ServiceProvider
     {
         $cachedPath = "private/$key";
 
-        $content = Arr::pull($this->settings, $key);
+        $content = Arr::pull($this->settings, $key, '');
 
         if (Storage::disk('local')->exists($cachedPath)) {
             return Storage::disk('local')->path($cachedPath);
         }
 
+        $content = rescue(fn () => decrypt($content), null, false);
+
         if (\is_null($content)) {
             return null;
         }
 
-        try {
-            Storage::disk('local')->put($cachedPath, decrypt($content));
+        Storage::disk('local')->put($cachedPath, $content);
 
-            return Storage::disk('local')->path($cachedPath);
-        } catch (DecryptException $e) {
-            return null;
-        }
+        return Storage::disk('local')->path($cachedPath);
     }
 }
