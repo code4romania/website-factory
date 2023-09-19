@@ -27,6 +27,11 @@ class PaymentGateway
         return ! \is_null(static::getDriver($alias));
     }
 
+    public static function isTestMode(): bool
+    {
+        return (bool) settings('payments.defaults.testMode');
+    }
+
     public static function getDriver(string $gateway): ?string
     {
         $class = settings("payments.gateways.{$gateway}.driver");
