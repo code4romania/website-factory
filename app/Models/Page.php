@@ -11,6 +11,7 @@ use App\Traits\Filterable;
 use App\Traits\HasBlocks;
 use App\Traits\HasMedia;
 use App\Traits\HasSlug;
+use App\Traits\NestedSet;
 use App\Traits\Publishable;
 use App\Traits\Searchable;
 use App\Traits\Sortable;
@@ -29,6 +30,7 @@ class Page extends Model
     use HasBlocks;
     use HasFactory;
     use HasMedia;
+    use NestedSet;
     use HasSlug;
     use Publishable;
     use Searchable;
