@@ -30,8 +30,8 @@ class Page extends Model
     use HasBlocks;
     use HasFactory;
     use HasMedia;
-    use NestedSet;
     use HasSlug;
+    use NestedSet;
     use Publishable;
     use Searchable;
     use SoftDeletes;
