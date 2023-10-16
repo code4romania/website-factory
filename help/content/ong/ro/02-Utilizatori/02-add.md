@@ -18,6 +18,6 @@ propria parola și instrucțiuni de accesare a panoului de administrare.
 Îți recomandăm să dai acces utilizatorilor pe adresele lor oficiale de
 e-mail și nu pe cele personale.
 
-<a href="/assets/help/020.png">
-    <img src="/assets/help/020.png" />
+<a href="/build/help/020.png">
+    <img src="/build/help/020.png" />
 </a>

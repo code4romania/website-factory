@@ -122,8 +122,8 @@ following steps:
     to add
 7)  Click **Save**
 
-<a href="/assets/help/027.png">
-    <img src="/assets/help/027.png" />
+<a href="/build/help/027.png">
+    <img src="/build/help/027.png" />
 </a>
 
 To view a category, it is necessary to go through the following steps:
@@ -184,6 +184,6 @@ To delete a category, it is necessary to go through the following steps:
 6)  Confirm the action by clicking the **Delete** button
 7)  The category has been deleted and moved to **Deleted**.
 
-<a href="/assets/help/026.png">
-    <img src="/assets/help/026.png" />
+<a href="/build/help/026.png">
+    <img src="/build/help/026.png" />
 </a>

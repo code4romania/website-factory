@@ -37,8 +37,8 @@ is necessary to go through the following steps:
     the help of the arrows.
 7)  Click "**Save**"
 
-<a href="/assets/help/011.png">
-    <img src="/assets/help/011.png" />
+<a href="/build/help/011.png">
+    <img src="/build/help/011.png" />
 </a>
 
 ### Integrating the EuPlătesc payment processor

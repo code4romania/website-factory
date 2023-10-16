@@ -209,8 +209,8 @@ următorii pași:
 7)  Completează descrierea categoriei în câmpul **Descriere**
 8)  Apasă butonul **Salvează**
 
-<a href="/assets/help/027.png">
-    <img src="/assets/help/027.png" />
+<a href="/build/help/027.png">
+    <img src="/build/help/027.png" />
 </a>
 
 Pentru **a vizualiza o categorie**, este necesar să parcurgi următorii

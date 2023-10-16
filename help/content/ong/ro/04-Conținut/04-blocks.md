@@ -23,8 +23,8 @@ pași:
 Fiecare bloc de conținut poate fi duplicat, șters sau i se poate schimba
 proporția cu ajutorul butoanelor din dreapta lui.
 
-<a href="/assets/help/003.png">
-    <img src="/assets/help/003.png" />
+<a href="/build/help/003.png">
+    <img src="/build/help/003.png" />
 </a>
 
 1)  Butonul de coloane micșorează sau mărește blocul de conținut.
@@ -46,8 +46,8 @@ proporția cu ajutorul butoanelor din dreapta lui.
   tipul “Întrebări frecvente” sau pentru liste cu multă informație
   la fiecare item.
 
-<a href="/assets/help/007.png">
-    <img src="/assets/help/007.png" />
+<a href="/build/help/007.png">
+    <img src="/build/help/007.png" />
 </a>
 
 ---
@@ -60,8 +60,8 @@ proporția cu ajutorul butoanelor din dreapta lui.
 - un bloc Call to action este format din: Titlu, Text, Text Buton și
   Link buton
 
-<a href="/assets/help/012.png">
-    <img src="/assets/help/012.png" />
+<a href="/build/help/012.png">
+    <img src="/build/help/012.png" />
 </a>
 
 ---
@@ -121,8 +121,8 @@ proporția cu ajutorul butoanelor din dreapta lui.
   o donație prin PayPal) și ID buton PayPal (câmp în care se introduce
   id-ul unic primit la deschiderea contului de PayPal)
 
-<a href="/assets/help/017.png">
-    <img src="/assets/help/017.png" />
+<a href="/build/help/017.png">
+    <img src="/build/help/017.png" />
 </a>
 
 ---
@@ -135,8 +135,8 @@ proporția cu ajutorul butoanelor din dreapta lui.
 - Aici vei putea pune link către video-uri de pe Youtube sau Vimeo de
   exemplu.
 
-<a href="/assets/help/022.png">
-    <img src="/assets/help/022.png" />
+<a href="/build/help/022.png">
+    <img src="/build/help/022.png" />
 </a>
 
 ---
@@ -150,8 +150,8 @@ proporția cu ajutorul butoanelor din dreapta lui.
 - Pentru a adăuga un formular într-o pagină este necesar ca acest
   formular să existe deja creat în secțiunea de Formulare
 
-<a href="/assets/help/002.png">
-    <img src="/assets/help/002.png" />
+<a href="/build/help/002.png">
+    <img src="/build/help/002.png" />
 </a>
 
 ---
@@ -165,8 +165,8 @@ proporția cu ajutorul butoanelor din dreapta lui.
   Imagini (se pot adăuga în aceste bloc imagini deja existente în
   Biblioteca Media)
 
-<a href="/assets/help/028.png">
-    <img src="/assets/help/028.png" />
+<a href="/build/help/028.png">
+    <img src="/build/help/028.png" />
 </a>
 
 ---
@@ -213,8 +213,8 @@ proporția cu ajutorul butoanelor din dreapta lui.
   celelalte elemente din bloc - sus, centru, jos) și Imagine (se pot
   adăuga în aceste bloc imagini deja existente în Biblioteca Media)
 
-<a href="/assets/help/013.png">
-    <img src="/assets/help/013.png" />
+<a href="/build/help/013.png">
+    <img src="/build/help/013.png" />
 </a>
 
 ---
@@ -230,8 +230,8 @@ proporția cu ajutorul butoanelor din dreapta lui.
   Imagine (se selectează din Biblioteca Media, Text field.caption și
   URL (link care se poate accesa prin click pe imagine)
 
-<a href="/assets/help/019.png">
-    <img src="/assets/help/019.png" />
+<a href="/build/help/019.png">
+    <img src="/build/help/019.png" />
 </a>
 
 ---
@@ -247,8 +247,8 @@ proporția cu ajutorul butoanelor din dreapta lui.
   persoanelor să fie afișate în acest bloc) și Persoane (se
   selectează dintre persoanele deja create în meniul **Persoane**)
 
-<a href="/assets/help/010.png">
-    <img src="/assets/help/010.png" />
+<a href="/build/help/010.png">
+    <img src="/build/help/010.png" />
 </a>
 
 ---
@@ -263,8 +263,8 @@ proporția cu ajutorul butoanelor din dreapta lui.
   progres, se poate selecta din săgeți sau se poate introduce manual
   valoarea), Text Buton și Link Buton
 
-<a href="/assets/help/018.png">
-    <img src="/assets/help/018.png" />
+<a href="/build/help/018.png">
+    <img src="/build/help/018.png" />
 </a>
 
 ---

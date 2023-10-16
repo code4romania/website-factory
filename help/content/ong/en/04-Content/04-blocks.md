@@ -21,8 +21,8 @@ Each content block can be duplicated, deleted or you can change its
 proportion by pressing the buttons from the right side of the content
 block.
 
-<a href="/assets/help/003.png">
-    <img src="/assets/help/003.png" />
+<a href="/build/help/003.png">
+    <img src="/build/help/003.png" />
 </a>
 
 1)  The columns button decreases or increases the content block.
@@ -44,8 +44,8 @@ block.
   Frequently Asked Questions or for lists with elements where each
   element has a lot of information.
 
-<a href="/assets/help/007.png">
-    <img src="/assets/help/007.png" />
+<a href="/build/help/007.png">
+    <img src="/build/help/007.png" />
 </a>
 
 ---
@@ -58,8 +58,8 @@ block.
 - a "Call to action" block is made up of: Title, Text, Text Button and
   Link Button
 
-<a href="/assets/help/012.png">
-    <img src="/assets/help/012.png" />
+<a href="/build/help/012.png">
+    <img src="/build/help/012.png" />
 </a>
 
 ---
@@ -122,8 +122,8 @@ block.
   donate withPayPal) and ID button PayPalfield.button_id (field
   where your unique PayPal ID is inserted)
 
-<a href="/assets/help/017.png">
-    <img src="/assets/help/017.png" />
+<a href="/build/help/017.png">
+    <img src="/build/help/017.png" />
 </a>
 
 ---
@@ -135,8 +135,8 @@ block.
 - an Embed block is made up of Title and URL
 - Here you can add links to Youtube or Vimeo videos, for example.
 
-<a href="/assets/help/022.png">
-    <img src="/assets/help/022.png" />
+<a href="/build/help/022.png">
+    <img src="/build/help/022.png" />
 </a>
 
 ---
@@ -150,8 +150,8 @@ block.
 - To add a **Form** in a content block, it is necessary that the form
   is already created în **Form Section**.
 
-<a href="/assets/help/002.png">
-    <img src="/assets/help/002.png" />
+<a href="/build/help/002.png">
+    <img src="/build/help/002.png" />
 </a>
 
 ---
@@ -164,8 +164,8 @@ block.
   number of columns on which the images are shown), Images (images
   already housed in the Media library can be added)
 
-<a href="/assets/help/028.png">
-    <img src="/assets/help/028.png" />
+<a href="/build/help/028.png">
+    <img src="/build/help/028.png" />
 </a>
 
 ---
@@ -212,8 +212,8 @@ block.
   center, down) and Image (images already housed in the Media
   Library can be added in this block)
 
-<a href="/assets/help/013.png">
-    <img src="/assets/help/013.png" />
+<a href="/build/help/013.png">
+    <img src="/build/help/013.png" />
 </a>
 
 ---
@@ -230,8 +230,8 @@ block.
   field, caption and URL (link which can be accessed through
   clicking the image)
 
-<a href="/assets/help/019.png">
-    <img src="/assets/help/019.png" />
+<a href="/build/help/019.png">
+    <img src="/build/help/019.png" />
 </a>
 
 ---
@@ -246,8 +246,8 @@ block.
   associated with the people to be shown in this block) and People
   (to select from the people already created in the **People** menu)
 
-<a href="/assets/help/010.png">
-    <img src="/assets/help/010.png" />
+<a href="/build/help/010.png">
+    <img src="/build/help/010.png" />
 </a>
 
 ---
@@ -262,8 +262,8 @@ block.
   can be selected with arrows or the value can be manually
   introduced), Text Button and Link Button
 
-<a href="/assets/help/018.png">
-    <img src="/assets/help/018.png" />
+<a href="/build/help/018.png">
+    <img src="/build/help/018.png" />
 </a>
 
 ---

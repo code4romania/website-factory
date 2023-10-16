@@ -33,8 +33,8 @@ steps:
     the editable field
 9)  Click "Save"
 
-<a href="/assets/help/017.png">
-    <img src="/assets/help/017.png" />
+<a href="/build/help/017.png">
+    <img src="/build/help/017.png" />
 </a>
 
 To edit an already added language, it is necessary to go through the

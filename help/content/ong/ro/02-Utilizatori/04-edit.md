@@ -19,8 +19,8 @@ setare a parolei va fi trimis pe emailul nou introdus în profilul acelui
 utilizator.
 
 
-<a href="/assets/help/004.png">
-    <img src="/assets/help/004.png" />
+<a href="/build/help/004.png">
+    <img src="/build/help/004.png" />
 </a>
 
 Pentru a șterge un utilizator trebuie să parcurgi următorii pași:

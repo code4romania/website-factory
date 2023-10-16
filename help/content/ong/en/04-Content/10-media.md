@@ -58,8 +58,8 @@ necessary to go through the following steps:
 6)  The image will open in a new tab, from which you can save it
     according to the browser you are using.
 
-<a href="/assets/help/008.png">
-    <img src="/assets/help/008.png" />
+<a href="/build/help/008.png">
+    <img src="/build/help/008.png" />
 </a>
 
 ---

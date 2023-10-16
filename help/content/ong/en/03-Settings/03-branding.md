@@ -25,8 +25,8 @@ color that can be found in your logo as well or a color that is
 complementary to your logo.**
 
 
-<a href="/assets/help/009.png">
-    <img src="/assets/help/009.png" />
+<a href="/build/help/009.png">
+    <img src="/build/help/009.png" />
 </a>
 
 To add your **logo** you have to:
@@ -43,6 +43,6 @@ The logo will be uploaded on your website and displayed in the upper
 left corner above the menu. It is best that the logo is .png with no
 margins. See an example below.
 
-<a href="/assets/help/023.png">
-    <img src="/assets/help/023.png" />
+<a href="/build/help/023.png">
+    <img src="/build/help/023.png" />
 </a>

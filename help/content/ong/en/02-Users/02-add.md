@@ -17,6 +17,6 @@ and instructions to access the admin dashboard. We recommend you grant
 access to users through their official email addresses and not personal
 accounts.
 
-<a href="/assets/help/020.png">
-    <img src="/assets/help/020.png" />
+<a href="/build/help/020.png">
+    <img src="/build/help/020.png" />
 </a>

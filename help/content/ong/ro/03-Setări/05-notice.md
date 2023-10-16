@@ -20,8 +20,8 @@ Pentru a adăuga un anunț, este necesar să parcurgi următorii pași:
 7)  Inserează textul anunțului tău în câmpul **Text**.
 8)  Apasă **Salvează**
 
-<a href="/assets/help/006.png">
-    <img src="/assets/help/006.png" />
+<a href="/build/help/006.png">
+    <img src="/build/help/006.png" />
 </a>
 
 Pentru a dezactiva un anunț, este necesar să parcurgi următorii pași:

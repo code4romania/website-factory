@@ -35,8 +35,8 @@ pași:
     editabil
 9)  Apasă **Salvează**
 
-<a href="/assets/help/017.png">
-    <img src="/assets/help/017.png" />
+<a href="/build/help/017.png">
+    <img src="/build/help/017.png" />
 </a>
 
 Pentru a **edita** o limbă deja adăugată, este necesar să parcurgi
