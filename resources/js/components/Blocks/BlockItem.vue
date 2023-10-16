@@ -134,7 +134,7 @@
 </template>
 
 <script>
-    import { computed, ref } from 'vue';
+    import { computed, ref, watch } from 'vue';
     import { usePage } from '@inertiajs/vue3';
     import { useLocale } from '@/helpers';
     import get from 'lodash/get';
@@ -183,6 +183,10 @@
                 type: Boolean,
                 default: false,
             },
+            open: {
+                type: Boolean,
+                default: true,
+            },
         },
         emits: ['duplicate', 'delete'],
         setup(props) {
@@ -218,6 +222,11 @@
             const toggleOpen = () => {
                 open.value = !open.value;
             };
+
+            watch(
+                () => props.open,
+                (value) => (open.value = value)
+            );
 
             return {
                 currentLocale,

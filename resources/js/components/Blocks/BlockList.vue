@@ -11,15 +11,29 @@
     >
         <template #header>
             <div
-                class="relative flex items-center mt-8 md:col-span-2"
+                class="relative flex items-center gap-3 mt-8 md:col-span-2"
                 aria-hidden="true"
             >
                 <span
-                    class="pr-3 text-lg font-medium text-gray-900"
+                    class="text-lg font-medium text-gray-900"
                     v-text="title || $t('field.content')"
                 />
 
                 <div class="flex-1 border-t border-gray-300" />
+
+                <div class="shrink-0">
+                    <button
+                        type="button"
+                        @click="toggleOpen"
+                        class="text-gray-400 hover:text-gray-900 focus:outline-none"
+                    >
+                        <icon
+                            name="System/arrow-down-s-line"
+                            class="w-5 h-5 text-gray-400"
+                            :class="{ 'rotate-180': open }"
+                        />
+                    </button>
+                </div>
             </div>
         </template>
 
@@ -29,6 +43,7 @@
                 :type="blockType"
                 :component="element.type"
                 :class="{ 'md:col-span-2': element.content.fullwidth }"
+                :open="open"
                 v-model:content="element.content"
                 v-model:children="element.children"
                 v-model:media="element.media"
@@ -85,7 +100,7 @@
 </template>
 
 <script>
-    import { computed } from 'vue';
+    import { computed, ref } from 'vue';
     import { usePage } from '@inertiajs/vue3';
     import cloneDeep from 'lodash/cloneDeep';
     import Draggable from 'vuedraggable';
@@ -145,11 +160,20 @@
                 props.blocks.splice(index, 1);
             };
 
+            const open = ref(true);
+
+            const toggleOpen = () => {
+                open.value = !open.value;
+            };
+
             return {
                 allowedBlocks,
                 addBlock,
                 duplicateBlock,
                 deleteBlock,
+
+                open,
+                toggleOpen,
             };
         },
     };
