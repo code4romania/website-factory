@@ -17,7 +17,7 @@
 
         <confirmation-modal
             v-if="confirmDelete"
-            @close="confirmAction = false"
+            @close="confirmDelete = false"
             @submit="$emit('delete-selected')"
             color="red"
         >
@@ -30,7 +30,7 @@
             <template #footer>
                 <form-button
                     type="button"
-                    @click.prevent="confirmAction = false"
+                    @click.prevent="confirmDelete = false"
                     :label="$t('app.action.cancel')"
                     color="white"
                 />
