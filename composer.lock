@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d8003c8e10cec16875c9cdd159d2e44",
+    "content-hash": "25abac8b4cda45cd0dc445ebce279d2c",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
-            "version": "2.4.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andreiio/blade-remix-icon.git",
-                "reference": "3addf955bb46e876141f0dc86f7749c24e8a345f"
+                "reference": "f88ed4ed15ead76d33056c97cc156d94ae53fcb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andreiio/blade-remix-icon/zipball/3addf955bb46e876141f0dc86f7749c24e8a345f",
-                "reference": "3addf955bb46e876141f0dc86f7749c24e8a345f",
+                "url": "https://api.github.com/repos/andreiio/blade-remix-icon/zipball/f88ed4ed15ead76d33056c97cc156d94ae53fcb3",
+                "reference": "f88ed4ed15ead76d33056c97cc156d94ae53fcb3",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
             "description": "A package to easily make use of Remix Icon in your Laravel Blade views.",
             "support": {
                 "issues": "https://github.com/andreiio/blade-remix-icon/issues",
-                "source": "https://github.com/andreiio/blade-remix-icon/tree/2.4.0"
+                "source": "https://github.com/andreiio/blade-remix-icon/tree/1.2.0"
             },
             "funding": [
                 {
@@ -62,7 +62,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-21T12:13:47+00:00"
+            "time": "2023-02-20T11:49:32+00:00"
         },
         {
             "name": "archtechx/laravel-seo",
@@ -13199,5 +13199,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
