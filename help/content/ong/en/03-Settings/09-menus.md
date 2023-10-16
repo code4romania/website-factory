@@ -30,8 +30,8 @@ steps:
 6)  Choose the suitable type of menu element
 7)  Click **Save**
 
-<a href="/assets/help/001.png">
-    <img src="/assets/help/001.png" />
+<a href="/build/help/001.png">
+    <img src="/build/help/001.png" />
 </a>
 
 ## Types of menu elements

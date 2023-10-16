@@ -26,8 +26,8 @@ to:
     more details on creating pages)
 8)  Press **Save**
 
-<a href="/assets/help/016.png">
-    <img src="/assets/help/016.png" />
+<a href="/build/help/016.png">
+    <img src="/build/help/016.png" />
 </a>
 
 We recommend that the title and description of your website are as clear

@@ -19,8 +19,8 @@ To add a notice you have to :
 7)  Insert the text you want to display in the **Text** field.
 8)  Press **Save**
 
-<a href="/assets/help/006.png">
-    <img src="/assets/help/006.png" />
+<a href="/build/help/006.png">
+    <img src="/build/help/006.png" />
 </a>
 
 To deactivate a notice you have to

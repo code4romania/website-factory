@@ -35,8 +35,8 @@ To create a new form, it is necessary to go through the following steps:
     type of field represents and how it can be used.
 10) Click **Save**
 
-<a href="/assets/help/021.png">
-    <img src="/assets/help/021.png" />
+<a href="/build/help/021.png">
+    <img src="/build/help/021.png" />
 </a>
 
 To view an already created form, it is necessary to go through the

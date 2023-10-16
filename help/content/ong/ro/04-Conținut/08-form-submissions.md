@@ -16,8 +16,8 @@ Factory: ONG. Pentru aceasta, este necesar să parcurgi următorii pași:
 5)  Vei ajunge în pagina în care sunt listate toate întrebările, cu
     răspunsul aferent
 
-<a href="/assets/help/025.png">
-    <img src="/assets/help/025.png" />
+<a href="/build/help/025.png">
+    <img src="/build/help/025.png" />
 </a>
 
 Pentru **a șterge un răspuns**, este necesar să parcurgi următorii pași:

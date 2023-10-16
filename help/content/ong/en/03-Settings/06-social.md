@@ -14,6 +14,6 @@ these steps:
 6)  Click on **Save**
 7)  The social media icons will be displayed in the footer of your website.
 
-<a href="/assets/help/024.png">
-    <img src="/assets/help/024.png" />
+<a href="/build/help/024.png">
+    <img src="/build/help/024.png" />
 </a>

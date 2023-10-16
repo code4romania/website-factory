@@ -101,6 +101,7 @@ return [
     */
 
     'links' => [
+        public_path('build/help') => base_path('help/images'),
         public_path('storage') => storage_path('app/public'),
     ],
 

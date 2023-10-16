@@ -33,8 +33,8 @@ steps:
 4)  Select the "**View**" option.
 5)  The page will open in a new tab of the browser you are using.
 
-<a href="/assets/help/015.png">
-    <img src="/assets/help/015.png" />
+<a href="/build/help/015.png">
+    <img src="/build/help/015.png" />
 </a>
 
 To edit an already existing page, you need to go through the following
@@ -60,8 +60,8 @@ to go through the following steps:
 5)  Confirm the duplication by clicking on the **Duplicate** button.
 6)  The duplicated page has been added to the list of existing pages.
 
-<a href="/assets/help/029.png">
-    <img src="/assets/help/029.png" />
+<a href="/build/help/029.png">
+    <img src="/build/help/029.png" />
 </a>
 
 To **delete** a page, you need to go through the following steps:

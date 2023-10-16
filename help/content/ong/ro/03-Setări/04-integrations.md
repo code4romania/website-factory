@@ -33,6 +33,6 @@ parcurgi următorii pași:
     afișeze corect.
 </p>
 
-<a href="/assets/help/005.png">
-    <img src="/assets/help/005.png" />
+<a href="/build/help/005.png">
+    <img src="/build/help/005.png" />
 </a>

@@ -16,8 +16,8 @@ it is necessary to go through the following steps:
 5)  You will get to the page where all the questions and respective
     responses are listed.
 
-<a href="/assets/help/025.png">
-    <img src="/assets/help/025.png" />
+<a href="/build/help/025.png">
+    <img src="/build/help/025.png" />
 </a>
 
 To delete a response, it is necessary to go through the following steps:

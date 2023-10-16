@@ -29,8 +29,8 @@ pași:
 5)  Apasă butonul **Adaugă**
 6)  Alege **tipul** de element de meniu potrivit
 
-<a href="/assets/help/001.png">
-    <img src="/assets/help/001.png" />
+<a href="/build/help/001.png">
+    <img src="/build/help/001.png" />
 </a>
 
 ## Tipuri elemente meniu

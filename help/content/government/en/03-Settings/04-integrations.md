@@ -26,6 +26,6 @@ To integrate the **HTML code** of a third party service, you have to:
     If so, please remove the code and save the Settings page again.
 </p>
 
-<a href="/assets/help/005.png">
-    <img src="/assets/help/005.png" />
+<a href="/build/help/005.png">
+    <img src="/build/help/005.png" />
 </a>

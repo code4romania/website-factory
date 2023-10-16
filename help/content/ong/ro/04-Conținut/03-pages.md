@@ -40,8 +40,8 @@ parcurgi următorii pași:
 5)  Pagina se va deschide într-un tab nou al browserului pe care îl
     folosești
 
-<a href="/assets/help/015.png">
-    <img src="/assets/help/015.png" />
+<a href="/build/help/015.png">
+    <img src="/build/help/015.png" />
 </a>
 
 Pentru **a edita o pagină deja existentă**, este necesar să parcurgi
@@ -67,8 +67,8 @@ este necesar să parcurgi următorii pași:
 5)  Confirmă duplicarea apăsând pe butonul **Duplică**
 6)  Pagina duplicată a fost adăugată în lista paginilor existente
 
-<a href="/assets/help/029.png">
-    <img src="/assets/help/029.png" />
+<a href="/build/help/029.png">
+    <img src="/build/help/029.png" />
 </a>
 
 Pentru a **șterge** **o pagină**, este necesar să parcurgi următorii

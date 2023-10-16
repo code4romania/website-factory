@@ -17,8 +17,8 @@ longer be able to log in with his previous email address. An email to
 set his password will be sent to the new email address and the user will
 have to go through the setup process again.
 
-<a href="/assets/help/004.png">
-    <img src="/assets/help/004.png" />
+<a href="/build/help/004.png">
+    <img src="/build/help/004.png" />
 </a>
 
 To delete a user you must:
