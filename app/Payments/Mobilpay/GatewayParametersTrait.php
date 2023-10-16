@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace App\Payments\Mobilpay;
 
+use App\Payments\PaymentGateway;
+
 trait GatewayParametersTrait
 {
-    public function getEndpointUrl(?bool $testMode = null): string
+    public function getEndpointUrl(): string
     {
-        return $testMode === false
-            ? 'https://secure.mobilpay.ro'
-            : 'https://sandboxsecure.mobilpay.ro';
+        return PaymentGateway::isTestMode()
+            ? 'https://sandboxsecure.mobilpay.ro'
+            : 'https://secure.mobilpay.ro';
     }
 
     public function setSignature($value): self
