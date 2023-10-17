@@ -178,7 +178,7 @@
 
 <script>
     import { computed, ref, inject } from 'vue';
-    import { useInfiniteScroll } from '@vueuse/core';
+    import { useInfiniteScroll, useThrottleFn } from '@vueuse/core';
     import { useMedia } from '@/helpers';
 
     export default {
@@ -212,7 +212,7 @@
 
             const { fetchMedia, uploadMedia, deleteMedia } = useMedia();
 
-            const getItems = () => {
+            const getItems = useThrottleFn(() => {
                 if (nextPage.value === null) {
                     return;
                 }
@@ -238,7 +238,7 @@
                         loading.value = false;
                     },
                 });
-            };
+            }, 1000);
 
             const select = (id) => {
                 selectedItems.value = [items.value.find((item) => item.id === id)];
