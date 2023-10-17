@@ -64,17 +64,20 @@
                     />
                 </div>
 
-                <help-list
-                    v-else-if="topic === null && sections.length"
-                    :sections="sections"
-                    @topic:open="topic = $event"
-                />
+                <template v-if="sections.length">
+                    <div class="flex flex-col h-full" v-show="topic === null">
+                        <help-list
+                            :sections="sections"
+                            @topic:open="topic = $event"
+                        />
+                    </div>
 
-                <help-topic
-                    v-else-if="topic !== null"
-                    :topic="topic"
-                    @topic:close="topic = null"
-                />
+                    <help-topic
+                        v-if="topic !== null"
+                        :topic="topic"
+                        @topic:close="topic = null"
+                    />
+                </template>
             </aside>
         </transition>
     </div>
