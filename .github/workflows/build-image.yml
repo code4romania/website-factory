@@ -4,15 +4,13 @@ on:
   push:
     branches:
       - main
+      - ci/reusable-workflow
     tags:
       - v*
-  pull_request:
-    branches:
-      - main
 
 jobs:
   build:
-    uses: code4romania/.github/.github/workflows/build-push-image.yml@9f50f9865ea70f0e0397f6092aae2facfbf43f80
+    uses: code4romania/.github/.github/workflows/build-push-image.yml@a70dd788b95c866019fb7bac74350b055967fb2f
     with:
       images: ghrc.io/code4romania/website-factory
       registry: ghrc.io
