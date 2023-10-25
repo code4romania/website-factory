@@ -10,10 +10,9 @@ on:
 
 jobs:
   build:
-    uses: code4romania/.github/.github/workflows/build-push-image.yml@56047297a12defdc28c3b7d0ef2f5738ab7ef4cb
+    uses: code4romania/.github/.github/workflows/build-push-image.yml@main
     with:
       images: code4romania/website-factory
-      push_enabled: ${{ github.event_name != 'pull_request' }}
     secrets:
       username: ${{ secrets.DOCKER_HUB_USERNAME }}
       token: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
