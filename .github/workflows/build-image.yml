@@ -4,18 +4,17 @@ on:
   push:
     branches:
       - main
+      - ci/reusable-workflow
     tags:
       - v*
-  pull_request:
-    branches:
-      - main
 
 jobs:
   build:
-    uses: code4romania/.github/.github/workflows/build-push-image.yml@main
+    uses: code4romania/.github/.github/workflows/build-push-image.yml@47ac78afc032c0a804b708c0bdcaad49b124fdc0
     with:
       images: ghrc.io/code4romania/website-factory
       registry: ghrc.io
+      push_enabled: ${{ github.event_name != 'pull_request' }}
     secrets:
       username: ${{ secrets.DOCKER_HUB_USERNAME }}
       token: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
