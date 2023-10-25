@@ -10,10 +10,9 @@ on:
 
 jobs:
   build:
-    uses: code4romania/.github/.github/workflows/build-push-image.yml@a70dd788b95c866019fb7bac74350b055967fb2f
+    uses: code4romania/.github/.github/workflows/build-push-image.yml@56047297a12defdc28c3b7d0ef2f5738ab7ef4cb
     with:
-      images: ghrc.io/code4romania/website-factory
-      registry: ghrc.io
+      images: code4romania/website-factory
       push_enabled: ${{ github.event_name != 'pull_request' }}
     secrets:
       username: ${{ secrets.DOCKER_HUB_USERNAME }}
