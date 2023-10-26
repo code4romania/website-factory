@@ -53,7 +53,7 @@
 
     "app.table_status.all": "All",
     "app.table_status.published": "Published|Published",
-    "app.table_status.draft": "Draft|Draft",
+    "app.table_status.draft": "Draft|Drafts",
     "app.table_status.trashed": "Trashed|Trashed",
 
     "app.time.edited": "Last change :ago ago",
@@ -88,6 +88,7 @@
     "block.carousel": "Carousel",
     "block.carousel-item": "Carousel item",
     "block.checkbox": "Checkbox",
+    "block.content": "Content",
     "block.counter": "Counter",
     "block.counter-item": "Counter item",
     "block.date": "Date",
@@ -100,6 +101,7 @@
     "block.donation-paypal": "Donations: PayPal",
     "block.email": "Email",
     "block.embed": "Embed",
+    "block.file": "File",
     "block.form": "Form",
     "block.header": "Header",
     "block.hero-bg-image": "Header with background image",
