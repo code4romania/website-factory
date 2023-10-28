@@ -1,5 +1,7 @@
 @props(['block'])
-
+<script>
+    console.log(@json($block));
+</script>
 <x-blocks.form._field :block="$block" tag="div" no-shadow>
     <fieldset class="mt-3 space-y-3" x-init="initializeField([])" name="{{ $block->name }}">
         @foreach ($block->options() as $option)
@@ -21,5 +23,12 @@
                 </label>
             </div>
         @endforeach
+
+        @if ($block->checkbox('enable_other'))
+            <div>
+                <label class="text-sm text-gray-700">Introduceți altceva:</label>
+                <input type="text" name="{$block->name}[]" value="testingvalue" class="w-full border-gray-300 focus:ring-primary">
+            </div>
+        @endif
     </fieldset>
 </x-blocks.form._field>

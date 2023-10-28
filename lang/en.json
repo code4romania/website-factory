@@ -256,6 +256,7 @@
     "field.question": "Question",
     "field.recipients": "Recipients",
     "field.required": "Required",
+    "field.enable_other": "Enable other",
     "field.role": "Role",
     "field.route": "Route",
     "field.send_submissions": "Send submissions by email",
