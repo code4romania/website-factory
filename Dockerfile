@@ -1,4 +1,4 @@
-FROM node:18-alpine as assets
+FROM node:20-alpine as assets
 
 WORKDIR /build
 
