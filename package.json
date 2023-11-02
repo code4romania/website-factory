@@ -73,7 +73,7 @@
         "slug": "^8.2.3",
         "tailwindcss": "^3.3.3",
         "uniqid": "^5.4.0",
-        "uuid": "^9.0.0",
+        "uuid": "^9.0.1",
         "vite": "^4.5.0",
         "vite-plugin-manifest-sri": "^0.1.0",
         "vite-plugin-svg-icons": "^2.0.1",
