@@ -1,6 +1,6 @@
 <nav
     {{ $attributes->class([
-        'relative md:pr-2 my-8 lg:my-6 space-y-1',
+        'relative md:pr-2 my-8 lg:my-6 space-y-1 z-10',
         'border-b border-gray-200 md:border-b-0 md:border-r',
         'w-full md:w-72',
     ]) }}
@@ -22,11 +22,13 @@
     @resize.window="isOpen = isDesktop()"
     class="relative shadow">
 
-
     <button
         type="button"
         x-on:click="isOpen = !isOpen"
-        class="flex items-center justify-between w-full gap-3 px-3 py-2 text-gray-900 border-l-4 bg-primary/5 border-primary md:hidden">
+        @class([
+            'flex items-center justify-between w-full gap-3 md:hidden',
+            'px-3 py-2 text-gray-900 border-l-4 bg-primary/5 border-primary',
+        ])>
         <span class="text-sm font-medium text-left line-clamp-2">
             {{ $model->title }}
         </span>
@@ -37,7 +39,11 @@
     </button>
 
     <ul
-        class="absolute top-full md:relative md:top-0 transition origin-top transform bg-white shadow z-50 w-full md:shadow-none"
+        @class([
+            'absolute top-full w-full md:relative md:top-0 z-50',
+            'transition origin-top transform',
+            'bg-white shadow md:shadow-none',
+        ])
         x-show="isOpen"
         x-collapse
         x-cloak>
