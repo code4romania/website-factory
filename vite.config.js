@@ -9,7 +9,7 @@ export default defineConfig({
     plugins: [
         laravel({
             refresh: true,
-            valetTls: 'wf.test',
+            detectTls: 'wf.test',
             input: [
                 'resources/css/admin.css',
                 'resources/js/admin.js',
