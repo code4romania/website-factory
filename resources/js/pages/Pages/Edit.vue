@@ -63,6 +63,7 @@
                 :options="pages"
                 option-value-key="id"
                 option-label-key="title"
+                clearable
             />
         </template>
 
