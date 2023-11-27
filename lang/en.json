@@ -300,7 +300,7 @@
     "form_submission.count": "{1} :count submission|[2,*] :count submissions",
     "form_submission.id": "Submission #:id",
 
-    "form_submission.empty.title": "No form submsisions found.",
+    "form_submission.empty.title": "No form submissions found.",
     "form_submission.event.deleted": "Submission successfully deleted.",
 
     "form_submission.mail.intro": "The form \":title\" received a new submission.",
