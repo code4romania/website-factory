@@ -28,3 +28,7 @@ npm-debug.log
 phpunit.xml
 yarn-error.log
 .DS_Store
+
+# JetBrains specific
+*.iml
+.idea
