@@ -46,7 +46,11 @@ class UpdateTranslationsCommand extends Command
                 $language = $file->getFilenameWithoutExtension();
 
                 try {
-                    $lines = json_decode(File::get($file->getPathname()), true);
+                    $lines = json_decode(
+                        File::get($file->getPathname()),
+                        associative: true,
+                        flags: \JSON_THROW_ON_ERROR
+                    );
                 } catch (Throwable $th) {
                     $this->warn("Could not fetch the contents of {$file->getFilename()}. Skipping...");
                     $lines = [];
