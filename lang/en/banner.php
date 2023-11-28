@@ -8,12 +8,12 @@ return [
     'external' => 'Website built with Website Factory: :edition, a solution developed by :organization.',
 
     'edition' => [
-        'primarie' => 'Primărie',
+        'primarie' => 'Town Hall',
         'government' => 'Government',
-        'ong' => 'ONG',
+        'ong' => 'NGO',
         'develop' => 'develop',
     ],
 
-    'government' => 'Website built with Website Factory: Government. A solution developed by Code for Romania (Commit Global) and și made available free of charge to the public administration.',
+    'government' => 'Website built with Website Factory: Government. A solution developed by Code for Romania (Commit Global) and made available free of charge to the public administration.',
 
 ];
