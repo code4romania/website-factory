@@ -26,21 +26,38 @@ Route::get('/i18n/{locale}.json', [Admin\LanguageController::class, 'lines'])
     ->middleware('cache.headers:public;max_age=2628000;etag')
     ->name('i18n');
 
-Route::group([
-    'prefix' => 'pages',
-    'as' => 'pages.',
-    'controller' => Admin\PageController::class,
-], function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/create', 'create')->name('create');
-    Route::post('/', 'store')->name('store');
-    Route::get('/{page}/edit', 'edit')->name('edit');
-    Route::post('/{page}/duplicate', 'duplicate')->name('duplicate');
-    Route::post('/{page}/preview', 'preview')->name('preview');
-    Route::put('/{page}', 'update')->name('update');
-    Route::delete('/{page}', 'destroy')->name('destroy');
-    Route::put('/{page}/restore', 'restore')->name('restore')->withTrashed();
-    Route::delete('/{page}/force', 'forceDelete')->name('forceDelete')->withTrashed();
+Route::prefix('pages')->group(function () {
+    Route::group([
+        'prefix' => 'groups',
+        'as' => 'page_groups.',
+        'controller' => Admin\PageGroupController::class,
+    ], function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{page_group}/edit', 'edit')->name('edit');
+        Route::post('/{page_group}/duplicate', 'duplicate')->name('duplicate');
+        Route::put('/{page_group}', 'update')->name('update');
+        Route::delete('/{page_group}', 'destroy')->name('destroy');
+        Route::put('/{page_group}/restore', 'restore')->name('restore')->withTrashed();
+        Route::delete('/{page_group}/force', 'forceDelete')->name('forceDelete')->withTrashed();
+    });
+
+    Route::group([
+        'as' => 'pages.',
+        'controller' => Admin\PageController::class,
+    ], function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{page}/edit', 'edit')->name('edit');
+        Route::post('/{page}/duplicate', 'duplicate')->name('duplicate');
+        Route::post('/{page}/preview', 'preview')->name('preview');
+        Route::put('/{page}', 'update')->name('update');
+        Route::delete('/{page}', 'destroy')->name('destroy');
+        Route::put('/{page}/restore', 'restore')->name('restore')->withTrashed();
+        Route::delete('/{page}/force', 'forceDelete')->name('forceDelete')->withTrashed();
+    });
 });
 
 Route::group([
