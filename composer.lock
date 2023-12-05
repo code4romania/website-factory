@@ -6131,16 +6131,16 @@
         },
         {
             "name": "spatie/laravel-translatable",
-            "version": "6.5.3",
+            "version": "6.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-translatable.git",
-                "reference": "1906a3f1492c4b4b99d9f150b67cca4b697d85d7"
+                "reference": "18e0b072d18f8357d8eae2b53e4ea10f554f58a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-translatable/zipball/1906a3f1492c4b4b99d9f150b67cca4b697d85d7",
-                "reference": "1906a3f1492c4b4b99d9f150b67cca4b697d85d7",
+                "url": "https://api.github.com/repos/spatie/laravel-translatable/zipball/18e0b072d18f8357d8eae2b53e4ea10f554f58a7",
+                "reference": "18e0b072d18f8357d8eae2b53e4ea10f554f58a7",
                 "shasum": ""
             },
             "require": {
@@ -6201,7 +6201,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-translatable/issues",
-                "source": "https://github.com/spatie/laravel-translatable/tree/6.5.3"
+                "source": "https://github.com/spatie/laravel-translatable/tree/6.5.4"
             },
             "funding": [
                 {
@@ -6209,7 +6209,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-07-19T19:21:38+00:00"
+            "time": "2023-12-01T10:26:11+00:00"
         },
         {
             "name": "spatie/laravel-translation-loader",
