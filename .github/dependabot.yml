@@ -27,6 +27,10 @@ updates:
       tiptap:
         patterns:
           - "@tiptap/*"
+      vue:
+        patterns:
+          - "vue"
+          - "@vue/*"
       vueuse:
         patterns:
           - "@vueuse/*"
