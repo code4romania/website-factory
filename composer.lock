@@ -1981,16 +1981,16 @@
         },
         {
             "name": "kalnoy/nestedset",
-            "version": "v6.0.2",
+            "version": "v6.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lazychaser/laravel-nestedset.git",
-                "reference": "2d5c99fe1bfbaa4004f8d6fb24475f7ff88bb526"
+                "reference": "f7a36eb3779ee4119a8ea72404aaf90c44fc9a15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/2d5c99fe1bfbaa4004f8d6fb24475f7ff88bb526",
-                "reference": "2d5c99fe1bfbaa4004f8d6fb24475f7ff88bb526",
+                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/f7a36eb3779ee4119a8ea72404aaf90c44fc9a15",
+                "reference": "f7a36eb3779ee4119a8ea72404aaf90c44fc9a15",
                 "shasum": ""
             },
             "require": {
@@ -2038,9 +2038,9 @@
             ],
             "support": {
                 "issues": "https://github.com/lazychaser/laravel-nestedset/issues",
-                "source": "https://github.com/lazychaser/laravel-nestedset/tree/v6.0.2"
+                "source": "https://github.com/lazychaser/laravel-nestedset/tree/v6.0.3"
             },
-            "time": "2023-02-16T14:41:24+00:00"
+            "time": "2023-11-29T15:32:59+00:00"
         },
         {
             "name": "laravel/framework",
