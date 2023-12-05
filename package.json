@@ -75,7 +75,7 @@
         "uniqid": "^5.4.0",
         "uuid": "^9.0.1",
         "vite": "^4.5.0",
-        "vite-plugin-manifest-sri": "^0.1.0",
+        "vite-plugin-manifest-sri": "^0.2.0",
         "vite-plugin-svg-icons": "^2.0.1",
         "vue": "^3.3.10",
         "vue-flatpickr-component": "^11.0.3",
