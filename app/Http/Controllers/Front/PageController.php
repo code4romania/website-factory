@@ -24,9 +24,9 @@ class PageController extends Controller
         $image = $page->firstMedia('image');
 
         seo()
-            ->title($page->title)
-            ->description($page->description)
-            ->image($image?->getUrl());
+            ->title((string) $page->title)
+            ->description((string) $page->description)
+            ->image((string) $image?->getUrl());
 
         return view('front.pages.show', [
             'page' => $page,
@@ -44,9 +44,9 @@ class PageController extends Controller
         $image = $page->firstMedia('image');
 
         seo()
-            ->title($page->title)
-            ->description($page->description)
-            ->image($image?->getUrl());
+            ->title((string) $page->title)
+            ->description((string) $page->description)
+            ->image((string) $image?->getUrl());
 
         $page->loadMissing('blocks.media');
 

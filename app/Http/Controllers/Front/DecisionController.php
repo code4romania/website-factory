@@ -26,8 +26,8 @@ class DecisionController extends Controller
     public function show(string $locale, Decision $decision): View
     {
         seo()
-            ->title($decision->title)
-            ->description($decision->description);
+            ->title((string) $decision->title)
+            ->description((string) $decision->description);
 
         return view('front.decisions.show', [
             'decision' => $decision,

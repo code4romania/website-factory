@@ -19,8 +19,8 @@ class DecisionCategoryController extends Controller
     public function show(string $locale, DecisionCategory $decisionCategory): View
     {
         seo()
-            ->title($decisionCategory->title)
-            ->description($decisionCategory->description);
+            ->title((string) $decisionCategory->title)
+            ->description((string) $decisionCategory->description);
 
         return view('front.decisions.category', [
             'category' => $decisionCategory,

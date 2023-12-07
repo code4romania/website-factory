@@ -19,8 +19,8 @@ class FormController extends Controller
     public function show(string $locale, Form $form): View
     {
         seo()
-            ->title($form->title)
-            ->description($form->description);
+            ->title((string) $form->title)
+            ->description((string) $form->description);
 
         return view('front.forms.show', [
             'form' => $form,
