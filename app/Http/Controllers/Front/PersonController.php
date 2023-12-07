@@ -15,9 +15,9 @@ class PersonController extends Controller
         $image = $person->firstMedia('image');
 
         seo()
-            ->title($person->name)
-            ->description($person->description)
-            ->image($image?->getUrl());
+            ->title((string) $person->name)
+            ->description((string) $person->description)
+            ->image((string) $image?->getUrl());
 
         return view('front.people.show', [
             'person' => $person,

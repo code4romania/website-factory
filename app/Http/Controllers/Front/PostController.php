@@ -29,9 +29,9 @@ class PostController extends Controller
         $image = $post->firstMedia('image');
 
         seo()
-            ->title($post->title)
-            ->description($post->description)
-            ->image($image?->getUrl());
+            ->title((string) $post->title)
+            ->description((string) $post->description)
+            ->image((string) $image?->getUrl());
 
         return view('front.posts.show', [
             'post' => $post,

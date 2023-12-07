@@ -19,8 +19,8 @@ class DecisionAuthorController extends Controller
     public function show(string $locale, DecisionAuthor $decisionAuthor): View
     {
         seo()
-            ->title($decisionAuthor->title)
-            ->description($decisionAuthor->description);
+            ->title((string) $decisionAuthor->title)
+            ->description((string) $decisionAuthor->description);
 
         return view('front.decisions.category', [
             'category' => $decisionAuthor,

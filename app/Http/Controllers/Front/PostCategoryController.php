@@ -19,8 +19,8 @@ class PostCategoryController extends Controller
     public function show(string $locale, PostCategory $postCategory): View
     {
         seo()
-            ->title($postCategory->title)
-            ->description($postCategory->description);
+            ->title((string) $postCategory->title)
+            ->description((string) $postCategory->description);
 
         return view('front.posts.category', [
             'category' => $postCategory,
