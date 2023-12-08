@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         config(['app.version' => $this->getAppVersion()]);
+        config(['sentry.release' => config('app.version')]);
     }
 
     /**
