@@ -27,7 +27,7 @@ trait HasSlug
 
     public function getSlugFieldSource(): string
     {
-        return $this->{$this->slugFieldSource};
+        return (string) $this->{$this->slugFieldSource};
     }
 
     public static function bootHasSlug(): void
