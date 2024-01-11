@@ -50,7 +50,7 @@
         "@tiptap/extension-typography": "^2.1.16",
         "@tiptap/extension-underline": "^2.1.16",
         "@tiptap/vue-3": "^2.1.16",
-        "@vitejs/plugin-vue": "^4.6.2",
+        "@vitejs/plugin-vue": "^5.0.3",
         "@vue/compiler-sfc": "^3.4.10",
         "@vueuse/core": "^10.7.1",
         "@vueuse/integrations": "^10.7.1",
