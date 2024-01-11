@@ -1,6 +1,6 @@
 export default {
     install(Vue) {
-        const componentFiles = import.meta.globEager('../components/**/*.vue');
+        const componentFiles = import.meta.glob('../components/**/*.vue', { eager: true });
 
         Object.entries(componentFiles).forEach(([path, component]) => {
             if (!component.default.hasOwnProperty('name')) {
