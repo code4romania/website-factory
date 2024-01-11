@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f8caccb4ca759bf08df7f2bc0199c63",
+    "content-hash": "14e9451bb05393a1de2208f3ca8fbc95",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -3904,16 +3904,16 @@
         },
         {
             "name": "netopia/payment",
-            "version": "v1.0.5",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mobilpay/composer.git",
-                "reference": "fc42cb9bed73dc9c87c2fc481b50e0b88269e726"
+                "reference": "9c0c552d4277c15e75b4c37dce8f6d11e826c352"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mobilpay/composer/zipball/fc42cb9bed73dc9c87c2fc481b50e0b88269e726",
-                "reference": "fc42cb9bed73dc9c87c2fc481b50e0b88269e726",
+                "url": "https://api.github.com/repos/mobilpay/composer/zipball/9c0c552d4277c15e75b4c37dce8f6d11e826c352",
+                "reference": "9c0c552d4277c15e75b4c37dce8f6d11e826c352",
                 "shasum": ""
             },
             "require": {
@@ -3940,9 +3940,9 @@
             "description": "Set of library that give you the means to incorporate NETOPIA Payments functionality into your website applications and mobile apps.",
             "support": {
                 "issues": "https://github.com/mobilpay/composer/issues",
-                "source": "https://github.com/mobilpay/composer/tree/v1.0.5"
+                "source": "https://github.com/mobilpay/composer/tree/v1.1.1"
             },
-            "time": "2021-03-29T07:43:09+00:00"
+            "time": "2023-12-11T10:49:33+00:00"
         },
         {
             "name": "nette/schema",
