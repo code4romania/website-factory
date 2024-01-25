@@ -1,7 +1,7 @@
 <?php
 return [
     'internal' => 'O soluție :organization.',
-    'external' => 'Website construit cu Website Factory: :edition, o soluție dezvoltată de :organization.',
+    'external' => 'Website construit cu Website Factory: :edition, soluție dezvoltată de :organization.',
     'edition' => [
         'primarie' => 'Primărie',
         'government' => 'Guvern',
