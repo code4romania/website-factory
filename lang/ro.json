@@ -261,7 +261,7 @@
     "field_help.favicon": "Fișiere permise: gif, jpg, png. Min 32x32px, max: 500x500px.",
     "field_help.logo": "Fișiere permise: gif, jpg, png, svg",
     "field_help.one_per_line": "Adaugă câte un item per rând.",
-    "field_help.paypal_button_id": "Generează un buton nou din contul tău de PayPal",
+    "field_help.paypal_button_id": "Generează un buton nou din contul tău de PayPal.",
     "field_help.zero_to_disable": "Pentru a dezactiva limita, setează valoarea câmpului la 0.",
     "form.action.create": "Adaugă formular",
     "form.action.delete": "Șterge formular",
