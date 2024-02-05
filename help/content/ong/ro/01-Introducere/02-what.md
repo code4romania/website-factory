@@ -12,6 +12,6 @@ colectezi date prin intermediul site-ului tău.
 
 De asemenea, soluția vine echipată cu o serie de recomandări pentru
 construirea arhitecturii de conținut a website-ului, cu modele de pagini
-pentru a te ajuta să construiești un webiste complet, cum ar fi pagini
+pentru a te ajuta să construiești un website complet, cum ar fi pagini
 demonstrative de Termeni și Condiții, Politică de confidențialitate, un
 model de Code de Conduită sau de politică PSEA.
