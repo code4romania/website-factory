@@ -8,7 +8,7 @@
         "laravel",
         "tailwindcss"
     ],
-    "license": "MIT",
+    "license": "MPL-2.0",
     "require": {
         "php": "^8.2",
         "andreiio/blade-remix-icon": "^1.2",
