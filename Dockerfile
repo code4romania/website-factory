@@ -19,7 +19,7 @@ COPY \
 RUN npm ci --no-audit --ignore-scripts
 RUN npm run build
 
-FROM php:8.1-fpm-alpine
+FROM php:8.2-fpm-alpine
 
 ARG S6_OVERLAY_VERSION=3.1.6.2
 
