@@ -12,6 +12,7 @@ updates:
     schedule:
       interval: "monthly"
     versioning-strategy: increase
+    open-pull-requests-limit: 20
 
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
@@ -19,6 +20,7 @@ updates:
     schedule:
       interval: "monthly"
     versioning-strategy: increase
+    open-pull-requests-limit: 20
     groups:
       alpinejs:
         patterns:
