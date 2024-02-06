@@ -18,6 +18,7 @@ _ide_helper.php
 .php_cs.cache
 .php-cs-fixer.cache
 .php-cs-fixer.php
+.phpactor.json
 .phpstorm.meta.php
 .phpunit.result.cache
 auth.json
