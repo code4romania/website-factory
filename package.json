@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "prepare": "husky install",
+        "prepare": "husky",
         "test": "jest"
     },
     "devDependencies": {
@@ -59,7 +59,7 @@
         "axios": "^1.6.7",
         "echarts": "^5.4.3",
         "fuse.js": "^7.0.0",
-        "husky": "^8.0.3",
+        "husky": "^9.0.10",
         "laravel-vite-plugin": "^1.0.1",
         "laravel-vue-i18n": "^2.7.6",
         "latinize": "^2.0.0",
