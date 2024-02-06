@@ -3,7 +3,8 @@
         "section": "site",
         "key": "title",
         "value": {
-            "ro": "Website Factory: ONG"
+            "ro": "Website Factory: ONG",
+            "en": "Website Factory: NGO"
         }
     },
     {
@@ -27,7 +28,8 @@
         "section": "site-notice",
         "key": "text",
         "value": {
-            "ro": ""
+            "ro": "",
+            "en": ""
         }
     }
 ]
