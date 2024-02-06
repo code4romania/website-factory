@@ -10,7 +10,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "andreiio/blade-remix-icon": "^1.2",
         "archtechx/laravel-seo": "^0.9",
         "blade-ui-kit/blade-icons": "^1.5",
