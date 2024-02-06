@@ -16,6 +16,7 @@
         "blade-ui-kit/blade-icons": "^1.5",
         "embed/embed": "^4.4",
         "guzzlehttp/guzzle": "^7.8",
+        "hafael/azure-mailer-driver": "^0.3.0",
         "inertiajs/inertia-laravel": "^0.6",
         "intervention/image": "^2.7",
         "kalnoy/nestedset": "^6.0",
@@ -31,6 +32,7 @@
         "spatie/laravel-responsecache": "^7.4",
         "spatie/laravel-translatable": "^6.5",
         "spatie/laravel-translation-loader": "^2.7",
+        "symfony/http-client": "^7.0",
         "symfony/yaml": "^6.3",
         "tightenco/ziggy": "^1.8"
     },
@@ -94,6 +96,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
