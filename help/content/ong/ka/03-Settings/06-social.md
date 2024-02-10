@@ -1,18 +1,16 @@
 ---
-title: "How to connect my organization’s social media accounts to my website?"
+title: " ორგანიზაციის სოციალური მედიის ანგარიშის ვებ-გვერდთან დაკავშირება" 
 ---
 
-In order to connect the social media accounts it is necessary to follow
-these steps:
+ორგანიზაციის სოციალური მედიის ანგარიშის ვებ-გვერდთან დასაკავშირებლად, აუცილებელია შემდეგი ნაბიჯების გავლა:
 
-1)  Access dashboard
-2)  Select the secondary menu in the upper right corner, shaped like a hexagon
-3)  Select **Settings**
-4)  Select **Social media** from the secondary menu
-5)  Fill in the links to your social media accounts in each of the
-    corresponding fields
-6)  Click on **Save**
-7)  The social media icons will be displayed in the footer of your website.
+1) მიმართეთ ადმინისტრაციულ პანელს
+2) მონიშნეთ ზედა მარჯვენა კუთხეში არსებული, ჰექსაგონის ფორმის მქონე მეორადი მენიუ
+3) მონიშნეთ **პარამეტრები**
+4) მეორადი მენიუდან მონიშნეთ **სოციალური მედია**
+5) შეიყვანეთ თქვენი სოციალური მედიის ბმულები შესაბამის ველებში
+6) დააჭირეთ ღილაკს **შენახვა**
+7) სოციალური მედიის სიმბოლოები განთავსდება ვებ-გვერდის footer-ში
 
 <a href="/build/help/024.png">
     <img src="/build/help/024.png" />
