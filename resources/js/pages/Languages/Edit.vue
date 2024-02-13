@@ -39,7 +39,7 @@
         </template>
 
         <template #content="{ form }">
-            <table class="min-w-full divide-y divide-gray-300">
+            <table v-if="resource" class="min-w-full divide-y divide-gray-300">
                 <thead>
                     <tr>
                         <th

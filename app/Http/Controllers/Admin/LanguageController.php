@@ -49,7 +49,14 @@ class LanguageController extends Controller
     {
         $attributes = $request->validated();
 
+        // Not accepting user input during language creation
+        unset($attributes['lines']);
+
         $language = Language::create($attributes);
+
+        Artisan::call(UpdateTranslationsCommand::class, [
+            '--locale' => $language->code,
+        ]);
 
         return redirect()->route('admin.languages.edit', $language)
             ->with('success', __('language.event.created'));
