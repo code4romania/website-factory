@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
+use App\Models\Language;
 use App\Models\LanguageLine;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
-use Symfony\Component\Finder\SplFileInfo;
 use Throwable;
 
 class UpdateTranslationsCommand extends Command
@@ -18,7 +18,10 @@ class UpdateTranslationsCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'wf:translations {--force : Overwrite existing translations}';
+    protected $signature = 'wf:translations
+        {--force : Remove existing translations before running}
+        {--locale=* : Locale to load}
+    ';
 
     /**
      * The console command description.
@@ -41,27 +44,36 @@ class UpdateTranslationsCommand extends Command
      */
     public function handle()
     {
-        collect(File::files(lang_path()))
-            ->each(function (SplFileInfo $file) {
-                $language = $file->getFilenameWithoutExtension();
+        $locales = collect($this->option('locale'));
+
+        Language::all()
+            ->filter(function (Language $language) use ($locales) {
+                return $locales->isEmpty() || $locales->contains($language->code);
+            })
+            ->each(function (Language $language) {
+                $file = lang_path($language->code . '.json');
+
+                if (! file_exists($file)) {
+                    return;
+                }
 
                 try {
                     $lines = json_decode(
-                        File::get($file->getPathname()),
+                        File::get($file),
                         associative: true,
                         flags: \JSON_THROW_ON_ERROR
                     );
                 } catch (Throwable $th) {
-                    $this->warn("Could not fetch the contents of {$file->getFilename()}. Skipping...");
+                    $this->warn("Could not fetch the contents of {$file}. Skipping...");
                     $lines = [];
                 }
 
                 collect($lines)
                     ->each(function ($line, $key) use ($language) {
-                        $this->lines[$key][$language] = $line;
+                        $this->lines[$key][$language->code] = $line;
                     });
 
-                $this->info("[$language] Fetched " . \count($lines) . ' translations.');
+                $this->info("[$language->code] Fetched " . \count($lines) . ' translations.');
             });
 
         LanguageLine::withoutEvents(
@@ -85,7 +97,9 @@ class UpdateTranslationsCommand extends Command
             ])
             ->all();
 
-        LanguageLine::upsert($values, ['group', 'key'], ['text']);
+        LanguageLine::truncate();
+
+        LanguageLine::insert($values);
 
         $this->info('Replaced all database translations.');
     }
@@ -94,24 +108,26 @@ class UpdateTranslationsCommand extends Command
     {
         $existingLines = LanguageLine::query()
             ->where('group', '*')
-            ->pluck('key');
+            ->get();
 
         $newLines = collect();
 
         foreach ($this->lines as $key => $text) {
-            if ($existingLines->contains($key)) {
+            $existingLine = $existingLines->firstWhere('key', $key);
+
+            if (! \is_null($existingLine) && \array_key_exists($key, $existingLine->text)) {
                 continue;
             }
 
             $newLines->push([
                 'group' => '*',
                 'key' => $key,
-                'text' => json_encode($text),
+                'text' => json_encode(array_merge($existingLine->text, $text)),
             ]);
         }
 
         if ($newLines->isNotEmpty()) {
-            LanguageLine::insert($newLines->all());
+            LanguageLine::upsert($newLines->all(), ['group', 'key'], ['text']);
 
             $this->info("Added {$newLines->count()} missing database translations.");
         } else {
