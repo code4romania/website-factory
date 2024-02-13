@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Console\Commands\UpdateTranslationsCommand;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\LanguageRequest;
 use App\Http\Resources\Collections\LanguageCollection;
@@ -12,6 +13,7 @@ use App\Models\Language;
 use App\Models\LanguageLine;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Artisan;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -51,6 +53,18 @@ class LanguageController extends Controller
 
         return redirect()->route('admin.languages.edit', $language)
             ->with('success', __('language.event.created'));
+    }
+
+    public function restore(): RedirectResponse
+    {
+        $this->authorize('create', Language::class);
+
+        Artisan::call(UpdateTranslationsCommand::class, [
+            '--force' => true,
+        ]);
+
+        return redirect()->route('admin.languages.index')
+            ->with('success', __('language.event.restored'));
     }
 
     public function edit(Language $language): Response
