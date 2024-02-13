@@ -17,9 +17,10 @@ class LanguageRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'code' => ['required', 'size:2',
-                Rule::unique('languages', 'code')->ignore($this->code, 'code'),
-
+            'code' => [
+                'required',
+                'size:2',
+                Rule::unique('languages', 'code')->ignore($this->language),
             ],
             'name' => ['required', 'string'],
             'enabled' => ['boolean'],
