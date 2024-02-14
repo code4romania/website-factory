@@ -72,8 +72,8 @@ class HelpController extends Controller
         $filesystem = app(Filesystem::class);
 
         $locales = [
-            config('app.locale'),
-            config('app.fallback_locale'),
+            app()->getLocale(),
+            default_locale(),
         ];
 
         foreach ($locales as $locale) {
