@@ -66,7 +66,7 @@ class UserPolicy
      */
     public function delete(User $loggedInUser, User $user)
     {
-        return $loggedInUser->isAdmin();
+        return $loggedInUser->isAdmin() && ! $loggedInUser->is($user);
     }
 
     /**
