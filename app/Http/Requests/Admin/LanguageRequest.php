@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Admin;
 
+use App\Services\ISO_639_1;
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
 use Illuminate\Validation\Rule;
 
@@ -19,9 +20,8 @@ class LanguageRequest extends BaseRequest
         return [
             'code' => ['required', 'size:2',
                 Rule::unique('languages', 'code')->ignore($this->code, 'code'),
-
+                Rule::in(ISO_639_1::getLanguageCodes()),
             ],
-            'name' => ['required', 'string'],
             'enabled' => ['boolean'],
             'lines' => ['array'],
         ];

@@ -20,18 +20,13 @@
         hide-language-switcher
     >
         <template #panel="{ form }">
-            <form-input
-                :label="$t('field.code')"
+            <form-select
+                :label="$tChoice('language.label', 1)"
                 name="code"
                 v-model="form.code"
-                size="2"
-                required
-            />
-
-            <form-input
-                :label="$t('field.name')"
-                name="name"
-                v-model="form.name"
+                :options="languages"
+                option-value-key="code"
+                option-label-key="name"
                 required
             />
 
@@ -85,6 +80,7 @@
             resource: Object,
             source: Object,
             model: Object,
+            languages: Array,
         },
     };
 </script>

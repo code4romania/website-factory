@@ -10,6 +10,7 @@ use App\Http\Resources\Collections\LanguageCollection;
 use App\Http\Resources\LanguageResource;
 use App\Models\Language;
 use App\Models\LanguageLine;
+use App\Services\ISO_639_1;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
@@ -40,6 +41,7 @@ class LanguageController extends Controller
     {
         return Inertia::render('Languages/Edit', [
             'source' => LanguageLine::getTranslationsForGroup(config('app.fallback_locale'), '*'),
+            'languages' => ISO_639_1::getCombinedLanguageOptions(),
         ])->model(Language::class);
     }
 
@@ -58,6 +60,7 @@ class LanguageController extends Controller
         return Inertia::render('Languages/Edit', [
             'resource' => LanguageResource::make($language),
             'source' => LanguageLine::getTranslationsForGroup(config('app.fallback_locale'), '*'),
+            'languages' => ISO_639_1::getCombinedLanguageOptions(),
         ])->model(Language::class);
     }
 

@@ -19,7 +19,11 @@ class LanguageServiceProvider extends ServiceProvider
         $this->app->singleton('languages', function () {
             return Language::all()
                 ->mapWithKeys(fn (Language $language) => [
-                    $language->code => $language->only(['name', 'enabled']),
+                    $language->code => $language->only([
+                        'name',
+                        'nativeName',
+                        'enabled',
+                    ]),
                 ]);
         });
     }
