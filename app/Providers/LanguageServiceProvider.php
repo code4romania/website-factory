@@ -23,6 +23,7 @@ class LanguageServiceProvider extends ServiceProvider
                         'name',
                         'nativeName',
                         'enabled',
+                        'direction',
                     ]),
                 ]);
         });

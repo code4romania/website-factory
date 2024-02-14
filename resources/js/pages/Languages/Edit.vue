@@ -60,7 +60,11 @@
                         />
 
                         <td class="px-3 py-4">
-                            <form-input type="text" v-model="form.lines[key]" />
+                            <form-input
+                                type="text"
+                                v-model="form.lines[key]"
+                                :dir="resource.direction"
+                            />
 
                             <p
                                 class="mt-1 text-sm text-gray-500"
