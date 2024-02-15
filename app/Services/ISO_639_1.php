@@ -107,7 +107,6 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'bo' => [
-            '639-2/B' => 'tib',
             'name' => 'Tibetan Standard, Tibetan, Central',
             'nativeName' => 'བོད་ཡིག',
             'direction' => 'ltr',
@@ -139,7 +138,7 @@ class ISO_639_1
         ],
         'co' => [
             'name' => 'Corsican',
-            'nativeName' => 'corsu, lingua corsa',
+            'nativeName' => 'corsu',
             'direction' => 'ltr',
         ],
         'cr' => [
@@ -148,9 +147,8 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'cs' => [
-            '639-2/B' => 'cze',
             'name' => 'Czech',
-            'nativeName' => 'čeština, český jazyk',
+            'nativeName' => 'čeština',
             'direction' => 'ltr',
         ],
         'cu' => [
@@ -164,7 +162,6 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'cy' => [
-            '639-2/B' => 'wel',
             'name' => 'Welsh',
             'nativeName' => 'Cymraeg',
             'direction' => 'ltr',
@@ -175,7 +172,6 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'de' => [
-            '639-2/B' => 'ger',
             'name' => 'German',
             'nativeName' => 'Deutsch',
             'direction' => 'ltr',
@@ -196,8 +192,7 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'el' => [
-            '639-2/B' => 'gre',
-            'name' => 'Greek (modern)',
+            'name' => 'Greek',
             'nativeName' => 'ελληνικά',
             'direction' => 'ltr',
         ],
@@ -222,14 +217,12 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'eu' => [
-            '639-2/B' => 'baq',
             'name' => 'Basque',
             'nativeName' => 'euskara, euskera',
             'direction' => 'ltr',
         ],
         'fa' => [
-            '639-2/B' => 'per',
-            'name' => 'Persian (Farsi)',
+            'name' => 'Farsi',
             'nativeName' => 'فارسی',
             'direction' => 'rtl',
         ],
@@ -240,7 +233,7 @@ class ISO_639_1
         ],
         'fi' => [
             'name' => 'Finnish',
-            'nativeName' => 'suomi, suomen kieli',
+            'nativeName' => 'suomi',
             'direction' => 'ltr',
         ],
         'fj' => [
@@ -254,9 +247,8 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'fr' => [
-            '639-2/B' => 'fre',
             'name' => 'French',
-            'nativeName' => 'français, langue française',
+            'nativeName' => 'français',
             'direction' => 'ltr',
         ],
         'fy' => [
@@ -270,7 +262,7 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'gd' => [
-            'name' => 'Scottish Gaelic, Gaelic',
+            'name' => 'Gaelic',
             'nativeName' => 'Gàidhlig',
             'direction' => 'ltr',
         ],
@@ -296,7 +288,7 @@ class ISO_639_1
         ],
         'ha' => [
             'name' => 'Hausa',
-            'nativeName' => '(Hausa) هَوُسَ',
+            'nativeName' => 'هَوُسَ',
             'direction' => 'rtl',
         ],
         'he' => [
@@ -316,11 +308,11 @@ class ISO_639_1
         ],
         'hr' => [
             'name' => 'Croatian',
-            'nativeName' => 'hrvatski jezik',
+            'nativeName' => 'hrvatski',
             'direction' => 'ltr',
         ],
         'ht' => [
-            'name' => 'Haitian, Haitian Creole',
+            'name' => 'Haitian',
             'nativeName' => 'Kreyòl ayisyen',
             'direction' => 'ltr',
         ],
@@ -330,7 +322,6 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'hy' => [
-            '639-2/B' => 'arm',
             'name' => 'Armenian',
             'nativeName' => 'Հայերեն',
             'direction' => 'ltr',
@@ -348,11 +339,6 @@ class ISO_639_1
         'id' => [
             'name' => 'Indonesian',
             'nativeName' => 'Bahasa Indonesia',
-            'direction' => 'ltr',
-        ],
-        'ie' => [
-            'name' => 'Interlingue',
-            'nativeName' => 'Originally called Occidental; then Interlingue after WWII',
             'direction' => 'ltr',
         ],
         'ig' => [
@@ -376,7 +362,6 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'is' => [
-            '639-2/B' => 'ice',
             'name' => 'Icelandic',
             'nativeName' => 'Íslenska',
             'direction' => 'ltr',
@@ -402,7 +387,6 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'ka' => [
-            '639-2/B' => 'geo',
             'name' => 'Georgian',
             'nativeName' => 'ქართული',
             'direction' => 'ltr',
@@ -413,12 +397,12 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'ki' => [
-            'name' => 'Kikuyu, Gikuyu',
+            'name' => 'Kikuyu',
             'nativeName' => 'Gĩkũyũ',
             'direction' => 'ltr',
         ],
         'kj' => [
-            'name' => 'Kwanyama, Kuanyama',
+            'name' => 'Kwanyama',
             'nativeName' => 'Kuanyama',
             'direction' => 'ltr',
         ],
@@ -428,8 +412,8 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'kl' => [
-            'name' => 'Kalaallisut, Greenlandic',
-            'nativeName' => 'kalaallisut, kalaallit oqaasii',
+            'name' => 'Greenlandic',
+            'nativeName' => 'kalaallisut',
             'direction' => 'ltr',
         ],
         'km' => [
@@ -477,13 +461,8 @@ class ISO_639_1
             'nativeName' => 'Кыргызча, Кыргыз тили',
             'direction' => 'ltr',
         ],
-        'la' => [
-            'name' => 'Latin',
-            'nativeName' => 'latine, lingua latina',
-            'direction' => 'ltr',
-        ],
         'lb' => [
-            'name' => 'Luxembourgish, Letzeburgesch',
+            'name' => 'Luxembourgish',
             'nativeName' => 'Lëtzebuergesch',
             'direction' => 'ltr',
         ],
@@ -493,7 +472,7 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'li' => [
-            'name' => 'Limburgish, Limburgan, Limburger',
+            'name' => 'Limburgish',
             'nativeName' => 'Limburgs',
             'direction' => 'ltr',
         ],
@@ -533,13 +512,11 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'mi' => [
-            '639-2/B' => 'mao',
             'name' => 'Māori',
             'nativeName' => 'te reo Māori',
             'direction' => 'ltr',
         ],
         'mk' => [
-            '639-2/B' => 'mac',
             'name' => 'Macedonian',
             'nativeName' => 'македонски јазик',
             'direction' => 'ltr',
@@ -555,12 +532,11 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'mr' => [
-            'name' => 'Marathi (Marāṭhī)',
+            'name' => 'Marathi',
             'nativeName' => 'मराठी',
             'direction' => 'ltr',
         ],
         'ms' => [
-            '639-2/B' => 'may',
             'name' => 'Malay',
             'nativeName' => 'bahasa Melayu, بهاس ملايو‎',
             'direction' => 'ltr',
@@ -571,7 +547,6 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'my' => [
-            '639-2/B' => 'bur',
             'name' => 'Burmese',
             'nativeName' => 'ဗမာစာ',
             'direction' => 'ltr',
@@ -602,9 +577,8 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'nl' => [
-            '639-2/B' => 'dut',
             'name' => 'Dutch',
-            'nativeName' => 'Nederlands, Vlaams',
+            'nativeName' => 'Nederlands',
             'direction' => 'ltr',
         ],
         'nn' => [
@@ -634,7 +608,7 @@ class ISO_639_1
         ],
         'oc' => [
             'name' => 'Occitan',
-            'nativeName' => "occitan, lenga d'òc",
+            'nativeName' => 'occitan',
             'direction' => 'ltr',
         ],
         'oj' => [
@@ -669,7 +643,7 @@ class ISO_639_1
         ],
         'pl' => [
             'name' => 'Polish',
-            'nativeName' => 'język polski, polszczyzna',
+            'nativeName' => 'polski',
             'direction' => 'ltr',
         ],
         'ps' => [
@@ -698,7 +672,6 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'ro' => [
-            '639-2/B' => 'rum',
             'name' => 'Romanian',
             'nativeName' => 'Română',
             'direction' => 'ltr',
@@ -744,7 +717,6 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'sk' => [
-            '639-2/B' => 'slo',
             'name' => 'Slovak',
             'nativeName' => 'slovenčina, slovenský jazyk',
             'direction' => 'ltr',
@@ -770,7 +742,6 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'sq' => [
-            '639-2/B' => 'alb',
             'name' => 'Albanian',
             'nativeName' => 'Shqip',
             'direction' => 'ltr',
@@ -941,7 +912,6 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'zh' => [
-            '639-2/B' => 'chi',
             'name' => 'Chinese',
             'nativeName' => '中文 (Zhōngwén), 汉语, 漢語',
             'direction' => 'ltr',
