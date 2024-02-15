@@ -43,7 +43,8 @@ class LanguageController extends Controller
     {
         return Inertia::render('Languages/Edit', [
             'source' => LanguageLine::getTranslationsForGroup(default_locale(), '*'),
-            'languages' => ISO_639_1::getCombinedLanguageOptions(),
+            'languages' => ISO_639_1::getCombinedLanguageOptions()
+                ->reject(fn ($_, string $code) => locales()->has($code)),
         ])->model(Language::class);
     }
 
@@ -81,7 +82,8 @@ class LanguageController extends Controller
         return Inertia::render('Languages/Edit', [
             'resource' => LanguageResource::make($language),
             'source' => LanguageLine::getTranslationsForGroup(default_locale(), '*'),
-            'languages' => ISO_639_1::getCombinedLanguageOptions(),
+            'languages' => ISO_639_1::getCombinedLanguageOptions()
+                ->reject(fn ($_, string $code) => locales()->has($code) || $code === $language->code),
         ])->model(Language::class);
     }
 

@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Exceptions\LanguageNotInISO639;
-use Str;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class ISO_639_1
 {
@@ -993,18 +994,17 @@ class ISO_639_1
         return array_keys(self::LANGUAGES);
     }
 
-    public static function getLanguageOptions(): array
+    public static function getLanguageOptions(): Collection
     {
         return collect(self::LANGUAGES)
             ->map(fn ($language, $code) => [
                 'code' => $code,
                 'name' => $language['name'],
             ])
-            ->values()
-            ->toArray();
+            ->values();
     }
 
-    public static function getNativeLanguageOptions(): array
+    public static function getNativeLanguageOptions(): Collection
     {
         return collect(self::LANGUAGES)
             ->map(fn ($language, $code) => [
@@ -1012,11 +1012,10 @@ class ISO_639_1
                 'name' => $language['nativeName'],
                 'direction' => $language['direction'],
             ])
-            ->values()
-            ->toArray();
+            ->values();
     }
 
-    public static function getCombinedLanguageOptions(): array
+    public static function getCombinedLanguageOptions(): Collection
     {
         return collect(self::LANGUAGES)
             ->map(fn ($language, $code) => [
@@ -1024,8 +1023,7 @@ class ISO_639_1
                 'name' => $language['name'] . ' (' . $language['nativeName'] . ')',
                 'direction' => $language['direction'],
             ])
-            ->values()
-            ->toArray();
+            ->values();
     }
 
     public static function getLanguageDirection(string $code): string
