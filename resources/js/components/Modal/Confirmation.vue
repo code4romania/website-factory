@@ -27,7 +27,7 @@
 
         <div
             v-if="$slots.footer"
-            class="flex justify-end space-x-2.5 px-4 py-3 sm:px-6 bg-gray-100"
+            class="flex justify-end gap-x-2.5 px-4 py-3 sm:px-6 bg-gray-100"
         >
             <slot name="footer" />
         </div>

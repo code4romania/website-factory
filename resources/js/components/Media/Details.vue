@@ -7,7 +7,7 @@
         />
 
         <div v-else-if="items.length > 1" class="">
-            <div class="flex items-center justify-between space-x-6 text-sm">
+            <div class="flex items-center justify-between text-sm gap-x-6">
                 <p
                     class="text-gray-900"
                     v-text="$tChoice('media.selected', items.length)"

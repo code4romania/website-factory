@@ -16,6 +16,7 @@ class LanguageResource extends Resource
             'code' => $this->code,
             'name' => $this->name,
             'enabled' => $this->enabled,
+            'direction' => $this->direction,
             'lines' => LanguageLine::getTranslationsForGroup($this->code, '*'),
         ];
     }

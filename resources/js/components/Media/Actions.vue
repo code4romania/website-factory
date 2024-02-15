@@ -1,5 +1,5 @@
 <template>
-    <div class="flex px-4 py-6 space-x-3">
+    <div class="flex px-4 py-6 gap-x-3">
         <button
             v-if="attachTo"
             type="button"

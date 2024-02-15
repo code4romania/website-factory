@@ -1,4 +1,4 @@
-<div {{ $attributes->class('flex space-x-4') }}>
+<div {{ $attributes->class('flex gap-x-4') }}>
     @foreach ($links as $link)
         <a
             href="{{ $link['value'] }}"

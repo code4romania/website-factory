@@ -20,18 +20,13 @@
         hide-language-switcher
     >
         <template #panel="{ form }">
-            <form-input
-                :label="$t('field.code')"
+            <form-select
+                :label="$tChoice('language.label', 1)"
                 name="code"
                 v-model="form.code"
-                size="2"
-                required
-            />
-
-            <form-input
-                :label="$t('field.name')"
-                name="name"
-                v-model="form.name"
+                :options="languages"
+                option-value-key="code"
+                option-label-key="name"
                 required
             />
 
@@ -39,7 +34,7 @@
         </template>
 
         <template #content="{ form }">
-            <table class="min-w-full divide-y divide-gray-300">
+            <table v-if="resource" class="min-w-full divide-y divide-gray-300">
                 <thead>
                     <tr>
                         <th
@@ -65,7 +60,11 @@
                         />
 
                         <td class="px-3 py-4">
-                            <form-input type="text" v-model="form.lines[key]" />
+                            <form-input
+                                type="text"
+                                v-model="form.lines[key]"
+                                :dir="resource.direction"
+                            />
 
                             <p
                                 class="mt-1 text-sm text-gray-500"
@@ -85,6 +84,7 @@
             resource: Object,
             source: Object,
             model: Object,
+            languages: Array,
         },
     };
 </script>

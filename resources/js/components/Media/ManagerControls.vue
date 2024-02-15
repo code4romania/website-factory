@@ -15,7 +15,7 @@
         </div>
         <div class="hidden sm:block">
             <div class="flex items-center border-b border-gray-200">
-                <div class="flex flex-1 -mb-px space-x-6 xl:space-x-8">
+                <div class="flex flex-1 -mb-px gap-x-6 xl:gap-x-8">
                     <button
                         v-for="type in types"
                         :key="type"

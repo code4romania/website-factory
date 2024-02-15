@@ -4,7 +4,7 @@
             {{ $decision->title }}
         </h1>
 
-        <div class="items-center mt-2 space-y-2 text-gray-500 sm:flex sm:space-y-0 sm:space-x-6">
+        <div class="items-center mt-2 space-y-2 text-gray-500 sm:flex sm:space-y-0 sm:gap-x-6">
             <div class="flex items-center gap-1">
                 <x-ri-calendar-event-fill class="w-5 h-5 text-gray-400 shrink-0" />
 

@@ -4,7 +4,7 @@
     <fieldset class="mt-3 space-y-3" x-init="initializeField" name="{{ $block->name }}">
         @foreach ($block->options() as $option)
             <div>
-                <label class="inline-flex items-center space-x-2">
+                <label class="inline-flex items-center gap-x-2">
                     <input
                         {{ $attributes->class('w-4 h-4 text-primary border-gray-300 focus:ring-primary')->merge([
                             'type' => 'radio',

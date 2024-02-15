@@ -8,6 +8,10 @@
             },
         ]"
     >
+        <template #actions>
+            <language-restore />
+        </template>
+
         <inertia-table :collection="collection">
             <template #enabled="{ row }">
                 <icon

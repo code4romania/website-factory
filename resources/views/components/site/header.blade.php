@@ -29,7 +29,7 @@
             @foreach ($menu as $item)
                 <li @if ($item->children->isNotEmpty()) x-data="{ open: false }" x-on:click.outside="open = false" :class="{ 'border-primary': open }" @endif
                     @class([
-                        'flex flex-wrap border-b-2 border-transparent px-3 py-2 font-medium items-center',
+                        'flex flex-wrap border-b-2 border-transparent px-3 py-2 font-medium items-center gap-1.5',
                         $item->isCurrentUrl()
                             ? 'text-gray-900 border-primary bg-primary/10'
                             : 'text-gray-700 hover:bg-primary/5',
@@ -38,7 +38,7 @@
                     <x-dynamic-component :component="$item->component" :item="$item" />
 
                     @if ($item->children->isNotEmpty())
-                        <button x-on:click="open = !open" class="flex items-center ml-1.5 -mr-1">
+                        <button x-on:click="open = !open" class="flex items-center ltr:-mr-1 rtl:-ml-1">
 
                             <x-ri-arrow-down-s-line class="w-4 h-4" />
                         </button>

@@ -29,7 +29,7 @@
     </transition>
 
     <div
-        class="fixed inset-0 z-50 flex justify-end max-w-full pl-10 overflow-hidden pointer-events-none"
+        class="fixed inset-0 z-50 flex justify-end max-w-full overflow-hidden pointer-events-none ps-10"
     >
         <transition
             enter-active-class="transition duration-500 ease-in-out transform"
@@ -46,7 +46,7 @@
             >
                 <button
                     type="button"
-                    class="text-gray-300 absolute top-3.5 -left-8 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                    class="text-gray-300 absolute top-3.5 ltr:-left-8 rtl:-right-8 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
                     @click="open = false"
                     :title="$t('app.action.close')"
                 >

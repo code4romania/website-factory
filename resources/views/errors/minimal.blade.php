@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ text_direction() }}">
 
 <head>
     <meta charset="utf-8">
@@ -34,7 +34,7 @@
                         </p>
                     </div>
 
-                    <div class="flex mt-10 space-x-3 sm:border-l sm:border-transparent sm:pl-6">
+                    <div class="flex mt-10 gap-x-3 sm:border-l sm:border-transparent sm:pl-6">
                         <a
                             href="{{ localized_route('front.pages.index') }}"
                             class="flex items-center justify-center w-full px-4 py-2 text-sm font-semibold text-white bg-red-600 border border-transparent sm:w-auto sm:inline-block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600">

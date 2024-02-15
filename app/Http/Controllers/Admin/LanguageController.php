@@ -4,14 +4,17 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Console\Commands\UpdateTranslationsCommand;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\LanguageRequest;
 use App\Http\Resources\Collections\LanguageCollection;
 use App\Http\Resources\LanguageResource;
 use App\Models\Language;
 use App\Models\LanguageLine;
+use App\Services\ISO_639_1;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Artisan;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -19,7 +22,7 @@ class LanguageController extends Controller
 {
     public function lines(?string $locale = null): JsonResponse
     {
-        $locale = locales()->has($locale) ? $locale : config('app.fallback_locale');
+        $locale = locales()->has($locale) ? $locale : default_locale();
 
         return response()->json(
             LanguageLine::getTranslationsForGroup($locale, '*')
@@ -39,7 +42,9 @@ class LanguageController extends Controller
     public function create(): Response
     {
         return Inertia::render('Languages/Edit', [
-            'source' => LanguageLine::getTranslationsForGroup(config('app.fallback_locale'), '*'),
+            'source' => LanguageLine::getTranslationsForGroup(default_locale(), '*'),
+            'languages' => ISO_639_1::getCombinedLanguageOptions()
+                ->reject(fn ($_, string $code) => locales()->has($code)),
         ])->model(Language::class);
     }
 
@@ -47,17 +52,38 @@ class LanguageController extends Controller
     {
         $attributes = $request->validated();
 
+        // Not accepting user input during language creation
+        unset($attributes['lines']);
+
         $language = Language::create($attributes);
+
+        Artisan::call(UpdateTranslationsCommand::class, [
+            '--locale' => $language->code,
+        ]);
 
         return redirect()->route('admin.languages.edit', $language)
             ->with('success', __('language.event.created'));
+    }
+
+    public function restore(): RedirectResponse
+    {
+        $this->authorize('create', Language::class);
+
+        Artisan::call(UpdateTranslationsCommand::class, [
+            '--force' => true,
+        ]);
+
+        return redirect()->route('admin.languages.index')
+            ->with('success', __('language.event.restored'));
     }
 
     public function edit(Language $language): Response
     {
         return Inertia::render('Languages/Edit', [
             'resource' => LanguageResource::make($language),
-            'source' => LanguageLine::getTranslationsForGroup(config('app.fallback_locale'), '*'),
+            'source' => LanguageLine::getTranslationsForGroup(default_locale(), '*'),
+            'languages' => ISO_639_1::getCombinedLanguageOptions()
+                ->reject(fn ($_, string $code) => locales()->has($code) || $code === $language->code),
         ])->model(Language::class);
     }
 

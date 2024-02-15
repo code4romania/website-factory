@@ -8,9 +8,7 @@
 
                 <search class="flex-1" />
 
-                <div
-                    class="hidden shrink-0 lg:flex lg:space-x-4 lg:items-center"
-                >
+                <div class="hidden shrink-0 lg:flex lg:gap-x-4 lg:items-center">
                     <dropdown
                         class="relative"
                         origin="top-right"
@@ -82,8 +80,8 @@
                 </div>
             </div>
 
-            <div class="hidden lg:flex lg:py-3 lg:space-x-4 lg:justify-between">
-                <div class="flex space-x-2">
+            <div class="hidden lg:flex lg:py-3 lg:gap-x-4 lg:justify-between">
+                <div class="flex gap-x-2">
                     <menu-item
                         v-for="(item, index) in mainMenu"
                         :key="index"
@@ -94,7 +92,7 @@
                     </menu-item>
                 </div>
 
-                <div class="flex space-x-2">
+                <div class="flex gap-x-2">
                     <menu-item
                         type="button"
                         @click="bus.emit('media-library:open')"

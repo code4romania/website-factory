@@ -1,6 +1,6 @@
 <template>
     <div class="space-y-1">
-        <div class="flex space-x-2">
+        <div class="flex gap-x-2">
             <label
                 v-if="label"
                 :for="labelFor"
