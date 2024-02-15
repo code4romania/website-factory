@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Services\ISO_639_1;
 use App\Traits\ClearsResponseCache;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -35,7 +36,6 @@ class Language extends Model
 
     protected $fillable = [
         'code',
-        'name',
         'enabled',
         'lines',
     ];
@@ -65,5 +65,20 @@ class Language extends Model
     public function scopeWhereEnabled(Builder $query): Builder
     {
         return $query->where('enabled', true);
+    }
+
+    public function getNameAttribute(): string
+    {
+        return ISO_639_1::getCombinedLanguageName($this->code);
+    }
+
+    public function getNativeNameAttribute(): string
+    {
+        return ISO_639_1::getNativeLanguageName($this->code);
+    }
+
+    public function getDirectionAttribute(): string
+    {
+        return ISO_639_1::getLanguageDirection($this->code);
     }
 }

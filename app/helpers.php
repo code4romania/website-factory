@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Services\Features;
+use App\Services\ISO_639_1;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
@@ -13,7 +14,7 @@ if (! function_exists('locales')) {
     /**
      * Return the available locales.
      *
-     * @return \Illuminate\Support\Collection
+     * @return Collection
      */
     function locales(): Collection
     {
@@ -21,11 +22,23 @@ if (! function_exists('locales')) {
     }
 }
 
+if (! function_exists('text_direction')) {
+    /**
+     * Return the current text direction.
+     *
+     * @return string
+     */
+    function text_direction(): string
+    {
+        return ISO_639_1::getLanguageDirection(app()->getLocale());
+    }
+}
+
 if (! function_exists('active_locales')) {
     /**
      * Return the currently enabled locales.
      *
-     * @return \Illuminate\Support\Collection
+     * @return Collection
      */
     function active_locales(): Collection
     {
@@ -78,7 +91,7 @@ if (! function_exists('localized_input')) {
         $locale ??= app()->getLocale();
 
         if (! array_key_exists($locale, $input) || $input[$locale] === '') {
-            $locale = config('app.fallback_locale');
+            $locale = default_locale();
         }
 
         return $input[$locale] ?? null;
@@ -108,7 +121,7 @@ if (! function_exists('localized_settings')) {
     function localized_settings(?string $key = null): mixed
     {
         return settings($key . '.' . app()->getLocale())
-            ?? settings($key . '.' . config('app.fallback_locale'));
+            ?? settings($key . '.' . default_locale());
     }
 }
 

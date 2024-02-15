@@ -11,6 +11,7 @@ use App\Http\Resources\Collections\LanguageCollection;
 use App\Http\Resources\LanguageResource;
 use App\Models\Language;
 use App\Models\LanguageLine;
+use App\Services\ISO_639_1;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Artisan;
@@ -21,7 +22,7 @@ class LanguageController extends Controller
 {
     public function lines(?string $locale = null): JsonResponse
     {
-        $locale = locales()->has($locale) ? $locale : config('app.fallback_locale');
+        $locale = locales()->has($locale) ? $locale : default_locale();
 
         return response()->json(
             LanguageLine::getTranslationsForGroup($locale, '*')
@@ -41,7 +42,8 @@ class LanguageController extends Controller
     public function create(): Response
     {
         return Inertia::render('Languages/Edit', [
-            'source' => LanguageLine::getTranslationsForGroup(config('app.fallback_locale'), '*'),
+            'source' => LanguageLine::getTranslationsForGroup(default_locale(), '*'),
+            'languages' => ISO_639_1::getCombinedLanguageOptions(),
         ])->model(Language::class);
     }
 
@@ -78,7 +80,8 @@ class LanguageController extends Controller
     {
         return Inertia::render('Languages/Edit', [
             'resource' => LanguageResource::make($language),
-            'source' => LanguageLine::getTranslationsForGroup(config('app.fallback_locale'), '*'),
+            'source' => LanguageLine::getTranslationsForGroup(default_locale(), '*'),
+            'languages' => ISO_639_1::getCombinedLanguageOptions(),
         ])->model(Language::class);
     }
 
