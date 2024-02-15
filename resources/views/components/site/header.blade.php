@@ -38,7 +38,7 @@
                     <x-dynamic-component :component="$item->component" :item="$item" />
 
                     @if ($item->children->isNotEmpty())
-                        <button x-on:click="open = !open" class="flex items-center -mr-1 rtl:-ml-1">
+                        <button x-on:click="open = !open" class="flex items-center ltr:-mr-1 rtl:-ml-1">
 
                             <x-ri-arrow-down-s-line class="w-4 h-4" />
                         </button>

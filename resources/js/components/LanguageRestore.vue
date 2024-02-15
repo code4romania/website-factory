@@ -1,9 +1,14 @@
 <template>
     <div>
         <form-button type="button" @click="confirmAction = true" color="blue">
-            <icon name="System/refresh-line" class="w-4 h-4 mr-2 -ml-1" />
+            <div class="flex items-center gap-2">
+                <icon
+                    name="System/refresh-line"
+                    class="w-4 h-4 ltr:-ml-1 rtl:-mr-1"
+                />
 
-            <span v-text="$t('app.action.restore')" />
+                <span v-text="$t('app.action.restore')" />
+            </div>
         </form-button>
 
         <confirmation-modal
