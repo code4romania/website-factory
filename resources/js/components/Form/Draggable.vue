@@ -15,7 +15,7 @@
             @change="$emit('update:modelValue', modelValue)"
         >
             <template #item="{ element, index }">
-                <div class="flex w-full space-x-2 border-inherit">
+                <div class="flex w-full gap-x-2 border-inherit">
                     <input
                         class="flex-1 block w-full min-w-0 border focus:outline-none border-inherit focus:ring-1 focus:ring-blue-500"
                         :type="type"

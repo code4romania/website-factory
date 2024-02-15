@@ -16,7 +16,7 @@
         </nav>
 
         <nav class="hidden sm:flex" aria-label="Breadcrumb">
-            <ol class="flex items-center space-x-4">
+            <ol class="flex items-center gap-x-4">
                 <li
                     v-for="(item, index) in items"
                     :key="index"

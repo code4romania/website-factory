@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center justify-between space-x-2">
+    <div class="flex items-center justify-between gap-x-2">
         <table-filters v-if="!disableFilters" :collection="collection" />
 
         <inertia-link
@@ -30,7 +30,8 @@
                     @toggle="toggleRow"
                     class="text-gray-900"
                     :class="{
-                        'hover:bg-gray-50 focus-within:bg-gray-50 group': canInteractWithRows,
+                        'hover:bg-gray-50 focus-within:bg-gray-50 group':
+                            canInteractWithRows,
                     }"
                 >
                     <template

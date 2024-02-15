@@ -10,7 +10,7 @@
             <button
                 type="button"
                 @click="toggleOpen"
-                class="flex flex-1 p-3 space-x-1 overflow-hidden text-sm font-semibold text-left text-gray-400 truncate focus:outline-none"
+                class="flex flex-1 p-3 overflow-hidden text-sm font-semibold text-left text-gray-400 truncate gap-x-1 focus:outline-none"
             >
                 <icon
                     v-if="icon"
@@ -23,7 +23,7 @@
                 <span v-if="title" class="truncate">&mdash; {{ title }}</span>
             </button>
 
-            <div class="relative flex items-center pr-3 space-x-3 shrink-0">
+            <div class="relative flex items-center pr-3 gap-x-3 shrink-0">
                 <button
                     v-if="canExpand"
                     type="button"

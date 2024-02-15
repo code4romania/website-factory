@@ -14,7 +14,7 @@
 
             <div v-if="$slots.subnav" class="bg-gray-200">
                 <div
-                    class="container flex items-center py-3 overflow-x-auto sm:space-x-2"
+                    class="container flex items-center py-3 overflow-x-auto sm:gap-x-2"
                 >
                     <slot name="subnav" />
                 </div>
@@ -22,7 +22,7 @@
 
             <help />
 
-            <div class="container items-center justify-between mt-12 space-y-2">
+            <div class="container items-center justify-between mt-12 gap-y-2">
                 <breadcrumbs :items="breadcrumbs" />
 
                 <div class="flex flex-col gap-4 md:flex-row">
@@ -33,7 +33,7 @@
 
                     <div
                         v-if="$slots.actions"
-                        class="flex items-center space-x-3 md:justify-end"
+                        class="flex items-center gap-x-3 md:justify-end"
                     >
                         <slot name="actions" />
                     </div>

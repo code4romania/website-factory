@@ -12,7 +12,7 @@
             <div class="flex flex-wrap gap-4">
                 <label
                     v-for="(option, index) in options"
-                    class="flex space-x-2"
+                    class="flex gap-x-2"
                     :key="index"
                 >
                     <input

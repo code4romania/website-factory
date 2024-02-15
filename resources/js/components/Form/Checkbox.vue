@@ -1,6 +1,6 @@
 <template>
     <div v-bind="$attrs">
-        <div class="flex space-x-2">
+        <div class="flex gap-x-2">
             <input
                 type="checkbox"
                 :id="id"

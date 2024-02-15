@@ -7,7 +7,7 @@
             <inertia-link
                 v-if="prevPage"
                 :href="prevPage"
-                class="inline-flex items-center pt-4 pr-1 space-x-3 text-sm font-medium text-gray-500 border-t-2 border-transparent hover:text-gray-700 hover:border-gray-300"
+                class="inline-flex items-center pt-4 pr-1 text-sm font-medium text-gray-500 border-t-2 border-transparent gap-x-3 hover:text-gray-700 hover:border-gray-300"
             >
                 <icon
                     name="System/arrow-left-line"
@@ -49,7 +49,7 @@
             <inertia-link
                 v-if="nextPage"
                 :href="nextPage"
-                class="inline-flex items-center pt-4 pl-1 space-x-3 text-sm font-medium text-gray-500 border-t-2 border-transparent hover:text-gray-700 hover:border-gray-300"
+                class="inline-flex items-center pt-4 pl-1 text-sm font-medium text-gray-500 border-t-2 border-transparent gap-x-3 hover:text-gray-700 hover:border-gray-300"
             >
                 <span v-text="$t('pagination.next')" />
 

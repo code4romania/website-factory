@@ -1,14 +1,14 @@
 <template>
     <div
         v-if="hasMultipleLocales"
-        class="relative inline-flex overflow-visible leading-none border border-gray-300 divide-x divide-gray-300 shadow-sm"
+        class="relative inline-flex overflow-visible leading-none border border-gray-300 divide-x divide-gray-300 shadow-sm rtl:divide-x-reverse"
     >
         <button
             type="button"
             v-for="({ name }, locale) in locales"
             :key="locale"
             @click="changeLocale(locale)"
-            class="relative flex items-center px-4 py-3 text-xs font-medium leading-none uppercase transition-colors duration-75 focus:z-10 focus:outline-none"
+            class="relative flex items-center gap-1.5 px-4 py-3 text-xs font-medium leading-none uppercase transition-colors duration-75 focus:z-10 focus:outline-none"
             :class="[
                 isCurrentLocale(locale)
                     ? 'bg-gray-100'
@@ -18,7 +18,7 @@
         >
             <svg
                 viewBox="0 0 8 8"
-                class="-ml-1 mr-1.5 h-2 w-2"
+                class="w-2 h-2 ltr:-ml-1 rtl:-mr-1"
                 :class="[
                     isActiveLocale(locale) ? 'fill-green-600' : 'fill-gray-400',
                 ]"

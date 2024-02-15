@@ -35,7 +35,7 @@
             </template>
         </dropdown>
 
-        <nav class="hidden space-x-6 sm:flex sm:justify-end">
+        <nav class="hidden sm:gap-x-6 sm:flex sm:justify-end">
             <inertia-link
                 v-for="status in collection.statuses"
                 :key="status.name"
