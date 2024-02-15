@@ -33,7 +33,7 @@
         "spatie/laravel-translatable": "^6.5",
         "spatie/laravel-translation-loader": "^2.7",
         "symfony/http-client": "^7.0",
-        "symfony/yaml": "^6.3",
+        "symfony/yaml": "^7.0",
         "tightenco/ziggy": "^1.8"
     },
     "require-dev": {
