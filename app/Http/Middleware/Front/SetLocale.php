@@ -12,8 +12,8 @@ class SetLocale
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure                 $next
+     * @param  Request $request
+     * @param  Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
@@ -23,12 +23,19 @@ class SetLocale
         if (! active_locales()->has($locale)) {
             return redirect()->to(
                 collect($request->segments())
-                    ->prepend(default_locale())
+                    ->prepend(app()->getFallbackLocale())
                     ->implode('/')
             );
         }
 
         app()->setLocale($locale);
+
+        // Set default locale as fallback
+        tap(settings('site.default_locale'), function ($locale) {
+            if (active_locales()->has($locale)) {
+                app()->setFallbackLocale($locale);
+            }
+        });
 
         return $next($request);
     }
