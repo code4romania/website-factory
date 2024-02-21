@@ -75,9 +75,7 @@ class SetupCommand extends Command
             ]);
         }
 
-        $this->call(UpdateTranslationsCommand::class, [
-            '--force' => $shouldCreateLanguages,
-        ]);
+        $this->call(UpdateTranslationsCommand::class);
     }
 
     protected function seedSettings(): void

@@ -19,7 +19,8 @@ class UpdateTranslationsCommand extends Command
      * @var string
      */
     protected $signature = 'wf:translations
-        {--force : Remove existing translations before running}
+        {--force : Remove all translations and perform a full import }
+        {--reset : Replace existing translations without affecting translations for languages not present in the `lang` dir }
         {--locale=* : Locale to load}
     ';
 
@@ -28,7 +29,7 @@ class UpdateTranslationsCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Update the database translations with the json files in the `lang` dir';
+    protected $description = 'Update database translations with missing keys from the `lang` dir';
 
     /**
      * Translations key/value list.
@@ -43,6 +44,25 @@ class UpdateTranslationsCommand extends Command
      * @return int
      */
     public function handle()
+    {
+        $this->collect();
+
+        LanguageLine::withoutEvents(function () {
+            if ($this->option('force')) {
+                $this->forceUpdate();
+            } elseif ($this->option('reset')) {
+                $this->updateEverything();
+            } else {
+                $this->updateMissing();
+            }
+        });
+
+        Cache::flush();
+
+        return self::SUCCESS;
+    }
+
+    protected function collect(): void
     {
         $locales = collect($this->option('locale'));
 
@@ -75,33 +95,51 @@ class UpdateTranslationsCommand extends Command
 
                 $this->info("[$language->code] Fetched " . \count($lines) . ' translations.');
             });
+    }
 
-        LanguageLine::withoutEvents(
-            fn () => $this->option('force')
-                ? $this->updateEverything()
-                : $this->updateMissing()
+    protected function forceUpdate(): void
+    {
+        LanguageLine::truncate();
+
+        LanguageLine::insert(
+            collect($this->lines)
+                ->map(fn (array $text, string $key) => [
+                    'group' => '*',
+                    'key' => $key,
+                    'text' => collect($text)
+                        ->sortKeys()
+                        ->toJson(),
+                ])
+                ->all()
         );
 
-        Cache::flush();
-
-        return self::SUCCESS;
+        $this->info('Replaced all database translations.');
     }
 
     protected function updateEverything(): void
     {
-        $values = collect($this->lines)
+        $existingLines = LanguageLine::query()
+            ->where('group', '*')
+            ->get();
+
+        $newLines = collect($this->lines)
             ->map(fn (array $text, string $key) => [
                 'group' => '*',
                 'key' => $key,
-                'text' => json_encode($text),
+                'text' => collect(
+                    $existingLines
+                        ->firstWhere('key', $key)
+                        ?->text ?: []
+                )
+                    ->merge($text)
+                    ->sortKeys()
+                    ->toJson(),
             ])
-            ->all();
+            ->values();
 
-        LanguageLine::truncate();
+        LanguageLine::upsert($newLines->all(), ['group', 'key'], ['text']);
 
-        LanguageLine::insert($values);
-
-        $this->info('Replaced all database translations.');
+        $this->info('Updated database translations.');
     }
 
     protected function updateMissing(): void
@@ -110,28 +148,23 @@ class UpdateTranslationsCommand extends Command
             ->where('group', '*')
             ->get();
 
-        $newLines = collect();
-
-        foreach ($this->lines as $key => $text) {
-            $existingLine = $existingLines->firstWhere('key', $key);
-
-            if (! \is_null($existingLine) && \array_key_exists($key, $existingLine->text)) {
-                continue;
-            }
-
-            $newLines->push([
+        $newLines = collect($this->lines)
+            ->map(fn (array $text, string $key) => [
                 'group' => '*',
                 'key' => $key,
-                'text' => json_encode(array_merge($existingLine->text, $text)),
-            ]);
-        }
+                'text' => collect($text)
+                    ->merge(
+                        $existingLines
+                            ->firstWhere('key', $key)
+                            ?->text ?: []
+                    )
+                    ->sortKeys()
+                    ->toJson(),
+            ])
+            ->values();
 
-        if ($newLines->isNotEmpty()) {
-            LanguageLine::upsert($newLines->all(), ['group', 'key'], ['text']);
+        LanguageLine::upsert($newLines->all(), ['group', 'key'], ['text']);
 
-            $this->info("Added {$newLines->count()} missing database translations.");
-        } else {
-            $this->info('Translations already up to date.');
-        }
+        $this->info('Added missing database translations.');
     }
 }

@@ -70,7 +70,7 @@ class LanguageController extends Controller
         $this->authorize('create', Language::class);
 
         Artisan::call(UpdateTranslationsCommand::class, [
-            '--force' => true,
+            '--reset' => true,
         ]);
 
         return redirect()->route('admin.languages.index')
