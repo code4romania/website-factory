@@ -64,12 +64,10 @@ class SetupCommand extends Command
             Language::insert([
                 [
                     'code' => 'ro',
-                    'name' => 'Română',
                     'enabled' => true,
                 ],
                 [
                     'code' => 'en',
-                    'name' => 'English',
                     'enabled' => false,
                 ],
             ]);
