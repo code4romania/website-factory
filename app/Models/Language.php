@@ -48,7 +48,7 @@ class Language extends Model
     {
         $lines = collect(LanguageLine::all(['group', 'key', 'text'])->toArray())
             ->map(function (array $line) use ($input) {
-                $line['text'][$this->code] = $input[$line['key']] ?? __($line['key']);
+                $line['text'][$this->code] = $input[$line['key']];
 
                 $line['text'] = json_encode($line['text']);
 

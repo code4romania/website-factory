@@ -17,7 +17,7 @@ class LanguageResource extends Resource
             'name' => $this->name,
             'enabled' => $this->enabled,
             'direction' => $this->direction,
-            'lines' => LanguageLine::getTranslationsForGroup($this->code, '*'),
+            'lines' => LanguageLine::getTranslationsWithoutFallbackForGroup($this->code, '*'),
         ];
     }
 }
