@@ -64,20 +64,16 @@ class SetupCommand extends Command
             Language::insert([
                 [
                     'code' => 'ro',
-                    'name' => 'Română',
                     'enabled' => true,
                 ],
                 [
                     'code' => 'en',
-                    'name' => 'English',
                     'enabled' => false,
                 ],
             ]);
         }
 
-        $this->call(UpdateTranslationsCommand::class, [
-            '--force' => $shouldCreateLanguages,
-        ]);
+        $this->call(UpdateTranslationsCommand::class);
     }
 
     protected function seedSettings(): void

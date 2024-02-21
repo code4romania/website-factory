@@ -65,16 +65,16 @@ class LanguageController extends Controller
             ->with('success', __('language.event.created'));
     }
 
-    public function restore(): RedirectResponse
+    public function reset(): RedirectResponse
     {
         $this->authorize('create', Language::class);
 
         Artisan::call(UpdateTranslationsCommand::class, [
-            '--force' => true,
+            '--reset' => true,
         ]);
 
         return redirect()->route('admin.languages.index')
-            ->with('success', __('language.event.restored'));
+            ->with('success', __('language.event.reset'));
     }
 
     public function edit(Language $language): Response
