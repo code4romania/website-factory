@@ -18,12 +18,12 @@ class ISO_639_1
         ],
         'ab' => [
             'name' => 'Abkhaz',
-            'nativeName' => 'аҧсуа бызшәа, аҧсшәа',
+            'nativeName' => 'Аԥсшәа',
             'direction' => 'ltr',
         ],
         'ae' => [
             'name' => 'Avestan',
-            'nativeName' => 'avesta',
+            'nativeName' => 'Avesta',
             'direction' => 'ltr',
         ],
         'af' => [
@@ -43,7 +43,7 @@ class ISO_639_1
         ],
         'an' => [
             'name' => 'Aragonese',
-            'nativeName' => 'aragonés',
+            'nativeName' => 'Aragonés',
             'direction' => 'ltr',
         ],
         'ar' => [
@@ -58,32 +58,32 @@ class ISO_639_1
         ],
         'av' => [
             'name' => 'Avaric',
-            'nativeName' => 'авар мацӀ, магӀарул мацӀ',
+            'nativeName' => 'Авар',
             'direction' => 'ltr',
         ],
         'ay' => [
             'name' => 'Aymara',
-            'nativeName' => 'aymar aru',
+            'nativeName' => 'Aymar aru',
             'direction' => 'ltr',
         ],
         'az' => [
             'name' => 'Azerbaijani',
-            'nativeName' => 'azərbaycan dili',
+            'nativeName' => 'Azərbaycanca',
             'direction' => 'ltr',
         ],
         'ba' => [
             'name' => 'Bashkir',
-            'nativeName' => 'башҡорт теле',
+            'nativeName' => 'Башҡортса',
             'direction' => 'ltr',
         ],
         'be' => [
             'name' => 'Belarusian',
-            'nativeName' => 'беларуская мова',
+            'nativeName' => 'Беларуская',
             'direction' => 'ltr',
         ],
         'bg' => [
             'name' => 'Bulgarian',
-            'nativeName' => 'български език',
+            'nativeName' => 'Български',
             'direction' => 'ltr',
         ],
         'bh' => [
@@ -98,37 +98,37 @@ class ISO_639_1
         ],
         'bm' => [
             'name' => 'Bambara',
-            'nativeName' => 'bamanankan',
+            'nativeName' => 'Bamanankan',
             'direction' => 'ltr',
         ],
         'bn' => [
-            'name' => 'Bengali, Bangla',
+            'name' => 'Bengali',
             'nativeName' => 'বাংলা',
             'direction' => 'ltr',
         ],
         'bo' => [
-            'name' => 'Tibetan Standard, Tibetan, Central',
+            'name' => 'Tibetan',
             'nativeName' => 'བོད་ཡིག',
             'direction' => 'ltr',
         ],
         'br' => [
             'name' => 'Breton',
-            'nativeName' => 'brezhoneg',
+            'nativeName' => 'Brezhoneg',
             'direction' => 'ltr',
         ],
         'bs' => [
             'name' => 'Bosnian',
-            'nativeName' => 'bosanski jezik',
+            'nativeName' => 'Bosanski',
             'direction' => 'ltr',
         ],
         'ca' => [
             'name' => 'Catalan',
-            'nativeName' => 'català',
+            'nativeName' => 'Català',
             'direction' => 'ltr',
         ],
         'ce' => [
             'name' => 'Chechen',
-            'nativeName' => 'нохчийн мотт',
+            'nativeName' => 'Нохчийн',
             'direction' => 'ltr',
         ],
         'ch' => [
@@ -138,7 +138,7 @@ class ISO_639_1
         ],
         'co' => [
             'name' => 'Corsican',
-            'nativeName' => 'corsu',
+            'nativeName' => 'Corsu',
             'direction' => 'ltr',
         ],
         'cr' => [
@@ -148,17 +148,17 @@ class ISO_639_1
         ],
         'cs' => [
             'name' => 'Czech',
-            'nativeName' => 'čeština',
+            'nativeName' => 'Čeština',
             'direction' => 'ltr',
         ],
         'cu' => [
-            'name' => 'Old Church Slavonic, Church Slavonic, Old Bulgarian',
-            'nativeName' => 'ѩзыкъ словѣньскъ',
+            'name' => 'Church Slavic',
+            'nativeName' => 'Словѣньскъ',
             'direction' => 'ltr',
         ],
         'cv' => [
             'name' => 'Chuvash',
-            'nativeName' => 'чӑваш чӗлхи',
+            'nativeName' => 'Чӑвашла',
             'direction' => 'ltr',
         ],
         'cy' => [
@@ -168,7 +168,7 @@ class ISO_639_1
         ],
         'da' => [
             'name' => 'Danish',
-            'nativeName' => 'dansk',
+            'nativeName' => 'Dansk',
             'direction' => 'ltr',
         ],
         'de' => [
@@ -177,7 +177,7 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'dv' => [
-            'name' => 'Divehi, Dhivehi, Maldivian',
+            'name' => 'Divehi',
             'nativeName' => 'ދިވެހި',
             'direction' => 'rtl',
         ],
@@ -193,7 +193,7 @@ class ISO_639_1
         ],
         'el' => [
             'name' => 'Greek',
-            'nativeName' => 'ελληνικά',
+            'nativeName' => 'Ελληνικά',
             'direction' => 'ltr',
         ],
         'en' => [
@@ -213,12 +213,12 @@ class ISO_639_1
         ],
         'et' => [
             'name' => 'Estonian',
-            'nativeName' => 'eesti, eesti keel',
+            'nativeName' => 'Eesti',
             'direction' => 'ltr',
         ],
         'eu' => [
             'name' => 'Basque',
-            'nativeName' => 'euskara, euskera',
+            'nativeName' => 'Euskara',
             'direction' => 'ltr',
         ],
         'fa' => [
@@ -227,28 +227,28 @@ class ISO_639_1
             'direction' => 'rtl',
         ],
         'ff' => [
-            'name' => 'Fula, Fulah, Pulaar, Pular',
-            'nativeName' => 'Fulfulde, Pulaar, Pular',
+            'name' => 'Fula',
+            'nativeName' => 'Fulfulde',
             'direction' => 'ltr',
         ],
         'fi' => [
             'name' => 'Finnish',
-            'nativeName' => 'suomi',
+            'nativeName' => 'Suomi',
             'direction' => 'ltr',
         ],
         'fj' => [
             'name' => 'Fijian',
-            'nativeName' => 'vosa Vakaviti',
+            'nativeName' => 'Na vosa vaka-Viti',
             'direction' => 'ltr',
         ],
         'fo' => [
             'name' => 'Faroese',
-            'nativeName' => 'føroyskt',
+            'nativeName' => 'Føroyskt',
             'direction' => 'ltr',
         ],
         'fr' => [
             'name' => 'French',
-            'nativeName' => 'français',
+            'nativeName' => 'Français',
             'direction' => 'ltr',
         ],
         'fy' => [
@@ -268,7 +268,7 @@ class ISO_639_1
         ],
         'gl' => [
             'name' => 'Galician',
-            'nativeName' => 'galego',
+            'nativeName' => 'Galego',
             'direction' => 'ltr',
         ],
         'gn' => [
@@ -283,13 +283,13 @@ class ISO_639_1
         ],
         'gv' => [
             'name' => 'Manx',
-            'nativeName' => 'Gaelg, Gailck',
+            'nativeName' => 'Gaelg',
             'direction' => 'ltr',
         ],
         'ha' => [
             'name' => 'Hausa',
-            'nativeName' => 'هَوُسَ',
-            'direction' => 'rtl',
+            'nativeName' => 'Hausa',
+            'direction' => 'ltr',
         ],
         'he' => [
             'name' => 'Hebrew',
@@ -298,7 +298,7 @@ class ISO_639_1
         ],
         'hi' => [
             'name' => 'Hindi',
-            'nativeName' => 'हिन्दी, हिंदी',
+            'nativeName' => 'हिन्दी',
             'direction' => 'ltr',
         ],
         'ho' => [
@@ -308,7 +308,7 @@ class ISO_639_1
         ],
         'hr' => [
             'name' => 'Croatian',
-            'nativeName' => 'hrvatski',
+            'nativeName' => 'Hrvatski',
             'direction' => 'ltr',
         ],
         'ht' => [
@@ -318,7 +318,7 @@ class ISO_639_1
         ],
         'hu' => [
             'name' => 'Hungarian',
-            'nativeName' => 'magyar',
+            'nativeName' => 'Magyar',
             'direction' => 'ltr',
         ],
         'hy' => [
@@ -333,7 +333,7 @@ class ISO_639_1
         ],
         'ia' => [
             'name' => 'Interlingua',
-            'nativeName' => 'Interlingua',
+            'nativeName' => 'Interlingue',
             'direction' => 'ltr',
         ],
         'id' => [
@@ -343,17 +343,17 @@ class ISO_639_1
         ],
         'ig' => [
             'name' => 'Igbo',
-            'nativeName' => 'Asụsụ Igbo',
+            'nativeName' => 'Ásụ̀sụ́ Ìgbò',
             'direction' => 'ltr',
         ],
         'ii' => [
             'name' => 'Nuosu',
-            'nativeName' => 'ꆈꌠ꒿ Nuosuhxop',
+            'nativeName' => 'ꆈꌠꉙ',
             'direction' => 'ltr',
         ],
         'ik' => [
             'name' => 'Inupiaq',
-            'nativeName' => 'Iñupiaq, Iñupiatun',
+            'nativeName' => 'Iñupiaq',
             'direction' => 'ltr',
         ],
         'io' => [
@@ -378,12 +378,12 @@ class ISO_639_1
         ],
         'ja' => [
             'name' => 'Japanese',
-            'nativeName' => '日本語 (にほんご)',
+            'nativeName' => '日本語',
             'direction' => 'ltr',
         ],
         'jv' => [
             'name' => 'Javanese',
-            'nativeName' => 'ꦧꦱꦗꦮ, Basa Jawa',
+            'nativeName' => 'Jawa',
             'direction' => 'ltr',
         ],
         'ka' => [
@@ -393,7 +393,7 @@ class ISO_639_1
         ],
         'kg' => [
             'name' => 'Kongo',
-            'nativeName' => 'Kikongo',
+            'nativeName' => 'Kongo',
             'direction' => 'ltr',
         ],
         'ki' => [
@@ -403,22 +403,22 @@ class ISO_639_1
         ],
         'kj' => [
             'name' => 'Kwanyama',
-            'nativeName' => 'Kuanyama',
+            'nativeName' => 'Oshikwanyama',
             'direction' => 'ltr',
         ],
         'kk' => [
             'name' => 'Kazakh',
-            'nativeName' => 'қазақ тілі',
+            'nativeName' => 'Қазақша',
             'direction' => 'ltr',
         ],
         'kl' => [
             'name' => 'Greenlandic',
-            'nativeName' => 'kalaallisut',
+            'nativeName' => 'Kalaallisut',
             'direction' => 'ltr',
         ],
         'km' => [
             'name' => 'Khmer',
-            'nativeName' => 'ខ្មែរ, ខេមរភាសា, ភាសាខ្មែរ',
+            'nativeName' => 'ភាសាខ្មែរ',
             'direction' => 'ltr',
         ],
         'kn' => [
@@ -433,32 +433,32 @@ class ISO_639_1
         ],
         'kr' => [
             'name' => 'Kanuri',
-            'nativeName' => 'Kanuri',
+            'nativeName' => 'Kànùrí',
             'direction' => 'ltr',
         ],
         'ks' => [
             'name' => 'Kashmiri',
-            'nativeName' => 'कश्मीरी, كشميري‎',
-            'direction' => 'rtl',
+            'nativeName' => 'कश्मीरी',
+            'direction' => 'ltr',
         ],
         'ku' => [
             'name' => 'Kurdish',
-            'nativeName' => 'Kurdî, كوردی‎',
-            'direction' => 'rtl',
+            'nativeName' => 'Kurdî',
+            'direction' => 'ltr',
         ],
         'kv' => [
             'name' => 'Komi',
-            'nativeName' => 'коми кыв',
+            'nativeName' => 'Коми',
             'direction' => 'ltr',
         ],
         'kw' => [
             'name' => 'Cornish',
-            'nativeName' => 'Kernewek',
+            'nativeName' => 'Kernowek',
             'direction' => 'ltr',
         ],
         'ky' => [
             'name' => 'Kyrgyz',
-            'nativeName' => 'Кыргызча, Кыргыз тили',
+            'nativeName' => 'Кыргызча',
             'direction' => 'ltr',
         ],
         'lb' => [
@@ -483,42 +483,42 @@ class ISO_639_1
         ],
         'lo' => [
             'name' => 'Lao',
-            'nativeName' => 'ພາສາລາວ',
+            'nativeName' => 'ລາວ',
             'direction' => 'ltr',
         ],
         'lt' => [
             'name' => 'Lithuanian',
-            'nativeName' => 'lietuvių kalba',
+            'nativeName' => 'Lietuvių',
             'direction' => 'ltr',
         ],
         'lu' => [
             'name' => 'Luba-Katanga',
-            'nativeName' => 'Tshiluba',
+            'nativeName' => 'Kiluba',
             'direction' => 'ltr',
         ],
         'lv' => [
             'name' => 'Latvian',
-            'nativeName' => 'latviešu valoda',
+            'nativeName' => 'Latviešu',
             'direction' => 'ltr',
         ],
         'mg' => [
             'name' => 'Malagasy',
-            'nativeName' => 'fiteny malagasy',
+            'nativeName' => 'Malagasy',
             'direction' => 'ltr',
         ],
         'mh' => [
             'name' => 'Marshallese',
-            'nativeName' => 'Kajin M̧ajeļ',
+            'nativeName' => 'Kajin M̧ajel‌̧',
             'direction' => 'ltr',
         ],
         'mi' => [
             'name' => 'Māori',
-            'nativeName' => 'te reo Māori',
+            'nativeName' => 'Māori',
             'direction' => 'ltr',
         ],
         'mk' => [
             'name' => 'Macedonian',
-            'nativeName' => 'македонски јазик',
+            'nativeName' => 'Македонски',
             'direction' => 'ltr',
         ],
         'ml' => [
@@ -528,7 +528,7 @@ class ISO_639_1
         ],
         'mn' => [
             'name' => 'Mongolian',
-            'nativeName' => 'Монгол хэл',
+            'nativeName' => 'Монгол',
             'direction' => 'ltr',
         ],
         'mr' => [
@@ -538,7 +538,7 @@ class ISO_639_1
         ],
         'ms' => [
             'name' => 'Malay',
-            'nativeName' => 'bahasa Melayu, بهاس ملايو‎',
+            'nativeName' => 'Bahasa Melayu',
             'direction' => 'ltr',
         ],
         'mt' => [
@@ -548,17 +548,12 @@ class ISO_639_1
         ],
         'my' => [
             'name' => 'Burmese',
-            'nativeName' => 'ဗမာစာ',
+            'nativeName' => 'မြန်မာဘာသာ',
             'direction' => 'ltr',
         ],
         'na' => [
             'name' => 'Nauruan',
-            'nativeName' => 'Dorerin Naoero',
-            'direction' => 'ltr',
-        ],
-        'nb' => [
-            'name' => 'Norwegian Bokmål',
-            'nativeName' => 'Norsk bokmål',
+            'nativeName' => 'Naoero',
             'direction' => 'ltr',
         ],
         'nd' => [
@@ -581,11 +576,6 @@ class ISO_639_1
             'nativeName' => 'Nederlands',
             'direction' => 'ltr',
         ],
-        'nn' => [
-            'name' => 'Norwegian Nynorsk',
-            'nativeName' => 'Norsk nynorsk',
-            'direction' => 'ltr',
-        ],
         'no' => [
             'name' => 'Norwegian',
             'nativeName' => 'Norsk',
@@ -593,32 +583,32 @@ class ISO_639_1
         ],
         'nr' => [
             'name' => 'Southern Ndebele',
-            'nativeName' => 'isiNdebele',
+            'nativeName' => 'isiNdebele seSewula',
             'direction' => 'ltr',
         ],
         'nv' => [
-            'name' => 'Navajo, Navaho',
+            'name' => 'Navajo',
             'nativeName' => 'Diné bizaad',
             'direction' => 'ltr',
         ],
         'ny' => [
-            'name' => 'Chichewa, Chewa, Nyanja',
-            'nativeName' => 'chiCheŵa, chinyanja',
+            'name' => 'Chewa',
+            'nativeName' => 'Chi-Chewa',
             'direction' => 'ltr',
         ],
         'oc' => [
             'name' => 'Occitan',
-            'nativeName' => 'occitan',
+            'nativeName' => 'Occitan',
             'direction' => 'ltr',
         ],
         'oj' => [
-            'name' => 'Ojibwe, Ojibwa',
+            'name' => 'Ojibwe',
             'nativeName' => 'ᐊᓂᔑᓈᐯᒧᐎᓐ',
             'direction' => 'ltr',
         ],
         'om' => [
             'name' => 'Oromo',
-            'nativeName' => 'Afaan Oromoo',
+            'nativeName' => 'Oromoo',
             'direction' => 'ltr',
         ],
         'or' => [
@@ -627,23 +617,23 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'os' => [
-            'name' => 'Ossetian, Ossetic',
-            'nativeName' => 'ирон æвзаг',
+            'name' => 'Ossetian',
+            'nativeName' => 'Ирон',
             'direction' => 'ltr',
         ],
         'pa' => [
-            'name' => '(Eastern) Punjabi',
+            'name' => 'Punjabi',
             'nativeName' => 'ਪੰਜਾਬੀ',
             'direction' => 'ltr',
         ],
         'pi' => [
             'name' => 'Pāli',
-            'nativeName' => 'पाऴि',
+            'nativeName' => 'पालि',
             'direction' => 'ltr',
         ],
         'pl' => [
             'name' => 'Polish',
-            'nativeName' => 'polski',
+            'nativeName' => 'polPolskiski',
             'direction' => 'ltr',
         ],
         'ps' => [
@@ -658,12 +648,12 @@ class ISO_639_1
         ],
         'qu' => [
             'name' => 'Quechua',
-            'nativeName' => 'Runa Simi, Kichwa',
+            'nativeName' => 'Runa Simi',
             'direction' => 'ltr',
         ],
         'rm' => [
             'name' => 'Romansh',
-            'nativeName' => 'rumantsch grischun',
+            'nativeName' => 'Rumantsch',
             'direction' => 'ltr',
         ],
         'rn' => [
@@ -687,19 +677,19 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'sa' => [
-            'name' => 'Sanskrit (Saṁskṛta)',
+            'name' => 'Sanskrit',
             'nativeName' => 'संस्कृतम्',
             'direction' => 'ltr',
         ],
         'sc' => [
             'name' => 'Sardinian',
-            'nativeName' => 'sardu',
+            'nativeName' => 'Sardu',
             'direction' => 'ltr',
         ],
         'sd' => [
             'name' => 'Sindhi',
-            'nativeName' => 'सिन्धी, سنڌي، سندھی‎',
-            'direction' => 'ltr',
+            'nativeName' => 'سنڌي',
+            'direction' => 'rtl',
         ],
         'se' => [
             'name' => 'Northern Sami',
@@ -708,37 +698,37 @@ class ISO_639_1
         ],
         'sg' => [
             'name' => 'Sango',
-            'nativeName' => 'yângâ tî sängö',
+            'nativeName' => 'Sängö',
             'direction' => 'ltr',
         ],
         'si' => [
-            'name' => 'Sinhalese, Sinhala',
+            'name' => 'Sinhalese',
             'nativeName' => 'සිංහල',
             'direction' => 'ltr',
         ],
         'sk' => [
             'name' => 'Slovak',
-            'nativeName' => 'slovenčina, slovenský jazyk',
+            'nativeName' => 'Slovenčina',
             'direction' => 'ltr',
         ],
         'sl' => [
             'name' => 'Slovene',
-            'nativeName' => 'slovenski jezik, slovenščina',
+            'nativeName' => 'Slovenščina',
             'direction' => 'ltr',
         ],
         'sm' => [
             'name' => 'Samoan',
-            'nativeName' => "gagana fa'a Samoa",
+            'nativeName' => 'Gagana Samoa',
             'direction' => 'ltr',
         ],
         'sn' => [
             'name' => 'Shona',
-            'nativeName' => 'chiShona',
+            'nativeName' => 'ChiShona',
             'direction' => 'ltr',
         ],
         'so' => [
             'name' => 'Somali',
-            'nativeName' => 'Soomaaliga, af Soomaali',
+            'nativeName' => 'Soomaaliga',
             'direction' => 'ltr',
         ],
         'sq' => [
@@ -748,7 +738,7 @@ class ISO_639_1
         ],
         'sr' => [
             'name' => 'Serbian',
-            'nativeName' => 'српски језик',
+            'nativeName' => 'Српски',
             'direction' => 'ltr',
         ],
         'ss' => [
@@ -763,12 +753,12 @@ class ISO_639_1
         ],
         'su' => [
             'name' => 'Sundanese',
-            'nativeName' => 'Basa Sunda',
+            'nativeName' => 'Sunda',
             'direction' => 'ltr',
         ],
         'sv' => [
             'name' => 'Swedish',
-            'nativeName' => 'svenska',
+            'nativeName' => 'Svenska',
             'direction' => 'ltr',
         ],
         'sw' => [
@@ -788,7 +778,7 @@ class ISO_639_1
         ],
         'tg' => [
             'name' => 'Tajik',
-            'nativeName' => 'тоҷикӣ, toçikī, تاجیکی‎',
+            'nativeName' => 'Тоҷикӣ',
             'direction' => 'ltr',
         ],
         'th' => [
@@ -803,12 +793,12 @@ class ISO_639_1
         ],
         'tk' => [
             'name' => 'Turkmen',
-            'nativeName' => 'Türkmen, Түркмен',
+            'nativeName' => 'Türkmençe',
             'direction' => 'ltr',
         ],
         'tl' => [
             'name' => 'Tagalog',
-            'nativeName' => 'Wikang Tagalog',
+            'nativeName' => 'Tagalog',
             'direction' => 'ltr',
         ],
         'tn' => [
@@ -817,7 +807,7 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'to' => [
-            'name' => 'Tonga (Tonga Islands)',
+            'name' => 'Tongan',
             'nativeName' => 'faka Tonga',
             'direction' => 'ltr',
         ],
@@ -833,7 +823,7 @@ class ISO_639_1
         ],
         'tt' => [
             'name' => 'Tatar',
-            'nativeName' => 'татар теле, tatar tele',
+            'nativeName' => 'Татарча',
             'direction' => 'ltr',
         ],
         'tw' => [
@@ -848,8 +838,8 @@ class ISO_639_1
         ],
         'ug' => [
             'name' => 'Uyghur',
-            'nativeName' => 'ئۇيغۇرچە‎, Uyghurche',
-            'direction' => 'ltr',
+            'nativeName' => 'ئۇيغۇرچە',
+            'direction' => 'rtl',
         ],
         'uk' => [
             'name' => 'Ukrainian',
@@ -863,7 +853,7 @@ class ISO_639_1
         ],
         'uz' => [
             'name' => 'Uzbek',
-            'nativeName' => 'Oʻzbek, Ўзбек, أۇزبېك‎',
+            'nativeName' => 'Oʻzbek',
             'direction' => 'ltr',
         ],
         've' => [
@@ -883,17 +873,17 @@ class ISO_639_1
         ],
         'wa' => [
             'name' => 'Walloon',
-            'nativeName' => 'walon',
+            'nativeName' => 'Walon',
             'direction' => 'ltr',
         ],
         'wo' => [
             'name' => 'Wolof',
-            'nativeName' => 'Wollof',
+            'nativeName' => 'Wolof',
             'direction' => 'ltr',
         ],
         'xh' => [
             'name' => 'Xhosa',
-            'nativeName' => 'isiXhosa',
+            'nativeName' => 'IsiXhosa',
             'direction' => 'ltr',
         ],
         'yi' => [
@@ -907,18 +897,18 @@ class ISO_639_1
             'direction' => 'ltr',
         ],
         'za' => [
-            'name' => 'Zhuang, Chuang',
-            'nativeName' => 'Saɯ cueŋƅ, Saw cuengh',
+            'name' => 'Zhuang',
+            'nativeName' => 'Vahcuengh',
             'direction' => 'ltr',
         ],
         'zh' => [
             'name' => 'Chinese',
-            'nativeName' => '中文 (Zhōngwén), 汉语, 漢語',
+            'nativeName' => '中文',
             'direction' => 'ltr',
         ],
         'zu' => [
             'name' => 'Zulu',
-            'nativeName' => 'isiZulu',
+            'nativeName' => 'IsiZulu',
             'direction' => 'ltr',
         ],
     ];
