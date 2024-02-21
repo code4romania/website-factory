@@ -26,7 +26,7 @@ class TranslatableFormRequestRules
             }
 
             locales()->each(function (array $config, string $locale) use ($rules, $key, $rule) {
-                if (! $locale !== default_locale()) {
+                if (! $locale !== app()->getFallbackLocale()) {
                     $rule = collect($rule)
                         ->map(fn (string $rule) => Str::startsWith($rule, 'required') ? 'nullable' : $rule)
                         ->all();

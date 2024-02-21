@@ -28,4 +28,14 @@ class LanguageServiceProvider extends ServiceProvider
                 ]);
         });
     }
+
+    public function boot(): void
+    {
+        // Set default locale as fallback
+        tap(settings('site.default_locale'), function ($locale) {
+            if (active_locales()->has($locale)) {
+                app()->setFallbackLocale($locale);
+            }
+        });
+    }
 }

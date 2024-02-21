@@ -73,7 +73,7 @@ class HelpController extends Controller
 
         $locales = [
             app()->getLocale(),
-            default_locale(),
+            app()->getFallbackLocale(),
         ];
 
         foreach ($locales as $locale) {

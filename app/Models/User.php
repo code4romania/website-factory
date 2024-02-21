@@ -97,7 +97,7 @@ class User extends Authenticatable implements HasLocalePreference
      */
     public function preferredLocale(): string
     {
-        return $this->locale ?? default_locale();
+        return $this->locale ?? app()->getFallbackLocale();
     }
 
     public function hasSetPassword(): bool

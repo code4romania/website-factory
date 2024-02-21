@@ -47,24 +47,6 @@ if (! function_exists('active_locales')) {
     }
 }
 
-if (! function_exists('default_locale')) {
-    /**
-     * Return the current default enabled locale locale.
-     *
-     * @return string
-     */
-    function default_locale(): string
-    {
-        $locale = settings('site.default_locale');
-
-        if (! active_locales()->has($locale)) {
-            return config('app.fallback_locale');
-        }
-
-        return $locale;
-    }
-}
-
 if (! function_exists('localized_route')) {
     /**
      * Generate the URL to a named route for the current locale.
@@ -91,7 +73,7 @@ if (! function_exists('localized_input')) {
         $locale ??= app()->getLocale();
 
         if (! array_key_exists($locale, $input) || $input[$locale] === '') {
-            $locale = default_locale();
+            $locale = app()->getFallbackLocale();
         }
 
         return $input[$locale] ?? null;
@@ -121,7 +103,7 @@ if (! function_exists('localized_settings')) {
     function localized_settings(?string $key = null): mixed
     {
         return settings($key . '.' . app()->getLocale())
-            ?? settings($key . '.' . default_locale());
+            ?? settings($key . '.' . app()->getFallbackLocale());
     }
 }
 
