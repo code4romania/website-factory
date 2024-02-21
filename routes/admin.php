@@ -254,7 +254,7 @@ Route::group([
     Route::get('/', 'index')->name('index');
     Route::get('/create', 'create')->name('create');
     Route::post('/', 'store')->name('store');
-    Route::post('/restore', 'restore')->name('restore');
+    Route::post('/reset', 'reset')->name('reset');
     Route::get('/{language}/edit', 'edit')->name('edit');
     Route::put('/{language}', 'update')->name('update');
     Route::delete('/{language}', 'destroy')->name('destroy');

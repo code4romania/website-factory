@@ -7,7 +7,7 @@
                     class="w-4 h-4 ltr:-ml-1 rtl:-mr-1"
                 />
 
-                <span v-text="$t('app.action.restore')" />
+                <span v-text="$t('app.action.reset')" />
             </div>
         </form-button>
 
@@ -17,10 +17,10 @@
             @submit="submit"
             color="blue"
         >
-            <template #title>{{ $t('app.action.restore') }}</template>
+            <template #title>{{ $t('app.action.reset') }}</template>
 
             <template #content>
-                {{ $t('app.action.restoreConfirm') }}
+                {{ $t('app.action.resetLanguagesConfirm') }}
             </template>
 
             <template #footer>
@@ -34,7 +34,7 @@
 
                 <form-button
                     type="submit"
-                    :label="$t('app.action.restore')"
+                    :label="$t('app.action.reset')"
                     :disabled="form.processing"
                     color="blue"
                 />
@@ -49,14 +49,14 @@
     import { route } from '@/helpers';
 
     export default {
-        name: 'LanguageRestore',
+        name: 'LanguageReset',
         setup() {
             const form = useForm({});
 
             const confirmAction = ref(false);
 
             const submit = () => {
-                return form.post(route('admin.languages.restore'), {
+                return form.post(route('admin.languages.reset'), {
                     onSuccess: () => (confirmAction.value = false),
                 });
             };

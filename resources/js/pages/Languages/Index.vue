@@ -9,7 +9,7 @@
         ]"
     >
         <template #actions>
-            <language-restore />
+            <language-reset />
         </template>
 
         <inertia-table :collection="collection">
