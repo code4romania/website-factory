@@ -81,4 +81,9 @@ class Language extends Model
     {
         return ISO_639_1::getLanguageDirection($this->code);
     }
+
+    public function isFallback(): bool
+    {
+        return app()->getFallbackLocale() === $this->code;
+    }
 }
