@@ -1,11 +1,15 @@
 <template>
     <switch-group as="div" class="flex items-center gap-3">
         <switch-toggle
+            :disabled="disabled"
             v-model="proxyChecked"
-            :class="[
-                proxyChecked ? 'bg-blue-600' : 'bg-gray-200',
-                'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
-            ]"
+            class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out border-2 border-transparent rounded-full w-11 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            :class="{
+                'bg-blue-600': proxyChecked && !disabled,
+                'bg-gray-200': !proxyChecked && !disabled,
+                'bg-blue-200': disabled,
+                'cursor-pointer': !disabled,
+            }"
         >
             <span
                 :class="[
@@ -39,7 +43,10 @@
             <switch-label
                 v-if="label"
                 as="span"
-                class="text-sm font-medium text-gray-700 cursor-pointer"
+                class="text-sm font-medium text-gray-700"
+                :class="{
+                    'cursor-pointer': !disabled,
+                }"
             >
                 <span v-text="label" />
 
@@ -55,13 +62,10 @@
             <switch-description
                 v-if="help"
                 as="span"
-                class="text-sm"
-                :class="{
-                    'text-gray-300': $attrs.disabled,
-                    'text-gray-500': !$attrs.disabled,
-                }"
-                v-text="help"
-            />
+                class="text-sm text-gray-500"
+            >
+                {{ help }}
+            </switch-description>
         </span>
     </switch-group>
 </template>

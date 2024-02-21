@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Admin;
 
 use App\Console\Commands\UpdateTranslationsCommand;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\LanguageRequest;
 use App\Http\Resources\Collections\LanguageCollection;
 use App\Http\Resources\LanguageResource;
@@ -18,7 +17,7 @@ use Illuminate\Support\Facades\Artisan;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class LanguageController extends Controller
+class LanguageController extends AdminController
 {
     public function lines(?string $locale = null): JsonResponse
     {
@@ -79,6 +78,7 @@ class LanguageController extends Controller
     public function edit(Language $language): Response
     {
         return Inertia::render('Languages/Edit', [
+            'isFallback' => $language->isFallback(),
             'resource' => LanguageResource::make($language),
             'source' => LanguageLine::getTranslationsForGroup(auth()->user()->preferredLocale(), '*'),
             'languages' => ISO_639_1::getCombinedLanguageOptions()
