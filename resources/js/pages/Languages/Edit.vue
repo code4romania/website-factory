@@ -30,7 +30,11 @@
                 required
             />
 
-            <form-switch :label="$t('field.enabled')" v-model="form.enabled" />
+            <form-switch
+                :label="$t('field.enabled')"
+                :disabled="isFallback"
+                v-model="form.enabled"
+            />
         </template>
 
         <template #content="{ form }">
@@ -85,6 +89,7 @@
             source: Object,
             model: Object,
             languages: Array,
+            isFallback: Boolean,
         },
     };
 </script>
