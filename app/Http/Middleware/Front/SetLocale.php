@@ -20,6 +20,13 @@ class SetLocale
     {
         $locale = $request->segment(1);
 
+        // Set default locale as fallback
+        tap(settings('site.default_locale'), function ($locale) {
+            if (active_locales()->has($locale)) {
+                app()->setFallbackLocale($locale);
+            }
+        });
+
         if (! active_locales()->has($locale)) {
             return redirect()->to(
                 collect($request->segments())
@@ -29,13 +36,6 @@ class SetLocale
         }
 
         app()->setLocale($locale);
-
-        // Set default locale as fallback
-        tap(settings('site.default_locale'), function ($locale) {
-            if (active_locales()->has($locale)) {
-                app()->setFallbackLocale($locale);
-            }
-        });
 
         return $next($request);
     }
