@@ -61,7 +61,7 @@ cp .env.example .env
 ./vendor/bin/sail artisan migrate:fresh --seed
 ```
 
-For more information on Laravel Sail, check out the [official documentation](https://laravel.com/docs/9.x/sail).
+For more information on Laravel Sail, check out the [official documentation](https://laravel.com/docs/10.x/sail).
 
 ## Deployment
 
