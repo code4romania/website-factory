@@ -20,7 +20,7 @@
         "inertiajs/inertia-laravel": "^0.6",
         "intervention/image": "^2.7",
         "kalnoy/nestedset": "^6.0",
-        "laravel/framework": "^10.43",
+        "laravel/framework": "^10.46",
         "laravel/tinker": "^2.9",
         "league/flysystem-aws-s3-v3": "^3.24",
         "league/omnipay": "^3.2",
