@@ -33,33 +33,49 @@ After running the [initial setup](#initial-setup), run this command to start up 
 and then this command to rebuild the css / js assets on change:
 
 ```sh
-./vendor/bin/sail npm run watch
+./vendor/bin/sail npm run dev
 ```
 
 ### Initial setup
 
+1. Install composer dependencies
 ```sh
-# 1. Install composer dependencies
 docker run --rm -v ${PWD}:/app -w /app composer:latest composer install --ignore-platform-reqs --no-scripts --no-interaction --prefer-dist --optimize-autoloader
+```
 
-# 2. Copy the environment variables file
+2. Copy the environment variables file
+```sh
 cp .env.example .env
+```
 
-# 3. Start the application
+3. Start the application
+```sh
 ./vendor/bin/sail up -d
+```
 
-# 4. Install npm dependencies
+4. Install npm dependencies
+```sh
 ./vendor/bin/sail npm ci
+```
 
-# 5. Build the frontend
-./vendor/bin/sail npm run dev
+5. Build the frontend
+```sh
+./vendor/bin/sail npm run build
+```
 
-# 6. Generate the app secret key
+6. Generate the app secret key
+```sh
 ./vendor/bin/sail artisan key:generate
+```
 
-# 7. Migrate and seed the database
+7. Migrate and seed the database
+```sh
 ./vendor/bin/sail artisan migrate:fresh --seed
 ```
+
+8. Access the admin panel in your browser at https://localhost:8080/admin and log in with the default credentials:
+   - Email: `admin@example.com`
+   - Password: `password`
 
 For more information on Laravel Sail, check out the [official documentation](https://laravel.com/docs/10.x/sail).
 
