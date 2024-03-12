@@ -17,6 +17,7 @@ use App\Models\PostCategory;
 use App\Models\User;
 use App\Services\Features;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
 
 class DatabaseSeeder extends Seeder
@@ -39,6 +40,10 @@ class DatabaseSeeder extends Seeder
                 'code' => 'en',
                 'enabled' => false,
             ],
+        ]);
+
+        Artisan::call('wf:translations', [
+            '--force' => true,
         ]);
 
         $images = Media::query()
