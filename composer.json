@@ -37,7 +37,7 @@
         "tightenco/ziggy": "^1.8"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.9",
+        "barryvdh/laravel-debugbar": "^3.12",
         "barryvdh/laravel-ide-helper": "^2.14",
         "fakerphp/faker": "^1.23",
         "friendsofphp/php-cs-fixer": "^3.51",
