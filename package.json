@@ -58,7 +58,7 @@
         "alpinejs": "^3.13.5",
         "autoprefixer": "^10.4.17",
         "axios": "^1.6.7",
-        "echarts": "^5.4.3",
+        "echarts": "^5.5.0",
         "fuse.js": "^7.0.0",
         "husky": "^9.0.11",
         "laravel-vite-plugin": "^1.0.2",
