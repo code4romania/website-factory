@@ -1,3 +1,4 @@
-#!/command/with-contenv sh
-
+#!/command/execlineb -P
+with-contenv
+s6-notifyoncheck -d
 php-fpm

@@ -28,13 +28,11 @@ RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
 ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-x86_64.tar.xz /tmp
 RUN tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz
 
-ENTRYPOINT ["/init"]
-
 COPY docker/openssl/openssl.cnf /etc/ssl/openssl.cnf
 COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY docker/php/php.ini /usr/local/etc/php/php.ini
 COPY docker/php/www.conf /usr/local/etc/php-fpm.d/zz-docker.conf
-COPY docker/s6-rc.d /etc/s6-overlay/s6-rc.d
+COPY --chmod=755 docker/s6-rc.d /etc/s6-overlay/s6-rc.d
 
 RUN apk update && \
     # build dependencies
@@ -54,6 +52,7 @@ RUN apk update && \
     # production dependencies
     apk add --no-cache \
     icu-libs \
+    fcgi \
     libjpeg-turbo \
     libpng \
     libwebp \
@@ -84,6 +83,8 @@ RUN apk update && \
     # cleanup
     apk del -f .build-deps
 
+RUN curl -o /usr/local/bin/php-fpm-healthcheck https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck && chmod +x /usr/local/bin/php-fpm-healthcheck
+
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp
 ENV COMPOSER_CACHE_DIR /dev/null
@@ -112,6 +113,6 @@ ENV LOG_CHANNEL stderr
 
 ENV WEBSITE_FACTORY_EDITION ong
 
-ENV S6_CMD_WAIT_FOR_SERVICES_MAXTIME 0
-
 EXPOSE 80
+
+ENTRYPOINT ["/init"]

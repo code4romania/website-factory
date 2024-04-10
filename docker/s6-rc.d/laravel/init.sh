@@ -1,5 +1,8 @@
 #!/command/with-contenv sh
 
+# Exit on error
+set -e
+
 cd /var/www
 
 php artisan migrate --force
@@ -14,3 +17,5 @@ php artisan view:cache
 php artisan icons:cache
 
 php artisan about
+
+exit 0
