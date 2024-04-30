@@ -71,7 +71,7 @@
         "postcss-100vh-fix": "^1.0.2",
         "prettier": "^3.0.0",
         "prettier-plugin-tailwindcss": "^0.5.11",
-        "remixicon": "^2.5.0",
+        "remixicon": "^3.5.0",
         "slug": "^8.2.3",
         "tailwindcss": "^3.4.1",
         "uniqid": "^5.4.0",
