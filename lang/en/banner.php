@@ -16,4 +16,6 @@ return [
 
     'government' => 'Website built with Website Factory: Government. A solution developed by Code for Romania (Commit Global) and made available free of charge to the public administration.',
 
+    'disclaimer' => 'Disclaimer',
+    'report_issue' => 'Report an issue',
 ];
