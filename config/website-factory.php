@@ -29,7 +29,7 @@ return [
         'twitter' => [
             'label' => 'Twitter',
             'prefix' => 'https://twitter.com/',
-            'icon' => 'ri-twitter-fill',
+            'icon' => 'ri-twitter-x-fill',
         ],
         'youtube' => [
             'label' => 'YouTube',
