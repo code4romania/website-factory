@@ -1,6 +1,6 @@
 import { createApp, h } from 'vue';
 import { createInertiaApp, Head, Link } from '@inertiajs/vue3';
-import { ZiggyVue } from 'ziggy-js/dist/vue';
+import { ZiggyVue } from 'ziggy-js';
 import mitt from 'mitt';
 import VueClickAway from 'vue3-click-away';
 
