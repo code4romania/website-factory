@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "99b5e8c5da58ded41ad0105b3c2512a6",
+    "content-hash": "bd7175ab44796e8aa2515a33f4985008",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -66,29 +66,29 @@
         },
         {
             "name": "archtechx/laravel-seo",
-            "version": "v0.9.0",
+            "version": "v0.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/archtechx/laravel-seo.git",
-                "reference": "6d6903ad6254f854387de6c42f811f4d51561f23"
+                "reference": "76d0f9efac160e499daae2d1a79e2d09ca0daaae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/archtechx/laravel-seo/zipball/6d6903ad6254f854387de6c42f811f4d51561f23",
-                "reference": "6d6903ad6254f854387de6c42f811f4d51561f23",
+                "url": "https://api.github.com/repos/archtechx/laravel-seo/zipball/76d0f9efac160e499daae2d1a79e2d09ca0daaae",
+                "reference": "76d0f9efac160e499daae2d1a79e2d09ca0daaae",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "^8.24|^9.0|^10.0",
-                "illuminate/view": "^8.24|^9.0|^10.0",
-                "php": "^8.0"
+                "illuminate/support": "^10.0|^11.0",
+                "illuminate/view": "^10.0|^11.0",
+                "php": "^8.2"
             },
             "require-dev": {
                 "intervention/image": "^2.7",
-                "nunomaduro/larastan": "^1.0|^2.4",
-                "orchestra/testbench": "^6.23|^7.0|^8.0",
-                "pestphp/pest": "^1.2|^2.0",
-                "pestphp/pest-plugin-laravel": "^1.0|^2.0"
+                "nunomaduro/larastan": "^2.4",
+                "orchestra/testbench": "^8.0|^9.0",
+                "pestphp/pest": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0"
             },
             "type": "library",
             "extra": {
@@ -118,9 +118,9 @@
             ],
             "support": {
                 "issues": "https://github.com/archtechx/laravel-seo/issues",
-                "source": "https://github.com/archtechx/laravel-seo/tree/v0.9.0"
+                "source": "https://github.com/archtechx/laravel-seo/tree/v0.10.1"
             },
-            "time": "2023-05-31T17:02:49+00:00"
+            "time": "2024-05-03T22:09:30+00:00"
         },
         {
             "name": "aws/aws-crt-php",
