@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dee8dc41a2d8161aa56e33aaa098494c",
+    "content-hash": "aae8a0ea6634b5c07d052d432c1f5da6",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -6289,25 +6289,25 @@
         },
         {
             "name": "spatie/laravel-translation-loader",
-            "version": "2.7.6",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-translation-loader.git",
-                "reference": "b45980636d3d60a3426ac44f5a51517bca8cb63a"
+                "reference": "aaf88739159ec415137738e4cc2b93b179fc1094"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-translation-loader/zipball/b45980636d3d60a3426ac44f5a51517bca8cb63a",
-                "reference": "b45980636d3d60a3426ac44f5a51517bca8cb63a",
+                "url": "https://api.github.com/repos/spatie/laravel-translation-loader/zipball/aaf88739159ec415137738e4cc2b93b179fc1094",
+                "reference": "aaf88739159ec415137738e4cc2b93b179fc1094",
                 "shasum": ""
             },
             "require": {
-                "illuminate/translation": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/translation": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
                 "php": "^7.2|^8.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0|^8.0",
-                "phpunit/phpunit": "^8.0|^9.0"
+                "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0|^8.0|^9.0",
+                "phpunit/phpunit": "^8.0|^9.0|^10.5"
             },
             "type": "library",
             "extra": {
@@ -6347,7 +6347,7 @@
                 "translate"
             ],
             "support": {
-                "source": "https://github.com/spatie/laravel-translation-loader/tree/2.7.6"
+                "source": "https://github.com/spatie/laravel-translation-loader/tree/2.8.0"
             },
             "funding": [
                 {
@@ -6355,7 +6355,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2023-02-07T10:08:04+00:00"
+            "time": "2024-03-02T05:30:59+00:00"
         },
         {
             "name": "symfony/azure-mailer",
