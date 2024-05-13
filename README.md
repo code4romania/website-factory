@@ -18,7 +18,7 @@ This project is built by amazing volunteers and you can be one of them! Here's a
 -   Alpine.js
 
 ### Requirements
--   PHP 8.1+
+-   PHP 8.2
 -   Nginx
 -   PostgreSQL 14+
 
