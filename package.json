@@ -51,7 +51,7 @@
         "@tiptap/extension-underline": "^2.4.0",
         "@tiptap/pm": "^2.4.0",
         "@tiptap/vue-3": "^2.4.0",
-        "@vitejs/plugin-vue": "^5.0.4",
+        "@vitejs/plugin-vue": "^5.0.5",
         "@vue/compiler-sfc": "^3.4.27",
         "@vueuse/core": "^10.11.0",
         "@vueuse/integrations": "^10.11.0",
