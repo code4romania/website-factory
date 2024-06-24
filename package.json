@@ -72,7 +72,7 @@
         "prettier": "^3.0.0",
         "prettier-plugin-tailwindcss": "^0.6.1",
         "remixicon": "^3.5.0",
-        "slug": "^9.0.0",
+        "slug": "^9.1.0",
         "tailwindcss": "^3.4.3",
         "uniqid": "^5.4.0",
         "uuid": "^9.0.1",
