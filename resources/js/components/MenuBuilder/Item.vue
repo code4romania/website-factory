@@ -34,7 +34,7 @@
                         class="ml-3 text-gray-400 hover:text-gray-900 focus:outline-none"
                     >
                         <icon
-                            name="System/arrow-down-s-line"
+                            name="Arrows/arrow-down-s-line"
                             class="w-5 h-5 text-gray-400"
                             :class="{ '-rotate-90': collapsed }"
                         />
