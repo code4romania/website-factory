@@ -7,6 +7,7 @@ namespace App\Http\Requests\Admin;
 use App\Models\Page;
 use App\Services\TranslatableFormRequestRules;
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
+use Illuminate\Validation\Rule;
 
 class PageRequest extends BaseRequest
 {
@@ -22,7 +23,7 @@ class PageRequest extends BaseRequest
             'slug' => ['nullable', 'string', 'max:200'],
             'description' => ['nullable', 'string'],
             'published_at' => ['nullable', 'date'],
-            'parent' => ['nullable', 'exists:pages,id'],
+            'parent' => ['nullable', Rule::exists('pages', 'id')->whereNull('deleted_at')],
             'media' => ['array'],
             'media.*.id' => ['required', 'exists:media'],
             'blocks' => ['array'],
