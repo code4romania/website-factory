@@ -5,7 +5,7 @@
 
             <icon
                 v-if="withArrow"
-                name="System/arrow-down-s-line"
+                name="Arrows/arrow-down-s-line"
                 class="w-4 h-4 shrink-0"
                 :class="iconClass"
             />
