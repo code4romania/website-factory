@@ -59,6 +59,7 @@
 
             <form-select
                 :label="$t('field.parent')"
+                name="parent"
                 v-model="form.parent"
                 :options="pages"
                 option-value-key="id"
