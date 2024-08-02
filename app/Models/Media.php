@@ -8,7 +8,7 @@ use App\Traits\Sortable;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\Laravel\Facades\Image;
 use Plank\Mediable\Jobs\CreateImageVariants;
 use Plank\Mediable\Media as BaseMedia;
 
@@ -35,7 +35,7 @@ class Media extends BaseMedia
     {
         static::saving(function (self $media) {
             if ($media->aggregate_type === self::TYPE_IMAGE) {
-                $image = Image::make($media->contents());
+                $image = Image::read($media->contents());
 
                 $media->forceFill([
                     'width' => $image->width(),
