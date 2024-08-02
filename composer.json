@@ -13,7 +13,7 @@
         "php": "^8.2",
         "andreiio/blade-remix-icon": "^3.2",
         "archtechx/laravel-seo": "^0.10",
-        "blade-ui-kit/blade-icons": "^1.6",
+        "blade-ui-kit/blade-icons": "^1.7",
         "embed/embed": "^4.4",
         "guzzlehttp/guzzle": "^7.9",
         "hafael/azure-mailer-driver": "^0.3.0",
