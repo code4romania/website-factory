@@ -22,8 +22,6 @@ abstract class TestCase extends BaseTestCase
     public function boot(): void
     {
         $this->afterApplicationCreated(function () {
-            $this->withoutVite();
-
             Language::insert([
                 [
                     'code' => 'ro',
