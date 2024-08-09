@@ -9,4 +9,6 @@ return [
         'develop' => 'develop',
     ],
     'government' => 'Website creat cu Website Factory: Guvern. O soluție dezvoltată de Asociația Code for Romania (Commit Global) și pusă gratuit la dispoziția administrației publice.',
+    'report_issue' => 'Raportează o problemă',
+    'disclaimer' => 'Notă',
 ];
