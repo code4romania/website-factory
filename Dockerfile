@@ -21,12 +21,14 @@ RUN npm run build
 
 FROM php:8.2-fpm-alpine
 
-ARG S6_OVERLAY_VERSION=3.1.6.2
+ARG S6_OVERLAY_VERSION=3.2.0.0
 
 ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz /tmp
 RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
 ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-x86_64.tar.xz /tmp
 RUN tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz
+
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 
 ENTRYPOINT ["/init"]
 
@@ -37,52 +39,22 @@ COPY docker/php/www.conf /usr/local/etc/php-fpm.d/zz-docker.conf
 COPY docker/s6-rc.d /etc/s6-overlay/s6-rc.d
 
 RUN apk update && \
-    # build dependencies
-    apk add --no-cache --virtual .build-deps \
-    bzip2-dev \
-    curl-dev \
-    freetype-dev \
-    libjpeg-turbo-dev \
-    libpng-dev \
-    libwebp-dev \
-    libxml2-dev \
-    libzip-dev \
-    postgresql-dev \
-    zlib-dev \
-    zip && \
-    #
-    # production dependencies
+    # dependencies
     apk add --no-cache \
-    icu-libs \
-    libjpeg-turbo \
-    libpng \
-    libwebp \
-    libzip \
-    nginx \
-    php-pgsql && \
-    #
-    # configure extensions
-    docker-php-ext-configure gd --enable-gd --with-jpeg --with-webp && \
-    #
-    # install redis
-    pecl install redis && \
-    docker-php-ext-enable redis && \
+    nginx && \
     #
     # install extensions
-    docker-php-ext-install \
+    install-php-extensions \
     bcmath \
-    curl \
-    dom \
-    fileinfo \
+    event \
+    excimer \
+    exif \
     gd \
     intl \
     opcache \
     pdo_pgsql \
-    simplexml \
-    zip && \
-    #
-    # cleanup
-    apk del -f .build-deps
+    pcntl \
+    zip
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp
@@ -106,12 +78,6 @@ RUN composer install \
     --no-dev \
     --prefer-dist
 
-ENV APP_ENV production
-ENV APP_DEBUG false
 ENV LOG_CHANNEL stderr
-
-ENV WEBSITE_FACTORY_EDITION ong
-
-ENV S6_CMD_WAIT_FOR_SERVICES_MAXTIME 0
 
 EXPOSE 80
