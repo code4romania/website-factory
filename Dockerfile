@@ -50,7 +50,6 @@ RUN apk update && \
     excimer \
     exif \
     gd \
-    imagick \
     intl \
     opcache \
     pdo_pgsql \
