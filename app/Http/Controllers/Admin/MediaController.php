@@ -14,6 +14,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Plank\Mediable\Exceptions\MediaUploadException;
 use Plank\Mediable\Facades\MediaUploader;
 use Plank\Mediable\HandlesMediaUploadExceptions;
+use Throwable;
 
 class MediaController extends Controller
 {
@@ -41,7 +42,7 @@ class MediaController extends Controller
         );
     }
 
-    public function store(MediaStoreRequest $request): JsonResource
+    public function store(MediaStoreRequest $request): JsonResource|JsonResponse
     {
         try {
             $media = MediaUploader::fromSource($request->file('file'))
@@ -50,6 +51,9 @@ class MediaController extends Controller
             return MediaResource::make($media);
         } catch (MediaUploadException $e) {
             throw $this->transformMediaUploadException($e);
+        } catch (Throwable $e) {
+            return response()
+                ->json(['message' => $e->getMessage()], $e->getCode());
         }
     }
 
