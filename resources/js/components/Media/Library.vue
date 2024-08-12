@@ -324,8 +324,6 @@
                             (item) => item.replaces === replaces
                         );
 
-                        console.log(error);
-
                         items.value[index].loading = false;
                         items.value[index].error = error.response.data.message;
                     },
