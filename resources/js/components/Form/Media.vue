@@ -53,9 +53,10 @@
                         />
 
                         <div class="flex-1 w-0 shrink">
-                            <div class="font-bold truncate">
-                                {{ element.filename }}.{{ element.extension }}
-                            </div>
+                            <div
+                                class="font-bold truncate"
+                                v-text="element.filename"
+                            />
                             <div class="truncate" v-text="element.size" />
                         </div>
 

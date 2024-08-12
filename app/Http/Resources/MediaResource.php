@@ -17,7 +17,7 @@ class MediaResource extends Resource
         $resource = [
             'id' => $this->id,
             'directory' => $this->directory,
-            'filename' => $this->filename,
+            'filename' => $this->filename . '.' . $this->extension,
             'extension' => $this->extension,
             'mime_type' => $this->mime_type,
             'aggregate_type' => $this->aggregate_type,
