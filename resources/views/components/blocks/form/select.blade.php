@@ -9,7 +9,7 @@
             'x-init' => 'initializeField',
         ]) }}>
 
-        <option {{ !old($block->name) ? 'selected' : '' }} value="" disabled>
+        <option {{ !old($block->name) ? 'selected' : '' }} value="" hidden>
             &mdash;
         </option>
 
