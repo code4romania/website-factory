@@ -21,7 +21,7 @@
         "intervention/image-laravel": "^1.3",
         "kalnoy/nestedset": "^6.0",
         "laravel/framework": "^10.48",
-        "laravel/tinker": "^2.9",
+        "laravel/tinker": "^2.10",
         "league/flysystem-aws-s3-v3": "^3.29",
         "league/omnipay": "^3.2",
         "maatwebsite/excel": "^3.1",
