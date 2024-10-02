@@ -12,29 +12,29 @@
                 class="hover:text-blue-600 focus:text-blue-600 focus:outline-0 hover:underline focus:underline"
                 href="https://www.commitglobal.org"
                 target="_blank"
-                rel="noopener"
-            >
+                rel="noopener">
                 {{ $text }}
             </a>
-            <div class="flex gap-1 leading-relaxed">
-                <a
-                    class="font-semibold hover:underline focus:underline"
-                    href="https://www.commitglobal.org/en/disclaimer-website-factory"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    @lang('banner.disclaimer')
-                </a>
-                <span class="text-gray-500" aria-hidden="true">|</span>
-                <a
-                    class="font-semibold hover:underline focus:underline"
-                    href="https://www.commitglobal.org/en/forms/report-website-factory"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    @lang('banner.report_issue')
-                </a>
-            </div>
+
+            @if ($isExternalSite)
+                <div class="flex gap-1 leading-relaxed">
+                    <a
+                        class="font-semibold hover:underline focus:underline"
+                        href="https://www.commitglobal.org/en/disclaimer-website-factory"
+                        target="_blank"
+                        rel="noopener">
+                        @lang('banner.disclaimer')
+                    </a>
+                    <span class="text-gray-500" aria-hidden="true">|</span>
+                    <a
+                        class="font-semibold hover:underline focus:underline"
+                        href="https://www.commitglobal.org/en/forms/report-website-factory"
+                        target="_blank"
+                        rel="noopener">
+                        @lang('banner.report_issue')
+                    </a>
+                </div>
+            @endif
         </div>
     </div>
 </aside>
