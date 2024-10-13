@@ -32,6 +32,22 @@
                     />
                 </label>
             </div>
+            asdasd
+            {{ enable_other }}
+            <div class="flex flex-wrap gap-4" v-if="enable_other">
+                <label
+                    class="flex space-x-2"
+                >
+                    <input
+                        type="text"
+                        name="other"
+                        class="text-blue-600 border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 my-0.5"
+                        value=""
+                    />
+                    <span
+                        class="text-sm font-medium text-gray-700">Other</span>
+                </label>
+            </div>
 
             <p
                 v-if="help"
