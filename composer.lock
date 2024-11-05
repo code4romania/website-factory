@@ -1493,16 +1493,16 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8"
+                "reference": "f9c436286ab2892c7db7be8c8da4ef61ccf7b455"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8",
-                "reference": "6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/f9c436286ab2892c7db7be8c8da4ef61ccf7b455",
+                "reference": "f9c436286ab2892c7db7be8c8da4ef61ccf7b455",
                 "shasum": ""
             },
             "require": {
@@ -1556,7 +1556,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.0.3"
+                "source": "https://github.com/guzzle/promises/tree/2.0.4"
             },
             "funding": [
                 {
@@ -1572,7 +1572,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-18T10:29:17+00:00"
+            "time": "2024-10-17T10:06:22+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -9499,16 +9499,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.14.2",
+            "version": "v3.14.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "850be4e3c05add22d70a3a3fb564925fd7605973"
+                "reference": "14e4517bd49130d6119228107eb21ae47ae120ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/850be4e3c05add22d70a3a3fb564925fd7605973",
-                "reference": "850be4e3c05add22d70a3a3fb564925fd7605973",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/14e4517bd49130d6119228107eb21ae47ae120ab",
+                "reference": "14e4517bd49130d6119228107eb21ae47ae120ab",
                 "shasum": ""
             },
             "require": {
@@ -9567,7 +9567,7 @@
             ],
             "support": {
                 "issues": "https://github.com/barryvdh/laravel-debugbar/issues",
-                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.14.2"
+                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.14.6"
             },
             "funding": [
                 {
@@ -9579,7 +9579,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-24T17:03:19+00:00"
+            "time": "2024-10-18T13:15:12+00:00"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -10592,16 +10592,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "v1.23.2",
+            "version": "v1.23.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "689720d724c771ac4add859056744b7b3f2406da"
+                "reference": "687400043d77943ef95e8417cb44e1673ee57844"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/689720d724c771ac4add859056744b7b3f2406da",
-                "reference": "689720d724c771ac4add859056744b7b3f2406da",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/687400043d77943ef95e8417cb44e1673ee57844",
+                "reference": "687400043d77943ef95e8417cb44e1673ee57844",
                 "shasum": ""
             },
             "require": {
@@ -10654,9 +10654,9 @@
             ],
             "support": {
                 "issues": "https://github.com/maximebf/php-debugbar/issues",
-                "source": "https://github.com/maximebf/php-debugbar/tree/v1.23.2"
+                "source": "https://github.com/maximebf/php-debugbar/tree/v1.23.3"
             },
-            "time": "2024-09-16T11:23:09+00:00"
+            "time": "2024-10-29T12:24:25+00:00"
         },
         {
             "name": "mockery/mockery",
