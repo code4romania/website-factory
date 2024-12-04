@@ -60,7 +60,7 @@
         "axios": "^1.7.8",
         "echarts": "^5.5.1",
         "fuse.js": "^7.0.0",
-        "husky": "^9.1.6",
+        "husky": "^9.1.7",
         "laravel-vite-plugin": "^1.0.6",
         "laravel-vue-i18n": "^2.7.8",
         "latinize": "^2.0.0",
