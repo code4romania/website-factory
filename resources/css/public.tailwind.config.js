@@ -13,7 +13,7 @@ const colorVariable = (variable) => {
 };
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
     theme: {
         container: {
             center: true,
@@ -168,8 +168,8 @@ module.exports = {
         'resources/views/**/*.blade.php',
     ],
     plugins: [
-        require('@tailwindcss/aspect-ratio'),
-        require('@tailwindcss/forms'),
-        require('@tailwindcss/typography'),
+        import('@tailwindcss/aspect-ratio'),
+        import('@tailwindcss/forms'),
+        import('@tailwindcss/typography'),
     ],
 };
