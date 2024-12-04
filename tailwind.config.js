@@ -90,8 +90,8 @@ export default {
         'resources/js/**/*.js',
     ],
     plugins: [
-        require('@tailwindcss/aspect-ratio'),
-        require('@tailwindcss/forms'),
-        require('@tailwindcss/typography'),
+        import('@tailwindcss/aspect-ratio'),
+        import('@tailwindcss/forms'),
+        import('@tailwindcss/typography'),
     ],
 };
