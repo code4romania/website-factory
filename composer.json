@@ -41,7 +41,7 @@
         "barryvdh/laravel-ide-helper": "^3.1",
         "fakerphp/faker": "^1.24",
         "friendsofphp/php-cs-fixer": "^3.65",
-        "itsgoingd/clockwork": "^5.2",
+        "itsgoingd/clockwork": "^5.3",
         "laravel/sail": "^1.39",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^7.10",
