@@ -9,6 +9,7 @@ use App\Models\Language;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Foundation\Testing\WithFaker;
+use PHPUnit\Framework\Attributes\Before;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -16,9 +17,7 @@ abstract class TestCase extends BaseTestCase
     use LazilyRefreshDatabase;
     use WithFaker;
 
-    /**
-     * @before
-     */
+    #[Before]
     public function boot(): void
     {
         $this->afterApplicationCreated(function () {
