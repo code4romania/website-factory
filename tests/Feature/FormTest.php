@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace Tests\Feature;
 
 use App\Models\Form;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class FormTest extends TestCase
 {
-    /** @dataProvider fields */
-    public function test_it_generates_form_fields(array $expected)
+    #[Test]
+    #[DataProvider('fields')]
+    public function it_generates_form_fields(array $expected)
     {
         $form = Form::factory()
             ->withField($expected)
@@ -60,8 +63,9 @@ class FormTest extends TestCase
         );
     }
 
-    /** @dataProvider fields */
-    public function test_it_accepts_valid_submissions(array $expected, array $input)
+    #[Test]
+    #[DataProvider('fields')]
+    public function it_accepts_valid_submissions(array $expected, array $input)
     {
         $form = Form::factory()
             ->withField($expected)
@@ -76,8 +80,9 @@ class FormTest extends TestCase
         $response->assertValid($field->name);
     }
 
-    /** @dataProvider fields */
-    public function test_it_rejects_invalid_submissions(array $expected, array $input)
+    #[Test]
+    #[DataProvider('fields')]
+    public function it_rejects_invalid_submissions(array $expected, array $input)
     {
         $form = Form::factory()
             ->withField($expected)
