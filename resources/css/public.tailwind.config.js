@@ -1,3 +1,7 @@
+import aspectRatio from '@tailwindcss/aspect-ratio';
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
+
 const colorVariable = (variable) => {
     return ({ opacityVariable, opacityValue }) => {
         if (opacityValue !== undefined) {
@@ -168,8 +172,9 @@ export default {
         'resources/views/**/*.blade.php',
     ],
     plugins: [
-        import('@tailwindcss/aspect-ratio'),
-        import('@tailwindcss/forms'),
-        import('@tailwindcss/typography'),
+        //
+        aspectRatio,
+        forms,
+        typography,
     ],
 };
