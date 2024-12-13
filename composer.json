@@ -11,6 +11,7 @@
     "license": "MPL-2.0",
     "require": {
         "php": "^8.2",
+        "ext-imagick": "*",
         "andreiio/blade-remix-icon": "^3.2",
         "archtechx/laravel-seo": "^0.10",
         "blade-ui-kit/blade-icons": "^1.7",
