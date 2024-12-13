@@ -18,7 +18,7 @@ return [
     |
     */
 
-    'driver' => Intervention\Image\Drivers\Gd\Driver::class,
+    'driver' => Intervention\Image\Drivers\Imagick\Driver::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -38,7 +38,7 @@ return [
 
     'options' => [
         'autoOrientation' => true,
-        'decodeAnimation' => false,
+        'decodeAnimation' => true,
         'blendingColor' => 'ffffff',
     ],
 ];
