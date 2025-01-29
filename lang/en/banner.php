@@ -11,6 +11,7 @@ return [
         'primarie' => 'Town Hall',
         'government' => 'Government',
         'ong' => 'NGO',
+        'school' => 'Schools',
         'develop' => 'develop',
     ],
 

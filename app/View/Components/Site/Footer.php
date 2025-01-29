@@ -58,6 +58,13 @@ class Footer extends Component
             return __('banner.government');
         }
 
+        if (Features::isSchoolSite()) {
+            return __('banner.external', [
+                'edition' => __('banner.edition.' . config('website-factory.edition')),
+                'organization' => 'Code for Romania',
+            ]);
+        }
+
         return __('banner.external', [
             'edition' => __('banner.edition.' . config('website-factory.edition')),
             'organization' => 'Commit Global',
