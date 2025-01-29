@@ -22,6 +22,10 @@ class SetLocale
 
         // Set default locale as fallback
         tap(settings('site.default_locale'), function ($locale) {
+            if (\is_null($locale)) {
+                $locale = active_locales()->keys()->first();
+            }
+
             if (active_locales()->has($locale)) {
                 app()->setFallbackLocale($locale);
             }
