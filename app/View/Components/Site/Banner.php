@@ -23,6 +23,10 @@ class Banner extends Component
 
     public function render(): View
     {
+        if (Features::isSchoolSite()) {
+            return view('components.site.banner-school');
+        }
+
         return view('components.site.banner');
     }
 
