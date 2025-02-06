@@ -19,7 +19,7 @@
         "guzzlehttp/guzzle": "^7.9",
         "hafael/azure-mailer-driver": "^0.3.0",
         "inertiajs/inertia-laravel": "^1.3",
-        "intervention/image-laravel": "^1.3",
+        "intervention/image-laravel": "^1.4",
         "kalnoy/nestedset": "^6.0",
         "laravel/framework": "^11.34",
         "laravel/tinker": "^2.10",
