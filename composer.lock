@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "016033634b8d041da5bfcd3bec8343a0",
+    "content-hash": "71b2d5fcc6a50820c020cce5c37389a2",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -1857,21 +1857,25 @@
         },
         {
             "name": "hafael/azure-mailer-driver",
-            "version": "v0.3.0",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hafael/azure-mailer-driver.git",
-                "reference": "e793d5650802127f2ed89f21cc409508939cec7c"
+                "reference": "52719b902b70d0b710943a4ed353bf21a9fa9f63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hafael/azure-mailer-driver/zipball/e793d5650802127f2ed89f21cc409508939cec7c",
-                "reference": "e793d5650802127f2ed89f21cc409508939cec7c",
+                "url": "https://api.github.com/repos/hafael/azure-mailer-driver/zipball/52719b902b70d0b710943a4ed353bf21a9fa9f63",
+                "reference": "52719b902b70d0b710943a4ed353bf21a9fa9f63",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2",
-                "symfony/azure-mailer": "^7.0"
+                "symfony/azure-mailer": "^7.2",
+                "symfony/mailer": "^7.2"
+            },
+            "require-dev": {
+                "symfony/http-client": "^6.4|^7.0"
             },
             "type": "library",
             "extra": {
@@ -1919,9 +1923,9 @@
             ],
             "support": {
                 "issues": "https://github.com/hafael/azure-mailer-driver/issues",
-                "source": "https://github.com/hafael/azure-mailer-driver/tree/v0.3.0"
+                "source": "https://github.com/hafael/azure-mailer-driver/tree/v7.2.0"
             },
-            "time": "2023-12-10T21:37:47+00:00"
+            "time": "2024-11-30T20:21:39+00:00"
         },
         {
             "name": "inertiajs/inertia-laravel",
