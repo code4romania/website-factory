@@ -50,10 +50,15 @@ class MediaController extends Controller
 
             return MediaResource::make($media);
         } catch (MediaUploadException $e) {
-            throw $this->transformMediaUploadException($e);
-        } catch (Throwable $e) {
+            $e = $this->transformMediaUploadException($e);
+
             return response()
                 ->json(['message' => $e->getMessage()], $e->getCode());
+        } catch (Throwable $e) {
+            report($e);
+
+            return response()
+                ->json(['message' => __('error.500.title')], 500);
         }
     }
 
