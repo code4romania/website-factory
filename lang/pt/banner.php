@@ -5,6 +5,7 @@ return [
         'government' => 'Governo',
         'ong' => 'ONG',
         'develop' => 'desenvolver',
+        'school' => 'Escolas',
     ],
     'internal' => 'Uma solução :organization.',
     'external' => 'Sítio construído com Website Factory: :edition, uma solução desenvolvida por :organization.',
