@@ -14,7 +14,7 @@
         "ext-imagick": "*",
         "andreiio/blade-remix-icon": "^3.2",
         "archtechx/laravel-seo": "^0.10",
-        "blade-ui-kit/blade-icons": "^1.7",
+        "blade-ui-kit/blade-icons": "^1.8",
         "embed/embed": "^4.4",
         "guzzlehttp/guzzle": "^7.9",
         "hafael/azure-mailer-driver": "^7.2.0",
