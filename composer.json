@@ -29,7 +29,7 @@
         "matthewbdaly/laravel-azure-storage": "^2.0",
         "netopia/payment": "^1.1",
         "plank/laravel-mediable": "^6.2",
-        "sentry/sentry-laravel": "^4.12",
+        "sentry/sentry-laravel": "^4.13",
         "spatie/laravel-responsecache": "^7.6",
         "spatie/laravel-translatable": "^6.10",
         "spatie/laravel-translation-loader": "^2.8",
