@@ -2287,22 +2287,22 @@
         },
         {
             "name": "kalnoy/nestedset",
-            "version": "v6.0.4",
+            "version": "v6.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lazychaser/laravel-nestedset.git",
-                "reference": "d81102c980b9962516c0fd8fda21dd916a23a3d7"
+                "reference": "fa3f77bb96709eb6b394f66b54eb08f0d8d47d63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/d81102c980b9962516c0fd8fda21dd916a23a3d7",
-                "reference": "d81102c980b9962516c0fd8fda21dd916a23a3d7",
+                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/fa3f77bb96709eb6b394f66b54eb08f0d8d47d63",
+                "reference": "fa3f77bb96709eb6b394f66b54eb08f0d8d47d63",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "^7.0|^8.0|^9.0|^10.0|^11.0",
-                "illuminate/events": "^7.0|^8.0|^9.0|^10.0|^11.0",
-                "illuminate/support": "^7.0|^8.0|^9.0|^10.0|^11.0",
+                "illuminate/database": "^7.0|^8.0|^9.0|^10.0|^11.0|^12.0",
+                "illuminate/events": "^7.0|^8.0|^9.0|^10.0|^11.0|^12.0",
+                "illuminate/support": "^7.0|^8.0|^9.0|^10.0|^11.0|^12.0",
                 "php": "^7.2.5|^8.0"
             },
             "require-dev": {
@@ -2344,9 +2344,9 @@
             ],
             "support": {
                 "issues": "https://github.com/lazychaser/laravel-nestedset/issues",
-                "source": "https://github.com/lazychaser/laravel-nestedset/tree/v6.0.4"
+                "source": "https://github.com/lazychaser/laravel-nestedset/tree/v6.0.5"
             },
-            "time": "2024-04-08T06:10:42+00:00"
+            "time": "2025-02-25T11:09:07+00:00"
         },
         {
             "name": "laravel/framework",
