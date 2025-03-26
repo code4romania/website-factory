@@ -6729,25 +6729,27 @@
         },
         {
             "name": "spatie/laravel-translation-loader",
-            "version": "2.8.1",
+            "version": "2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-translation-loader.git",
-                "reference": "c946d94915bd86167d61cb05823fec991eb51a08"
+                "reference": "2a502e69aa681540bb7266397a846db466e48b66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-translation-loader/zipball/c946d94915bd86167d61cb05823fec991eb51a08",
-                "reference": "c946d94915bd86167d61cb05823fec991eb51a08",
+                "url": "https://api.github.com/repos/spatie/laravel-translation-loader/zipball/2a502e69aa681540bb7266397a846db466e48b66",
+                "reference": "2a502e69aa681540bb7266397a846db466e48b66",
                 "shasum": ""
             },
             "require": {
-                "illuminate/translation": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
-                "php": "^7.2|^8.0"
+                "illuminate/translation": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0|^12.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.12"
             },
             "require-dev": {
-                "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0|^8.0|^9.0",
-                "phpunit/phpunit": "^8.0|^9.0|^10.5"
+                "friendsofphp/php-cs-fixer": "^3.59",
+                "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "pestphp/pest": "^1.23|^2.0|^3.7"
             },
             "type": "library",
             "extra": {
@@ -6787,7 +6789,7 @@
                 "translate"
             ],
             "support": {
-                "source": "https://github.com/spatie/laravel-translation-loader/tree/2.8.1"
+                "source": "https://github.com/spatie/laravel-translation-loader/tree/2.8.2"
             },
             "funding": [
                 {
@@ -6795,7 +6797,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2024-12-09T15:07:24+00:00"
+            "time": "2025-02-21T11:45:43+00:00"
         },
         {
             "name": "symfony/azure-mailer",
