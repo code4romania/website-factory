@@ -31,7 +31,7 @@
         "plank/laravel-mediable": "^6.3",
         "sentry/sentry-laravel": "^4.13",
         "spatie/laravel-responsecache": "^7.6",
-        "spatie/laravel-translatable": "^6.10",
+        "spatie/laravel-translatable": "^6.11",
         "spatie/laravel-translation-loader": "^2.8",
         "symfony/http-client": "^7.2",
         "symfony/yaml": "^7.1",
