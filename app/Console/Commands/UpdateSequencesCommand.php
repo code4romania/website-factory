@@ -70,30 +70,26 @@ class UpdateSequencesCommand extends Command
      *
      * @link https://wiki.postgresql.org/wiki/Fixing_Sequences
      *
-     * @return \Illuminate\Support\Collection
+     * @return Collection
      */
     protected function getSequences(): Collection
     {
         $rows = DB::select(<<<'SQL'
             SELECT
-                S.relname as seq,
-                T.relname as table,
-                pg_attribute.attname as pkey
+                s.relname AS seq,
+                t.relname AS table,
+                a.attname AS pkey
             FROM
-                pg_class AS S,
-                pg_class AS T,
-                pg_depend,
-                pg_attribute,
-                pg_tables
+                pg_class s
+                JOIN pg_depend d ON d.objid = s.oid AND d.classid = 'pg_class'::regclass AND d.refclassid = 'pg_class'::regclass
+                JOIN pg_class t ON t.oid = d.refobjid
+                JOIN pg_namespace n ON n.oid = t.relnamespace
+                JOIN pg_attribute a ON a.attrelid = t.oid AND a.attnum = d.refobjsubid
             WHERE
-                S.relkind = 'S'
-                AND S.oid = pg_depend.objid
-                AND pg_depend.refobjid = T.oid
-                AND pg_depend.refobjid = pg_attribute.attrelid
-                AND pg_depend.refobjsubid = pg_attribute.attnum
-                AND T.relname = pg_tables.tablename
+                s.relkind = 'S'
+                AND d.deptype = 'a'
             ORDER BY
-                S.relname;
+                s.relname;
         SQL);
 
         $tables = collect($this->option('table'))
