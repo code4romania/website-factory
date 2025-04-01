@@ -9,8 +9,8 @@
         "test": "jest"
     },
     "devDependencies": {
-        "@alpinejs/collapse": "^3.14.8",
-        "@alpinejs/persist": "^3.14.8",
+        "@alpinejs/collapse": "^3.14.9",
+        "@alpinejs/persist": "^3.14.9",
         "@ckpack/vue-color": "^1.5.0",
         "@headlessui/vue": "^1.7.23",
         "@inertiajs/vue3": "^2.0.3",
@@ -55,7 +55,7 @@
         "@vue/compiler-sfc": "^3.5.13",
         "@vueuse/core": "12.7.0",
         "@vueuse/integrations": "12.7.0",
-        "alpinejs": "^3.14.8",
+        "alpinejs": "^3.14.9",
         "autoprefixer": "^10.4.20",
         "axios": "^1.8.4",
         "echarts": "^5.6.0",
