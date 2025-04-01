@@ -68,7 +68,7 @@
         "luminous-lightbox": "^2.4.0",
         "mitt": "^3.0.1",
         "postcss": "^8.5.3",
-        "postcss-100vh-fix": "^1.0.2",
+        "postcss-100vh-fix": "^2.0.0",
         "prettier": "^3.0.0",
         "prettier-plugin-tailwindcss": "^0.6.11",
         "remixicon": "^3.5.0",
