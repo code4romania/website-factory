@@ -8,8 +8,8 @@ video: true
 </div>
 
 Formularele au diferite utilizări în economia website-ului unei
-organizații. Acestea pot fi folosite în pagina de contact, pentru ca cei
-care urmăresc activitatea organizației să poată transmite un mesaj
+unități de învățământ. Acestea pot fi folosite în pagina de contact, pentru ca cei
+care urmăresc activitatea unități de învățământ să poată transmite un mesaj
 direct prin website, pot fi un instrument pe care îl folosești pentru a
 înregistra participanții la un eveniment sau pot reprezenta un mecanism
 prin care poți măsura eficiența campaniilor de comunicare prin cererea
