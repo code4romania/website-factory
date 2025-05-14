@@ -3,9 +3,9 @@ title: "Introducere în utilizarea Website Factory: Școli"
 ---
 
 Website Factory: Școli este un constructor de website-uri croit după
-nevoile societății civile, pliat pe necesarul de comunicare al
-fiecăruia. Simplu și intuitiv, Website Factory: Școli va ajuta fiecare
-organizație să construiască rapid platforma de care are nevoie.
+nevoile unităților de învățământ de stat, pliat pe necesarul de comunicare al
+fiecăreia. Simplu și intuitiv, Website Factory: Școli va ajuta fiecare
+unitate de învățământ să construiască rapid platforma de care are nevoie.
 
 ## Codul sursă
 
