@@ -55,7 +55,7 @@ proporția cu ajutorul butoanelor din dreapta lui.
 ### Call to action
 
 - tip de bloc folosit pentru a determina utilizatorii să facă o
-  acțiune: să facă o donație, să afle mai multe despre un proiect
+  acțiune: să afle mai multe despre un proiect
   sau program sau să se înscrie la un eveniment
 - un bloc Call to action este format din: Titlu, Text, Text Buton și
   Link buton
@@ -86,44 +86,6 @@ proporția cu ajutorul butoanelor din dreapta lui.
   modifica diferite caracteristici ale paginii sau pentru a
   introduce elemente din alte surse
 - acest bloc are următoarele elemente: Titlu, Cod HTML, Proporție
-
----
-
-### Donații: EuPlătesc
-
-- tip de bloc folosit pentru a configura donații prin EuPlătesc
-- un bloc **Donații EuPlătesc** are următoarele elemente: Titlu, Text
-  (câmp în care poți introduce un mesaj care să îi determine pe
-  useri să facă o donație prin EuPlătesc)
-- Atenție: pentru a avea acest bloc de conținut activ este necesar să
-  aveți deja configurată integrarea cu EuPlătesc făcută în secțiunea
-  Setări din panoul de administrare.
-
----
-
-### Donații: Netopia
-
-- tip de bloc folosit pentru a configura donații prin Netopia
-- un bloc **Donații Netopia** are următoarele elemente: Titlu, Text
-  (câmp în care poți introduce un mesaj care să îi determine pe
-  useri să facă o donație prin EuPlătesc)
-- Atenție: pentru a avea acest bloc de conținut activ este necesar să
-  aveți deja configurată integrarea cu Netopia făcută în secțiunea
-  Setări din panoul de administrare.
-
----
-
-### Donații: PayPal
-
-- tip de bloc folosit pentru a configura donații prin PayPal
-- un bloc **Donații PayPal** are următoarele elemente: Titlu, Text (câmp
-  în care poți introduce un mesaj care să îi determine pe useri să facă
-  o donație prin PayPal) și ID buton PayPal (câmp în care se introduce
-  id-ul unic primit la deschiderea contului de PayPal)
-
-<a href="/build/help/017.png">
-    <img src="/build/help/017.png" />
-</a>
 
 ---
 
