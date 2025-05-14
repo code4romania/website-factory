@@ -4,7 +4,7 @@ title: "Gestionare răspunsuri"
 
 Pentru formularele la care a fost bifată opțiunea **Salvează
 răspunsurile în panou**, poți vizualiza răspunsurile direct în Website
-Factory: ONG. Pentru aceasta, este necesar să parcurgi următorii pași:
+Factory: Școli. Pentru aceasta, este necesar să parcurgi următorii pași:
 
 1)  Accesează panoul de administrare
 2)  Selectează din Meniul principal butonul **Formulare**

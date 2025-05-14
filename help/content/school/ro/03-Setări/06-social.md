@@ -1,5 +1,5 @@
 ---
-title: "Cum conectez conturile de social media ale organizației cu site-ul?"
+title: "Cum conectez conturile de social media ale unității de învățământ cu site-ul?"
 ---
 
 Pentru a integra conturile de social media ale organizației pe website,
@@ -10,7 +10,7 @@ este necesar să parcurgi următorii pași:
 3)  Selectează **Setări**
 4)  Selectează **Social media** din meniul secundar, care se regăsește
     sub meniul din headerul platformei.
-5)  Completează linkul către profilul organizației tale din fiecare
+5)  Completează linkul către profilul unității de învățământ din fiecare
     dintre platformele pe care le folosești în câmpul aferent fiecărei
     platforme Facebook, LinkedIn, Instagram, Twitter, Youtube, Github
 6)  Apasă **Salvează**

@@ -2,11 +2,11 @@
 title: "Cum integrez alte servicii precum Google Analytics sau Facebook Pixel?"
 ---
 
-În activitatea organizației tale este recomandat să integrezi și alte
+În activitatea unității de învățământ este recomandat să integrezi și alte
 servicii software care te ajută pe diferite planuri: Google Analytics
-pentru urmărirea activității de pe website-ul organizației, Mailchimp
+pentru urmărirea activității de pe website, Mailchimp
 sau alt serviciu de newsletter pentru a ține legătura cu oamenii care
-urmăresc activitatea ONG-ului, Facebook Pixel atunci când ai în
+urmăresc activitatea unității de învățământ, Facebook Pixel atunci când ai în
 desfășurarea campanii plătite pe Facebook care trimit către website sau
 alte softuri. Pentru această integrare, fiecare dintre serviciile
 folosite îți pun la dispoziție un cod HTML care este necesar să fie

@@ -8,7 +8,7 @@ Dacă ai finalizat construcția website-ului tău înainte de lansare
 verifică dacă acesta se vede bine pe toate tipurile de dispozitive.
 Așadar intră pe URL-ul site-ului tău din orice browser de pe un laptop,
 o tabletă și cel puțin un dispozitiv mobil cu Android și/sau Apple.
-Verifică paginile website-ului, pagina de donații, de contact și
+Verifică paginile website-ului, de contact și
 testează formularele dacă ai formulare configurate în site.
 
 ### Testează orice integrare cu alte sisteme
@@ -19,10 +19,6 @@ paginii, o scurtă descriere și o imagine. Aceste informații sunt cele
 care vor fi preluate atunci când, de exemplu, faci share unei pagini pe
 social media. Verifică dacă la share pe social media se distribuie
 imaginea corectă și titlurile corecte ale paginilor.
-
-Verifică integrarea cu operatorii de plăți online. Încearcă să faci o
-donație prin Netopia, EuPlatesc sau PayPal și testează că totul
-funcționează bine de la început la final.
 
 Dacă ai adăugat codul de urmărire de Google Analytics pentru a măsura
 traficul atunci verifică dacă datele se transmit corect și dacă Google

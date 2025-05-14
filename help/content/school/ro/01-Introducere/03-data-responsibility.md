@@ -6,7 +6,7 @@ Website Factory: Școli vine echipat cu pagini predefinite cu recomandări
 de texte pentru o serie de pagini. Unele dintre acestea fac referire la
 procesarea datelor cu caracter personal și la politica de
 confidențialitate. Îți recomandăm să folosești aceste exemple dacă
-organizația ta nu are deja documente dedicate de Termeni și Condiții sau
+unitatea ta de învățământ nu are deja documente dedicate de Termeni și Condiții sau
 politică de Confidențialitate.
 
 În panoul de administrare în secțiunea ”Pagini” vei găsi mai multe
@@ -15,9 +15,9 @@ disponibile sunt:
 
 1)  **Termeni și condiții** - în această pagină este nevoie să intri și
     să editezi toate locurile în care este necesar să completezi date
-    despre organizație. Acest document explică cum se realizeaza
+    despre unitatea ta de învățământ. Acest document explică cum se realizeaza
     procesarea datelor în cazul website-urilor construite cu Website
-    Factory: ONG. Recomandăm să adaugi această pagină în meniul din
+    Factory: Școli. Recomandăm să adaugi această pagină în meniul din
     Footer. Pagina este disponibilă atât în limba română cât și în
     limba engleză. Dacă ai site-ul disponibil în alte limbi va fi
     necesar să adaugi tu conținutul acesteia pagini în limba aleasă.
@@ -32,13 +32,9 @@ disponibile sunt:
 
 **Important!**
 
-Website Factory: Școli îți permite să colectezi donații și să creezi
+Website Factory: Școli îți permite să creezi
 formulare prin care poți colecta tot felul de date. Toate datele sunt
-colectate pe serverul tău, pe care noi am instalat soluția pe care o
-folosești ca să îți administrezi website-ul organizației sau
-proiectului/programului tău. Implicit responsabilitatea cu privire la
-aceste date este integral a organizației tale și, în cazul donațiilor, a
-operatorilor de plăți pe care îi utilizezi.
+colectate pe serverul gestionat de Code for Romania, pe care se află și soluția.
 
 De fiecare dată când construiești un formular care colectează informații
 personale de la utilizatori trebuie să

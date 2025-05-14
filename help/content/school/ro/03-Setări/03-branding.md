@@ -22,7 +22,7 @@ următorii pași:
     care vrei să o folosești.
 6)  Apasă **Salvează**
 
-**Pentru a păstra unitatea vizuală cu identitatatea organizației îți
+**Pentru a păstra unitatea vizuală cu identitatatea unității tale de învățământ îți
 recomandăm să folosești o culoare care se regăsește în logo-ul tău (sau
 un ton al culorii dominante din logo-ul tău) pentru că ea va fi folosită
 pentru butoanele din site, headere și alte elemente.**

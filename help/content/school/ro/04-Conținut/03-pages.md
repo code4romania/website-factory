@@ -10,11 +10,12 @@ platformei, butonul **Pagini**.
 deja existente.
 
 Atenție: la instalarea instanței tale de Website Factory: Școli, vei găsi
-în platformă deja create exemple de pagini pentru: Termeni și Condiții,
-Politică de Confidențialitate, model de raport anual, model de pagina de
-donații, model de pagină de mulțumire. Acestea sunt obligatorii pentru
+în platformă deja create exemple de pagini pentru: Termeni și Condiții, 
+Politică de Confidențialitate, model de pagină de catedră didactică, 
+model de pagină de orar, model de pagină de contact, 
+model de pagină de politica școlii. Acestea sunt recomandate pentru
 orice website, însă conținutul lor se poate modifica în funcție de
-activitatea organizației tale.
+activitatea unității tale de învățământ.
 
 Pentru a crea **o pagină nouă**, este necesar să parcurgi următorii
 pași:
