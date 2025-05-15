@@ -3,7 +3,7 @@ title: "Managing the responses"
 ---
 
  the forms where the Save responses in the panel option was checked,
-you can view the responses directly from Website Factory: NGO. For this,
+you can view the responses directly from Website Factory: Schools. For this,
 it is necessary to go through the following steps:
 
 1)  Access the admin panel
