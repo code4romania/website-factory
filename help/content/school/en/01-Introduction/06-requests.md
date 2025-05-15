@@ -1,30 +1,24 @@
 ---
-title: "Tech support through Civic Tech 911"
+title: "Tech support"
 ---
 
-Civic Tech 911 is our pro-bono tech support programme for NGOs. Through
-this programme we aim to help NGOs for free with any technical need they
-may have if our capacity allows it. The Civic Tech 911 support team is
-here to help you with any issues you may encounter with using Website
-Factory at maximum capacity.
+In what concerns Website Factory: Schools, 
+the support team is here to help you use the solution 
+to its fullest extent and to help you build the website you need. 
 
-Civic Tech 911 works like an online scheduling system. How to access it:
+
+This support operates through a system of online appointments. You can access it through the following steps:
 
 1)  In the dashboard area there is an “Help” section
 2)  Search through the information already available.
-3)  If you cannot find the answer then scroll to the end of the list and
-    press ”Civic Tech 911” and you will be redirected to the programme
-    page
-4)  Book a meeting and mention some details about the issue you are
-    faced with.
+3)  If it doesn’t exist, send an email to wf.scoli@code4.ro
 5)  You will be contacted to confirm your appointment by our colleagues
     as soon as possible
 
-### What type of help is not supported through Civic Tech 911
+### What type of support don’t we offer
 
-This programme does not cover very specific customisation needs and does
-not ensure extra development for individual websites. If you need a new
-feature that Website Factory does not have yet, then the team will
-evaluate if this is a need more NGOs also have and if it will be useful
-in the long run for everyone using the platform. If so, this feature
-will enter development.
+These appointments do not cover very specific customization needs and 
+do not offer additional individual development. 
+If you need a new functionality that Website Factory doesn’t have at the moment we receive your message, 
+then the team will assess if the internal implementation capacity for this functionality exists 
+and if several educational institutions find it useful to be developed and made available to everyone.
