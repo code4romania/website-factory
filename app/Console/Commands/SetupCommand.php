@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
+use App\Models\Form;
 use App\Models\Language;
 use App\Models\Page;
+use App\Models\Person;
 use App\Models\Setting;
 use App\Models\User;
 use App\Services\SupportsTrait;
@@ -45,6 +47,8 @@ class SetupCommand extends Command
         $this->seedLanguages();
         $this->seedSettings();
         $this->seedPages();
+        $this->seedPeople();
+        $this->seedForms();
         $this->seedAdministrator();
 
         self::clearResponseCache();
@@ -107,6 +111,32 @@ class SetupCommand extends Command
                     'value' => $page->id,
                 ]);
             }
+        });
+    }
+
+    protected function seedPeople(): void
+    {
+        if (Person::count()) {
+            return;
+        }
+
+        $this->info('Creating default people...');
+
+        $this->loadData('people')->each(function (array $attributes) {
+            $person = $this->saveModel(Person::class, $attributes);
+        });
+    }
+
+    protected function seedForms(): void
+    {
+        if (Form::count()) {
+            return;
+        }
+
+        $this->info('Creating default forms...');
+
+        $this->loadData('forms')->each(function (array $attributes) {
+            $form = $this->saveModel(Form::class, $attributes);
         });
     }
 
