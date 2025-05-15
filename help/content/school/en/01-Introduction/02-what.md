@@ -4,8 +4,7 @@ title: "What is Website Factory: Schools"
 
 Website Factory: Schools is a technical solution that allows you to build
 your own websites. This is integrated by default with a series of
-functionalities you will need such as online payment tools so you can
-collect donations, with tools to monitor traffic such as Google
+functionalities you will need such as tools to monitor traffic such as Google
 Analytics, with social networks and a form builder so you can collect
 data easily through your website.
 
