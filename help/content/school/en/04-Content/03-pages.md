@@ -10,10 +10,10 @@ In the **Pages** section, you can create new pages or modify already
 existing ones.
 
 Warning: during the installation of your version of Website Factory:
-NGO, you will find that the Home Page, Terms and Conditions and Cookies
-Policy pages are already created. These are mandatory for every website,
-but their content can be modified according to your organisation's
-website.
+Schools, you will find that the Home Page, Terms and Conditions and Cookies
+Policy, the Contact, Schedule, Teaching team pages are already created. 
+These are recommended for every website, but their content can be modified 
+according to your educational institution's website.
 
 To create **a new page**, you need to go through the following steps:
 
