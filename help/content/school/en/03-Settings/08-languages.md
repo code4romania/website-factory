@@ -2,7 +2,7 @@
 title: "How to add another language to the website?"
 ---
 
-Website Factory: NGO has the Romanian and English languages by default.
+Website Factory: Schools has the Romanian and English languages by default.
 Besides these, the user can add whatever other language for the pages to
 be translated into, without supplementary developments. To access the
 "Languages" section of the platform, it is necessary to go through the
