@@ -52,9 +52,8 @@ block.
 
 ### Call to action
 
-- type of block used to determine users to take an action: make a
-  donation, find out more about a project or program, or sign up to
-  an event
+- type of block used to determine users to take an action: find out more about a project
+  or program, or sign up to an event
 - a "Call to action" block is made up of: Title, Text, Text Button and
   Link Button
 
