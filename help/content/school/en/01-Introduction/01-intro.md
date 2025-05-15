@@ -3,8 +3,8 @@ title: "Introduction to Website Factory: Schools"
 ---
 
 Website Factory: Schools is a website builder that has been designed to fit
-the communication needs of civil society. Simple and intuitive, this
-solution will help every organization build a website in the fastest
+the communication needs of educational institutions. Simple and intuitive, this
+solution will help every educational institution build a website in the fastest
 time possible.
 
 ## Source code

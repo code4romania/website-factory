@@ -10,7 +10,7 @@ video: true
 Header and footer menus help users peruse your website and find
 information easier.
 
-In Website Factory: NGO you can build or modify a menu by going through
+In Website Factory: Schools you can build or modify a menu by going through
 the following steps:
 
 1)  Access the admin panel
@@ -84,47 +84,6 @@ steps:
 ---
 
 ## How to edit the header menu
-
-Pentru a edita meniul Header, este necesar să parcurgi următorii pași:
-
-1)  Accesează panoul de administrare
-2)  Selectează meniul secundar de setări din colțul din dreapta sus
-3)  Selectează **Meniuri**
-4)  Meniul **Header** se deschide implicit
-5)  Apasă pe denumirea elementului pe care vrei să îl modifici
-6)  Modifică informațiile
-7)  Apasă **Salvează**
-
-Pentru a șterge un element din meniul Header, este necesar să parcurgi
-următorii pași:
-
-1)  Accesează panoul de administrare
-2)  Selectează meniul secundar de setări din colțul din dreapta sus
-3)  Selectează **Meniuri**
-4)  Meniul **Header** se deschide implicit
-5)  Apasă pe butonul cu trei puncte orizontale din dreptul elementului
-    de meniu pe care vrei să îl ștergi
-6)  Alege opțiunea **Șterge**
-
-Pentru a modifica nivelul sau poziția unui element din meniul Header,
-este necesar să parcurgi următorii pași:
-
-1)  Accesează panoul de administrare
-2)  Selectează meniul secundar de setări din colțul din dreapta sus
-3)  Selectează **Meniuri**
-4)  Meniul **Header** se deschide implicit
-5)  Apasă pe butonul cu 2 rânduri de puncte verticale din dreptul
-    elementului de meniu căruia vrei să îi modifici nivelul sau
-    poziția
-6)  Pentru modificarea poziție, trage elementul în poziția în care
-    dorești
-7)  Pentru structurarea paginilor din meniu mai multe nivele sub forma
-    de meniuri și submeniuri, plasează elementul pe care dorești să îl
-    adaugi în submeniu sub elementul principal, apoi trage-l spre
-    dreapta.
-8)  Apasă **Salvează**
-
----
 
 To edit the Header menu, it is necessary to go though the following
 steps:

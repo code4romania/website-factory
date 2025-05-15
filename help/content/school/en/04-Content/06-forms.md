@@ -7,12 +7,12 @@ video: true
   <iframe src="https://www.youtube.com/embed/tvf2GCTWePc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-Forms have various uses in an organisation website's economy. They can
-be used in the contact page, for the ones who follow the organisation's
+Forms have various uses in an educational institution website's economy. They can
+be used in the contact page, for the ones who follow the educational institution's
 activity to be able to send a message directly through the website, they
 can be a tool for keeping track of participants for an event or they can
 represent a mechanism through which you can measure a communication
-campaign's efficiency through asking for feedback from your donors.
+campaign's efficiency through asking for feedback from your audience.
 
 To create a new form, it is necessary to go through the following steps:
 

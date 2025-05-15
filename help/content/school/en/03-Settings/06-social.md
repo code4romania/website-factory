@@ -1,5 +1,5 @@
 ---
-title: "How to connect my organization’s social media accounts to my website?"
+title: "How to connect my educational institution’s social media accounts to my website?"
 ---
 
 In order to connect the social media accounts it is necessary to follow

@@ -52,9 +52,8 @@ block.
 
 ### Call to action
 
-- type of block used to determine users to take an action: make a
-  donation, find out more about a project or program, or sign up to
-  an event
+- type of block used to determine users to take an action: find out more about a project
+  or program, or sign up to an event
 - a "Call to action" block is made up of: Title, Text, Text Button and
   Link Button
 
@@ -84,47 +83,6 @@ block.
   different characteristics of the page or to add elements from
   other sources
 - this block has the following elements: Title, HTML Code, Proportion
-
----
-
-### Donations: EuPlătesc
-
-- Type of block used to configure the donations made with EuPlătesc
-  payment processor
-- A donations: EuPlătesc block has the following elements: Title, Text
-  (where you can insert a message that will make your users donate
-  with EuPlătesc)
-- Warning: in order for you to have this content block active, it is
-  necessary to have already configured the integration with
-  EuPlătesc payment processor. You can set it up in the Settings
-  section in the admin table.
-
----
-
-### Donations: Netopia
-
-- Type of block used to configure the donations made with Netopia
-- A Donations: Netopia block has the following elements: un bloc
-  **Donații Netopia** are următoarele elemente: Title, Text (where
-  you can insert a message that will make your users donate with Netopia)
-- Warning: in order for you to have this content block active, it is
-  necessary to have already configured the integration with Netopia
-  payment processor. You can set it up in the Settings section in
-  the admin table.
-
----
-
-### Donations: PayPal
-
-- Type of block used to configure the donations made with PayPal
-- A Donations: **PayPal block** has the following elements: Title,
-  Text (where you can insert a message that will make your users
-  donate withPayPal) and ID button PayPalfield.button_id (field
-  where your unique PayPal ID is inserted)
-
-<a href="/build/help/017.png">
-    <img src="/build/help/017.png" />
-</a>
 
 ---
 
