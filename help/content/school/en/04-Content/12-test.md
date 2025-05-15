@@ -8,7 +8,7 @@ If you finished building your website, before launching it, check if the
 content fits well on all types of devices. For this, access your
 website’s URL from a laptop, on all available browsers, a tablet and at
 least a mobile device with Android or iOS. Check every page of your
-website, the donation page, the contact page and test all the forms, if
+website, the contact page and test all the forms, if
 you have any.
 
 ### Test any integration with third party systems
@@ -20,16 +20,12 @@ and an image. These information will be displayed when the page is
 shared on social media, for example. Check on social media if all the
 elements are correctly displayed.
 
-Check the integration with the payment processor services. Try to make a
-donation with Netopia, EuPlatesc or PayPal and test if everything works
-fine from the beginning to the thank you page.
-
 If you added a tracking code from Google Analytic to measure the website
 traffic, then check if the data is correctly transmitted and if Google
 Analytics registers all the visits.
 
 If you have additional integrations which are not part of Website
-Factory: ONG, then check if these are completely functional before the
+Factory: Schools, then check if these are completely functional before the
 public launching of the website.
 
 ### Check all the content
