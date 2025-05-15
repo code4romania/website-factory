@@ -1,0 +1,68 @@
+[
+    {
+        "title": {
+            "ro": "Formular de contact"
+        },
+        "slug": {
+            "ro": "formular-de-contact"
+        },
+        "description": {
+            "ro": "<p>Dac\u0103 ai vreo \u00eentrebare sau te confrun\u021bi cu vreo problem\u0103, completeaz\u0103 acest formular. <\/p>"
+        },
+        "store_submissions": true,
+        "send_submissions": false,
+        "recipients": null,
+        "blocks": [
+            {
+                "type": "text",
+                "content": {
+                    "fullwidth": true,
+                    "label": {
+                        "ro": "Nume"
+                    },
+                    "help": [],
+                    "required": true,
+                    "min_length": 1,
+                    "max_length": 200
+                }
+            },
+            {
+                "type": "email",
+                "content": {
+                    "fullwidth": false,
+                    "label": {
+                        "ro": "Adresa de e-mail"
+                    },
+                    "help": [],
+                    "required": true
+                }
+            },
+            {
+                "type": "text",
+                "content": {
+                    "fullwidth": false,
+                    "label": {
+                        "ro": "Num\u0103rul de telefon"
+                    },
+                    "help": [],
+                    "required": false,
+                    "min_length": 1,
+                    "max_length": 20
+                }
+            },
+            {
+                "type": "textarea",
+                "content": {
+                    "fullwidth": true,
+                    "label": {
+                        "ro": "Mesaj"
+                    },
+                    "help": [],
+                    "required": true,
+                    "min_length": 1,
+                    "max_length": 0
+                }
+            }
+        ]
+    }
+]
