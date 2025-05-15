@@ -12,7 +12,7 @@ to:
 2)  Select the secondary menu in the upper right corner, marked as a hexagon
 3)  Select **Settings**
 4)  Fill in the **Site Title** (this should be the name of your
-    organisation or the general name of the website you are building)
+    educational institution or the general name of the website you are building)
 5)  Fill in the Site description (this area is important for social
     networks and for better ranking in google searches, make sure you
     fill it in)
