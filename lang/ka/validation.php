@@ -1,9 +1,5 @@
 <?php
-
-declare(strict_types=1);
-
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Validation Language Lines
@@ -14,22 +10,21 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-
-    'accepted' => 'ეს :attribute უნდა იქნას მიღებული',
+    'accepted' => 'ეს :attribute უნდა იქნას მიღებული.',
     'accepted_if' => 'ეს :attribute უნდა იქნას მიღებული როცა :other არის :value.',
-    'active_url' => 'ეს :attribute არ არის ვალიდური URL',
+    'active_url' => 'ეს :attribute არ არის ვალიდური URL.',
     'after' => 'ეს :attribute უნდა იყოს დათარიღებული :date-ის მომდევნო თარიღებით.',
     'after_or_equal' => 'ეს :attribute უნდა იყოს დათარიღებული :date-ით ან მის მომდევნო თარიღებით.',
     'alpha' => 'ეს :attribute უნდა შეიცავდეს მხოლოდ ასოებს.',
-    'alpha_dash' => 'ეს :attribute უნდა შეიცავდეს მხოლოდ ასოებს, რიცხვებს, დახრილ ხაზებს და ქვედა ტირეებს ',
-    'alpha_num' => 'ეს :attribute უნდა შეიცავდეს მხოლოდ ასოებს და რიცხვებს',
-    'array' => 'ეს :attribute უნდა იყოს Array',
+    'alpha_dash' => 'ეს :attribute უნდა შეიცავდეს მხოლოდ ასოებს, რიცხვებს, დახრილ ხაზებს და ქვედა ტირეებს.',
+    'alpha_num' => 'ეს :attribute უნდა შეიცავდეს მხოლოდ ასოებს და რიცხვებს.',
+    'array' => 'ეს :attribute უნდა იყოს Array.',
     'before' => 'ეს :attribute უნდა იყოს დათარიღებული :date-მდე.',
     'before_or_equal' => 'ეს :attribute უნდა იყოს დათარიღებული :date-ით ან :date-მდე თარიღებით.',
     'between' => [
         'array' => 'ეს :attribute უნდა შეიცავდეს :min-დან :max-მდე ელემენტებს.',
         'file' => 'ეს :attribute უნდა იყოს :min-დან :max-მდე კილობაიტი.',
-        'numeric' => 'ეს :attribute უნდა იყოს  :min-სა :max-ს შორის.',
+        'numeric' => 'ეს :attribute უნდა იყოს :min-სა :max-ს შორის.',
         'string' => 'ეს :attribute უნდა იყოს :min-დან :max-მდე სიმბოლო.',
     ],
     'boolean' => 'ეს :attribute ველი უნდა იყოს მართალი ან მცდარი.',
@@ -61,7 +56,7 @@ return [
     ],
     'gte' => [
         'array' => 'ამ :attribute-ს უნდა ჰქონდეს :value ან მასზე მეტი ელემენტი.',
-        'file' => 'ეს :attribute უნდა იყოს :value  ან მასზე მეტი კილობაიტი.',
+        'file' => 'ეს :attribute უნდა იყოს :value ან მასზე მეტი კილობაიტი.',
         'numeric' => 'ეს :attribute უნდა იყოს :value ან მეტი.',
         'string' => 'ეს :attribute უნდა იყოს :value ან მასზე მეტი სიმბოლო.',
     ],
@@ -114,14 +109,14 @@ return [
     'present' => 'ეს :attribute უნდა იყოს წარმოდგენილი.',
     'prohibited' => 'ეს :attribute ველი აკრძალულია.',
     'prohibited_if' => 'ეს :attribute ველი აკრძალულია როცა :other არის :value.',
-    'prohibited_unless' => 'ეს :attribute ველი აკრძალულია, თუ :other არ არის :value-ში.',
+    'prohibited_unless' => 'ეს :attribute ველი აკრძალულია, თუ :other არ არის :values -ში.',
     'prohibits' => 'ეს :attribute ველი კრძალავს :other-ის არსებობას.',
     'regex' => 'ეს :attribute ფორმატი არასწორი.',
     'required' => 'ეს :attribute ველი აუცილებელია.',
     'required_array_keys' => 'ეს :attribute ველი უნდა შეიცავდეს ჩანაწერებს: :values-სთვის.',
     'required_if' => 'ეს :attribute ველი აუცილებელია როცა :other არის :value.',
-    'required_unless' => 'ეს :attribute ველი აუცილებელია, თუ :other არ არის :value-ში.',
-    'required_with' => 'ეს :attribute ველი აუცილებელია როცა :value წარმოდგენილია.',
+    'required_unless' => 'ეს :attribute ველი აუცილებელია, თუ :other არ არის :values-ში.',
+    'required_with' => 'ეს :attribute ველი აუცილებელია როცა :values წარმოდგენილია.',
     'required_with_all' => 'ეს :attribute ველი აუცილებელია როცა :values წარმოდგენილია.',
     'required_without' => 'ეს :attribute ველი აუცილებელია როცა :values წარმოდგენილია არაა.',
     'required_without_all' => 'ეს :attribute ველი აუცილებელია როცა არცერთი :values წარმოდგენილი არაა.',
@@ -139,8 +134,9 @@ return [
     'uploaded' => 'ეს :attribute ვერ აიტვირთა.',
     'url' => 'ეს :attribute უნდა იყოს სწორი URL.',
     'uuid' => 'ეს :attribute უნდა იყოს სწორი UUID.',
-
-    /*
+    'custom' => [
+        'attribute-name' => [
+            /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
     |--------------------------------------------------------------------------
@@ -150,24 +146,7 @@ return [
     | specify a specific custom language line for a given attribute rule.
     |
     */
-
-    'custom' => [
-        'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Custom Validation Attributes
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines are used to swap our attribute placeholder
-    | with something more reader friendly such as "E-Mail Address" instead
-    | of "email". This simply helps us make our message more expressive.
-    |
-    */
-
-    'attributes' => [],
-
 ];

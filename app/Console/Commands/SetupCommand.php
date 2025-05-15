@@ -144,7 +144,7 @@ class SetupCommand extends Command
 
         try {
             $content = json_decode(
-                File::get(database_path("seeders/data/${edition}/${file}.json")),
+                File::get(database_path("seeders/data/{$edition}/{$file}.json")),
                 true
             );
         } catch (Throwable $th) {

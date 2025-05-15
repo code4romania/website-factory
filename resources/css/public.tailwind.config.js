@@ -1,3 +1,7 @@
+import aspectRatio from '@tailwindcss/aspect-ratio';
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
+
 const colorVariable = (variable) => {
     return ({ opacityVariable, opacityValue }) => {
         if (opacityValue !== undefined) {
@@ -13,7 +17,7 @@ const colorVariable = (variable) => {
 };
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
     theme: {
         container: {
             center: true,
@@ -168,8 +172,9 @@ module.exports = {
         'resources/views/**/*.blade.php',
     ],
     plugins: [
-        require('@tailwindcss/aspect-ratio'),
-        require('@tailwindcss/forms'),
-        require('@tailwindcss/typography'),
+        //
+        aspectRatio,
+        forms,
+        typography,
     ],
 };

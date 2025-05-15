@@ -1,3 +1,7 @@
+import aspectRatio from '@tailwindcss/aspect-ratio';
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
+
 /** @type {import('tailwindcss').Config} */
 export default {
     theme: {
@@ -90,8 +94,9 @@ export default {
         'resources/js/**/*.js',
     ],
     plugins: [
-        require('@tailwindcss/aspect-ratio'),
-        require('@tailwindcss/forms'),
-        require('@tailwindcss/typography'),
+        //
+        aspectRatio,
+        forms,
+        typography,
     ],
 };

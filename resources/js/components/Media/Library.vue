@@ -52,10 +52,14 @@
                         <div
                             v-for="(item, index) in items"
                             :key="`media-view-file-${index}`"
-                            class="relative flex items-center w-full py-4 text-base bg-white focus:outline-none group disabled:cursor-default disabled:bg-gray-100"
+                            class="relative flex items-center w-full gap-4 py-4 text-base bg-white sm:gap-6 focus:outline-none group disabled:cursor-default disabled:bg-gray-100"
+                            :class="{
+                                'bg-red-50': hasError(item),
+                            }"
                         >
-                            <div class="min-w-0 shrink-0">
+                            <div class="w-4 shrink-0">
                                 <form-checkbox
+                                    v-if="!hasError(item)"
                                     :modelValue="isSelected(item)"
                                     @update:modelValue="toggleSelected(item.id)"
                                     :disabled="item.hasOwnProperty('loading')"
@@ -63,8 +67,8 @@
                             </div>
 
                             <div
-                                v-if="item.hasOwnProperty('loading')"
-                                class="flex flex-1 pl-4 text-left sm:pl-6"
+                                v-if="isLoading(item)"
+                                class="flex flex-1 text-left"
                             >
                                 <progress-bar
                                     class="h-2"
@@ -76,15 +80,28 @@
                                 v-else
                                 type="button"
                                 @click="select(item.id)"
-                                class="flex flex-1 w-full gap-2 pl-4 text-left truncate sm:pl-6 sm:gap-3"
+                                class="flex flex-1 w-full gap-2 text-left truncate sm:gap-3"
                             >
+                                <icon
+                                    v-if="hasError(item)"
+                                    name="System/error-warning-line"
+                                    class="w-6 h-6 text-red-500"
+                                />
+
                                 <file-type-icon
+                                    v-else
                                     :type="item.aggregate_type"
                                     class="w-6 h-6"
                                 />
 
                                 <div class="flex-1 truncate">
-                                    {{ item.filename }}.{{ item.extension }}
+                                    {{ item.filename }}
+
+                                    <div
+                                        v-if="hasError(item)"
+                                        class="mt-1 text-xs text-red-500"
+                                        v-text="getError(item)"
+                                    />
                                 </div>
 
                                 <div
@@ -106,7 +123,7 @@
                             class="relative bg-white focus:outline-none group"
                         >
                             <div
-                                v-if="item.hasOwnProperty('loading')"
+                                v-if="isLoading(item)"
                                 class="w-full overflow-hidden aspect-w-1 aspect-h-1"
                             >
                                 <div
@@ -115,6 +132,20 @@
                                     <progress-bar
                                         class="h-2"
                                         :value="item.progress"
+                                    />
+                                </div>
+                            </div>
+
+                            <div
+                                v-else-if="hasError(item)"
+                                class="w-full overflow-hidden aspect-w-1 aspect-h-1"
+                            >
+                                <div
+                                    class="flex items-center justify-center p-4 border border-red-200 bg-red-50"
+                                >
+                                    <div
+                                        class="text-sm text-red-500"
+                                        v-text="getError(item)"
                                     />
                                 </div>
                             </div>
@@ -131,9 +162,8 @@
                                     type="button"
                                     class="block w-full overflow-hidden border border-gray-200 aspect-w-1 aspect-h-1 disabled:cursor-default disabled:bg-gray-100"
                                     :class="{
-                                        'ring-4 ring-blue-500': isSelected(
-                                            item
-                                        ),
+                                        'ring-4 ring-blue-500':
+                                            isSelected(item),
                                     }"
                                     :disabled="isDisabled(item)"
                                     @click="select(item.id)"
@@ -271,6 +301,7 @@
                             replaces,
                             filename: file.name,
                             loading: true,
+                            error: null,
                             progress: 0,
                         };
 
@@ -288,8 +319,13 @@
 
                         items.value[index] = response.data;
                     },
-                    onError: (error) => {
-                        console.error(error);
+                    onError: (error, replaces) => {
+                        const index = items.value.findIndex(
+                            (item) => item.replaces === replaces
+                        );
+
+                        items.value[index].loading = false;
+                        items.value[index].error = error.response.data.message;
                     },
                 });
             };
@@ -318,6 +354,14 @@
                 selectedItems.value.some((i) => i.id === item.id);
 
             const isDisabled = (item) => disabledItems.value.includes(item.id);
+
+            const isLoading = (item) =>
+                item.hasOwnProperty('loading') && item.loading;
+
+            const hasError = (item) =>
+                item.hasOwnProperty('error') && item.error !== null;
+
+            const getError = (item) => (hasError(item) ? item.error : null);
 
             const bus = inject('bus');
             bus.on('media-library:open', (attach) => {
@@ -373,6 +417,9 @@
 
                 isSelected,
                 isDisabled,
+                isLoading,
+                hasError,
+                getError,
 
                 upload,
 

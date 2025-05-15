@@ -40,12 +40,15 @@ class Features
             'government' => [
                 static::DECISIONS,
             ],
+            'school' => [
+                static::THEME,
+            ],
             'develop' => [
                 static::DECISIONS,
                 static::DONATIONS,
                 static::THEME,
             ],
-            default => throw new InvalidWebsiteFactoryEditionException($edition, ['ong', 'primarie', 'government']),
+            default => throw new InvalidWebsiteFactoryEditionException($edition, ['ong', 'primarie', 'government', 'school']),
         });
 
         return $edition;
@@ -120,5 +123,15 @@ class Features
     public static function isGovernmentSite(): bool
     {
         return config('website-factory.edition') === 'government';
+    }
+
+    /**
+     * Determine if the application is running a school site.
+     *
+     * @return bool
+     */
+    public static function isSchoolSite(): bool
+    {
+        return config('website-factory.edition') === 'school';
     }
 }

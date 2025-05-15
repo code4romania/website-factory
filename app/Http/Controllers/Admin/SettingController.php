@@ -14,6 +14,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
+use Intervention\Image\FileExtension;
 use Intervention\Image\Image;
 
 class SettingController extends Controller
@@ -54,7 +55,7 @@ class SettingController extends Controller
                     'logo' => $value?->storePubliclyAs('assets', 'logo.' . $value?->extension()),
                     'favicon' => $value
                         ?->manipulate(function (Image $image) {
-                            $image->fit(48, 48)->encode('png');
+                            $image->scaleDown(48, 48)->encodeByExtension(FileExtension::PNG);
                         })
                         ->storePubliclyAs('assets', 'favicon.' . $value?->extension()),
                 }

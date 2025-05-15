@@ -1,9 +1,5 @@
 <?php
-
-declare(strict_types=1);
-
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Validation Language Lines
@@ -14,7 +10,6 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-
     'accepted' => 'Câmpul :attribute trebuie să fie acceptat.',
     'accepted_if' => 'Câmpul :attribute trebuie să fie acceptat când :other este :value.',
     'active_url' => 'Câmpul :attribute nu este un URL valid.',
@@ -139,8 +134,9 @@ return [
     'uploaded' => 'Câmpul :attribute nu a reușit încărcarea.',
     'url' => 'Câmpul :attribute nu este un URL valid.',
     'uuid' => 'Acesta :attribute trebuie să fie un cod UUID valid.',
-
-    /*
+    'custom' => [
+        'attribute-name' => [
+            /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
     |--------------------------------------------------------------------------
@@ -150,24 +146,7 @@ return [
     | specify a specific custom language line for a given attribute rule.
     |
     */
-
-    'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+            'rule-name' => 'mesaj-personalizat',
         ],
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Custom Validation Attributes
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines are used to swap our attribute placeholder
-    | with something more reader friendly such as "E-Mail Address" instead
-    | of "email". This simply helps us make our message more expressive.
-    |
-    */
-
-    'attributes' => [],
-
 ];

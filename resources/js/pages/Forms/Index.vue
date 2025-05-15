@@ -25,23 +25,24 @@
                     <div class="flex-1 ml-1">
                         <span v-text="$t('field.store_submissions')" />
 
-                        <template
+                        <span
                             v-if="
                                 row.store_submissions ||
                                 row.submissions_count > 0
                             "
+                            class="whitespace-nowrap"
                         >
                             (<inertia-link
                                 :href="route('admin.forms.show', row.id)"
-                                class="text-blue-800 hover:underline whitespace-nowrap"
+                                class="inline-block text-blue-800 hover:underline"
                                 v-text="
                                     $tChoice(
-                                        '{0} 0 răspunsuri|{1} :count răspuns|[2,*] :count răspunsuri',
+                                        'form_submission.count',
                                         row.submissions_count
                                     )
                                 "
                             />)
-                        </template>
+                        </span>
                     </div>
                 </div>
 
@@ -68,9 +69,9 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            collection: Object,
-        },
-    };
+export default {
+    props: {
+        collection: Object,
+    },
+};
 </script>

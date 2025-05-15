@@ -7,9 +7,8 @@ namespace App\Providers;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
-use Intervention\Image\Constraint;
-use Intervention\Image\Facades\Image as ImageFacade;
 use Intervention\Image\Image;
+use Intervention\Image\Laravel\Facades\Image as ImageFacade;
 use Plank\Mediable\Facades\ImageManipulator;
 use Plank\Mediable\ImageManipulation;
 
@@ -34,7 +33,7 @@ class MediaServiceProvider extends ServiceProvider
     {
         UploadedFile::macro('manipulate', function (callable $callback) {
             return tap($this, function (UploadedFile $file) use ($callback) {
-                $image = ImageFacade::make($file->getPathname());
+                $image = ImageFacade::read($file->getPathname());
 
                 $callback($image);
 
@@ -47,14 +46,10 @@ class MediaServiceProvider extends ServiceProvider
     {
         return collect([
             'thumb' => ImageManipulation::make(function (Image $image) {
-                $image->resize(256, 256, function (Constraint $constraint) {
-                    $constraint->aspectRatio();
-                });
+                $image->scaleDown(256, 256);
             }),
             '600' => ImageManipulation::make(function (Image $image) {
-                $image->resize(600, 600, function (Constraint $constraint) {
-                    $constraint->aspectRatio();
-                });
+                $image->scaleDown(600, 600);
             }),
         ]);
     }

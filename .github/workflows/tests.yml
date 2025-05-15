@@ -1,6 +1,8 @@
 name: Tests
 
-on: [push]
+on:
+  push:
+  merge_group:
 
 jobs:
   test:
@@ -75,6 +77,18 @@ jobs:
 
       - name: Install composer dependencies
         run: composer install --prefer-dist --no-interaction
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install Node.js dependencies
+        run: npm ci --no-audit --ignore-scripts
+
+      - name: Build assets
+        run: npm run build
 
       - name: Setup env
         run: |
