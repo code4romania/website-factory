@@ -4,20 +4,13 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
-use App\Models\Form;
-use App\Models\Language;
-use App\Models\Page;
-use App\Models\Person;
 use App\Models\Setting;
 use App\Models\User;
-use App\Services\SupportsTrait;
 use App\Traits\ClearsResponseCache;
 use Illuminate\Console\Command;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use Throwable;
 
 class SetupCommand extends Command
 {
@@ -42,102 +35,19 @@ class SetupCommand extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(): int
     {
-        $this->seedLanguages();
-        $this->seedSettings();
-        $this->seedPages();
-        $this->seedPeople();
-        $this->seedForms();
+        $this->loadSql();
+
         $this->seedAdministrator();
+
+        $this->call(UpdateTranslationsCommand::class);
 
         self::clearResponseCache();
 
         $this->info('Setup complete!');
 
         return self::SUCCESS;
-    }
-
-    protected function seedLanguages(): void
-    {
-        $shouldCreateLanguages = Language::count() === 0;
-
-        if ($shouldCreateLanguages) {
-            $this->info('Creating default languages...');
-
-            Language::insert([
-                [
-                    'code' => 'ro',
-                    'enabled' => true,
-                ],
-                [
-                    'code' => 'en',
-                    'enabled' => false,
-                ],
-            ]);
-        }
-
-        $this->call(UpdateTranslationsCommand::class);
-    }
-
-    protected function seedSettings(): void
-    {
-        if (Setting::count()) {
-            return;
-        }
-
-        $this->loadData('settings')->each(function (array $attributes) {
-            Setting::create($attributes);
-        });
-    }
-
-    protected function seedPages(): void
-    {
-        if (Page::count()) {
-            return;
-        }
-
-        $this->info('Creating default pages...');
-
-        $this->loadData('pages')->each(function (array $attributes) {
-            $page = $this->saveModel(Page::class, $attributes);
-
-            $setting = $attributes['_map_to_setting'] ?? [];
-
-            if (\count($setting) === 2) {
-                Setting::create([
-                    'section' => $setting[0],
-                    'key' => $setting[1],
-                    'value' => $page->id,
-                ]);
-            }
-        });
-    }
-
-    protected function seedPeople(): void
-    {
-        if (Person::count()) {
-            return;
-        }
-
-        $this->info('Creating default people...');
-
-        $this->loadData('people')->each(function (array $attributes) {
-            $person = $this->saveModel(Person::class, $attributes);
-        });
-    }
-
-    protected function seedForms(): void
-    {
-        if (Form::count()) {
-            return;
-        }
-
-        $this->info('Creating default forms...');
-
-        $this->loadData('forms')->each(function (array $attributes) {
-            $form = $this->saveModel(Form::class, $attributes);
-        });
     }
 
     protected function seedAdministrator(): void
@@ -168,41 +78,25 @@ class SetupCommand extends Command
         $this->info('Successfully created administrator for ' . $email);
     }
 
-    private function loadData(string $file): Collection
+    public function loadSql(): void
     {
+        if (Setting::count()) {
+            return;
+        }
+
         $edition = config('website-factory.edition');
+        $seedFile = database_path("seeders/data/{$edition}.sql");
 
-        try {
-            $content = json_decode(
-                File::get(database_path("seeders/data/{$edition}/{$file}.json")),
-                true
-            );
-        } catch (Throwable $th) {
-            $content = null;
+        if (! File::exists($seedFile)) {
+            $this->warn("Seed file for edition '{$edition}' not found. Skipping...");
+
+            return;
         }
 
-        return collect($content);
-    }
+        $this->info("Found seed file for edition '{$edition}'. Loading data...");
 
-    private function saveModel(string $model, array $attributes): Model
-    {
-        if (
-            \array_key_exists('published_at', $attributes) &&
-            $attributes['published_at'] === 'now'
-        ) {
-            $attributes['published_at'] = now();
-        }
+        DB::unprepared(File::get($seedFile));
 
-        $item = $model::create($attributes);
-
-        if (SupportsTrait::blocks($model)) {
-            $item->saveBlocks($attributes['blocks'] ?? []);
-        }
-
-        if (SupportsTrait::media($model)) {
-            $item->saveMedia($attributes['media'] ?? []);
-        }
-
-        return $item;
+        $this->info('Seed complete...');
     }
 }
