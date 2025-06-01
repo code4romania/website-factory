@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf69b3689f351e9168c53a20521e3886",
+    "content-hash": "92bbcd5b937b22d852b71e34f56f6753",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -6624,16 +6624,16 @@
         },
         {
             "name": "spatie/laravel-responsecache",
-            "version": "7.6.5",
+            "version": "7.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-responsecache.git",
-                "reference": "c7a155d96579194e4e7c092d080d45896e638cc2"
+                "reference": "d551f0498dbb2d98df47359364e5a1c8203a6376"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/c7a155d96579194e4e7c092d080d45896e638cc2",
-                "reference": "c7a155d96579194e4e7c092d080d45896e638cc2",
+                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/d551f0498dbb2d98df47359364e5a1c8203a6376",
+                "reference": "d551f0498dbb2d98df47359364e5a1c8203a6376",
                 "shasum": ""
             },
             "require": {
@@ -6691,7 +6691,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/laravel-responsecache/tree/7.6.5"
+                "source": "https://github.com/spatie/laravel-responsecache/tree/7.7.0"
             },
             "funding": [
                 {
@@ -6703,7 +6703,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-10T16:20:10+00:00"
+            "time": "2025-05-20T08:39:19+00:00"
         },
         {
             "name": "spatie/laravel-translatable",
