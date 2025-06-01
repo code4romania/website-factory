@@ -12,7 +12,7 @@
     "require": {
         "php": "^8.2",
         "ext-imagick": "*",
-        "andreiio/blade-remix-icon": "^3.2",
+        "andreiio/blade-remix-icon": "^3.6",
         "archtechx/laravel-seo": "^0.10",
         "blade-ui-kit/blade-icons": "^1.8",
         "embed/embed": "^4.4",
@@ -35,7 +35,7 @@
         "spatie/laravel-translatable": "^6.11",
         "spatie/laravel-translation-loader": "^2.8",
         "symfony/http-client": "^7.3",
-        "symfony/yaml": "^7.2",
+        "symfony/yaml": "^7.3",
         "tightenco/ziggy": "^2.5"
     },
     "require-dev": {
@@ -46,7 +46,7 @@
         "itsgoingd/clockwork": "^5.3",
         "laravel/sail": "^1.43",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.7",
+        "nunomaduro/collision": "^8.8",
         "phpunit/phpunit": "^11.5",
         "spatie/laravel-ignition": "^2.9"
     },
