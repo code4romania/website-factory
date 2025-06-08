@@ -3,6 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.button-edit-page {
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    right: 2.5rem;
+}
+
 @screen lg {
     .hero-side-image-clip {
         clip-path: polygon(15% 0%, 100% 0, 100% 100%, 0% 100%);

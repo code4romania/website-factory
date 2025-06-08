@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -21,6 +22,7 @@ class PageController extends Controller
             ->with('blocks.media')
             ->findOrFail($frontPage);
 
+        $user = Auth::user();
         $image = $page->firstMedia('image');
 
         seo()
@@ -31,6 +33,8 @@ class PageController extends Controller
         return view('front.pages.show', [
             'page' => $page,
             'image' => $image,
+            'canEditPage' => $user?->isAdmin() || $user?->isEditor(),
+            'url_admin' => route('admin.pages.edit', $page->id)
         ]);
     }
 
@@ -41,6 +45,7 @@ class PageController extends Controller
             return redirect()->route('front.pages.index', ['locale' => $locale]);
         }
 
+        $user = Auth::user();
         $image = $page->firstMedia('image');
 
         seo()
@@ -53,6 +58,8 @@ class PageController extends Controller
         return view('front.pages.show', [
             'page' => $page,
             'image' => $image,
+            'canEditPage' => $user?->isAdmin() || $user?->isEditor(),
+            'url_admin' => route('admin.pages.edit', $page->id)
         ]);
     }
 }
