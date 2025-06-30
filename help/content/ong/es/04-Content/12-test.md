@@ -1,47 +1,27 @@
 ---
-title: "Before the launch"
+title: "Antes del lanzamiento"
 ---
 
-### Test the adaptability on all devices
+### Prueba la adaptabilidad en todos los dispositivos
 
-If you finished building your website, before launching it, check if the
-content fits well on all types of devices. For this, access your
-website’s URL from a laptop, on all available browsers, a tablet and at
-least a mobile device with Android or iOS. Check every page of your
-website, the donation page, the contact page and test all the forms, if
-you have any.
+Si has terminado de construir tu sitio web, antes de lanzarlo, verifica que el contenido se adapte correctamente en todos los tipos de dispositivos. Para ello, accede a la URL de tu sitio desde una laptop, en todos los navegadores disponibles, una tablet y al menos un dispositivo móvil con Android o iOS. Revisa cada página de tu sitio, la página de donaciones, la página de contacto y prueba todos los formularios, si tienes alguno.
 
-### Test any integration with third party systems
+### Prueba cualquier integración con sistemas de terceros
 
-When you create pages, it is important to set up the metadata area also.
-The metadata area is found in the first part of the page, in the editing
-mode. There you have to fill in the page’s title, a short description
-and an image. These information will be displayed when the page is
-shared on social media, for example. Check on social media if all the
-elements are correctly displayed.
+Al crear páginas, es importante configurar también el área de metadatos. Esta área se encuentra en la primera parte de la página, en modo de edición. Allí debes completar el título de la página, una breve descripción y una imagen. Esta información se mostrará cuando la página sea compartida en redes sociales, por ejemplo. Verifica en las redes sociales que todos los elementos se muestren correctamente.
 
-Check the integration with the payment processor services. Try to make a
-donation with Netopia, EuPlatesc or PayPal and test if everything works
-fine from the beginning to the thank you page.
+Revisa la integración con los servicios de procesadores de pago. Intenta hacer una donación con Netopia, EuPlătesc o PayPal y prueba que todo funcione bien desde el inicio hasta la página de agradecimiento.
 
-If you added a tracking code from Google Analytic to measure the website
-traffic, then check if the data is correctly transmitted and if Google
-Analytics registers all the visits.
+Si has añadido un código de seguimiento de Google Analytics para medir el tráfico del sitio, verifica que los datos se transmitan correctamente y que Google Analytics registre todas las visitas.
 
-If you have additional integrations which are not part of Website
-Factory: ONG, then check if these are completely functional before the
-public launching of the website.
+### Revisa todo el contenido
 
-### Check all the content
+Antes del lanzamiento, revisa nuevamente todo el contenido para evitar errores ortográficos, fotos inapropiadas o contenido duplicado. Aquí tienes una lista de verificación para una revisión mínima:
 
-Before the launch, check again all the content to avoid the
-misspellings, inappropriate photos or double content. Here is a
-checklist for a minimal verification:
-
-- Is the whole content on the website?
-- Are the translations correctly added on the whole website?
-- Have all the pages title and descriptions added in the admin?
-- Are all the images correctly displayed?
-- Are the forms tested and functional?
-- Are all the button links correct?
-- Are the header and footer menu correctly configured?
+- ¿Está todo el contenido en el sitio web?
+- ¿Se han añadido correctamente las traducciones en todo el sitio?
+- ¿Están todos los títulos y descripciones de las páginas añadidos en el panel de administración?
+- ¿Se muestran correctamente todas las imágenes?
+- ¿Se han probado y funcionan correctamente todos los formularios?
+- ¿Son correctos todos los enlaces de los botones?
+- ¿Están configurados correctamente los menús de encabezado y pie de página?
