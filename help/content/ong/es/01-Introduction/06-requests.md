@@ -1,30 +1,30 @@
 ---
-title: "Tech support through Civic Tech 911"
+title: "Soporte técnico a través de Civic Tech 911"
 ---
 
-Civic Tech 911 is our pro-bono tech support programme for NGOs. Through
-this programme we aim to help NGOs for free with any technical need they
-may have if our capacity allows it. The Civic Tech 911 support team is
-here to help you with any issues you may encounter with using Website
-Factory at maximum capacity.
+Civic Tech 911 es nuestro programa de soporte técnico pro bono. 
+A través de este programa, buscamos ayudar de forma gratuita a las 
+organizaciones que lo necesiten, siempre que nuestra capacidad lo permita. 
+El equipo de soporte de Civic Tech 911 está disponible para ayudarte con 
+cualquier problema que encuentres al utilizar Website Factory a su máxima capacidad.
 
-Civic Tech 911 works like an online scheduling system. How to access it:
+Civic Tech 911 funciona como un sistema de reservas en línea. Así puedes acceder:
 
-1)  In the dashboard area there is an “Help” section
-2)  Search through the information already available.
-3)  If you cannot find the answer then scroll to the end of the list and
-    press ”Civic Tech 911” and you will be redirected to the programme
-    page
-4)  Book a meeting and mention some details about the issue you are
-    faced with.
-5)  You will be contacted to confirm your appointment by our colleagues
-    as soon as possible
+1) En el área del panel de control hay una sección llamada “Ayuda”
 
-### What type of help is not supported through Civic Tech 911
+2) Busca primero entre la información ya disponible.
 
-This programme does not cover very specific customisation needs and does
-not ensure extra development for individual websites. If you need a new
-feature that Website Factory does not have yet, then the team will
-evaluate if this is a need more NGOs also have and if it will be useful
-in the long run for everyone using the platform. If so, this feature
-will enter development.
+3) Si no encuentras la respuesta, desplázate hasta el final de la lista y haz clic en
+4) “Civic Tech 911”; serás redirigido a la página del programa.
+
+5) Reserva una reunión e incluye algunos detalles sobre el problema que estás enfrentando.
+
+Serás contactado por nuestros compañeros lo antes posible para confirmar tu cita.
+
+¿Qué tipo de ayuda no está cubierta por Civic Tech 911?
+
+Este programa no cubre necesidades de personalización muy específicas ni garantiza 
+desarrollos adicionales para sitios web individuales. Si necesitas una nueva funcionalidad 
+que Website Factory aún no ofrece, el equipo evaluará si se trata de una necesidad común 
+a otras organizaciones y si sería útil a largo plazo para todas las que usan la plataforma. 
+En ese caso, dicha funcionalidad entrará en fase de desarrollo.
