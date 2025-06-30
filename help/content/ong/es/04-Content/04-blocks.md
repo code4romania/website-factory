@@ -1,48 +1,34 @@
 ---
-title: "How do I build a page with content blocks?"
+title: "¿Cómo construir una página con bloques de contenido?"
 ---
-Every page is built of content blocks that have various functionalities,
-each block being appropriate for organising a certain kind of
-information.
+Cada página está compuesta por bloques de contenido que tienen diversas funcionalidades, y cada bloque es adecuado para organizar un tipo específico de información.
 
-To add a content block it is necessary to go through the following
-steps:
+Para agregar un bloque de contenido, es necesario seguir los siguientes pasos:
 
-1)  Access the admin panel
-2)  Select the "**Pages**" button from the Main Menu
-3)  If the page already exists, click on "**Page title**" to edit it. If
-    the page does not exist, please check the information about how
-    you can create a page.
-4)  Click on the **"Add new block**" button
-5)  Select the type of block that is right for the information you want
-    to add to the page
+1) Accede al panel de administración
+2) Selecciona el botón **Páginas** desde el Menú Principal.
+3) Si la página ya existe, haz clic en el título de la página para editarla. Si la página no existe, consulta la información sobre cómo crear una página
+4) Haz clic en el botón **Agregar nuevo bloque**
+5) Selecciona el tipo de bloque que mejor se adapte a la información que deseas añadir a la página
 
-Each content block can be duplicated, deleted or you can change its
-proportion by pressing the buttons from the right side of the content
-block.
+Cada bloque de contenido se puede duplicar, eliminar o cambiar su proporción utilizando los botones ubicados en el lado derecho del bloque.
 
 <a href="/build/help/003.png">
     <img src="/build/help/003.png" />
 </a>
 
-1)  The columns button decreases or increases the content block.
-2)  The arrow collapses or extends the content block to make it easier
-    for you to edit the page.
-3)  The three points button opens the menu where you can choose to
-    duplicate or delete the content block.
+1) El **botón de columnas** disminuye o aumenta el tamaño del bloque de contenido.
+2) La **flecha** contrae o expande el bloque de contenido para facilitar la edición de la página.
+3) El botón de **tres puntos** abre el menú donde puedes elegir duplicar o eliminar el bloque de contenido.
 
-## Types of content blocks
+## Tipos de bloques de contenido
 
-### Accordion
+### Acordeón
 
-- type of block in which a list of elements is shown. By activating
-  one element, additional information about the element is shown.
-- an accordion block is made up of: Title and Elements. For each
-  element, you can add a Title and Text.
-- this type of block allows you to add as many elements as necessary
-- this type of block is recommended for special sections like
-  Frequently Asked Questions or for lists with elements where each
-  element has a lot of information.
+- tipo de bloque en el que se muestra una lista de elementos. Al activar uno de ellos, se despliega información adicional sobre ese elemento.
+- un bloque acordeón está compuesto por: Título y Elementos. Para cada elemento, puedes agregar un Título y un Texto.
+- este tipo de bloque permite añadir tantos elementos como sea necesario
+- este tipo de bloque es recomendable para secciones especiales como **Preguntas Frecuentes** o para listas de elementos en las que cada uno contiene mucha información.
 
 <a href="/build/help/007.png">
     <img src="/build/help/007.png" />
@@ -50,13 +36,10 @@ block.
 
 ---
 
-### Call to action
+### Llamado a la acción
 
-- type of block used to determine users to take an action: make a
-  donation, find out more about a project or program, or sign up to
-  an event
-- a "Call to action" block is made up of: Title, Text, Text Button and
-  Link Button
+- tipo de bloque utilizado para motivar a los usuarios a realizar una acción: hacer una donación, obtener más información sobre un proyecto o programa, o inscribirse en un evento
+- un bloque de **Llamado** a la acción está compuesto por: **Título, Texto, Texto del botón** y **Enlace del botón**
 
 <a href="/build/help/012.png">
     <img src="/build/help/012.png" />
@@ -64,63 +47,41 @@ block.
 
 ---
 
-### Cards
+### Tarjetas
 
-- type of block used for showcasing information in a form delimited by
-  the rest of the page
-- a Card block is made up of: Title, Columns (the number of columns
-  the cards will be displayed on), Shadow (if this option is
-  checked, the Card will have a shadow and will be more strongly
-  delimited from the rest of the page) and Card with the following
-  elements: Icon (you can choose an icon from a list of pictograms),
-  Title, Text, Text Button and link Button
-- this type of block allows you to add as many elements as necessary
+- tipo de bloque utilizado para mostrar información en un formato delimitado del resto de la página
+- un bloque de **Tarjetas** está compuesto por: Título, Columnas (el número de columnas en las que se mostrarán las tarjetas), Sombra (si esta opción está activada, la tarjeta tendrá una sombra que la destacará más del resto de la página) y Tarjeta con los siguientes elementos: Ícono (puedes elegir un ícono de una lista de pictogramas), Título, Texto, Texto del botón y Enlace del botón
+- este tipo de bloque permite añadir tantos elementos como sea necesario
 
 ---
 
-### HTML Code
+### Código HTML
 
-- type of block which allows for the input of HTML code to modify
-  different characteristics of the page or to add elements from
-  other sources
-- this block has the following elements: Title, HTML Code, Proportion
+- tipo de bloque que permite introducir código HTML para modificar diferentes características de la página o para añadir elementos de otras fuentes
+- este bloque tiene los siguientes elementos: Título, Código HTML, Proporción
 
 ---
 
-### Donations: EuPlătesc
+### Donaciones: EuPlătesc
 
-- Type of block used to configure the donations made with EuPlătesc
-  payment processor
-- A donations: EuPlătesc block has the following elements: Title, Text
-  (where you can insert a message that will make your users donate
-  with EuPlătesc)
-- Warning: in order for you to have this content block active, it is
-  necessary to have already configured the integration with
-  EuPlătesc payment processor. You can set it up in the Settings
-  section in the admin table.
+- Tipo de bloque utilizado para configurar las donaciones realizadas mediante el procesador de pagos EuPlătesc
+- Un bloque de **Donaciones**: EuPlătesc tiene los siguientes elementos: Título, Texto (donde puedes insertar un mensaje que motive a tus usuarios a donar a través de EuPlătesc)
+- Advertencia: para que este bloque de contenido esté activo, es necesario haber configurado previamente la integración con el procesador de pagos EuPlătesc. Puedes hacerlo en la sección de Configuración dentro del panel de administración.
 
 ---
 
-### Donations: Netopia
+### Donaciones: Netopia
 
-- Type of block used to configure the donations made with Netopia
-- A Donations: Netopia block has the following elements: un bloc
-  **Donații Netopia** are următoarele elemente: Title, Text (where
-  you can insert a message that will make your users donate with Netopia)
-- Warning: in order for you to have this content block active, it is
-  necessary to have already configured the integration with Netopia
-  payment processor. You can set it up in the Settings section in
-  the admin table.
+- Tipo de bloque utilizado para configurar las donaciones realizadas mediante Netopia
+- Un bloque de **Donaciones**: Netopia tiene los siguientes elementos: Título, Texto (donde puedes insertar un mensaje que motive a tus usuarios a donar a través de Netopia)
+- **Advertencia**: para que este bloque de contenido esté activo, es necesario haber configurado previamente la integración con el procesador de pagos Netopia. Puedes hacerlo en la sección de Configuración dentro del panel de administración.
 
 ---
 
-### Donations: PayPal
+### Donaciones: PayPal
 
-- Type of block used to configure the donations made with PayPal
-- A Donations: **PayPal block** has the following elements: Title,
-  Text (where you can insert a message that will make your users
-  donate withPayPal) and ID button PayPalfield.button_id (field
-  where your unique PayPal ID is inserted)
+- Tipo de bloque utilizado para configurar las donaciones realizadas mediante PayPal
+- Un bloque de **Donaciones**: PayPal tiene los siguientes elementos: Título, Texto (donde puedes insertar un mensaje que motive a tus usuarios a donar a través de PayPal) y campo ID del botón de PayPal (button_id), donde se inserta tu identificador único de PayPal.
 
 <a href="/build/help/017.png">
     <img src="/build/help/017.png" />
@@ -130,10 +91,9 @@ block.
 
 ### Embed
 
-- type of block used to add elements from other sources only on the
-  basis of the browser link
-- an Embed block is made up of Title and URL
-- Here you can add links to Youtube or Vimeo videos, for example.
+- tipo de bloque utilizado para añadir elementos de otras fuentes únicamente a partir del enlace del navegador
+- un bloque Insertar (Embed) está compuesto por Título y URL
+- Aquí puedes añadir enlaces a videos de YouTube o Vimeo, por ejemplo.
 
 <a href="/build/help/022.png">
     <img src="/build/help/022.png" />
@@ -141,14 +101,11 @@ block.
 
 ---
 
-### Form
+### Formulario
 
-- type of block used to integrate forms in pages. For information
-  about creating and managing forms, look at the "**Creating and
-  managing forms**" section
-- a **Form** block is made up of Title and Form
-- To add a **Form** in a content block, it is necessary that the form
-  is already created în **Form Section**.
+- tipo de bloque utilizado para integrar formularios en las páginas. Para obtener información sobre cómo crear y gestionar formularios, consulta la sección **Creación y gestión de formularios**
+- un bloque de **Formulario** está compuesto por Título y Formulario
+- Para añadir un **Formulario** en un bloque de contenido, es necesario que el formulario ya esté creado en la **Sección de Formularios**.
 
 <a href="/build/help/002.png">
     <img src="/build/help/002.png" />
@@ -156,13 +113,10 @@ block.
 
 ---
 
-### Image Grid
+### Cuadrícula de Imágenes
 
-- the **Image Grid** type of block is used to display multiple images
-  in a single block
-- an Image Grid block has the following elements: Title, Columns (the
-  number of columns on which the images are shown), Images (images
-  already housed in the Media library can be added)
+- el tipo de bloque **Cuadrícula de Imágenes** se utiliza para mostrar múltiples imágenes en un solo bloque
+- un bloque de **Cuadrícula de Imágenes** tiene los siguientes elementos: Título, Columnas (el número de columnas en las que se mostrarán las imágenes), Imágenes (se pueden añadir imágenes que ya estén en la biblioteca multimedia)
 
 <a href="/build/help/028.png">
     <img src="/build/help/028.png" />
@@ -170,47 +124,28 @@ block.
 
 ---
 
-### Header
+### Encabezado
 
-- the Header type of block is used to add titles/banners on pages as
-  delimited elements from other blocks and is made up of the
-  following elements: Title, Alignment (can be chosen from the
-  following options: centre, left) and Text
+- el tipo de bloque Encabezado se utiliza para añadir títulos o banners en las páginas como elementos delimitados de otros bloques y está compuesto por los siguientes elementos: Título, Alineación (puede elegirse entre las siguientes opciones: centrado o izquierda) y Texto
 
 ---
 
-### Header with background
+### Encabezado con fondo
 
-- the **Header with background** type of block is used for adding
-  banners/titles on pages as delimited elements from other blocks
-  and with a background picture. A filter with the main colour of
-  the website is added on top of the background picture, so that the
-  element is integrated with the rest of the elements on the page
-  from a visual standpoint.
-- this type of block is made up of the following elements: Title,
-  Text, Text button, Link button and Images (which can be added to
-  the block from the existing pictures in the Media Library)
+- el tipo de bloque **Encabezado con fondo** se utiliza para añadir banners o títulos en las páginas como elementos delimitados de otros bloques y con una imagen de fondo. Se aplica un filtro con el color principal del sitio web sobre la imagen de fondo para que el elemento se integre visualmente con el resto de la página.
+- este tipo de bloque está compuesto por los siguientes elementos: Título, Texto, Texto del botón, Enlace del botón e Imágenes (que se pueden añadir al bloque desde las imágenes ya existentes en la Biblioteca Multimedia)
 
 ---
 
-### Image
+### Imagen
 
-- type of block which allows for images already uploaded in the Media
-  Library to be added to the page, and which is made up of Title and
-  Image
-
+- tipo de bloque que permite añadir a la página imágenes ya cargadas en la Biblioteca Multimedia, y que está compuesto por Título e Imagen
 ---
 
-### Image with text
+### Imagen con texto
 
-- type of block which allows for images already uploaded in the Media
-  Library to be added to the page, accompanied by a text
-- the block is made up of the following elements: Title, Text, Image
-  placement (to select left or right), Image dimension (to select
-  25%, 33% or 50% relative to the size of the other block elements),
-  Alignment (image relative to the other block elements - up,
-  center, down) and Image (images already housed in the Media
-  Library can be added in this block)
+- tipo de bloque que permite añadir a la página imágenes ya cargadas en la Biblioteca Multimedia, acompañadas de un texto
+- el bloque está compuesto por los siguientes elementos: Título, Texto, Posición de la imagen (para seleccionar izquierda o derecha), Dimensión de la imagen (para seleccionar 25 %, 33 % o 50 % en relación con el tamaño de los demás elementos del bloque), Alineación (imagen en relación con los demás elementos del bloque: arriba, centro, abajo) e Imagen (pueden añadirse imágenes ya alojadas en la Biblioteca Multimedia)
 
 <a href="/build/help/013.png">
     <img src="/build/help/013.png" />
@@ -218,17 +153,10 @@ block.
 
 ---
 
-### Image with link
+### Imagen con enlace
 
-- type of block which allows for images already uploaded in the Media
-  Library to be added to the page, accompanied by a text and a link
-  which can be accessed by clicking on each image;
-- the block is made up of the following elements: Title, Column, (to
-  select/introduce the number of columns on which the images are to
-  be displayed in the block) and Image with link which has the
-  following elements: Image (to select from the Media Library), Text
-  field, caption and URL (link which can be accessed through
-  clicking the image)
+- tipo de bloque que permite añadir a la página imágenes ya cargadas en la Biblioteca Multimedia, acompañadas de un texto y un enlace al que se puede acceder haciendo clic en cada imagen;
+- el bloque está compuesto por los siguientes elementos: Título, Columnas (para seleccionar o introducir el número de columnas en las que se mostrarán las imágenes en el bloque) e Imagen con enlace, que incluye los siguientes elementos: Imagen (para seleccionar desde la Biblioteca Multimedia), campo de Texto, leyenda y URL (enlace al que se accede al hacer clic en la imagen)
 
 <a href="/build/help/019.png">
     <img src="/build/help/019.png" />
@@ -236,15 +164,10 @@ block.
 
 ---
 
-### People
+### Personas
 
-- type of block which allows for the addition of People type elements
-  created in the People menu. For more information, please access
-  the **Help section, "Creating and managing people".**
-- this type of block is made up of the following elements: Title,
-  Text, Display images checkmark (to check if you want the images
-  associated with the people to be shown in this block) and People
-  (to select from the people already created in the **People** menu)
+- tipo de bloque que permite añadir elementos del tipo **Personas** creados en el menú Personas. Para más información, consulta la sección de Ayuda, **Creación y gestión de personas**.
+- este tipo de bloque está compuesto por los siguientes elementos: Título, Texto, casilla para mostrar imágenes (para seleccionar si deseas que las imágenes asociadas a las personas se muestren en este bloque) y Personas (para seleccionar entre las personas ya creadas en el menú Personas).
 
 <a href="/build/help/010.png">
     <img src="/build/help/010.png" />
@@ -252,15 +175,10 @@ block.
 
 ---
 
-### Progress
+### Progreso
 
-- type of block which allows for the addition of a progress bar,
-  accompanied by other elements
-- the block is made up of the following elements: Icon (is selected
-  from a list of predefined graphics), Title, Description, Progress
-  (can be modified through sliding the element on the progress line,
-  can be selected with arrows or the value can be manually
-  introduced), Text Button and Link Button
+- tipo de bloque que permite añadir una barra de progreso, acompañada de otros elementos
+- el bloque está compuesto por los siguientes elementos: Ícono (seleccionado de una lista de gráficos predefinidos), Título, Descripción, Progreso (puede modificarse deslizando el elemento sobre la línea de progreso, seleccionarse con flechas o introducirse manualmente), Texto del botón y Enlace del botón
 
 <a href="/build/help/018.png">
     <img src="/build/help/018.png" />
@@ -268,15 +186,13 @@ block.
 
 ---
 
-### Divider
+### Separador
 
-- type of block used with the purpose of dividing various content
-  sections on the page
-- You can change the color of the divider. The default color is light gray.
+- tipo de bloque utilizado con el propósito de dividir varias secciones de contenido en la página
+- puedes cambiar el color del separador. El color predeterminado es gris claro.
 
 ---
 
-### Text
+### Texto
 
-- type of block which allows for the addition of certain paragraphs of
-  text and which is made up of Title and Text
+- tipo de bloque que permite añadir ciertos párrafos de texto y que está compuesto por Título y Texto
