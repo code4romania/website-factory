@@ -2,7 +2,7 @@
 title: "¿Qué es Website Factory?"
 ---
 
-Website Factory: ONG es una solución técnica que te permite construir 
+Website Factory es una solución técnica que te permite construir 
 tus propios sitios web. Está integrada por defecto con una serie de 
 funcionalidades que necesitarás, como herramientas de pago en línea 
 para que puedas recibir donaciones, herramientas para monitorear el tráfico 
