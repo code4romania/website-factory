@@ -1,13 +1,9 @@
 ---
-title: "What does each user role mean"
+title: "¿Qué significa cada rol de usuario?"
 ---
 
-The roles you can assign a new user are:
+Los roles que puedes asignar a un nuevo usuario son:
 
-1)  **Administrator** - an administrator will have all the permissions
-    that you have in the admin dashboard, which means also the
-    capacity to delete your account as well.
-2)  **Editor** - an editor may intervene to add, edit or delete content
-    all through the website as well as create forms and have access to
-    all the sections of the website. An editor cannot change the
-    website settings or user accounts.
+1) Administrador: un administrador tendrá todos los permisos que tú tienes en el panel de administración, lo que incluye también la capacidad de eliminar tu cuenta.
+
+2) Editor: un editor puede intervenir para agregar, editar o eliminar contenido en todo el sitio web, así como crear formularios y tener acceso a todas las secciones del sitio. Un editor no puede modificar la configuración del sitio ni gestionar cuentas de usuario.
