@@ -1,11 +1,13 @@
 ---
-title: "Technical updates of the solution"
+title: "Actualizaciones técnicas de la solución"
 ---
 
-From time to time, to make sure the solution works well and that you
-have the latest version available we will be running a few maintenance
-checks, pro-bono. These maintenance checks consist of:
+De vez en cuando, para asegurarnos de que la solución funcione correctamente
+y de que tengas disponible la versión más reciente, realizaremos algunas tareas 
+de mantenimiento, de forma pro bono. Estas tareas de mantenimiento consisten en:
 
-1)  Updating the code that Website Factory is built on
-2)  Security updates that are necessary to keep you safe from cyberthreats
-3)  Adding new modules or functionalities to the app
+1) Actualizar el código sobre el cual está construido Website Factory
+
+2) Aplicar actualizaciones de seguridad necesarias para protegerte de ciberamenazas
+
+3) Añadir nuevos módulos o funcionalidades a la aplicación
