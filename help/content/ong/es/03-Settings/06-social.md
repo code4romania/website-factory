@@ -1,18 +1,17 @@
 ---
-title: "How to connect my organization’s social media accounts to my website?"
+title: "¿Cómo conectar las cuentas de redes sociales de mi organización a mi sitio web?"
 ---
 
-In order to connect the social media accounts it is necessary to follow
-these steps:
+Para conectar las cuentas de redes sociales, es necesario seguir estos pasos:
 
-1)  Access dashboard
-2)  Select the secondary menu in the upper right corner, shaped like a hexagon
-3)  Select **Settings**
-4)  Select **Social media** from the secondary menu
-5)  Fill in the links to your social media accounts in each of the
-    corresponding fields
-6)  Click on **Save**
-7)  The social media icons will be displayed in the footer of your website.
+1) Acceder al panel de control
+2) Seleccionar el menú secundario en la esquina superior derecha, con forma de **hexágono**
+4) Seleccionar **Configuración**
+5) Seleccionar **Redes sociales** en el menú secundario
+6) Rellenar los enlaces a tus cuentas de redes sociales en los campos correspondientes
+7) Hacer clic en **Guardar**
+
+Los íconos de redes sociales se mostrarán en el pie de página de tu sitio web.
 
 <a href="/build/help/024.png">
     <img src="/build/help/024.png" />
