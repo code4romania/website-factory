@@ -1,10 +1,10 @@
 ---
-title: "Content management"
+title: "Gestión de contenido"
 video: true
 ---
 
-In this section you will find information about all the content creation
-areas in the platform.
+En esta sección encontrarás información sobre todas las áreas de creación de contenido en la plataforma.
+
 
 <div class="aspect-w-16 aspect-h-9">
   <iframe src="https://www.youtube.com/embed/tBqtnFOfRYY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
