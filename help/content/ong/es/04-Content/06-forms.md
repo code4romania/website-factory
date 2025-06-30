@@ -1,5 +1,5 @@
 ---
-title: "How to create a form?"
+title: "¿Cómo crear un formulario?"
 video: true
 ---
 
@@ -7,106 +7,84 @@ video: true
   <iframe src="https://www.youtube.com/embed/tvf2GCTWePc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-Forms have various uses in an organisation website's economy. They can
-be used in the contact page, for the ones who follow the organisation's
-activity to be able to send a message directly through the website, they
-can be a tool for keeping track of participants for an event or they can
-represent a mechanism through which you can measure a communication
-campaign's efficiency through asking for feedback from your donors.
+Los formularios tienen diversos usos en la gestión de un sitio web de una organización. Pueden utilizarse en la página de contacto para que quienes siguen la actividad de la organización puedan enviar un mensaje directamente a través del sitio web, también pueden ser una herramienta para llevar un control de los participantes en un evento o representar un mecanismo para medir la eficacia de una campaña de comunicación solicitando retroalimentación a los donantes.
 
-To create a new form, it is necessary to go through the following steps:
+Para crear un nuevo formulario, es necesario seguir los siguientes pasos:
 
-1)  Access the admin panel
-2)  Select the **Forms** button from the **Main Menu**
-3)  Click on the **Add** button
-4)  Add the form's title in the **Title** field
-5)  Add the form's description in the **Description** field
-6)  Check the "**Save answers in the panel**" option if you want the
-    answers to be kept on the platform and to access them from here
-7)  Check the "**Send the responses through email**" option if you want
-    the platform to send the received answers to the indicated email
-    addresses.
-8)  If the "**Send the responses through email**" option is checked,
-    then an extra field named **Recipients** will open, where it is
-    necessary to input the email addresses you want to responses to be
-    sent to, by clicking enter after each email address introduced
-9)  Add the questions/fields from your form by clicking the **Add new
-    field button**. Below, you will find information about what each
-    type of field represents and how it can be used.
-10) Click **Save**
+1) Accede al panel de administración
+2) Selecciona el botón **Formularios** desde el Menú Principal
+3) Haz clic en el botón **Agregar**
+4) Añade el título del formulario en el campo Título
+5) Añade la descripción del formulario en el campo Descripción
+6) Marca la opción **Guardar** respuestas en el panel si deseas que las respuestas se guarden en la plataforma y puedas acceder a ellas desde ahí
+7) Marca la opción **Enviar** las respuestas por correo electrónico si deseas que la plataforma envíe las respuestas recibidas a las direcciones de correo electrónico indicadas
+8) Si la opción **Enviar** las respuestas por correo electrónico está marcada, aparecerá un campo adicional llamado **Destinatarios**, donde deberás ingresar las direcciones de correo electrónico a las que quieres que se envíen las respuestas, presionando **Enter** después de cada dirección introducida
+9) Añade las preguntas/campos de tu formulario haciendo clic en el botón **Agregar** nuevo campo. A continuación encontrarás información sobre qué representa cada tipo de campo y cómo puede usarse
+10) Haz clic en **Guardar**
 
 <a href="/build/help/021.png">
     <img src="/build/help/021.png" />
 </a>
 
-To view an already created form, it is necessary to go through the
-following steps:
+Para visualizar un formulario ya creado, debes seguir estos pasos:
 
-1)  Access the admin panel
-2)  Select the **Forms** button from the **Main Menu**
-3)  Click the button next to the form you are trying to view
-4)  Select the **View** option
-5)  The form page will open in a new tab in your browser
+1) Accede al panel de administración
+2) Selecciona el botón **Formularios** desde el Menú Principal
+3) Haz clic en el botón junto al formulario que deseas visualizar
+4) Selecciona la opción **Ver**
+5) La página del formulario se abrirá en una nueva pestaña de tu navegador
 
-To edit an already created form, it is necessary to go through the
-following steps:
+Para editar un formulario ya creado, debes seguir estos pasos:
 
-1)  Access the admin panel
-2)  Select the **Forms** button from the **Main Menu**
-3)  Click the button next to the form you are trying to view
-4)  Select the **Edit** option
-5)  Edit the fields you want to modify
-6)  Click **Save**
+1) Accede al panel de administración
+2) Selecciona el botón **Formularios** desde el Menú Principal
+3) Haz clic en el botón junto al formulario que deseas editar
+4) Selecciona la opción **Editar**
+5) Modifica los campos que deseas cambiar
+6) Haz clic en **Guardar**
 
-or
+O bien:
 
-1)  Access the admin panel
-2)  Select the Forms button from the Main Menu
-3)  Click on the title of the form you want to edit and you'll get to
-    the editing page
-4)  Click Save
+1) Accede al panel de administración
+2) Selecciona el botón **Formularios** desde el Menú Principal
+3) Haz clic en el título del formulario que deseas editar para abrir la página de edición
+4) Haz clic en **Guardar**
 
-To duplicate an already created form, it is necessary to go through the
-following steps:
+Para duplicar un formulario ya creado, debes seguir estos pasos:
 
-1)  Access the admin panel
-2)  Select the **Forms** button from the **Main Menu**
-3)  Click on the button next to the form you are trying to view
-4)  Select the **Duplicate** option
-5)  Confirm the duplication of the form by clicking the **Duplicate**
-    button
-6)  Edit the fields you want to modify from the duplicated form
-7)  Click Save
+1) Accede al panel de administración
+2) Selecciona el botón **Formularios** desde el Menú Principal
+3) Haz clic en el botón junto al formulario que deseas duplicar
+4) Selecciona la opción **Duplicar**
+5) Confirma la duplicación haciendo clic en el botón **Duplicar**
+6) Modifica los campos que desees cambiar en el formulario duplicado
+7) Haz clic en **Guardar**
 
-To delete an already created form, it is necessary to go through the
-following steps:
+Para eliminar un formulario ya creado, debes seguir estos pasos:
 
-1)  Access the admin panel
-2)  Select the **Forms** button from the **Main Menu**
-3)  Click on the button next to the form you are trying to view
-4)  Select the **Delete** option
-5)  Confirm the action by clicking the **Delete** button
-6)  The form has been moved to the **Deleted** section
+1) Accede al panel de administración
+2) Selecciona el botón **Formularios** desde el Menú Principal
+3) Haz clic en el botón junto al formulario que deseas eliminar
+4) Selecciona la opción **Eliminar**
+5) Confirma la acción haciendo clic en **Eliminar**
+6) El formulario se moverá a la sección **Eliminados**
 
-To recover a deleted form, it is necessary to go through the following
-steps:
+Para recuperar un formulario eliminado, debes seguir estos pasos:
 
-1)  Access the admin panel
-2)  Select the **Forms** button from the **Main Menu**
-3)  Select the **Deleted** option from the **Forms** section menu
-4)  Click on the button next to the form you are trying to restore
-5)  Select the **Restore** option
-6)  Confirm the restoration of the form by clicking the **Restore**
-    button
-7)  Click **Save**
-8)  The form has been moved to the **All section**
+1) Accede al panel de administración
+2) Selecciona el botón **Formularios** desde el Menú Principal
+3) Selecciona la opción **Eliminados** en el menú de la sección Formularios
+4) Haz clic en el botón junto al formulario que deseas restaurar
+5) Selecciona la opción **Restaurar**
+6) Confirma la restauración haciendo clic en el botón **Restaurar**
+7) Haz clic en **Guardar**
+8) El formulario se moverá a la sección **Todos**
 
-To permanently delete a form without the possibility of restoring it, it
-is necessary to go through the following steps:
+Para eliminar un formulario de forma permanente sin posibilidad de restauración, debes seguir estos pasos:
 
-1)  Access the admin panel
-2)  Select the **Forms** button from the **Main Menu**
-3)  Select the **Deleted** option from the **Forms** section menu
-4)  Click on the button next to the form you are trying to permanently delete
-5)  Select the **Permanently Delete** option
-6)  Confirm the action by clicking the **Delete** button
+1) Accede al panel de administración
+2) Selecciona el botón **Formularios** desde el Menú Principal
+3) Selecciona la opción **Eliminados** en el menú de la sección Formularios
+4) Haz clic en el botón junto al formulario que deseas eliminar permanentemente
+5) Selecciona la opción **Eliminar permanentemente**
+6) Confirma la acción haciendo clic en **Eliminar**
