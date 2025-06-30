@@ -1,9 +1,9 @@
 ---
-title: "Notifications you will receive"
+title: "Notificaciones que recibirás"
 ---
 
-If you are using Website Factory, every time we want to operate a major
-change or perform a maintenance routine we will let you know via email.
-We will keep you updated with future plans also, if we plan to add extra
-features but also with supporting documents and guides to help you
-create better websites.
+Si estás utilizando Website Factory, cada vez que queramos realizar un 
+cambio importante o llevar a cabo una rutina de mantenimiento, te informaremos 
+por correo electrónico. También te mantendremos al tanto de nuestros planes 
+futuros, tanto si planeamos agregar nuevas funcionalidades como si compartimos 
+documentos de apoyo y guías para ayudarte a crear sitios web de mejor calidad.
