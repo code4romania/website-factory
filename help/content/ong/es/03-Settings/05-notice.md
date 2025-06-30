@@ -1,43 +1,39 @@
 ---
-title: "How to add important alerts to the website?"
+title: "¿Cómo agregar alertas importantes al sitio web?"
 ---
 
-When you need to make an important announcement and you want it visible
-on the website, then you can use the **Site Notice** feature. This is
-where you can create a simple banner visible on every page of the
-website.
+Cuando necesites hacer un anuncio importante y quieras que sea visible en el sitio web, puedes usar la función de Aviso del sitio. Esta herramienta te permite crear un banner simple que se mostrará en todas las páginas del sitio.
 
-To add a notice you have to :
+Para agregar un aviso debes:
 
-1)  Access dashboard
-2)  Select the secondary menu in the upper right corner, shaped like a hexagon
-3)  Select **Settings**
-4)  Select **Site Notice** in the secondary menu
-5)  Check the **Active** option
-6)  Select the color of the site notice. We recommend you choose a
-    bright color such as yellow, red, cyan or orange.
-7)  Insert the text you want to display in the **Text** field.
-8)  Press **Save**
+1) Acceder al panel de control
+2) Seleccionar el menú secundario en la esquina superior derecha, con forma de **hexágono**
+3) Seleccionar **Configuración**
+4) Seleccionar **Aviso del sitio** en el menú secundario
+5) Marcar la opción **Activo**
+6) Elegir el color del aviso. Recomendamos que uses un color llamativo como amarillo, rojo, cian o naranja
+7) Escribir el texto que deseas mostrar en el campo **Texto**
+8) Pulsar **Guardar**
 
 <a href="/build/help/006.png">
     <img src="/build/help/006.png" />
 </a>
 
-To deactivate a notice you have to
+Para desactivar un aviso debes:
 
-1)  Access dashboard
-2)  Select the secondary menu in the upper right corner, shaped like a hexagon
-3)  Select **Settings**
-4)  Select **Site Notice** in the secondary menu
-5)  Uncheck **Activate**
-6)  Press **Save**
+1) Acceder al panel de control
+2) Seleccionar el menú secundario en la esquina superior derecha, con forma de **hexágono**
+3) Seleccionar **Configuración**
+4) Seleccionar **Aviso del sitio** en el menú secundario
+5) Desmarcar la opción **Activo**
+6) Pulsar **Guardar**
 
-To edit a notice you have to :
+Para editar un aviso debes:
 
-1)  Access dashboard
-2)  Select the secondary menu in the upper right corner, shaped like a hexagon
-3)  Select **Settings**
-4)  Select **Site Notice** in the secondary menu
-5)  Click on the color square if you want to change the color
-6)  Edit the Text as you need to
-7)  Press **Save**
+1) Acceder al panel de control
+2) Seleccionar el menú secundario en la esquina superior derecha, con forma de **hexágono**
+3) Seleccionar **Configuración**
+4) Seleccionar **Aviso del sitio** en el menú secundario
+5) Hacer clic en el cuadro de color si deseas cambiar el color
+6) Editar el texto según sea necesario
+7) Pulsar **Guardar**
