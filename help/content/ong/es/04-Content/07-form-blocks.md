@@ -1,166 +1,112 @@
 ---
-title: "Types of form fields"
+title: "Tipos de campos de formulario"
 ---
 
-### Textarea
+### Área de texto
 
-- the responses from this field can be paragraphs of text
-- this type of field's elements are:
-  - **Name** - the name of the field/the question from the form
-    (mandatory field)
-  - **Help text** - text which helps the people completing the form to
-    correctly answer the question or fill in the field
-  - **Mandatory Checkbox** - check this option if you want this
-    question to be mandatory, and tor the form not to send unless
-    the field is completed
-  - **Minimum length** - input or select with the help of the arrows
-    the minimum number of characters you want the response to this
-    field can have. If the minimum length remains 0, then there is
-    no minimum character limit for the response.
-  - **Maximum length** - input or select with the help of the arrows
-    the maximum number of characters for the response to this field
-    can have. If the maximum length remains 0, then there is no
-    maximum character limit for the response.
+- las respuestas en este campo pueden ser párrafos de texto
+
+los elementos de este tipo de campo son:
+- **Nombre:** el nombre del campo/la pregunta del formulario (campo obligatorio)
+- **Texto de ayuda:** texto que ayuda a las personas que completan el formulario a responder correctamente la pregunta o llenar el campo
+- **Casilla de obligatorio:** marca esta opción si quieres que esta pregunta sea obligatoria y que el formulario no se envíe a menos que el campo esté completado
+- **Longitud mínima:** ingresa o selecciona con las flechas el número mínimo de caracteres que debe tener la respuesta a este campo. Si la longitud mínima es 0, no hay límite mínimo de caracteres
+- **Longitud máxima:** ingresa o selecciona con las flechas el número máximo de caracteres que puede tener la respuesta a este campo. Si la longitud máxima es 0, no hay límite máximo de caracteres
 
 ---
 
-### Checkbox
+### Casilla de verificación
 
-- the response to this field is multiple choice, the user having a
-  list of predefined elements to choose from, one or more
-- this field's elements are:
-  - **Name** - the name of the field/the question from the form
-    (mandatory field)
-  - **Help text** - text which helps the people completing the form to
-    correctly answer the question or fill in the field
-  - **Mandatory** Checkbox - check this option if you want this
-    question to be mandatory, and tor the form not to send unless
-    the field is completed
-  - **Options** - here, fill in the options that the users can choose
-    from to answer this question, pressing enter after each option
+- la respuesta a este campo es de opción múltiple, el usuario tiene una lista de elementos predefinidos para elegir, uno o más
+
+los elementos de este campo son:
+- **Nombre:** el nombre del campo/la pregunta del formulario (campo obligatorio)
+- **Texto de ayuda:** texto que ayuda a las personas que completan el formulario a responder correctamente la pregunta o llenar el campo
+- **Casilla de obligatorio:** marca esta opción si quieres que esta pregunta sea obligatoria y que el formulario no se envíe a menos que el campo esté completado
+- **Opciones:** aquí debes ingresar las opciones entre las que los usuarios pueden elegir para responder a esta pregunta, presionando Enter después de cada opción
 
 ---
 
-### Date
+### Fecha
 
-- the responses to this field are in date form
-- this field's elements are:
-  - **Name** - the name of the field/the question from the form
-    (mandatory field)
-  - **Help text** - text which helps the people completing the form to
-    correctly answer the question or fill in the field
-  - **Mandatory Checkbox** - check this option if you want this
-    question to be mandatory, and tor the form not to send unless
-    the field is completed
-  - **Minimum Date** - complete with the minimum date that can be
-    entered in this field as a response. If the date remains blank,
-    then there is no minimum date to fill in.
-  - **Maximum Date** - complete with the maximum date that can be
-    entered in this field as a response. If the date remains blank,
-    then there is no maximum date to fill in.
-  - Example: if you want the obtained responses to contain just dates
-    from 2021, select the minimum date as 01.01.2021, and the
-    maximum date 31.12.2021
+- las respuestas a este campo deben estar en formato de fecha
+
+los elementos de este campo son:
+- **Nombre:** el nombre del campo/la pregunta del formulario (campo obligatorio)
+- **Texto de ayuda:** texto que ayuda a las personas que completan el formulario a responder correctamente la pregunta o llenar el campo
+- **Casilla de obligatorio:** marca esta opción si quieres que esta pregunta sea obligatoria y que el formulario no se envíe a menos que el campo esté completado
+- **Fecha mínima:** completa con la fecha mínima que puede ingresarse en este campo como respuesta. Si el campo queda en blanco, no hay fecha mínima establecida
+- **Fecha máxima:** completa con la fecha máxima que puede ingresarse en este campo como respuesta. Si el campo queda en blanco, no hay fecha máxima establecida
+- **Ejemplo:** si deseas que las respuestas contengan solo fechas del año 2021, selecciona como fecha mínima el 01.01.2021 y como fecha máxima el 31.12.2021
 
 ---
 
-### Email
+### Correo electrónico
 
-- responses to this field are in email address form (example -
-  name@domain.com)
-- this field's elements are:
-  - Name - the name of the field/the question from the form (mandatory
-    field)
-  - Help text - text which helps the people completing the form to
-    correctly answer the question or fill in the field
-  - Mandatory Checkbox - check this option if you want this question
-    to be mandatory, and tor the form not to send unless the field
-    is completed
+- las respuestas a este campo deben estar en formato de dirección de correo electrónico (ejemplo: nombre@dominio.com)
+
+los elementos de este campo son:
+- **Nombre:** el nombre del campo/la pregunta del formulario (campo obligatorio)
+- **Texto de ayuda:** texto que ayuda a las personas que completan el formulario a responder correctamente la pregunta o llenar el campo
+- **Casilla de obligatorio:** marca esta opción si quieres que esta pregunta sea obligatoria y que el formulario no se envíe a menos que el campo esté completado
 
 ---
 
-### Number
+### Número
 
-- responses to this field are in number form
-- this field's elements are:
-  - **Name** - the name of the field/the question from the form
-    (mandatory field)
-  - **Help text** - text which helps the people completing the form to
-    correctly answer the question or fill in the field
-  - **Mandatory** Checkbox - check this option if you want this
-    question to be mandatory, and tor the form not to send unless
-    the field is completed
-  - **Minimum value** - complete this field with the minimum value
-    that can be entered as a response.
-  - **Maximum value** - complete this field with the maximum value
-    that can be entered as a response.
+- las respuestas a este campo deben ser numéricas
+
+los elementos de este campo son:
+- **Nombre:** el nombre del campo/la pregunta del formulario (campo obligatorio)
+- **Texto de ayuda:** texto que ayuda a las personas que completan el formulario a responder correctamente la pregunta o llenar el campo
+- **Casilla de obligatorio:** marca esta opción si quieres que esta pregunta sea obligatoria y que el formulario no se envíe a menos que el campo esté completado
+- **Valor mínimo:** completa este campo con el valor mínimo que puede ingresarse como respuesta
+- **Valor máximo:** completa este campo con el valor máximo que puede ingresarse como respuesta
 
 ---
 
-### Radio
+### Opción (botones de radio)
 
-- responses to this field are in single choice form, the user having
-  to choose one from a list of predefined elements
-- this field's elements are:
-  - **Name** - the name of the field/the question from the form
-    (mandatory field)
-  - **Help text** - text which helps the people completing the form to
-    correctly answer the question or fill in the field
-  - **Mandatory** Checkbox - check this option if you want this
-    question to be mandatory, and tor the form not to send unless
-    the field is completed
-  - **Options** - here, fill in the options that the users can choose
-    from to answer this question, pressing enter after each option
+- las respuestas a este campo son de opción única, el usuario debe elegir una entre una lista de elementos predefinidos
+
+los elementos de este campo son:
+- **Nombre:** el nombre del campo/la pregunta del formulario (campo obligatorio)
+- **Texto de ayuda:** texto que ayuda a las personas que completan el formulario a responder correctamente la pregunta o llenar el campo
+- **Casilla de obligatorio:** marca esta opción si quieres que esta pregunta sea obligatoria y que el formulario no se envíe a menos que el campo esté completado
+- **Opciones:** aquí debes ingresar las opciones entre las que los usuarios pueden elegir para responder a esta pregunta, presionando Enter después de cada opción
 
 ---
 
-### Select
+### Selección desplegable
 
-- responses to this field are in multiple choice form, the user having
-  a list of predefined elements to choose from, one or more
-- this field's elements are:
-  - **Name** - the name of the field/the question from the form
-    (mandatory field)
-  - **Help text** - text which helps the people completing the form to
-    correctly answer the question or fill in the field
-  - **Mandatory** Checkbox - check this option if you want this
-    question to be mandatory, and tor the form not to send unless
-    the field is completed
-  - **Options** - here, fill in the options that the users can choose
-    from to answer this question, pressing enter after each option
+- las respuestas a este campo son de opción múltiple, el usuario tiene una lista de elementos predefinidos para elegir, uno o más
+
+los elementos de este campo son:
+- **Nombre:** el nombre del campo/la pregunta del formulario (campo obligatorio)
+- **Texto de ayuda:** texto que ayuda a las personas que completan el formulario a responder correctamente la pregunta o llenar el campo
+- **Casilla de obligatorio:** marca esta opción si quieres que esta pregunta sea obligatoria y que el formulario no se envíe a menos que el campo esté completado
+- **Opciones:** aquí debes ingresar las opciones entre las que los usuarios pueden elegir para responder a esta pregunta, presionando Enter después de cada opción
 
 ---
 
-### Text
+### Texto
 
-- responses to this field can be lines of text
-- this field's elements are:
-  - **Name** - the name of the field/the question from the form
-    (mandatory field)
-  - **Help text** - text which helps the people completing the form to
-    correctly answer the question or fill in the field
-  - **Mandatory** Checkbox - check this option if you want this
-    question to be mandatory, and tor the form not to send unless
-    the field is completed
-  - **Minimum length** - input or select with the help of the arrows
-    the minimum number of characters you want the response to this
-    field can have. If the minimum length remains 0, then there is
-    no minimum character limit for the response.
-  - **Maximum length** - input or select with the help of the arrows
-    the maximum number of characters for the response to this field
-    can have. If the maximum length remains 0, then there is no
-    maximum character limit for the response.
+las respuestas a este campo pueden ser líneas de texto
+
+los elementos de este campo son:
+- **Nombre:** el nombre del campo/la pregunta del formulario (campo obligatorio)
+- **Texto de ayuda:** texto que ayuda a las personas que completan el formulario a responder correctamente la pregunta o llenar el campo
+- **Casilla de obligatorio:** marca esta opción si quieres que esta pregunta sea obligatoria y que el formulario no se envíe a menos que el campo esté completado
+- **Longitud mínima:** ingresa o selecciona con las flechas el número mínimo de caracteres que debe tener la respuesta a este campo. Si la longitud mínima es 0, no hay límite mínimo de caracteres
+- **Longitud máxima:** ingresa o selecciona con las flechas el número máximo de caracteres que puede tener la respuesta a este campo. Si la longitud máxima es 0, no hay límite máximo de caracteres
 
 ---
 
-### URL
-- responses to this field can be in link form (example:
-  [https://website-name.com](https://website-name.com/))
-- this field's elements are:
-  - Name - the name of the field/the question from the form (mandatory
-    field)
-  - Help text - text which helps the people completing the form to
-    correctly answer the question or fill in the field
-  - Mandatory Checkbox - check this option if you want this question
-    to be mandatory, and tor the form not to send unless the field
-    is completed
+### URL (Enlace)
+
+- las respuestas a este campo pueden estar en formato de enlace (ejemplo: https://nombre-del-sitio.com)
+
+los elementos de este campo son:
+- **Nombre:** el nombre del campo/la pregunta del formulario (campo obligatorio)
+- **Texto de ayuda:** texto que ayuda a las personas que completan el formulario a responder correctamente la pregunta o llenar el campo
+- **Casilla de obligatorio:** marca esta opción si quieres que esta pregunta sea obligatoria y que el formulario no se envíe a menos que el campo esté completado
