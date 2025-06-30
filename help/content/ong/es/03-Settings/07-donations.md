@@ -1,74 +1,54 @@
 ---
-title: "How to set up donations?"
+title: "¿Cómo configurar las donaciones?"
 ---
 
-It is important for an organisation to correctly and efficiently manage
-their supporters' donations. In Website Factory: NGO you can set up the
-thank you page for donors, a recommended amount for donations and you
-can quickly integrate the EuPlătesc and Netopia payment processors (this
-step implies the existence of a signed contract with one or both payment
-processors).
+Es importante que una organización gestione de manera correcta y eficiente las donaciones de sus colaboradores. En Website Factory puedes configurar la página de agradecimiento para los donantes, establecer un monto sugerido para las donaciones e integrar rápidamente los procesadores de pago EuPlătesc y Netopia (este paso implica tener un contrato firmado con uno o ambos procesadores de pago).
 
-To set the thank you page that donors see after concluding a payment, it
-is necessary to go through the following steps:
+Para configurar la página de agradecimiento que los donantes verán al finalizar un pago, debes seguir los siguientes pasos:
 
-1)  Access the admin panel
-2)  Select the secondary settings menu from the top right corner
-3)  Select **"Settings"**
-4)  Select "Donations" from the secondary menu, which is found under the
-    menu in the platform's header.
-5)  Access the **"Thank you page"** field
-6)  Select from the pages already created the one you want the user to
-    see when they conclude a donation. If the page does not exist, you
-    can create it. You can find information about creating pages in
-    the Help section of the Content Guide.
-7)  Click **"Save"**
+1) Accede al panel de administración
+2) Selecciona el menú secundario de configuración en la esquina superior derecha
+3) Selecciona **Configuración**
+4) Selecciona **Donaciones** desde el menú secundario, que se encuentra debajo del menú en el encabezado de la plataforma
+5) Accede al campo **Página de agradecimiento**
+6) Selecciona de entre las páginas ya creadas aquella que deseas que el usuario vea al finalizar una donación. Si la página no existe, puedes crearla. Puedes encontrar información sobre cómo crear páginas en la sección de **Ayuda** de la Guía de Contenidos
+7) Haz clic en **Guardar**
 
-To set a preset value for donation that you recommend to your donors, it
-is necessary to go through the following steps:
+Para establecer un valor predefinido de donación que quieras sugerir a tus donantes, debes seguir estos pasos:
 
-1)  Access the admin panel
-2)  Select the secondary settings menu from the top right corner
-3)  Select "**Settings**"
-4)  Select "**Donations**" from the secondary menu, which is found under
-    the menu in the platform's header.
-5)  Click on the "**Add**" button from the "**Preset values**" field.
-6)  Input the preset value in the numeric field or select a value with
-    the help of the arrows.
-7)  Click "**Save**"
+1) Accede al panel de administración
+2) Selecciona el menú secundario de configuración en la esquina superior derecha
+3) Selecciona **Configuración**
+4) Selecciona **Donaciones** desde el menú secundario, que se encuentra debajo del menú en el encabezado de la plataforma
+5) Haz clic en el botón **Agregar** en el campo **Valores predefinidos**
+6) Introduce el valor sugerido en el campo numérico o selecciónalo con la ayuda de las flechas
+7) Haz clic en **Guardar**
 
 <a href="/build/help/011.png">
     <img src="/build/help/011.png" />
 </a>
 
-### Integrating the EuPlătesc payment processor
+### Integración del procesador de pagos EuPlătesc
 
-To integrate the EuPlătesc payment processor, it is necessary to go
-through the following steps:
+Para integrar el procesador de pagos EuPlătesc, es necesario seguir los siguientes pasos:
 
-1)  Access the admin panel
-2)  Select the secondary settings menu from the top right corner
-3)  Select "**Settings**"
-4)  Select "**Donations**" from the secondary menu, which is found under
-    the menu in the platform's header.
-5)  Check the "**Activated**" option
-6)  Input the Merchant code and Key as you have received them from
-    EuPlătesc after the conclusion of the contract.
-7)  Click "**Save**"
+1) Accede al panel de administración
+2) Selecciona el menú secundario de configuración en la esquina superior derecha
+3) Selecciona **Configuración**
+4) Selecciona **Donaciones** desde el menú secundario, que se encuentra debajo del menú en el encabezado de la plataforma
+5) Marca la opción **Activado**
+6) Introduce el código de comerciante (Merchant code) y la clave (Key) tal como los recibiste de EuPlătesc después de la firma del contrato
+7) Haz clic en **Guardar**
 
-### Integrating the Netopia payment processor
+### Integración del procesador de pagos Netopia
 
-To integrate the Netopia payment processor, it is necessary to go
-through the following steps:
+Para integrar el procesador de pagos Netopia, es necesario seguir los siguientes pasos:
 
-1)  Access the admin panel
-2)  Select the secondary settings menu from the top right corner
-3)  Select "**Settings**"
-4)  Select "**Donations**" from the secondary menu, which is found under
-    the menu in the platform's header.
-5)  Check the "**Activated**" option
-6)  Upload the file for "**Public key**" in the "**Public key**" field.
-    The file is sent to Netopia after the contract signing.
-7)  Upload the file for "**Private key**" in the "**Private key**"
-    field. The file is sent to Netopia after the contract signing.
-8)  Click "**Save**"
+1) Accede al panel de administración
+2) Selecciona el menú secundario de configuración en la esquina superior derecha
+3) Selecciona **Configuración**
+4) Selecciona **Donaciones** desde el menú secundario, que se encuentra debajo del menú en el encabezado de la plataforma
+5) Marca la opción **Activado**
+6) Sube el archivo de la **Clave pública** en el campo correspondiente. Este archivo se envía a Netopia después de la firma del contrato
+7) Sube el archivo de la **Clave privada** en el campo correspondiente. Este archivo también se envía a Netopia después de la firma del contrato
+8) Haz clic en **Guardar**
