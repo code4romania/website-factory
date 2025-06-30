@@ -1,36 +1,30 @@
 ---
-title: "How to edit or delete a user?"
+title: "Cómo editar o eliminar un usuario"
 ---
 
-As an administrator you have the right to edit every user. In order to
-change the role, email or language of a user you have to:
+Como administrador, tienes el derecho de editar a cualquier usuario. Para cambiar el rol, correo electrónico o idioma de un usuario, debes:
 
-1)  Access dashboard
-2)  Select the secondary menu in the upper right corner, marked as a hexagon
-3)  Select **Users**
-4)  Click on the name of the user you want to edit
-5)  Edit the information
-6)  Press **Save**
+1) Acceder al panel de control
+2) Seleccionar el menú secundario en la esquina superior derecha, marcado con un hexágono
+3) Seleccionar Usuarios
+4) Hacer clic en el nombre del usuario que deseas editar
+5) Editar la información
+6) Pulsar Guardar
 
-If you choose to change the email address of the user, this user will no
-longer be able to log in with his previous email address. An email to
-set his password will be sent to the new email address and the user will
-have to go through the setup process again.
+Si decides cambiar la dirección de correo electrónico del usuario, este ya no podrá iniciar sesión con su dirección anterior. Se enviará un correo electrónico a la nueva dirección con un enlace para establecer una contraseña, y el usuario deberá completar nuevamente el proceso de configuración.
 
 <a href="/build/help/004.png">
     <img src="/build/help/004.png" />
 </a>
 
-To delete a user you must:
+Para eliminar a un usuario debes:
 
-1)  Access dashboard
-2)  Select the secondary menu in the upper right corner, marked as a hexagon
-3)  Select **Users**
-4)  Click on the arrow corresponding to the user you want to delete
-5)  Select **Delete**
-6)  Confirm the action
-7)  Press **Save**
+1) Acceder al panel de control
+2) Seleccionar el menú secundario en la esquina superior derecha, marcado con un hexágono
+3) Seleccionar Usuarios
+4) Hacer clic en la flecha correspondiente al usuario que deseas eliminar
+5) Seleccionar Eliminar
+6) Confirmar la acción
+7) Pulsar Guardar
 
-If you choose to delete a user, he will no longer have access to the
-admin dashboard and will no longer be able to edit anything on the
-website. The content this user has uploaded so far will remain intact.
+Si decides eliminar a un usuario, este ya no tendrá acceso al panel de administración ni podrá editar nada en el sitio web. El contenido que haya subido hasta ese momento permanecerá intacto.
