@@ -1,100 +1,78 @@
 ---
-title: "How to add a profile for a team’s member?"
+title: "¿Cómo agregar un perfil para un miembro del equipo?"
 ---
 
-The People section helps you to easily fill in the section of your
-website where it is necessary to add each member of your team or of the
-group that worked on a specific project, without the need for multiple
-entries. Once a person has been entered into the People section, they
-can be inserted whenever and wherever necessary.
+La sección Personas te ayuda a completar fácilmente la sección de tu sitio web donde es necesario agregar a cada miembro de tu equipo o del grupo que trabajó en un proyecto específico, sin necesidad de múltiples entradas. Una vez que una persona ha sido ingresada en la sección Personas, puede insertarse siempre que sea necesario.
 
-To access the People section, it is necessary to go through the
-following steps:
+Para acceder a la sección **Personas**, sigue estos pasos:
 
-1)  Access the admin panel
-2)  Select the People button from the **Main Menu**
-3)  The list of all the people added will be shown
+1) Accede al panel de administración
+2) Selecciona el botón **Personas** en el Menú Principal
+3) Se mostrará la lista de todas las personas agregadas
 
-To add a new person, it is necessary to go through the following steps:
+Para agregar una nueva persona, sigue estos pasos:
 
-1)  Access the admin panel
-2)  Select the **People** button from the **Main Menu**
-3)  Click the **Add** button
-4)  Fill in the person's name in the **Name** field
-5)  Fill in the person's role in the **Role** field
-6)  Add the person's description in the **Description** field
-7)  In the Image field, click the **Attach** button. You can choose an
-    image already added to the Media Library through selecting it by
-    clicking on the square in the corner of the image, or you can
-    upload a locally saved image to the Media Library by clicking on
-    the Upload file text. A new window will open and you will be able
-    to select the image you want to upload, click the Upload button
-    and then select the image newly uploaded in the Media Library.
-8)  Complete the links to the social media profiles that your team
-    member has provided to be made public. There's dedicated fields to
-    Facebook, LinkedIn, Instagram, Twitter, YouTube and GitHub.
-9)  Click **Save**
-10) In the case that you want to input more information about the
-    person, you can build a page about them using content blocks that
-    you can add by clicking the Add new block button. For information
-    about these content blocks, access the Help menu, section Content
-    Guide.
+1) Accede al panel de administración
+2) Selecciona el botón **Personas** en el Menú Principal
+3) Haz clic en el botón **Agregar**
+4) Completa el nombre de la persona en el campo Nombre
+5) Completa el rol de la persona en el campo Rol
+6) Añade la descripción de la persona en el campo **Descripción**
+7) En el campo **Imagen**, haz clic en el botón **Adjuntar**. Puedes elegir una imagen ya añadida a la **Biblioteca Multimedia** seleccionándola con un clic en el recuadro en la esquina de la imagen, o subir una imagen desde tu equipo haciendo clic en Subir archivo. Se abrirá una ventana para seleccionar la imagen que deseas subir; haz clic en Subir y luego selecciona la imagen recién cargada en la Biblioteca Multimedia.
+8) Completa los enlaces a los perfiles de redes sociales que la persona haya proporcionado para hacer públicos. Hay campos dedicados para Facebook, LinkedIn, Instagram, Twitter, YouTube y GitHub.
+9) Haz clic en **Guardar**
 
-To view an already existent person, is it necessary to go through the
-following steps:
+Si quieres añadir más información sobre la persona, puedes construir una página sobre ella usando bloques de contenido que puedes agregar haciendo clic en el botón **Agregar** nuevo bloque. Para más información sobre estos bloques, accede al menú de **Ayuda**, sección **Guía de Contenido**.
 
-1)  Access the admin panel
-2)  Select the **People** button from the **Main Menu**
-3)  Click on the button next to the person you want to view
-4)  Select the **View** option
-5)  A new tab with the link to the person's profile will open in your browser
+Para visualizar una persona ya existente:
 
-To edit an already existent person, is it necessary to go through the
-following steps:
+1) Accede al panel de administración
+2) Selecciona el botón **Personas** en el Menú Principal
+3) Haz clic en el botón junto a la persona que quieres ver
+4) Selecciona la opción **Ver**
+5) Se abrirá una nueva pestaña en tu navegador con el perfil de la persona
 
-1)  Access the admin panel
-2)  Select the **People** button from the **Main Menu**
-3)  Click on the button next to the person you want to edit
-4)  Select the **Edit** option
-5)  Edit the content of the field you want to modify
-6)  Click **Save**
+Para editar una persona ya existente:
 
-or
+1) Accede al panel de administración
+2) Selecciona el botón **Personas** en el Menú Principal
+3) Haz clic en el botón junto a la persona que quieres editar
+4) Selecciona la opción **Editar**
+5) Modifica el contenido que quieras cambiar
+6) Haz clic en **Guardar**
 
-1)  Access the admin panel
-2)  Select the **People** button from the **Main Menu**
-3)  Click on the name of the person you want to edit
-4)  Edit the content of the field you want to modify
-5)  Click **Save**
+O bien:
 
-To duplicate an already existend person, is it necessary to go through
-the following steps:
+1) Accede al panel de administración
+2) Selecciona el botón **Personas** en el Menú Principal
+3) Haz clic en el nombre de la persona que quieres editar
+4) Modifica el contenido que quieras cambiar
+5) Haz clic en **Guardar**
 
-1)  Access the admin panel
-2)  Select the **People** button from the **Main Menu**
-3)  Click on the button next to the person you want to duplicate
-4)  Select the **Duplicate** option
-5)  Edit the content of the field you want to modify for the person
-    newly created through duplication
-6)  Click **Save**
+Para duplicar una persona ya existente:
 
-To delete an already existent person, is it necessary to go through the
-following steps:
+1) Accede al panel de administración
+2) Selecciona el botón **Personas** en el Menú Principal
+3) Haz clic en el botón junto a la persona que quieres duplicar
+4) Selecciona la opción **Duplicar**
+5) Modifica el contenido del nuevo perfil creado por duplicación
+6) Haz clic en **Guardar**
 
-1)  Access the admin panel
-2)  Select the **People** button from the **Main Menu**
-3)  Click on the button next to the person you want to delete
-4)  Select the **Delete** option
-5)  Confirm the action by clicking the **Delete** button
-6)  The person has been moved to the **Deleted** section
+Para eliminar una persona ya existente:
 
-To restore a person that has been deleted, is it necessary to go through
-the following steps:
+1) Accede al panel de administración
+2) Selecciona el botón **Personas** en el Menú Principal
+3) Haz clic en el botón junto a la persona que quieres eliminar
+4) Selecciona la opción **Eliminar**
+5) Confirma la acción haciendo clic en el botón **Eliminar**
+6) La persona será movida a la sección **Eliminados**
 
-1)  Access the admin panel
-2)  Select the **People** button from the **Main Menu**
-3)  Select the **Deleted** button from the **People** section menu
-4)  Click on the button next to the person you want to restore
-5)  Confirm the action by clicking the **Restore** button
-6)  Click **Save**
-7)  The person has been moved to the **All** section
+Para restaurar una persona eliminada:
+
+1) Accede al panel de administración
+2) Selecciona el botón **Personas** en el Menú Principal
+3) Selecciona la pestaña **Eliminados** en el menú de la sección **Personas**
+4) Haz clic en el botón junto a la persona que quieres restaurar
+5) Confirma la acción haciendo clic en el botón Restaurar
+6) Haz clic en **Guardar**
+7) La persona será movida de nuevo a la sección **Todas**
