@@ -1,188 +1,137 @@
 ---
-title: "How do I add, edit or delete an article on the blog?"
+title: "¿Cómo agrego, edito o elimino un artículo en el blog?"
 ---
 
-The blog section is the component of your website in which information
-can be updated the fastest, each blog post having standard elements,
-specific to blog posting: displaying author name, division by category,
-image. In this section, you can post press releases, news, interviews etc.
+La sección de blog es el componente de tu sitio web donde la información puede actualizarse más rápidamente, ya que cada entrada de blog tiene elementos estándar específicos para publicaciones: mostrar el nombre del autor, división por categoría, imagen. En esta sección, puedes publicar comunicados de prensa, noticias, entrevistas, etc.
 
-Warning: in the case that in your newly opened browser tab the **404
-Page not found** error is displayed, please check if the article you
-want to view is **published**. Articles in draft cannot be
+**Advertencia**: si en la nueva pestaña de tu navegador aparece el error 404 Página no encontrada, verifica si el artículo que quieres ver está publicado. Los artículos en borrador no pueden visualizarse públicamente.
 
-To edit an already existent blog article, it is necessary to go through
-the following steps:
+Para editar un artículo de blog ya existente, debes seguir estos pasos:
 
-1)  Access the admin panel
-2)  Select the **Blog** button from the **Main Menu**
-3)  On this page, all the articles uploaded to your blog are displayed
-    in a list, regardless of their status (**Published, Draft,
-    Deleted**).
-4)  Choose a published article from the list and click on the button
-    next to it.
-5)  Select the **Edit** option
-6)  Modify the information from the fields you want to edit
-7)  Click **Save**
+1) Accede al panel de administración
+2) Selecciona el botón **Blog** desde el Menú Principal
+3) En esta página, se muestran todos los artículos cargados en tu blog en una lista, sin importar su estado (Publicado, Borrador, Eliminado)
+4) Elige un artículo publicado de la lista y haz clic en el botón junto a él
+5) Selecciona la opción **Editar**
+6) Modifica la información en los campos que desees editar
+7) Haz clic en **Guardar**
 
-or
+O bien
 
-1)  Access the admin panel
-2)  Select the **Blog** button from the Main Menu
-3)  On this page, all the articles uploaded to your blog are displayed
-    in a list, regardless of their status (**Published, Draft,
-    Deleted**).
-4)  Pick the article you want to edit from the list and click on its
-    title
-5)  Modify the information from the fields you want to edit
-6)  Click **Save**
+1) Accede al panel de administración
+2) Selecciona el botón **Blog** en el Menú Principal
+3) En esta página se muestran todos los artículos cargados en tu blog, sin importar su estado (Publicado, Borrador, Eliminado)
+4) Elige el artículo que quieres editar de la lista y haz clic en su título
+5) Modifica la información en los campos que deseas editar
+6) Haz clic en **Guardar**
 
-To **duplicate an already existent blog article**, it is necessary to go
-through the following steps:
+Para duplicar un artículo de blog ya existente, sigue estos pasos:
 
-1)  Access the admin panel
-2)  Select the **Blog** button from the Main Menu
-3)  On this page, all the articles uploaded to your blog are displayed
-    in a list, regardless of their status (**Published, Draft,
-    Deleted**).
-4)  Pick the article you want to duplicate from the list and click on
-    the button next to it.
-5)  Select the **Duplicate** option
-6)  Confirm the duplication by clicking the **Duplicate** button
-7)  A new duplicated page will open in editing mode. Here you can modify
-    content elements on the page.
-8)  Click **Save**.
+1) Accede al panel de administración
+2) Selecciona el botón **Blog** en el Menú Principal
+3) En esta página se muestran todos los artículos cargados en tu blog, sin importar su estado (Publicado, Borrador, Eliminado)
+4) Elige el artículo que quieres duplicar de la lista y haz clic en el botón junto a él
+5) Selecciona la opción **Duplicar**
+6) Confirma la duplicación haciendo clic en el botón **Duplicar**
+7) Se abrirá una nueva página duplicada en modo edición, donde podrás modificar el contenido
+8) Haz clic en **Guardar**
 
-To **delete a blog article**, it is necessary to go through the
-following steps:
+Para eliminar un artículo de blog, sigue estos pasos:
 
-1)  Access the admin panel
-2)  Select the **Blog** button from the Main Menu
-3)  On this page, all the articles uploaded to your blog are displayed
-    in a list, regardless of their status (**Published, Draft,
-    Deleted**).
-4)  Pick the article you want to delete from the list and click on the
-    button next to it.
-5)  Select the **Delete** option
-6)  Confirm the action by clicking on the **Delete** button
-7)  The page has been moved to the **Deleted** section
+1) Accede al panel de administración
+2) Selecciona el botón **Blog** en el Menú Principal
+3) En esta página se muestran todos los artículos cargados en tu blog, sin importar su estado (Publicado, Borrador, Eliminado)
+4) Elige el artículo que quieres eliminar y haz clic en el botón junto a él
+5) Selecciona la opción **Eliminar**
+6) Confirma la acción haciendo clic en **Eliminar**
+7) El artículo se moverá a la sección **Eliminados**
 
-**Warning: to delete more articles, it is necessary to check all the
-articles you want to delete, press the button in the line of one of the
-articles and select the Delete option, then confirm the deletion by
-pressing the Delete button. The articles will be moved in the Deleted
-section.**
+**Advertencia**: para eliminar varios artículos, selecciona todos los que deseas eliminar, pulsa el botón de acción en la fila de uno de ellos y elige la opción **Eliminar**, luego confirma la acción. Los artículos se moverán a la sección **Eliminados**.
 
-To restore a blog article that has been deleted, it is necessary to go
-through the following steps:
+Para restaurar un artículo de blog eliminado:
 
-1)  Access the admin panel
-2)  Select the **Blog** button from the Main Menu
-3)  On this page, all the articles uploaded to your blog are displayed
-    in a list, regardless of their status (**Published, Draft,
-    Deleted**).
-4)  Select the **Deleted** button from the **Blog** section menu
-5)  Pick a published and then deleted article that you want to restore
-    from the list and click on the button next to it
-6)  Select the **Restore** option
-7)  Confirm the restoration by clicking the **Restore** button
-8)  Click **Save**
-9)  The article will be moved back to the category it was initially
-    deleted from
+1) Accede al panel de administración
+2) Selecciona el botón **Blog** en el Menú Principal
+3) En esta página se muestran todos los artículos cargados en tu blog, sin importar su estado (Publicado, Borrador, Eliminado)
+4) Selecciona la pestaña **Eliminados** en el menú de la sección Blog
+5) Elige el artículo eliminado que deseas restaurar y haz clic en el botón junto a él
+6) Selecciona la opción **Restaurar**
+7) Confirma la restauración haciendo clic en **Restaurar**
+8) Haz clic en **Guardar.**
+9) El artículo se moverá de nuevo a la categoría original
 
-To permanently delete a blog article, it is necessary to go through the
-following steps:
+Para eliminar un artículo de blog de forma permanente:
 
-1)  Access the admin panel
-2)  Select the **Blog** button from the **Main Menu**
-3)  On this page, all the articles uploaded to your blog are displayed
-    in a list, regardless of their status (**Published, Draft,
-    Deleted**).
-4)  Select the **Deleted** button from the **Blog** section menu. If the
-    article isn't already deleted, check the instructions for deleting
-    an article.
-5)  Pick from the list of published then deleted articles the one you
-    want to permanently delete and click on the button next to it
-6)  Select the **Permanently delete** option
-7)  Confirm the action by clicking the **Delete** button
-8)  The article has been permanently deleted, without the possibility of
-    restoring the information.
+1) Accede al panel de administración
+2) Selecciona el botón **Blog** en el Menú Principal
+3) En esta página se muestran todos los artículos cargados en tu blog, sin importar su estado (Publicado, Borrador, Eliminado)
+4) Selecciona la pestaña **Eliminados**
+5) Elige el artículo que quieres eliminar permanentemente y haz clic en el botón junto a él
+6) Selecciona la opción **Eliminar** permanentemente
+7) Confirma la acción haciendo clic en **Eliminar**
+8) El artículo será eliminado permanentemente y no podrá ser restaurado
 
-### Creating and managing a category of posts
+**Crear y gestionar categorías de publicaciones**
 
-To create a new category of posts, it is necessary to go through the
-following steps:
+Para crear una nueva categoría:
 
-1)  Access the admin panel
-2)  Select the **Blog** button from the **Main Menu**
-3)  Select the **Categories** button from the secondary menu
-4)  All the existent categories on your blog are shown on this page
-5)  Create **a new category** by clicking the **add button**
-6)  Complete the **Title** field with the name of the category you wish
-    to add
-7)  Click **Save**
+1) Accede al panel de administración
+2) Selecciona el botón **Blog** en el Menú Principal
+3) Selecciona el botón **Categorías** en el menú secundario
+4) Se mostrarán todas las categorías existentes
+5) Crea una nueva categoría haciendo clic en el botón **Agregar**
+6) Completa el campo **Título** con el nombre de la categoría
+7) Haz clic en **Guardar**
 
-<a href="/build/help/027.png">
-    <img src="/build/help/027.png" />
-</a>
+Para ver una categoría:
 
-To view a category, it is necessary to go through the following steps:
+1) Accede al panel de administración
+2) Selecciona el botón **Blog** en el Menú Principal
+3) Selecciona el botón **Categorías** en el menú secundario
+4) Haz clic en el botón junto a la categoría que deseas ver
+5) Selecciona la opción **Ver**
+6) Se abrirá una nueva pestaña en tu navegador mostrando la categoría, su descripción y las publicaciones asociadas
 
-1)  Access the admin panel
-2)  Select the **Blog** button from the **Main Menu**
-3)  Select the **Categories** button from the secondary menu. All the
-    existent categories on your blog are shown on this page.
-4)  Click on the button next to the category you want to view
-5)  Select the **View** option
-6)  A new tab will open in your browser in which you will be able to
-    view the selected category, its description and the blog posts
-    associated with it.
+Para editar una categoría:
 
-To edit a category, it is necessary to go through the following steps:
+1) Accede al panel de administración
+2) Selecciona el botón **Blog** en el Menú Principal
+3) Selecciona el botón **Categorías** en el menú secundario
+4) Haz clic en el botón junto a la categoría que deseas editar
+5) Selecciona la opción **Editar**
+6) Modifica el contenido
+7) Haz clic en **Guardar**
 
-1)  Access the admin panel
-2)  Select the **Blog** button from the **Main Menu**
-3)  Select the **Categories** button from the secondary menu. All the
-    existent categories on your blog are shown on this page.
-4)  Click on the button next to the category you want to edit.
-5)  Select the **Edit** option
-6)  Edit the content in the field you want to modify.
-7)  Click **Save**
+O bien:
 
-or
+1) Accede al panel de administración
+2) Selecciona el botón **Blog** en el Menú Principal
+3) Selecciona el botón **Categorías** en el menú secundario
+4) Elige la categoría que quieres editar y haz clic en su título
+5) Modifica el contenido
+6) Haz clic en **Guardar**
 
-1)  Access the admin panel
-2)  Select the **Blog** button from the **Main Menu**
-3)  Select the Categories button from the secondary menu. All the
-    existent categories on your blog are shown on this page.
-4)  Pick the category you want to edit from the list and click on its title
-5)  Edit the content in the field you want to modify.
-6)  Click **Save**
+Para duplicar una categoría:
 
-To duplicate a category, it is necessary to go through the following
-steps:
+1) Accede al panel de administración
+2) Selecciona el botón **Blog** en el Menú Principal
+3) Selecciona el botón **Categorías** en el menú secundario
+4) Haz clic en el botón junto a la categoría que deseas duplicar
+5) Selecciona la opción **Duplicar**
+6) Confirma la duplicación haciendo clic en **Duplicar**
+7) Se abrirá la categoría duplicada para editar
+8) Modifica el contenido
+9) Haz clic en **Guardar**
 
-1)  Access the admin panel
-2)  Select the **Blog** button from the **Main Menu**
-3)  Select the **Categories** button from the secondary menu. All the
-    existent categories on your blog are shown on this page.
-4)  Click on the button next to the category you want to **duplicate**.
-5)  Select the **Duplicate** option
-6)  Confirm the duplication by clicking on the **Duplicate** button
-7)  The duplicated category will open on the editing page
-8)  Edit the content in the field you want to modify.
-9)  Click **Save**
+Para eliminar una categoría:
 
-To delete a category, it is necessary to go through the following steps:
-
-1)  Access the admin panel
-2)  Select the **Blog** button from the **Main Menu**
-3)  Select the **Categories** button from the secondary menu. All the
-    existent categories on your blog are shown on this page.
-4)  Click on the button next to the category you want to delete.
-5)  Select the **Delete** option
-6)  Confirm the action by clicking the **Delete** button
-7)  The category has been deleted and moved to **Deleted**.
+1) Accede al panel de administración
+2) Selecciona el botón **Blog** en el Menú Principal
+3) Selecciona el botón **Categorías** en el menú secundario
+4) Haz clic en el botón junto a la categoría que deseas eliminar
+5) Selecciona la opción **Eliminar**
+6) Confirma la acción haciendo clic en **Eliminar**
+7) La categoría se eliminará y se moverá a la sección **Eliminadas**
 
 <a href="/build/help/026.png">
     <img src="/build/help/026.png" />
