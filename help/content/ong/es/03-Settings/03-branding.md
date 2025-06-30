@@ -1,47 +1,34 @@
 ---
-title: "How to set up the main color of the website and the logo?"
+title: "¿Cómo configurar el color principal del sitio web y el logotipo?"
 ---
 
-This section is dedicated to your branding settings: main color and
-logo. Setting up the main color is important because the visual elements
-all throughout the website depend on it (icons, separators, boxes etc).
-These elements borrow the main color and set it up in different
-intensities and tonalities to ensure visual consistency to the website.
-We recommend you choose a color that is not very dim or light as
-contrast might not be optimal all the time. Go for more intense of
-fuller colors for better visuals (for example: blue, red, orange, dark
-green, teal, purple etc)
+Esta sección está dedicada a la configuración de tu identidad visual: color principal y logotipo. Configurar el color principal es importante porque los elementos visuales en todo el sitio web dependen de él (íconos, separadores, recuadros, etc.). Estos elementos adoptan el color principal y lo aplican en diferentes intensidades y tonalidades para asegurar la coherencia visual del sitio. Te recomendamos elegir un color que no sea demasiado tenue o claro, ya que el contraste podría no ser óptimo en todo momento. Opta por colores más intensos o sólidos para lograr mejores resultados visuales (por ejemplo: azul, rojo, naranja, verde oscuro, turquesa, morado, etc.).
 
-To set the **main color** you have to:
+Para configurar el color principal, debes:
 
-1)  Access dashboard
-2)  Select Settings
-3)  Click on the colored square next to **Main color**
-4)  Select one of the available options or add the color code you want to use.
-5)  Press **Save**
+1) Acceder al panel de control
+2) Seleccionar **Configuración**
+3) Hacer clic en el cuadro de color junto a Color principal
+4) Seleccionar una de las opciones disponibles o agregar el código del color que deseas usar
+5) Pulsar **Guardar**
 
-**To ensure visual consistency with your identity, we suggest you use a
-color that can be found in your logo as well or a color that is
-complementary to your logo.**
+**Para asegurar la coherencia visual con tu identidad, te sugerimos usar un color que también esté presente en tu logotipo o que sea complementario al mismo.**
 
 
 <a href="/build/help/009.png">
     <img src="/build/help/009.png" />
 </a>
 
-To add your **logo** you have to:
+Para agregar tu **logotipo**, debes:
 
-1)  Access dashboard
-2)  Select the secondary menu in the upper right corner, shaped like a hexagon
-3)  Select **Settings**
-4)  Press the **Choose file** button in the Logo area
-5)  Select the logo from your computer and click upload. We recommend
-    you use a file of good quality, png with transparency
-6)  Press **Save**
+1) Acceder al panel de control
+2) Seleccionar el menú secundario en la esquina superior derecha, con forma de **hexágono**
+3) Seleccionar **Configuración**
+4) Pulsar el botón **Elegir archivo** en el área del logotipo
+5) Seleccionar el logotipo desde tu computadora y hacer clic en subir. Te recomendamos usar un archivo de buena calidad, en formato PNG con fondo transparente
+6) Pulsar **Guardar**
 
-The logo will be uploaded on your website and displayed in the upper
-left corner above the menu. It is best that the logo is .png with no
-margins. See an example below.
+El logotipo se cargará en tu sitio web y se mostrará en la esquina superior izquierda, encima del menú. Es preferible que el logotipo sea un archivo .png sin márgenes. Mira un ejemplo a continuación.
 
 <a href="/build/help/023.png">
     <img src="/build/help/023.png" />
