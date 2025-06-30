@@ -1,51 +1,42 @@
 ---
-title: "Recommendations for a well-organised content"
+title: "Recomendaciones para un contenido bien organizado"
 ---
 
-Now everything is in place, and your Website Factory: NGO instance is
-ready so you can add the content of your website. In order to create a
-coherent and well-structured website, we have few recommendations for
-you.
+Ahora todo está listo y tu instancia de Website Factory está preparada para que puedas añadir el contenido de tu sitio web. Para crear un sitio coherente y bien estructurado, tenemos algunas recomendaciones para ti.
 
-Write down all the information you need to display on your website and
-then group the information into categories. You could start with two
-content categories: narrative content and utilitarian content.
+Escribe toda la información que necesitas mostrar en tu sitio web y luego agrúpala en categorías. Puedes comenzar con dos categorías principales de contenido: contenido narrativo y contenido utilitario.
 
-**The narrative content** is the content about: organization’s mission,
-projects, blog, annual reports, testimonials from beneficiaries,
-information about our partners, sponsors or any other things that are
-directly connected to the activity of the organization.
+El contenido narrativo es aquel relacionado con la misión de la organización, los proyectos, el blog, los informes anuales, testimonios de beneficiarios, información sobre socios, patrocinadores u otros aspectos directamente vinculados a la actividad de la organización.
 
-**The utilitarian content** is the content about: organization’s team,
-Articles of Incorporation of the association, donations pages, Terms and
-conditions, Privacy Policy, Contact page and other useful information.
+El contenido utilitario incluye información sobre el equipo de la organización, estatutos o acta constitutiva, páginas de donaciones, Términos y Condiciones, Política de Privacidad, página de Contacto y otros datos útiles.
 
-After you have listed all the content ideas, create a structure. A
-content structure should look like this:
+Después de haber listado todas las ideas de contenido, crea una estructura. Una estructura de contenido debería verse así:
 
-#### Header Menu:
-- Home Page
-- About Us
-  - Page about the organization’s mission
-  - How we work
-  - Official documents of organization
-  - Our team
-  - Code of Conduct
-  - Partners and Sponsors
-- Our programs / projects
-  - Project \#1
-  - Project \#2
-  - ……
-- How can you get involved
-  - Donate
-  - Volunteer
-  - Redirect 3,5%
-- Contact
+#### Menú de Encabezado:
+Página de Inicio
+- Sobre Nosotros
+- Página sobre la misión de la organización
 
-#### Footer:
+Cómo trabajamos
+- Documentos oficiales de la organización
+- Nuestro equipo
+- Código de Conducta
+- Socios y Patrocinadores
 
-- About us
-- Terms and Conditions
-- Privacy Policy
-- Code of Conduct
-- Other useful links
+Nuestros programas / proyectos
+- Proyecto n.º 1
+- Proyecto n.º 2
+- ……
+
+¿Cómo puedes involucrarte?
+- Donar
+- Voluntariado
+- Contacto
+
+#### Menú de pie de página:
+
+- Sobre nosotros
+- Términos y Condiciones
+- Política de Privacidad
+- Código de Conducta
+- Otros enlaces útiles
