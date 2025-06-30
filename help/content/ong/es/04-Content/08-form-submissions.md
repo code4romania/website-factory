@@ -1,34 +1,25 @@
 ---
-title: "Managing the responses"
+title: "Gestión de las respuestas"
 ---
 
- the forms where the Save responses in the panel option was checked,
-you can view the responses directly from Website Factory: NGO. For this,
-it is necessary to go through the following steps:
+En los formularios donde se marcó la opción Guardar respuestas en el panel, puedes ver las respuestas directamente desde Website Factory: ONG. Para ello, es necesario seguir los siguientes pasos:
 
-1)  Access the admin panel
-2)  Select the **Form** button from the **Main Menu**
-3)  For the form that you want to view the responses to, in the
-    **Responses** column, click on the number of received responses
-    (blue text between brackets - x responses)
-4)  From the list of all the responses, click on the ID of the response
-    you want to view
-5)  You will get to the page where all the questions and respective
-    responses are listed.
+1) Accede al panel de administración
+2) Selecciona el botón **Formularios** desde el Menú Principal
+3) En la columna **Respuestas** del formulario que deseas consultar, haz clic en el número de respuestas recibidas (texto azul entre paréntesis: x respuestas)
+4) En la lista de todas las respuestas, haz clic en el ID de la respuesta que deseas ver
+5) Accederás a la página donde se listan todas las preguntas y sus respectivas respuestas
 
 <a href="/build/help/025.png">
     <img src="/build/help/025.png" />
 </a>
 
-To delete a response, it is necessary to go through the following steps:
+Para eliminar una respuesta, es necesario seguir los siguientes pasos:
 
-1)  Access the admin panel
-2)  Select the **Form** button from the **Main Menu**
-3)  For the form that you want to view the responses to, in the
-    **Responses** column, click on the number of received responses
-    (blue text between brackets - x responses)
-4)  From the list of all the responses, click on the ID of the response
-    you want to delete
-5)  Click the **Delete** option
-6)  Confirm the action by clicking the Delete button
-7)  The response has been permanently deleted
+1) Accede al panel de administración
+2) Selecciona el botón **Formularios** desde el Menú Principal
+3) En la columna **Respuestas** del formulario que deseas consultar, haz clic en el número de respuestas recibidas (texto azul entre paréntesis: x respuestas)
+4) En la lista de todas las respuestas, haz clic en el **ID** de la respuesta que deseas eliminar
+5) Haz clic en la opción **Eliminar**
+6) Confirma la acción haciendo clic en el botón **Eliminar**
+7) La respuesta ha sido eliminada permanentemente
