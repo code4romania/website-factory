@@ -1,36 +1,22 @@
 ---
-title: "How to set up the title, description and main page of the website?"
+title: "¿Cómo configurar el título, la descripción y la página principal del sitio web?"
 ---
 
-In this section you may change the general descriptive elements of your
-website.
+En esta sección puedes cambiar los elementos descriptivos generales de tu sitio web.
 
-In order to set the **title and description of your website** you have
-to:
+Para configurar el título y la descripción de tu sitio web, debes:
 
-1)  Access dashboard
-2)  Select the secondary menu in the upper right corner, marked as a hexagon
-3)  Select **Settings**
-4)  Fill in the **Site Title** (this should be the name of your
-    organisation or the general name of the website you are building)
-5)  Fill in the Site description (this area is important for social
-    networks and for better ranking in google searches, make sure you
-    fill it in)
-6)  Select which of the pages you already created is your main page
-    (your homepage). If you did not create this page so far, save the
-    changes and come back to this setting once you have created the
-    main page. (See Content Management for more details on creating
-    pages)
-7)  You must also choose which of your created pages are your terms and
-    conditions and privacy policy pages. (See Content Management for
-    more details on creating pages)
-8)  Press **Save**
+1) Acceder al panel de control
+2) Seleccionar el menú secundario en la esquina superior derecha, marcado con un hexágono
+3) Seleccionar Configuración
+4) Rellenar el campo Título del sitio (este debe ser el nombre de tu organización o el nombre general del sitio web que estás creando)
+5) Rellenar la Descripción del sitio (esta área es importante para las redes sociales y para un mejor posicionamiento en las búsquedas de Google, asegúrate de completarla)
+6) Seleccionar cuál de las páginas que ya has creado será tu página principal (página de inicio). Si aún no la has creado, guarda los cambios y vuelve a esta configuración cuando la tengas lista. (Consulta la sección de Gestión de Contenidos para más detalles sobre la creación de páginas)
+7) También debes elegir cuáles de tus páginas creadas serán las de términos y condiciones y política de privacidad. (Consulta la sección de Gestión de Contenidos para más detalles sobre la creación de páginas)
+8) Pulsa Guardar
 
 <a href="/build/help/016.png">
     <img src="/build/help/016.png" />
 </a>
 
-We recommend that the title and description of your website are as clear
-and concise as possible because this information is very relevant for
-search engines. Also, the homepage is the first that a user sees on your
-website, this is why we suggest you pay extra attention when building it.
+Recomendamos que el título y la descripción de tu sitio web sean lo más claros y concisos posible, ya que esta información es muy relevante para los motores de búsqueda. Además, la página de inicio es la primera que un usuario ve en tu sitio web, por eso te sugerimos prestarle especial atención al momento de construirla.
