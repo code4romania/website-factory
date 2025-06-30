@@ -1,5 +1,5 @@
 ---
-title: "How to build website menus?"
+title: "¿Cómo construir los menús del sitio web?"
 video: true
 ---
 
@@ -7,159 +7,102 @@ video: true
   <iframe src="https://www.youtube.com/embed/DZx1QC1BVAU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-Header and footer menus help users peruse your website and find
-information easier.
+Los menús de encabezado y pie de página ayudan a los usuarios a navegar por tu sitio web y encontrar la información más fácilmente.
 
-In Website Factory: NGO you can build or modify a menu by going through
-the following steps:
+En Website Factory puedes construir o modificar un menú siguiendo estos pasos:
 
-1)  Access the admin panel
-2)  Select the secondary settings menu from the top right corner
-3)  Select **Menus**
+1) Accede al panel de administración
+2) Selecciona el menú secundario de configuración en la esquina superior derecha
+3) Selecciona **Menús**
 
-### How to edit the main menu
+### Cómo editar el menú principal
 
-To build a header menu, it is necessary to go through the following
-steps:
+Para construir un menú de encabezado, es necesario seguir los siguientes pasos:
 
-1)  Access the admin panel
-2)  Select the secondary settings menu from the top right corner
-3)  Select Menus
-4)  The Header Menu will implicitly open
-5)  Click the Add button
-6)  Choose the suitable type of menu element
-7)  Click **Save**
+1) Accede al panel de administración
+2) Selecciona el menú secundario de configuración en la esquina superior derecha
+3) Selecciona **Menús**
+4) El menú de encabezado se abrirá de forma predeterminada
+5) Haz clic en el botón **Agregar**
+6) Elige el tipo de elemento de menú adecuado
+7) Haz clic en **Guardar**
 
 <a href="/build/help/001.png">
     <img src="/build/help/001.png" />
 </a>
 
-## Types of menu elements
+## Tipos de elementos de menú
 
-### Text
+### Texto
+permite agregar un texto como elemento del menú
 
-- allows for adding a text as a menu element
-- Fields:
-  - Name - to input the name of the menu element
+Campos:
+Nombre: para ingresar el nombre del elemento del menú
 
-### External link
+### Enlace externo
+permite que un enlace externo sea un elemento del menú
+Campos:
+Nombre: para ingresar el nombre del elemento del menú
+URL: para ingresar el enlace al que llevará el elemento del menú
 
-- allows for an external link to be a menu element
-- Fields:
-  - Name - to input the name of the menu element,
-  - URL - to input the link that the menu element will lead to.
+### Página
+permite que un enlace a una página del sitio web sea un elemento del menú
+Campos:
+Nombre: para ingresar el nombre del elemento del menú
+Página: para seleccionar, entre las páginas ya existentes, aquella a la que llevará el elemento del menú
 
-### Page
+### Publicación
+permite que un enlace a una entrada del blog del sitio web sea un elemento del menú
+Campos:
+Nombre: para ingresar el nombre del elemento del menú
+Publicación: para seleccionar, entre las publicaciones del blog ya existentes, aquella a la que llevará el elemento del menú
 
-- allows for a link to a website page to be a menu element
-- Fields:
-  - Name - to input the name of the menu element,
-  - Page - to select from the already existent pages that which
-  the menu element will lead to.
+### Categorías de publicaciones
+permite que una categoría del blog sea un elemento del menú
+Campos:
+Nombre: para ingresar el nombre del elemento del menú
+Categoría de publicaciones: para seleccionar, entre las categorías de publicaciones ya existentes, aquella a la que llevará el elemento del menú
 
-### Post
-
-- allows for a link to a website blog post to be a menu element
-- Fields:
-  - Name - to input the name of the menu element,
-  - Post - to select from the already existing blog posts that
-  which the menu element will lead to.
-
-### Post categories
-
-- allows for a website blog category to be a menu element
-- Fields:
-  - Name - to input the name of the menu element,
-  - Post category - to select from the already existent blog
-  post categories posts that which the menu element will lead to.
-
-### Route
-
-- allows for a link to your website's blog to be a menu element
-- Fields:
-  - Name - to input the name of the menu element,
-  - Route - to select Posts Index so that all the articles
-  published on your blog are shown
+### Ruta
+permite que un enlace al blog de tu sitio web sea un elemento del menú
+Campos:
+Nombre: para ingresar el nombre del elemento del menú
+Ruta: para seleccionar Índice de publicaciones, de modo que se muestren todos los artículos publicados en tu blog
 
 ---
 
-## How to edit the header menu
+## Cómo editar el menú de encabezado
 
-Pentru a edita meniul Header, este necesar să parcurgi următorii pași:
+Para editar el menú Header, es necesario seguir los siguientes pasos:
 
-1)  Accesează panoul de administrare
-2)  Selectează meniul secundar de setări din colțul din dreapta sus
-3)  Selectează **Meniuri**
-4)  Meniul **Header** se deschide implicit
-5)  Apasă pe denumirea elementului pe care vrei să îl modifici
-6)  Modifică informațiile
-7)  Apasă **Salvează**
+1) Accede al panel de administración
+2) Selecciona el menú secundario de configuración en la esquina superior derecha
+3) Selecciona **Menús**
+4) El menú **Header** se abrirá de forma predeterminada
+5) Haz clic en el nombre del elemento que deseas modificar
+6) Edita la información
+7) Haz clic en **Guardar**
 
-Pentru a șterge un element din meniul Header, este necesar să parcurgi
-următorii pași:
+**Cómo eliminar un elemento del menú de encabezado**
 
-1)  Accesează panoul de administrare
-2)  Selectează meniul secundar de setări din colțul din dreapta sus
-3)  Selectează **Meniuri**
-4)  Meniul **Header** se deschide implicit
-5)  Apasă pe butonul cu trei puncte orizontale din dreptul elementului
-    de meniu pe care vrei să îl ștergi
-6)  Alege opțiunea **Șterge**
+Para eliminar un elemento del menú Header, es necesario seguir los siguientes pasos:
 
-Pentru a modifica nivelul sau poziția unui element din meniul Header,
-este necesar să parcurgi următorii pași:
+1) Accede al panel de administración
+2) Selecciona el menú secundario de configuración en la esquina superior derecha
+3) Selecciona **Menús**
+4) El menú **Header** se abrirá de forma predeterminada
+5) Haz clic en el botón con tres puntos horizontales junto al elemento de menú que deseas eliminar
+6) Selecciona la opción **Eliminar**
 
-1)  Accesează panoul de administrare
-2)  Selectează meniul secundar de setări din colțul din dreapta sus
-3)  Selectează **Meniuri**
-4)  Meniul **Header** se deschide implicit
-5)  Apasă pe butonul cu 2 rânduri de puncte verticale din dreptul
-    elementului de meniu căruia vrei să îi modifici nivelul sau
-    poziția
-6)  Pentru modificarea poziție, trage elementul în poziția în care
-    dorești
-7)  Pentru structurarea paginilor din meniu mai multe nivele sub forma
-    de meniuri și submeniuri, plasează elementul pe care dorești să îl
-    adaugi în submeniu sub elementul principal, apoi trage-l spre
-    dreapta.
-8)  Apasă **Salvează**
+**Cómo modificar el nivel o la posición de un elemento del menú de encabezado**
 
----
+Para modificar el nivel o la posición de un elemento del menú Header, es necesario seguir los siguientes pasos:
 
-To edit the Header menu, it is necessary to go though the following
-steps:
-
-1)  Access the admin panel
-2)  Select the secondary settings menu from the top right corner
-3)  Select **Menus**
-4)  The **Header Menu** will implicitly open
-5)  Click in the name of the element you want to modify
-6)  Edit the information
-7)  Click **Save**
-
-To delete an element from the **Header** menu, it is necessary to go
-though the following steps:
-
-1)  Access the admin panel
-2)  Select the secondary settings menu from the top right corner
-3)  Select **Menus**
-4)  The Header Menu will implicitly open
-5)  Click on the button with three horizontal dots next to the menu
-    element you want to delete
-6)  Select the **Delete** option
-
-To modify the level or position of an element from the Header menu, it
-is necessary to go through the following steps:
-
-1)  Access the admin panel
-2)  Select the secondary settings menu from the top right corner
-3)  Select **Menus**
-4)  The **Header Menu** will implicitly open
-5)  Click on the button with two rows of vertical dots next to the menu
-    element that you want to modify the level or position of:
-6)  To modify the position, drag the element to the position you want
-7)  To structure the menu pages with more levels as menus and submenus,
-    place the element you want to add in the submenu under the main
-    element and then drag it to the right.
-8)  Click **Save**
-
+1) Accede al panel de administración
+2) Selecciona el menú secundario de configuración en la esquina superior derecha
+3) Selecciona **Menús**
+4) El menú **Header** se abrirá de forma predeterminada
+5) Haz clic en el botón con dos filas de puntos verticales junto al elemento de menú cuyo nivel o posición deseas modificar
+6) Para modificar la posición, arrastra el elemento a la posición deseada
+7) Para estructurar el menú en varios niveles (menús y submenús), coloca el elemento que deseas agregar como submenú debajo del elemento principal y luego arrástralo hacia la derecha
+8) Haz clic en **Guardar**
