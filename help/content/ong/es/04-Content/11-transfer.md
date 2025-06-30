@@ -1,7 +1,5 @@
 ---
-title: "Transfer of the existing content"
+title: "Transferencia del contenido existente"
 ---
 
-If you previous website had a little amount of content, our recommendation is to
-transfer it manually to the new website. If your content archive is big, then we
-can help you with the transfer in a [Civic Tech 911 session](https://code4.ro/en/civic-tech-911).
+Si tu sitio web anterior tenía poco contenido, nuestra recomendación es transferirlo manualmente al nuevo sitio web. Si tu archivo de contenido es grande, entonces podemos ayudarte con la transferencia en una sesión de Civic Tech 911 (info@commitglobal.org).
