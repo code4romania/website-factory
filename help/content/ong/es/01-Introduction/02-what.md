@@ -1,15 +1,15 @@
 ---
-title: "What is Website Factory: ONG"
+title: "¿Qué es Website Factory?"
 ---
 
-Website Factory: ONG is a technical solution that allows you to build
-your own websites. This is integrated by default with a series of
-functionalities you will need such as online payment tools so you can
-collect donations, with tools to monitor traffic such as Google
-Analytics, with social networks and a form builder so you can collect
-data easily through your website.
+Website Factory: ONG es una solución técnica que te permite construir 
+tus propios sitios web. Está integrada por defecto con una serie de 
+funcionalidades que necesitarás, como herramientas de pago en línea 
+para que puedas recibir donaciones, herramientas para monitorear el tráfico 
+como Google Analytics, redes sociales y un generador de formularios 
+para que puedas recopilar datos fácilmente a través de tu sitio web.
 
-Also, the solution also comes equipped with a series of recommendations
-to build your content architecture, with page templates to help you
-build a complete website such as Terms and Conditions pages or Code of
-Conduct model pages.
+Además, la solución viene equipada con una serie de recomendaciones para 
+construir la arquitectura de tu contenido, así como con plantillas de páginas 
+que te ayudarán a crear un sitio completo, como páginas de Términos y Condiciones 
+o modelos de Códigos de Conducta.
