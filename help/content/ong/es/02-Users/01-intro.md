@@ -1,7 +1,7 @@
 ---
-title: "User management"
+title: "Gestión de usuarios"
 ---
 
-In this section you will find information about managing user accounts
-in your website as well as info about editing, deleting and assigning
-roles to users.
+En esta sección encontrarás información sobre cómo gestionar las 
+cuentas de usuario en tu sitio web, así como detalles sobre cómo 
+editar, eliminar y asignar roles a los usuarios.
