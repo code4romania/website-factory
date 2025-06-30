@@ -1,88 +1,77 @@
 ---
-title: "How to create and edit a new page?"
+title: "¿Cómo crear y editar una nueva página?"
 ---
 
-The website is made up of pages on which the content is organized. The
-Page management section is accessed through the Main Menu of the
-platform, through the **Pages** button.
+El sitio web está compuesto por páginas en las que se organiza el contenido. La sección de Gestión de Páginas se accede a través del Menú Principal de la plataforma, mediante el botón **Páginas**.
 
-In the **Pages** section, you can create new pages or modify already
-existing ones.
+En la sección **Páginas**, puedes crear nuevas páginas o modificar las ya existentes.
 
-Warning: during the installation of your version of Website Factory:
-NGO, you will find that the Home Page, Terms and Conditions and Cookies
-Policy pages are already created. These are mandatory for every website,
-but their content can be modified according to your organisation's
-website.
+Advertencia: durante la instalación de tu versión de Website Factory, encontrarás que las páginas de Inicio, Términos y Condiciones y Política de Cookies ya están creadas. Estas son obligatorias para cualquier sitio web, pero su contenido puede ser modificado según las necesidades del sitio de tu organización.
 
-To create **a new page**, you need to go through the following steps:
+Para crear una nueva página, debes seguir los siguientes pasos:
 
-1)  Access the admin panel.
-2)  Select the **Pages** button from the Main Menu.
-3)  Click the "**Pages**" button.
-4)  Fill in the required Title field.
-5)  Activate the **Publish** button.
-6)  Click "**Save**"'.
+1) Accede al panel de administración.
+2) Selecciona el botón **Páginas** desde el Menú Principal.
+3) Haz clic en el botón **Páginas**.
+4) Completa el campo obligatorio de Título.
+5) Activa el botón **Publicar**.
+6) Haz clic en **Guardar**.
 
-To view an already existing page, you need to go through the following
-steps:
+Para visualizar una página ya existente, debes seguir los siguientes pasos:
 
-1)  Access the admin panel.
-2)  Select the **Pages** button from the **Main Menu**.
-3)  Click on the arrow next to the page you want to view.
-4)  Select the "**View**" option.
-5)  The page will open in a new tab of the browser you are using.
+1) Accede al panel de administración.
+2) Selecciona el botón **Páginas** desde el Menú Principal.
+3) Haz clic en la flecha junto a la página que deseas visualizar.
+4) Selecciona la opción **Ver**.
+
+La página se abrirá en una nueva pestaña del navegador que estés utilizando.
+
 
 <a href="/build/help/015.png">
     <img src="/build/help/015.png" />
 </a>
 
-To edit an already existing page, you need to go through the following
-steps:
+Para editar una página ya existente, debes seguir los siguientes pasos:
 
-1)  Access the admin panel.
-2)  Select the **Pages** button from the **Main Menu**.
-3)  Click on the arrow next to the page you want to modify.
-4)  Select the **Editing** option.
-5)  Edit the element you want to modify.
-6)  Click "**Save**".
+1) Accede al panel de administración.
+2) Selecciona el botón **Páginas** desde el Menú Principal.
+3) Haz clic en la flecha junto a la página que deseas modificar.
+4) Selecciona la opción **Editar**.
+5) Edita el elemento que deseas modificar.
+6) Haz clic en **Guardar**.
 
-Alternatively you can click directly on the page title to open the page
-in the same tab in editing mode.
+También puedes hacer clic directamente sobre el título de la página para abrirla en la misma pestaña en modo de edición.
 
-To duplicate the form and content of an already existing page, you need
-to go through the following steps:
+Para duplicar el formulario y el contenido de una página ya existente, debes seguir los siguientes pasos:
 
-1)  Access the admin panel.
-2)  Select the **Pages** button from the **Main Menu**.
-3)  Click on the arrow next to the page you want to duplicate.
-4)  Select the **Duplicate** option.
-5)  Confirm the duplication by clicking on the **Duplicate** button.
-6)  The duplicated page has been added to the list of existing pages.
+1) Accede al panel de administración.
+2) Selecciona el botón **Páginas** desde el Menú Principal.
+3) Haz clic en la flecha junto a la página que deseas duplicar.
+4) Selecciona la opción **Duplicar**.
+5) Confirma la duplicación haciendo clic en el botón **Duplicar**.
+
+La página duplicada se ha añadido a la lista de páginas existentes.
 
 <a href="/build/help/029.png">
     <img src="/build/help/029.png" />
 </a>
 
-To **delete** a page, you need to go through the following steps:
+Para eliminar una página, debes seguir los siguientes pasos:
 
-1)  Access the admin panel.
-2)  Select the Pages button from the Main Menu.
-3)  Click on the arrow next to the page you want to delete.
-4)  Select the Delete option.
-5)  Confirm by clicking the Delete option. The page has been deleted and
-    added to the Deleted section, from the secondary menu.
+1) Accede al panel de administración.
+2) Selecciona el botón **Páginas** desde el Menú Principal.
+3) Haz clic en la flecha junto a la página que deseas eliminar.
+4) Selecciona la opción **Eliminar**.
+5) Confirma haciendo clic nuevamente en la opción **Eliminar**. La página se habrá eliminado y se moverá a la sección **Eliminadas**, disponible en el menú secundario.
 
-To delete a page permanently, you need to go through the following
-steps:
+Para eliminar una página de forma permanente, debes seguir los siguientes pasos:
 
-1)  Access the admin panel.
-2)  Select the **Pages** button from the **Main Menu**.
-3)  Click on the arrow next to the page you want to delete.
-4)  Select the **Delete** option.
-5)  Confirm by clicking the **Delete** option. The page has been deleted
-    and added to the Deleted section, from the secondary menu.
-6)  Access the **Deleted section**.
-7)  Click on the arrow next to the page you want to permanently delete.
-8)  Click on **Permanently Delete**.
-9)  Confirm by clicking on **Delete**.
+1) Accede al panel de administración.
+2) Selecciona el botón **Páginas** desde el Menú Principal.
+3) Haz clic en la flecha junto a la página que deseas eliminar.
+4) Selecciona la opción **Eliminar**.
+5) Confirma haciendo clic en **Eliminar**. La página se moverá a la sección **Eliminadas**, en el menú secundario.
+6) Accede a la sección **Eliminadas**.
+7) Haz clic en la flecha junto a la página que deseas eliminar permanentemente.
+8) Haz clic en **Eliminar permanentemente**.
+9) Confirma haciendo clic en **Eliminar**.
