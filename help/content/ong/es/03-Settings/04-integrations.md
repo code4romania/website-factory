@@ -1,29 +1,21 @@
 ---
-title: "How to integrate other services such as Google Analytics or Facebook Pixel?"
+title: "¿Cómo integrar otros servicios como Google Analytics o Facebook Pixel?"
 ---
 
-It is recommended that you integrate your website with other useful
-services such as Google Analytics to monitor traffic on your website,
-Mailchimp or another email marketing tool, Facebook Pixel for monitoring
-ads campaigns etc. All of these tools offer a custom code that has to be
-integrated in your website.
+Se recomienda que integres tu sitio web con otros servicios útiles como Google Analytics para monitorear el tráfico en tu sitio, Mailchimp u otra herramienta de email marketing, Facebook Pixel para el seguimiento de campañas publicitarias, etc. Todas estas herramientas ofrecen un código personalizado que debe integrarse en tu sitio web.
 
-To integrate the **HTML code** of a third party service, you have to:
+Para integrar el código HTML de un servicio externo, debes:
 
-1)  Go to the admin dashboard of the tool you want to integrate and find
-    the HTML code you need and copy it.
-2)  Access the website dashboard.
-3)  Select the secondary menu in the upper right corner, shaped like a hexagon
-4)  Select **Settings**
-5)  Go to the last section of this page: **Custom HTML**
-6)  Paste the HTMl code either in the head or body area depending on the
-    instructions the third party software indicated
-7)  Press **Save**
+1) Ir al panel de administración de la herramienta que deseas integrar, encontrar el **código HTML** necesario y copiarlo.
+2) Acceder al panel de control del sitio web.
+3) Seleccionar el menú secundario en la esquina superior derecha, con forma de **hexágono**.
+4) Seleccionar **Configuración**.
+5) Ir a la última sección de esta página: **HTML personalizado.**
+6) Pegar el código HTML en el área de head o body, según las instrucciones que indique el software externo.
+7) Pulsar **Guardar**.
 
 <p class="p-4 text-sm text-yellow-700 border-l-4 border-yellow-400 bg-yellow-50">
-    Important: In case the HTML code contains errors or it is not copied
-    correctly it is possible that the whole website is no longer displayed.
-    If so, please remove the code and save the Settings page again.
+    Importante: En caso de que el código HTML contenga errores o no se haya copiado correctamente, es posible que el sitio web completo deje de mostrarse. Si esto ocurre, por favor elimina el código y guarda nuevamente la página de Configuración.
 </p>
 
 <a href="/build/help/005.png">
