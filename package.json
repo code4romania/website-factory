@@ -67,7 +67,7 @@
         "lodash": "^4.17.21",
         "luminous-lightbox": "^2.4.0",
         "mitt": "^3.0.1",
-        "postcss": "^8.5.4",
+        "postcss": "^8.5.6",
         "postcss-100vh-fix": "^2.0.0",
         "prettier": "^3.0.0",
         "prettier-plugin-tailwindcss": "^0.6.12",
