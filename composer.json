@@ -40,7 +40,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.15",
-        "barryvdh/laravel-ide-helper": "^3.5",
+        "barryvdh/laravel-ide-helper": "^3.6",
         "fakerphp/faker": "^1.24",
         "friendsofphp/php-cs-fixer": "^3.75",
         "itsgoingd/clockwork": "^5.3",
