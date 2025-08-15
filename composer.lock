@@ -6570,16 +6570,16 @@
         },
         {
             "name": "spatie/laravel-package-tools",
-            "version": "1.92.4",
+            "version": "1.92.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "d20b1969f836d210459b78683d85c9cd5c5f508c"
+                "reference": "f09a799850b1ed765103a4f0b4355006360c49a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/d20b1969f836d210459b78683d85c9cd5c5f508c",
-                "reference": "d20b1969f836d210459b78683d85c9cd5c5f508c",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/f09a799850b1ed765103a4f0b4355006360c49a5",
+                "reference": "f09a799850b1ed765103a4f0b4355006360c49a5",
                 "shasum": ""
             },
             "require": {
@@ -6619,7 +6619,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.92.4"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.92.7"
             },
             "funding": [
                 {
@@ -6627,20 +6627,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-11T15:27:14+00:00"
+            "time": "2025-07-17T15:46:43+00:00"
         },
         {
             "name": "spatie/laravel-responsecache",
-            "version": "7.7.0",
+            "version": "7.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-responsecache.git",
-                "reference": "d551f0498dbb2d98df47359364e5a1c8203a6376"
+                "reference": "6e439d5f6f90fa9e4c76ce4023502b02e2fd9ac9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/d551f0498dbb2d98df47359364e5a1c8203a6376",
-                "reference": "d551f0498dbb2d98df47359364e5a1c8203a6376",
+                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/6e439d5f6f90fa9e4c76ce4023502b02e2fd9ac9",
+                "reference": "6e439d5f6f90fa9e4c76ce4023502b02e2fd9ac9",
                 "shasum": ""
             },
             "require": {
@@ -6698,7 +6698,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/laravel-responsecache/tree/7.7.0"
+                "source": "https://github.com/spatie/laravel-responsecache/tree/7.7.1"
             },
             "funding": [
                 {
@@ -6710,7 +6710,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-05-20T08:39:19+00:00"
+            "time": "2025-07-17T15:41:36+00:00"
         },
         {
             "name": "spatie/laravel-translatable",
