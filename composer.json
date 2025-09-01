@@ -16,7 +16,7 @@
         "archtechx/laravel-seo": "^0.10",
         "blade-ui-kit/blade-icons": "^1.8",
         "embed/embed": "^4.4",
-        "guzzlehttp/guzzle": "^7.9",
+        "guzzlehttp/guzzle": "^7.10",
         "hafael/azure-mailer-driver": "^7.2.0",
         "inertiajs/inertia-laravel": "^2.0",
         "intervention/image-laravel": "^1.5",
