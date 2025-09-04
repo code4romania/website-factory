@@ -34,6 +34,9 @@ class PostRequest extends BaseRequest
             'blocks.*.children' => ['array'],
             'blocks.*.media' => ['array'],
             'blocks.*.media.*.id' => ['required', 'exists:media'],
+            'blocks.*.related' => ['array'],
+            'blocks.*.related.*.id' => ['required', 'numeric', 'integer'],
+            'blocks.*.related.*.type' => ['required', 'string'],
         ]);
     }
 }
