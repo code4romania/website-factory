@@ -10,8 +10,22 @@ const valueFormatter = (value) => {
     return value.toLocaleString(document.documentElement.lang);
 };
 
+echarts.registerTheme('v5', {
+    color: [
+        '#5470c6',
+        '#91cc75',
+        '#fac858',
+        '#ee6666',
+        '#73c0de',
+        '#3ba272',
+        '#fc8452',
+        '#9a60b4',
+        '#ea7ccc',
+    ],
+});
+
 export default function (el, { expression }, { evaluate }) {
-    const chart = echarts.init(el);
+    const chart = echarts.init(el, 'v5');
 
     const args = evaluate(expression);
 
