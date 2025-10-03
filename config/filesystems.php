@@ -78,12 +78,15 @@ return [
         ],
 
         'azure' => [
-            'driver' => 'azure',
-            'name' => env('AZURE_STORAGE_NAME'),
-            'key' => env('AZURE_STORAGE_KEY'),
+            'driver' => 'azure-storage-blob',
+            'connection_string' => env('AZURE_STORAGE_CONNECTION_STRING', sprintf(
+                'DefaultEndpointsProtocol=https;AccountName=%s;AccountKey=%s;EndpointSuffix=core.windows.net',
+                env('AZURE_STORAGE_NAME'),
+                env('AZURE_STORAGE_KEY'),
+            )),
             'container' => env('AZURE_STORAGE_CONTAINER', 'data'),
-            'url' => env('AZURE_STORAGE_URL'),
-            'prefix' => null,
+            'prefix' => env('AZURE_STORAGE_PREFIX'),
+            'root' => env('AZURE_STORAGE_ROOT'),
 
             'CacheControl' => 'max-age=2628000, no-transform, public',
         ],
