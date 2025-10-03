@@ -235,7 +235,7 @@ return [
     'url_generators' => [
         'local' => Plank\Mediable\UrlGenerators\LocalUrlGenerator::class,
         's3' => Plank\Mediable\UrlGenerators\S3UrlGenerator::class,
-        'azure' => Plank\Mediable\UrlGenerators\S3UrlGenerator::class,
+        'azure-storage-blob' => Plank\Mediable\UrlGenerators\S3UrlGenerator::class,
     ],
 
     /*
