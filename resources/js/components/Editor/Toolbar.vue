@@ -32,12 +32,12 @@
             const items = [
                 [
                     {
-                        icon: 'System/arrow-go-back-line',
+                        icon: 'Arrows/arrow-go-back-line',
                         action: () => props.editor.chain().focus().undo().run(),
                         isDisabled: () => !props.editor.can().undo(),
                     },
                     {
-                        icon: 'System/arrow-go-forward-line',
+                        icon: 'Arrows/arrow-go-forward-line',
                         action: () => props.editor.chain().focus().redo().run(),
                         isDisabled: () => !props.editor.can().redo(),
                     },
