@@ -30,7 +30,7 @@
         "maatwebsite/excel": "^3.1",
         "netopia/payment": "^1.1",
         "plank/laravel-mediable": "^6.3",
-        "sentry/sentry-laravel": "^4.16",
+        "sentry/sentry-laravel": "^4.19",
         "spatie/laravel-responsecache": "^7.7",
         "spatie/laravel-translatable": "^6.11",
         "spatie/laravel-translation-loader": "^2.8",
