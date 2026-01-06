@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d297298fe9f48cdd75955c7246f4c889",
+    "content-hash": "d7eb193bb22c87eec73e752922c2fbd0",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -6391,16 +6391,16 @@
         },
         {
             "name": "sentry/sentry",
-            "version": "4.18.1",
+            "version": "4.19.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "04dcf20b39742b731b676f8b8d4f02d1db488af8"
+                "reference": "1c21d60bebe67c0122335bd3fe977990435af0a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/04dcf20b39742b731b676f8b8d4f02d1db488af8",
-                "reference": "04dcf20b39742b731b676f8b8d4f02d1db488af8",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/1c21d60bebe67c0122335bd3fe977990435af0a3",
+                "reference": "1c21d60bebe67c0122335bd3fe977990435af0a3",
                 "shasum": ""
             },
             "require": {
@@ -6463,7 +6463,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-php/issues",
-                "source": "https://github.com/getsentry/sentry-php/tree/4.18.1"
+                "source": "https://github.com/getsentry/sentry-php/tree/4.19.1"
             },
             "funding": [
                 {
@@ -6475,27 +6475,27 @@
                     "type": "custom"
                 }
             ],
-            "time": "2025-11-11T09:34:53+00:00"
+            "time": "2025-12-02T15:57:41+00:00"
         },
         {
             "name": "sentry/sentry-laravel",
-            "version": "4.19.0",
+            "version": "4.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-laravel.git",
-                "reference": "7fdffd57e8fff0a6f9a18d9a83f32e960af63e3f"
+                "reference": "95f2542ee1ebc993529b63f5c8543184abd00650"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/7fdffd57e8fff0a6f9a18d9a83f32e960af63e3f",
-                "reference": "7fdffd57e8fff0a6f9a18d9a83f32e960af63e3f",
+                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/95f2542ee1ebc993529b63f5c8543184abd00650",
+                "reference": "95f2542ee1ebc993529b63f5c8543184abd00650",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^6.0 | ^7.0 | ^8.0 | ^9.0 | ^10.0 | ^11.0 | ^12.0",
                 "nyholm/psr7": "^1.0",
                 "php": "^7.2 | ^8.0",
-                "sentry/sentry": "^4.18.0",
+                "sentry/sentry": "^4.19.0",
                 "symfony/psr-http-message-bridge": "^1.0 | ^2.0 | ^6.0 | ^7.0"
             },
             "require-dev": {
@@ -6553,7 +6553,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-laravel/issues",
-                "source": "https://github.com/getsentry/sentry-laravel/tree/4.19.0"
+                "source": "https://github.com/getsentry/sentry-laravel/tree/4.20.0"
             },
             "funding": [
                 {
@@ -6565,7 +6565,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2025-11-11T09:01:14+00:00"
+            "time": "2025-12-02T10:37:40+00:00"
         },
         {
             "name": "spatie/image-optimizer",
@@ -9128,22 +9128,22 @@
         },
         {
             "name": "symfony/psr-http-message-bridge",
-            "version": "v7.3.0",
+            "version": "v7.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/psr-http-message-bridge.git",
-                "reference": "03f2f72319e7acaf2a9f6fcbe30ef17eec51594f"
+                "reference": "0101ff8bd0506703b045b1670960302d302a726c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/03f2f72319e7acaf2a9f6fcbe30ef17eec51594f",
-                "reference": "03f2f72319e7acaf2a9f6fcbe30ef17eec51594f",
+                "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/0101ff8bd0506703b045b1670960302d302a726c",
+                "reference": "0101ff8bd0506703b045b1670960302d302a726c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2",
                 "psr/http-message": "^1.0|^2.0",
-                "symfony/http-foundation": "^6.4|^7.0"
+                "symfony/http-foundation": "^6.4|^7.0|^8.0"
             },
             "conflict": {
                 "php-http/discovery": "<1.15",
@@ -9153,11 +9153,12 @@
                 "nyholm/psr7": "^1.1",
                 "php-http/discovery": "^1.15",
                 "psr/log": "^1.1.4|^2|^3",
-                "symfony/browser-kit": "^6.4|^7.0",
-                "symfony/config": "^6.4|^7.0",
-                "symfony/event-dispatcher": "^6.4|^7.0",
-                "symfony/framework-bundle": "^6.4|^7.0",
-                "symfony/http-kernel": "^6.4|^7.0"
+                "symfony/browser-kit": "^6.4|^7.0|^8.0",
+                "symfony/config": "^6.4|^7.0|^8.0",
+                "symfony/event-dispatcher": "^6.4|^7.0|^8.0",
+                "symfony/framework-bundle": "^6.4.13|^7.1.6|^8.0",
+                "symfony/http-kernel": "^6.4.13|^7.1.6|^8.0",
+                "symfony/runtime": "^6.4.13|^7.1.6|^8.0"
             },
             "type": "symfony-bridge",
             "autoload": {
@@ -9191,7 +9192,7 @@
                 "psr-7"
             ],
             "support": {
-                "source": "https://github.com/symfony/psr-http-message-bridge/tree/v7.3.0"
+                "source": "https://github.com/symfony/psr-http-message-bridge/tree/v7.4.0"
             },
             "funding": [
                 {
@@ -9203,11 +9204,15 @@
                     "type": "github"
                 },
                 {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
                     "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-26T08:57:56+00:00"
+            "time": "2025-11-13T08:38:49+00:00"
         },
         {
             "name": "symfony/routing",
