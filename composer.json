@@ -42,7 +42,7 @@
         "barryvdh/laravel-debugbar": "^3.16",
         "barryvdh/laravel-ide-helper": "^3.6",
         "fakerphp/faker": "^1.24",
-        "friendsofphp/php-cs-fixer": "^3.92",
+        "friendsofphp/php-cs-fixer": "^3.93",
         "itsgoingd/clockwork": "^5.3",
         "laravel/sail": "^1.51",
         "mockery/mockery": "^1.6",
