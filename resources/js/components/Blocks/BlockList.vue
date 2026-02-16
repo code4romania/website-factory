@@ -102,7 +102,7 @@
 <script>
     import { computed, ref } from 'vue';
     import { usePage } from '@inertiajs/vue3';
-    import cloneDeep from 'lodash/cloneDeep';
+    import cloneDeep from 'lodash-es/cloneDeep';
     import Draggable from 'vuedraggable';
 
     export default {

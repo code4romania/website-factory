@@ -66,7 +66,7 @@
     import { usePage } from '@inertiajs/vue3';
     import { transChoice } from 'laravel-vue-i18n';
 
-    import isEmpty from 'lodash/isEmpty';
+    import isEmpty from 'lodash-es/isEmpty';
 
     export default {
         name: 'FlashToast',

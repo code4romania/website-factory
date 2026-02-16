@@ -1,4 +1,4 @@
-import isPlainObject from 'lodash/isPlainObject';
+import isPlainObject from 'lodash-es/isPlainObject';
 import { useForm } from '@inertiajs/vue3';
 import { defaultValue, useLocale } from '@/helpers';
 

@@ -91,7 +91,7 @@
 
 <script>
     import axios from 'axios';
-    import debounce from 'lodash/debounce';
+    import debounce from 'lodash-es/debounce';
     import { route } from '@/helpers';
     import { computed, ref, watch } from 'vue';
 

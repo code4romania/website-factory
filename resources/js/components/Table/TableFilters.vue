@@ -66,7 +66,7 @@
 <script>
     import { computed } from 'vue';
     import { usePage } from '@inertiajs/vue3';
-    import get from 'lodash/get';
+    import get from 'lodash-es/get';
 
     export default {
         name: 'TableFilters',

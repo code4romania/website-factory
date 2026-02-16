@@ -62,7 +62,7 @@
     import { computed } from 'vue';
     import { usePage } from '@inertiajs/vue3';
     import { route } from '@/helpers';
-    import pickBy from 'lodash/pickBy';
+    import pickBy from 'lodash-es/pickBy';
 
     export default {
         name: 'TableHeader',
@@ -127,4 +127,3 @@
         },
     };
 </script>
-

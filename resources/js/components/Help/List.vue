@@ -71,7 +71,7 @@
 </template>
 
 <script>
-    import groupBy from 'lodash/groupBy';
+    import groupBy from 'lodash-es/groupBy';
     import { computed, ref } from 'vue';
     import { useFuse } from '@vueuse/integrations/useFuse';
     import { useEdition } from '@/helpers';

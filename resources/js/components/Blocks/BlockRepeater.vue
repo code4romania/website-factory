@@ -47,7 +47,7 @@
 <script>
     import { trans } from 'laravel-vue-i18n';
     import { computed } from 'vue';
-    import cloneDeep from 'lodash/cloneDeep';
+    import cloneDeep from 'lodash-es/cloneDeep';
     import Draggable from 'vuedraggable';
 
     export default {

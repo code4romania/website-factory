@@ -139,7 +139,7 @@
     import { usePage } from '@inertiajs/vue3';
     import { useLocale } from '@/helpers';
     import { trans } from 'laravel-vue-i18n';
-    import get from 'lodash/get';
+    import get from 'lodash-es/get';
 
     export default {
         name: 'MenuBuilderItem',
