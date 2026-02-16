@@ -39,10 +39,10 @@
         "tightenco/ziggy": "^2.6"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^4.0",
         "barryvdh/laravel-ide-helper": "^3.6",
         "fakerphp/faker": "^1.24",
         "friendsofphp/php-cs-fixer": "^3.92",
+        "fruitcake/laravel-debugbar": "^4.0",
         "itsgoingd/clockwork": "^5.3",
         "laravel/sail": "^1.51",
         "mockery/mockery": "^1.6",
