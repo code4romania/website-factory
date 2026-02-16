@@ -64,7 +64,7 @@
         "laravel-vite-plugin": "^2.0.1",
         "laravel-vue-i18n": "^2.8.0",
         "latinize": "^2.0.0",
-        "lodash": "^4.17.21",
+        "lodash": "^4.17.23",
         "luminous-lightbox": "^2.4.0",
         "mitt": "^3.0.1",
         "postcss": "^8.5.6",
