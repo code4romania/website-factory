@@ -137,7 +137,7 @@
     import { computed, ref, watch } from 'vue';
     import { usePage } from '@inertiajs/vue3';
     import { useLocale } from '@/helpers';
-    import get from 'lodash/get';
+    import get from 'lodash-es/get';
 
     export default {
         name: 'BlockItem',

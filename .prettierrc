@@ -5,6 +5,7 @@
     "useTabs": false,
     "semi": true,
     "singleQuote": true,
+    "vueIndentScriptAndStyle": true,
     "overrides": [
         {
             "files": ["*.yml", "*.yaml"],

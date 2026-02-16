@@ -1,5 +1,5 @@
-import camelCase from 'lodash/camelCase';
-import upperFirst from 'lodash/upperFirst';
+import camelCase from 'lodash-es/camelCase';
+import upperFirst from 'lodash-es/upperFirst';
 import { useBlock } from '@/helpers';
 export default function (block) {
     return {

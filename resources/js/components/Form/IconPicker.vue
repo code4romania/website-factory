@@ -70,7 +70,7 @@
 <script>
     import { computed, ref, nextTick } from 'vue';
     import { defineInput } from '@/helpers';
-    import cloneDeep from 'lodash/cloneDeep';
+    import cloneDeep from 'lodash-es/cloneDeep';
     import icons from '@/icons';
 
     export default defineInput({
@@ -145,4 +145,3 @@
         },
     });
 </script>
-

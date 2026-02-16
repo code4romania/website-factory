@@ -107,7 +107,7 @@
 <script>
     import { computed, ref, nextTick, watch } from 'vue';
     import { defineInput, useFilter, useLocale } from '@/helpers';
-    import isEqual from 'lodash/isEqual';
+    import isEqual from 'lodash-es/isEqual';
 
     export default defineInput({
         name: 'FormSelectMultiple',
