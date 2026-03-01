@@ -24,7 +24,7 @@
         "kalnoy/nestedset": "^6.0",
         "laravel/framework": "^12.51",
         "laravel/tinker": "^2.11",
-        "league/flysystem-aws-s3-v3": "^3.31",
+        "league/flysystem-aws-s3-v3": "^3.32",
         "league/html-to-markdown": "^5.1",
         "league/omnipay": "^3.2",
         "maatwebsite/excel": "^3.1",
