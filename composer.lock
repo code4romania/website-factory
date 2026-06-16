@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53e42e2d1190df1fb2b05ffb9275c3f6",
+    "content-hash": "4fd416b1557e7eec42ee56593f0aa58e",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -521,16 +521,16 @@
         },
         {
             "name": "blade-ui-kit/blade-icons",
-            "version": "1.9.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/driesvints/blade-icons.git",
-                "reference": "caa92fde675d7a651c38bf73ca582ddada56f318"
+                "reference": "74189a80bbaa4966aebaee54fec3a3c2ef0a5f3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/driesvints/blade-icons/zipball/caa92fde675d7a651c38bf73ca582ddada56f318",
-                "reference": "caa92fde675d7a651c38bf73ca582ddada56f318",
+                "url": "https://api.github.com/repos/driesvints/blade-icons/zipball/74189a80bbaa4966aebaee54fec3a3c2ef0a5f3a",
+                "reference": "74189a80bbaa4966aebaee54fec3a3c2ef0a5f3a",
                 "shasum": ""
             },
             "require": {
@@ -598,7 +598,7 @@
                     "type": "paypal"
                 }
             ],
-            "time": "2026-02-23T10:42:23+00:00"
+            "time": "2026-04-23T19:03:45+00:00"
         },
         {
             "name": "brick/math",
