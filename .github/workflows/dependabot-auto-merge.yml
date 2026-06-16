@@ -1,0 +1,14 @@
+# Approves and enables auto-merge on patch/minor Dependabot PRs.
+# For PRs that develop merge conflicts, comment `@dependabot rebase` manually.
+name: Dependabot auto-merge
+
+on: pull_request_target
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  call:
+    uses: code4romania/.github/.github/workflows/dependabot-auto-merge.yml@main
+    secrets: inherit
