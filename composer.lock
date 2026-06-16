@@ -66,26 +66,26 @@
         },
         {
             "name": "archtechx/laravel-seo",
-            "version": "v0.10.3",
+            "version": "v0.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/archtechx/laravel-seo.git",
-                "reference": "0a2eef4db49f41b3d55d4270b9d4767bac1d8ec9"
+                "reference": "713ecea0d5c52d0fe3b6ed744e16b43109763455"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/archtechx/laravel-seo/zipball/0a2eef4db49f41b3d55d4270b9d4767bac1d8ec9",
-                "reference": "0a2eef4db49f41b3d55d4270b9d4767bac1d8ec9",
+                "url": "https://api.github.com/repos/archtechx/laravel-seo/zipball/713ecea0d5c52d0fe3b6ed744e16b43109763455",
+                "reference": "713ecea0d5c52d0fe3b6ed744e16b43109763455",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "^10.0|^11.0|^12.0",
-                "illuminate/view": "^10.0|^11.0|^12.0",
+                "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/view": "^10.0|^11.0|^12.0|^13.0",
                 "php": "^8.2"
             },
             "require-dev": {
-                "intervention/image": "^2.7",
-                "nunomaduro/larastan": ">=2.4",
+                "intervention/image": "^3.0",
+                "larastan/larastan": ">=2.4",
                 "orchestra/testbench": ">=8.0",
                 "pestphp/pest": ">=2.0",
                 "pestphp/pest-plugin-laravel": ">=2.0"
@@ -118,9 +118,9 @@
             ],
             "support": {
                 "issues": "https://github.com/archtechx/laravel-seo/issues",
-                "source": "https://github.com/archtechx/laravel-seo/tree/v0.10.3"
+                "source": "https://github.com/archtechx/laravel-seo/tree/v0.10.4"
             },
-            "time": "2025-03-06T16:38:20+00:00"
+            "time": "2026-03-31T01:48:26+00:00"
         },
         {
             "name": "aws/aws-crt-php",
