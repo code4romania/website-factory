@@ -3,7 +3,7 @@ import laravel from 'laravel-vite-plugin';
 import inertia from '@inertiajs/vite';
 import vue from '@vitejs/plugin-vue';
 import manifestSRI from 'vite-plugin-manifest-sri';
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons-ng';
 import path from 'node:path';
 
 export default defineConfig(({ mode }) => {
