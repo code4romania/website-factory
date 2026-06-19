@@ -13,7 +13,7 @@
 </head>
 
 <body class="min-h-screen antialiased bg-gray-100">
-    @inertia
+    <x-inertia::app />
 </body>
 
 </html>
