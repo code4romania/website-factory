@@ -17,7 +17,7 @@
         "azure-oss/storage-blob-laravel": "^1.7",
         "blade-ui-kit/blade-icons": "^1.10",
         "embed/embed": "^4.4",
-        "guzzlehttp/guzzle": "^7.9",
+        "guzzlehttp/guzzle": "^7.13",
         "hafael/azure-mailer-driver": "^7.2.0",
         "inertiajs/inertia-laravel": "^3.0",
         "intervention/image-laravel": "^1.5",
