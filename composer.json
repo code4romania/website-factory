@@ -14,7 +14,7 @@
         "ext-imagick": "*",
         "andreiio/blade-remix-icon": "^3.6",
         "archtechx/laravel-seo": "^0.10",
-        "azure-oss/storage-blob-laravel": "^1.7",
+        "azure-oss/storage-blob-laravel": "^2.2",
         "blade-ui-kit/blade-icons": "^1.10",
         "embed/embed": "^4.4",
         "guzzlehttp/guzzle": "^7.9",
