@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a76a24c6edc4d9f5539488403a29b8ae",
+    "content-hash": "fdd422a6a3b8dbb89e30f2a8c5cddca3",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -278,12 +278,12 @@
             "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Azure-OSS/azure-identity-php.git",
+                "url": "https://github.com/php-oss-for-azure/azure-identity-php.git",
                 "reference": "bff54412a3af6c6f7e68d36cb2d857edc338581a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Azure-OSS/azure-identity-php/zipball/bff54412a3af6c6f7e68d36cb2d857edc338581a",
+                "url": "https://api.github.com/repos/php-oss-for-azure/azure-identity-php/zipball/bff54412a3af6c6f7e68d36cb2d857edc338581a",
                 "reference": "bff54412a3af6c6f7e68d36cb2d857edc338581a",
                 "shasum": ""
             },
@@ -322,32 +322,29 @@
             "time": "2026-03-15T21:17:16+00:00"
         },
         {
-            "name": "azure-oss/storage",
-            "version": "1.9.0",
+            "name": "azure-oss/storage-blob",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Azure-OSS/azure-storage-php.git",
-                "reference": "ed2d4ad652cc90fa8067d9e47468666ed942cf76"
+                "url": "https://github.com/php-oss-for-azure/azure-storage-blob-php.git",
+                "reference": "4c5efab53e35e734701ff81185066eaa1d43fd20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Azure-OSS/azure-storage-php/zipball/ed2d4ad652cc90fa8067d9e47468666ed942cf76",
-                "reference": "ed2d4ad652cc90fa8067d9e47468666ed942cf76",
+                "url": "https://api.github.com/repos/php-oss-for-azure/azure-storage-blob-php/zipball/4c5efab53e35e734701ff81185066eaa1d43fd20",
+                "reference": "4c5efab53e35e734701ff81185066eaa1d43fd20",
                 "shasum": ""
             },
             "require": {
-                "azure-oss/storage-common": "^1.0",
+                "azure-oss/storage-common": "^2.0",
                 "ext-curl": "*",
                 "ext-json": "*",
                 "ext-simplexml": "*",
                 "guzzlehttp/guzzle": "^7.8",
-                "php": "^8.1"
+                "php": "^8.2"
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "aliases.php"
-                ],
                 "psr-4": {
                     "AzureOss\\Storage\\Blob\\": ""
                 }
@@ -374,34 +371,31 @@
                 "storage"
             ],
             "support": {
-                "source": "https://github.com/Azure-OSS/azure-storage-php/tree/1.9.0"
+                "source": "https://github.com/php-oss-for-azure/azure-storage-blob-php/tree/2.2.2"
             },
-            "time": "2026-03-15T06:57:10+00:00"
+            "time": "2026-06-30T13:20:38+00:00"
         },
         {
             "name": "azure-oss/storage-blob-flysystem",
-            "version": "1.6.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Azure-OSS/azure-storage-php-adapter-flysystem.git",
-                "reference": "2d6438b98a3779886ba90d20703e81a14a256837"
+                "url": "https://github.com/php-oss-for-azure/azure-storage-blob-flysystem-php.git",
+                "reference": "9711c530f16f6746b45edf54c419884a7d31e5b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Azure-OSS/azure-storage-php-adapter-flysystem/zipball/2d6438b98a3779886ba90d20703e81a14a256837",
-                "reference": "2d6438b98a3779886ba90d20703e81a14a256837",
+                "url": "https://api.github.com/repos/php-oss-for-azure/azure-storage-blob-flysystem-php/zipball/9711c530f16f6746b45edf54c419884a7d31e5b4",
+                "reference": "9711c530f16f6746b45edf54c419884a7d31e5b4",
                 "shasum": ""
             },
             "require": {
-                "azure-oss/storage": "^1.4",
+                "azure-oss/storage-blob": "^2.2",
                 "league/flysystem": "^3.28",
-                "php": "^8.1"
+                "php": "^8.2"
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "aliases.php"
-                ],
                 "psr-4": {
                     "AzureOss\\Storage\\BlobFlysystem\\": ""
                 }
@@ -422,29 +416,29 @@
             ],
             "description": "Flysystem adapter for Azure Storage PHP",
             "support": {
-                "source": "https://github.com/Azure-OSS/azure-storage-php-adapter-flysystem/tree/1.6.0"
+                "source": "https://github.com/Azure-OSS/azure-storage-blob-flysystem-php/tree/2.2.0"
             },
-            "time": "2026-03-05T20:52:01+00:00"
+            "time": "2026-06-28T13:33:44+00:00"
         },
         {
             "name": "azure-oss/storage-blob-laravel",
-            "version": "1.7.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Azure-OSS/azure-storage-php-adapter-laravel.git",
-                "reference": "df5e2592a6aa3d900abd59a93d5afd43ff204752"
+                "url": "https://github.com/php-oss-for-azure/azure-storage-blob-laravel-php.git",
+                "reference": "6109efac41a41e9ab3a60de81fb496d0d7a40e4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Azure-OSS/azure-storage-php-adapter-laravel/zipball/df5e2592a6aa3d900abd59a93d5afd43ff204752",
-                "reference": "df5e2592a6aa3d900abd59a93d5afd43ff204752",
+                "url": "https://api.github.com/repos/php-oss-for-azure/azure-storage-blob-laravel-php/zipball/6109efac41a41e9ab3a60de81fb496d0d7a40e4c",
+                "reference": "6109efac41a41e9ab3a60de81fb496d0d7a40e4c",
                 "shasum": ""
             },
             "require": {
-                "azure-oss/storage-blob-flysystem": "^1.2",
+                "azure-oss/storage-blob-flysystem": "^2.2",
                 "illuminate/filesystem": "^10|^11|^12|^13",
                 "illuminate/support": "^10|^11|^12|^13",
-                "php": "^8.1"
+                "php": "^8.2"
             },
             "type": "library",
             "extra": {
@@ -471,35 +465,32 @@
             ],
             "description": "Azure Storage Blob filesystem driver for Laravel",
             "support": {
-                "source": "https://github.com/Azure-OSS/azure-storage-php-adapter-laravel/tree/1.7.0"
+                "source": "https://github.com/Azure-OSS/azure-storage-blob-laravel-php/tree/2.2.0"
             },
-            "time": "2026-03-15T21:19:49+00:00"
+            "time": "2026-06-28T13:33:44+00:00"
         },
         {
             "name": "azure-oss/storage-common",
-            "version": "1.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Azure-OSS/azure-storage-php-common.git",
-                "reference": "3169c2f19475a087963e71aeb2cbf183eb676025"
+                "url": "https://github.com/php-oss-for-azure/azure-storage-common-php.git",
+                "reference": "2e9c5f08bd01f5d483cfeb3b875488e677c21b78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Azure-OSS/azure-storage-php-common/zipball/3169c2f19475a087963e71aeb2cbf183eb676025",
-                "reference": "3169c2f19475a087963e71aeb2cbf183eb676025",
+                "url": "https://api.github.com/repos/php-oss-for-azure/azure-storage-common-php/zipball/2e9c5f08bd01f5d483cfeb3b875488e677c21b78",
+                "reference": "2e9c5f08bd01f5d483cfeb3b875488e677c21b78",
                 "shasum": ""
             },
             "require": {
                 "azure-oss/identity": "^1.0",
                 "caseyamcl/guzzle_retry_middleware": "^2.10",
                 "guzzlehttp/guzzle": "^7.8",
-                "php": "^8.1"
+                "php": "^8.2"
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "aliases.php"
-                ],
                 "psr-4": {
                     "AzureOss\\Storage\\Common\\": ""
                 }
@@ -514,10 +505,11 @@
                     "email": "brechtvermeersch@outlook.be"
                 }
             ],
+            "description": "Shared primitives for Azure Storage PHP SDK packages",
             "support": {
-                "source": "https://github.com/Azure-OSS/azure-storage-php-common/tree/1.1.0"
+                "source": "https://github.com/php-oss-for-azure/azure-storage-common-php/tree/2.1.1"
             },
-            "time": "2026-03-13T19:18:28+00:00"
+            "time": "2026-06-30T13:20:38+00:00"
         },
         {
             "name": "blade-ui-kit/blade-icons",
