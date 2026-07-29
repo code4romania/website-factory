@@ -21,15 +21,22 @@ _ide_helper.php
 .phpactor.json
 .phpstorm.meta.php
 .phpunit.result.cache
+.version
 auth.json
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
 npm-debug.log
 phpunit.xml
+phpstan.neon
 yarn-error.log
 .DS_Store
-
-# JetBrains specific
-*.iml
-.idea
+laradumps.yaml
+.mcp.json
+CLAUDE.md
+AGENTS.md
+boost.json
+/.github/copilot-instructions.md
+/.claude
+/.cursor
+/.junie
