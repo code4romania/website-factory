@@ -633,7 +633,7 @@ class ISO_639_1
         ],
         'pl' => [
             'name' => 'Polish',
-            'nativeName' => 'polPolskiski',
+            'nativeName' => 'Polski',
             'direction' => 'ltr',
         ],
         'ps' => [
