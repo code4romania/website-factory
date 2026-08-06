@@ -85,48 +85,7 @@ steps:
 
 ## How to edit the header menu
 
-Pentru a edita meniul Header, este necesar să parcurgi următorii pași:
-
-1)  Accesează panoul de administrare
-2)  Selectează meniul secundar de setări din colțul din dreapta sus
-3)  Selectează **Meniuri**
-4)  Meniul **Header** se deschide implicit
-5)  Apasă pe denumirea elementului pe care vrei să îl modifici
-6)  Modifică informațiile
-7)  Apasă **Salvează**
-
-Pentru a șterge un element din meniul Header, este necesar să parcurgi
-următorii pași:
-
-1)  Accesează panoul de administrare
-2)  Selectează meniul secundar de setări din colțul din dreapta sus
-3)  Selectează **Meniuri**
-4)  Meniul **Header** se deschide implicit
-5)  Apasă pe butonul cu trei puncte orizontale din dreptul elementului
-    de meniu pe care vrei să îl ștergi
-6)  Alege opțiunea **Șterge**
-
-Pentru a modifica nivelul sau poziția unui element din meniul Header,
-este necesar să parcurgi următorii pași:
-
-1)  Accesează panoul de administrare
-2)  Selectează meniul secundar de setări din colțul din dreapta sus
-3)  Selectează **Meniuri**
-4)  Meniul **Header** se deschide implicit
-5)  Apasă pe butonul cu 2 rânduri de puncte verticale din dreptul
-    elementului de meniu căruia vrei să îi modifici nivelul sau
-    poziția
-6)  Pentru modificarea poziție, trage elementul în poziția în care
-    dorești
-7)  Pentru structurarea paginilor din meniu mai multe nivele sub forma
-    de meniuri și submeniuri, plasează elementul pe care dorești să îl
-    adaugi în submeniu sub elementul principal, apoi trage-l spre
-    dreapta.
-8)  Apasă **Salvează**
-
----
-
-To edit the Header menu, it is necessary to go though the following
+To edit the Header menu, it is necessary to go through the following
 steps:
 
 1)  Access the admin panel
@@ -138,7 +97,7 @@ steps:
 7)  Click **Save**
 
 To delete an element from the **Header** menu, it is necessary to go
-though the following steps:
+through the following steps:
 
 1)  Access the admin panel
 2)  Select the secondary settings menu from the top right corner
@@ -163,3 +122,57 @@ is necessary to go through the following steps:
     element and then drag it to the right.
 8)  Click **Save**
 
+---
+
+## How to edit the footer menu
+
+To build the Footer menu, it is necessary to go through the following
+steps:
+
+1)  Access the admin panel
+2) Select the secondary settings menu from the top right corner
+3) Select **Menus**
+4) The **Header** menu will implicitly open. Click on the **Footer**
+5) Click on the **Add** button
+6) Choose the suitable **type** of menu element
+7) Click **Save**
+
+To edit the Footer menu, it is necessary to go through the following
+steps:
+
+1)  Access the admin panel
+2) Select the secondary settings menu from the top right corner
+3) Select **Menus**
+4) The **Header** menu will implicitly open.
+    Click on the **Footer** button
+5) Click on the name of the element you want to modify
+6) Edit the information
+7) Click **Save**
+
+To delete an element from the **Footer** menu, it is necessary to go
+through the following steps:
+
+1)  Access the admin panel
+2) Select the secondary settings menu from the top right corner
+3) Select **Menus**
+4) The **Header** menu will implicitly open.
+    Click on the **Footer** button
+5) Click on the button with three horizontal dots next to the menu
+    element you want to delete
+6) Select the **Delete** option
+
+To modify the level or position of an element from the **Footer** menu,
+it is necessary to go through the following steps:
+
+1) Access the admin panel
+2) Select the secondary settings menu from the top right corner
+3) Select **Menus**
+4) The **Header** menu will implicitly open. 
+    Click on the **Footer** button
+5) Click on the button with two rows of vertical dots next to the menu
+    element that you want to modify the level or position of
+6) To modify the position, drag the element to the position you want
+7) To structure the menu pages with more levels as menus and submenus,
+    place the element you want to add in the submenu under the main
+    element and then drag it to the right.
+8) Click **Save**

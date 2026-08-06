@@ -143,14 +143,14 @@ pași:
 Pentru a edita meniul **Footer**, este necesar să parcurgi următorii
 pași:
 
-8)  Accesează panoul de administrare
-9)  Selectează meniul secundar de setări din colțul din dreapta sus
-10) Selectează **Meniuri**
-11) Meniul **Header** se deschide implicit. Selectează butonul
-    **Footer**
-12) Apasă pe denumirea elementului pe care vrei să îl modifici
-13) Modifică informațiile
-14) Apasă **Salvează**
+1) Accesează panoul de administrare
+2) Selectează meniul secundar de setări din colțul din dreapta sus
+3) Selectează **Meniuri**
+4) Meniul **Header** se deschide implicit. Selectează butonul
+   **Footer**
+5) Apasă pe denumirea elementului pe care vrei să îl modifici
+6) Modifică informațiile
+7) Apasă **Salvează**
 
 Pentru a șterge un element din meniul Footer, este necesar să parcurgi
 următorii pași:
