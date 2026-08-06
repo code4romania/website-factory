@@ -20,6 +20,8 @@
         :help="$t('field_help.one_per_line')"
         v-model="content.options"
     />
+
+    <form-switch :label="$t('field.enable_other')" v-model="content.enable_other" />
 </template>
 
 <script>
