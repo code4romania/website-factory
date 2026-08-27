@@ -1,7 +1,7 @@
 <?php
 return [
     'internal' => ':organization լուծում.',
-    'external' => 'Կայքը կառուցվել է Website Factory-ի կողմից: :edition, լուծումն իրականացվել է :organization.',
+    'external' => 'Կայքը պատրաստվել է :organization -ի կողմից՝ Website Factory :edition -ի միջոցով։',
     'edition' => [
         'primarie' => 'Քաղաքապետարան',
         'government' => 'Կառավարություն',
