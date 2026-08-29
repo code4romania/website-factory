@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32b0dcd58bb1f9be75f2639c1afc8833",
+    "content-hash": "39e3f358f5842fd5b3615cc0dd43abb2",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -2162,25 +2162,32 @@
         },
         {
             "name": "hafael/azure-mailer-driver",
-            "version": "v7.2.0",
+            "version": "v8.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hafael/azure-mailer-driver.git",
-                "reference": "52719b902b70d0b710943a4ed353bf21a9fa9f63"
+                "reference": "89512490a924af89b02b5b0787c810b86d0dca50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hafael/azure-mailer-driver/zipball/52719b902b70d0b710943a4ed353bf21a9fa9f63",
-                "reference": "52719b902b70d0b710943a4ed353bf21a9fa9f63",
+                "url": "https://api.github.com/repos/hafael/azure-mailer-driver/zipball/89512490a924af89b02b5b0787c810b86d0dca50",
+                "reference": "89512490a924af89b02b5b0787c810b86d0dca50",
                 "shasum": ""
             },
             "require": {
+                "illuminate/mail": "^12.0|^13.0",
                 "php": ">=8.2",
-                "symfony/azure-mailer": "^7.2",
-                "symfony/mailer": "^7.2"
+                "symfony/azure-mailer": "^7.2|^8.0"
             },
             "require-dev": {
-                "symfony/http-client": "^6.4|^7.0"
+                "illuminate/config": "^12.0|^13.0",
+                "illuminate/container": "^12.0|^13.0",
+                "laravel/pint": "^1.29",
+                "phpunit/phpunit": "^11.0",
+                "symfony/http-client": "^7.2|^8.0"
+            },
+            "suggest": {
+                "symfony/http-client": "Required to enable support for the Symfony API mail transports (^7.2 || ^8.0)."
             },
             "type": "library",
             "extra": {
@@ -2192,10 +2199,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Hafael\\Mailer\\Azure\\": [
-                        "src",
-                        "test"
-                    ]
+                    "Hafael\\Mailer\\Azure\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2208,13 +2212,14 @@
                     "email": "villa655321verde@gmail.com"
                 }
             ],
-            "description": "Provides Microsoft Azure ACS integration for Symfony Mailer. Azure Communication Services allows you to easily add real-time multimedia voice, video, and telephony-over-IP communications features to your applications. The Communication Services Email client libraries also allow you to add chat and EMAIL functionality to your communications solutions.",
+            "description": "Supercharge your Laravel or Symfony app with Microsoft Azure Communication Services (ACS)! Effortlessly add email, chat, voice, video, and telephony-over-IP for next-level communication. 🚀",
             "homepage": "https://github.com/hafael/azure-mailer-driver",
             "keywords": [
+                "ACS",
+                "Azure communication services",
                 "ECS",
                 "api",
                 "azure",
-                "azure communication service",
                 "client",
                 "driver",
                 "email",
@@ -2228,9 +2233,9 @@
             ],
             "support": {
                 "issues": "https://github.com/hafael/azure-mailer-driver/issues",
-                "source": "https://github.com/hafael/azure-mailer-driver/tree/v7.2.0"
+                "source": "https://github.com/hafael/azure-mailer-driver/tree/v8.0.0"
             },
-            "time": "2024-11-30T20:21:39+00:00"
+            "time": "2026-04-28T14:01:31+00:00"
         },
         {
             "name": "inertiajs/inertia-laravel",
@@ -7005,24 +7010,24 @@
         },
         {
             "name": "symfony/azure-mailer",
-            "version": "v7.3.0",
+            "version": "v7.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/azure-mailer.git",
-                "reference": "2b8236f833e1619e09561a6e8874bc8ea777135f"
+                "reference": "e0f1827d3c93bd30f57371bb0800b9b9f47ad1fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/azure-mailer/zipball/2b8236f833e1619e09561a6e8874bc8ea777135f",
-                "reference": "2b8236f833e1619e09561a6e8874bc8ea777135f",
+                "url": "https://api.github.com/repos/symfony/azure-mailer/zipball/e0f1827d3c93bd30f57371bb0800b9b9f47ad1fb",
+                "reference": "e0f1827d3c93bd30f57371bb0800b9b9f47ad1fb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2",
-                "symfony/mailer": "^7.2"
+                "symfony/mailer": "^7.2|^8.0"
             },
             "require-dev": {
-                "symfony/http-client": "^6.4|^7.0"
+                "symfony/http-client": "^6.4|^7.0|^8.0"
             },
             "type": "symfony-mailer-bridge",
             "autoload": {
@@ -7050,7 +7055,7 @@
             "description": "Symfony Microsoft Azure Mailer Bridge",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/azure-mailer/tree/v7.3.0"
+                "source": "https://github.com/symfony/azure-mailer/tree/v7.4.10"
             },
             "funding": [
                 {
@@ -7062,11 +7067,15 @@
                     "type": "github"
                 },
                 {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
                     "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-05-17T16:49:07+00:00"
+            "time": "2026-04-22T20:11:52+00:00"
         },
         {
             "name": "symfony/clock",
