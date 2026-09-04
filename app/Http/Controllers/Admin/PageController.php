@@ -71,8 +71,13 @@ class PageController extends AdminController
 
         $page->update($attributes);
 
-        $page->saveBlocks($attributes['blocks'])
-            ->saveMedia($attributes['media']);
+        if (empty($attributes['media']) && $page->hasMedia('image')) {
+            $page->detachMedia($page->firstMedia('image'));
+        } else {
+            $page->saveMedia($attributes['media']);
+        }
+
+        $page->saveBlocks($attributes['blocks']);
 
         return redirect()->route('admin.pages.edit', $page)
             ->with('success', __('page.event.updated'));
