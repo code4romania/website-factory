@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e143d26be6392c9a607692925e8435a4",
+    "content-hash": "ccb58e2e4ad9756f1472f589aa64f57b",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -2236,16 +2236,16 @@
         },
         {
             "name": "inertiajs/inertia-laravel",
-            "version": "v3.3.1",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/inertiajs/inertia-laravel.git",
-                "reference": "7bfd75e352938b703180574b943d81963555a0aa"
+                "reference": "faf52ea98a33952731716451f98f6b7ad319fafc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/7bfd75e352938b703180574b943d81963555a0aa",
-                "reference": "7bfd75e352938b703180574b943d81963555a0aa",
+                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/faf52ea98a33952731716451f98f6b7ad319fafc",
+                "reference": "faf52ea98a33952731716451f98f6b7ad319fafc",
                 "shasum": ""
             },
             "require": {
@@ -2302,9 +2302,9 @@
             ],
             "support": {
                 "issues": "https://github.com/inertiajs/inertia-laravel/issues",
-                "source": "https://github.com/inertiajs/inertia-laravel/tree/v3.3.1"
+                "source": "https://github.com/inertiajs/inertia-laravel/tree/v3.4.0"
             },
-            "time": "2026-08-04T21:58:51+00:00"
+            "time": "2026-09-25T09:33:29+00:00"
         },
         {
             "name": "intervention/gif",
