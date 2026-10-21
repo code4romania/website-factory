@@ -10,7 +10,7 @@
     ],
     "license": "MPL-2.0",
     "require": {
-        "php": "^8.2",
+        "php": "^8.2.35",
         "ext-imagick": "*",
         "andreiio/blade-remix-icon": "^3.6",
         "archtechx/laravel-seo": "^0.10",
