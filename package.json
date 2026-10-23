@@ -9,8 +9,8 @@
         "test": "jest"
     },
     "devDependencies": {
-        "@alpinejs/collapse": "^3.17.4",
-        "@alpinejs/persist": "^3.17.4",
+        "@alpinejs/collapse": "^3.17.5",
+        "@alpinejs/persist": "^3.17.5",
         "@ckpack/vue-color": "^1.5.0",
         "@headlessui/vue": "^1.7.23",
         "@inertiajs/vite": "^3.4.0",
@@ -52,11 +52,11 @@
         "@tiptap/extension-underline": "^2.26.1",
         "@tiptap/pm": "^2.26.1",
         "@tiptap/vue-3": "^2.26.1",
-        "@vitejs/plugin-vue": "^6.0.1",
-        "@vue/compiler-sfc": "^3.5.22",
+        "@vitejs/plugin-vue": "^6.0.10",
+        "@vue/compiler-sfc": "^3.5.44",
         "@vueuse/core": "13.6.0",
         "@vueuse/integrations": "13.6.0",
-        "alpinejs": "^3.17.4",
+        "alpinejs": "^3.17.5",
         "autoprefixer": "^10.4.21",
         "axios": "^1.20.0",
         "echarts": "^6.1.0",
@@ -68,7 +68,7 @@
         "lodash-es": "^4.18.1",
         "luminous-lightbox": "^2.4.0",
         "mitt": "^3.0.1",
-        "postcss": "^8.5.23",
+        "postcss": "^8.5.31",
         "postcss-100vh-fix": "^2.0.0",
         "prettier": "^3.0.0",
         "prettier-plugin-tailwindcss": "^0.6.14",
@@ -80,10 +80,10 @@
         "vite": "^7.3.0",
         "vite-plugin-manifest-sri": "^0.2.0",
         "vite-plugin-svg-icons": "^2.0.1",
-        "vue": "^3.5.22",
+        "vue": "^3.5.44",
         "vue-flatpickr-component": "^11.0.5",
         "vue3-click-away": "^1.2.4",
         "vuedraggable": "^4.1.0",
-        "ziggy-js": "^2.6.0"
+        "ziggy-js": "^2.6.5"
     }
 }
