@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc54855272ceaf8694c1eaf4a5ac0708",
+    "content-hash": "cffd95a5879e32cac3ab94e23fabbfd1",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -866,16 +866,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.5.13",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "c008272789979f709f7fcb32c2ecf1d2db5e84e5"
+                "reference": "0c64479fae6952ba4cf021a72c0ac530394c91d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/c008272789979f709f7fcb32c2ecf1d2db5e84e5",
-                "reference": "c008272789979f709f7fcb32c2ecf1d2db5e84e5",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/0c64479fae6952ba4cf021a72c0ac530394c91d4",
+                "reference": "0c64479fae6952ba4cf021a72c0ac530394c91d4",
                 "shasum": ""
             },
             "require": {
@@ -922,7 +922,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.5.13"
+                "source": "https://github.com/composer/ca-bundle/tree/1.6.1"
             },
             "funding": [
                 {
@@ -934,7 +934,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-07-18T12:35:13+00:00"
+            "time": "2026-10-29T14:10:42+00:00"
         },
         {
             "name": "composer/pcre",
@@ -1462,16 +1462,16 @@
         },
         {
             "name": "embed/embed",
-            "version": "v4.4.19",
+            "version": "v4.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-embed/Embed.git",
-                "reference": "c45a9007285524350499f3fa70e7e2f0967af470"
+                "reference": "813886d98cbc6988e6d4c2bf5043418551431796"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-embed/Embed/zipball/c45a9007285524350499f3fa70e7e2f0967af470",
-                "reference": "c45a9007285524350499f3fa70e7e2f0967af470",
+                "url": "https://api.github.com/repos/php-embed/Embed/zipball/813886d98cbc6988e6d4c2bf5043418551431796",
+                "reference": "813886d98cbc6988e6d4c2bf5043418551431796",
                 "shasum": ""
             },
             "require": {
@@ -1498,6 +1498,7 @@
                 "symfony/css-selector": "^5.0"
             },
             "suggest": {
+                "ext-intl": "To resolve internationalized domain names when protecting against SSRF",
                 "symfony/css-selector": "If you want to get elements using css selectors"
             },
             "type": "library",
@@ -1533,7 +1534,7 @@
             "support": {
                 "email": "oom@oscarotero.com",
                 "issues": "https://github.com/oscarotero/Embed/issues",
-                "source": "https://github.com/php-embed/Embed/tree/v4.4.19"
+                "source": "https://github.com/php-embed/Embed/tree/v4.5.2"
             },
             "funding": [
                 {
@@ -1549,7 +1550,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2026-07-08T19:24:10+00:00"
+            "time": "2026-10-27T19:47:43+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
