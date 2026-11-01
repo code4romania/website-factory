@@ -13,7 +13,7 @@
         "@alpinejs/persist": "^3.17.5",
         "@ckpack/vue-color": "^1.5.0",
         "@headlessui/vue": "^1.7.23",
-        "@inertiajs/vite": "^3.4.0",
+        "@inertiajs/vite": "^3.9.1",
         "@inertiajs/vue3": "^3.4.0",
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/forms": "^0.5.10",
