@@ -27,7 +27,7 @@
         "league/flysystem-aws-s3-v3": "^3.35",
         "league/html-to-markdown": "^5.2",
         "league/omnipay": "^3.2",
-        "maatwebsite/excel": "^3.1",
+        "maatwebsite/excel": "^4.0",
         "netopia/payment": "^1.1",
         "plank/laravel-mediable": "^6.3",
         "sentry/sentry-laravel": "^4.29",
