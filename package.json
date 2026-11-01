@@ -60,7 +60,7 @@
         "autoprefixer": "^10.4.21",
         "axios": "^1.20.0",
         "echarts": "^6.1.0",
-        "fuse.js": "^7.1.0",
+        "fuse.js": "^7.5.0",
         "husky": "^9.1.7",
         "laravel-vite-plugin": "^2.0.1",
         "laravel-vue-i18n": "^2.8.0",
