@@ -25,7 +25,7 @@
         "laravel/framework": "^12.53",
         "laravel/tinker": "^3.0",
         "league/flysystem-aws-s3-v3": "^3.35",
-        "league/html-to-markdown": "^5.1",
+        "league/html-to-markdown": "^5.2",
         "league/omnipay": "^3.2",
         "maatwebsite/excel": "^3.1",
         "netopia/payment": "^1.1",

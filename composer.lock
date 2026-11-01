@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7ced253e30e2d18fc98e88b912b7fee",
+    "content-hash": "fc54855272ceaf8694c1eaf4a5ac0708",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -3445,16 +3445,16 @@
         },
         {
             "name": "league/html-to-markdown",
-            "version": "5.1.2",
+            "version": "5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/html-to-markdown.git",
-                "reference": "db234ecdb160b9d2b422c1c130db4b01eb3e9e24"
+                "reference": "905eb9374feee6cedf9b972fc47c7c26a86bbec1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/html-to-markdown/zipball/db234ecdb160b9d2b422c1c130db4b01eb3e9e24",
-                "reference": "db234ecdb160b9d2b422c1c130db4b01eb3e9e24",
+                "url": "https://api.github.com/repos/thephpleague/html-to-markdown/zipball/905eb9374feee6cedf9b972fc47c7c26a86bbec1",
+                "reference": "905eb9374feee6cedf9b972fc47c7c26a86bbec1",
                 "shasum": ""
             },
             "require": {
@@ -3467,6 +3467,7 @@
                 "phpstan/phpstan": "^1.8.8 || ^2.0",
                 "phpunit/phpunit": "^8.5 || ^9.2 || ^10.5 || ^11.0 || ^12.0 || ^13.0",
                 "scrutinizer/ocular": "^1.6",
+                "symfony/process": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "unleashedtech/php-coding-standard": "^2.7 || ^3.0",
                 "vimeo/psalm": "^4.22 || ^5.0 || ^6.0"
             },
@@ -3476,7 +3477,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.2-dev"
+                    "dev-master": "5.3-dev"
                 }
             },
             "autoload": {
@@ -3510,7 +3511,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/html-to-markdown/issues",
-                "source": "https://github.com/thephpleague/html-to-markdown/tree/5.1.2"
+                "source": "https://github.com/thephpleague/html-to-markdown/tree/5.2.3"
             },
             "funding": [
                 {
@@ -3530,7 +3531,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-07T13:53:32+00:00"
+            "time": "2026-10-19T04:13:34+00:00"
         },
         {
             "name": "league/mime-type-detection",
