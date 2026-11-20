@@ -29,7 +29,7 @@ class FormSubmissionsExport implements FromCollection, ShouldAutoSize, WithHeadi
         return $this->form->submissions;
     }
 
-    public function styles(Worksheet $sheet)
+    public function styles(Worksheet $sheet): array
     {
         return [
             // Style the first row as bold text.
