@@ -31,7 +31,7 @@
         "netopia/payment": "^1.1",
         "plank/laravel-mediable": "^7.1",
         "sentry/sentry-laravel": "^4.30",
-        "spatie/laravel-responsecache": "^7.7",
+        "spatie/laravel-responsecache": "^8.7",
         "spatie/laravel-translatable": "^6.15",
         "spatie/laravel-translation-loader": "^2.8",
         "symfony/http-client": "^7.3",
