@@ -2,72 +2,158 @@
 
 declare(strict_types=1);
 
+use Spatie\ResponseCache\CacheProfiles\CacheAllSuccessfulGetRequests;
+use Spatie\ResponseCache\Hasher\DefaultHasher;
+use Spatie\ResponseCache\Replacers\CsrfTokenReplacer;
+use Spatie\ResponseCache\Serializers\JsonSerializer;
+
 return [
     /*
      * Determine if the response cache middleware should be enabled.
      */
     'enabled' => env('RESPONSE_CACHE_ENABLED', false),
 
-    /*
-     *  The given class will determinate if a request should be cached. The
-     *  default class will cache all successful GET-requests.
-     *
-     *  You can provide your own class given that it implements the
-     *  CacheProfile interface.
-     */
-    'cache_profile' => \Spatie\ResponseCache\CacheProfiles\CacheAllSuccessfulGetRequests::class,
+    'cache' => [
+        /*
+         * Here you may define the cache store that should be used
+         * to store requests. This can be the name of any store
+         * that is configured in your app's cache.php config
+         */
+        'store' => env('RESPONSE_CACHE_DRIVER', 'file'),
 
-    /*
-     * When using the default CacheRequestFilter this setting controls the
-     * default number of seconds responses must be cached.
-     */
-    'cache_lifetime_in_seconds' => env('RESPONSE_CACHE_LIFETIME', 60 * 60 * 24 * 7),
+        /*
+         * The default number of seconds responses will be cached
+         * when using the default CacheProfile settings.
+         */
+        'lifetime_in_seconds' => (int) env('RESPONSE_CACHE_LIFETIME', 60 * 60 * 24 * 7),
 
-    /*
-     * This setting determines if a http header named with the cache time
-     * should be added to a cached response. This can be handy when
-     * debugging.
-     */
-    'add_cache_time_header' => env('APP_DEBUG', true),
+        /*
+         * If your cache driver supports tags, you may specify a tag
+         * name here. All responses will be tagged. When clearing
+         * the responsecache only items with that tag flushed.
+         *
+         * You may use a string or an array here.
+         */
+        'tag' => env('RESPONSE_CACHE_TAG', ''),
+    ],
 
-    /*
-     * This setting determines the name of the http header that contains
-     * the time at which the response was cached
-     */
-    'cache_time_header_name' => env('RESPONSE_CACHE_HEADER_NAME', 'responsecache'),
+    'minimum_requests' => [
+        /*
+         * The number of times a request must be seen before its
+         * response is stored. A higher number keeps pages that
+         * are requested only once, such as crawler traffic,
+         * out of the cache.
+         */
+        'count' => (int) env('RESPONSE_CACHE_MINIMUM_REQUESTS', 1),
 
-    /*
-     * Here you may define the cache store that should be used to store
-     * requests. This can be the name of any store that is
-     * configured in app/config/cache.php
-     */
-    'cache_store' => env('RESPONSE_CACHE_DRIVER', 'file'),
+        /*
+         * The number of seconds a request counts toward the minimum.
+         */
+        'lifetime_in_seconds' => (int) env('RESPONSE_CACHE_MINIMUM_REQUESTS_LIFETIME', 60 * 60 * 24),
 
-    /*
-     * Here you may define replacers that dynamically replace content from the response.
-     * Each replacer must implement the Replacer interface.
-     */
-    'replacers' => [
-        \Spatie\ResponseCache\Replacers\CsrfTokenReplacer::class,
+        /*
+         * The cache store that holds the request counters. Leave
+         * empty to use the response cache store above.
+         */
+        'store' => env('RESPONSE_CACHE_MINIMUM_REQUESTS_STORE'),
+    ],
+
+    'bypass' => [
+        /*
+         * The header name that will force a bypass of the cache.
+         * This is useful when you want to see the performance
+         * of your application without the caching enabled.
+         */
+        'header_name' => env('CACHE_BYPASS_HEADER_NAME'),
+
+        /*
+         * The header value that will force a cache bypass.
+         */
+        'header_value' => env('CACHE_BYPASS_HEADER_VALUE'),
+    ],
+
+    'debug' => [
+        /*
+         * Determines if debug headers are added to cached
+         * responses. This can be handy for debugging how
+         * response caching is performing in your app.
+         */
+        'enabled' => env('APP_DEBUG', false),
+
+        /*
+         * The name of the http header containing the
+         * point at which the response was cached.
+         */
+        'cache_time_header_name' => 'X-Cache-Time',
+
+        /*
+         * The name of the header for the cache status that
+         * indicates whether a response was HIT or MISS.
+         */
+        'cache_status_header_name' => 'X-Cache-Status',
+
+        /*
+         * The header name for the cache age in seconds.
+         */
+        'cache_age_header_name' => 'X-Cache-Age',
+
+        /*
+         * The header name used for the response cache key.
+         * This is only added when app.debug is enabled.
+         */
+        'cache_key_header_name' => 'X-Cache-Key',
     ],
 
     /*
-     * If the cache driver you configured supports tags, you may specify a tag name
-     * here. All responses will be tagged. When clearing the responsecache only
-     * items with that tag will be flushed.
-     *
-     * You may use a string or an array here.
+     * These query parameters will be ignored when generating
+     * the cache key. This is useful for ignoring tracking
+     * parameters like UTM tags, gclid and also fbclid.
      */
-    'cache_tag' => '',
+    'ignored_query_parameters' => [
+        'utm_source',
+        'utm_medium',
+        'utm_campaign',
+        'utm_term',
+        'utm_content',
+        'gclid',
+        'fbclid',
+    ],
 
     /*
-     * This class is responsible for generating a hash for a request. This hash
-     * is used to look up an cached response.
+     * Requests containing any of these headers will bypass cache reads
+     * and writes, with both regular and flexible caching. This prevents
+     * full-page responses from being served to Livewire and Inertia requests.
      */
-    'hasher' => \Spatie\ResponseCache\Hasher\DefaultHasher::class,
+    'excluded_request_headers' => [
+        'X-Livewire',
+        'X-Livewire-Navigate',
+        'X-Inertia',
+    ],
+
+    /*
+     * The given class determines if a request should be cached.
+     * By default all successful GET-requests will be cached.
+     * You can provide your own by using the CacheProfile.
+     */
+    'cache_profile' => CacheAllSuccessfulGetRequests::class,
+
+    /*
+     * This class is responsible for generating a hash for
+     * a request. Used for looking up cached responses.
+     */
+    'hasher' => DefaultHasher::class,
 
     /*
      * This class is responsible for serializing responses.
      */
-    'serializer' => \Spatie\ResponseCache\Serializers\DefaultSerializer::class,
+    'serializer' => JsonSerializer::class,
+
+    /*
+     * Here you may define the replacers that will replace
+     * dynamic content from the response. Each replacer
+     * must always implement the Replacer interface.
+     */
+    'replacers' => [
+        CsrfTokenReplacer::class,
+    ],
 ];
