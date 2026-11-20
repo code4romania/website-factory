@@ -15,7 +15,7 @@
         "andreiio/blade-remix-icon": "^3.6",
         "archtechx/laravel-seo": "^0.10",
         "azure-oss/storage-blob-laravel": "^2.2",
-        "blade-ui-kit/blade-icons": "^1.10",
+        "blade-ui-kit/blade-icons": "^1.11",
         "embed/embed": "^4.5",
         "guzzlehttp/guzzle": "^7.9",
         "hafael/azure-mailer-driver": "^7.2.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "085672068d6d7e65542141705d94ea5c",
+    "content-hash": "2161bde66652d3ef17532e6eefa6c096",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -512,31 +512,31 @@
         },
         {
             "name": "blade-ui-kit/blade-icons",
-            "version": "1.10.1",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/driesvints/blade-icons.git",
-                "reference": "6e072d021ea6249986c330b93293c33d0c4f0e34"
+                "reference": "9a6e9f0cd96f482d01d4c5c32166119c59e514fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/driesvints/blade-icons/zipball/6e072d021ea6249986c330b93293c33d0c4f0e34",
-                "reference": "6e072d021ea6249986c330b93293c33d0c4f0e34",
+                "url": "https://api.github.com/repos/driesvints/blade-icons/zipball/9a6e9f0cd96f482d01d4c5c32166119c59e514fc",
+                "reference": "9a6e9f0cd96f482d01d4c5c32166119c59e514fc",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "^8.0|^9.0|^10.0|^11.0|^12.0|^13.0",
-                "illuminate/filesystem": "^8.0|^9.0|^10.0|^11.0|^12.0|^13.0",
-                "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0|^13.0",
-                "illuminate/view": "^8.0|^9.0|^10.0|^11.0|^12.0|^13.0",
-                "php": "^7.4|^8.0",
-                "symfony/console": "^5.3|^6.0|^7.0|^8.0",
-                "symfony/finder": "^5.3|^6.0|^7.0|^8.0"
+                "illuminate/contracts": "^12.0|^13.0",
+                "illuminate/filesystem": "^12.0|^13.0",
+                "illuminate/support": "^12.0|^13.0",
+                "illuminate/view": "^12.0|^13.0",
+                "php": "^8.2",
+                "symfony/console": "^7.0|^8.0",
+                "symfony/finder": "^7.0|^8.0"
             },
             "require-dev": {
                 "mockery/mockery": "^1.5.1",
-                "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
-                "phpunit/phpunit": "^9.0|^10.5|^11.0"
+                "orchestra/testbench": "^10.0|^11.0",
+                "phpunit/phpunit": "^11.0"
             },
             "bin": [
                 "bin/blade-icons-generate"
@@ -589,7 +589,7 @@
                     "type": "paypal"
                 }
             ],
-            "time": "2026-06-30T09:44:12+00:00"
+            "time": "2026-11-09T12:00:40+00:00"
         },
         {
             "name": "brick/math",
