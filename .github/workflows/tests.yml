@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - '8.2'
+          - "8.4"
 
     env:
       extensions: mbstring, sqlite, pdo_sqlite, intl, gd
@@ -81,8 +81,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v7
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+          node-version-file: ".nvmrc"
+          cache: "npm"
 
       - name: Install Node.js dependencies
         run: npm ci --no-audit --ignore-scripts
