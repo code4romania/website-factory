@@ -1,4 +1,4 @@
-FROM node:24-alpine AS assets
+FROM node:26-alpine AS assets
 
 WORKDIR /build
 
@@ -19,7 +19,7 @@ COPY \
 RUN npm ci --no-audit --ignore-scripts
 RUN npm run build
 
-FROM php:8.2-fpm-alpine
+FROM php:8.4-fpm-alpine
 
 ARG S6_OVERLAY_VERSION=3.2.0.0
 
