@@ -30,13 +30,13 @@
         "maatwebsite/excel": "^3.1",
         "netopia/payment": "^1.1",
         "plank/laravel-mediable": "^6.3",
-        "sentry/sentry-laravel": "^4.29",
+        "sentry/sentry-laravel": "^4.30",
         "spatie/laravel-responsecache": "^7.7",
         "spatie/laravel-translatable": "^6.15",
         "spatie/laravel-translation-loader": "^2.8",
         "symfony/http-client": "^7.3",
         "symfony/yaml": "^7.3",
-        "tightenco/ziggy": "^2.6"
+        "tightenco/ziggy": "^2.7"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.7",
